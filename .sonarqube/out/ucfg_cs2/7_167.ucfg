@@ -1,31 +1,0 @@
-
-yIndieVisible.Web.Controllers.Base.SecureBaseController.SetCookieValue(IndieVisible.Web.Enums.SessionValues, string, int?)}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÌ Ì(%"0*°
-0¾
-»
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÎ Î(1
-%0+IndieVisible.Web.Services.ICookieMgrService"KIndieVisible.Web.Controllers.Base.SecureBaseController.CookieMgrService.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseControlleräá
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÎ Î(C
-
-%1void"EIndieVisible.Web.Services.ICookieMgrService.Set(string, string, int?)*3
-1
-%0+IndieVisible.Web.Services.ICookieMgrService*
-""*
-
-valuestring*"
- 
-
-expireTimeSystem.Nullable<T>2Set(string, string, int?)*
-1*š
-1"”
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÏ Ï(	
-implicit return:+
-key$IndieVisible.Web.Enums.SessionValues:
-valuestring: 
-
-expireTimeSystem.Nullable<T>B:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController

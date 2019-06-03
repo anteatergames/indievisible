@@ -1,84 +1,0 @@
-
-1IndieVisible.Web.Controllers.GameController.Add()p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs> >( "2*¹
-0ëè
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs@ @(2<
-%06IndieVisible.Application.ViewModels.Game.GameViewModel"6IndieVisible.Application.ViewModels.Game.GameViewModel‰
-†
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs@# @(0
-
-%1void"FIndieVisible.Application.ViewModels.Game.GameViewModel.GameViewModel()*>
-<
-%06IndieVisible.Application.ViewModels.Game.GameViewModelù
-ö
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs@ @(2<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel"__id*>
-<
-%06IndieVisible.Application.ViewModels.Game.GameViewModelŽ
-‹
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csA A(%
-%2System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController”
-‘
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csA A(%
-
-%3void"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-
-%2System.Guidé
-æ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csB B(>
-%4string"<IndieVisible.Application.Constants.DefaultGameCoverImage.get*&"$
-"IndieVisible.Application.Constants›
-˜
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csB B(>
-
-%5void"HIndieVisible.Application.ViewModels.Game.GameViewModel.CoverImageUrl.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-
-%4stringè
-å
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csC C(<
-%6string";IndieVisible.Application.Constants.DefaultGameThumbnail.get*&"$
-"IndieVisible.Application.Constantsš
-—
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csC C(<
-
-%7void"GIndieVisible.Application.ViewModels.Game.GameViewModel.ThumbnailUrl.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-
-%6stringáÞ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csE E())
-%8#Microsoft.AspNetCore.Mvc.ViewResult"8Microsoft.AspNetCore.Mvc.Controller.View(string, object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*
-""*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel2View(string, object)"Ÿ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csE E(*+
-)
-%8#Microsoft.AspNetCore.Mvc.ViewResult*
-1"‡
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csF F(	
-implicit return*”
-2‰
-†
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs> >( 
-%9"__entrypoint*
-0B/-
-+IndieVisible.Web.Controllers.GameController

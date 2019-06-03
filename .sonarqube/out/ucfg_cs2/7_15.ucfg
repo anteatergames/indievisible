@@ -1,50 +1,0 @@
-
-FIndieVisible.Web.Areas.Staff.Controllers.SuperPowersController.Index()ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs (""2*ñ
-0Å
-Â
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs (1
-%0+IndieVisible.Web.Services.ICookieMgrService"KIndieVisible.Web.Controllers.Base.SecureBaseController.CookieMgrService.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseControllerÂ¿
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs (<
-
-%1void"EIndieVisible.Web.Services.ICookieMgrService.Set(string, string, int?)*3
-1
-%0+IndieVisible.Web.Services.ICookieMgrService*
-""*
-""*22Set(string, string, int?)¤
-¡
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs (>
-%28Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.ViewData.get*'%
-#Microsoft.AspNetCore.Mvc.Controllerí
-ê
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs (,
-%3"
-__arraySet*@
->
-%28Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
-""*
-""‘Ž
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs ()
-%4#Microsoft.AspNetCore.Mvc.ViewResult"*Microsoft.AspNetCore.Mvc.Controller.View()*'%
-#Microsoft.AspNetCore.Mvc.Controller2View()"³
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs (+
-)
-%4#Microsoft.AspNetCore.Mvc.ViewResult*¡
-1"›
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs (	
-implicit return*¨
-2
-š
-ƒ
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\SuperPowersController.cs ("
-%5"__entrypoint*
-0BB@
->IndieVisible.Web.Areas.Staff.Controllers.SuperPowersController

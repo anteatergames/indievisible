@@ -1,145 +1,0 @@
-
-LIndieVisible.Web.Controllers.ManageController.GenerateRecoveryCodesWarning()t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÉ) É(E"6*Ò
-0®
-«
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csË) Ë(56
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>†
-ƒ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csËC Ë(G,
-%1&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBase¬©
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csË) Ë(H*
-%2$System.Threading.Tasks.Task<TResult>"eMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserAsync(System.Security.Claims.ClaimsPrincipal)*8
-6
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>*.
-,
-%1&System.Security.Claims.ClaimsPrincipal24GetUserAsync(System.Security.Claims.ClaimsPrincipal)Ð
-Í
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csË Ë(HG
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
-""ˆ
-…
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌ Ì(
-
-%3bool""object.operator ==(object, object)*
-"
-object*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
-""*
-1
-2*Ù
-1®
-«
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎO Î([6
-%40Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>†
-ƒ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎf Î(j,
-%5&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBaseˆ…
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎO Î(k
-%6string"bMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserId(System.Security.Claims.ClaimsPrincipal)*8
-6
-%40Microsoft.AspNetCore.Identity.UserManager<TUser>*.
-,
-%5&System.Security.Claims.ClaimsPrincipal21GetUserId(System.Security.Claims.ClaimsPrincipal)©
-¦
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎ/ Î(o
-%7string"__concat*
-""*
-
-%6string©
-¦
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎ/ Î(o
-%8string"__concat*
-
-%7string*
-""¹¶
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎ Î(p!
-%9System.ApplicationException"System.ApplicationExceptionõ
-ò
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎ Î(.
-%10void"8System.ApplicationException.ApplicationException(string)*#
-!
-%9System.ApplicationException*
-
-%8string*
-3*¼
-2®«
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÑ Ñ(&
-%11bool"EMicrosoft.AspNetCore.Identity.IdentityUser<TKey>.TwoFactorEnabled.get*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2TwoFactorEnabled.get*
-4
-5*µ
-4”‘
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÓc Ó(j
-%12string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2Id.get¬
-©
-u
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÓ/ Ó(“
-%13string"__concat*
-""*
-
-%12string¬
-©
-u
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÓ/ Ó(“
-%14string"__concat*
-
-%13string*
-""»¸
-u
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÓ Ó(”"
-%15System.ApplicationException"System.ApplicationException÷
-ô
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÓ Ó(.
-%16void"8System.ApplicationException.ApplicationException(string)*$
-"
-%15System.ApplicationException*
-
-%14string*
-3*Ã
-5–“
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÖ Ö(6*
-%17#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(string)*'%
-#Microsoft.AspNetCore.Mvc.Controller*
-""2View(string)"¤
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÖ Ö(7,
-*
-%17#Microsoft.AspNetCore.Mvc.ViewResult*‘
-3"‹
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs× ×(	
-implicit return*™
-6Ž
-‹
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÉ) É(E
-%18"__entrypoint*
-0B1/
--IndieVisible.Web.Controllers.ManageController

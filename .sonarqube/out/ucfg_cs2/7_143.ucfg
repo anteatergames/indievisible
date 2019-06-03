@@ -1,190 +1,0 @@
-
-IIndieVisible.Web.Controllers.ContentController.SimplePost(string, string)u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csî î('"2*…+
-0ÑÅ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csó& ó(@F
-%0@IndieVisible.Application.ViewModels.Content.UserContentViewModel"@IndieVisible.Application.ViewModels.Content.UserContentViewModel©
-¶
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csó* ó(>
-
-%1void"WIndieVisible.Application.ViewModels.Content.UserContentViewModel.UserContentViewModel()*H
-F
-%0@IndieVisible.Application.ViewModels.Content.UserContentViewModelí
-è
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csó! ó(@F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel"__id*H
-F
-%0@IndieVisible.Application.ViewModels.Content.UserContentViewModelé
-ã
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csò ò(3
-%2"__id*
-""ß
-§
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csò ò(3
-
-%3void"MIndieVisible.Application.ViewModels.Content.UserContentViewModel.Language.set*H
-F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
-
-%2∞
-≠
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csô ô(
-
-%4void"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.set*H
-F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
-
-textstring√
-¿
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csõ' õ(@?
-%59IndieVisible.Application.ViewModels.User.ProfileViewModel"áIndieVisible.Web.Controllers.Base.SecureBaseController.SetAuthorDetails(IndieVisible.Application.ViewModels.UserGeneratedBaseViewModel)*20
-.IndieVisible.Web.Controllers.ContentController*H
-F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelâ
-Ü
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csõ õ(@D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
-?
-%59IndieVisible.Application.ViewModels.User.ProfileViewModel§
-°
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csù ù(-
-
-%6void"âIndieVisible.Web.Controllers.ContentController.SetContentImages(IndieVisible.Application.ViewModels.Content.UserContentViewModel, string)*20
-.IndieVisible.Web.Controllers.ContentController*H
-F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
-
-imagesstringø
-º
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csü- ü(4@
-%7:IndieVisible.Application.Interfaces.IUserContentAppService"__id*{*y0
-.IndieVisible.Web.Controllers.ContentController"E
-service:IndieVisible.Application.Interfaces.IUserContentAppServiceéã
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csü- ü(=;
-%85IndieVisible.Domain.ValueObjects.OperationResultVo<T>">IndieVisible.Application.Interfaces.ICrudAppService<T>.Save(T)*B
-@
-%7:IndieVisible.Application.Interfaces.IUserContentAppService*H
-F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel2Save(T)Ä
-˝
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csü$ ü(=?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%85IndieVisible.Domain.ValueObjects.OperationResultVo<T>ã
-à
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs°! °(3
-%9System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*20
-.IndieVisible.Web.Controllers.ContentController¨
-©
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs°> °(G
-%10System.Nullable<T>"KIndieVisible.Application.ViewModels.Content.UserContentViewModel.GameId.get*H
-F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelí
-è
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs°I °(N
-%11System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*H
-F
-vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelÔ
-Ï
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs° °(O
-%12void"°IndieVisible.Web.Controllers.ContentController.NotifyFollowers(System.Guid, IndieVisible.Application.ViewModels.User.ProfileViewModel, System.Guid?, System.Guid)*20
-.IndieVisible.Web.Controllers.ContentController*
-
-%9System.Guid*F
-D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
-
-%10System.Nullable<T>*
-
-%11System.Guid“œ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs£ £(*
-%13#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>2Json(object)"•
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs£ £( ,
-*
-%13#Microsoft.AspNetCore.Mvc.JsonResult*í
-1"å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs§ §(	
-implicit return*∏
-2µ
-≤
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csî î('
-%14"__entrypoint*
-
-textstring*
-
-imagesstring„
-‡
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csí	 í(
-%15"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
-
-textstring„
-‡
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csì	 ì(
-%16"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-textstring™
-ß
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csî( î(3
-textstring"__annotation*
-
-%15*
-
-%16Â
-‚
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csí	 í(
-%17"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
-
-imagesstringÂ
-‚
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csì	 ì(
-%18"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-imagesstring¨
-©
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csî5 î(B
-imagesstring"__annotation*
-
-%17*
-
-%18*
-0:
-textstring:
-imagesstringB20
-.IndieVisible.Web.Controllers.ContentController

@@ -1,70 +1,0 @@
-
-AIndieVisible.Web.Startup.CreateUserRoles(System.IServiceProvider)_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csô ô(*"0*Õ
-0ì
-ê
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csõ4 õ(s6
-%00Microsoft.AspNetCore.Identity.RoleManager<TRole>"xMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<T>(System.IServiceProvider)*M"K
-IMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions*,
-*
-serviceProviderSystem.IServiceProviderÂ
-‚
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csõ& õ(s?
-roleManager0Microsoft.AspNetCore.Identity.RoleManager<TRole>"__id*8
-6
-%00Microsoft.AspNetCore.Identity.RoleManager<TRole>µ
-≤
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csù  ù(=
-%1System.Array""System.Enum.GetValues(System.Type)*"
-System.Enum*
-""ç
-ä
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csù  ù(K/
-%2)System.Collections.Generic.IEnumerable<T>"DSystem.Linq.Enumerable.Cast<TResult>(System.Collections.IEnumerable)*"
-System.Linq.Enumerable*
-
-%1System.Array∂
-≥
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csù  ù(T(
-%3"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
-System.Linq.Enumerable*1
-/
-%2)System.Collections.Generic.IEnumerable<T>√
-¿
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csù ù(T+
-roles"System.Collections.Generic.List<T>"__id**
-(
-%3"System.Collections.Generic.List<T>*
-1*
-1*
-2
-3*ÿ
-2∆√
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs°5 °(D
-%4string"System.Enum.ToString()*.
-,
-role$IndieVisible.Domain.Core.Enums.Roles2
-ToString()Ñ
-Å
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs° °(E!
-%5System.Threading.Tasks.Task"âIndieVisible.Web.Startup.CreateIrNotExists(Microsoft.AspNetCore.Identity.RoleManager<Microsoft.AspNetCore.Identity.IdentityRole>, string)*"
-IndieVisible.Web.Startup*A
-?
-roleManager0Microsoft.AspNetCore.Identity.RoleManager<TRole>*
-
-%4string*
-1*{
-3"v
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs£ £(	
-implicit return:*
-serviceProviderSystem.IServiceProviderB
-IndieVisible.Web.Startup

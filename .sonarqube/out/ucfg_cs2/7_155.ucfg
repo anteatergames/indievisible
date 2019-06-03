@@ -1,103 +1,0 @@
-
-gIndieVisible.Web.Controllers.Base.SecureBaseController.UploadImage(System.Guid, string, string, byte[]){
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csg g(""0*¹
-0Ì
-É
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csi i(1>
-%08IndieVisible.Application.Interfaces.IImageStorageService"NIndieVisible.Web.Controllers.Base.SecureBaseController.ImageStorageService.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController¿
-¼
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csiB i(S
-%1string"System.Guid.ToString()*
-
-userIdSystem.Guid·
-´
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csiU i(h
-%2string"string.ToLower()*
-
-	imageTypestring°
-­
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csiU i(n
-%3string"__concat*
-
-%2string*
-""¾
-»
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csiU i(y
-%4string"__concat*
-
-%3string*
-
-filenamestring±®
-|
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csi i(…*
-%5$System.Threading.Tasks.Task<TResult>"`IndieVisible.Application.Interfaces.IImageStorageService.StoreImageAsync(string, string, byte[])*@
->
-%08IndieVisible.Application.Interfaces.IImageStorageService*
-
-%1string*
-
-%4string*
-
-	fileBytesbyte[]2'StoreImageAsync(string, string, byte[])á
-Þ
-|
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csi i(…*
-op$System.Threading.Tasks.Task<TResult>"__id*,
-*
-%5$System.Threading.Tasks.Task<TResult>Þ
-Û
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csj j(
-
-%6void""System.Threading.Tasks.Task.Wait()*,
-*
-op$System.Threading.Tasks.Task<TResult>ó
-ð
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csl l(+
-
-%7bool"7System.Threading.Tasks.Task.IsCompletedSuccessfully.get*,
-*
-op$System.Threading.Tasks.Task<TResult>*
-1
-2*…
-1ú
-÷
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csn n("
-%8System.AggregateException")System.Threading.Tasks.Task.Exception.get*,
-*
-op$System.Threading.Tasks.Task<TResult>*
-3*¬
-2í
-ê
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csq q("
-%9string"/System.Threading.Tasks.Task<TResult>.Result.get*,
-*
-op$System.Threading.Tasks.Task<TResult>¥
-¢
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csq q("
-urlstring"__id*
-
-%9string"Ž
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.css s(
-
-urlstring*˜
-3"’
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cst t(	
-implicit return:
-userIdSystem.Guid:
-	imageTypestring:
-filenamestring:
-	fileBytesbyte[]B:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController

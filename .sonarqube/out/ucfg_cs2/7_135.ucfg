@@ -1,93 +1,0 @@
-
-?IndieVisible.Web.Controllers.AccountController.Register(string)u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csì ì(%"2*Ï
-0•
-’
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csî î(>
-%08Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.ViewData.get*'%
-#Microsoft.AspNetCore.Mvc.Controllerí
-ê
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csî î(-
-%1"
-__arraySet*@
->
-%08Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
-""*
-
-	returnUrlstringÜÙ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csð ð(22
-%2,IndieVisible.Web.Models.MvcRegisterViewModel",IndieVisible.Web.Models.MvcRegisterViewModel
-þ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csð ð(0
-
-%3void"CIndieVisible.Web.Models.MvcRegisterViewModel.MvcRegisterViewModel()*4
-2
-%2,IndieVisible.Web.Models.MvcRegisterViewModelí
-ê
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csð ð(25
-model,IndieVisible.Web.Models.MvcRegisterViewModel"__id*4
-2
-%2,IndieVisible.Web.Models.MvcRegisterViewModelÇÄ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csò ò()
-%4#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*7
-5
-model,IndieVisible.Web.Models.MvcRegisterViewModel2View(object)"¤
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csò ò(+
-)
-%4#Microsoft.AspNetCore.Mvc.ViewResult*’
-1"Œ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csó ó(	
-implicit return*º
-2¥
-¢
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csì ì(%
-%5"__entrypoint*
-
-	returnUrlstringå
-â
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csé	 é(
-%6"
-__annotate*@>
-<Microsoft.AspNetCore.Mvc.HttpGetAttribute.HttpGetAttribute()*
-
-	returnUrlstringý
-ú
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csê	 ê(
-%7"
-__annotate*XV
-TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*
-
-	returnUrlstringç
-ä
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csë	 ë(#
-%8"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-	returnUrlstringµ
-²
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csì& ì(=
-	returnUrlstring"__annotation*
-
-%6*
-
-%7*
-
-%8*
-0:
-	returnUrlstringB20
-.IndieVisible.Web.Controllers.AccountController

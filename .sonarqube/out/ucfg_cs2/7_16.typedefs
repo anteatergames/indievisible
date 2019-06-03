@@ -1,8 +1,0 @@
-¼
-0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectU
-BaseController()AIndieVisible.Web.Controllers.Base.BaseController.BaseController()M
-GetBaseUrl()=IndieVisible.Web.Controllers.Base.BaseController.GetBaseUrl()Ÿ
-5GetSessionValue(IndieVisible.Web.Enums.SessionValues)fIndieVisible.Web.Controllers.Base.BaseController.GetSessionValue(IndieVisible.Web.Enums.SessionValues)¯
-=SetSessionValue(IndieVisible.Web.Enums.SessionValues, string)nIndieVisible.Web.Controllers.Base.BaseController.SetSessionValue(IndieVisible.Web.Enums.SessionValues, string)[
-SharedLocalizer.getDIndieVisible.Web.Controllers.Base.BaseController.SharedLocalizer.get[
-SharedLocalizer.setDIndieVisible.Web.Controllers.Base.BaseController.SharedLocalizer.set

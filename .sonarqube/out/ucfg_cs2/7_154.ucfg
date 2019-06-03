@@ -1,78 +1,0 @@
-
-WIndieVisible.Web.Controllers.Base.SecureBaseController.DeleteImage(System.Guid, string){
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csu u(""0*Í
-0Ã
-…
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csw w(1>
-%08IndieVisible.Application.Interfaces.IImageStorageService"NIndieVisible.Web.Controllers.Base.SecureBaseController.ImageStorageService.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseControllerø
-º
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cswC w(T
-%1string"System.Guid.ToString()*
-
-userIdSystem.Guidëé
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csw w(_*
-%2$System.Threading.Tasks.Task<TResult>"YIndieVisible.Application.Interfaces.IImageStorageService.DeleteImageAsync(string, string)*@
->
-%08IndieVisible.Application.Interfaces.IImageStorageService*
-
-%1string*
-
-filenamestring2 DeleteImageAsync(string, string)‡
-›
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csw w(_*
-op$System.Threading.Tasks.Task<TResult>"__id*,
-*
-%2$System.Threading.Tasks.Task<TResult>ﬁ
-€
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csx x(
-
-%3void""System.Threading.Tasks.Task.Wait()*,
-*
-op$System.Threading.Tasks.Task<TResult>Û
-
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csz z(+
-
-%4bool"7System.Threading.Tasks.Task.IsCompletedSuccessfully.get*,
-*
-op$System.Threading.Tasks.Task<TResult>*
-1
-2*Ö
-1˙
-˜
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs| |("
-%5System.AggregateException")System.Threading.Tasks.Task.Exception.get*,
-*
-op$System.Threading.Tasks.Task<TResult>*
-3*Æ
-2Ì
-Í
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs ("
-%6string"/System.Threading.Tasks.Task<TResult>.Result.get*,
-*
-op$System.Threading.Tasks.Task<TResult>•
-¢
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs ("
-urlstring"__id*
-
-%6string"ê
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÅ Å(
-
-urlstring*ö
-3"î
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÇ Ç(	
-implicit return:
-userIdSystem.Guid:
-filenamestringB:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController

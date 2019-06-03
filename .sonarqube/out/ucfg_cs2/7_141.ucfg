@@ -1,48 +1,0 @@
-
-JIndieVisible.Web.Controllers.StorageController.GetImageNameFromUrl(string)u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs» »(1"0*µ
-0ã
-à
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs½  ½(7
-%0string[]"-string.Split(char, System.StringSplitOptions)*
-
-currentImagestring*
-""*
-""¨
-¥
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs½ ½(7
-urlSplitstring[]"__id*
-
-%0string[]¶
-³
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¾$ ¾(3	
-%1int"System.Array.Length.get*
-
-urlSplitstring[]´
-±
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¾ ¾(8
-%2string"
-__arrayGet*
-
-urlSplitstring[]*
-""¡
-ž
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¾ ¾(8
-splitstring"__id*
-
-%2string"Š
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÃ Ã(
-
-splitstring*’
-1"Œ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÄ Ä(	
-implicit return:
-currentImagestringB2"0
-.IndieVisible.Web.Controllers.StorageController

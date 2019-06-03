@@ -1,224 +1,0 @@
-
->IndieVisible.Web.Controllers.ManageController.ExternalLogins()t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csË) Ë(7"6*“
-0Æ
-´
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÍ) Í(56
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ü
-É
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÍC Í(G,
-%1&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBase¨©
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÍ) Í(H*
-%2$System.Threading.Tasks.Task<TResult>"eMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserAsync(System.Security.Claims.ClaimsPrincipal)*8
-6
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>*.
-,
-%1&System.Security.Claims.ClaimsPrincipal24GetUserAsync(System.Security.Claims.ClaimsPrincipal)–
-Õ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÍ Í(HG
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
-""à
-Ö
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÎ Î(
-
-%3bool""object.operator ==(object, object)*
-"
-object*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
-""*
-1
-2*Ÿ
-1Æ
-´
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌO Ì([6
-%40Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ü
-É
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌf Ì(j,
-%5&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBaseàÖ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌO Ì(k
-%6string"bMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserId(System.Security.Claims.ClaimsPrincipal)*8
-6
-%40Microsoft.AspNetCore.Identity.UserManager<TUser>*.
-,
-%5&System.Security.Claims.ClaimsPrincipal21GetUserId(System.Security.Claims.ClaimsPrincipal)©
-¶
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌ/ Ì(o
-%7string"__concat*
-""*
-
-%6string©
-¶
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌ/ Ì(o
-%8string"__concat*
-
-%7string*
-""π∂
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌ Ì(p!
-%9System.ApplicationException"System.ApplicationExceptionı
-Ú
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÌ Ì(.
-%10void"8System.ApplicationException.ApplicationException(string)*#
-!
-%9System.ApplicationException*
-
-%8string*
-3*ò#
-2µ≤
-u
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs, (É_
-%11XIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel"XIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel›
-⁄
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs0 (G
-%12void"rIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel.ExternalLoginsViewModel()*a
-_
-%11XIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModelØ
-¨
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs` (l7
-%130Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>åâ
-u
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs` (Å+
-%14$System.Threading.Tasks.Task<TResult>"FMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetLoginsAsync(TUser)*9
-7
-%130Microsoft.AspNetCore.Identity.UserManager<TUser>*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2GetLoginsAsync(TUser)ﬁ
-€
-u
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csJ (Å
-%15void"jIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel.CurrentLogins.set*a
-_
-%11XIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel*
-""∆
-√
-u
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs$ (Éa
-modelXIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel"__id*a
-_
-%11XIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModelµ
-≤
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÒ' Ò(59
-%162Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*y*w/
--IndieVisible.Web.Controllers.ManageController"D
-_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>ËÂ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÒ' Ò(]+
-%17$System.Threading.Tasks.Task<TResult>"ZMicrosoft.AspNetCore.Identity.SignInManager<TUser>.GetExternalAuthenticationSchemesAsync()*;
-9
-%162Microsoft.AspNetCore.Identity.SignInManager<TUser>2'GetExternalAuthenticationSchemesAsync()À
-»
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÒ  Ú(\0
-%18)System.Collections.Generic.IEnumerable<T>"rSystem.Linq.Enumerable.Where<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
-System.Linq.Enumerable*
-""*
-""Õ
- 
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÒ  Û()
-%19"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
-System.Linq.Enumerable*2
-0
-%18)System.Collections.Generic.IEnumerable<T>Ç
-ˇ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÒ Û(
-%20void"hIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel.OtherLogins.set*c
-a
-modelXIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel*+
-)
-%19"System.Collections.Generic.List<T>Ø
-¨
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÙ+ Ù(77
-%210Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>èå
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÙ+ Ù(N+
-%22$System.Threading.Tasks.Task<TResult>"HMicrosoft.AspNetCore.Identity.UserManager<TUser>.HasPasswordAsync(TUser)*9
-7
-%210Microsoft.AspNetCore.Identity.UserManager<TUser>*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2HasPasswordAsync(TUser)*
-4
-5*˜
-5ˆ
-Û
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÙR Ù(e*
-%23#System.Collections.Generic.IList<T>"jIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel.CurrentLogins.get*c
-a
-modelXIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModelÛ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÙR Ù(k
-
-%24int"3System.Collections.Generic.ICollection<T>.Count.get*,
-*
-%23#System.Collections.Generic.IList<T>2	Count.get*
-4*Ô
-4‚
-ﬂ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÙ Ù(o
-%25void"mIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel.ShowRemoveButton.set*c
-a
-modelXIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel*
-""¸
-˘
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csı" ı(/
-%26string"?IndieVisible.Web.Controllers.ManageController.StatusMessage.get*1/
--IndieVisible.Web.Controllers.ManageControllerË
-Â
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csı ı(/
-%27void"jIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel.StatusMessage.set*c
-a
-modelXIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel*
-
-%26stringÛ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs˜ ˜(*
-%28#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*c
-a
-modelXIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ExternalLoginsViewModel2View(object)"§
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs˜ ˜(,
-*
-%28#Microsoft.AspNetCore.Mvc.ViewResult*ë
-3"ã
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs¯ ¯(	
-implicit return*ô
-6é
-ã
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csË) Ë(7
-%29"__entrypoint*
-0B1/
--IndieVisible.Web.Controllers.ManageController
