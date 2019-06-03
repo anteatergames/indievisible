@@ -1,0 +1,14 @@
+
+@inject SignInManager<ApplicationUser> SignInManager
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="col-12">
+            <a asp-area="" asp-controller="game" asp-action="add" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["Add Game"]</a>
+        </div>
+        <div class="col-12 mt-2">
+            <a asp-area="" asp-controller="content" asp-action="add" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["Post Content"]</a>
+        </div>
+    }
+</aside>

@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Articles" xml:space="preserve">
+    <value>Статьи</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Component Scripts" xml:space="preserve">
+    <value>Скрипты</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Материал</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Continue browsing" xml:space="preserve">
+    <value>Продолжить просмотр без входа</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Don&apos;t have an account?" xml:space="preserve">
+    <value>У тебя нет учетной записи?</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Don&apos;t want to Log In?" xml:space="preserve">
+    <value>Сомневаешься?</value>
+    <comment>Register Page</comment>
+  </data>
+  <data name="Forgot pwd?" xml:space="preserve">
+    <value>Забыл пароль?</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Игры</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Главная</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Jam" xml:space="preserve">
+    <value>Джэм</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Войти</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Выйти</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Meet" xml:space="preserve">
+    <value>Встречи</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Multiplayer" xml:space="preserve">
+    <value>Мультиплеер</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>ИЛИ</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Portfolio" xml:space="preserve">
+    <value>Портфолио</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Профиль</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Project Management" xml:space="preserve">
+    <value>Управление проектами</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Remember Me" xml:space="preserve">
+    <value>Запомни меня</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Найти</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="SIGN IN" xml:space="preserve">
+    <value>ВОЙТИ</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Sign in to start your session" xml:space="preserve">
+    <value>Войди, чтобы начать работу с сайтом</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Sign Up" xml:space="preserve">
+    <value>Регистрируйся!</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Singleplayer" xml:space="preserve">
+    <value>Один игрок</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Начало</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Studios" xml:space="preserve">
+    <value>Студии</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Team up" xml:space="preserve">
+    <value>Подружиться</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="The password is required." xml:space="preserve">
+    <value>Требуется пароль.</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="The username is required." xml:space="preserve">
+    <value>Требуется имя пользователя.</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Think" xml:space="preserve">
+    <value>Мысли</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Инструменты</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Translation Tool" xml:space="preserve">
+    <value>Инструмент перевода</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Имя пользователя</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Vote" xml:space="preserve">
+    <value>Голосование</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Работа</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Связаться</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Edit Profile" xml:space="preserve">
+    <value>Редактировать профиль</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Followers" xml:space="preserve">
+    <value>Следуют за мной</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Following" xml:space="preserve">
+    <value>Я следую за</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="App Graphics Generator" xml:space="preserve">
+    <value>Генератор графики</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Follow" xml:space="preserve">
+    <value>Следить</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Likes" xml:space="preserve">
+    <value>Оценки</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="What is this" xml:space="preserve">
+    <value>Что это</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Экшн</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Adventure" xml:space="preserve">
+    <value>Приключение</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Archeology" xml:space="preserve">
+    <value>Археология</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="BeatEmUp" xml:space="preserve">
+    <value>Избей их всех</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Fighting" xml:space="preserve">
+    <value>Файтинг</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Horror" xml:space="preserve">
+    <value>Хоррор</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Racing" xml:space="preserve">
+    <value>Гонки</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Roguelike" xml:space="preserve">
+    <value>Roguelike</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Rpg" xml:space="preserve">
+    <value>Ролевая игра</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="ShootEmUp" xml:space="preserve">
+    <value>Беги и стреляй</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Simulation" xml:space="preserve">
+    <value>Симулятор</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Sports" xml:space="preserve">
+    <value>Спорт</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Strategy" xml:space="preserve">
+    <value>Стратегия</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Already have an account?" xml:space="preserve">
+    <value>Уже есть аккаунт?</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Don&apos;t want to Register?" xml:space="preserve">
+    <value>Не хочешь регистрироваться?</value>
+    <comment>Register</comment>
+  </data>
+  <data name="I agree to the" xml:space="preserve">
+    <value>Я согласен с</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Register a new membership" xml:space="preserve">
+    <value>Регистрация нового участника</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Retype password" xml:space="preserve">
+    <value>Повторить пароль</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Tell everyone what is on your mind" xml:space="preserve">
+    <value>Расскажи всем, что у тебя на уме</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Условиями</value>
+    <comment>Register</comment>
+  </data>
+  <data name="and" xml:space="preserve">
+    <value>и</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Policies" xml:space="preserve">
+    <value>Политикой</value>
+    <comment>Layout</comment>
+  </data>
+  <data name="Read our" xml:space="preserve">
+    <value>Ознакомьтесь с нашими</value>
+    <comment>Layout</comment>
+  </data>
+  <data name="Add Game" xml:space="preserve">
+    <value>Добавить игру</value>
+    <comment>Operations Menu</comment>
+  </data>
+  <data name="Post Content" xml:space="preserve">
+    <value>Добавить статью</value>
+    <comment>Operations Menu</comment>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Комментировать</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Комментарии</value>
+    <comment>Activity Feed</comment>
+  </data>
+  <data name="Like" xml:space="preserve">
+    <value>Нравиться</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="Press CTRL+ENTER to send your comment" xml:space="preserve">
+    <value>Нажми CTRL+ENTER для отправки комментария</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Поделиться</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Ещё</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Add Content" xml:space="preserve">
+    <value>Добавить материал</value>
+    <comment>Add Content Page</comment>
+  </data>
+  <data name="Basic" xml:space="preserve">
+    <value>Основное</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Edit Content" xml:space="preserve">
+    <value>Изменить материал</value>
+    <comment>Add Content Page</comment>
+  </data>
+  <data name="Edit Game" xml:space="preserve">
+    <value>Изменить игру</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Движок</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Eye Candy" xml:space="preserve">
+    <value>Обложка</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Fill in with the content you want to post" xml:space="preserve">
+    <value>Заполните информацию о материале, который хотите разместить</value>
+    <comment>Add Content Page</comment>
+  </data>
+  <data name="Fill in with the game information" xml:space="preserve">
+    <value>Заполните информацию об игре, которую хотите разместить</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Жанр</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Main Language" xml:space="preserve">
+    <value>Основной язык</value>
+    <comment>Display Field</comment>
+  </data>
+  <data name="Platforms" xml:space="preserve">
+    <value>Платформы</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Presence" xml:space="preserve">
+    <value>Выпуск</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Release Date" xml:space="preserve">
+    <value>Дата выпуска</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+    <comment>Button</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Выбрать</value>
+    <comment>Dropdown default option</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Social" xml:space="preserve">
+    <value>Соц. сети</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Staff Area" xml:space="preserve">
+    <value>Рабочее пространство</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Technical" xml:space="preserve">
+    <value>Тех. информация</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="The Content is required" xml:space="preserve">
+    <value>Требуется создать материал</value>
+    <comment>Validation Message</comment>
+  </data>
+  <data name="The Title is Required" xml:space="preserve">
+    <value>Требуется заголовок</value>
+    <comment>Validation Message</comment>
+  </data>
+  <data name="Thumbnail" xml:space="preserve">
+    <value>Иконка</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Заголовок</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Type a award winning text here" xml:space="preserve">
+    <value>Type a award winning text here</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type a brief introduction here" xml:space="preserve">
+    <value>Введите вводное описание</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type the Facebook address here" xml:space="preserve">
+    <value>Введите адрес страницы Facebook</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type the title you want to post here" xml:space="preserve">
+    <value>Введите заголовок статьи</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type the Twitter address here" xml:space="preserve">
+    <value>Введите адрес страницы Twitter</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="No results to show" xml:space="preserve">
+    <value>Нет результатов</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Change my password" xml:space="preserve">
+    <value>Сменить свой пароль</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Configure my experience" xml:space="preserve">
+    <value>Настроить мои данные</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Content Language" xml:space="preserve">
+    <value>Язык материалов</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Основное</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Подключить</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="UI Language" xml:space="preserve">
+    <value>Язык интерфейса</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Unlink" xml:space="preserve">
+    <value>Отключить</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Casual" xml:space="preserve">
+    <value>Казуальные</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Log in" xml:space="preserve">
+    <value>Вход на сайт</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Log in using your Facebook account" xml:space="preserve">
+    <value>Войти, используя аккаунт Facebook</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Log in using your Google account" xml:space="preserve">
+    <value>Войти, используя аккаунт Google</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Log in using your Microsoft account" xml:space="preserve">
+    <value>Войти, используя аккаунт Microsoft</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>Новости</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Writer tool" xml:space="preserve">
+    <value>Сценаристу</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Принять</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="Do you like cookies?" xml:space="preserve">
+    <value>Любите печеньки?</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="Learn More" xml:space="preserve">
+    <value>Как это?</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="We use cookies to ensure you get the best experience on our website." xml:space="preserve">
+    <value>Мы используем куки (cookies), чтобы вам было комфортно на нашем сайте.</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="Activity" xml:space="preserve">
+    <value>Лента</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="I love it" xml:space="preserve">
+    <value>Мне нравится</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Рекомендации</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Обзоры</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>by</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Инфо</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Bio" xml:space="preserve">
+    <value>О себе</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Местоположение</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Other Profiles" xml:space="preserve">
+    <value>Ещё профили</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Posts" xml:space="preserve">
+    <value>Посты</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>Статистика</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Studio" xml:space="preserve">
+    <value>Студия</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="to the next level" xml:space="preserve">
+    <value>до следующего уровня</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Content posted on" xml:space="preserve">
+    <value>Content posted on</value>
+    <comment>Content Details Page</comment>
+  </data>
+  <data name="More Games" xml:space="preserve">
+    <value>Еще игры</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Invalid login! Keep calm and try again!" xml:space="preserve">
+    <value>Неверный логин! Узбагойся и попробуй снова!</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="create post" xml:space="preserve">
+    <value>написать пост</value>
+    <comment>Home</comment>
+  </data>
+  <data name="image" xml:space="preserve">
+    <value>картинка</value>
+    <comment>Home</comment>
+  </data>
+  <data name="poll" xml:space="preserve">
+    <value>опрос</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Associate your Google account" xml:space="preserve">
+    <value>Связать с аккаунтом Google</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Oh! It looks like you already have a user registered here with us. Check your info below and confirm to link your account to your external account." xml:space="preserve">
+    <value>Ой... Нам кажется, но у нас уже есть пользователь с таким именем. Проверь и подтверди пожалуйста свои данные, чтобы соединить свой профиль с внешним аккаунтом.</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Регистрация</value>
+    <comment>Register</comment>
+  </data>
+  <data name="You&apos;ve successfully authenticated with your external account. Please choose a username to use and click the Register button to finish logging in." xml:space="preserve">
+    <value>Вы успешно вошли под внешним аккаунтом. Пожалуйста, выберите имя и нажмите на кнопку Регистрация, чтобы закончить и войти.</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Drop files here or click to upload." xml:space="preserve">
+    <value>Кинь сюда файлы или нажми, чтобы загрузить.</value>
+    <comment>Home</comment>
+  </data>
+  <data name="only image files" xml:space="preserve">
+    <value>только файлы изображений</value>
+    <comment>Home</comment>
+  </data>
+  <data name="{0} liked your post" xml:space="preserve">
+    <value>{0} нравится ваш пост</value>
+    <comment>Notification</comment>
+  </data>
+  <data name="{0} loves your game {1}" xml:space="preserve">
+    <value>{0} нравится ваша игра {1}</value>
+    <comment>Notification</comment>
+  </data>
+  <data name="Must have minimum 3 characters.&lt;/br&gt;Must contain only letters, numbers, dashes, underscores and dots.&lt;/br&gt;Must not contain two symbols in sequence.&lt;/br&gt;Must not start or end with a symbol." xml:space="preserve">
+    <value>Должно быть минимум 3 символа.&lt;br/&gt;Должно содержать только буквы, числа, тире, подчеркивание или точку.&lt;br/&gt;Не должно быть два последовательных одинаковых символа.&lt;br/&gt;Не может начинаться или заканчиваться символом.</value>
+    <comment>Register</comment>
+  </data>
+  <data name="MotionComics" xml:space="preserve">
+    <value>Анимированный комикс</value>
+    <comment>Genre</comment>
+  </data>
+</root>

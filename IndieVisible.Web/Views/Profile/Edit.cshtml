@@ -1,0 +1,246 @@
+﻿@model ProfileViewModel
+
+@{
+    ViewData["Title"] = Model.Name + " - Edit profile";
+}
+
+<div class="col-12">
+    <form id="frmProfileSave" asp-controller="Profile" asp-action="Save" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="Type" />
+        <input type="hidden" asp-for="ProfileImageUrl" />
+        <input type="hidden" asp-for="CreateDate" />
+        <input type="hidden" asp-for="CoverImageUrl" />
+        <!-- Widget: user widget style 1 -->
+        <div class="box box-widget widget-user-4 user-profile">
+            <div class="widget-user-header bg-blue" id="imgCoverImage" style="background: url('@Model.CoverImageUrl') center center;">
+                <div class="overlay dark">
+                    <div class="widget-user-image">
+                        <div class="avatar-wrapper">
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="Change the Avatar">
+                                <img class="rounded-circle" id="imgAvatar" src="@Model.ProfileImageUrl" alt="User Avatar">
+                                <input id="avatar" name="avatar" type="file" class="sr-only">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-profile-cover-topright">
+                    <label class="label btn btn-default bg-transparent" data-toggle="tooltip" title="" data-original-title="Change the Cover Image">
+                        @SharedLocalizer["Change Cover Image"]
+                        <input id="coverImage" name="coverImage" type="file" class="sr-only">
+                    </label>
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-sm-12 description-block">
+                        <div class="float-right">
+                            <button type="button" id="btnProfileSave" class="btn btn-lg btn-default bg-info">Save my profile</button>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <div class="row">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="card-title">Edit my awesomeness</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <!-- Nav tabs -->
+                            <div class="vtabs customvtab col-12">
+                                <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active show" data-toggle="tab" href="#basicinfotab" role="tab" aria-selected="true">
+                                            <span class="hidden-sm-up"><i class="ion-ios-home"></i></span> <span class="hidden-xs-down">Basic Info</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#gamedevtab" role="tab" aria-selected="false">
+                                            <span class="hidden-sm-up"><i class="ion-logo-game-controller-a"></i></span>
+                                            <span class="hidden-xs-down">Game dev</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+
+                                    <div class="tab-pane active show" id="basicinfotab" role="tabpanel">
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label asp-for="Name"></label>
+                                                <input asp-for="Name" class="form-control" placeholder="Type it, here!">
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Location"></label>
+                                                <input asp-for="Location" class="form-control" placeholder="Where are you from?">
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Motto"></label>
+                                                <input asp-for="Motto" class="form-control" placeholder="Any punchline you like?">
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Bio">Bio</label>
+                                                <textarea asp-for="Bio" class="form-control" placeholder="Tell us who you are"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-pane pad" id="gamedevtab" role="tabpanel">
+
+                                        <div class="row">
+
+                                            <div class="col-12 col-12">
+                                                <div class="info-box">
+                                                    <span class="info-box-icon bg-aqua">
+                                                        <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt" />
+                                                    </span>
+                                                    <div class="info-box-content">
+                                                        <div class="form-group">
+                                                            <label asp-for="GameJoltUrl"></label>
+                                                            <input asp-for="GameJoltUrl" class="form-control" placeholder="Type your Game Jolt username here">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-12">
+                                                <div class="info-box">
+                                                    <span class="info-box-icon bg-dark">
+                                                        <img src="~/images/otherprofiles/itchio32.png" alt="Itch.IO" />
+                                                    </span>
+                                                    <div class="info-box-content">
+                                                        <div class="form-group">
+                                                            <label asp-for="ItchIoUrl"></label>
+                                                            <input asp-for="ItchIoUrl" class="form-control" placeholder="Type your Itch.io username here">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-12">
+                                                <div class="info-box">
+                                                    <span class="info-box-icon bg-green">
+                                                        <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDB" />
+                                                    </span>
+                                                    <div class="info-box-content">
+                                                        <div class="form-group">
+                                                            <label asp-for="IndieDbUrl"></label>
+                                                            <input asp-for="IndieDbUrl" class="form-control" placeholder="Type your IndieDb username here">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-12">
+                                                <div class="info-box">
+                                                    <span class="info-box-icon bg-yellow">
+                                                        <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect" />
+                                                    </span>
+                                                    <div class="info-box-content">
+                                                        <div class="form-group">
+                                                            <label asp-for="UnityConnectUrl"></label>
+                                                            <input asp-for="UnityConnectUrl" class="form-control" placeholder="Type your Unity Connect username here">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-12">
+                                                <div class="info-box">
+                                                    <span class="info-box-icon bg-gray">
+                                                        <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net" />
+                                                    </span>
+                                                    <div class="info-box-content">
+                                                        <div class="form-group">
+                                                            <label asp-for="GameDevNetUrl"></label>
+                                                            <input asp-for="GameDevNetUrl" class="form-control" placeholder="Type your Gamedev.net username here">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="modal fade" id="modalCropAvatar" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">@SharedLocalizer["Crop the image"]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container p-10">
+                    <img id="avatarCropArea" src="@Model.ProfileImageUrl" class="img-fluid" alt="Crop Avatar">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@SharedLocalizer["Cancel"]</button>
+                <button type="button" class="btn btn-primary" id="cropAvatar">@SharedLocalizer["Crop"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalCropCoverImage" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">@SharedLocalizer["Crop the image"]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container p-10">
+                    <img id="coverImageCropArea" src="@Model.CoverImageUrl" class="img-fluid" alt="Crop Cover Image">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@SharedLocalizer["Cancel"]</button>
+                <button type="button" class="btn btn-primary" id="cropCoverImage">@SharedLocalizer["Crop"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
+    <style>
+        .avatar-wrapper label {
+            margin-bottom: 0px;
+        }
+    </style>
+}
+@section Scripts {
+    <script src="~/lib/cropperjs/cropper.js"></script>
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script src="~/js/profile/profileedit.js"></script>
+}

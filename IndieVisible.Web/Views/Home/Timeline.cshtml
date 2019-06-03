@@ -1,0 +1,59 @@
+﻿@model TimeLineViewModel
+@{
+    ViewData["Title"] = "Timeline";
+    ViewData["Description"] = "INDIEVISIBLE Timeline/Roadmap";
+    ViewData["Url"] = "https://www.indievisible.net/timeline";
+    var count = 0;
+}
+
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">Timeline</h1>
+    </div>
+    <div class="px-3 px-md-0">
+        <ul class="timeline">
+            @foreach (var item in Model.Items)
+            {
+                count++;
+                var inverted = false;
+                var liClass = string.Empty;
+                inverted = count % 2 == 0;
+                if (inverted)
+                {
+                    liClass = "timeline-inverted";
+                }
+                <li @(inverted ? "class=" + liClass : string.Empty)>
+                    <div class="timeline-badge @(item.Color)"><i class="@item.Icon"></i></div>
+                    <div class="timeline-panel @(item.Future ? "future": string.Empty)">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">@item.Title</h4>
+                            @if (!string.IsNullOrWhiteSpace(item.Subtitle))
+                            {
+                                <p><small class="text-muted">@item.Subtitle</small></p>
+                            }
+                        </div>
+                        <div class="timeline-body">
+                            <p>@item.Description</p>
+                            @if (item.Items.Any())
+                            {
+                                <p>
+                                    <ul>
+                                        @foreach (var subitem in item.Items)
+                                        {
+                                            <li>@subitem</li>
+                                        }
+                                    </ul>
+                                </p>
+                            }
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/timeline.css" />
+}

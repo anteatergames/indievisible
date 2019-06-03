@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GameListItemViewModel>
+@{
+    Layout = null;
+}
+
+<div class="col-12">
+    <div class="row">
+        @foreach (var game in Model)
+        {
+            <div class="col-md-12 col-lg-4">
+                <div class="box box-default">
+                    <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
+                        <img class="card-img-top img-responsive" src="@game.ThumbnailUrl" alt="Card image cap">
+                    </a>
+                    <div class="box-body">
+                        <div class="gamebox-description">
+
+                            <div class="row text-truncate">
+                                <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
+                                    <span class="gamebox-description-text">@game.Title</span>
+                                </a>
+                            </div>
+                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@game.UserId">
+                                <img class="rounded-circle img-sm" src="@game.DeveloperImageUrl" alt=".">
+                                <div class="gamebox-description-text">
+                                    <span class="gamebox-description-number">@game.DeveloperName</span>
+                                </div>
+                            </a>
+
+                            <div class="price-tag pull-right float-right">
+                                <span class="badge badge-secondary">@game.Price</span>
+                            </div>
+
+                            <div class="release-platforms">
+                                @if (game.PlatformList.Any())
+                                {
+                                    foreach (var platform in game.PlatformList)
+                                    {
+                                        <i class="fab fa-2x fa-@platform"></i>
+                                    }
+                                }
+                                else
+                                {
+                                    <i class="far fa-2x fa-calendar"></i>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

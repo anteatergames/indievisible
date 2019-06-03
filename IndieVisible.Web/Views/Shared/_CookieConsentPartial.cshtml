@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
+    var cookieString = consentFeature?.CreateConsentCookie();
+}
+
+@if (showBanner)
+{
+    <div id="cookieConsent" class="alert alert-dismissible text-center cookiealert show" role="alert">
+        <div class="cookiealert-container">
+            <b>@SharedLocalizer["Do you like cookies?"]</b> 🍪 @SharedLocalizer["We use cookies to ensure you get the best experience on our website."] <a asp-area="" asp-controller="home" asp-action="privacy">@SharedLocalizer["Learn More"]</a>
+
+            <button type="button" class="btn btn-primary btn-sm acceptcookies" data-cookie-string="@cookieString" aria-label="@SharedLocalizer["Accept"]">
+                @SharedLocalizer["Accept"]
+            </button>
+        </div>
+    </div>
+    <script>
+        (function () {
+            document.querySelector("#cookieConsent button[data-cookie-string]").addEventListener("click", function (el) {
+                document.cookie = el.target.dataset.cookieString;
+                document.querySelector("#cookieConsent").classList.add("d-none");
+            }, false);
+        })();
+    </script>
+
+    @section Styles {
+        <style>
+            .cookiealert {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                margin: 0 !important;
+                z-index: 999;
+                opacity: 0;
+                border-radius: 0;
+                background: #242a33;
+                transform: translateY(100%);
+                transition: all 500ms ease-out;
+                color: #ecf0f1;
+            }
+
+                .cookiealert.show {
+                    opacity: 1;
+                    transform: translateY(0%);
+                    transition-delay: 1000ms;
+                }
+
+                .cookiealert a {
+                    text-decoration: underline
+                }
+
+                .cookiealert .acceptcookies {
+                    margin-left: 10px;
+                    vertical-align: baseline;
+                }
+        </style>
+    }
+}

@@ -1,0 +1,144 @@
+﻿@model IndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    var myFullName = CookieMgrService.Get(SessionValues.FullName.ToString());
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+
+<div class="col-xl-8 offset-xl-2 col-md-12 offset-md-0">
+    <h1 class="sr-only">
+        @SharedLocalizer["idea details"]
+    </h1>
+    <input type="hidden" asp-for="Id" />
+    <div id="brainstormcontainer" class="mx-0" data-caninteract="@canInteract.ToString().ToLower()">
+        <div class="box box-default  box-content" data-id="@Model.Id">
+            <div class="box-header with-border">
+                <div class="float-left pr-10">
+                    <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@Model.SessionId" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                <div class="float-left">
+                    <h2 class="card-title">@ViewData["Title"]</h2>
+                </div>
+                <h6 class="float-left card-subtitle col-12">
+                    @Model.VoteCount @SharedLocalizer["votes"]
+                </h6>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body p-0 p-md-10">
+
+                <div class="brainstorm-item" data-id="@Model.Id" data-currentuservote="@Model.CurrentUserVote">
+                    <div class="brainstorm-panel">
+                        <div class="col-12 brainstorm-icon">
+                            <button type="button" class="brainstorm-button brainstorm-up" data-vote="@(VoteValue.Positive)"><i class="fa fa-arrow-alt-circle-up @(Model.CurrentUserVote == VoteValue.Positive ? "text-green": string.Empty)"></i></button>
+                        </div>
+                        <div class="col-12 brainstorm-count">
+                            <span>@Model.Score</span>
+                        </div>
+                        <div class="col-12 brainstorm-icon">
+                            <button type="button" class="brainstorm-button brainstorm-down" data-vote="@(VoteValue.Negative)"><i class="fa fa-arrow-alt-circle-down @(Model.CurrentUserVote == VoteValue.Negative ? "text-red": string.Empty)"></i></button>
+                        </div>
+                    </div>
+                    <div class="brainstorm-details">
+                        <div class="col-12">
+                            <p>@Model.Description</p>
+                        </div>
+                    </div>
+                    <div class="author-details">
+                        <div class="col-12">
+                            <div class="user-block">
+                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                                    <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                                </a>
+                                <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
+
+                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
+                                    <span class="description">@Model.CreateDate.ToString()</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 text-lowercase text-right">
+                        <span class="text-muted"><span class="comment-count">@Model.CommentCount</span> @SharedLocalizer["Comments"]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-footer box-comments">
+                <div class="box-commentsection mt-10">
+                    <div class="box-comment-template hidden-xl-down">
+                        <img class="rounded img-sm rounded-circle" src="# alt="User Image">
+
+                        <div class="comment-text">
+                            <span class="username">
+                                <span class="comment-authorname">#</span>
+                                <span class="text-muted pull-right comment-date">#</span>
+                            </span>
+                            <div class="comment-content">
+                                #
+                            </div>
+                        </div>
+                    </div>
+                    @foreach (var comment in Model.Comments)
+                    {
+                        <div class="box-comment">
+                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                                <img class="rounded img-sm rounded-circle" src="@comment.AuthorPicture" alt="User Image">
+                            </a>
+
+                            <div class="comment-text">
+                                <span class="username">
+                                    <span class="comment-authorname"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@comment.AuthorName</a></span>
+                                    <span class="text-muted pull-right comment-date">@comment.CreateDate.ToString()</span>
+                                </span>
+                                <div class="comment-content">
+                                    @Html.Raw(comment.Text)
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="align-middle pt-10 interaction-commentbox" data-fullname="@myFullName">
+                        <form action="#" method="post">
+                            <img class="img-fluid rounded-circle img-sm" src="@ViewBag.ProfileImage" alt="Alt Text">
+                            <div class="img-push">
+                                <label aria-label="Comment_@Model.Id" style="width:100%">
+                                    <textarea data-userContentId="@Model.Id" data-userContentType="@Model.UserContentType" class="form-control commenttextarea input-sm commentbox" rows="1" placeholder="@SharedLocalizer["Press CTRL+ENTER to send your comment"]"></textarea>
+                                    <div class="float-right comment-send-button">
+                                        <button type="button" role="button" aria-label="@SharedLocalizer["Post Comment"]" class="btn bg-transparent btn-interaction-comment-send"><i class="fa fa-2x fa-comment"></i></button>
+                                    </div>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/brainstorm.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/brainstorm.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/brainstorm/brainstorm.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/brainstorm/brainstorm.min.js" asp-append-version="true"></script>
+    </environment>
+}

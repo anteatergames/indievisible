@@ -1,0 +1,18 @@
+﻿@{
+    var model = ViewBag.Games as List<GameListItemViewModel>;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="col-12 hidden-md-down">
+    @await Html.PartialAsync("_TagList")
+</div>
+
+@if (model.Any())
+{
+    @await Html.PartialAsync("_Games", model)
+}
+else
+{
+    <span>@SharedLocalizer["No results to show"]</span>
+}

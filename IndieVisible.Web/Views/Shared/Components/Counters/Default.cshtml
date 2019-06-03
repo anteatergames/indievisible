@@ -1,0 +1,66 @@
+﻿@model CountersViewModel
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-xl-12 col-md-6 col-12">
+        <a asp-area="" asp-controller="game" asp-action="list">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-logo-game-controller-a"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-number">@Model.GamesCount</span>
+                    <span class="info-box-text">@SharedLocalizer["Games"]</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+        </a>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-xl-12 col-md-6 col-12">
+        <a asp-area="" asp-controller="user" asp-action="list">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-md-person"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-number">@Model.UsersCount</span>
+                    <span class="info-box-text">@SharedLocalizer["Users"]</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+        </a>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+
+    <div class="col-xl-12 col-md-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-blue"><i class="ion ion-ios-paper"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-number">@Model.ArticlesCount</span>
+                <span class="info-box-text">@SharedLocalizer["Articles"]</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-xl-12 col-md-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-shapes"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-number">@Model.JamsCount</span>
+                <span class="info-box-text">@SharedLocalizer["Jams"]</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+</div>

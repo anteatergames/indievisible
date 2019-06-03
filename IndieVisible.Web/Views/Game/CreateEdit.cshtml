@@ -1,0 +1,272 @@
+﻿@model GameViewModel
+
+@{
+    var operation = Model.Id == Guid.Empty ? "Add" : "Edit";
+    ViewData["Title"] = SharedLocalizer[operation + " Game"];
+}
+
+<div class="col-12 no-gutters">
+    <form id="frmGameSave" asp-controller="game" asp-action="save" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="CreateDate" />
+        <input type="hidden" asp-for="ThumbnailUrl" />
+        <input type="hidden" asp-for="CoverImageUrl" />
+        <input type="hidden" asp-for="AuthorName" />
+        <input type="hidden" asp-for="AuthorPicture" />
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="card-title">@ViewData["Title"]</h3>
+                <h6 class="card-subtitle">
+                    @SharedLocalizer["Fill in with the game information"]
+                </h6>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body p-0 p-md-10">
+                <!-- Nav tabs -->
+                <div class="vtabs customvtab col-12">
+                    <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#tabbasic" role="tab" aria-expanded="true" aria-selected="true"><span class="hidden-sm-up"><i class="ion-ios-home"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Basic"]</span> </a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabdescription" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-information-circle"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Description"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabeyecandy" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-eye"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Eye Candy"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabtechnical" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-person"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Technical"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabpresence" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-mail"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Presence"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsocial" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-share"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Social"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsettings" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-cog"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Settings"]</span></a> </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content p-0">
+                        <div class="tab-pane active show p-0" id="tabbasic" role="tabpanel" aria-expanded="true">
+                            <div class="pad">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="Title"></label>
+                                        <input asp-for="Title" type="text" class="form-control">
+                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="Url"></label>
+                                        <input asp-for="Url" type="text" class="form-control">
+                                        <span asp-validation-for="Url" class="text-danger"></span>
+                                    </div>
+                                </div>*@
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="Genre"></label>
+                                        <select asp-for="Genre" asp-items="Html.GetEnumSelectList<GameGenre>()" class="form-control">
+                                            <option selected="selected" value="">Select</option>
+                                        </select>
+                                        <span asp-validation-for="Genre" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane pad p-0" id="tabdescription" role="tabpanel" aria-expanded="true">
+                            <div class="pad">
+                                <div class="form-group">
+                                    <label asp-for="Description"></label>
+                                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Type the game description here"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane pad" id="tabeyecandy" role="tabpanel" aria-expanded="false">
+                            <div class="pad">
+                                <div>
+                                    <label asp-for="CoverImageUrl"></label> (1600x266)
+                                    <br />
+                                    <label class="label" data-toggle="tooltip" title="" data-original-title="Change the game Cover Image">
+                                        <img class="rounded img-fluid" id="imgCoverImage" src="@Model.CoverImageUrl" alt="gamecoverimage">
+                                        <input type="file" class="sr-only" id="gamecoverimage" name="gamecoverimage" accept="image/*">
+                                    </label>
+                                </div>
+                                <div>&nbsp;</div>
+                                <div style="max-width:500px;">
+                                    <label asp-for="ThumbnailUrl"></label> (500x281)
+                                    <br />
+                                    <label class="label" data-toggle="tooltip" title="" data-original-title="Change the game Thumbnail">
+                                        <img class="rounded img-fluid" id="imgGameThumbnail" src="@Model.ThumbnailUrl" alt="gamethumbnail">
+                                        <input type="file" class="sr-only" id="gamethumbnail" name="gamethumbnail" accept="image/*">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane pad p-0" id="tabtechnical" role="tabpanel" aria-expanded="false">
+                            <div class="pad">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="Engine"></label>
+                                        <select asp-for="Engine" asp-items="Html.GetEnumSelectList<GameEngine>()" class="form-control">
+                                            <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                                        </select>
+                                        <span asp-validation-for="Engine" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="Language"></label>
+                                        <select asp-for="Language" asp-items="Html.GetEnumSelectList<CodeLanguage>()" class="form-control">
+                                            <option selected="selected" value="">Select</option>
+                                        </select>
+                                        <span asp-validation-for="Language" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane pad p-0" id="tabpresence" role="tabpanel" aria-expanded="false">
+                            <div class="pad">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="WebsiteUrl"></label>
+                                        <input asp-for="WebsiteUrl" type="text" class="form-control">
+                                        <span asp-validation-for="WebsiteUrl" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="Status"></label>
+                                        <select asp-for="Status" asp-items="Html.GetEnumSelectList<GameStatus>()" class="form-control">
+                                            <option selected="selected" value="">Select</option>
+                                        </select>
+                                        <span asp-validation-for="Status" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="ReleaseDate"></label>
+                                        <input asp-for="ReleaseDate" type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Platforms"></label>
+                                        <select asp-for="Platforms" asp-items="Html.GetEnumSelectList<GamePlatforms>()" class="form-control select2" multiple="" data-placeholder="Select the Platforms" style="width: 100%;" tabindex="-1" aria-hidden="true"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane pad p-0" id="tabsocial" role="tabpanel" aria-expanded="false">
+                            <div class="pad">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-md-12 col-12">
+                                            <div class="info-box bg-blue-active">
+                                                <span class="info-box-icon push-bottom"><i class="fab fa-facebook-f"></i></span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Facebook</span>
+                                                    <div class="block">
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="block">
+                                                        &nbsp;
+                                                    </div>
+                                                    <input asp-for="FacebookUrl" class="form-control" placeholder="@SharedLocalizer["Type the Facebook address here"]" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-md-12 col-12">
+                                            <div class="info-box bg-light-blue">
+                                                <span class="info-box-icon push-bottom"><i class="fab fa-twitter"></i></span>
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Twitter</span>
+                                                    <div class="block">
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="block">
+                                                        &nbsp;
+                                                    </div>
+                                                    <input asp-for="TwitterUrl" class="form-control" placeholder="@SharedLocalizer["Type the Twitter address here"]" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane pad p-0" id="tabsettings" role="tabpanel" aria-expanded="false">
+                            <div class="pad">
+                                Settings tab
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+
+                <div class="text-right">
+                    <button type="button" id="btnGameSave" class="btn btn-info"><i class="fas fa-save">&nbsp;</i>@SharedLocalizer["Save"]</button>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal fade" id="modalCropGameThumbnail" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container p-10">
+                    <img id="cropImageGameThumbnail" src="#" class="img-fluid" alt="Crop Image Game Thumbnail">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="cropGameThumbnail">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalCropGameCoverImage" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container p-10">
+                    <img id="cropImageGameCoverImage" src="#" class="img-fluid" alt="Crop Image Game Cover Image">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="cropGameCoverImage">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
+}
+@section Scripts {
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/lib/cropperjs/cropper.js"></script>
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script src="~/js/game/gameedit.js"></script>
+}

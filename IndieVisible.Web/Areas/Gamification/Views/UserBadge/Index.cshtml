@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = SharedLocalizer["Badges"];
+    ViewData["Description"] = SharedLocalizer["The badges you can earn while you enjoy INDIEVISIBLE features."];
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("index", "userbadge", new { area = "gamification" });
+    ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogbadges.png";
+    ViewData["OgImageWidth"] = 1200;
+    ViewData["OgImageHeight"] = 630;
+
+    Dictionary<string, UiInfoAttribute> badges = (Dictionary<string, UiInfoAttribute>)ViewData["Badges"];
+    bool anternate = true;
+}
+
+<div class="col-12">
+    <h1 class="sr-only">@ViewData["Title"]</h1>
+
+    <div class="p-3">
+        <h2 class="display-4">@SharedLocalizer["We got badges!"]</h2>
+        <p>@SharedLocalizer["Here on INDIEVISIBLE you can earn badges to show everyone with pride your contributions to the indie game development community."]</p>
+    </div>
+
+    @foreach (var badge in badges)
+    {
+        var imgSideClass = (anternate ? "order-lg-2" : string.Empty);
+        var textSideClass = (anternate ? "order-lg-1" : string.Empty);
+
+        <div class="row align-items-center">
+            <div class="col-lg-6 @imgSideClass">
+                <div class="p-5 text-center">
+                    <img width="256" class="img-fluid" src="~/images/badges/@(badge.Key).png" alt="@badge.Key">
+                </div>
+            </div>
+            <div class="col-lg-6 @textSideClass">
+                <div class="p-2">
+                    <h3 class="display-4">@SharedLocalizer[badge.Value.Display]</h3>
+                    <p>@SharedLocalizer[badge.Value.Description]</p>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        anternate = !anternate;
+    }
+
+</div>

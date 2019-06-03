@@ -1,0 +1,48 @@
+﻿@model IEnumerable<UserContentToBeFeaturedViewModel>
+
+@{
+    ViewData["Title"] = "User Content Management";
+
+    var htmlYesNo = @"<i class="" text-{0} fa fa-2x fa-{1}-circle"" data-toggle=""tooltip"" data-placement=""top"" title=""{2}"">&nbsp;</i>";
+}
+
+<div class="box box-default">
+    <div class="box-body">
+        <div class="col-12 table-responsive">
+            <table class="table table-hover table-striped text-center">
+                <thead>
+                    <tr>
+                        <th colspan="2">Title</th>
+                        <th>Intro</th>
+                        <th>Content</th>
+                        <th>Date</th>
+                        <th>Likes</th>
+                        <th>Comments</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr data-id="@item.Id" data-featureid="@item.CurrentFeatureId">
+                        <td class="text-left">@item.Title</td>
+                        <td>@Html.Raw(String.Format(htmlYesNo, (item.TitleCompliant ? "green" : "red"), (item.TitleCompliant ? "check" : "times"), item.Title))</td>
+                        <td>@Html.Raw(String.Format(htmlYesNo, (item.IntroCompliant ? "green" : "red"), (item.IntroCompliant ? "check" : "times"), item.Introduction))</td>
+                        <td>@Html.Raw(String.Format(htmlYesNo, (item.ContentCompliant ? "green" : "red"), (item.ContentCompliant ? "check" : "times"), item.Content.Length))</td>
+                        <td>@item.CreateDate.ToString()</td>
+                        <td>@item.LikeCount</td>
+                        <td>@item.CommentCount</td>
+                        <td>
+                            <div class="col-12">
+                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" target="_blank" class="btn btn-default bg-blue text-white"><i class="fa fa-fw fa-2x fa-eye"></i></a>
+                                <button class="btn btn-default bg-green text-white btn-feature-ok" @(item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-up"></i></button>
+                                <button class="btn btn-default bg-red text-white btn-feature-nok" @(!item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-down"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

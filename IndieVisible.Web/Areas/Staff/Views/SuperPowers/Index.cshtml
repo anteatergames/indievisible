@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Super Powers!";
+
+    var isAdmin = ViewData["user_is_admin"];
+}
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+    <div class="flex-square clickable rectangle bg-purple">
+        <div class="flex-square-inner">
+            <a asp-area="" asp-controller="user" asp-action="list">
+                <div class="flex-square-inner-content text-white">
+                    <div><i class="fa fa-3x fa-user"></i></div>
+                    <div>@SharedLocalizer["Users"]</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+    <div class="flex-square clickable rectangle bg-red">
+        <div class="flex-square-inner">
+            <a asp-area="staff" asp-controller="featuredcontent" asp-action="index">
+                <div class="flex-square-inner-content text-white">
+                    <div><i class="fa fa-3x fa-star"></i></div>
+                    <div>@SharedLocalizer["featured content"]</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+@if (isAdmin != null)
+{
+    <script>
+            ga('set', 'dimension1', '@isAdmin');
+    </script>
+}

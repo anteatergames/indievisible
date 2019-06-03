@@ -1,0 +1,76 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/css/main.css",
+      "wwwroot/css/master_style.css",
+      "wwwroot/css/skins/indievisible-skin.css",
+      "wwwroot/css/cssmenu.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/home.min.css",
+    "inputFiles": [
+      "wwwroot/css/home.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/gamedetails.min.css",
+    "inputFiles": [
+      "wwwroot/css/gamedetails.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/profiledetails.min.css",
+    "inputFiles": [
+      "wwwroot/css/profiledetails.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/profile/profiledetails.min.js",
+    "inputFiles": [
+      "wwwroot/js/profile/profiledetails.js",
+      "wwwroot/js/shared/contentactions.js",
+      "wwwroot/lib/embedo/embedo.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/template.js",
+      "wwwroot/js/main.js",
+      "wwwroot/js/shared/alertsystem.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/home.min.js",
+    "inputFiles": [
+      "wwwroot/lib/dropzone/dropzone.js",
+      "wwwroot/js/shared/contentactions.js",
+      "wwwroot/js/home/homepage.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/gamedetails.min.js",
+    "inputFiles": [
+      "wwwroot/js/shared/contentactions.js",
+      "wwwroot/js/game/gamedetails.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/brainstorm/brainstorm.min.js",
+    "inputFiles": [
+      "wwwroot/js/brainstorm/brainstorm.js",
+      "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/brainstorm.min.css",
+    "inputFiles": [
+      "wwwroot/css/brainstorm.css"
+    ]
+  }
+]

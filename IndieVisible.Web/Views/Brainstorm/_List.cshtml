@@ -1,0 +1,44 @@
+﻿@model IEnumerable<IndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel>
+
+@if (!Model.Any())
+{
+    <div class="text-center mt-10 brainstorm-item list-item p-20">
+        <i class="fa-10x fas fa-lightbulb brainstorm-ideaicon"></i>
+        <div class="mt-10">
+            <h3>@SharedLocalizer["What? We have no Ideas to show! We need some ideas!"]</h3>
+        </div>
+    </div>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="col-12 brainstorm-item list-item" data-id="@item.Id" data-currentuservote="@item.CurrentUserVote">
+            <div class="brainstorm-panel">
+                <div class="col-12 brainstorm-icon">
+                    <button type="button" class="brainstorm-button brainstorm-up" data-vote="@(VoteValue.Positive)"><i class="fa fa-arrow-alt-circle-up @(item.CurrentUserVote == VoteValue.Positive ? "text-green": string.Empty)"></i></button>
+                </div>
+                <div class="col-12 brainstorm-count">
+                    <span>@item.Score</span>
+                </div>
+                <div class="col-12 brainstorm-icon">
+                    <button type="button" class="brainstorm-button brainstorm-down" data-vote="@(VoteValue.Negative)"><i class="fa fa-arrow-alt-circle-down @(item.CurrentUserVote == VoteValue.Negative ? "text-red": string.Empty)"></i></button>
+                </div>
+            </div>
+            <div class="brainstorm-details">
+                <div class="col-12">
+                    <a asp-area="" asp-controller="brainstorm" asp-action="details" asp-route-id="@item.Id" class="btnViewIdea"><h4>@item.Title</h4></a>
+                </div>
+
+                <div class="col-12">
+                    <p>@item.Description</p>
+                </div>
+
+                <div class="col-12 text-lowercase text-right">
+                    <span class="text-muted"><span class="comment-count">@item.CommentCount</span> @SharedLocalizer["Comments"]</span>
+                </div>
+            </div>
+        </div>
+    }
+
+}

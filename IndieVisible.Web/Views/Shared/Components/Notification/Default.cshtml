@@ -1,0 +1,35 @@
+﻿@model IEnumerable<IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel>
+@{
+    Layout = null;
+
+    var count = (int)(ViewData["UnreadCount"] ?? 0);
+    var newMessages = count > 0;
+
+    var countText = count == 1 ? SharedLocalizer["You have 1 new notification"] : SharedLocalizer[String.Format("You have {0} new notifications", count)];
+
+}
+
+
+
+<a href="#" class="dropdown-toggle @(newMessages ? "newmessages" : string.Empty)" data-toggle="dropdown">
+    <i class="fa fa-bell"></i>
+</a>
+
+<ul class="dropdown-menu scale-up">
+    <li class="header">@countText</li>
+    <li>
+        <ul class="menu inner-content-div">
+
+            @foreach (var notification in Model)
+            {
+                <li class="@(notification.IsRead ? String.Empty : "text-bold")">
+                    <a href="@notification.Url">
+                        <i class="@notification.Icon @notification.IconColor"></i>  @notification.Text
+                    </a>
+                </li>
+
+            }
+        </ul>
+    </li>
+    @*<li class="footer"><a href="#">View all</a></li>*@
+</ul>

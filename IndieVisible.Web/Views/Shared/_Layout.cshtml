@@ -1,0 +1,299 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.Extensions.Options
+
+
+@inject IOptions<ConfigOptions> ConfigOptions
+
+@{
+    var title = string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()) ? "INDIEVISIBLE - The Indie Game Developers Community" : ViewData["Title"] + " - INDIEVISIBLE - The Indie GameDev Community";
+    string userId = UserManager.GetUserId(User);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@(ViewData["Description"] ?? "The independent developers community. Nothing can divide us! (by zero?)")">
+    <meta name="keywords" content="indie game, indie game developers, development, game development, article, social networking, international collaboration" />
+    <meta name="author" content="Anteater Games">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="~/manifest.json">
+    <link rel="mask-icon" href="~/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="website" />
+    <meta property="fb:app_id" content="@ConfigOptions.Value.FacebookAppId" />
+
+    <meta property="og:title" content="@(ViewData["Title"] ?? "INDIEVISIBLE - The independent developers community")">
+    <meta property="og:description" content="@(ViewData["Description"] ?? "The independent developers community. Nothing can divide us! (by zero?)")">
+    <meta property="og:url" content="@(ViewData["Url"] ?? "https://www.indievisible.net")">
+    <meta property="og:image" content="@(ViewData["OgImage"] ?? "https://www.indievisible.net/images/og/img_facebook600x315.png")">
+    <meta property="og:image:width" content="@(ViewData["OgImageWidth"] ?? 600)">
+    <meta property="og:image:height" content="@(ViewData["OgImageHeight"] ?? 315)">
+    <meta property="og:image" content="https://www.indievisible.net/images/og/img_facebook2.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="315">
+    <meta property="og:image" content="https://www.indievisible.net/images/og/logo512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+
+    <link rel="alternate" href="https://www.indievisible.net/?culture=pt-BR" hreflang="pt-br" />
+    <link rel="alternate" href="https://www.indievisible.net/?culture=en" hreflang="en" />
+    <link rel="alternate" href="https://www.indievisible.net/?culture=ru" hreflang="ru" />
+
+    <title>@title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css">
+        <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.css">
+        <link rel="stylesheet" href="~/lib/pace/themes/white/pace-theme-minimal.css">
+        <link rel="stylesheet" href="~/lib/jquery-toast/jquery.toast.css" />
+        @RenderSection("ComponentStyles", required: false)
+        <link rel="stylesheet" href="~/css/main.css">
+        <link rel="stylesheet" href="~/css/master_style.css">
+        <link rel="stylesheet" href="~/css/skins/indievisible-skin.css">
+        <link rel="stylesheet" href="~/lib/tinyDrawyer/css/tinyDrawer.css">
+        <link rel="stylesheet" href="~/css/cssmenu.css">
+        @RenderSection("Styles", required: false)
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/twitter-bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+              asp-fallback-href="~/lib/font-awesome/css/all.min.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute"
+              integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+              crossorigin="anonymous" />
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.6/css/ionicons.min.css"
+              asp-fallback-href="~/lib/ionicons/css/ionicons.min.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute"
+              integrity="sha384-y5QlCpvrWOHRatbdweSP5VT8RdMRL4e5Vb/DkOqoNBYYd1Rr+AP5IcX2hB+yFxKD"
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="~/lib/pace/themes/white/pace-theme-minimal.min.css">
+        <link rel="stylesheet"
+              href="~/lib/pace/themes/white/pace-theme-minimal.min.css"
+              asp-fallback-href="~/lib/pace/themes/white/pace-theme-minimal.min.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute"
+              integrity="sha384-fHdycnsK2rShc693xdyXwDfyNukSqCSmKMesSHdH+6gZVhBw6LaLXJBGXYMYr6SJ"
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="~/lib/jquery-toast/jquery.toast.min.css" />
+        <link rel="stylesheet" href="~/lib/tinyDrawyer/css/tinyDrawer.min.css">
+        @RenderSection("ComponentStyles", required: false)
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true">
+        @RenderSection("Styles", required: false)
+    </environment>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+</head>
+<body class="hold-transition skin-indievisible sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+        <header class="main-header">
+            <!-- Logo -->
+            @*<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>*@
+            <a asp-area="" asp-controller="home" asp-action="index" class="logo hidden-sm-down">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="~/images/logominimal.png" alt="INDIEVISIBLE"></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="~/images/logo30h.png" alt="INDIEVISIBLE"></span>
+            </a>
+            <!-- Header Navbar-->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" data-drawer-open class="btn-open sidebar-toggle" role="button">
+                    <i class="fas fa-bars"></i>
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <a asp-area="" asp-controller="home" asp-action="index" class="hidden-md-up">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    @*<span class="logo-mini"><img src="/images/minimal.png" alt=""></span>*@
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><img src="~/images/logo30h.png" alt="INDIEVISIBLE"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            @*@await Html.PartialAsync("_MessagesPartial")*@
+
+                            <li id="notificationsMenu" class="dropdown notifications-menu">
+                                @*@await Html.PartialAsync("_NotificationsPartial")*@
+                            </li>
+
+                            @*@await Html.PartialAsync("_TasksPartial")*@
+
+                            <!-- Control Sidebar Toggle Button -->
+                            <li>
+                                <a aria-label="@SharedLocalizer["Open Sidebar"]" href="#" data-toggle="control-sidebar"><i class="fa fa-asterisk"></i></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <drawer-menu class="menu">
+            <!-- Left side column. contains the sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar -->
+                <section class="sidebar">
+                    <h6 class="hidden-xl-down">&nbsp;</h6>
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        @await Html.PartialAsync("_UserPanelPartial")
+                    </div>
+                    @await Html.PartialAsync("_SidebarMenuPartial")
+                </section>
+            </aside>
+        </drawer-menu>
+
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper container">
+
+            @*@await Html.PartialAsync("_PageHeaderPartial")*@
+
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row mt-0 mt-md-10 no-gutters px-0 px-lg-10">
+                    @RenderBody()
+                </div>
+
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="pull-right d-none d-sm-inline-block">
+            </div>Copyright &copy; 2018 <a href="https://www.indievisible.net/">Anteater Games</a>.
+            @SharedLocalizer["Read our"] <a asp-area="" asp-controller="home" asp-action="terms">@SharedLocalizer["Terms"]</a> @SharedLocalizer["and"] <a asp-area="" asp-controller="home" asp-action="privacy">@SharedLocalizer["Policies"]</a>
+        </footer>
+
+        @await Html.PartialAsync("_ControlSidebarPartial")
+
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+
+
+    <environment include="Development">
+        <script src="~/lib/tinyDrawyer/js/tinyDrawer.js"></script>
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/popper.js/umd/popper.js"></script>
+        <script src="~/lib/twitter-bootstrap/js/bootstrap.js" defer></script>
+        <script src="~/lib/pace/pace.js"></script>
+        <script src="~/lib/fastclick/fastclick.js"></script>
+
+        <script src="~/lib/jquery-toast/jquery.toast.js"></script>
+
+        <script src="~/lib/limonte-sweetalert/sweetalert2.all.js"></script>
+
+
+        <!--[if lt IE 11]>
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
+
+        <script src="~/lib/lazysizes/lazysizes.min.js" defer async></script>
+
+        <script src="~/js/template.js" defer></script>
+        <script src="~/js/main.js" asp-append-version="true" defer></script>
+        <script src="~/js/shared/alertsystem.js" defer></script>
+    </environment>
+    <environment exclude="Development">
+
+        <script src="~/lib/tinyDrawyer/js/tinyDrawer.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.0/umd/popper.min.js"
+                asp-fallback-src="~/lib/popper.js/umd/popper.min.js"
+                asp-fallback-test="window.Popper"
+                integrity="sha384-D6xhHwxO49zH4dDBnEL+rkiLYlbtI8KgD4ScHJvNpEq+Fo89pFlWOr/wJLcRBaBH"
+                crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/twitter-bootstrap/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous">
+        </script>
+        <script src="~/lib/pace/pace.min.js" async></script>
+        <script src="~/lib/fastclick/fastclick.min.js" defer></script>
+
+        <script src="~/lib/jquery-toast/jquery.toast.min.js" defer></script>
+
+        <script src="~/lib/limonte-sweetalert/sweetalert2.all.min.js" defer></script>
+        <!--[if lt IE 11]>
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
+        <script src="~/lib/lazysizes/lazysizes.min.js" async defer></script>
+
+        <script src="~/js/site.min.js" asp-append-version="true" defer></script>
+
+        @await Html.PartialAsync("_AnalyticsPartial")
+    </environment>
+
+    <script>
+        tinyDrawer();
+    </script>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: $('meta[property="fb:app_id"]').attr('content'),
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.2'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+
+    <partial name="_CookieConsentPartial" />
+
+</body>
+</html>

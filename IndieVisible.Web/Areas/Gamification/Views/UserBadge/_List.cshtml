@@ -1,0 +1,19 @@
+﻿@model IEnumerable<IndieVisible.Application.ViewModels.Gamification.UserBadgeViewModel>
+@{
+    Layout = null;
+}
+@if (!Model.Any())
+{
+    <span>No badges yet</span>
+}
+else
+{
+    foreach (var badge in Model)
+    {
+        <div class="badge-wrapper">
+            <a asp-area="gamification" asp-controller="userbadge" asp-action="index">
+                <img class="badge-icon" src="~/images/badges/@(badge.Badge.ToString()).png" data-toggle="tooltip" title="@badge.Badge" data-placement="bottom" />
+            </a>
+        </div>
+    }
+}

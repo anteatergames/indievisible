@@ -1,0 +1,39 @@
+.navigation {
+    width: 300px;
+}
+
+.mainmenu, .submenu {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+    .submenu li a {
+        padding-left: 30px;
+    }
+
+    .mainmenu a {
+        display: block;
+        text-decoration: none;
+        padding: 10px;
+        color: white;
+    }
+
+        .mainmenu a:hover {
+            background: #333333;
+            transition: all 1s ease-in;
+        }
+
+
+    .mainmenu li:hover .submenu {
+        display: block;
+        max-height: 300px;
+        transition: all 1s ease-in;
+    }
+
+
+.submenu {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transition: all 1s ease-out;
+}

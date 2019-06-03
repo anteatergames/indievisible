@@ -1,0 +1,33 @@
+﻿@model MvcExternalLoginViewModel
+@{
+}
+
+<div class="row col-6 margin-top-10 no-gutters pl-0 pr-0 pl-md-10 pr-md-10">
+    <h4>@SharedLocalizer[String.Format("Associate your {0} account", ViewData["LoginProvider"])]</h4>
+
+    <div class="col-12">
+        <div class="alert alert-info">
+            @ViewData["RegisterText"]
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <form asp-action="ExternalLoginConfirmation" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-element">
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" asp-is-readonly="@Model.UserExists" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" asp-is-readonly="true" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-lg btn-success btn-block">@ViewData["ButtonText"]</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

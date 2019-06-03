@@ -1,0 +1,54 @@
+﻿@model CarouselViewModel
+@{
+    Layout = null;
+}
+
+<div id="carousel-front-page" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < Model.Items.Count; i++)
+        {
+            var classActive = i == 0 ? "active" : string.Empty;
+            <li data-target="#carousel-front-page" data-slide-to="@i" class="@classActive"></li>
+        }
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        @for (int i = 0; i < Model.Items.Count; i++)
+        {
+            var classActive = i == 0 ? "active" : string.Empty;
+            var classItemNext = i == 0 ? " carousel-item-next" : string.Empty;
+            var classItemLeft = i == 0 ? " carousel-item-left" : string.Empty;
+            <div role="option" class="carousel-item @classActive">
+                <img src="@Model.Items.ElementAt(i).ImageUrl" class="img-fluid" alt="slide-@(i + 1)">
+                @if (Model.Items.ElementAt(i).UserContentId != Guid.Empty)
+                {
+                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Items.ElementAt(i).UserContentId">
+                        <div class="carousel-caption">
+                            <h3>@Model.Items.ElementAt(i).Title</h3>
+                            <p>@Model.Items.ElementAt(i).Introduction</p>
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a href="#">
+                        <div class="carousel-caption">
+                            <h3>@Model.Items.ElementAt(i).Title</h3>
+                            <p>@Model.Items.ElementAt(i).Introduction</p>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+    </div>
+    <!-- Controls -->
+    <a class="carousel-control-prev" href="#carousel-front-page" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa fa-chevron-left"></i></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-front-page" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa fa-chevron-right"></i></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

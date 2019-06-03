@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Confirm email";
+    ViewData["CanonicalUrl"] = "https://www.indievisible.net/account/confirmemail/";
+    Layout = "~/Views/Shared/_LayoutLoginRegister.cshtml";
+}
+
+<div class="login-box">
+    <div class="login-logo">
+        <a asp-area="" asp-controller="home" asp-action="index">
+            <span><img src="~/images/logo360w.png" class="embed-responsive" alt=""></span>
+        </a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <h2>@ViewData["Title"]</h2>
+        <div>
+            <p>
+                Thank you for confirming your email.
+            </p>
+        </div>
+        <a asp-area="" asp-controller="account" asp-action="login" class="btn btn-lg btn-default btn-block">Back to Login Page</a>
+    </div>
+</div>

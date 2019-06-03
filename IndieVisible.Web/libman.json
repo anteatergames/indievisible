@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "twitter-bootstrap@4.1.3",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "library": "jquery@3.3.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "jquery-validate@1.17.0",
+      "destination": "wwwroot/lib/jquery-validate/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.10",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "font-awesome@5.8.1",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "ionicons@4.4.6",
+      "destination": "wwwroot/lib/ionicons/"
+    },
+    {
+      "library": "popper.js@1.12.0",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "pace@1.0.2",
+      "destination": "wwwroot/lib/pace"
+    },
+    {
+      "library": "fastclick@1.0.6",
+      "destination": "wwwroot/lib/fastclick"
+    },
+    {
+      "library": "jquery-toast-plugin@1.3.2",
+      "destination": "wwwroot/lib/jquery-toast"
+    },
+    {
+      "library": "bootstrap-fileinput@4.5.1",
+      "destination": "wwwroot/lib/bootstrap-fileinput"
+    },
+    {
+      "library": "select2@4.0.5",
+      "destination": "wwwroot/lib/select2"
+    },
+    {
+      "library": "limonte-sweetalert2@7.29.2",
+      "destination": "wwwroot/lib/limonte-sweetalert"
+    },
+    {
+      "library": "embedo@1.12.0",
+      "destination": "wwwroot/lib/embedo"
+    },
+    {
+      "library": "codemirror@5.42.0",
+      "destination": "wwwroot/lib/codemirror"
+    },
+    {
+      "library": "cropperjs@1.4.3",
+      "destination": "wwwroot/lib/cropperjs"
+    },
+    {
+      "library": "lazysizes@4.1.5",
+      "destination": "wwwroot/lib/lazysizes"
+    },
+    {
+      "library": "dropzone@5.5.0",
+      "destination": "wwwroot/lib/dropzone"
+    }
+  ]
+}

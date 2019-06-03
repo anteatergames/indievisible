@@ -1,0 +1,92 @@
+﻿@model IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel
+@{
+    ViewData["Title"] = SharedLocalizer["Brainstorm"];
+    var canInteract = User.Identity.IsAuthenticated;
+
+    var sessions = ViewData["Sessions"] as IEnumerable<IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel>;
+}
+
+<div id="brainstormcontainer" data-caninteract="@canInteract.ToString().ToLower()" class="col-12">
+    <input type="hidden" asp-for="Id" />
+    <div class="row">
+        <div class="col-lg-8">
+            <h1><i class="fa fa-brain">&nbsp;</i>@ViewData["Title"]</h1>
+            <h2>@Model.Title</h2>
+            <p>@Model.Description</p>
+
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <h6>
+                    @SharedLocalizer["You need to be logged in to post suggestion, vote and comment."]
+                    <a asp-area="" asp-controller="account" asp-action="login" data-toggle="tooltip" title="" data-original-title="Log In">@SharedLocalizer["Click here to login."]</a>
+                </h6>
+            }
+            <div id="divToolbar" class="no-gutters text-right">
+                <div class="col-12">
+                    @if (canInteract)
+                    {
+                        <div class="col-6 offset-md-6 hidden-lg-up hidden-sm-down p-0">
+                            <button class="btn-idea-new btn btn-lg btn-primary btn-block"><i class="far fa-lightbulb ">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
+                        </div>
+                        <button class="btn-idea-new btn btn-lg btn-primary hidden-md-up btn-block"><i class="far fa-lightbulb ">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
+                    }
+                </div>
+            </div>
+            <div id="divList"></div>
+        </div>
+        <div id="brainstormsidebar" class="col-lg-4 no-gutters">
+            <div class="col-12">
+                @if (canInteract)
+                {
+                    <button class="btn-idea-new btn btn-lg btn-primary hidden-md-down btn-block"><i class="far fa-lightbulb ">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
+                }
+            </div>
+            <div class="brainstorm-box brainstorm-sessionlist">
+                <h3>@SharedLocalizer["Available Sessions"]</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <ul>
+                            @foreach (var s in sessions)
+                            {
+                                <li>
+                                    <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@s.Id">@s.Title</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    @if (canInteract)
+                    {
+                        <div class="col-12">
+                            <button class="btn-session-new btn btn-success btn-block"><i class="fa fa-brain ">&nbsp;</i>@SharedLocalizer["New Session"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="brainstorm-box">
+                <p>Now you can also create your own Brainstorm Sessions. Try it!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/brainstorm.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/brainstorm.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/brainstorm/brainstorm.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/brainstorm/brainstorm.min.js" asp-append-version="true"></script>
+    </environment>
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

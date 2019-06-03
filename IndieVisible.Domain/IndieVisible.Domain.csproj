@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Company>IndieVisible</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IndieVisible.Domain.Core\IndieVisible.Domain.Core.csproj" />
+    <ProjectReference Include="..\IndieVisible.Infra.CrossCutting.Bus\IndieVisible.Infra.CrossCutting.Bus.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,136 @@
+﻿@model List<UserContentListItemViewModel>
+
+@{
+    Layout = null;
+    var myFullName = CookieMgrService.Get(SessionValues.FullName.ToString());
+}
+
+@if (!Model.Any())
+{
+    <span>@SharedLocalizer["no activity yet"]</span>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="box box-widget box-content p-0" data-id="@item.Id">
+            <div class="box-header with-border">
+                <div class="user-block">
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
+                        <img class="rounded-circle" src="@item.AuthorPicture" src="~/images/profileimages/developer.png" alt="This is @item.AuthorName">
+                    </a>
+                    <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">@item.AuthorName</a></span>
+
+                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="contenturl">
+                        <span class="description">@item.CreateDate.ToString()</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body  no-gutters p-0">
+                @if (!item.IsArticle)
+                {
+                    <div class="col-12 p-2">
+                        @Html.Raw(item.Content)
+                    </div>
+                }
+                @if (item.HasFeaturedImage)
+                {
+                    <div class="col-12 text-center">
+                        <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
+                            @if (item.FeaturedImageType == MediaType.Youtube)
+                            {
+                                <div class="videoWrapper"><oembed>@item.FeaturedImage</oembed></div>
+                            }
+                            else if (item.FeaturedImageType == MediaType.Video)
+                            {
+                                <video src="@item.FeaturedImage" width="500" height="281" controls></video>
+                            }
+                            else
+                            {
+                                <img data-src="@item.FeaturedImage" src="~/images/placeholders/featuredimage.gif" class="img-fluid lazyload" style="width:100%" alt="@item.Title" />
+                            }
+                        </a>
+                    </div>
+                }
+
+                @if (item.IsArticle)
+                {
+                    <div class="p-2">
+                        <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
+                            <div class="row col-12 font-weight-bold text-uppercase">@item.Title</div>
+                            <div class="row col-12">@Html.Raw(item.Introduction)</div>
+                        </a>
+                    </div>
+                }
+            </div>
+            <div class="box-footer box-comments">
+                <div class="col-12 text-right text-lowercase">
+                    <span class="text-muted"><span class="like-count">@item.LikeCount</span> @SharedLocalizer["Likes"] - <span class="comment-count">@item.CommentCount</span> @SharedLocalizer["Comments"]</span>
+                </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="row no-gutters bb-1">
+                        <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-like @(item.CurrentUserLiked ? "text-blue like-liked" : string.Empty)" data-id="@item.Id">
+                            <i class="fa fa-thumbs-up">&nbsp;</i>@SharedLocalizer["Like"]
+                        </button>
+                        <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-comment">
+                            <i class="fa fa-comment">&nbsp;</i>@SharedLocalizer["Comment"]
+                        </button>
+                        <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-share">
+                            <i class="fa fa-share">&nbsp;</i>@SharedLocalizer["Share"]
+                        </button>
+                    </div>
+                    <div class="box-commentsection mt-10">
+                        <div class="box-comment-template hidden-xl-down">
+                            <img class="rounded img-sm rounded-circle" src="# alt="User Image">
+
+                            <div class="comment-text">
+                                <span class="username">
+                                    <span class="comment-authorname">#</span>
+                                    <span class="text-muted pull-right comment-date">#</span>
+                                </span>
+                                <div class="comment-content">
+                                    #
+                                </div>
+                            </div>
+                        </div>
+                        @foreach (var comment in item.Comments)
+                        {
+                            <div class="box-comment">
+                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
+                                    <img class="rounded img-sm rounded-circle lazyload" data-src="@comment.AuthorPicture" alt="User Image">
+                                </a>
+
+                                <div class="comment-text">
+                                    <span class="username">
+                                        <span class="comment-authorname"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">@comment.AuthorName</a></span>
+                                        <span class="text-muted pull-right comment-date">@comment.CreateDate.ToString()</span>
+                                    </span>
+                                    <div class="comment-content">
+                                        @Html.Raw(comment.Text)
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+
+                    <div class="align-middle pt-10 interaction-commentbox" data-fullname="@myFullName">
+                        <form action="#" method="post">
+                            <img class="img-fluid rounded-circle img-sm" src="@ViewBag.ProfileImage" alt="Alt Text">
+                            <div class="img-push">
+                                <label aria-label="Comment_@item.Id" style="width:100%">
+                                    <textarea data-userContentId="@item.Id" data-userContentType="@item.UserContentType" aria-label="@SharedLocalizer["Comment"]" class="form-control commenttextarea input-sm commentbox" rows="1" placeholder="@SharedLocalizer["Press CTRL+ENTER to send"]"></textarea>
+                                    <div class="float-right comment-send-button">
+                                        <button type="button" role="button" aria-label="@SharedLocalizer["Post Comment"]" class="btn bg-transparent btn-interaction-comment-send"><i class="fa fa-2x fa-comment"></i></button>
+                                    </div>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+}

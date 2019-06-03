@@ -1,0 +1,403 @@
+﻿@model ProfileViewModel
+
+@using IndieVisible.Domain.Core.Enums
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = Model.Name;
+    ViewData["Description"] = Model.Bio;
+    string currentUserId = UserManager.GetUserId(User);
+    var urlUserId = ViewContext.RouteData.Values["id"];
+
+    var canFollowAndConnect = !currentUserId.Equals(Model.UserId.ToString());
+}
+<div class="col-12">
+    <input type="hidden" asp-for="Id" />
+    <!-- Widget: user widget style 1 -->
+    <div class="box box-widget widget-user-4 user-profile">
+        <div class="widget-user-header bg-orange" style="background: url('@Model.CoverImageUrl') center center; background-size:cover;">
+            <div class="overlay dark">
+                <div class="widget-user-image">
+                    <div class="avatar-wrapper">
+                        <img class="rounded-circle" src="@Model.ProfileImageUrl" alt="User Avatar">
+                    </div>
+                </div>
+                <h1 class="widget-user-username">@Model.Name</h1>
+                <h2 class="widget-user-desc">@Model.Motto</h2>
+
+                <div class="user-social-acount">
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Website))
+                    {
+                        <button class="btn btn-circle btn-social-icon bg-fuchsia"><i class="fa fa-link"></i></button>
+                    }
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Facebook))
+                    {
+                        <button class="btn btn-circle btn-social-icon btn-facebook"><i class="fab fa-facebook-f"></i></button>
+                    }
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Twitter))
+                    {
+                        <button class="btn btn-circle btn-social-icon btn-twitter"><i class="fab fa-twitter"></i></button>
+                    }
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Instagram))
+                    {
+                        <button class="btn btn-circle btn-social-icon btn-instagram"><i class="fab fa-instagram"></i></button>
+                    }
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.GooglePlus))
+                    {
+                        <button class="btn btn-circle btn-social-icon btn-google"><i class="fab fa-google-plus-g"></i></button>
+                    }
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Youtube))
+                    {
+                        <button class="btn btn-circle btn-social-icon bg-red"><i class="fab fa-youtube"></i></button>
+                    }
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.XboxLive))
+                    {
+                        <button class="btn btn-circle btn-social-icon bg-green-active"><i class="fab fa-xbox"></i></button>
+                    }
+                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Steam))
+                    {
+                        <button class="btn btn-circle btn-social-icon bg-black"><i class="fab fa-steam"></i></button>
+                    }
+                </div>
+            </div>
+
+            @if (Model.Permissions.CanEdit || urlUserId.Equals(currentUserId))
+            {
+                <div class="user-profile-cover-topright">
+                    <div class="btn-group">
+                        <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@urlUserId" class="btn btn-default bg-transparent">@SharedLocalizer["Edit Profile"]</a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="box-footer">
+            <div class="row mb-10 mt-2">
+                <div class="col-6 col-md-4 border-right">
+                    <div class="description-block">
+                        <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
+                        <span class="description-text">@SharedLocalizer["followers"]</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4 border-right hidden-sm-down">
+                    <div class="description-block">
+                        <h5 class="description-header">@Model.Counters.Following</h5>
+                        <span class="description-text">@SharedLocalizer["following"]</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-6 col-md-4">
+                    <div class="description-block">
+                        <h5 class="description-header connection-count">@Model.Counters.Connections</h5>
+                        <span class="description-text">@SharedLocalizer["connections"]</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
+            {
+                if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
+                {
+                    <div class="row text-center connectionalertbox">
+                        <div class="col-12 alert alert-info">
+                            <div class="col-12 col-lg-6 offset-lg-3 mb-10">
+                                <p>@SharedLocalizer["This user wants to connect with you."]</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                            @SharedLocalizer["allow"]
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                            @SharedLocalizer["deny"]
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col-12 col-lg-6 offset-lg-3 mb-10">
+                    <div class="row text-right mt-2 mb-2">
+                        <div class="col-12 col-md-6">
+                            <button type="button" id="btn-profile-follow" class="btn btn-lg btn-block btn-default text-capitalize @(Model.CurrentUserFollowing ? "bg-blue follow-following" : string.Empty)" data-id="@Model.UserId" data-type="@Model.Type">
+                                @SharedLocalizer["Follow"]
+                            </button>
+                        </div>
+                        <div class="col-12 col-md-6 mt-1 mt-md-0">
+                            <button type="button" id="btn-profile-connect" class="btn btn-lg btn-block btn-default text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "bg-green connection-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToFollowMe || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
+                                    data-id="@Model.UserId" data-type="@Model.Type" data-text-pending="@SharedLocalizer["pending"]" data-text-connected="@SharedLocalizer["connected"]" data-text-connect="@SharedLocalizer["connect"]">
+                                @if (Model.ConnectionControl.ConnectionIsPending)
+                                {
+                                    @SharedLocalizer["pending"]
+                                }
+                                else if (Model.ConnectionControl.CurrentUserConnected)
+                                {
+                                    @SharedLocalizer["connected"]
+                                }
+                                else
+                                {
+                                    @SharedLocalizer["connect"]
+                                }
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- /.col -->
+            <div class="row">
+                <div class="col-xl-4 col-lg-5 col-sm-12 p-0">
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="user-profile-bio">
+                                        <h6>
+                                            @SharedLocalizer["Bio"]
+                                        </h6>
+                                        @Model.Bio
+                                    </div>
+                                    <div class="profile-user-info">
+                                        <p>
+                                            @SharedLocalizer["Studio"]
+                                        </p>
+                                        <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
+                                        <p>
+                                            @SharedLocalizer["Location"]
+                                        </p>
+                                        <h6 class="margin-bottom">@Model.Location</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="col-12">
+                            <div class="user-profile-xp">
+                                <div class="info-box bg-purple">
+                                    <span class="info-box-icon push-bottom">@Model.IndieXp.Level</span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">@Model.IndieXp.LevelName</span>
+                                        <span class="info-box-number">@Model.IndieXp.LevelXp</span>
+
+                                        <div class="progress">
+                                            <div class="progress-bar bg-white" style="width: @(Model.IndieXp.PercentageToNextLevel)%"></div>
+                                        </div>
+                                        <span class="progress-description">
+                                            @Model.IndieXp.XpToNextLevel @SharedLocalizer["to the next level"]
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div id="divBadges"></div>
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-xl-8 col-lg-7">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+
+                            <li><a class="active" href="#about" data-toggle="tab">@SharedLocalizer["About"]</a></li>
+                            <li><a href="#tabactivity" data-toggle="tab">@SharedLocalizer["Activity"]</a></li>
+                            <li><a href="#tabgames" data-toggle="tab">@SharedLocalizer["Games"]</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="active tab-pane m-10" id="about">
+                                <h6>
+                                    @SharedLocalizer["Stats"]
+                                </h6>
+                                <div class="row">
+                                    <div class="col-xl-3 col-md-6 col-6">
+                                        <!-- small box -->
+                                        <div class="small-box bg-green">
+                                            <div class="inner">
+                                                <h3>@Model.Counters.Games</h3>
+
+                                                <p>@SharedLocalizer["Games"]</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa fa-gamepad"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-xl-3 col-md-6 col-6">
+                                        <!-- small box -->
+                                        <div class="small-box bg-yellow">
+                                            <div class="inner">
+                                                <h3>@Model.Counters.Posts</h3>
+
+                                                <p>@SharedLocalizer["Posts"]</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa fa-sticky-note"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-xl-3 col-md-6 col-6">
+                                        <!-- small box -->
+                                        <div class="small-box bg-blue">
+                                            <div class="inner">
+                                                <h3>@Model.Counters.Comments</h3>
+
+                                                <p>@SharedLocalizer["Comments"]</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa fa-comment"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-xl-3 col-md-6 col-6">
+                                        <!-- small box -->
+                                        <div class="small-box bg-red">
+                                            <div class="inner">
+                                                <h3>@Model.Counters.Jams</h3>
+
+                                                <p>@SharedLocalizer["Jams"]</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa fa-shapes"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ./col -->
+                                </div>
+
+                                @if (Model.HasOtherProfiles)
+                                {
+                                    <h6>
+                                        @SharedLocalizer["Other Profiles"]
+                                    </h6>
+                                    <div class="row">
+                                        @if (!string.IsNullOrWhiteSpace(Model.GameJoltUrl))
+                                        {
+                                            <div class="user-profile-others">
+                                                <a href="@Model.GameJoltUrl" target="_blank">
+                                                    <div class="other-icon">
+                                                        <img src="~/images/otherprofiles/gamejolt32.png" />
+                                                    </div>
+                                                    @Html.DisplayNameFor(x => x.GameJoltUrl)
+                                                </a>
+                                            </div>
+                                        }
+
+                                        @if (!string.IsNullOrWhiteSpace(Model.ItchIoUrl))
+                                        {
+                                            <div class="user-profile-others">
+                                                <a href="@Model.ItchIoUrl" target="_blank">
+                                                    <div class="other-icon">
+                                                        <img src="~/images/otherprofiles/itchio32.png" />
+                                                    </div>
+                                                    Itch.io
+                                                </a>
+                                            </div>
+                                        }
+
+                                        @if (!string.IsNullOrWhiteSpace(Model.IndieDbUrl))
+                                        {
+                                            <div class="user-profile-others">
+                                                <a href="@Model.IndieDbUrl" target="_blank">
+                                                    <div class="other-icon">
+                                                        <img src="~/images/otherprofiles/indiedb32.png" />
+                                                    </div>
+                                                    @Html.DisplayNameFor(x => x.IndieDbUrl)
+                                                </a>
+                                            </div>
+                                        }
+
+                                        @if (!string.IsNullOrWhiteSpace(Model.UnityConnectUrl))
+                                        {
+                                            <div class="user-profile-others">
+                                                <a href="@Model.UnityConnectUrl" target="_blank">
+                                                    <div class="other-icon">
+                                                        <img src="~/images/otherprofiles/unity32.png" />
+                                                    </div>
+                                                    @Html.DisplayNameFor(x => x.UnityConnectUrl)
+                                                </a>
+                                            </div>
+                                        }
+
+                                        @if (!string.IsNullOrWhiteSpace(Model.GameDevNetUrl))
+                                        {
+                                            <div class="user-profile-others">
+                                                <a href="@Model.GameDevNetUrl" target="_blank">
+                                                    <div class="other-icon">
+                                                        <img src="~/images/otherprofiles/gamedevnet32.png" />
+                                                    </div>
+                                                    @Html.DisplayNameFor(x => x.GameDevNetUrl)
+                                                </a>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="tabactivity">
+                            </div>
+
+                            <div class="tab-pane" id="tabgames">
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+    <!-- /.widget-user -->
+</div>
+
+
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
+    </environment>
+}
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/profile/profiledetails.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
+        <script src="~/lib/embedo/embedo.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/profile/profiledetails.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Person",
+        "name": "@Model.Name",
+        "image": "@(ViewBag.BaseUrl + Model.ProfileImageUrl)",
+        "url": "@Url.Action("profile", "index", new { id = Model.Id })"
+        }
+    </script>
+}

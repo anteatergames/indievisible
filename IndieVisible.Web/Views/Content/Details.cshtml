@@ -1,0 +1,130 @@
+﻿@model UserContentViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["Description"] = Model.Introduction;
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("details", "content", new { id = Model.Id });
+    ViewData["OgImage"] = Model.FeaturedImage;
+}
+
+<div class="col-12 col-xl-8 offset-xl-2">
+    <div class="box">
+        <div class="col-12 p-10">
+            <h1 data-language="@Model.Language">
+                @Model.Title
+                @if (Model.Permissions.CanEdit)
+                {
+                    <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn  btn-default bg-transparent"><i class="fa fa-pencil-alt"></i></a>
+                }
+            </h1>
+        </div>
+        @if (Model.HasFeaturedImage)
+        {
+            <div class="box-body text-center">
+                @if (Model.FeaturedMediaType == MediaType.Youtube)
+                {
+                    <div class="videoWrapper"><oembed>@Model.FeaturedImage</oembed></div>
+                }
+                else if (Model.FeaturedMediaType == MediaType.Video)
+                {
+                    <video src="@Model.FeaturedImage" width="500" height="281" controls></video>
+                }
+                else
+                {
+                    <img data-src="@Model.FeaturedImage" src="~/images/placeholders/featuredimage.gif" class="img-fluid lazyload" style="width:100%" alt="@Model.Title" />
+                }
+            </div>
+        }
+        <div class="box-body">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="user-block">
+                        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                            <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                        </a>
+                        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                            <span class="username">@Model.AuthorName</span>
+                        </a>
+                        <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id">
+                            <span class="description">@Model.CreateDate.ToString()</span>
+                        </a>
+                    </div>
+                </div>
+                @if (Model.GameId.HasValue)
+                {
+                    <div class="col-12 col-md-6 text-right">
+                        <div>
+                            <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.GameId">
+                                <span class="username mr-10">@Model.GameTitle</span>
+                                <img src="@Model.GameThumbnail" height="50" class="float-right" />
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+            @Html.Raw(Model.Introduction)
+        </div>
+        <hr />
+        <div class="box-body">
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/lib/embedo/embedo.js"></script>
+    <script>
+        var embedo = new Embedo({
+            youtube: true,
+            facebook: {
+                appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK
+                version: 'v3.2',
+                width: "100%"
+            }
+        });
+
+        var oembeds = $('oembed');
+
+        oembeds.each(function (index, element) {
+            $(element).find('embed').hide();
+
+            var w = $(element).closest('.videoWrapper').width();
+            var h = w * 9 / 16;
+
+            embedo.load(element, element.innerHTML, {
+                width: w,
+                height: h,
+                centerize: true,
+                strict: false
+            })
+                .done(function (xpto) {
+                    //$(element).find('embed').addClass('embed-responsive').show();
+                });
+        });
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context":"http://schema.org",
+        "@@type":"SocialMediaPosting",
+        "@@id":"@(ViewData["Url"])",
+        "headline":"@(JavaScriptEncoder.Default.Encode(Model.Title))",
+        "image": "@(ViewBag.BaseUrl + Model.FeaturedImage)",
+        "datePublished": "@Model.CreateDate.ToString("yyyy-MM-dd")",
+        "author":{
+        "@@type":"Person",
+        "name":"@Model.AuthorName",
+        "url":"@(ViewBag.BaseUrl + "/profile/" + Model.UserId)"
+        },
+        "sharedContent":{
+        "@@type":"WebPage",
+        "headline":"@(JavaScriptEncoder.Default.Encode(Model.Introduction))",
+        "url":"@(ViewData["Url"])",
+        "image": "@Model.FeaturedImage",
+        "author":{
+        "@@type":"Person",
+        "name":"@Model.AuthorName"
+        }
+        }
+        }
+    </script>
+}

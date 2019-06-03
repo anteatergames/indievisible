@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Articles" xml:space="preserve">
+    <value>Članci</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Component Scripts" xml:space="preserve">
+    <value>Sadržajne skripte</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Sadržaj</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Continue browsing" xml:space="preserve">
+    <value>Nastavite pretraživati</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Don&apos;t have an account?" xml:space="preserve">
+    <value>Nemate račun?</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Don&apos;t want to Log In?" xml:space="preserve">
+    <value>Ne želite se ulogovati?</value>
+    <comment>Register Page</comment>
+  </data>
+  <data name="Forgot pwd?" xml:space="preserve">
+    <value>Zaboravili ste lozinku?</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Igre</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Početna</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Jam" xml:space="preserve">
+    <value>Muzika</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Meet" xml:space="preserve">
+    <value>Upoznavanje</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Multiplayer" xml:space="preserve">
+    <value>Multiplayer</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>OR</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Lozinka</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Portfolio" xml:space="preserve">
+    <value>Portfolio</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Project Management" xml:space="preserve">
+    <value>Menadžment projekta</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Remember Me" xml:space="preserve">
+    <value>Zapamti me</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretražite</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="SIGN IN" xml:space="preserve">
+    <value>Ulogujte se</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Sign in to start your session" xml:space="preserve">
+    <value>Ulogujte se da bi započeli</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Sign Up" xml:space="preserve">
+    <value>Registrujte se</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Singleplayer" xml:space="preserve">
+    <value>Singleplayer</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Studios" xml:space="preserve">
+    <value>Studiji</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Team up" xml:space="preserve">
+    <value>Udružite se</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="The password is required." xml:space="preserve">
+    <value>Lozinka je obavezna</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="The username is required." xml:space="preserve">
+    <value>Username je obavezan</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Think" xml:space="preserve">
+    <value>Razmislite</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Alati</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Translation Tool" xml:space="preserve">
+    <value>Alati za prevođenje</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Username</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Vote" xml:space="preserve">
+    <value>Glasajte</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Radite</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Korisnici</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Spojite se</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Edit Profile" xml:space="preserve">
+    <value>Uredite profil</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Followers" xml:space="preserve">
+    <value>Pratitelji</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Following" xml:space="preserve">
+    <value>Prate vas</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="App Graphics Generator" xml:space="preserve">
+    <value>Generator grafike</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Follow" xml:space="preserve">
+    <value>Pratite</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Likes" xml:space="preserve">
+    <value>Sviđa se</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="What is this" xml:space="preserve">
+    <value>Šta je ovo?</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Akcija</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Adventure" xml:space="preserve">
+    <value>Avantura</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Archeology" xml:space="preserve">
+    <value>Arheologija</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="BeatEmUp" xml:space="preserve">
+    <value>Tuča</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Fighting" xml:space="preserve">
+    <value>Borba</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Horror" xml:space="preserve">
+    <value>Horor</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Racing" xml:space="preserve">
+    <value>Trkanje</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Roguelike" xml:space="preserve">
+    <value>Preživljavanje</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Rpg" xml:space="preserve">
+    <value>RPG</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="ShootEmUp" xml:space="preserve">
+    <value>Pucačine</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Simulation" xml:space="preserve">
+    <value>Simulacije</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Sports" xml:space="preserve">
+    <value>Sport</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Strategy" xml:space="preserve">
+    <value>Strategije</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Already have an account?" xml:space="preserve">
+    <value>Već imate račun?</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Don&apos;t want to Register?" xml:space="preserve">
+    <value>Ne želite se registrovati?</value>
+    <comment>Register</comment>
+  </data>
+  <data name="I agree to the" xml:space="preserve">
+    <value>Prihvaćam </value>
+    <comment>Register</comment>
+  </data>
+  <data name="Register a new membership" xml:space="preserve">
+    <value>Registrujte novo članstvo</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Retype password" xml:space="preserve">
+    <value>Ponovo upišite lozinku</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Tell everyone what is on your mind" xml:space="preserve">
+    <value>Podijelite vaše mišljenje</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Uslovi</value>
+    <comment>Register</comment>
+  </data>
+  <data name="and" xml:space="preserve">
+    <value>i</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Policies" xml:space="preserve">
+    <value>police</value>
+    <comment>Layout</comment>
+  </data>
+  <data name="Read our" xml:space="preserve">
+    <value>Pročitajte naše</value>
+    <comment>Layout</comment>
+  </data>
+  <data name="Add Game" xml:space="preserve">
+    <value>Dodajte igru</value>
+    <comment>Operations Menu</comment>
+  </data>
+  <data name="Post Content" xml:space="preserve">
+    <value>Objavite sadržaj</value>
+    <comment>Operations Menu</comment>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Komentarišite</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Komentari</value>
+    <comment>Activity Feed</comment>
+  </data>
+  <data name="Like" xml:space="preserve">
+    <value>Sviđa mi se</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="Press CTRL+ENTER to send your comment" xml:space="preserve">
+    <value>Pritisnite CTRL+ENTER da objavite komentar</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Podijelite</value>
+    <comment>Interactions</comment>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Više</value>
+    <comment>Front Page</comment>
+  </data>
+  <data name="Add Content" xml:space="preserve">
+    <value>Dodajte sadržaj</value>
+    <comment>Add Content Page</comment>
+  </data>
+  <data name="Basic" xml:space="preserve">
+    <value>Opšto</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Edit Content" xml:space="preserve">
+    <value>Uredite sadržaj</value>
+    <comment>Add Content Page</comment>
+  </data>
+  <data name="Edit Game" xml:space="preserve">
+    <value>Uredite igru</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Engine</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Eye Candy" xml:space="preserve">
+    <value>Detalji</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Fill in with the content you want to post" xml:space="preserve">
+    <value>Popunite sa sadržajem koji želite objaviti</value>
+    <comment>Add Content Page</comment>
+  </data>
+  <data name="Fill in with the game information" xml:space="preserve">
+    <value>Popunite sa informacijom o igri</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Žanr</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Jezik</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Main Language" xml:space="preserve">
+    <value>Glavni jezik</value>
+    <comment>Display Field</comment>
+  </data>
+  <data name="Platforms" xml:space="preserve">
+    <value>Platforme</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Presence" xml:space="preserve">
+    <value>Prisutnost</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Release Date" xml:space="preserve">
+    <value>Datum izdavanja</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sačuvajte</value>
+    <comment>Button</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Odaberi</value>
+    <comment>Dropdown default option</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Postavke</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Social" xml:space="preserve">
+    <value>Socijalno</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="Staff Area" xml:space="preserve">
+    <value>Odjel za osoblje</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Technical" xml:space="preserve">
+    <value>Tehnički odjel</value>
+    <comment>Add Game Page</comment>
+  </data>
+  <data name="The Content is required" xml:space="preserve">
+    <value>Saržaj je obavezan</value>
+    <comment>Validation Message</comment>
+  </data>
+  <data name="The Title is Required" xml:space="preserve">
+    <value>Naziv je obavezan</value>
+    <comment>Validation Message</comment>
+  </data>
+  <data name="Thumbnail" xml:space="preserve">
+    <value>Slika</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Naziv</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Type a award winning text here" xml:space="preserve">
+    <value>Napišite tekst za nagradu</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type a brief introduction here" xml:space="preserve">
+    <value>Napišite kratak opis</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type the Facebook address here" xml:space="preserve">
+    <value>Napišite FaceBook adresu</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type the title you want to post here" xml:space="preserve">
+    <value>Napišite naziv</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Type the Twitter address here" xml:space="preserve">
+    <value>Napišite Twitter adresu</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="No results to show" xml:space="preserve">
+    <value>Nema rezultata</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Change my password" xml:space="preserve">
+    <value>Promijeni lozinku</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Configure my experience" xml:space="preserve">
+    <value>Podesi moje iskustvo</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Content Language" xml:space="preserve">
+    <value>Jezik sadržaja</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Glavno</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="UI Language" xml:space="preserve">
+    <value>Jezik sučelja</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Unlink" xml:space="preserve">
+    <value>Ukloniti</value>
+    <comment>Preferences Page</comment>
+  </data>
+  <data name="Casual" xml:space="preserve">
+    <value>Neformalno</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Log in" xml:space="preserve">
+    <value>Ulogujte se</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Log in using your Facebook account" xml:space="preserve">
+    <value>Ulogujte se koristeći Vaš FaceBook profil</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Log in using your Google account" xml:space="preserve">
+    <value>Ulogujte se koristeći Vaš Google račun</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="Log in using your Microsoft account" xml:space="preserve">
+    <value>Ulogujte se koristeći Vaš Microsoft račun</value>
+    <comment>Login and Register Pages</comment>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>Novosti</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Writer tool" xml:space="preserve">
+    <value>Alati za pisanje</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Prihvatitam</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="Do you like cookies?" xml:space="preserve">
+    <value>Volite li kolačiće?</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="Learn More" xml:space="preserve">
+    <value>Nauči više</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="We use cookies to ensure you get the best experience on our website." xml:space="preserve">
+    <value>Koristimo kolačiće da bi Vam donijeli najbolje iskustvo na stranici</value>
+    <comment>Cookie Consent</comment>
+  </data>
+  <data name="Activity" xml:space="preserve">
+    <value>Aktivnost</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="I love it" xml:space="preserve">
+    <value>Sviđa mi se</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Preporučeno</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Recenzije</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>Od</value>
+    <comment>Game Details Page</comment>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>O</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Bio" xml:space="preserve">
+    <value>Biografija</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Lokacija</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Other Profiles" xml:space="preserve">
+    <value>Ostali profili</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Posts" xml:space="preserve">
+    <value>Objave</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>Statistike</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Studio" xml:space="preserve">
+    <value>Studio</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="to the next level" xml:space="preserve">
+    <value>sljedeći nivo</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Content posted on" xml:space="preserve">
+    <value>Sadržaj objavljen</value>
+    <comment>Content Details Page</comment>
+  </data>
+  <data name="More Games" xml:space="preserve">
+    <value>Više igara</value>
+    <comment>Front Page</comment>
+  </data>
+</root>
