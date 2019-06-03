@@ -1,0 +1,103 @@
+
+˝IndieVisible.Web.ViewComponents.UserContentViewComponent.UserContentViewComponent(Microsoft.AspNetCore.Http.IHttpContextAccessor, IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IUserPreferencesAppService)}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs ('"0*Ù
+0ÿ
+’
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (6Ñ:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent"F
+_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*G
+E
+httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessorÙ
+Ò
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (:í:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent"T
+_userContentAppService:IndieVisible.Application.Interfaces.IUserContentAppService"__id*U
+S
+userContentAppService:IndieVisible.Application.Interfaces.IUserContentAppServiceÑ
+Å
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (Bö:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent"\
+_userPreferencesAppService>IndieVisible.Application.Interfaces.IUserPreferencesAppService"__id*]
+[
+userPreferencesAppService>IndieVisible.Application.Interfaces.IUserPreferencesAppService»
+≈
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (,4
+%0.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*á*Ñ:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent"F
+_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor∏µ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (8+
+%1%Microsoft.AspNetCore.Http.HttpContext">Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext.get*6
+4
+%0.Microsoft.AspNetCore.Http.IHttpContextAccessor2HttpContext.getè
+å
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (=,
+%2&System.Security.Claims.ClaimsPrincipal".Microsoft.AspNetCore.Http.HttpContext.User.get*-
++
+%1%Microsoft.AspNetCore.Http.HttpContextñ
+ì
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.csM (f
+%3"__id*
+""„
+‡
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (g
+%4string"iSystem.Security.Claims.PrincipalExtensions.FindFirstValue(System.Security.Claims.ClaimsPrincipal, string)*.",
+*System.Security.Claims.PrincipalExtensions*.
+,
+%2&System.Security.Claims.ClaimsPrincipal*
+
+%3¶
+£
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs (g
+idstring"__id*
+
+%4stringÕ
+ 
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs! !(.
+
+%5bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+idstring*
+1
+2*¶
+1¢ü
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs# #(%
+%6System.Guid"System.GuidÕ
+ 
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs# #(!
+
+%7void"System.Guid.Guid(string)*
+
+%6System.Guid*
+
+idstring¶
+£
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs# #(%
+
+%8void"CIndieVisible.Web.ViewComponents.UserContentViewComponent.UserId.set*<:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent*
+
+%6System.Guid*
+2*ö
+2"î
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs% %(	
+implicit return:E
+httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor:S
+userContentAppService:IndieVisible.Application.Interfaces.IUserContentAppService:[
+userPreferencesAppService>IndieVisible.Application.Interfaces.IUserPreferencesAppServiceB<:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent

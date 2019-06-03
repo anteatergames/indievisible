@@ -1,0 +1,4 @@
+ž
+8IndieVisible.Infra.Data.Repository.UserContentRepository6IndieVisible.Infra.Data.Repository.Repository<TEntity>objectÒ
+JUserContentRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)ƒIndieVisible.Infra.Data.Repository.UserContentRepository.UserContentRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)M
+GetAll()AIndieVisible.Infra.Data.Repository.UserContentRepository.GetAll()

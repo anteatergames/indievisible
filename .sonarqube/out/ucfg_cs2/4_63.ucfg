@@ -1,0 +1,57 @@
+
+≠IndieVisible.Infra.Data.Mappings.UserConnectionConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserConnection>)Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs	 	("0*Å
+0π∂
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs ('P
+%0JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)¨
+©
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs ($P
+%1JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"ÆMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasColumnName<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%0JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""π∂
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs (/P
+%2JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)±
+Æ
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs (0P
+%3JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"≥Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasDefaultValueSql<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%2JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""π∂
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs (1P
+%4JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)£†
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs (P
+%5JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"[Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>.IsRequired(bool)*R
+P
+%4JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""2IsRequired(bool)π∂
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs (1P
+%6JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*
+1*û
+1"ò
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserConnectionConfig.cs (	
+implicit return:U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>B97
+5IndieVisible.Infra.Data.Mappings.UserConnectionConfig

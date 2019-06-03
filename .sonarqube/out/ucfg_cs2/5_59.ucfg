@@ -1,0 +1,88 @@
+
+8IndieVisible.Application.Services.LikeAppService.Count()u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs &  (+"0*
+0*	
+1
+2
+3*ó
+2æ
+ã
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs& &(2J
+%0DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*—*”2
+0IndieVisible.Application.Services.LikeAppService"^
+_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository¶³
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs& &(;
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*L
+J
+%0DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository2GetAll()Š
+‡
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs& &(C	
+%2int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>›
+˜
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs& &(C
+countint"__id*
+	
+%2intîë
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs( ((:;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¡
+ž
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs( ((3
+
+%4void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+countint€
+ý
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs( ((:?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
+1
+4
+3*õ
+1ÍÊ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs,4 ,(>
+%5string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getîë
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs, ,(?;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¦
+£
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs, ,(3
+
+%7void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%5string€
+ý
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs, ,(??
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+4*À
+4"º
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs/ /(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*’
+3"Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs0 0(	
+implicit returnB42
+0IndieVisible.Application.Services.LikeAppService

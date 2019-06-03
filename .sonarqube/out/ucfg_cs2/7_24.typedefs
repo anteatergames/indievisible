@@ -1,0 +1,8 @@
+Â
+9IndieVisible.Web.ViewComponents.NotificationViewComponent&Microsoft.AspNetCore.Mvc.ViewComponentobjectÌ
+†NotificationViewComponent(Microsoft.AspNetCore.Http.IHttpContextAccessor, IndieVisible.Application.Interfaces.INotificationAppService)ÀIndieVisible.Web.ViewComponents.NotificationViewComponent.NotificationViewComponent(Microsoft.AspNetCore.Http.IHttpContextAccessor, IndieVisible.Application.Interfaces.INotificationAppService)^
+InvokeAsync(int)JIndieVisible.Web.ViewComponents.NotificationViewComponent.InvokeAsync(int)R
+
+UserId.getDIndieVisible.Web.ViewComponents.NotificationViewComponent.UserId.getR
+
+UserId.setDIndieVisible.Web.ViewComponents.NotificationViewComponent.UserId.set

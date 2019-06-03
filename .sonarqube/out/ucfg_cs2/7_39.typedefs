@@ -1,0 +1,18 @@
+Ï
+2IndieVisible.Web.Controllers.InteractionController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectÅ	
+§InteractionController(IndieVisible.Application.Interfaces.ILikeAppService, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.IUserContentCommentAppService, IndieVisible.Application.Interfaces.IBrainstormAppService, IndieVisible.Application.Interfaces.INotificationAppService, IndieVisible.Application.Interfaces.IFollowAppService, IndieVisible.Application.Interfaces.IUserConnectionAppService)◊IndieVisible.Web.Controllers.InteractionController.InteractionController(IndieVisible.Application.Interfaces.ILikeAppService, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.IUserContentCommentAppService, IndieVisible.Application.Interfaces.IBrainstormAppService, IndieVisible.Application.Interfaces.INotificationAppService, IndieVisible.Application.Interfaces.IFollowAppService, IndieVisible.Application.Interfaces.IUserConnectionAppService)g
+LikeContent(System.Guid)KIndieVisible.Web.Controllers.InteractionController.LikeContent(System.Guid)k
+UnLikeContent(System.Guid)MIndieVisible.Web.Controllers.InteractionController.UnLikeContent(System.Guid)ÿ
+PComment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)ÉIndieVisible.Web.Controllers.InteractionController.Comment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)a
+LikeGame(System.Guid)HIndieVisible.Web.Controllers.InteractionController.LikeGame(System.Guid)e
+UnLikeGame(System.Guid)JIndieVisible.Web.Controllers.InteractionController.UnLikeGame(System.Guid)e
+FollowGame(System.Guid)JIndieVisible.Web.Controllers.InteractionController.FollowGame(System.Guid)i
+UnFollowGame(System.Guid)LIndieVisible.Web.Controllers.InteractionController.UnFollowGame(System.Guid)e
+FollowUser(System.Guid)JIndieVisible.Web.Controllers.InteractionController.FollowUser(System.Guid)i
+UnFollowUser(System.Guid)LIndieVisible.Web.Controllers.InteractionController.UnFollowUser(System.Guid)k
+ConnectToUser(System.Guid)MIndieVisible.Web.Controllers.InteractionController.ConnectToUser(System.Guid)m
+DisconnectUser(System.Guid)NIndieVisible.Web.Controllers.InteractionController.DisconnectUser(System.Guid)c
+AllowUser(System.Guid)IIndieVisible.Web.Controllers.InteractionController.AllowUser(System.Guid)a
+DenyUser(System.Guid)HIndieVisible.Web.Controllers.InteractionController.DenyUser(System.Guid)Í
+YSetAuthorDetails(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)åIndieVisible.Web.Controllers.InteractionController.SetAuthorDetails(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)¡
+ETranslateResponse(IndieVisible.Domain.ValueObjects.OperationResultVo)xIndieVisible.Web.Controllers.InteractionController.TranslateResponse(IndieVisible.Domain.ValueObjects.OperationResultVo)

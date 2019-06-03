@@ -1,0 +1,25 @@
+
+jIndieVisible.Infra.Data.Migrations.initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181118015741_initial.csB  B($"0*ø
+0µ²
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181118015741_initial.csD E(_
+%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""2DropTable(string, string)µ²
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181118015741_initial.csG H(!_
+%1YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""2DropTable(string, string)*
+1*›
+1"•
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181118015741_initial.csI I(	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB.,
+*IndieVisible.Infra.Data.Migrations.initial

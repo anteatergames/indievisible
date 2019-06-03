@@ -1,0 +1,37 @@
+
+JIndieVisible.Infra.Data.Repository.Repository<TEntity>.Remove(System.Guid)r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs3 3(""0*‚	
+0¶
+£
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs5 5(2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>¶
+£
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs5 5(2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>¨©
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs5 5('
+%2TEntity"BMicrosoft.EntityFrameworkCore.DbSet<TEntity>.Find(params object[])*4
+2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+
+idSystem.Guid2Find(params object[])÷”
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs5 5((G
+%3AMicrosoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity>"<Microsoft.EntityFrameworkCore.DbSet<TEntity>.Remove(TEntity)*4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+
+%2TEntity2Remove(TEntity)*
+1*è
+1"â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs6 6(	
+implicit return:
+idSystem.GuidB:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>

@@ -1,0 +1,100 @@
+
+DIndieVisible.Application.Services.FeaturedContentAppService.GetAll()Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs:? :(E"0*
+0*	
+1
+2
+3*§
+2Ú
+Ô
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs@8 @(CJ
+%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository"__id*ó*î=
+;IndieVisible.Application.Services.FeaturedContentAppService"S
+_repositoryDIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository¬ø
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs@8 @(L
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*L
+J
+%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository2GetAll()◊
+‘
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs@, @(L&
+	allModelsSystem.Linq.IQueryable<T>"__id*!
+
+%1System.Linq.IQueryable<T>à
+Ö
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csB< B(C
+%2AutoMapper.IMapper"__id*`*^=
+;IndieVisible.Application.Services.FeaturedContentAppService"
+_mapperAutoMapper.IMapper€ÿ
+Å
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csB< B(ó/
+%3)System.Collections.Generic.IEnumerable<T>"6AutoMapper.IMapper.Map<TSource, TDestination>(TSource)*
+
+%2AutoMapper.IMapper*(
+&
+	allModelsSystem.Linq.IQueryable<T>2#Map<TSource, TDestination>(TSource)Ú
+Ô
+Å
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csB6 B(ó0
+vms)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%3)System.Collections.Generic.IEnumerable<T>Çˇ
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csD D(Q?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>Ö
+Ç
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csD D(L
+
+%5void"zIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(System.Collections.Generic.IEnumerable<T>)*A
+?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*2
+0
+vms)System.Collections.Generic.IEnumerable<T>î
+ë
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csD D(QC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*	
+1
+4
+3*¡
+1Ÿ÷
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csHM H(W
+%6string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getÇˇ
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csH H(X?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>æ
+ª
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csH H(L
+
+%8void"WIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(string)*A
+?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+
+%6stringî
+ë
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csH H(XC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+4*–
+4" 
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csK K(E
+C
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*û
+3"ò
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csL L(	
+implicit returnB?=
+;IndieVisible.Application.Services.FeaturedContentAppService

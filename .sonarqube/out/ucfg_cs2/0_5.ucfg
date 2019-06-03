@@ -1,0 +1,81 @@
+
+5IndieVisible.Domain.Core.Models.Entity.Equals(object)k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs (#"0*÷
+0•
+’
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs ()
+%0object"__id*
+
+objobject»
+¸
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs ()3
+	compareTo&IndieVisible.Domain.Core.Models.Entity"__id*
+
+%0object“
+
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs (0
+
+%1bool"&object.ReferenceEquals(object, object)*
+"
+object**(
+&IndieVisible.Domain.Core.Models.Entity*5
+3
+	compareTo&IndieVisible.Domain.Core.Models.Entity*
+1
+2*z
+1"u
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs2 (>
+""*ý
+2ï
+ì
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs (0
+
+%2bool"&object.ReferenceEquals(object, object)*
+"
+object*
+""*5
+3
+	compareTo&IndieVisible.Domain.Core.Models.Entity*
+3
+4*z
+3"u
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs2 (?
+""*—
+4Þ
+Û
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs (
+%3System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get**(
+&IndieVisible.Domain.Core.Models.Entityé
+æ
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs ()
+%4System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*5
+3
+	compareTo&IndieVisible.Domain.Core.Models.EntityÇ
+Ä
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs (*
+
+%5bool"System.Guid.Equals(System.Guid)*
+
+%3System.Guid*
+
+%4System.Guid"{
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs (+
+
+
+%5bool*ˆ
+5"‚
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs (	
+implicit return:
+objobjectB*(
+&IndieVisible.Domain.Core.Models.Entity

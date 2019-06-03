@@ -1,0 +1,6 @@
+â
+?IndieVisible.Web.Areas.Member.Controllers.PreferencesControllerCIndieVisible.Web.Areas.Member.Controllers.Base.MemberBaseController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectï
+UPreferencesController(IndieVisible.Application.Interfaces.IUserPreferencesAppService)•IndieVisible.Web.Areas.Member.Controllers.PreferencesController.PreferencesController(IndieVisible.Application.Interfaces.IUserPreferencesAppService)P
+Edit()FIndieVisible.Web.Areas.Member.Controllers.PreferencesController.Edit()é
+RSave(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)’IndieVisible.Web.Areas.Member.Controllers.PreferencesController.Save(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)j
+SetLanguage(string)SIndieVisible.Web.Areas.Member.Controllers.PreferencesController.SetLanguage(string)

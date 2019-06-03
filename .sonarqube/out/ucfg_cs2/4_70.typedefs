@@ -1,0 +1,12 @@
+ó	
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>object¹
+?Repository(IndieVisible.Infra.Data.Context.IndieVisibleContext)vIndieVisible.Infra.Data.Repository.Repository<TEntity>.Repository(IndieVisible.Infra.Data.Context.IndieVisibleContext)S
+Add(TEntity)CIndieVisible.Infra.Data.Repository.Repository<TEntity>.Add(TEntity)c
+GetById(System.Guid)KIndieVisible.Infra.Data.Repository.Repository<TEntity>.GetById(System.Guid)Å
+ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)|IndieVisible.Infra.Data.Repository.Repository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)Á
+CGet(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)zIndieVisible.Infra.Data.Repository.Repository<TEntity>.Get(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)K
+GetAll()?IndieVisible.Infra.Data.Repository.Repository<TEntity>.GetAll()Y
+Update(TEntity)FIndieVisible.Infra.Data.Repository.Repository<TEntity>.Update(TEntity)a
+Remove(System.Guid)JIndieVisible.Infra.Data.Repository.Repository<TEntity>.Remove(System.Guid)U
+SaveChanges()DIndieVisible.Infra.Data.Repository.Repository<TEntity>.SaveChanges()M
+	Dispose()@IndieVisible.Infra.Data.Repository.Repository<TEntity>.Dispose()

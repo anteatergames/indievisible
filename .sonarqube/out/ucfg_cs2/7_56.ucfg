@@ -1,0 +1,34 @@
+
+8IndieVisible.Web.Models.TimeLineItemViewModel.Future.getn
+dC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Models\TimeLineViewModel.cs# #( "0*ø
+0ı
+Ú
+n
+dC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Models\TimeLineViewModel.cs#* #(3
+%0System.DateTime"6IndieVisible.Web.Models.TimeLineItemViewModel.Date.get*1/
+-IndieVisible.Web.Models.TimeLineItemViewModel∫
+∑
+n
+dC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Models\TimeLineViewModel.cs#6 #(D
+%1System.DateTime"System.DateTime.Today.get*"
+System.DateTimeÑ
+Å
+n
+dC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Models\TimeLineViewModel.cs#* #(D
+
+%2bool"<System.DateTime.operator >(System.DateTime, System.DateTime)*"
+System.DateTime*
+
+%0System.DateTime*
+
+%1System.DateTime"~
+n
+dC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Models\TimeLineViewModel.cs## #(E
+
+
+%2bool*ã
+1"Ö
+n
+dC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Models\TimeLineViewModel.cs#F #(G
+implicit returnB1/
+-IndieVisible.Web.Models.TimeLineItemViewModel

@@ -1,0 +1,79 @@
+
+NIndieVisible.Web.Controllers.Base.SecureBaseController.ImageStorageService.get{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs$ (7"0*ü
+0Ø
+Õ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs; (O>
+%38IndieVisible.Application.Interfaces.IImageStorageService"__id**Œ8
+6IndieVisible.Web.Controllers.Base.SecureBaseController"P
+_imageStorageService8IndieVisible.Application.Interfaces.IImageStorageServiceˆ
+…
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs; (O>
+%18IndieVisible.Application.Interfaces.IImageStorageService"__id*@
+>
+%38IndieVisible.Application.Interfaces.IImageStorageServiceˆ
+…
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs; (O>
+%08IndieVisible.Application.Interfaces.IImageStorageService"__id*@
+>
+%18IndieVisible.Application.Interfaces.IImageStorageService*
+1
+2*¡
+1“
+
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csk (v+
+%4%Microsoft.AspNetCore.Http.HttpContext"7Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+3
+4*»
+4Š
+‡
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csx (‡
+%5System.IServiceProvider"9Microsoft.AspNetCore.Http.HttpContext.RequestServices.get*-
++
+%4%Microsoft.AspNetCore.Http.HttpContext£
+ 
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csw (ª>
+%68IndieVisible.Application.Interfaces.IImageStorageService"pMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService<T>(System.IServiceProvider)*M"K
+IMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions*
+
+%5System.IServiceProvider*
+3*×	
+3Ø
+Õ
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csT (ªŒ8
+6IndieVisible.Web.Controllers.Base.SecureBaseController"P
+_imageStorageService8IndieVisible.Application.Interfaces.IImageStorageService"__id*@
+>
+%68IndieVisible.Application.Interfaces.IImageStorageServiceÙ
+Ö
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csT (ª>
+%78IndieVisible.Application.Interfaces.IImageStorageService"__id**Œ8
+6IndieVisible.Web.Controllers.Base.SecureBaseController"P
+_imageStorageService8IndieVisible.Application.Interfaces.IImageStorageService‰
+†
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csT (ª>
+%28IndieVisible.Application.Interfaces.IImageStorageService"__id*@
+>
+%78IndieVisible.Application.Interfaces.IImageStorageService‰
+†
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csT (ª>
+%08IndieVisible.Application.Interfaces.IImageStorageService"__id*@
+>
+%28IndieVisible.Application.Interfaces.IImageStorageService*
+2*š
+2"”
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs« (¬
+implicit returnB:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController

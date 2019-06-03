@@ -1,0 +1,4 @@
+Ê
+@IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareobjectÛ
+ŠCanonicalURLMiddleware(Microsoft.AspNetCore.Http.RequestDelegate, IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptions)ËIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddleware.CanonicalURLMiddleware(Microsoft.AspNetCore.Http.RequestDelegate, IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptions)Ÿ
+-Invoke(Microsoft.AspNetCore.Http.HttpContext)nIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)

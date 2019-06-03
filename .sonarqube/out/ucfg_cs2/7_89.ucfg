@@ -1,0 +1,39 @@
+
+fIndieVisible.Web.Controllers.Base.BaseController.GetSessionValue(IndieVisible.Web.Enums.SessionValues)u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs (("0*†	
+0ç
+ä
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs! !(&+
+%0%Microsoft.AspNetCore.Http.HttpContext"7Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseÜ
+É
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs! !(.(
+%1"Microsoft.AspNetCore.Http.ISession"1Microsoft.AspNetCore.Http.HttpContext.Session.get*-
++
+%0%Microsoft.AspNetCore.Http.HttpContext–
+Õ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs! !(H
+%2string"aMicrosoft.AspNetCore.Http.SessionExtensions.GetString(Microsoft.AspNetCore.Http.ISession, string)*/"-
++Microsoft.AspNetCore.Http.SessionExtensions**
+(
+%1"Microsoft.AspNetCore.Http.ISession*
+""°
+û
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs! !(H
+valuestring"__id*
+
+%2string"ä
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs# #(
+
+valuestring*í
+1"å
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs$ $(	
+implicit return:+
+key$IndieVisible.Web.Enums.SessionValuesB42
+0IndieVisible.Web.Controllers.Base.BaseController

@@ -1,0 +1,88 @@
+
+3IndieVisible.Web.Controllers.HomeController.Error()p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs; ;(""6*«
+0ËÈ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs= =(n,
+%0&IndieVisible.Web.Models.ErrorViewModel"&IndieVisible.Web.Models.ErrorViewModelê
+ç
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs= =(*
+
+%1void"7IndieVisible.Web.Models.ErrorViewModel.ErrorViewModel()*.
+,
+%0&IndieVisible.Web.Models.ErrorViewModelâ
+ß
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs=9 =(I!
+%2System.Diagnostics.Activity"'System.Diagnostics.Activity.Current.get*"
+System.Diagnostics.Activity*
+1
+2*×
+2Ì
+É
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs=K =(M
+%3string""System.Diagnostics.Activity.Id.get*#
+!
+%2System.Diagnostics.Activity*
+1*
+1*
+3
+4*»
+3ˆ
+…
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs=Q =(\+
+%7%Microsoft.AspNetCore.Http.HttpContext"7Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseí
+ê
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs=Q =(l
+%8string"9Microsoft.AspNetCore.Http.HttpContext.TraceIdentifier.get*-
++
+%7%Microsoft.AspNetCore.Http.HttpContext™
+–
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs=Q =(l
+%6string"__id*
+
+%8string™
+–
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs=Q =(l
+%4string"__id*
+
+%6string*
+4*Ý
+4÷
+ô
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs=- =(l
+
+%9void"4IndieVisible.Web.Models.ErrorViewModel.RequestId.set*.
+,
+%0&IndieVisible.Web.Models.ErrorViewModel*
+
+%4stringº·
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs= =(o*
+%10#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*.
+,
+%0&IndieVisible.Web.Models.ErrorViewModel2View(object)" 
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs= =(p,
+*
+%10#Microsoft.AspNetCore.Mvc.ViewResult*
+5"‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs> >(	
+implicit return*•
+6Š
+‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs; ;("
+%11"__entrypoint*
+0B/-
++IndieVisible.Web.Controllers.HomeController

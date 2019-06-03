@@ -1,0 +1,53 @@
+
+¥IndieVisible.Infra.Data.Mappings.UserFollowConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserFollow>)|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs
+ 
+("0*§
+0´±
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs ('P
+%0JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)§
+¤
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs ($P
+%1JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"®Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasColumnName<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%0JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""´±
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs (/P
+%2JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)¬
+©
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs (0P
+%3JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"³Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasDefaultValueSql<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%2JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""´±
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs (1P
+%4JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)ž›
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs (P
+%5JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"[Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>.IsRequired(bool)*R
+P
+%4JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""2IsRequired(bool)*
+1*™
+1"“
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\UserFollowConfig.cs (	
+implicit return:U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>B53
+1IndieVisible.Infra.Data.Mappings.UserFollowConfig

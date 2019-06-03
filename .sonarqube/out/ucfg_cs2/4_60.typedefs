@@ -1,0 +1,6 @@
+Æ
+-IndieVisible.Infra.Data.Migrations.GameFollow2Microsoft.EntityFrameworkCore.Migrations.Migrationobject¬
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)kIndieVisible.Infra.Data.Migrations.GameFollow.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)°
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)mIndieVisible.Infra.Data.Migrations.GameFollow.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)ª
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)jIndieVisible.Infra.Data.Migrations.GameFollow.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)J
+GameFollow():IndieVisible.Infra.Data.Migrations.GameFollow.GameFollow()

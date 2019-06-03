@@ -1,0 +1,154 @@
+
+FIndieVisible.Web.ViewComponents.CountersViewComponent.InvokeAsync(int)z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs0 (;"0*Ó
+0˝˙
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (/@
+%0:IndieVisible.Application.ViewModels.Home.CountersViewModel":IndieVisible.Application.ViewModels.Home.CountersViewModelü
+ú
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (-
+
+%1void"NIndieVisible.Application.ViewModels.Home.CountersViewModel.CountersViewModel()*B
+@
+%0:IndieVisible.Application.ViewModels.Home.CountersViewModelé
+ã
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (/C
+model:IndieVisible.Application.ViewModels.Home.CountersViewModel"__id*B
+@
+%0:IndieVisible.Application.ViewModels.Home.CountersViewModel«
+ƒ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (,9
+%23IndieVisible.Application.Interfaces.IGameAppService"__id*Ñ*Å7
+5IndieVisible.Web.ViewComponents.CountersViewComponent"F
+_gameAppService3IndieVisible.Application.Interfaces.IGameAppService¬ø
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (4;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>">IndieVisible.Application.Interfaces.ICrudAppService<T>.Count()*;
+9
+%23IndieVisible.Application.Interfaces.IGameAppService2Count()â
+Ü
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (4C
+
+gamesCount5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>í
+è
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs   ("
+
+%4bool">IndieVisible.Domain.ValueObjects.OperationResultVo.Success.get*E
+C
+
+gamesCount5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+1
+2* 
+1í
+è
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs"# "(3	
+%5int"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*E
+C
+
+gamesCount5IndieVisible.Domain.ValueObjects.OperationResultVo<T>™
+ß
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs" "(3
+
+%6void"IIndieVisible.Application.ViewModels.Home.CountersViewModel.GamesCount.set*E
+C
+model:IndieVisible.Application.ViewModels.Home.CountersViewModel*
+	
+%5int*
+2*«	
+2–
+Õ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs% %(/<
+%76IndieVisible.Application.Interfaces.IProfileAppService"__id*ä*á7
+5IndieVisible.Web.ViewComponents.CountersViewComponent"L
+_profileAppService6IndieVisible.Application.Interfaces.IProfileAppService≈¬
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs% %(7;
+%85IndieVisible.Domain.ValueObjects.OperationResultVo<T>">IndieVisible.Application.Interfaces.ICrudAppService<T>.Count()*>
+<
+%76IndieVisible.Application.Interfaces.IProfileAppService2Count()â
+Ü
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs% %(7C
+
+usersCount5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%85IndieVisible.Domain.ValueObjects.OperationResultVo<T>í
+è
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs' '("
+
+%9bool">IndieVisible.Domain.ValueObjects.OperationResultVo.Success.get*E
+C
+
+usersCount5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+3
+4*Õ
+3ì
+ê
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs)# )(3
+
+%10int"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*E
+C
+
+usersCount5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¨
+©
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs) )(3
+%11void"IIndieVisible.Application.ViewModels.Home.CountersViewModel.UsersCount.set*E
+C
+model:IndieVisible.Application.ViewModels.Home.CountersViewModel*
+
+
+%10int*
+4*Å
+4÷
+”
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs," ,(1A
+%12:IndieVisible.Application.Interfaces.IUserContentAppService"__id*ã*à7
+5IndieVisible.Web.ViewComponents.CountersViewComponent"M
+_contentService:IndieVisible.Application.Interfaces.IUserContentAppService≠™
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs," ,(A
+
+%13int"JIndieVisible.Application.Interfaces.IUserContentAppService.CountArticles()*C
+A
+%12:IndieVisible.Application.Interfaces.IUserContentAppService2CountArticles()Ø
+¨
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs, ,(A
+%14void"LIndieVisible.Application.ViewModels.Home.CountersViewModel.ArticlesCount.set*E
+C
+model:IndieVisible.Application.ViewModels.Home.CountersViewModel*
+
+
+%13int˜
+Ù
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs/ /(F
+%15?Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult";Microsoft.AspNetCore.Mvc.ViewComponent.View<TModel>(TModel)**(
+&Microsoft.AspNetCore.Mvc.ViewComponent*E
+C
+model:IndieVisible.Application.ViewModels.Home.CountersViewModel"∆
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs/ /(H
+F
+%15?Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult*ó
+5"ë
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs0 0(	
+implicit return:
+
+qtdintB97
+5IndieVisible.Web.ViewComponents.CountersViewComponent

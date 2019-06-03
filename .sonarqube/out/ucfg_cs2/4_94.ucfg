@@ -1,0 +1,46 @@
+
+sIndieVisible.Infra.Data.Migrations.commentsauthordata.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs  (""0*Þ
+
+0¨¥
+‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs	 (_
+%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"žMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.AddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""2dAddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)¨¥
+‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs (_
+%1YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"žMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.AddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""2dAddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*
+1*§
+1"¡
+‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs (	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB97
+5IndieVisible.Infra.Data.Migrations.commentsauthordata

@@ -1,0 +1,97 @@
+
+cIndieVisible.Web.ViewComponents.UserContentViewComponent.InvokeAsync(int, System.Guid, System.Guid)}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs'0 '(;"0*é#
+0Ó
+Î
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs)3 )(MD
+%0>IndieVisible.Application.Interfaces.IUserPreferencesAppService"__id*ù*ö:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent"\
+_userPreferencesAppService>IndieVisible.Application.Interfaces.IUserPreferencesAppServiceò
+ï
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs)Z )(`
+%1System.Guid"CIndieVisible.Web.ViewComponents.UserContentViewComponent.UserId.get*<:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent¶£
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs)3 )(aR
+%2LIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel"WIndieVisible.Application.Interfaces.IUserPreferencesAppService.GetByUserId(System.Guid)*F
+D
+%0>IndieVisible.Application.Interfaces.IUserPreferencesAppService*
+
+%1System.Guid2GetByUserId(System.Guid)ª
+∏
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs)% )(a[
+preferencesLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel"__id*T
+R
+%2LIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelÁ
+‰
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs+0 +(E(
+%3"System.Collections.Generic.List<T>"ZIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel.Languages.get*]
+[
+preferencesLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelÂ
+‚
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs+$ +(E/
+	languages"System.Collections.Generic.List<T>"__id**
+(
+%3"System.Collections.Generic.List<T>‚
+ﬂ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs-7 -(M@
+%4:IndieVisible.Application.Interfaces.IUserContentAppService"__id*ï*í:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent"T
+_userContentAppService:IndieVisible.Application.Interfaces.IUserContentAppServiceò
+ï
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs-^ -(d
+%5System.Guid"CIndieVisible.Web.ViewComponents.UserContentViewComponent.UserId.get*<:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent◊‘
+~
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs-7 -(á/
+%6)System.Collections.Generic.IEnumerable<T>"…IndieVisible.Application.Interfaces.IUserContentAppService.GetActivityFeed(System.Guid, int, System.Guid, System.Guid, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.SupportedLanguage>)*B
+@
+%4:IndieVisible.Application.Interfaces.IUserContentAppService*
+
+%5System.Guid*
+""*
+
+gameIdSystem.Guid*
+
+userIdSystem.Guid*1
+/
+	languages"System.Collections.Generic.List<T>2éGetActivityFeed(System.Guid, int, System.Guid, System.Guid, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.SupportedLanguage>)’
+“
+~
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs-7 -(ê(
+%7"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*1
+/
+%6)System.Collections.Generic.IEnumerable<T>‚
+ﬂ
+~
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs-/ -(ê+
+model"System.Collections.Generic.List<T>"__id**
+(
+%7"System.Collections.Generic.List<T>·
+ﬁ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs/ /(E
+%8?Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult";Microsoft.AspNetCore.Mvc.ViewComponent.View<TModel>(TModel)**(
+&Microsoft.AspNetCore.Mvc.ViewComponent*-
++
+model"System.Collections.Generic.List<T>"»
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs/ /(G
+E
+%8?Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult*ö
+1"î
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\UserContentViewComponent.cs0 0(	
+implicit return:
+countint:
+gameIdSystem.Guid:
+userIdSystem.GuidB<:
+8IndieVisible.Web.ViewComponents.UserContentViewComponent

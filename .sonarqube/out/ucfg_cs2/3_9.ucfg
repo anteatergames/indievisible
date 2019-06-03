@@ -1,0 +1,150 @@
+
+°IndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions.ConfirmationEmailTemplate(string, string, string, string, string, string, string, string)è
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs (6"0*˚
+0∏
+µ
+ê
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs ∏(
+templatestring"__id*
+""ˆ
+Û
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csº º(8
+%0string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+titlestring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csº º(8
+templatestring"__id*
+
+%0string˘
+ˆ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csΩ Ω(>
+%1string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+greetingstring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csΩ Ω(>
+templatestring"__id*
+
+%1stringÅ
+˛
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csæ æ(N
+%2string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+textBeforeActionstring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csæ æ(N
+templatestring"__id*
+
+%2string˙
+˜
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csø ø(@
+%3string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+	actionUrlstring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.csø ø(@
+templatestring"__id*
+
+%3string˚
+¯
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs¿ ¿(B
+%4string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+
+actionTextstring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs¿ ¿(B
+templatestring"__id*
+
+%4stringÄ
+˝
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs¡ ¡(L
+%5string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+textAfterActionstring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs¡ ¡(L
+templatestring"__id*
+
+%5string¯
+ı
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs¬ ¬(<
+%6string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+byeTextstring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs¬ ¬(<
+templatestring"__id*
+
+%6string˚
+¯
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs√ √(B
+%7string"string.Replace(string, string)*
+
+templatestring*
+""*
+
+
+footerTextstring¡
+æ
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs√ √(B
+templatestring"__id*
+
+%7string"™
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs« «(
+
+templatestring*Ø
+1"©
+ë
+ÑC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs» »(	
+implicit return:
+titlestring:
+	actionUrlstring:
+
+actionTextstring:
+greetingstring:
+textBeforeActionstring:
+textAfterActionstring:
+byeTextstring:
+
+footerTextstringBK"I
+GIndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions

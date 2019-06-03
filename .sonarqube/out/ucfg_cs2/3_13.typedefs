@@ -1,0 +1,11 @@
+ˆ	
+XIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModelobjectè
+ChangePasswordViewModel()rIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.ChangePasswordViewModel(){
+OldPassword.gethIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.OldPassword.get{
+OldPassword.sethIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.OldPassword.set{
+NewPassword.gethIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.NewPassword.get{
+NewPassword.sethIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.NewPassword.setÉ
+ConfirmPassword.getlIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.ConfirmPassword.getÉ
+ConfirmPassword.setlIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.ConfirmPassword.set
+StatusMessage.getjIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.StatusMessage.get
+StatusMessage.setjIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel.StatusMessage.set

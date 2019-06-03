@@ -1,0 +1,90 @@
+
+qIndieVisible.Web.Views.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext, string)q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs ()"0*È	
+0¥
+±
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs   (1>
+%08Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary";Microsoft.AspNetCore.Mvc.Rendering.ViewContext.ViewData.get*?
+=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContext⁄
+◊
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs   (?
+%1object"
+__arrayGet*@
+>
+%08Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
+""ö
+ó
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs   (I
+%2object"__id*
+
+%1object¢
+ü
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs   (I
+
+activePagestring"__id*
+
+%2objectä
+á
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs!3 !(U
+%3"__id*
+""¯
+ı
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs! !(V
+
+%4bool"6string.Equals(string, string, System.StringComparison)*
+"
+string*
+
+
+activePagestring*
+
+pagestring*
+
+%3*
+1
+2*™
+1ä
+á
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs!Y !(a
+%6"__id*
+""í
+è
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs!Y !(a
+%5string"__id*
+
+%6*
+3*™
+2ä
+á
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs!d !(h
+%7"__id*
+""í
+è
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs!d !(h
+%5string"__id*
+
+%7*
+3*â
+3"É
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs! !(i
+
+%5string*é
+4"à
+q
+gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs" "(	
+implicit return:=
+viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContext:
+pagestringB0".
+,IndieVisible.Web.Views.Manage.ManageNavPages

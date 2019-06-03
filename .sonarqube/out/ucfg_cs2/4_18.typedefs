@@ -1,0 +1,4 @@
+∑
+1IndieVisible.Infra.Data.Mappings.UserFollowConfigobjectù
+sConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserFollow>)•IndieVisible.Infra.Data.Mappings.UserFollowConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserFollow>)Z
+UserFollowConfig()DIndieVisible.Infra.Data.Mappings.UserFollowConfig.UserFollowConfig()

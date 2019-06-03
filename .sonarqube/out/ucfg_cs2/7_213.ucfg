@@ -1,0 +1,50 @@
+
+eIndieVisible.Web.Controllers.ManageController.AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÚ Ú("0*®
+0ù
+ö
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÙ, Ù(9/
+%0)System.Collections.Generic.IEnumerable<T>"7Microsoft.AspNetCore.Identity.IdentityResult.Errors.get*8
+6
+result,Microsoft.AspNetCore.Identity.IdentityResult*
+1*
+1*
+2
+3*ü
+2†
+ù
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csˆ ˆ(@
+%1:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"6Microsoft.AspNetCore.Mvc.ControllerBase.ModelState.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase¨
+©
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csˆ) ˆ(5
+%2string"__id**
+string"
+Emptystring¸
+˘
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csˆ7 ˆ(H
+%3string";Microsoft.AspNetCore.Identity.IdentityError.Description.get*6
+4
+error+Microsoft.AspNetCore.Identity.IdentityError√
+¿
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csˆ ˆ(I
+
+%4void"XMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError(string, string)*B
+@
+%1:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+
+%2string*
+
+%3string*
+1*ë
+3"ã
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs¯ ¯(	
+implicit return:6
+result,Microsoft.AspNetCore.Identity.IdentityResultB1/
+-IndieVisible.Web.Controllers.ManageController

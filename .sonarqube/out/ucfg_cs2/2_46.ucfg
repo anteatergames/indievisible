@@ -1,0 +1,21 @@
+
+ñIndieVisible.Domain.Services.GameFollowDomainService.Get(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.GameFollow, bool>>)y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csO' O(*"0*æ
+0ƒ¡
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csQ Q(/$
+%0System.NotImplementedException"System.NotImplementedExceptionÏ
+È
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csQ Q(-
+
+%1void"8System.NotImplementedException.NotImplementedException()*&
+$
+%0System.NotImplementedException*
+1*ñ
+1"ê
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csR R(	
+implicit return:6
+where-System.Linq.Expressions.Expression<TDelegate>B86
+4IndieVisible.Domain.Services.GameFollowDomainService

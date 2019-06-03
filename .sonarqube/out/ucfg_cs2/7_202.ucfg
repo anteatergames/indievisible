@@ -1,0 +1,372 @@
+
+†IndieVisible.Web.Controllers.ManageController.EnableAuthenticator(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÅ) Å(<"8*“
+0Æ
+´
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÉ) É(56
+%00Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ü
+É
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÉC É(G,
+%1&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase¨©
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÉ) É(H*
+%2$System.Threading.Tasks.Task<TResult>"eMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserAsync(System.Security.Claims.ClaimsPrincipal)*8
+6
+%00Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%1&System.Security.Claims.ClaimsPrincipal24GetUserAsync(System.Security.Claims.ClaimsPrincipal)–
+Õ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÉ É(HG
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""à
+Ö
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÑ Ñ(
+
+%3bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+1
+2*Ÿ
+1Æ
+´
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÜO Ü([6
+%40Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ü
+É
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÜf Ü(j,
+%5&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseàÖ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÜO Ü(k
+%6string"bMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserId(System.Security.Claims.ClaimsPrincipal)*8
+6
+%40Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%5&System.Security.Claims.ClaimsPrincipal21GetUserId(System.Security.Claims.ClaimsPrincipal)©
+¶
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÜ/ Ü(o
+%7string"__concat*
+""*
+
+%6string©
+¶
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÜ/ Ü(o
+%8string"__concat*
+
+%7string*
+""π∂
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÜ Ü(p!
+%9System.ApplicationException"System.ApplicationExceptionı
+Ú
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÜ Ü(.
+%10void"8System.ApplicationException.ApplicationException(string)*#
+!
+%9System.ApplicationException*
+
+%8string*
+3*≈
+2°
+û
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csâ â(A
+%11:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"6Microsoft.AspNetCore.Mvc.ControllerBase.ModelState.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseì
+ê
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csâ â(#
+%12bool"FMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid.get*C
+A
+%11:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+4
+5*ú	
+4Ù
+Ò
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csã ã(A"
+%13System.Threading.Tasks.Task"ÏIndieVisible.Web.Controllers.ManageController.LoadSharedKeyAndQrCodeUriAsync(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)*1/
+-IndieVisible.Web.Controllers.ManageController*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel¯ı
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cså å("*
+%14#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel2View(object)"§
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cså å(#,
+*
+%14#Microsoft.AspNetCore.Mvc.ViewResult*Ú
+5⁄
+◊
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csê& ê(0
+%15string"fIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel.Code.get*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel≠
+™
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csê> ê(J
+%16string"__id**
+string"
+Emptystring“
+œ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csê& ê(K
+%17string"string.Replace(string, string)*
+
+%15string*
+""*
+
+%16string≠
+™
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csêY ê(e
+%18string"__id**
+string"
+Emptystring“
+œ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csê& ê(f
+%19string"string.Replace(string, string)*
+
+%17string*
+""*
+
+%18string¨
+©
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csê ê(f
+verificationCodestring"__id*
+
+%19stringØ
+¨
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csí) í(57
+%200Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ø
+¨
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csì ì("7
+%210Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>®
+•
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csì ì(*4
+%22-Microsoft.AspNetCore.Identity.IdentityOptions"<Microsoft.AspNetCore.Identity.UserManager<TUser>.Options.get*9
+7
+%210Microsoft.AspNetCore.Identity.UserManager<TUser>û
+õ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csì ì(11
+%23*Microsoft.AspNetCore.Identity.TokenOptions"8Microsoft.AspNetCore.Identity.IdentityOptions.Tokens.get*6
+4
+%22-Microsoft.AspNetCore.Identity.IdentityOptionsà
+Ö
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csì ì(L
+%24string"IMicrosoft.AspNetCore.Identity.TokenOptions.AuthenticatorTokenProvider.get*3
+1
+%23*Microsoft.AspNetCore.Identity.TokenOptionsÌ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csí) ì(_+
+%25$System.Threading.Tasks.Task<TResult>"aMicrosoft.AspNetCore.Identity.UserManager<TUser>.VerifyTwoFactorTokenAsync(TUser, string, string)*9
+7
+%200Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+
+%24string*
+
+verificationCodestring20VerifyTwoFactorTokenAsync(TUser, string, string)†
+ù
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csí ì(_
+is2faTokenValidbool"__id*
+""*
+6
+7*¯
+6°
+û
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csó ó(A
+%26:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"6Microsoft.AspNetCore.Mvc.ControllerBase.ModelState.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseµ
+≤
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csó ó(Q
+%27void"XMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError(string, string)*C
+A
+%26:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+""*
+""Ù
+Ò
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csò ò(A"
+%28System.Threading.Tasks.Task"ÏIndieVisible.Web.Controllers.ManageController.LoadSharedKeyAndQrCodeUriAsync(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)*1/
+-IndieVisible.Web.Controllers.ManageController*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel¯ı
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csô ô("*
+%29#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel2View(object)"§
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csô ô(#,
+*
+%29#Microsoft.AspNetCore.Mvc.ViewResult*∞ 
+7Ø
+¨
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csú ú(7
+%300Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>≥∞
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csú ú(C+
+%31$System.Threading.Tasks.Task<TResult>"VMicrosoft.AspNetCore.Identity.UserManager<TUser>.SetTwoFactorEnabledAsync(TUser, bool)*9
+7
+%300Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""2%SetTwoFactorEnabledAsync(TUser, bool)í
+è
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csù ù(+
+%32$Microsoft.Extensions.Logging.ILogger"__id*d*b/
+-IndieVisible.Web.Controllers.ManageController"/
+_logger$Microsoft.Extensions.Logging.ILoggerîë
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csùg ù(n
+%33string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2Id.get˛
+˚
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csù ù(o
+%34void"{Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(Microsoft.Extensions.Logging.ILogger, string, params object[])*1"/
+-Microsoft.Extensions.Logging.LoggerExtensions*-
++
+%32$Microsoft.Extensions.Logging.ILogger*
+""*
+
+%33stringØ
+¨
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csû6 û(B7
+%350Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>À»
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csû6 û(s+
+%36$System.Threading.Tasks.Task<TResult>"cMicrosoft.AspNetCore.Identity.UserManager<TUser>.GenerateNewTwoFactorRecoveryCodesAsync(TUser, int)*9
+7
+%350Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*2
+22GenerateNewTwoFactorRecoveryCodesAsync(TUser, int)√
+¿
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csû  û(s:
+recoveryCodes)System.Collections.Generic.IEnumerable<T>"__id*
+""ñ
+ì
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csü ü(@
+%379Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.TempData.get*'%
+#Microsoft.AspNetCore.Mvc.Controlleré
+ã
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csü ü(%
+%38"__id*
+""æ
+ª
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csü) ü(@
+%39string[]"XSystem.Linq.Enumerable.ToArray<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*<
+:
+recoveryCodes)System.Collections.Generic.IEnumerable<T>Ï
+È
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csü ü(@
+%40"
+__arraySet*B
+@
+%379Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary*
+
+%38*
+
+%39string[]¬ø
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs° °(>6
+%41/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""2RedirectToAction(string)"∞
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs° °(?8
+6
+%41/Microsoft.AspNetCore.Mvc.RedirectToActionResult*ë
+3"ã
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs¢ ¢(	
+implicit return*°	
+8¯
+ı
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÅ) Å(<
+%42"__entrypoint*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel∫
+∑
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csˇ	 ˇ(
+%43"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel⁄
+◊
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÄ	 Ä(!
+%44"
+__annotate*b`
+^Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute.ValidateAntiForgeryTokenAttribute()*h
+f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModelÅ
+˛
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÅ= Å(_f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel"__annotation*
+
+%43*
+
+%44*
+0:f
+model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModelB1/
+-IndieVisible.Web.Controllers.ManageController

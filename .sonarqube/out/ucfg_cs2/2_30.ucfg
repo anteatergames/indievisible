@@ -1,0 +1,33 @@
+
+HIndieVisible.Domain.Services.UserBadgeDomainService.GetById(System.Guid)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs! !( "0*‚
+0›
+⁄
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs# #(6D
+%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository"__id*ë*é5
+3IndieVisible.Domain.Services.UserBadgeDomainService"U
+userBadgeRepository>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepositoryÎË
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs# #(B*
+%1$IndieVisible.Domain.Models.UserBadge"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*F
+D
+%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository*
+
+idSystem.Guid2GetById(System.Guid)‡
+›
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs# #(B-
+model$IndieVisible.Domain.Models.UserBadge"__id*,
+*
+%1$IndieVisible.Domain.Models.UserBadge"´
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs% %(/
+-
+model$IndieVisible.Domain.Models.UserBadge*ï
+1"è
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs& &(	
+implicit return:
+idSystem.GuidB75
+3IndieVisible.Domain.Services.UserBadgeDomainService

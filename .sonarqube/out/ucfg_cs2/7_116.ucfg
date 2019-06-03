@@ -1,0 +1,309 @@
+
+çIndieVisible.Web.Controllers.StorageController.UploadProfileCoverImage(Microsoft.AspNetCore.Http.IFormFile, string, System.Guid, System.Guid)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csç ç(4"11*
+0*	
+1
+2
+3*”
+2≠
+™
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csë" ë(.
+%0string"__id**
+string"
+Emptystring§
+°
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csë ë(.
+imageUrlstring"__id*
+
+%0stringÓ
+Î
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csì ì(!
+
+%1bool""object.operator !=(object, object)*
+"
+object*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile*
+""*
+4
+5*Ä
+4ÚÔ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csì% ì(1
+
+%2long".Microsoft.AspNetCore.Http.IFormFile.Length.get*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile2
+Length.get*
+6
+5*Ã
+6∞≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csï- ï(?
+%3System.IO.MemoryStream"System.IO.MemoryStreamÕ
+ 
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csï1 ï(=
+
+%4void"%System.IO.MemoryStream.MemoryStream()*
+
+%3System.IO.MemoryStreamæ
+ª
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csï( ï(?
+msSystem.IO.MemoryStream"__id*
+
+%3System.IO.MemoryStream*
+7*£
+7Æ´
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csó ó((
+
+%5void"<Microsoft.AspNetCore.Http.IFormFile.CopyTo(System.IO.Stream)*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile*
+
+msSystem.IO.MemoryStream2CopyTo(System.IO.Stream)∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csô ô()
+
+%6void"TIndieVisible.Web.Controllers.StorageController.OptimizeImage(System.IO.MemoryStream)*2"0
+.IndieVisible.Web.Controllers.StorageController*
+
+msSystem.IO.MemoryStream’“
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csõ+ õ(7
+%7byte[]" System.IO.MemoryStream.ToArray()*
+
+msSystem.IO.MemoryStream2	ToArray()•
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csõ õ(7
+	fileBytesbyte[]"__id*
+
+%7byte[]“
+œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csù+ ù(B
+%8string"dIndieVisible.Web.Controllers.StorageController.GetFileExtension(Microsoft.AspNetCore.Http.IFormFile)*2"0
+.IndieVisible.Web.Controllers.StorageController*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile•
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csù ù(B
+	extensionstring"__id*
+
+%8stringº
+π
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csü* ü(>
+%9string"System.Guid.ToString()*
+
+	profileIdSystem.Guid§
+°
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csü ü(>
+filenamestring"__id*
+
+%9stringè
+å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs°< °(Q
+%10"__id*
+""ó
+î
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs°# °(g
+%11string"àIndieVisible.Web.Controllers.Base.SecureBaseController.UploadImage(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string, byte[])*20
+.IndieVisible.Web.Controllers.StorageController*
+
+userIdSystem.Guid*
+
+%10*
+
+filenamestring*
+
+	fileBytesbyte[]•
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs° °(g
+imageUrlstring"__id*
+
+%11string*
+5*
+5*
+8
+9*˛
+9Û
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csß" ß((
+%12long".Microsoft.AspNetCore.Http.IFormFile.Length.get*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile2
+Length.get*
+8*⁄
+8–
+Õ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs• ™(F
+json><anonymous type: long? size, string oldImage, string imageUrl>"__id*
+""Ÿ÷
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¨ ¨(!*
+%13#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*H
+F
+json><anonymous type: long? size, string oldImage, string imageUrl>2Json(object)"•
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¨ ¨(",
+*
+%13#Microsoft.AspNetCore.Mvc.JsonResult*
+10*	
+1
+3
+3*Î
+1ŒÀ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs≤ ≤(&
+%14string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs∞ ≥(&
+json<anonymous type: string error>"__id*
+""π∂
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csµ µ(!*
+%15#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*(
+&
+json<anonymous type: string error>2Json(object)"•
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csµ µ(",
+*
+%15#Microsoft.AspNetCore.Mvc.JsonResult*í
+3"å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs∑ ∑(	
+implicit return*£
+11é
+ã
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csç ç(4
+%16"__entrypoint*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile*
+
+currentImagestring*
+
+userIdSystem.Guid*
+
+	profileIdSystem.GuidÅ
+˛
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csã	 ã(
+%17"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*.
+,
+image#Microsoft.AspNetCore.Http.IFormFileÅ
+˛
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cså	 å()
+%18"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile»
+≈
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csç5 ç(D,
+image#Microsoft.AspNetCore.Http.IFormFile"__annotation*
+
+%17*
+
+%18Î
+Ë
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csã	 ã(
+%19"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+currentImagestringÎ
+Ë
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cså	 å()
+%20"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+currentImagestring≤
+Ø
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csçF ç(Y
+currentImagestring"__annotation*
+
+%19*
+
+%20Í
+Á
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csã	 ã(
+%21"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+userIdSystem.GuidÍ
+Á
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cså	 å()
+%22"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+userIdSystem.Guid±
+Æ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csç[ ç(f
+userIdSystem.Guid"__annotation*
+
+%21*
+
+%22Ì
+Í
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csã	 ã(
+%23"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+	profileIdSystem.GuidÌ
+Í
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cså	 å()
+%24"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+	profileIdSystem.Guid¥
+±
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csçh ç(v
+	profileIdSystem.Guid"__annotation*
+
+%23*
+
+%24*
+0:,
+image#Microsoft.AspNetCore.Http.IFormFile:
+currentImagestring:
+userIdSystem.Guid:
+	profileIdSystem.GuidB20
+.IndieVisible.Web.Controllers.StorageController

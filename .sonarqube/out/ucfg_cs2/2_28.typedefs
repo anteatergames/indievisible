@@ -1,0 +1,7 @@
+Ž	
+6IndieVisible.Domain.Services.GamificationDomainServiceobject—
+íGamificationDomainService(IndieVisible.Domain.Interfaces.Repository.IGamificationRepository, IndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository, IndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository)¤IndieVisible.Domain.Services.GamificationDomainService.GamificationDomainService(IndieVisible.Domain.Interfaces.Repository.IGamificationRepository, IndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository, IndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository)ƒ
+$GetGamificationByUserId(System.Guid)[IndieVisible.Domain.Services.GamificationDomainService.GetGamificationByUserId(System.Guid)U
+GetLevel(int)DIndieVisible.Domain.Services.GamificationDomainService.GetLevel(int)Î
+IProcessAction(System.Guid, IndieVisible.Domain.Core.Enums.PlatformAction)€IndieVisible.Domain.Services.GamificationDomainService.ProcessAction(System.Guid, IndieVisible.Domain.Core.Enums.PlatformAction)ƒ
+$GenerateNewGamification(System.Guid)[IndieVisible.Domain.Services.GamificationDomainService.GenerateNewGamification(System.Guid)

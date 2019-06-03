@@ -1,0 +1,34 @@
+
+sIndieVisible.Application.ViewModels.UserGeneratedCommentBaseViewModel<TComment>.UserGeneratedCommentBaseViewModel()ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\UserGeneratedBaseViewModel.cs (0"0*	
+0¶
+³
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\UserGeneratedBaseViewModel.cs3 (;
+
+%0void"[IndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.UserGeneratedBaseViewModel()*B@
+>IndieVisible.Application.ViewModels.UserGeneratedBaseViewModel×Ô
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\UserGeneratedBaseViewModel.cs (+(
+%1"System.Collections.Generic.List<T>""System.Collections.Generic.List<T>ì
+é
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\UserGeneratedBaseViewModel.cs ()
+
+%2void")System.Collections.Generic.List<T>.List()**
+(
+%1"System.Collections.Generic.List<T>ô
+ñ
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\UserGeneratedBaseViewModel.cs (+
+
+%3void"\IndieVisible.Application.ViewModels.UserGeneratedCommentBaseViewModel<TComment>.Comments.set*SQ
+OIndieVisible.Application.ViewModels.UserGeneratedCommentBaseViewModel<TComment>**
+(
+%1"System.Collections.Generic.List<T>*
+1*¡
+1"›
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\UserGeneratedBaseViewModel.cs (	
+implicit returnBSQ
+OIndieVisible.Application.ViewModels.UserGeneratedCommentBaseViewModel<TComment>

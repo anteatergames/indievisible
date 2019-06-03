@@ -1,0 +1,91 @@
+
+CIndieVisible.Web.Controllers.BrainstormController.List(System.Guid)v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csI! I(%"2*ñ
+0–
+Õ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csKK K(_?
+%09IndieVisible.Application.Interfaces.IBrainstormAppService"__id*ã*à3
+1IndieVisible.Web.Controllers.BrainstormController"Q
+brainstormAppService9IndieVisible.Application.Interfaces.IBrainstormAppServiceê
+ç
+w
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csKr K(Ñ
+%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*53
+1IndieVisible.Web.Controllers.BrainstormController≈¬
+w
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csKK K(ê?
+%29IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"eIndieVisible.Application.Interfaces.IBrainstormAppService.GetAllBySessionId(System.Guid, System.Guid)*A
+?
+%09IndieVisible.Application.Interfaces.IBrainstormAppService*
+
+%1System.Guid*
+
+	sessionIdSystem.Guid2+GetAllBySessionId(System.Guid, System.Guid)ë
+é
+w
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csK; K(êJ
+serviceResult9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%29IndieVisible.Domain.ValueObjects.OperationResultListVo<T>ø
+º
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csM9 M(L/
+%3)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*L
+J
+serviceResult9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>Ë
+Â
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csM1 M(L2
+items)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%3)System.Collections.Generic.IEnumerable<T>ÚÔ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csO O(.0
+%4*Microsoft.AspNetCore.Mvc.PartialViewResult"?Microsoft.AspNetCore.Mvc.Controller.PartialView(string, object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+""*4
+2
+items)System.Collections.Generic.IEnumerable<T>2PartialView(string, object)"¨
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csO O(/2
+0
+%4*Microsoft.AspNetCore.Mvc.PartialViewResult*ì
+1"ç
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csP P(	
+implicit return*Ã
+2´
+®
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csI! I(%
+%5"__entrypoint*
+
+	sessionIdSystem.GuidÌ
+Í
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csG	 G(2
+%6"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+	sessionIdSystem.GuidÌ
+Í
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csH	 H(!
+%7"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+	sessionIdSystem.Guid≥
+∞
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csI& I(4
+	sessionIdSystem.Guid"__annotation*
+
+%6*
+
+%7*
+0:
+	sessionIdSystem.GuidB53
+1IndieVisible.Web.Controllers.BrainstormController

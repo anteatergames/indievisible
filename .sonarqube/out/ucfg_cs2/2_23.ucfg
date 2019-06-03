@@ -1,0 +1,31 @@
+
+;IndieVisible.Domain.Services.UserBadgeDomainService.Count()x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs ("0*≥
+0›
+⁄
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs (0D
+%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository"__id*ë*é5
+3IndieVisible.Domain.Services.UserBadgeDomainService"U
+userBadgeRepository>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepositoryüú
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs (A	
+%1int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*F
+D
+%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository*
+""2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)û
+õ
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs (A
+countint"__id*
+	
+%1int"ä
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs (
+
+countint*ï
+1"è
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs (	
+implicit returnB75
+3IndieVisible.Domain.Services.UserBadgeDomainService

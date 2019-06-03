@@ -1,0 +1,17 @@
+Ë
+,IndieVisible.Domain.Models.BrainstormComment&IndieVisible.Domain.Core.Models.EntityobjectW
+BrainstormComment()@IndieVisible.Domain.Models.BrainstormComment.BrainstormComment()W
+ParentCommentId.get@IndieVisible.Domain.Models.BrainstormComment.ParentCommentId.getW
+ParentCommentId.set@IndieVisible.Domain.Models.BrainstormComment.ParentCommentId.setE
+
+IdeaId.get7IndieVisible.Domain.Models.BrainstormComment.IdeaId.getE
+
+IdeaId.set7IndieVisible.Domain.Models.BrainstormComment.IdeaId.setM
+AuthorName.get;IndieVisible.Domain.Models.BrainstormComment.AuthorName.getM
+AuthorName.set;IndieVisible.Domain.Models.BrainstormComment.AuthorName.setS
+AuthorPicture.get>IndieVisible.Domain.Models.BrainstormComment.AuthorPicture.getS
+AuthorPicture.set>IndieVisible.Domain.Models.BrainstormComment.AuthorPicture.setA
+Text.get5IndieVisible.Domain.Models.BrainstormComment.Text.getA
+Text.set5IndieVisible.Domain.Models.BrainstormComment.Text.setA
+Idea.get5IndieVisible.Domain.Models.BrainstormComment.Idea.getA
+Idea.set5IndieVisible.Domain.Models.BrainstormComment.Idea.set

@@ -1,0 +1,17 @@
+
+:IndieVisible.Application.Services.BaseAppService.Dispose()z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\Base\BaseAppService.cs2 2("0*ÿ
+0ô
+ñ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\Base\BaseAppService.cs4 4(%
+
+%0void""System.GC.SuppressFinalize(object)*"
+	System.GC*42
+0IndieVisible.Application.Services.BaseAppService*
+1*—
+1"‘
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\Base\BaseAppService.cs5 5(	
+implicit returnB42
+0IndieVisible.Application.Services.BaseAppService

@@ -1,0 +1,105 @@
+
+vIndieVisible.Application.Services.GameAppService.SetWebsiteUrl(IndieVisible.Application.ViewModels.Game.GameViewModel)u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csl l()"0*å
+0
+Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csn+ n(8
+%0string"EIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModelÅ
+Â
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csn n(9
+
+%1bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%0string*
+1
+2*¸	
+1
+Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csp  p(-
+%2string"EIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModelª
+§
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csp  p(7
+%3string"string.ToLower()*
+
+%2string
+š
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csp p(7
+
+%4void"EIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.set*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
+
+%3string
+Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csr r("
+%5string"EIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel¹
+¶
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csr r(6
+
+%6bool"string.StartsWith(string)*
+
+%5string*
+""*
+3
+2*Ù
+3
+Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csr; r(H
+%7string"EIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel¹
+¶
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csr; r(]
+
+%8bool"string.StartsWith(string)*
+
+%7string*
+""*
+4
+2*ê
+4
+Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cst0 t(=
+%9string"EIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel«
+¨
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cst$ t(=
+%10string"__concat*
+""*
+
+%9stringŸ
+œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cst t(=
+%11void"EIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.set*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
+
+%10string*
+2*’
+2"Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csw w(	
+implicit return:<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModelB4"2
+0IndieVisible.Application.Services.GameAppService

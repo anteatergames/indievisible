@@ -1,0 +1,300 @@
+
+ÄIndieVisible.Domain.Services.GamificationDomainService.ProcessAction(System.Guid, IndieVisible.Domain.Core.Enums.PlatformAction){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs+ +(!"0*Ÿ
+0˛
+˚
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs-1 -(RM
+%0GIndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository"__id*¶*£8
+6IndieVisible.Domain.Services.GamificationDomainService"g
+gamificationActionRepositoryGIndieVisible.Domain.Interfaces.Repository.IGamificationActionRepositoryœÃ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs-1 -(f3
+%1-IndieVisible.Domain.Models.GamificationAction"ÇIndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository.GetByAction(IndieVisible.Domain.Core.Enums.PlatformAction)*O
+M
+%0GIndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository*
+""2:GetByAction(IndieVisible.Domain.Core.Enums.PlatformAction)ˇ
+¸
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs- -(f@
+actionToProcess-IndieVisible.Domain.Models.GamificationAction"__id*5
+3
+%1-IndieVisible.Domain.Models.GamificationActionÏ
+È
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs/, /(GG
+%2AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository"__id*ö*ó8
+6IndieVisible.Domain.Services.GamificationDomainService"[
+gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepositoryâÜ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs/, /([-
+%3'IndieVisible.Domain.Models.Gamification"ZIndieVisible.Domain.Interfaces.Repository.IGamificationRepository.GetByUserId(System.Guid)*I
+G
+%2AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository*
+
+userIdSystem.Guid2GetByUserId(System.Guid)Ù
+Ò
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs/ /([;
+userGamification'IndieVisible.Domain.Models.Gamification"__id*/
+-
+%3'IndieVisible.Domain.Models.GamificationÑ
+Å
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs1 1((
+
+%4bool"ÇIndieVisible.Domain.Core.Models.Entity.operator ==(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+""*
+1
+2*∂
+1·
+ﬁ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs3# 3(B-
+%5'IndieVisible.Domain.Models.Gamification"[IndieVisible.Domain.Services.GamificationDomainService.GenerateNewGamification(System.Guid)*:8
+6IndieVisible.Domain.Services.GamificationDomainService*
+
+userIdSystem.GuidÙ
+Ò
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs3 3(B;
+userGamification'IndieVisible.Domain.Models.Gamification"__id*/
+-
+%5'IndieVisible.Domain.Models.GamificationÜ
+É
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs5 5(/	
+%6int":IndieVisible.Domain.Models.Gamification.XpCurrentLevel.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamificationç
+ä
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs53 5(M	
+%7int"<IndieVisible.Domain.Models.GamificationAction.ScoreValue.get*B
+@
+actionToProcess-IndieVisible.Domain.Models.GamificationActionè
+å
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs5 5(M
+
+%8void":IndieVisible.Domain.Models.Gamification.XpCurrentLevel.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+""ˇ
+¸
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs6 6((	
+%9int"3IndieVisible.Domain.Models.Gamification.XpTotal.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamificationé
+ã
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs6, 6(F
+
+%10int"<IndieVisible.Domain.Models.GamificationAction.ScoreValue.get*B
+@
+actionToProcess-IndieVisible.Domain.Models.GamificationActionâ
+Ü
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs6 6(F
+%11void"3IndieVisible.Domain.Models.Gamification.XpTotal.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+""é
+ã
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs71 7(K
+
+%12int"<IndieVisible.Domain.Models.GamificationAction.ScoreValue.get*B
+@
+actionToProcess-IndieVisible.Domain.Models.GamificationActionï
+í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs7 7(K
+%13void"9IndieVisible.Domain.Models.Gamification.XpToNextLevel.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+
+
+%12intÌ
+Í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs9 9(+H
+%14AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository"__id*ö*ó8
+6IndieVisible.Domain.Services.GamificationDomainService"[
+gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepositoryÌÍ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs9 9(A
+%15void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*J
+H
+%14AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification2Add(TEntity)*
+3*î
+2á
+Ñ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs= =(/
+
+%16int":IndieVisible.Domain.Models.Gamification.XpCurrentLevel.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamificationé
+ã
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs=3 =(M
+
+%17int"<IndieVisible.Domain.Models.GamificationAction.ScoreValue.get*B
+@
+actionToProcess-IndieVisible.Domain.Models.GamificationActionê
+ç
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs= =(M
+%18void":IndieVisible.Domain.Models.Gamification.XpCurrentLevel.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+""Ä
+˝
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs> >((
+
+%19int"3IndieVisible.Domain.Models.Gamification.XpTotal.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamificationé
+ã
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs>, >(F
+
+%20int"<IndieVisible.Domain.Models.GamificationAction.ScoreValue.get*B
+@
+actionToProcess-IndieVisible.Domain.Models.GamificationActionâ
+Ü
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs> >(F
+%21void"3IndieVisible.Domain.Models.Gamification.XpTotal.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+""Ü
+É
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs? ?(.
+
+%22int"9IndieVisible.Domain.Models.Gamification.XpToNextLevel.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamificationé
+ã
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs?2 ?(L
+
+%23int"<IndieVisible.Domain.Models.GamificationAction.ScoreValue.get*B
+@
+actionToProcess-IndieVisible.Domain.Models.GamificationActionï
+í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs? ?(L
+%24void"9IndieVisible.Domain.Models.Gamification.XpToNextLevel.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+
+
+%23intÜ
+É
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csA A(2
+
+%25int"9IndieVisible.Domain.Models.Gamification.XpToNextLevel.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+4
+5*ñ
+4¸
+˘
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csC1 C(QM
+%26FIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository"__id*§*°8
+6IndieVisible.Domain.Services.GamificationDomainService"e
+gamificationLevelRepositoryFIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepositoryå
+â
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csC^ C(Å
+
+%27int">IndieVisible.Domain.Models.Gamification.CurrentLevelNumber.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification˙˜
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csC1 C(Ü3
+%28,IndieVisible.Domain.Models.GamificationLevel"WIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository.GetByNumber(int)*O
+M
+%26FIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository*
+""2GetByNumber(int)¯
+ı
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csC& C(Ü8
+newLevel,IndieVisible.Domain.Models.GamificationLevel"__id*5
+3
+%28,IndieVisible.Domain.Models.GamificationLevelÇ
+ˇ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csE E((
+%29bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*:
+8
+newLevel,IndieVisible.Domain.Models.GamificationLevel*
+""*
+6
+5*∆
+6ã
+à
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csG G(;
+
+%30int">IndieVisible.Domain.Models.Gamification.CurrentLevelNumber.get*=
+;
+userGamification'IndieVisible.Domain.Models.Gamificationå
+â
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csH H(;
+%31void":IndieVisible.Domain.Models.Gamification.XpCurrentLevel.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*2 Ü
+É
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csI9 I(M
+
+%32int"<IndieVisible.Domain.Models.GamificationLevel.XpToAchieve.get*:
+8
+newLevel,IndieVisible.Domain.Models.GamificationLevelï
+í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csI I(M
+%33void"9IndieVisible.Domain.Models.Gamification.XpToNextLevel.set*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification*
+
+
+%32int*
+5*Ó
+5Ì
+Í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csM M(+H
+%34AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository"__id*ö*ó8
+6IndieVisible.Domain.Services.GamificationDomainService"[
+gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepositoryÛ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csM M(D
+%35void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*J
+H
+%34AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository*=
+;
+userGamification'IndieVisible.Domain.Models.Gamification2Update(TEntity)*
+3*ò
+3"í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.csO O(	
+implicit return:
+userIdSystem.Guid:7
+action-IndieVisible.Domain.Core.Enums.PlatformActionB:8
+6IndieVisible.Domain.Services.GamificationDomainService

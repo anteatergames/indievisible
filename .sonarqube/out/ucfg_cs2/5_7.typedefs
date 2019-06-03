@@ -1,0 +1,4 @@
+©
+MIndieVisible.Application.AutoMapper.Resolvers.UserLanguagesFromDomainResolverobject¸
+òResolve(IndieVisible.Domain.Models.UserPreferences, IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.SupportedLanguage>, AutoMapper.ResolutionContext)ÀIndieVisible.Application.AutoMapper.Resolvers.UserLanguagesFromDomainResolver.Resolve(IndieVisible.Domain.Models.UserPreferences, IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.SupportedLanguage>, AutoMapper.ResolutionContext)”
+!UserLanguagesFromDomainResolver()oIndieVisible.Application.AutoMapper.Resolvers.UserLanguagesFromDomainResolver.UserLanguagesFromDomainResolver()

@@ -1,0 +1,4 @@
+©
+/IndieVisible.Infra.Data.Mappings.GameLikeConfigobject—
+qConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GameLike>)¡IndieVisible.Infra.Data.Mappings.GameLikeConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GameLike>)T
+GameLikeConfig()@IndieVisible.Infra.Data.Mappings.GameLikeConfig.GameLikeConfig()

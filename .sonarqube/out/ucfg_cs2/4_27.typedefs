@@ -1,0 +1,49 @@
+å%
+3IndieVisible.Infra.Data.Context.IndieVisibleContext'Microsoft.EntityFrameworkCore.DbContextobjectb
+IndieVisibleContext()IIndieVisible.Infra.Data.Context.IndieVisibleContext.IndieVisibleContext()©
+xIndieVisibleContext(Microsoft.EntityFrameworkCore.DbContextOptions<IndieVisible.Infra.Data.Context.IndieVisibleContext>)¬IndieVisible.Infra.Data.Context.IndieVisibleContext.IndieVisibleContext(Microsoft.EntityFrameworkCore.DbContextOptions<IndieVisible.Infra.Data.Context.IndieVisibleContext>)®
+;OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)oIndieVisible.Infra.Data.Context.IndieVisibleContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)À
+DOnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)xIndieVisible.Infra.Data.Context.IndieVisibleContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)˜
+0Seed(Microsoft.EntityFrameworkCore.ModelBuilder)dIndieVisible.Infra.Data.Context.IndieVisibleContext.Seed(Microsoft.EntityFrameworkCore.ModelBuilder)Z
+Configuration.getEIndieVisible.Infra.Data.Context.IndieVisibleContext.Configuration.getZ
+Configuration.setEIndieVisible.Infra.Data.Context.IndieVisibleContext.Configuration.set^
+UserPreferences.getGIndieVisible.Infra.Data.Context.IndieVisibleContext.UserPreferences.get^
+UserPreferences.setGIndieVisible.Infra.Data.Context.IndieVisibleContext.UserPreferences.setZ
+Notifications.getEIndieVisible.Infra.Data.Context.IndieVisibleContext.Notifications.getZ
+Notifications.setEIndieVisible.Infra.Data.Context.IndieVisibleContext.Notifications.set`
+FeaturedContents.getHIndieVisible.Infra.Data.Context.IndieVisibleContext.FeaturedContents.get`
+FeaturedContents.setHIndieVisible.Infra.Data.Context.IndieVisibleContext.FeaturedContents.setP
+Profiles.get@IndieVisible.Infra.Data.Context.IndieVisibleContext.Profiles.getP
+Profiles.set@IndieVisible.Infra.Data.Context.IndieVisibleContext.Profiles.setN
+Follows.get?IndieVisible.Infra.Data.Context.IndieVisibleContext.Follows.getN
+Follows.set?IndieVisible.Infra.Data.Context.IndieVisibleContext.Follows.setV
+Connections.getCIndieVisible.Infra.Data.Context.IndieVisibleContext.Connections.getV
+Connections.setCIndieVisible.Infra.Data.Context.IndieVisibleContext.Connections.setJ
+	Games.get=IndieVisible.Infra.Data.Context.IndieVisibleContext.Games.getJ
+	Games.set=IndieVisible.Infra.Data.Context.IndieVisibleContext.Games.setR
+GameLikes.getAIndieVisible.Infra.Data.Context.IndieVisibleContext.GameLikes.getR
+GameLikes.setAIndieVisible.Infra.Data.Context.IndieVisibleContext.GameLikes.setV
+GameFollows.getCIndieVisible.Infra.Data.Context.IndieVisibleContext.GameFollows.getV
+GameFollows.setCIndieVisible.Infra.Data.Context.IndieVisibleContext.GameFollows.setX
+UserContents.getDIndieVisible.Infra.Data.Context.IndieVisibleContext.UserContents.getX
+UserContents.setDIndieVisible.Infra.Data.Context.IndieVisibleContext.UserContents.setJ
+	Likes.get=IndieVisible.Infra.Data.Context.IndieVisibleContext.Likes.getJ
+	Likes.set=IndieVisible.Infra.Data.Context.IndieVisibleContext.Likes.setP
+Comments.get@IndieVisible.Infra.Data.Context.IndieVisibleContext.Comments.getP
+Comments.set@IndieVisible.Infra.Data.Context.IndieVisibleContext.Comments.setd
+BrainstormSessions.getJIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormSessions.getd
+BrainstormSessions.setJIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormSessions.set^
+BrainstormIdeas.getGIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormIdeas.get^
+BrainstormIdeas.setGIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormIdeas.set^
+BrainstormVotes.getGIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormVotes.get^
+BrainstormVotes.setGIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormVotes.setd
+BrainstormComments.getJIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormComments.getd
+BrainstormComments.setJIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormComments.setZ
+Gamifications.getEIndieVisible.Infra.Data.Context.IndieVisibleContext.Gamifications.getZ
+Gamifications.setEIndieVisible.Infra.Data.Context.IndieVisibleContext.Gamifications.setf
+GamificationActions.getKIndieVisible.Infra.Data.Context.IndieVisibleContext.GamificationActions.getf
+GamificationActions.setKIndieVisible.Infra.Data.Context.IndieVisibleContext.GamificationActions.setd
+GamificationLevels.getJIndieVisible.Infra.Data.Context.IndieVisibleContext.GamificationLevels.getd
+GamificationLevels.setJIndieVisible.Infra.Data.Context.IndieVisibleContext.GamificationLevels.setT
+UserBadges.getBIndieVisible.Infra.Data.Context.IndieVisibleContext.UserBadges.getT
+UserBadges.setBIndieVisible.Infra.Data.Context.IndieVisibleContext.UserBadges.set

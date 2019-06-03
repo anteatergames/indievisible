@@ -1,0 +1,39 @@
+
+AIndieVisible.Infra.Data.Repository.UserContentRepository.GetAll()}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserContentRepository.cs0 (6"0*∑
+0æ
+ª
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserContentRepository.csí (î9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext"__id*w*u8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"9
+Db3IndieVisible.Infra.Data.Context.IndieVisibleContextª
+∏
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserContentRepository.csí (°2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"DIndieVisible.Infra.Data.Context.IndieVisibleContext.UserContents.get*;
+9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext†
+ù
+~
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserContentRepository.csí (&R
+%2LMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>"¬Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Include<TEntity, TProperty>(System.Linq.IQueryable<TEntity>, System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*D"B
+@Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions*4
+2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+""µ
+≤
+~
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserContentRepository.csã (&T
+dataLMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>"__id*T
+R
+%2LMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>"◊
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserContentRepository.cs (V
+T
+dataLMicrosoft.EntityFrameworkCore.Query.IIncludableQueryable<TEntity, TProperty>*ö
+1"î
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserContentRepository.cs (	
+implicit returnB<:
+8IndieVisible.Infra.Data.Repository.UserContentRepository

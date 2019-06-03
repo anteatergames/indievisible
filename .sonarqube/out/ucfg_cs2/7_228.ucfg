@@ -1,0 +1,78 @@
+
+LIndieVisible.Web.Controllers.InteractionController.UnFollowUser(System.Guid)y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÄ Ä()"2*—
+0È
+Å
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÆ) Æ(9;
+%05IndieVisible.Application.Interfaces.IFollowAppService"__id*„*4
+2IndieVisible.Web.Controllers.InteractionController"I
+followAppService5IndieVisible.Application.Interfaces.IFollowAppService“
+
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÆG Æ(Y
+%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*64
+2IndieVisible.Web.Controllers.InteractionController«¨
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÆ) Æ(b8
+%22IndieVisible.Domain.ValueObjects.OperationResultVo"\IndieVisible.Application.Interfaces.IFollowAppService.UserUnfollow(System.Guid, System.Guid)*=
+;
+%05IndieVisible.Application.Interfaces.IFollowAppService*
+
+%1System.Guid*
+
+userIdSystem.Guid2&UserUnfollow(System.Guid, System.Guid)€
+ý
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÆ Æ(b>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%22IndieVisible.Domain.ValueObjects.OperationResultVoÔÑ
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÈ È(!)
+%3#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"¨
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÈ È("+
+)
+%3#Microsoft.AspNetCore.Mvc.JsonResult*–
+1"
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÉ É(	
+implicit return*Ì
+2«
+¨
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÄ Ä()
+%4"__entrypoint*
+
+userIdSystem.Guidí
+ê
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÂ	 Â(
+%5"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+userIdSystem.Guidí
+ê
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÃ	 Ã(
+%6"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+userIdSystem.Guid³
+°
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÄ* Ä(5
+userIdSystem.Guid"__annotation*
+
+%5*
+
+%6*
+0:
+userIdSystem.GuidB64
+2IndieVisible.Web.Controllers.InteractionController

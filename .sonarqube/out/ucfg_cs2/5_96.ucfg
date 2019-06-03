@@ -1,0 +1,38 @@
+
+éIndieVisible.Application.Services.UserContentCommentAppService.UserContentCommentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository)ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs (+"0*ý
+0’
+
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs (a@
+>IndieVisible.Application.Services.UserContentCommentAppService"
+_mapperAutoMapper.IMapper"__id*
+
+mapperAutoMapper.IMapperÕ
+Ò
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs ($‚@
+>IndieVisible.Application.Services.UserContentCommentAppService">
+_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
+=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork…
+‚
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs ($š@
+>IndieVisible.Application.Services.UserContentCommentAppService"V
+_repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*W
+U
+
+repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository*
+1*¡
+1"›
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs (	
+implicit return:
+mapperAutoMapper.IMapper:=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:U
+
+repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryBB@
+>IndieVisible.Application.Services.UserContentCommentAppService

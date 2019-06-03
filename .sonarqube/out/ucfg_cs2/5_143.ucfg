@@ -1,0 +1,231 @@
+
+âIndieVisible.Application.Services.NotificationAppService.Save(IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel)}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csd' d(+"0*
+0*	
+1
+2
+3*ó
+2Ò
+Ó
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csn( n(?G
+%0AIndieVisible.Domain.Interfaces.Repository.INotificationRepository"__id*ù*ö:
+8IndieVisible.Application.Services.NotificationAppService"\
+_notificationRepositoryAIndieVisible.Domain.Interfaces.Repository.INotificationRepository™
+ß
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csnH n(T
+%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*Y
+W
+	viewModelJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModelˆÛ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csn( n(U-
+%2'IndieVisible.Domain.Models.Notification"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*I
+G
+%0AIndieVisible.Domain.Interfaces.Repository.INotificationRepository*
+
+%1System.Guid2GetById(System.Guid)Ó
+Î
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csn n(U3
+existing'IndieVisible.Domain.Models.Notification"__id*/
+-
+%2'IndieVisible.Domain.Models.Notification˛
+˚
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cso o($
+
+%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*5
+3
+existing'IndieVisible.Domain.Models.Notification*
+""*
+4
+5*’
+4Å
+˛
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csq q(#
+%4AutoMapper.IMapper"__id*]*[:
+8IndieVisible.Application.Services.NotificationAppService"
+_mapperAutoMapper.IMapperÿ’
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csq q(<-
+%5'IndieVisible.Domain.Models.Notification"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
+
+%4AutoMapper.IMapper*Y
+W
+	viewModelJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*5
+3
+existing'IndieVisible.Domain.Models.Notification21Map<TSource, TDestination>(TSource, TDestination)Î
+Ë
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csq q(<0
+model'IndieVisible.Domain.Models.Notification"__id*/
+-
+%5'IndieVisible.Domain.Models.Notification*
+6*Ó
+5Å
+˛
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csu u(#
+%6AutoMapper.IMapper"__id*]*[:
+8IndieVisible.Application.Services.NotificationAppService"
+_mapperAutoMapper.IMapperÒÓ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csu u(@-
+%7'IndieVisible.Domain.Models.Notification",AutoMapper.IMapper.Map<TDestination>(object)*
+
+%6AutoMapper.IMapper*Y
+W
+	viewModelJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel2Map<TDestination>(object)Î
+Ë
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csu u(@0
+model'IndieVisible.Domain.Models.Notification"__id*/
+-
+%7'IndieVisible.Domain.Models.Notification*
+6*ˇ
+6™
+ß
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csx x( 
+%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*Y
+W
+	viewModelJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModelƒ
+¡
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csx$ x(.
+%9System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guid˝
+˙
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csx x(.
+%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%8System.Guid*
+
+%9System.Guid*
+7
+8*ù
+
+7Ú
+Ô
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csz z(+H
+%11AIndieVisible.Domain.Interfaces.Repository.INotificationRepository"__id*ù*ö:
+8IndieVisible.Application.Services.NotificationAppService"\
+_notificationRepositoryAIndieVisible.Domain.Interfaces.Repository.INotificationRepository‰·
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csz z(6
+%12void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*J
+H
+%11AIndieVisible.Domain.Interfaces.Repository.INotificationRepository*2
+0
+model'IndieVisible.Domain.Models.Notification2Add(TEntity)˘
+ˆ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs{# {(+
+%13System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*2
+0
+model'IndieVisible.Domain.Models.Notification∫
+∑
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs{ {(+
+%14void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*Y
+W
+	viewModelJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+
+%13System.Guid*
+9*Í
+8Ú
+Ô
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs (+H
+%15AIndieVisible.Domain.Interfaces.Repository.INotificationRepository"__id*ù*ö:
+8IndieVisible.Application.Services.NotificationAppService"\
+_notificationRepositoryAIndieVisible.Domain.Interfaces.Repository.INotificationRepositoryÍÁ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs (9
+%16void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*J
+H
+%15AIndieVisible.Domain.Interfaces.Repository.INotificationRepository*2
+0
+model'IndieVisible.Domain.Models.Notification2Update(TEntity)*
+9*§
+9¬
+ø
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csÇ Ç(6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*~*|:
+8IndieVisible.Application.Services.NotificationAppService">
+_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkèå
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csÇ Ç($
+%18bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()˚
+¯
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csÑ5 Ñ(=
+%19System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*2
+0
+model'IndieVisible.Domain.Models.Notification˘ˆ
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csÑ Ñ(><
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>≥
+∞
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csÑ Ñ(4
+%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%19System.Guidã
+à
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csÑ Ñ(>?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+1
+10
+3*§
+1ÿ’
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csà5 à(?
+%22string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get˘ˆ
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csà à(@<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>≥
+∞
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csà à(4
+%24void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%22stringã
+à
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csà à(@?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+10*À
+10"ƒ
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csã ã(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ú
+3"ñ
+
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cså å(	
+implicit return:W
+	viewModelJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModelB<:
+8IndieVisible.Application.Services.NotificationAppService

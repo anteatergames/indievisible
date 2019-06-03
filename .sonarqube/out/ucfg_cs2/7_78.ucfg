@@ -1,0 +1,42 @@
+
+¨IndieVisible.Web.Controllers.GameController.GameController(IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.INotificationAppService)p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs ("2*∑
+0å
+â
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs> (F
+
+%0void"MIndieVisible.Web.Controllers.Base.SecureBaseController.SecureBaseController()*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerΩ
+∫
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs (,w-
++IndieVisible.Web.Controllers.GameController"F
+_gameAppService3IndieVisible.Application.Interfaces.IGameAppService"__id*G
+E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppService›
+⁄
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs (@Ü-
++IndieVisible.Web.Controllers.GameController"U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService"__id*W
+U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService*
+1*ç
+1"á
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs (	
+implicit return*∂
+2´
+®
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs (
+%1"__entrypoint*G
+E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppService*W
+U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService*
+0:E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppService:U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceB/-
++IndieVisible.Web.Controllers.GameController

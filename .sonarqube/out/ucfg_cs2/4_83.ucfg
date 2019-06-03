@@ -1,0 +1,36 @@
+
+qIndieVisible.Infra.Data.Migrations.titlenotrequired.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181128154120_titlenotrequired.cs  (""0*£
+0˜•
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181128154120_titlenotrequired.cs	 ("d
+%0^Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.AlterOperationBuilder<TOperation>"íMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.AlterColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, System.Type, string, bool?, int?, bool, bool, object, string, string, bool?, bool?)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*2€*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*2€*
+""*
+""*
+""*
+""*
+""*
+""*
+""2³AlterColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, System.Type, string, bool?, int?, bool, bool, object, string, string, bool?, bool?)*
+1*¥
+1"Ÿ
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181128154120_titlenotrequired.cs (	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB75
+3IndieVisible.Infra.Data.Migrations.titlenotrequired

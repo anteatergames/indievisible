@@ -1,0 +1,89 @@
+
+8IndieVisible.Application.Services.GameAppService.Count()u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs)& )(+"0*
+0*	
+1
+2
+3*Ä
+2Â
+¿
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs/ /(&?
+%09IndieVisible.Domain.Interfaces.Repository.IGameRepository"__id**}2
+0IndieVisible.Application.Services.GameAppService"G
+
+repository9IndieVisible.Domain.Interfaces.Repository.IGameRepository«¨
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs/ /(/
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*A
+?
+%09IndieVisible.Domain.Interfaces.Repository.IGameRepository2GetAll()Š
+‡
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs/ /(7	
+%2int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>›
+˜
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs/ /(7
+countint"__id*
+	
+%2intîë
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs1 1(:;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¡
+ž
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs1 1(3
+
+%4void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+countint€
+ý
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs1 1(:?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
+1
+4
+3*õ
+1ÍÊ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs54 5(>
+%5string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getîë
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs5 5(?;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¦
+£
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs5 5(3
+
+%7void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%5string€
+ý
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs5 5(??
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+4*À
+4"º
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs8 8(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*’
+3"Œ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs9 9(	
+implicit returnB42
+0IndieVisible.Application.Services.GameAppService

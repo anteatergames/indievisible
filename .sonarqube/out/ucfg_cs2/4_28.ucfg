@@ -1,0 +1,24 @@
+
+DIndieVisible.Infra.Data.Repository.Repository<TEntity>.SaveChanges()r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs8 8("0*√
+0±
+Æ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs: :(9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext"__id*w*u8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"9
+Db3IndieVisible.Infra.Data.Context.IndieVisibleContextÖÇ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs: :(#	
+%1int"5Microsoft.EntityFrameworkCore.DbContext.SaveChanges()*;
+9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext2SaveChanges()"Å
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs: :($
+	
+%1int*è
+1"â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs; ;(	
+implicit returnB:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>

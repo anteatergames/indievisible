@@ -1,0 +1,4 @@
+Ú
+6IndieVisible.Infra.Data.Mappings.FeaturedContentConfigobject¬
+xConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.FeaturedContent>)¯IndieVisible.Infra.Data.Mappings.FeaturedContentConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.FeaturedContent>)i
+FeaturedContentConfig()NIndieVisible.Infra.Data.Mappings.FeaturedContentConfig.FeaturedContentConfig()

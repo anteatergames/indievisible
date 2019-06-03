@@ -1,0 +1,586 @@
+
+PIndieVisible.Web.Controllers.ContentController.Details(System.Guid, System.Guid)s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs*) *(0"14*‹
+0Ω
+∫
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs,D ,(K@
+%0:IndieVisible.Application.Interfaces.IUserContentAppService"__id*{*y0
+.IndieVisible.Web.Controllers.ContentController"E
+service:IndieVisible.Application.Interfaces.IUserContentAppServiceÒÓ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs,D ,(W;
+%15IndieVisible.Domain.ValueObjects.OperationResultVo<T>"KIndieVisible.Application.Interfaces.ICrudAppService<T>.GetById(System.Guid)*B
+@
+%0:IndieVisible.Application.Interfaces.IUserContentAppService*
+
+idSystem.Guid2GetById(System.Guid)Ö
+Ç
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs,4 ,(WF
+serviceResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%15IndieVisible.Domain.ValueObjects.OperationResultVo<T>À
+»
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs.& .(9F
+%2@IndieVisible.Application.ViewModels.Content.UserContentViewModel"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*H
+F
+serviceResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>ê
+ç
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs.! .(9F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel"__id*H
+F
+%2@IndieVisible.Application.ViewModels.Content.UserContentViewModel¡
+æ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs0 0(%?
+%39IndieVisible.Application.ViewModels.User.ProfileViewModel"áIndieVisible.Web.Controllers.Base.SecureBaseController.SetAuthorDetails(IndieVisible.Application.ViewModels.UserGeneratedBaseViewModel)*20
+.IndieVisible.Web.Controllers.ContentController*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel©
+¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs2 2(
+%4System.Nullable<T>"KIndieVisible.Application.ViewModels.Content.UserContentViewModel.GameId.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel¡
+æ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs2 2("
+
+%5bool"System.Nullable<T>.HasValue.get*
+
+%4System.Nullable<T>*
+1
+2*±
+1©
+¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs2& 2(/
+%6System.Nullable<T>"KIndieVisible.Application.ViewModels.Content.UserContentViewModel.GameId.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel≈
+¬
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs2& 2(5
+%7System.Guid"System.Nullable<T>.Value.get*
+
+%6System.Nullable<T>∫
+∑
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs29 2(C
+%8System.Guid"__id*'*%
+System.Guid"
+EmptySystem.GuidÚ
+Ô
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs2& 2(C
+
+%9bool"1System.Guid.operator !=(System.Guid, System.Guid)*"
+System.Guid*
+
+%7System.Guid*
+
+%8System.Guid*
+3
+2*ó
+3∑
+¥
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs4a 4(o:
+%103IndieVisible.Application.Interfaces.IGameAppService"__id*{*y0
+.IndieVisible.Web.Controllers.ContentController"E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppService´
+®
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs4x 4(Å
+%11System.Nullable<T>"KIndieVisible.Application.ViewModels.Content.UserContentViewModel.GameId.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel»
+≈
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs4x 4(á
+%12System.Guid"System.Nullable<T>.Value.get*
+
+%11System.Nullable<T>ÓÎ
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs4a 4(à<
+%135IndieVisible.Domain.ValueObjects.OperationResultVo<T>"KIndieVisible.Application.Interfaces.ICrudAppService<T>.GetById(System.Guid)*<
+:
+%103IndieVisible.Application.Interfaces.IGameAppService*
+
+%12System.Guid2GetById(System.Guid)ã
+à
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs4M 4(àJ
+gameServiceResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%135IndieVisible.Domain.ValueObjects.OperationResultVo<T>∆
+√
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs6A 6(X=
+%146IndieVisible.Application.ViewModels.Game.GameViewModel"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*L
+J
+gameServiceResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>ˇ
+¸
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs6: 6(X>
+game6IndieVisible.Application.ViewModels.Game.GameViewModel"__id*?
+=
+%146IndieVisible.Application.ViewModels.Game.GameViewModelã
+à
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs8 8()
+%15string"@IndieVisible.Application.ViewModels.Game.GameViewModel.Title.get*@
+>
+game6IndieVisible.Application.ViewModels.Game.GameViewModel∞
+≠
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs8 8()
+%16void"NIndieVisible.Application.ViewModels.Content.UserContentViewModel.GameTitle.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%15stringå
+â
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs96 9(A
+%17System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*@
+>
+game6IndieVisible.Application.ViewModels.Game.GameViewModelç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs9C 9(Y
+%18"__id*
+""í
+è
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs9[ 9(l
+%19string"GIndieVisible.Application.ViewModels.Game.GameViewModel.ThumbnailUrl.get*@
+>
+game6IndieVisible.Application.ViewModels.Game.GameViewModel„
+‡
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs9# 9(m
+%20string"tIndieVisible.Application.Formatters.UrlFormatter.Image(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%17System.Guid*
+
+%18*
+
+%19string¥
+±
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs9 9(m
+%21void"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.GameThumbnail.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%20string*
+2*»
+2ü
+ú
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs< <(#
+%22string"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel»
+≈
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs< <(r
+%23string"string.Replace(string, string)*
+
+%22string*
+""*
+""Æ
+´
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs< <(r
+%24void"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%23stringü
+ú
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs= =(#
+%25string"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel»
+≈
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs= =(o
+%26string"string.Replace(string, string)*
+
+%25string*
+""*
+""Æ
+´
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs= =(o
+%27void"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%26stringü
+ú
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs> >(#
+%28string"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel»
+≈
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs> >(Z
+%29string"string.Replace(string, string)*
+
+%28string*
+""*
+""Æ
+´
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs> >(Z
+%30void"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%29stringù
+ö
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs@% @(-
+%31string"JIndieVisible.Application.ViewModels.Content.UserContentViewModel.Title.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel¿
+Ω
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs@ @(.
+%32bool"string.IsNullOrEmpty(string)*
+"
+string*
+
+%31string*
+4
+5*Ÿ
+4≤
+Ø
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csB B(*<
+%335Microsoft.Extensions.Localization.IStringLocalizer<T>"DIndieVisible.Web.Controllers.Base.BaseController.SharedLocalizer.get*42
+0IndieVisible.Web.Controllers.Base.BaseController—Œ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csB B(?8
+%341Microsoft.Extensions.Localization.LocalizedString"CMicrosoft.Extensions.Localization.IStringLocalizer.this[string].get*>
+<
+%335Microsoft.Extensions.Localization.IStringLocalizer<T>*
+""2this[string].getÄ
+˝
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csB B(E8
+%351Microsoft.Extensions.Localization.LocalizedString"__concat*:
+8
+%341Microsoft.Extensions.Localization.LocalizedString*
+""ú
+ô
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csBH B(U
+%36System.DateTime"@IndieVisible.Application.ViewModels.BaseViewModel.CreateDate.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelΩ
+∫
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csBH B(`
+%37string"System.DateTime.ToString()*
+
+%36System.DateTimeâ
+Ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csB B(`8
+%381Microsoft.Extensions.Localization.LocalizedString"__concat*:
+8
+%351Microsoft.Extensions.Localization.LocalizedString*
+
+%37string◊
+‘
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csB B(`
+%39void"JIndieVisible.Application.ViewModels.Content.UserContentViewModel.Title.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*:
+8
+%381Microsoft.Extensions.Localization.LocalizedString*
+5*˙
+5§
+°
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csE* E(9
+%40string"QIndieVisible.Application.ViewModels.Content.UserContentViewModel.Introduction.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel≈
+¬
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csE E(:
+%41bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%40string*
+6
+7*È
+6≤
+Ø
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csG" G(1<
+%425Microsoft.Extensions.Localization.IStringLocalizer<T>"DIndieVisible.Web.Controllers.Base.BaseController.SharedLocalizer.get*42
+0IndieVisible.Web.Controllers.Base.BaseController—Œ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csG" G(F8
+%431Microsoft.Extensions.Localization.LocalizedString"CMicrosoft.Extensions.Localization.IStringLocalizer.this[string].get*>
+<
+%425Microsoft.Extensions.Localization.IStringLocalizer<T>*
+""2this[string].getÄ
+˝
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csG" G(L8
+%441Microsoft.Extensions.Localization.LocalizedString"__concat*:
+8
+%431Microsoft.Extensions.Localization.LocalizedString*
+""ú
+ô
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csGO G(\
+%45System.DateTime"@IndieVisible.Application.ViewModels.BaseViewModel.CreateDate.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel∆
+√
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csGO G(p
+%46string"#System.DateTime.ToShortDateString()*
+
+%45System.DateTimeâ
+Ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csG" G(p8
+%471Microsoft.Extensions.Localization.LocalizedString"__concat*:
+8
+%441Microsoft.Extensions.Localization.LocalizedString*
+
+%46stringﬁ
+€
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csG G(p
+%48void"QIndieVisible.Application.ViewModels.Content.UserContentViewModel.Introduction.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*:
+8
+%471Microsoft.Extensions.Localization.LocalizedString*
+7*¿
+7µ
+≤
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csK) K(47
+%490Microsoft.AspNetCore.Identity.UserManager<TUser>"FIndieVisible.Web.Controllers.Base.SecureBaseController.UserManager.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerí
+è
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csKC K(P
+%50System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerµ
+≤
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csKC K([
+%51string"System.Guid.ToString()*
+
+%50System.Guid–Õ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csK) K(\+
+%52$System.Threading.Tasks.Task<TResult>"FMicrosoft.AspNetCore.Identity.UserManager<TUser>.FindByIdAsync(string)*9
+7
+%490Microsoft.AspNetCore.Identity.UserManager<TUser>*
+
+%51string2FindByIdAsync(string)œ
+Ã
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csK K(\G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""à
+Ö
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL L(+
+%53bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+8
+9*∞
+8ç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL. L(3
+%55"__id*
+""î
+ë
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL. L(3
+%54bool"__id*
+
+%55*
+10*€
+
+9µ
+≤
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL< L(G7
+%570Microsoft.AspNetCore.Identity.UserManager<TUser>"FIndieVisible.Web.Controllers.Base.SecureBaseController.UserManager.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL\ L(o
+%58"__id*
+""¥±
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL\ L(z
+%59string"System.Enum.ToString()*
+
+%582
+ToString()©¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL< L({+
+%60$System.Threading.Tasks.Task<TResult>"MMicrosoft.AspNetCore.Identity.UserManager<TUser>.IsInRoleAsync(TUser, string)*9
+7
+%570Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+
+%59string2IsInRoleAsync(TUser, string)ç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL6 L({
+%56"__id*
+""î
+ë
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL6 L({
+%54bool"__id*
+
+%56*
+10*ñ
+
+10¢
+ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csL L({
+userIsAdminbool"__id*
+
+%54boolº
+π
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csM M(5
+%61.IndieVisible.Domain.ValueObjects.PermissionsVo"AIndieVisible.Application.ViewModels.BaseViewModel.Permissions.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelî
+ë
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csM% M(.
+%62System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelí
+è
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csM2 M(?
+%63System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerı
+Ú
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csM% M(?
+%64bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%62System.Guid*
+
+%63System.Guid*
+11
+12*
+
+12*
+11*Ì
+11Ç
+ˇ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csM M(N
+%65void":IndieVisible.Domain.ValueObjects.PermissionsVo.CanEdit.set*7
+5
+%61.IndieVisible.Domain.ValueObjects.PermissionsVo*
+""—
+Œ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csO O('B
+%66;IndieVisible.Application.Interfaces.INotificationAppService"__id*å*â0
+.IndieVisible.Web.Controllers.ContentController"U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceçä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csO O(G9
+%672IndieVisible.Domain.ValueObjects.OperationResultVo"SIndieVisible.Application.Interfaces.INotificationAppService.MarkAsRead(System.Guid)*D
+B
+%66;IndieVisible.Application.Interfaces.INotificationAppService*$
+"
+notificationclickedSystem.Guid2MarkAsRead(System.Guid)◊‘
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csQ Q(*
+%68#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel2View(object)"£
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csQ Q(,
+*
+%68#Microsoft.AspNetCore.Mvc.ViewResult*ë
+13"ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csR R(	
+implicit return*é
+14»
+≈
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs*) *(0
+%69"__entrypoint*
+
+idSystem.Guid*$
+"
+notificationclickedSystem.Guid‰
+·
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs)	 )(#
+%70"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+idSystem.Guid¢
+ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs*1 *(8
+idSystem.Guid"__annotation*
+
+%70ı
+Ú
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs)	 )(#
+%71"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*$
+"
+notificationclickedSystem.Guid≥
+∞
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs*: *(R"
+notificationclickedSystem.Guid"__annotation*
+
+%71*
+0:
+idSystem.Guid:"
+notificationclickedSystem.GuidB20
+.IndieVisible.Web.Controllers.ContentController

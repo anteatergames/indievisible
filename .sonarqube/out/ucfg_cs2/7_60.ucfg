@@ -1,0 +1,31 @@
+
+'IndieVisible.Web.Program.Main(string[])]
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Program.cs ("0*¬
+0Å
+˛
+]
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Program.cs (&2
+%0,Microsoft.AspNetCore.Hosting.IWebHostBuilder"7IndieVisible.Web.Program.CreateWebHostBuilder(string[])*"
+IndieVisible.Web.Program*
+
+argsstring[]ÑÅ
+]
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Program.cs (.+
+%1%Microsoft.AspNetCore.Hosting.IWebHost"4Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build()*4
+2
+%0,Microsoft.AspNetCore.Hosting.IWebHostBuilder2Build()¨
+©
+]
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Program.cs (4
+
+%2void"YMicrosoft.AspNetCore.Hosting.WebHostExtensions.Run(Microsoft.AspNetCore.Hosting.IWebHost)*2"0
+.Microsoft.AspNetCore.Hosting.WebHostExtensions*-
++
+%1%Microsoft.AspNetCore.Hosting.IWebHost*
+1*y
+1"t
+]
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Program.cs (	
+implicit return:
+argsstring[]B"
+IndieVisible.Web.Program

@@ -1,0 +1,29 @@
+
+zIndieVisible.Infra.Data.Repository.Repository<TEntity>.Get(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs$# $(&"0*Ù
+0¶
+£
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs& &(2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>´
+®
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs& &(%
+%1System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*8
+6
+where-System.Linq.Expressions.Expression<TDelegate>"ó
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs& &(&!
+
+%1System.Linq.IQueryable<T>*è
+1"â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs' '(	
+implicit return:6
+where-System.Linq.Expressions.Expression<TDelegate>B:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>

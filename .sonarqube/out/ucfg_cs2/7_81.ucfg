@@ -1,0 +1,219 @@
+
+DIndieVisible.Web.Services.CookieMgrService.Set(string, string, int?)o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs ("0*ð
+0ÌÉ
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs# (6-
+%0'Microsoft.AspNetCore.Http.CookieOptions"'Microsoft.AspNetCore.Http.CookieOptionsê
+ç
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs' (4
+
+%1void"7Microsoft.AspNetCore.Http.CookieOptions.CookieOptions()*/
+-
+%0'Microsoft.AspNetCore.Http.CookieOptionsÞ
+Û
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs (61
+option'Microsoft.AspNetCore.Http.CookieOptions"__id*/
+-
+%0'Microsoft.AspNetCore.Http.CookieOptionsÅ
+Â
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs (#
+
+%2bool"System.Nullable<T>.HasValue.get*"
+ 
+
+expireTimeSystem.Nullable<T>*
+1
+2*ã
+1¹
+¶
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs! (-
+%3System.DateTime"System.DateTime.Now.get*"
+System.DateTimeÁ
+¾
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs6 (F	
+%4int"System.Nullable<T>.Value.get*"
+ 
+
+expireTimeSystem.Nullable<T>Ò
+Ï
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs! (G
+%5System.DateTime"System.DateTime.AddDays(double)*
+
+%3System.DateTime*
+	
+%4intƒ
+€
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs (G
+
+%6void"3Microsoft.AspNetCore.Http.CookieOptions.Expires.set*3
+1
+option'Microsoft.AspNetCore.Http.CookieOptions*
+
+%5System.DateTime*
+3*˜
+2¹
+¶
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs!! !(-
+%7System.DateTime"System.DateTime.Now.get*"
+System.DateTimeË
+È
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs!! !(8
+%8System.DateTime"System.DateTime.AddDays(double)*
+
+%7System.DateTime*2ƒ
+€
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs! !(8
+
+%9void"3Microsoft.AspNetCore.Http.CookieOptions.Expires.set*3
+1
+option'Microsoft.AspNetCore.Http.CookieOptions*
+
+%8System.DateTime*
+3*º
+3÷
+ô
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs# #(%
+%10void"7Microsoft.AspNetCore.Http.CookieOptions.IsEssential.set*3
+1
+option'Microsoft.AspNetCore.Http.CookieOptions*
+""«
+¨
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs%, %(@5
+%11.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*x*v,
+*IndieVisible.Web.Services.CookieMgrService"F
+_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor¬©
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs%, %(L,
+%12%Microsoft.AspNetCore.Http.HttpContext">Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext.get*7
+5
+%11.Microsoft.AspNetCore.Http.IHttpContextAccessor2HttpContext.get…
+‚
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs%, %(T,
+%13%Microsoft.AspNetCore.Http.HttpRequest"1Microsoft.AspNetCore.Http.HttpContext.Request.get*.
+,
+%12%Microsoft.AspNetCore.Http.HttpContext’
+
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs%, %(\9
+%142Microsoft.AspNetCore.Http.IRequestCookieCollection"1Microsoft.AspNetCore.Http.HttpRequest.Cookies.get*.
+,
+%13%Microsoft.AspNetCore.Http.HttpRequest¨¥
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs%, %(a
+%15string"CMicrosoft.AspNetCore.Http.IRequestCookieCollection.this[string].get*;
+9
+%142Microsoft.AspNetCore.Http.IRequestCookieCollection*
+
+keystring2this[string].get­
+ª
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs% %(a 
+cookieValueFromContextstring"__id*
+
+%15stringÝ
+Ú
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs' '(.
+%16bool""string.operator !=(string, string)*
+"
+string*"
+ 
+cookieValueFromContextstring*
+""*
+4
+5*½
+4«
+¨
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs) )($5
+%17.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*x*v,
+*IndieVisible.Web.Services.CookieMgrService"F
+_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor¬©
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs) )(0,
+%18%Microsoft.AspNetCore.Http.HttpContext">Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext.get*7
+5
+%17.Microsoft.AspNetCore.Http.IHttpContextAccessor2HttpContext.get‡
+„
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs) )(9-
+%19&Microsoft.AspNetCore.Http.HttpResponse"2Microsoft.AspNetCore.Http.HttpContext.Response.get*.
+,
+%18%Microsoft.AspNetCore.Http.HttpContextŒ
+‰
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs) )(A1
+%20*Microsoft.AspNetCore.Http.IResponseCookies"2Microsoft.AspNetCore.Http.HttpResponse.Cookies.get*/
+-
+%19&Microsoft.AspNetCore.Http.HttpResponse¼¹
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs) )(\
+%21void"jMicrosoft.AspNetCore.Http.IResponseCookies.Append(string, string, Microsoft.AspNetCore.Http.CookieOptions)*3
+1
+%20*Microsoft.AspNetCore.Http.IResponseCookies*
+
+keystring*
+
+valuestring*3
+1
+option'Microsoft.AspNetCore.Http.CookieOptions2?Append(string, string, Microsoft.AspNetCore.Http.CookieOptions)*
+6*½
+5«
+¨
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs- -($5
+%22.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*x*v,
+*IndieVisible.Web.Services.CookieMgrService"F
+_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor¬©
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs- -(0,
+%23%Microsoft.AspNetCore.Http.HttpContext">Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext.get*7
+5
+%22.Microsoft.AspNetCore.Http.IHttpContextAccessor2HttpContext.get‡
+„
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs- -(9-
+%24&Microsoft.AspNetCore.Http.HttpResponse"2Microsoft.AspNetCore.Http.HttpContext.Response.get*.
+,
+%23%Microsoft.AspNetCore.Http.HttpContextŒ
+‰
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs- -(A1
+%25*Microsoft.AspNetCore.Http.IResponseCookies"2Microsoft.AspNetCore.Http.HttpResponse.Cookies.get*/
+-
+%24&Microsoft.AspNetCore.Http.HttpResponse¼¹
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs- -(\
+%26void"jMicrosoft.AspNetCore.Http.IResponseCookies.Append(string, string, Microsoft.AspNetCore.Http.CookieOptions)*3
+1
+%25*Microsoft.AspNetCore.Http.IResponseCookies*
+
+keystring*
+
+valuestring*3
+1
+option'Microsoft.AspNetCore.Http.CookieOptions2?Append(string, string, Microsoft.AspNetCore.Http.CookieOptions)*
+6*Œ
+6"†
+o
+eC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Services\CookieMgrService.cs/ /(	
+implicit return:
+keystring:
+valuestring: 
+
+expireTimeSystem.Nullable<T>B.,
+*IndieVisible.Web.Services.CookieMgrService

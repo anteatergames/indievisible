@@ -1,0 +1,6 @@
+Û
+0IndieVisible.Infra.Data.Migrations.authorpicture2Microsoft.EntityFrameworkCore.Migrations.Migrationobject¯
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)nIndieVisible.Infra.Data.Migrations.authorpicture.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)³
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)pIndieVisible.Infra.Data.Migrations.authorpicture.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)­
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)mIndieVisible.Infra.Data.Migrations.authorpicture.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)S
+authorpicture()@IndieVisible.Infra.Data.Migrations.authorpicture.authorpicture()

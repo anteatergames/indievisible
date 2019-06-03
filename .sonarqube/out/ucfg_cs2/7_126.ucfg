@@ -1,0 +1,107 @@
+
+LIndieVisible.Web.Controllers.AccountController.LoginWithRecoveryCode(string)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs®) ®(>"4*Š	
+0¶
+³
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs±) ±(78
+%02Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*z*x0
+.IndieVisible.Web.Controllers.AccountController"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>ãà
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs±) ±(]*
+%1$System.Threading.Tasks.Task<TResult>"XMicrosoft.AspNetCore.Identity.SignInManager<TUser>.GetTwoFactorAuthenticationUserAsync()*:
+8
+%02Microsoft.AspNetCore.Identity.SignInManager<TUser>2%GetTwoFactorAuthenticationUserAsync()Ñ
+Î
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs± ±(]G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""‰
+†
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs² ²(
+
+%2bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+1
+2*µ
+1º·
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs´ ´(a!
+%3System.ApplicationException"System.ApplicationExceptioní
+ê
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs´ ´(.
+
+%4void"8System.ApplicationException.ApplicationException(string)*#
+!
+%3System.ApplicationException*
+""*
+3*·
+2•
+’
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs· ·(>
+%58Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.ViewData.get*'%
+#Microsoft.AspNetCore.Mvc.Controllerí
+ê
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs· ·(-
+%6"
+__arraySet*@
+>
+%58Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
+""*
+
+	returnUrlstring‚ÿ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¹ ¹()
+%7#Microsoft.AspNetCore.Mvc.ViewResult"*Microsoft.AspNetCore.Mvc.Controller.View()*'%
+#Microsoft.AspNetCore.Mvc.Controller2View()"¤
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¹ ¹(+
+)
+%7#Microsoft.AspNetCore.Mvc.ViewResult*’
+3"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csº º(	
+implicit return*Ê
+4¥
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs®) ®(>
+%8"__entrypoint*
+
+	returnUrlstringå
+â
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬	 ¬(
+%9"
+__annotate*@>
+<Microsoft.AspNetCore.Mvc.HttpGetAttribute.HttpGetAttribute()*
+
+	returnUrlstringþ
+û
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs­	 ­(
+%10"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*
+
+	returnUrlstring®
+«
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs®? ®(V
+	returnUrlstring"__annotation*
+
+%9*
+
+%10*
+0:
+	returnUrlstringB20
+.IndieVisible.Web.Controllers.AccountController

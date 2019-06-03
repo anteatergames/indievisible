@@ -1,0 +1,26 @@
+
+TIndieVisible.Domain.ValueObjects.OperationResultHtmlVo.OperationResultHtmlVo(string)w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs" "($"0*¹
+0”
+‘
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs"2 "(>
+
+%0void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*64
+2IndieVisible.Domain.ValueObjects.OperationResultVo*
+""—
+”
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs$ $(
+
+%1void"?IndieVisible.Domain.ValueObjects.OperationResultHtmlVo.Html.set*:8
+6IndieVisible.Domain.ValueObjects.OperationResultHtmlVo*
+
+htmlstring*
+1*”
+1"Ž
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs% %(	
+implicit return:
+htmlstringB:8
+6IndieVisible.Domain.ValueObjects.OperationResultHtmlVo

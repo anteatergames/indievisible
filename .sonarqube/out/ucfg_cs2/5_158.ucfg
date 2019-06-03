@@ -1,0 +1,653 @@
+
+ÖIndieVisible.Application.Services.ProfileAppService.GetByUserId(System.Guid, System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÿ  ÿ(+"0*™
+0˚¯
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs⁄" ⁄(8?
+%09IndieVisible.Application.ViewModels.User.ProfileViewModel"9IndieVisible.Application.ViewModels.User.ProfileViewModelú
+ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs⁄& ⁄(6
+
+%1void"LIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileViewModel()*A
+?
+%09IndieVisible.Application.ViewModels.User.ProfileViewModelâ
+Ü
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs⁄ ⁄(8?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
+?
+%09IndieVisible.Application.ViewModels.User.ProfileViewModel“
+œ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs‹0 ‹(:B
+%2<IndieVisible.Domain.Interfaces.Repository.IProfileRepository"__id*Ü*É5
+3IndieVisible.Application.Services.ProfileAppService"J
+
+repository<IndieVisible.Domain.Interfaces.Repository.IProfileRepositoryÄ˝
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs‹0 ‹(N/
+%3)System.Collections.Generic.IEnumerable<T>"UIndieVisible.Domain.Interfaces.Repository.IProfileRepository.GetByUserId(System.Guid)*D
+B
+%2<IndieVisible.Domain.Interfaces.Repository.IProfileRepository*
+
+userIdSystem.Guid2GetByUserId(System.Guid)Ô
+Ï
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs‹% ‹(N5
+profiles)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%3)System.Collections.Generic.IEnumerable<T>á
+Ñ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs›  ›(L,
+%4&IndieVisible.Domain.Models.UserProfile"{System.Linq.Enumerable.FirstOrDefault<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*7
+5
+profiles)System.Collections.Generic.IEnumerable<T>*
+""Ê
+„
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs› ›(L/
+model&IndieVisible.Domain.Models.UserProfile"__id*.
+,
+%4&IndieVisible.Domain.Models.UserProfile∂
+≥
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csﬂ ﬂ(
+
+%5bool"TSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*7
+5
+profiles)System.Collections.Generic.IEnumerable<T>*
+1
+2*Ö
+1˜
+Ù
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csﬂ" ﬂ(/
+
+%6bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*1
+/
+model&IndieVisible.Domain.Models.UserProfile*
+""*
+3
+2*›
+3¯
+ı
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs· ·(
+%7AutoMapper.IMapper"__id*W*U5
+3IndieVisible.Application.Services.ProfileAppService"
+mapperAutoMapper.IMapperÀ»
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs· ·(*?
+%89IndieVisible.Application.ViewModels.User.ProfileViewModel"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
+
+%7AutoMapper.IMapper*1
+/
+model&IndieVisible.Domain.Models.UserProfile*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel21Map<TSource, TDestination>(TSource, TDestination)â
+Ü
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs· ·(*?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
+?
+%89IndieVisible.Application.ViewModels.User.ProfileViewModel*
+4*ä
+2"Ñ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÂ Â(
+""*Î»
+4ì
+ê
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csË> Ë(G
+%9System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelê
+ç
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csËI Ë(N
+%10System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÕ
+ 
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csË Ë(O
+%11string"\IndieVisible.Application.Formatters.UrlFormatter.ProfileCoverImage(System.Guid, System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%9System.Guid*
+
+%10System.Guid≠
+™
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csË Ë(O
+%12void"KIndieVisible.Application.ViewModels.User.ProfileViewModel.CoverImageUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%11stringî
+ë
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÍ; Í(D
+%13System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel¶
+£
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÍ! Í(E
+%14string"JIndieVisible.Application.Formatters.UrlFormatter.ProfileImage(System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%13System.GuidØ
+¨
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÍ Í(E
+%15void"MIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileImageUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%14stringì
+ê
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÏ Ï()
+%16void"àIndieVisible.Application.Services.ProfileAppService.FormatExternalNetworkUrls(IndieVisible.Application.ViewModels.User.ProfileViewModel)*7"5
+3IndieVisible.Application.Services.ProfileAppService*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel»
+≈
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÓ Ó(<
+%175IndieVisible.Application.ViewModels.User.UserCounters"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Counters.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel—
+Œ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÓ  Ó(.@
+%189IndieVisible.Domain.Interfaces.Repository.IGameRepository"__id*á*Ñ5
+3IndieVisible.Application.Services.ProfileAppService"K
+gameRepository9IndieVisible.Domain.Interfaces.Repository.IGameRepositoryûõ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÓ  Ó(P
+
+%19int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*B
+@
+%189IndieVisible.Domain.Interfaces.Repository.IGameRepository*
+""2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)õ
+ò
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÓ Ó(P
+%20void"?IndieVisible.Application.ViewModels.User.UserCounters.Games.set*>
+<
+%175IndieVisible.Application.ViewModels.User.UserCounters*
+
+
+%19int»
+≈
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÔ Ô(<
+%215IndieVisible.Application.ViewModels.User.UserCounters"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Counters.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÊ
+„
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÔ  Ô(5G
+%22@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository"__id*ï*í5
+3IndieVisible.Application.Services.ProfileAppService"Y
+userContentRepository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository•¢
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÔ  Ô(W
+
+%23int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*I
+G
+%22@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository*
+""2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)õ
+ò
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÔ Ô(W
+%24void"?IndieVisible.Application.ViewModels.User.UserCounters.Posts.set*>
+<
+%215IndieVisible.Application.ViewModels.User.UserCounters*
+
+
+%23int»
+≈
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs (<
+%255IndieVisible.Application.ViewModels.User.UserCounters"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Counters.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel˚
+¯
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs# (?N
+%26GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*£*†5
+3IndieVisible.Application.Services.ProfileAppService"g
+userContentCommentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository¨©
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs# (a
+
+%27int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*P
+N
+%26GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository*
+""2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)û
+õ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs (a
+%28void"BIndieVisible.Application.ViewModels.User.UserCounters.Comments.set*>
+<
+%255IndieVisible.Application.ViewModels.User.UserCounters*
+
+
+%27intÏ
+È
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÚ( Ú(FH
+%29AIndieVisible.Domain.Interfaces.Service.IGamificationDomainService"__id*ö*ó5
+3IndieVisible.Application.Services.ProfileAppService"^
+gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService¢ü
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÚ( Ú(f.
+%30'IndieVisible.Domain.Models.Gamification"fIndieVisible.Domain.Interfaces.Service.IGamificationDomainService.GetGamificationByUserId(System.Guid)*J
+H
+%29AIndieVisible.Domain.Interfaces.Service.IGamificationDomainService*
+
+userIdSystem.Guid2$GetGamificationByUserId(System.Guid)
+Ì
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÚ Ú(f7
+gamification'IndieVisible.Domain.Models.Gamification"__id*0
+.
+%30'IndieVisible.Domain.Models.Gamification∑
+¥
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÙ Ù(6
+%31/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*x*v5
+3IndieVisible.Application.Services.ProfileAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkäá
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÙ Ù(
+%32bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%31/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()Ï
+È
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˜- ˜(KH
+%33AIndieVisible.Domain.Interfaces.Service.IGamificationDomainService"__id*ö*ó5
+3IndieVisible.Application.Services.ProfileAppService"^
+gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainServiceÜ
+É
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˜U ˜(t
+
+%34int">IndieVisible.Domain.Models.Gamification.CurrentLevelNumber.get*9
+7
+gamification'IndieVisible.Domain.Models.GamificationÓÎ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˜- ˜(u3
+%35,IndieVisible.Domain.Models.GamificationLevel"OIndieVisible.Domain.Interfaces.Service.IGamificationDomainService.GetLevel(int)*J
+H
+%33AIndieVisible.Domain.Interfaces.Service.IGamificationDomainService*
+
+
+%34int2GetLevel(int)˙
+˜
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˜ ˜(u<
+currentLevel,IndieVisible.Domain.Models.GamificationLevel"__id*5
+3
+%35,IndieVisible.Domain.Models.GamificationLevel…
+∆
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˘ ˘(>
+%367IndieVisible.Application.ViewModels.User.IndieXpCounter"EIndieVisible.Application.ViewModels.User.ProfileViewModel.IndieXp.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÖ
+Ç
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˘# ˘(4
+%37string"5IndieVisible.Domain.Models.GamificationLevel.Name.get*>
+<
+currentLevel,IndieVisible.Domain.Models.GamificationLevel¶
+£
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˘ ˘(4
+%38void"EIndieVisible.Application.ViewModels.User.IndieXpCounter.LevelName.set*@
+>
+%367IndieVisible.Application.ViewModels.User.IndieXpCounter*
+
+%37string…
+∆
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˙ ˙(>
+%397IndieVisible.Application.ViewModels.User.IndieXpCounter"EIndieVisible.Application.ViewModels.User.ProfileViewModel.IndieXp.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÜ
+É
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˙ ˙(>
+
+%40int">IndieVisible.Domain.Models.Gamification.CurrentLevelNumber.get*9
+7
+gamification'IndieVisible.Domain.Models.Gamificationü
+ú
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˙ ˙(>
+%41void"AIndieVisible.Application.ViewModels.User.IndieXpCounter.Level.set*@
+>
+%397IndieVisible.Application.ViewModels.User.IndieXpCounter*
+
+
+%40int…
+∆
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˚ ˚(>
+%427IndieVisible.Application.ViewModels.User.IndieXpCounter"EIndieVisible.Application.ViewModels.User.ProfileViewModel.IndieXp.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÇ
+ˇ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˚! ˚(<
+
+%43int":IndieVisible.Domain.Models.Gamification.XpCurrentLevel.get*9
+7
+gamification'IndieVisible.Domain.Models.Gamification°
+û
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˚ ˚(<
+%44void"CIndieVisible.Application.ViewModels.User.IndieXpCounter.LevelXp.set*@
+>
+%427IndieVisible.Application.ViewModels.User.IndieXpCounter*
+
+
+%43int…
+∆
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs¸ ¸(>
+%457IndieVisible.Application.ViewModels.User.IndieXpCounter"EIndieVisible.Application.ViewModels.User.ProfileViewModel.IndieXp.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÅ
+˛
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs¸% ¸(?
+
+%46int"9IndieVisible.Domain.Models.Gamification.XpToNextLevel.get*9
+7
+gamification'IndieVisible.Domain.Models.GamificationÇ
+ˇ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs¸B ¸(]
+
+%47int":IndieVisible.Domain.Models.Gamification.XpCurrentLevel.get*9
+7
+gamification'IndieVisible.Domain.Models.Gamificationü
+ú
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs¸ ¸(]
+%48void"GIndieVisible.Application.ViewModels.User.IndieXpCounter.NextLevelXp.set*@
+>
+%457IndieVisible.Application.ViewModels.User.IndieXpCounter*
+""»
+≈
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˛ ˛(<
+%495IndieVisible.Application.ViewModels.User.UserCounters"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Counters.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÊ
+„
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˛$ ˛(@F
+%50?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ñ*ì5
+3IndieVisible.Application.Services.ProfileAppService"Z
+userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceêç
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˛$ ˛(h
+
+%51int"pIndieVisible.Domain.Interfaces.IDomainService<T>.Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)*H
+F
+%50?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
+""2?Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)ü
+ú
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs˛ ˛(h
+%52void"CIndieVisible.Application.ViewModels.User.UserCounters.Followers.set*>
+<
+%495IndieVisible.Application.ViewModels.User.UserCounters*
+
+
+%51int»
+≈
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csˇ ˇ(<
+%535IndieVisible.Application.ViewModels.User.UserCounters"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Counters.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÊ
+„
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csˇ$ ˇ(@F
+%54?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ñ*ì5
+3IndieVisible.Application.Services.ProfileAppService"Z
+userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceêç
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csˇ$ ˇ(f
+
+%55int"pIndieVisible.Domain.Interfaces.IDomainService<T>.Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)*H
+F
+%54?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
+""2?Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)ü
+ú
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csˇ ˇ(f
+%56void"CIndieVisible.Application.ViewModels.User.UserCounters.Following.set*>
+<
+%535IndieVisible.Application.ViewModels.User.UserCounters*
+
+
+%55intÚ
+Ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÄ$ Ä(DJ
+%57CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*û*õ5
+3IndieVisible.Application.Services.ProfileAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceïí
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÄ$ Ä(á
+
+%58int"pIndieVisible.Domain.Interfaces.IDomainService<T>.Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)*L
+J
+%57CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
+""2?Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)Æ
+´
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÄ Ä(á
+connectionsToUserint"__id*
+
+
+%58intÚ
+Ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÅ& Å(FJ
+%59CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*û*õ5
+3IndieVisible.Application.Services.ProfileAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceïí
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÅ& Å(É
+
+%60int"pIndieVisible.Domain.Interfaces.IDomainService<T>.Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)*L
+J
+%59CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
+""2?Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)∞
+≠
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÅ Å(É
+connectionsFromUserint"__id*
+
+
+%60int»
+≈
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÉ É(<
+%615IndieVisible.Application.ViewModels.User.UserCounters"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Counters.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelõ
+ò
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÉ É(M
+%62void"EIndieVisible.Application.ViewModels.User.UserCounters.Connections.set*>
+<
+%615IndieVisible.Application.ViewModels.User.UserCounters*
+""Ê
+„
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÖ& Ö(BF
+%63?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ñ*ì5
+3IndieVisible.Application.Services.ProfileAppService"Z
+userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService≥∞
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÖ& Ö(Ö0
+%64)System.Collections.Generic.IEnumerable<T>"nIndieVisible.Domain.Interfaces.IDomainService<T>.Get(System.Linq.Expressions.Expression<System.Func<T, bool>>)*H
+F
+%63?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
+""2=Get(System.Linq.Expressions.Expression<System.Func<T, bool>>)≥
+∞
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÖ& Ö(ã
+%65bool"TSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*2
+0
+%64)System.Collections.Generic.IEnumerable<T>´
+®
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÖ Ö(ã
+%66void"JIndieVisible.Application.ViewModels.BaseViewModel.CurrentUserFollowing.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%65boolﬂ
+‹
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÜ Ü( J
+%67CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel"OIndieVisible.Application.ViewModels.User.ProfileViewModel.ConnectionControl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÚ
+Ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÜ8 Ü(XJ
+%68CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*û*õ5
+3IndieVisible.Application.Services.ProfileAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceï
+í
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÜx Ü(Å
+%69System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel”–
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÜ8 Ü(é
+%70bool"yIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService.CheckConnection(System.Guid, System.Guid, bool, bool)*L
+J
+%68CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
+
+currentUserIdSystem.Guid*
+
+%69System.Guid*
+""*
+""25CheckConnection(System.Guid, System.Guid, bool, bool)»
+≈
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÜ Ü(é
+%71void"\IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.CurrentUserConnected.set*L
+J
+%67CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel*
+
+%70boolﬂ
+‹
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csá á( J
+%72CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel"OIndieVisible.Application.ViewModels.User.ProfileViewModel.ConnectionControl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÚ
+Ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csá> á(^J
+%73CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*û*õ5
+3IndieVisible.Application.Services.ProfileAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceî
+ë
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csáo á(x
+%74System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel”–
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csá> á(ñ
+%75bool"yIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService.CheckConnection(System.Guid, System.Guid, bool, bool)*L
+J
+%73CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
+
+%74System.Guid*
+
+currentUserIdSystem.Guid*
+""*
+""25CheckConnection(System.Guid, System.Guid, bool, bool)Œ
+À
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csá á(ñ
+%76void"bIndieVisible.Application.ViewModels.User.ConnectionControlViewModel.CurrentUserWantsToFollowMe.set*L
+J
+%72CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel*
+
+%75boolﬂ
+‹
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csà à( J
+%77CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel"OIndieVisible.Application.ViewModels.User.ProfileViewModel.ConnectionControl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÚ
+Ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csà7 à(WJ
+%78CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*û*õ5
+3IndieVisible.Application.Services.ProfileAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceï
+í
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csàw à(Ä
+%79System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel”–
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csà7 à(é
+%80bool"yIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService.CheckConnection(System.Guid, System.Guid, bool, bool)*L
+J
+%78CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
+
+currentUserIdSystem.Guid*
+
+%79System.Guid*
+""*
+""25CheckConnection(System.Guid, System.Guid, bool, bool)«
+ƒ
+{
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csà à(é
+%81void"[IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.ConnectionIsPending.set*L
+J
+%77CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel*
+
+%80bool"ø
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csä ä(A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*ó
+5"ë
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csã ã(	
+implicit return:
+currentUserIdSystem.Guid:
+userIdSystem.Guid:2
+type*IndieVisible.Domain.Core.Enums.ProfileTypeB75
+3IndieVisible.Application.Services.ProfileAppService

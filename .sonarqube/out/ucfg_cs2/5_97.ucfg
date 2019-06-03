@@ -1,0 +1,179 @@
+
+IIndieVisible.Application.Services.LikeAppService.ContentLike(System.Guid)w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csš! š(,"0*³	
+0è
+å
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csž  ž(6J
+%0DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*—*”2
+0IndieVisible.Application.Services.LikeAppService"^
+_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository¸µ
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csž  ž(?
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*L
+J
+%0DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository2GetAll()Õ
+Ò
+x
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csž  ž(‚
+
+%2bool"ƒSystem.Linq.Queryable.Any<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>*
+""§
+¤
+x
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csž ž(‚
+alreadyLikedbool"__id*
+
+
+%2bool*
+1
+2*¦
+1êç
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¢ ¢(78
+%32IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo˜
+•
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¢ ¢(0
+
+%4void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
+8
+%32IndieVisible.Domain.ValueObjects.OperationResultVo*
+""þ
+û
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¢ ¢(7>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%32IndieVisible.Domain.ValueObjects.OperationResultVo’
+
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs£ £(:
+
+%5void">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.set*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo*
+""*
+3*Ü%
+2Ú×
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs§( §(=0
+%6*IndieVisible.Domain.Models.UserContentLike"*IndieVisible.Domain.Models.UserContentLikeú
+÷
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs§, §(;
+
+%7void"<IndieVisible.Domain.Models.UserContentLike.UserContentLike()*2
+0
+%6*IndieVisible.Domain.Models.UserContentLikeë
+è
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs§  §(=3
+model*IndieVisible.Domain.Models.UserContentLike"__id*2
+0
+%6*IndieVisible.Domain.Models.UserContentLike“
+
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs© ©()
+
+%8void"8IndieVisible.Domain.Models.UserContentLike.ContentId.set*5
+3
+model*IndieVisible.Domain.Models.UserContentLike*
+
+likedIdSystem.Guid‰
+†
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csª ª(1
+%9System.Guid"BIndieVisible.Application.Services.LikeAppService.CurrentUserId.get*42
+0IndieVisible.Application.Services.LikeAppServiceˆ
+…
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csª ª(1
+%10void"1IndieVisible.Domain.Core.Models.Entity.UserId.set*5
+3
+model*IndieVisible.Domain.Models.UserContentLike*
+
+%9System.Guidé
+æ
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¬ ¬(&K
+%11DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*—*”2
+0IndieVisible.Application.Services.LikeAppService"^
+_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepositoryäá
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¬ ¬(1
+%12void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*M
+K
+%11DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository*5
+3
+model*IndieVisible.Domain.Models.UserContentLike2Add(TEntity)²
+¯
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs® ®(6
+%13/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*v*t2
+0IndieVisible.Application.Services.LikeAppService">
+_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork‡„
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs® ®($
+%14bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%13/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()é
+æ
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs° °(5K
+%15DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*—*”2
+0IndieVisible.Application.Services.LikeAppService"^
+_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepositoryº·
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs° °(> 
+%16System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*M
+K
+%15DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository2GetAll()Ø
+Õ
+x
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs° °(ƒ
+
+%17int"…System.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*"
+ 
+%16System.Linq.IQueryable<T>*
+""¢
+Ÿ
+x
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs° °(ƒ
+newCountint"__id*
+
+
+%17intñî
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs² ²(?<
+%185IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¨
+¥
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs² ²(5
+%19void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%185IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+newCountint‚
+ÿ
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs² ²(?>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*>
+<
+%185IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+3*Á
+3"»
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csµ µ(@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo*”
+4"Ž
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¶ ¶(	
+implicit return:
+likedIdSystem.GuidB42
+0IndieVisible.Application.Services.LikeAppService

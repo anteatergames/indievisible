@@ -1,0 +1,71 @@
+
+3IndieVisible.Web.Controllers.HomeController.Index()p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs (""2*Ä
+0¿
+Ω
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs )  (1D
+%0>IndieVisible.Application.Interfaces.IFeaturedContentAppService"__id*}*{-
++IndieVisible.Web.Controllers.HomeController"J
+_service>IndieVisible.Application.Interfaces.IFeaturedContentAppService‚ﬂ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs )  (B@
+%1:IndieVisible.Application.ViewModels.Home.CarouselViewModel"OIndieVisible.Application.Interfaces.IFeaturedContentAppService.GetFeaturedNow()*F
+D
+%0>IndieVisible.Application.Interfaces.IFeaturedContentAppService2GetFeaturedNow()á
+Ñ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs   (BF
+featured:IndieVisible.Application.ViewModels.Home.CarouselViewModel"__id*B
+@
+%1:IndieVisible.Application.ViewModels.Home.CarouselViewModelﬁ
+€
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs! !(
+%2dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.Controllerù
+ö
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs#3 #(A9
+%33System.Collections.Generic.Dictionary<TKey, TValue>":IndieVisible.Web.Controllers.HomeController.SetGenreTags()*/"-
++IndieVisible.Web.Controllers.HomeController˙
+˜
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs#' #(A@
+	genreDict3System.Collections.Generic.Dictionary<TKey, TValue>"__id*;
+9
+%33System.Collections.Generic.Dictionary<TKey, TValue>ê
+ç
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs% %(>
+%48Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.ViewData.get*'%
+#Microsoft.AspNetCore.Mvc.Controllerï
+í
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs% %(*
+%5"
+__arraySet*@
+>
+%48Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
+""*B
+@
+	genreDict3System.Collections.Generic.Dictionary<TKey, TValue>˝˙
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs' '()
+%6#Microsoft.AspNetCore.Mvc.ViewResult"*Microsoft.AspNetCore.Mvc.Controller.View()*'%
+#Microsoft.AspNetCore.Mvc.Controller2View()"ü
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs' '(+
+)
+%6#Microsoft.AspNetCore.Mvc.ViewResult*ç
+1"á
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs( ((	
+implicit return*î
+2â
+Ü
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs ("
+%7"__entrypoint*
+0B/-
++IndieVisible.Web.Controllers.HomeController

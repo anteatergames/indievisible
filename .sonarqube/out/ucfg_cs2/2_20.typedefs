@@ -1,0 +1,7 @@
+ë
+)IndieVisible.Domain.Models.UserConnection&IndieVisible.Domain.Core.Models.EntityobjectN
+UserConnection():IndieVisible.Domain.Models.UserConnection.UserConnection()N
+TargetUserId.get:IndieVisible.Domain.Models.UserConnection.TargetUserId.getN
+TargetUserId.set:IndieVisible.Domain.Models.UserConnection.TargetUserId.setN
+ApprovalDate.get:IndieVisible.Domain.Models.UserConnection.ApprovalDate.getN
+ApprovalDate.set:IndieVisible.Domain.Models.UserConnection.ApprovalDate.set

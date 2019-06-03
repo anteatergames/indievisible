@@ -1,0 +1,4 @@
+Ã
+9IndieVisible.Infra.Data.Repository.GamificationRepository6IndieVisible.Infra.Data.Repository.Repository<TEntity>objectÕ
+KGamificationRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)…IndieVisible.Infra.Data.Repository.GamificationRepository.GamificationRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)n
+GetByUserId(System.Guid)RIndieVisible.Infra.Data.Repository.GamificationRepository.GetByUserId(System.Guid)

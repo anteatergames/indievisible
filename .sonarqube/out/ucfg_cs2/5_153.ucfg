@@ -1,0 +1,271 @@
+
+àIndieVisible.Application.Services.ProfileAppService.FormatExternalNetworkUrls(IndieVisible.Application.ViewModels.User.ProfileViewModel)z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csç ç(5"0*Ù
+0ô
+ñ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csè+ è(7
+%0string"GIndieVisible.Application.ViewModels.User.ProfileViewModel.ItchIoUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel 
+«
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csè è(8
+
+%1bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%0string*
+1
+2*Æ
+1ô
+ñ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csë ë(+
+%2string"GIndieVisible.Application.ViewModels.User.ProfileViewModel.ItchIoUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelØ
+¨
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csë ë(5
+%3string"string.ToLower()*
+
+%2stringÕ
+ 
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csë ë(G
+%4string"string.Replace(string, string)*
+
+%3string*
+""*
+""ß
+§
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csë ë(G
+
+%5void"GIndieVisible.Application.ViewModels.User.ProfileViewModel.ItchIoUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%4stringô
+ñ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csí í(!
+%6string"GIndieVisible.Application.ViewModels.User.ProfileViewModel.ItchIoUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelº
+π
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csí í(5
+
+%7bool"string.EndsWith(string)*
+
+%6string*
+""*
+3
+2*µ
+3ô
+ñ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csî0 î(<
+%8string"GIndieVisible.Application.ViewModels.User.ProfileViewModel.ItchIoUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelØ
+¨
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csî# î(<
+%9string"__concat*
+""*
+
+%8string∞
+≠
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csî# î(I
+%10string"__concat*
+
+%9string*
+""©
+¶
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csî î(I
+%11void"GIndieVisible.Application.ViewModels.User.ProfileViewModel.ItchIoUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%10string*
+2*˘
+2ú
+ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csò+ ò(9
+%12string"IIndieVisible.Application.ViewModels.User.ProfileViewModel.GameJoltUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÃ
+…
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csò ò(:
+%13bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%12string*
+4
+5*æ
+4ú
+ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csö! ö(/
+%14string"IIndieVisible.Application.ViewModels.User.ProfileViewModel.GameJoltUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel±
+Æ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csö! ö(9
+%15string"string.ToLower()*
+
+%14stringœ
+Ã
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csö! ö(K
+%16string"string.Replace(string, string)*
+
+%15string*
+""*
+""´
+®
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csö ö(K
+%17void"IIndieVisible.Application.ViewModels.User.ProfileViewModel.GameJoltUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%16stringú
+ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csõ õ(#
+%18string"IIndieVisible.Application.ViewModels.User.ProfileViewModel.GameJoltUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelæ
+ª
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csõ õ(7
+%19bool"string.EndsWith(string)*
+
+%18string*
+""*
+6
+5*â
+6ú
+ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csù@ ù(N
+%20string"IIndieVisible.Application.ViewModels.User.ProfileViewModel.GameJoltUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel±
+Æ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csù% ù(N
+%21string"__concat*
+""*
+
+%20string´
+®
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csù ù(N
+%22void"IIndieVisible.Application.ViewModels.User.ProfileViewModel.GameJoltUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%21string*
+5*˝
+5†
+ù
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs°+ °(=
+%23string"MIndieVisible.Application.ViewModels.User.ProfileViewModel.UnityConnectUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÃ
+…
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs° °(>
+%24bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%23string*
+7
+8* 
+7†
+ù
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs£% £(7
+%25string"MIndieVisible.Application.ViewModels.User.ProfileViewModel.UnityConnectUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel±
+Æ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs£% £(A
+%26string"string.ToLower()*
+
+%25stringœ
+Ã
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs£% £(S
+%27string"string.Replace(string, string)*
+
+%26string*
+""*
+""Ø
+¨
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs£ £(S
+%28void"MIndieVisible.Application.ViewModels.User.ProfileViewModel.UnityConnectUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%27string†
+ù
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs§ §('
+%29string"MIndieVisible.Application.ViewModels.User.ProfileViewModel.UnityConnectUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelæ
+ª
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs§ §(;
+%30bool"string.EndsWith(string)*
+
+%29string*
+""*
+9
+8*ë
+9†
+ù
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs¶J ¶(\
+%31string"MIndieVisible.Application.ViewModels.User.ProfileViewModel.UnityConnectUrl.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel±
+Æ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs¶) ¶(\
+%32string"__concat*
+""*
+
+%31stringØ
+¨
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs¶ ¶(\
+%33void"MIndieVisible.Application.ViewModels.User.ProfileViewModel.UnityConnectUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%32string*
+8*ó
+8"ë
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs© ©(	
+implicit return:?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelB7"5
+3IndieVisible.Application.Services.ProfileAppService

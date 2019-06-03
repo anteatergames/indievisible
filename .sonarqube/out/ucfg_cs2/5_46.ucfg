@@ -1,0 +1,90 @@
+
+RIndieVisible.Application.ViewModels.Game.GameListItemViewModel.PopulatePlatforms()ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs/ /(."0*É	
+0×Ô
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs1( 1(:(
+%0"System.Collections.Generic.List<T>""System.Collections.Generic.List<T>ì
+é
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs1, 1(8
+
+%1void")System.Collections.Generic.List<T>.List()**
+(
+%0"System.Collections.Generic.List<T>ï
+ì
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs1 1(:2
+platformList"System.Collections.Generic.List<T>"__id**
+(
+%0"System.Collections.Generic.List<T>©
+¦
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs3+ 3(9
+%2string"LIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Platforms.get*B@
+>IndieVisible.Application.ViewModels.Game.GameListItemViewModelÔ
+Ñ
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs3 3(:
+
+%3bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%2string*
+1
+2*ª
+1©
+¦
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs5" 5(0
+%4string"LIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Platforms.get*B@
+>IndieVisible.Application.ViewModels.Game.GameListItemViewModelè
+å
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs5" 5(;
+%5string[]"-string.Split(char, System.StringSplitOptions)*
+
+%4string*
+""*
+""µ
+²
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs5 5(;
+valuesstring[]"__id*
+
+%5string[]è
+å
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs7 7(@/
+%6)System.Collections.Generic.IEnumerable<T>"rSystem.Linq.Enumerable.Where<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*
+
+valuesstring[]*
+""Û
+Ø
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs7 7(I(
+%7"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*1
+/
+%6)System.Collections.Generic.IEnumerable<T>‡
+„
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.cs7 C(
+
+%8void"<System.Collections.Generic.List<T>.ForEach(System.Action<T>)**
+(
+%7"System.Collections.Generic.List<T>*
+""*
+2*Â
+2"¼
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.csF F( 4
+2
+platformList"System.Collections.Generic.List<T>*¡
+3"›
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Game\GameListItemViewModel.csG G(	
+implicit returnBB@
+>IndieVisible.Application.ViewModels.Game.GameListItemViewModel

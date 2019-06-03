@@ -1,0 +1,6 @@
+†
+;IndieVisible.Infra.CrossCutting.Identity.Migrations.initial2Microsoft.EntityFrameworkCore.Migrations.Migrationobjectº
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)yIndieVisible.Infra.CrossCutting.Identity.Migrations.initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¾
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder){IndieVisible.Infra.CrossCutting.Identity.Migrations.initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¸
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)xIndieVisible.Infra.CrossCutting.Identity.Migrations.initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)R
+	initial()EIndieVisible.Infra.CrossCutting.Identity.Migrations.initial.initial()

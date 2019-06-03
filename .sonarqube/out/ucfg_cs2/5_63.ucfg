@@ -1,0 +1,37 @@
+
+ÑIndieVisible.Application.Services.UserFollowAppService.UserFollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs (#"0*Ð
+0€
+ý
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs ( X8
+6IndieVisible.Application.Services.UserFollowAppService"
+mapperAutoMapper.IMapper"__id*
+
+mapperAutoMapper.IMapperÂ
+¿
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs ((y8
+6IndieVisible.Application.Services.UserFollowAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
+=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorký
+ú
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs (B–8
+6IndieVisible.Application.Services.UserFollowAppService"Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*\
+Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
+1*˜
+1"’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs (	
+implicit return:
+mapperAutoMapper.IMapper:=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceB:8
+6IndieVisible.Application.Services.UserFollowAppService

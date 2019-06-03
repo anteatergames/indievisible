@@ -1,0 +1,22 @@
+
+0IndieVisible.Infra.Data.UoW.UnitOfWork.Dispose()k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\UoW\UnitOfWork.cs ("0*•
+0†
+ù
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\UoW\UnitOfWork.cs (9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext"__id*m*k(
+&IndieVisible.Infra.Data.UoW.UnitOfWork"?
+_context3IndieVisible.Infra.Data.Context.IndieVisibleContext˜Ù
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\UoW\UnitOfWork.cs (
+
+%1void"1Microsoft.EntityFrameworkCore.DbContext.Dispose()*;
+9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext2	Dispose()*
+1*à
+1"Ç
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\UoW\UnitOfWork.cs (	
+implicit returnB*(
+&IndieVisible.Infra.Data.UoW.UnitOfWork

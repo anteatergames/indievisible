@@ -1,0 +1,63 @@
+
+sIndieVisible.Web.Controllers.ProfileController.SetImages(IndieVisible.Application.ViewModels.User.ProfileViewModel)s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csS S("0*è
+0Œ
+‰
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csU; U(D
+%0System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel
+š
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csU! U(E
+%1string"JIndieVisible.Application.Formatters.UrlFormatter.ProfileImage(System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%0System.Guid¦
+£
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csU U(E
+
+%2void"MIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileImageUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%1stringŒ
+‰
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csV> V(G
+%3System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelˆ
+…
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csVI V(N
+%4System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÄ
+Á
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csV V(O
+%5string"\IndieVisible.Application.Formatters.UrlFormatter.ProfileCoverImage(System.Guid, System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%3System.Guid*
+
+%4System.Guid¤
+¡
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csV V(O
+
+%6void"KIndieVisible.Application.ViewModels.User.ProfileViewModel.CoverImageUrl.set*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%5string*
+1*
+1"Š
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csW W(	
+implicit return:?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelB20
+.IndieVisible.Web.Controllers.ProfileController

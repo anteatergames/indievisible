@@ -1,0 +1,90 @@
+
+RIndieVisible.Application.Services.UserContentCommentAppService.Remove(System.Guid)É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csW! W('"0*
+0*	
+1
+2
+3*Ñ
+2˛
+˚
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs_ _(M
+%0GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*ù*ö@
+>IndieVisible.Application.Services.UserContentCommentAppService"V
+_repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryﬁ€
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs_ _(&
+
+%1void"LIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Remove(System.Guid)*O
+M
+%0GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository*
+
+idSystem.Guid2Remove(System.Guid)Œ
+À
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csa a(5
+%2/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*Ö*Ç@
+>IndieVisible.Application.Services.UserContentCommentAppService">
+_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkíè
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csa a($
+
+%3bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*7
+5
+%2/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()˜Ù
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csc c(48
+%42IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo•
+¢
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csc c(.
+
+%5void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
+8
+%42IndieVisible.Domain.ValueObjects.OperationResultVo*
+""â
+Ü
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csc c(4<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%42IndieVisible.Domain.ValueObjects.OperationResultVo*	
+1
+4
+3*ü
+1‹Ÿ
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csg/ g(9
+%6string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get˜Ù
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csg g(:8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVoØ
+¨
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csg g(.
+
+%8void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
+8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo*
+
+%6stringâ
+Ü
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csg g(:<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo*
+4*Ã
+4"∆
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csj j(>
+<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo*°
+3"õ
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csk k(	
+implicit return:
+idSystem.GuidBB@
+>IndieVisible.Application.Services.UserContentCommentAppService

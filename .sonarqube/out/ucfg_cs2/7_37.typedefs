@@ -1,0 +1,4 @@
+þ
+5IndieVisible.Web.ViewComponents.CountersViewComponent&Microsoft.AspNetCore.Mvc.ViewComponentobject¸
+¾CountersViewComponent(IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.IUserContentAppService)ôIndieVisible.Web.ViewComponents.CountersViewComponent.CountersViewComponent(IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.IUserContentAppService)Z
+InvokeAsync(int)FIndieVisible.Web.ViewComponents.CountersViewComponent.InvokeAsync(int)

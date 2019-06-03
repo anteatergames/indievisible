@@ -1,0 +1,88 @@
+
+5IndieVisible.Web.Controllers.RoutesController.Index()r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs (""2*π
+0˚
+¯
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs (;Q
+%0KMicrosoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider"__id*®*•/
+-IndieVisible.Web.Controllers.RoutesController"r
+#_actionDescriptorCollectionProviderKMicrosoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProviderêç
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs (MH
+%1BMicrosoft.AspNetCore.Mvc.Infrastructure.ActionDescriptorCollection"aMicrosoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider.ActionDescriptors.get*S
+Q
+%0KMicrosoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider2ActionDescriptors.getƒ
+¡
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs (S1
+%2+System.Collections.Generic.IReadOnlyList<T>"LMicrosoft.AspNetCore.Mvc.Infrastructure.ActionDescriptorCollection.Items.get*J
+H
+%1BMicrosoft.AspNetCore.Mvc.Infrastructure.ActionDescriptorCollectionË
+Â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs (S4
+items+System.Collections.Generic.IReadOnlyList<T>"__id*3
+1
+%2+System.Collections.Generic.IReadOnlyList<T>Ö
+Ç
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs  (/
+%3)System.Collections.Generic.IEnumerable<T>"System.Linq.Enumerable.Select<TSource, TResult>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, TResult>)*"
+System.Linq.Enumerable*6
+4
+items+System.Collections.Generic.IReadOnlyList<T>*
+""…
+∆
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs  ((
+%4"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*1
+/
+%3)System.Collections.Generic.IEnumerable<T>◊
+‘
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs  (,
+routes"System.Collections.Generic.List<T>"__id**
+(
+%4"System.Collections.Generic.List<T>—Œ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs" "(;.
+%5(IndieVisible.Web.Controllers.RoutesModel"(IndieVisible.Web.Controllers.RoutesModelÌ
+Í
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs" "('
+
+%6void"6IndieVisible.Web.Controllers.RoutesModel.RoutesModel()*0
+.
+%5(IndieVisible.Web.Controllers.RoutesModelö
+ó
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs"* "(9
+
+%7void"3IndieVisible.Web.Controllers.RoutesModel.Routes.set*0
+.
+%5(IndieVisible.Web.Controllers.RoutesModel*.
+,
+routes"System.Collections.Generic.List<T>Ω∫
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs" "(<)
+%8#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*0
+.
+%5(IndieVisible.Web.Controllers.RoutesModel2View(object)"°
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs" "(=+
+)
+%8#Microsoft.AspNetCore.Mvc.ViewResult*è
+1"â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs# #(	
+implicit return*ñ
+2ã
+à
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\RoutesController.cs ("
+%9"__entrypoint*
+0B1/
+-IndieVisible.Web.Controllers.RoutesController

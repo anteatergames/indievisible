@@ -1,0 +1,209 @@
+
+]IndieVisible.Application.Services.ImageStorageService.StoreImageAsync(string, string, byte[])z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs" (1"0*£
+0Û
+Ø
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs" (<
+%0string""System.IO.Path.GetFileName(string)*"
+System.IO.Path*
+
+filenamestring­
+ª
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs (<
+filenameonlystring"__id*
+
+%0string¹
+¶
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs- (47
+%11Microsoft.Extensions.Configuration.IConfiguration"__id*y*w7
+5IndieVisible.Application.Services.ImageStorageService"<
+_config1Microsoft.Extensions.Configuration.IConfiguration¦£
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs- (P
+%2string"BMicrosoft.Extensions.Configuration.IConfiguration.this[string].get*9
+7
+%11Microsoft.Extensions.Configuration.IConfiguration*
+""2this[string].get¸
+µ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs (P!
+storageConnectionStringstring"__id*
+
+%2stringÃ
+À
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.csJ (X8
+%32Microsoft.WindowsAzure.Storage.CloudStorageAccount"__id**7
+5IndieVisible.Application.Services.ImageStorageService"D
+storageAccount2Microsoft.WindowsAzure.Storage.CloudStorageAccount¡
+ž
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs (Y
+
+%4bool"{Microsoft.WindowsAzure.Storage.CloudStorageAccount.TryParse(string, out Microsoft.WindowsAzure.Storage.CloudStorageAccount)*6"4
+2Microsoft.WindowsAzure.Storage.CloudStorageAccount*#
+!
+storageConnectionStringstring*:
+8
+%32Microsoft.WindowsAzure.Storage.CloudStorageAccount*
+1
+2*î
+1Ã
+À
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs2 (@8
+%52Microsoft.WindowsAzure.Storage.CloudStorageAccount"__id**7
+5IndieVisible.Application.Services.ImageStorageService"D
+storageAccount2Microsoft.WindowsAzure.Storage.CloudStorageAccountÛØ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs2 (X9
+%63Microsoft.WindowsAzure.Storage.Blob.CloudBlobClient"JMicrosoft.WindowsAzure.Storage.CloudStorageAccount.CreateCloudBlobClient()*:
+8
+%52Microsoft.WindowsAzure.Storage.CloudStorageAccount2CreateCloudBlobClient()Š
+‡
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs  (XF
+cloudBlobClient3Microsoft.WindowsAzure.Storage.Blob.CloudBlobClient"__id*;
+9
+%63Microsoft.WindowsAzure.Storage.Blob.CloudBlobClient
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs!% !(U<
+%76Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer"QMicrosoft.WindowsAzure.Storage.Blob.CloudBlobClient.GetContainerReference(string)*H
+F
+cloudBlobClient3Microsoft.WindowsAzure.Storage.Blob.CloudBlobClient*
+
+	containerstring2GetContainerReference(string)Ï
+Ì
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs! !(U‡7
+5IndieVisible.Application.Services.ImageStorageService"L
+cloudBlobContainer6Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer"__id*>
+<
+%76Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainerÐ
+Í
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs"% "(7<
+%86Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer"__id*Š*‡7
+5IndieVisible.Application.Services.ImageStorageService"L
+cloudBlobContainer6Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainerÖÓ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs"% "(P*
+%9$System.Threading.Tasks.Task<TResult>"OMicrosoft.WindowsAzure.Storage.Blob.CloudBlobContainer.CreateIfNotExistsAsync()*>
+<
+%86Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer2CreateIfNotExistsAsync()ž
+›
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs" "(P
+createdbool"__id*
+""*
+3
+4*…
+3‚ÿ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs&; )(C
+%10<Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions"<Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions¬
+©
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs&? &(W
+%11void"WMicrosoft.WindowsAzure.Storage.Blob.BlobContainerPermissions.BlobContainerPermissions()*E
+C
+%10<Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions”
+‘
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs(' ((I
+%12"__id*
+""«
+¨
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs( ((I
+%13void"MMicrosoft.WindowsAzure.Storage.Blob.BlobContainerPermissions.PublicAccess.set*E
+C
+%10<Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions*
+
+%12™
+–
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs&- )(K
+permissions<Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions"__id*E
+C
+%10<Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissionsÑ
+Î
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs+ +(,=
+%146Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer"__id*Š*‡7
+5IndieVisible.Application.Services.ImageStorageService"L
+cloudBlobContainer6Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer‘Ž
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs+ +(M"
+%15System.Threading.Tasks.Task"ˆMicrosoft.WindowsAzure.Storage.Blob.CloudBlobContainer.SetPermissionsAsync(Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions)*?
+=
+%146Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer*M
+K
+permissions<Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions2QSetPermissionsAsync(Microsoft.WindowsAzure.Storage.Blob.BlobContainerPermissions)*
+4*Í	
+4Ñ
+Î
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs/0 /(B=
+%166Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer"__id*Š*‡7
+5IndieVisible.Application.Services.ImageStorageService"L
+cloudBlobContainer6Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer†ƒ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs/0 /(b9
+%172Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob"TMicrosoft.WindowsAzure.Storage.Blob.CloudBlobContainer.GetBlockBlobReference(string)*?
+=
+%166Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer*
+
+filenamestring2GetBlockBlobReference(string)ˆ
+…
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs/ /(bD
+cloudBlockBlob2Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob"__id*;
+9
+%172Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob×
+Ô
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs0 0(!
+%18bool""object.operator !=(object, object)*
+"
+object*
+
+imagebyte[]*
+""*
+5
+2*à
+5·
+´
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs2L 2(X
+
+%19int"System.Array.Length.get*
+
+imagebyte[]›˜
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs2 2(Y"
+%20System.Threading.Tasks.Task"]Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.UploadFromByteArrayAsync(byte[], int, int)*F
+D
+cloudBlockBlob2Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob*
+
+imagebyte[]*2 *
+
+
+%19int2*UploadFromByteArrayAsync(byte[], int, int)*
+2*˜
+2"’
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs6 6(
+
+filenamestring*—
+6"‘
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ImageStorageService.cs7 7(	
+implicit return:
+	containerstring:
+filenamestring:
+imagebyte[]B97
+5IndieVisible.Application.Services.ImageStorageService

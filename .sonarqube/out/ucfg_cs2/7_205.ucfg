@@ -1,0 +1,104 @@
+
+PIndieVisible.Web.Controllers.AccountController.SetProfileSession(string, string)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÞ Þ(&"0*Ô
+0Ž
+‹
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csá á(2
+%0"__id*
+""Ê
+Ç
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csá á(=
+
+%1void"nIndieVisible.Web.Controllers.Base.BaseController.SetSessionValue(IndieVisible.Web.Enums.SessionValues, string)*42
+0IndieVisible.Web.Controllers.Base.BaseController*
+
+%0*
+
+userNamestringš—
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csã ã(,
+%2System.Guid"System.GuidÉ
+Æ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csã  ã($
+
+%3void"System.Guid.Guid(string)*
+
+%2System.Guid*
+
+userIdstring®
+«
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csã ã(,
+userGuidSystem.Guid"__id*
+
+%2System.GuidÄ
+Á
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csä' ä(9<
+%46IndieVisible.Application.Interfaces.IProfileAppService"__id*ƒ*€0
+.IndieVisible.Web.Controllers.AccountController"L
+_profileAppService6IndieVisible.Application.Interfaces.IProfileAppServiceŽ
+‹
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csäP ä(d
+%5"__id*
+""áÞ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csä' ä(e?
+%69IndieVisible.Application.ViewModels.User.ProfileViewModel"{IndieVisible.Application.Interfaces.IProfileAppService.GetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)*>
+<
+%46IndieVisible.Application.Interfaces.IProfileAppService*
+
+userGuidSystem.Guid*
+
+%52DGetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)‰
+†
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csä ä(eD
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
+?
+%69IndieVisible.Application.ViewModels.User.ProfileViewModel†
+ƒ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cså å(
+
+%7bool""object.operator !=(object, object)*
+"
+object*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+""*
+1
+2*ø
+1Ž
+‹
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csç  ç(6
+%8"__id*
+""”
+‘
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csç8 ç(D
+%9string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModelÅ
+Â
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csç ç(E
+%10void"nIndieVisible.Web.Controllers.Base.BaseController.SetSessionValue(IndieVisible.Web.Enums.SessionValues, string)*42
+0IndieVisible.Web.Controllers.Base.BaseController*
+
+%8*
+
+%9string*
+2*’
+2"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csé é(	
+implicit return:
+userIdstring:
+userNamestringB20
+.IndieVisible.Web.Controllers.AccountController

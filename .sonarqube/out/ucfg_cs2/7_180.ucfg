@@ -1,0 +1,168 @@
+
+tIndieVisible.Web.Controllers.GameController.SetAuthorDetails(IndieVisible.Application.ViewModels.Game.GameViewModel)p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cst t(%"0*¼
+0‚
+ÿ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csv v(
+%0System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel·
+´
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csv v(#
+%1System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guidï
+ì
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csv v(#
+
+%2bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%0System.Guid*
+
+%1System.Guid*
+1
+2*À
+2†
+ƒ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csv' v(0
+%3System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel·
+´
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csv4 v(>
+%4System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guidï
+ì
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csv' v(>
+
+%5bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%3System.Guid*
+
+%4System.Guid*
+1
+3*—
+3†
+ƒ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csvB v(K
+%6System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModelŽ
+‹
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csvO v(\
+%7System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerï
+ì
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csvB v(\
+
+%8bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%6System.Guid*
+
+%7System.Guid*
+1
+4*þ
+1Ž
+‹
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csx x()
+%9System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController•
+’
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csx x()
+%10void"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.set*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
+
+%9System.Guid¾
+»
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csy+ y(<=
+%116IndieVisible.Application.Interfaces.IProfileAppService"LIndieVisible.Web.Controllers.Base.SecureBaseController.ProfileAppService.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController
+Œ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csyI y(V
+%12System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerŠ
+‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csyX y(l
+%13"__id*
+""Ú×
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csy+ y(m@
+%149IndieVisible.Application.ViewModels.User.ProfileViewModel"{IndieVisible.Application.Interfaces.IProfileAppService.GetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)*?
+=
+%116IndieVisible.Application.Interfaces.IProfileAppService*
+
+%12System.Guid*
+
+%132DGetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)…
+‚
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csy! y(mD
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*B
+@
+%149IndieVisible.Application.ViewModels.User.ProfileViewModel‚
+ÿ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs{ {(#
+%15bool""object.operator !=(object, object)*
+"
+object*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+""*
+5
+4*†	
+5
+
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs}$ }(0
+%16string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel¢
+Ÿ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs} }(0
+%17void"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.set*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
+
+%16string›
+˜
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs~' ~(>
+%18string"MIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileImageUrl.get*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel¥
+¢
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs~ ~(>
+%19void"PIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorPicture.set*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
+
+%18string*
+4*
+4"‰
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs (	
+implicit return:<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModelB/-
++IndieVisible.Web.Controllers.GameController

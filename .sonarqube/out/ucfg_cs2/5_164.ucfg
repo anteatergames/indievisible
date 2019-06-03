@@ -1,0 +1,232 @@
+
+çIndieVisible.Application.Services.BrainstormAppService.SaveSession(IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel)}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs˚' ˚(2"0*
+0*	
+1
+2
+3*¥
+2˝
+˙
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csÖ- Ö(HL
+%0FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository"__id*§*°8
+6IndieVisible.Application.Services.BrainstormAppService"e
+brainstormSessionRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository¢
+ü
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csÖQ Ö(V
+%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModelÄ˝
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csÖ- Ö(W2
+%2,IndieVisible.Domain.Models.BrainstormSession"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*N
+L
+%0FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository*
+
+%1System.Guid2GetById(System.Guid)¯
+ı
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csÖ" Ö(W8
+existing,IndieVisible.Domain.Models.BrainstormSession"__id*4
+2
+%2,IndieVisible.Domain.Models.BrainstormSessionÉ
+Ä
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csÜ Ü($
+
+%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*:
+8
+existing,IndieVisible.Domain.Models.BrainstormSession*
+""*
+4
+5*ﬁ
+4˛
+˚
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csà à("
+%4AutoMapper.IMapper"__id*Z*X8
+6IndieVisible.Application.Services.BrainstormAppService"
+mapperAutoMapper.IMapper⁄◊
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csà à(42
+%5,IndieVisible.Domain.Models.BrainstormSession"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
+
+%4AutoMapper.IMapper*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel*:
+8
+existing,IndieVisible.Domain.Models.BrainstormSession21Map<TSource, TDestination>(TSource, TDestination)ı
+Ú
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csà à(45
+model,IndieVisible.Domain.Models.BrainstormSession"__id*4
+2
+%5,IndieVisible.Domain.Models.BrainstormSession*
+6*Ú
+5˛
+˚
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cså å("
+%6AutoMapper.IMapper"__id*Z*X8
+6IndieVisible.Application.Services.BrainstormAppService"
+mapperAutoMapper.IMapperÓÎ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cså å(=2
+%7,IndieVisible.Domain.Models.BrainstormSession",AutoMapper.IMapper.Map<TDestination>(object)*
+
+%6AutoMapper.IMapper*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel2Map<TDestination>(object)ı
+Ú
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cså å(=5
+model,IndieVisible.Domain.Models.BrainstormSession"__id*4
+2
+%7,IndieVisible.Domain.Models.BrainstormSession*
+6*˜
+6¢
+ü
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csè è(
+%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModelƒ
+¡
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csè è('
+%9System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guid˝
+˙
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csè è('
+%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%8System.Guid*
+
+%9System.Guid*
+7
+8*∞
+
+7˛
+˚
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csë ë(/M
+%11FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository"__id*§*°8
+6IndieVisible.Application.Services.BrainstormAppService"e
+brainstormSessionRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepositoryÓÎ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csë ë(:
+%12void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*O
+M
+%11FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository*7
+5
+model,IndieVisible.Domain.Models.BrainstormSession2Add(TEntity)˛
+˚
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csí í($
+%13System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*7
+5
+model,IndieVisible.Domain.Models.BrainstormSession≤
+Ø
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csí í($
+%14void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel*
+
+%13System.Guid*
+9*Ä
+8˛
+˚
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csñ ñ(/M
+%15FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository"__id*§*°8
+6IndieVisible.Application.Services.BrainstormAppService"e
+brainstormSessionRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepositoryÙÒ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csñ ñ(=
+%16void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*O
+M
+%15FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository*7
+5
+model,IndieVisible.Domain.Models.BrainstormSession2Update(TEntity)*
+9*ö
+9Ω
+∫
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csô ô(6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*{*y8
+6IndieVisible.Application.Services.BrainstormAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkçä
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csô ô(#
+%18bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()˛
+˚
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csõ5 õ(=
+%19System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*7
+5
+model,IndieVisible.Domain.Models.BrainstormSession˜Ù
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csõ õ(><
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
+Æ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csõ õ(4
+%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%19System.Guidâ
+Ü
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csõ õ(>?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+1
+10
+3*ú
+1÷”
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csü5 ü(?
+%22string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get˜Ù
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csü ü(@<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
+Æ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csü ü(4
+%24void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%22stringâ
+Ü
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csü ü(@?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+10*…
+10"¬
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs¢ ¢(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ö
+3"î
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs£ £(	
+implicit return:O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModelB:8
+6IndieVisible.Application.Services.BrainstormAppService

@@ -1,0 +1,26 @@
+
+ÀIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddleware.CanonicalURLMiddleware(Microsoft.AspNetCore.Http.RequestDelegate, IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptions)Ö
+{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalUrlMiddleware.cs (%"0*—
+0¿
+Ω
+Ö
+{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalUrlMiddleware.cs (xB
+@IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddleware"2
+_next)Microsoft.AspNetCore.Http.RequestDelegate"__id*3
+1
+next)Microsoft.AspNetCore.Http.RequestDelegateÉ
+Ä
+Ö
+{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalUrlMiddleware.cs (ôB
+@IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddleware"S
+_optionsGIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptions"__id*T
+R
+optionsGIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptions*
+1*£
+1"ù
+Ö
+{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalUrlMiddleware.cs (	
+implicit return:1
+next)Microsoft.AspNetCore.Http.RequestDelegate:R
+optionsGIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptionsBDB
+@IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddleware

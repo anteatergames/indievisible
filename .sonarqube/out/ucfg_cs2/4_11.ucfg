@@ -1,0 +1,28 @@
+
+UIndieVisible.Infra.Data.Repository.UserPreferencesRepository.GetByUserId(System.Guid)Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.cs (*"0*ù
+0∂
+≥
+Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.cs (2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>£
+†
+Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.cs (<0
+%1*IndieVisible.Domain.Models.UserPreferences"éSystem.Linq.Queryable.FirstOrDefault<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+"""∏
+Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.cs (=2
+0
+%1*IndieVisible.Domain.Models.UserPreferences*ü
+1"ô
+Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.cs (	
+implicit return:
+idSystem.GuidB@>
+<IndieVisible.Infra.Data.Repository.UserPreferencesRepository

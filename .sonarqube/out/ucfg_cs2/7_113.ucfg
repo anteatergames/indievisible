@@ -1,0 +1,154 @@
+
+ŠIndieVisible.Web.Controllers.StorageController.UploadGameCoverImage(Microsoft.AspNetCore.Http.IFormFile, System.Guid, string, System.Guid)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÄ Ä(1"2*Û
+0Ž
+‹
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÆ* Æ(<
+%0"__id*
+""î
+ë
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÆ> Æ(]
+%1string"<IndieVisible.Application.Constants.DefaultGameCoverImage.get*&"$
+"IndieVisible.Application.Constants©
+¦
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÆ Æ(|,
+%2&Microsoft.AspNetCore.Mvc.IActionResult"¶IndieVisible.Web.Controllers.StorageController.UploadGameImage(Microsoft.AspNetCore.Http.IFormFile, IndieVisible.Domain.Core.Enums.BlobType, string, System.Guid, string, System.Guid)*20
+.IndieVisible.Web.Controllers.StorageController*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile*
+
+%0*
+
+%1string*
+
+gameIdSystem.Guid*
+
+currentImagestring*
+
+userIdSystem.Guid"§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÆ Æ(}.
+,
+%2&Microsoft.AspNetCore.Mvc.IActionResult*’
+1"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÇ Ç(	
+implicit return*‰
+2Š
+‡
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÄ Ä(1
+%3"__entrypoint*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile*
+
+gameIdSystem.Guid*
+
+currentImagestring*
+
+userIdSystem.Guid€
+ý
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÂ	 Â(
+%4"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*.
+,
+image#Microsoft.AspNetCore.Http.IFormFile€
+ý
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÃ	 Ã(&
+%5"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*.
+,
+image#Microsoft.AspNetCore.Http.IFormFileÆ
+Ã
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÄ2 Ä(A,
+image#Microsoft.AspNetCore.Http.IFormFile"__annotation*
+
+%4*
+
+%5é
+æ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÂ	 Â(
+%6"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+gameIdSystem.Guidé
+æ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÃ	 Ã(&
+%7"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+gameIdSystem.Guid¯
+¬
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÄC Ä(N
+gameIdSystem.Guid"__annotation*
+
+%6*
+
+%7ê
+ç
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÂ	 Â(
+%8"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+currentImagestringê
+ç
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÃ	 Ã(&
+%9"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+currentImagestring°
+­
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÄP Ä(c
+currentImagestring"__annotation*
+
+%8*
+
+%9ê
+ç
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÂ	 Â(
+%10"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+userIdSystem.Guidê
+ç
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÃ	 Ã(&
+%11"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+userIdSystem.Guid±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÄe Ä(p
+userIdSystem.Guid"__annotation*
+
+%10*
+
+%11*
+0:,
+image#Microsoft.AspNetCore.Http.IFormFile:
+gameIdSystem.Guid:
+currentImagestring:
+userIdSystem.GuidB20
+.IndieVisible.Web.Controllers.StorageController

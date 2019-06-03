@@ -1,0 +1,24 @@
+
+CIndieVisible.Infra.Data.Repository.Repository<TEntity>.Add(TEntity)r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs ("0*Ö
+0¶
+£
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs (2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>—Œ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs (G
+%1AMicrosoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity>"9Microsoft.EntityFrameworkCore.DbSet<TEntity>.Add(TEntity)*4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+
+objTEntity2Add(TEntity)*
+1*è
+1"â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs (	
+implicit return:
+objTEntityB:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>

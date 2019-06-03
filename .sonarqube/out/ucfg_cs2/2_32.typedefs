@@ -1,0 +1,3 @@
+Î
+4IndieVisible.Domain.Services.UserFollowDomainService>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>objectÍ
+XUserFollowDomainService(IndieVisible.Domain.Interfaces.Repository.IUserFollowRepository)çIndieVisible.Domain.Services.UserFollowDomainService.UserFollowDomainService(IndieVisible.Domain.Interfaces.Repository.IUserFollowRepository)

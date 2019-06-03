@@ -1,0 +1,59 @@
+
+BIndieVisible.Web.Controllers.GameController.GetUrlLastPart(string)r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csâ â(,"0*—
+0√
+¿
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csã ã(.
+
+%0bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+urlstring*
+1
+2*ã
+1"Ö
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csç ç(
+
+urlstring*Ì
+2◊
+‘
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csë! ë(/
+%1string[]"-string.Split(char, System.StringSplitOptions)*
+
+urlstring*
+""*
+""¢
+ü
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csë ë(/
+splitstring[]"__id*
+
+%1string[]∞
+≠
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csí í()	
+%2int"System.Array.Length.get*
+
+splitstring[]Æ
+´
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csí í(.
+%3string"
+__arrayGet*
+
+splitstring[]*
+"""Ñ
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csí í(/
+
+%3string*è
+3"â
+r
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csî î(	
+implicit return:
+urlstringB/"-
++IndieVisible.Web.Controllers.GameController

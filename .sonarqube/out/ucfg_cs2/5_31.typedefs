@@ -1,0 +1,18 @@
+›
+
+5IndieVisible.Application.ViewModels.User.UserCountersobjectV
+UserCounters()DIndieVisible.Application.ViewModels.User.UserCounters.UserCounters()T
+Followers.getCIndieVisible.Application.ViewModels.User.UserCounters.Followers.getT
+Followers.setCIndieVisible.Application.ViewModels.User.UserCounters.Followers.setT
+Following.getCIndieVisible.Application.ViewModels.User.UserCounters.Following.getT
+Following.setCIndieVisible.Application.ViewModels.User.UserCounters.Following.setX
+Connections.getEIndieVisible.Application.ViewModels.User.UserCounters.Connections.getX
+Connections.setEIndieVisible.Application.ViewModels.User.UserCounters.Connections.setL
+	Games.get?IndieVisible.Application.ViewModels.User.UserCounters.Games.getL
+	Games.set?IndieVisible.Application.ViewModels.User.UserCounters.Games.setL
+	Posts.get?IndieVisible.Application.ViewModels.User.UserCounters.Posts.getL
+	Posts.set?IndieVisible.Application.ViewModels.User.UserCounters.Posts.setR
+Comments.getBIndieVisible.Application.ViewModels.User.UserCounters.Comments.getR
+Comments.setBIndieVisible.Application.ViewModels.User.UserCounters.Comments.setJ
+Jams.get>IndieVisible.Application.ViewModels.User.UserCounters.Jams.getJ
+Jams.set>IndieVisible.Application.ViewModels.User.UserCounters.Jams.set

@@ -1,0 +1,4 @@
+ç
++IndieVisible.Infra.Data.Mappings.GameConfigobjectã
+mConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.Game>)ôIndieVisible.Infra.Data.Mappings.GameConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.Game>)H
+GameConfig()8IndieVisible.Infra.Data.Mappings.GameConfig.GameConfig()

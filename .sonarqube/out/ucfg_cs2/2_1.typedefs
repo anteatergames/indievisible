@@ -1,0 +1,9 @@
+Á
+2IndieVisible.Domain.ValueObjects.OperationResultVoobjecte
+OperationResultVo(bool)JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)u
+OperationResultVo(bool, string)RIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool, string)i
+OperationResultVo(string)LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)M
+Success.get>IndieVisible.Domain.ValueObjects.OperationResultVo.Success.getM
+Success.set>IndieVisible.Domain.ValueObjects.OperationResultVo.Success.setM
+Message.get>IndieVisible.Domain.ValueObjects.OperationResultVo.Message.getM
+Message.set>IndieVisible.Domain.ValueObjects.OperationResultVo.Message.set

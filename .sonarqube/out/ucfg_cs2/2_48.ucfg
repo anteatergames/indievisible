@@ -1,0 +1,41 @@
+
+WIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.GetByUserId(System.Guid)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csA A()"0*µ
+
+0÷
+ô
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csC C(%
+%0TRepository"__id*_*]@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
+
+repositoryTRepositoryþû
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csC C(B
+%1System.Linq.IQueryable<T>"|IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Get(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*
+
+%0TRepository*
+""2CGet(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)È
+Å
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csC C(B 
+objSystem.Linq.IQueryable<T>"__id*!
+
+%1System.Linq.IQueryable<T>À
+½
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csE E((
+%2"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*"
+ 
+objSystem.Linq.IQueryable<T>"¦
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csE E( *
+(
+%2"System.Collections.Generic.List<T>*•
+1"
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csF F(	
+implicit return:
+userIdSystem.GuidBB@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

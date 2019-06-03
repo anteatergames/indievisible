@@ -1,0 +1,27 @@
+
+RIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool, string)w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs ( "0*·
+0”
+‘
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs? (N
+
+%0void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*64
+2IndieVisible.Domain.ValueObjects.OperationResultVo*
+""•
+’
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs ("
+
+%1void">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.set*64
+2IndieVisible.Domain.ValueObjects.OperationResultVo*
+
+messagestring*
+1*”
+1"Ž
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.cs (	
+implicit return:
+successbool:
+messagestringB64
+2IndieVisible.Domain.ValueObjects.OperationResultVo

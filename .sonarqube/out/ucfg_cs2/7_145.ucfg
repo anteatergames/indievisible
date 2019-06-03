@@ -1,0 +1,49 @@
+
+CIndieVisible.Web.Controllers.StorageController.GetAbsoluteBaseUri()u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÆ Æ()"0*¡
+0³
+°
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÈ  È(34
+%0.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*{*y0
+.IndieVisible.Web.Controllers.StorageController"E
+HttpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor°­
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÈ  È(?+
+%1%Microsoft.AspNetCore.Http.HttpContext">Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext.get*6
+4
+%0.Microsoft.AspNetCore.Http.IHttpContextAccessor2HttpContext.get‰
+†
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÈ  È(G+
+%2%Microsoft.AspNetCore.Http.HttpRequest"1Microsoft.AspNetCore.Http.HttpContext.Request.get*-
++
+%1%Microsoft.AspNetCore.Http.HttpContext…
+‚
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÈ  È(L*
+%3$Microsoft.AspNetCore.Http.HostString".Microsoft.AspNetCore.Http.HttpRequest.Host.get*-
++
+%2%Microsoft.AspNetCore.Http.HttpRequestç
+ä
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÈ  È(W
+%4string"/Microsoft.AspNetCore.Http.HostString.ToString()*,
+*
+%3$Microsoft.AspNetCore.Http.HostStringª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÈ È(W
+%5string"__concat*
+""*
+
+%4string"‡
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÈ È(X
+
+%5string*’
+1"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÉ É(	
+implicit returnB20
+.IndieVisible.Web.Controllers.StorageController

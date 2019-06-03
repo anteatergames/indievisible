@@ -1,0 +1,173 @@
+
+JIndieVisible.Web.ViewComponents.NotificationViewComponent.InvokeAsync(int)~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs"0 "(;"0*
+0*
+1
+2*¶
+1õ
+ò
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs& &(
+
+qtdint"__id*2
+*
+2*ò
+2Á
+‰
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs) )(#A
+%0;IndieVisible.Application.Interfaces.INotificationAppService"__id*ò*ï;
+9IndieVisible.Web.ViewComponents.NotificationViewComponent"V
+_notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceõ
+ò
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs)4 )(?
+%1System.Guid"DIndieVisible.Web.ViewComponents.NotificationViewComponent.UserId.get*=;
+9IndieVisible.Web.ViewComponents.NotificationViewComponent∆√
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs) )(?
+
+%2void"HIndieVisible.Application.Interfaces.ICrudAppService<T>.CurrentUserId.set*C
+A
+%0;IndieVisible.Application.Interfaces.INotificationAppService*
+
+%1System.Guid2CurrentUserId.setÁ
+‰
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs* *(0A
+%3;IndieVisible.Application.Interfaces.INotificationAppService"__id*ò*ï;
+9IndieVisible.Web.ViewComponents.NotificationViewComponent"V
+_notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceõ
+ò
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs*= *(H
+%4System.Guid"DIndieVisible.Web.ViewComponents.NotificationViewComponent.UserId.get*=;
+9IndieVisible.Web.ViewComponents.NotificationViewComponent†ù
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs* *(N?
+%59IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"YIndieVisible.Application.Interfaces.INotificationAppService.GetByUserId(System.Guid, int)*C
+A
+%3;IndieVisible.Application.Interfaces.INotificationAppService*
+
+%4System.Guid*
+""2GetByUserId(System.Guid, int)ë
+é
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs* *(NC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%59IndieVisible.Domain.ValueObjects.OperationResultListVo<T>¿
+Ω
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs, ,($/
+%6)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*E
+C
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>’
+“
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs, ,(-(
+%7"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*1
+/
+%6)System.Collections.Generic.IEnumerable<T>‚
+ﬂ
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs, ,(-+
+model"System.Collections.Generic.List<T>"__id**
+(
+%7"System.Collections.Generic.List<T>*
+3*
+3*
+4
+5*⁄
+
+4ª
+∏
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs0 0(
+%8string"RIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Url.get*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel¶
+£
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs0F 0(M
+%9System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel⁄
+◊
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs0 0(N
+%10string"string.Format(string, object)*
+"
+string*
+""*
+
+%9System.GuidΩ
+∫
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs0 0(N
+%11string"__concat*
+
+%8string*
+
+%10stringÀ
+»
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs0 0(N
+%12void"RIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Url.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+
+%11string*
+3*ç
+5·
+ﬁ
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs3 3(!
+%13void" IndieVisible.Web.Extensions.ViewModelExtensions.NotificationViewModelExtensions.DefineVisuals(System.Collections.Generic.List<IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel>)*S"Q
+OIndieVisible.Web.Extensions.ViewModelExtensions.NotificationViewModelExtensions*-
++
+model"System.Collections.Generic.List<T>•
+¢
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs5 5(?
+%148Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"3Microsoft.AspNetCore.Mvc.ViewComponent.ViewData.get**(
+&Microsoft.AspNetCore.Mvc.ViewComponent÷
+”
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs5& 5(A
+
+%15int"rSystem.Linq.Enumerable.Count<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*-
++
+model"System.Collections.Generic.List<T>*
+""Ô
+Ï
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs5 5(A
+%16"
+__arraySet*A
+?
+%148Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
+""*
+
+
+%15int„
+‡
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs7 7(F
+%17?Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult";Microsoft.AspNetCore.Mvc.ViewComponent.View<TModel>(TModel)**(
+&Microsoft.AspNetCore.Mvc.ViewComponent*-
++
+model"System.Collections.Generic.List<T>" 
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs7 7(H
+F
+%17?Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult*õ
+6"ï
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs8 8(	
+implicit return:
+
+qtdintB=;
+9IndieVisible.Web.ViewComponents.NotificationViewComponent

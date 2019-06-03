@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>IndieVisible.Infra.CrossCutting.IoC</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>df375368-e69d-40af-b572-27f2c9941af2</ProjectGuid>
+  <FullPath>C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.IoC\IndieVisible.Infra.CrossCutting.IoC.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\.sonarqube\out\6\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePath">C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.IoC\bin\Debug\netcoreapp2.1\IndieVisible.Infra.CrossCutting.IoC.dll.RoslynCA.json|C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.IoC\bin\Debug\netcoreapp2.1\IndieVisible.Infra.CrossCutting.IoC.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPath">C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\.sonarqube\out\6</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
+</ProjectInfo>

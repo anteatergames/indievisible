@@ -1,0 +1,4 @@
+∑
+1IndieVisible.Infra.Data.Mappings.GameFollowConfigobjectù
+sConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GameFollow>)•IndieVisible.Infra.Data.Mappings.GameFollowConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GameFollow>)Z
+GameFollowConfig()DIndieVisible.Infra.Data.Mappings.GameFollowConfig.GameFollowConfig()

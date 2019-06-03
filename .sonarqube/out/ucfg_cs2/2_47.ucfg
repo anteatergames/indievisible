@@ -1,0 +1,33 @@
+
+òIndieVisible.Domain.Services.GameFollowDomainService.Count(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.GameFollow, bool>>)y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csA A("0*Ó
+0‚
+ﬂ
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csC C(1E
+%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository"__id*î*ë6
+4IndieVisible.Domain.Services.GameFollowDomainService"W
+gameFollowRepository?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository”–
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csC C(>	
+%1int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*G
+E
+%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository*8
+6
+where-System.Linq.Expressions.Expression<TDelegate>2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)ü
+ú
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csC C(>
+countint"__id*
+	
+%1int"ã
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csE E(
+
+countint*ñ
+1"ê
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csF F(	
+implicit return:6
+where-System.Linq.Expressions.Expression<TDelegate>B86
+4IndieVisible.Domain.Services.GameFollowDomainService

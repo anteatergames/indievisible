@@ -1,0 +1,28 @@
+
+OIndieVisible.Infra.Data.Repository.GamificationLevelRepository.GetByNumber(int)ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationLevelRepository.cs! (,"0*§
+0¸
+µ
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationLevelRepository.cs (2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>§
+¤
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationLevelRepository.cs (E2
+%1,IndieVisible.Domain.Models.GamificationLevel"ŽSystem.Linq.Queryable.FirstOrDefault<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+"""¼
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationLevelRepository.cs (F4
+2
+%1,IndieVisible.Domain.Models.GamificationLevel*¡
+1"›
+ƒ
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationLevelRepository.cs (	
+implicit return:
+levelNumberintBB@
+>IndieVisible.Infra.Data.Repository.GamificationLevelRepository

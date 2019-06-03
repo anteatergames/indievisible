@@ -1,0 +1,5 @@
+è
+5IndieVisible.Application.Services.ImageStorageServiceobject∆
+FImageStorageService(Microsoft.Extensions.Configuration.IConfiguration)|IndieVisible.Application.Services.ImageStorageService.ImageStorageService(Microsoft.Extensions.Configuration.IConfiguration)à
+'StoreImageAsync(string, string, byte[])]IndieVisible.Application.Services.ImageStorageService.StoreImageAsync(string, string, byte[])z
+ DeleteImageAsync(string, string)VIndieVisible.Application.Services.ImageStorageService.DeleteImageAsync(string, string)

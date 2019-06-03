@@ -1,0 +1,4 @@
+Ó
+5IndieVisible.Infra.Data.Mappings.UserConnectionConfigobject©
+wConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserConnection>)­IndieVisible.Infra.Data.Mappings.UserConnectionConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserConnection>)f
+UserConnectionConfig()LIndieVisible.Infra.Data.Mappings.UserConnectionConfig.UserConnectionConfig()

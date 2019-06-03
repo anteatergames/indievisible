@@ -1,0 +1,145 @@
+
+gIndieVisible.Web.Controllers.StorageController.GetDefaultImage(IndieVisible.Domain.Core.Enums.BlobType)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csá á(-"0*þ
+0­
+ª
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csã+ ã(7
+%0string"__id**
+string"
+Emptystring±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csã ã(7
+defaultImageNotRootedstring"__id*
+
+%0string*
+1
+2
+3
+4
+5
+6
+7*¥
+7æ
+ã
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csú, ú(C
+%1string"4IndieVisible.Application.Constants.DefaultAvatar.get*&"$
+"IndieVisible.Application.Constants±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csú ú(C
+defaultImageNotRootedstring"__id*
+
+%1string*
+8*¬
+6í
+ê
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs÷, ÷(J
+%2string";IndieVisible.Application.Constants.DefaultFeaturedImage.get*&"$
+"IndieVisible.Application.Constants±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs÷ ÷(J
+defaultImageNotRootedstring"__id*
+
+%2string*
+8*¬
+5í
+ê
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csô, ô(J
+%3string";IndieVisible.Application.Constants.DefaultGameThumbnail.get*&"$
+"IndieVisible.Application.Constants±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csô ô(J
+defaultImageNotRootedstring"__id*
+
+%3string*
+8*­
+4î
+ë
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csñ, ñ(K
+%4string"<IndieVisible.Application.Constants.DefaultGameCoverImage.get*&"$
+"IndieVisible.Application.Constants±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csñ ñ(K
+defaultImageNotRootedstring"__id*
+
+%4string*
+8*¬
+3í
+ê
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csî, î(J
+%5string";IndieVisible.Application.Constants.DefaultGameThumbnail.get*&"$
+"IndieVisible.Application.Constants±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csî î(J
+defaultImageNotRootedstring"__id*
+
+%5string*
+8*°
+2ñ
+î
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csë, ë(N
+%6string"?IndieVisible.Application.Constants.DefaultProfileCoverImage.get*&"$
+"IndieVisible.Application.Constants±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csë ë(N
+defaultImageNotRootedstring"__id*
+
+%6string*
+8*¥
+1æ
+ã
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csè, è(C
+%7string"4IndieVisible.Application.Constants.DefaultAvatar.get*&"$
+"IndieVisible.Application.Constants±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csè è(C
+defaultImageNotRootedstring"__id*
+
+%7string*
+8*ê
+8È
+Å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csþ$ þ(F
+%8string"string.Substring(int)*!
+
+defaultImageNotRootedstring*2È
+Å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csþ$ þ(Z
+%9string"string.Replace(string, string)*
+
+%8string*
+""*
+""±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csþ þ(Z
+defaultImageNotRootedstring"__id*
+
+%9string"š
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs€ €()!
+
+defaultImageNotRootedstring*’
+9"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs (	
+implicit return:/
+type'IndieVisible.Domain.Core.Enums.BlobTypeB2"0
+.IndieVisible.Web.Controllers.StorageController

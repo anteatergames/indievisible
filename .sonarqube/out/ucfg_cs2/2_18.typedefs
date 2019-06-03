@@ -1,0 +1,41 @@
+Ã
+IndieVisible.Domain.Models.Game.IndieVisible.Domain.Core.Models.ExternalEntity&IndieVisible.Domain.Core.Models.Entityobject0
+Game()&IndieVisible.Domain.Models.Game.Game()F
+DeveloperName.get1IndieVisible.Domain.Models.Game.DeveloperName.getF
+DeveloperName.set1IndieVisible.Domain.Models.Game.DeveloperName.set6
+	Title.get)IndieVisible.Domain.Models.Game.Title.get6
+	Title.set)IndieVisible.Domain.Models.Game.Title.set2
+Url.get'IndieVisible.Domain.Models.Game.Url.get2
+Url.set'IndieVisible.Domain.Models.Game.Url.setB
+Description.get/IndieVisible.Domain.Models.Game.Description.getB
+Description.set/IndieVisible.Domain.Models.Game.Description.set6
+	Genre.get)IndieVisible.Domain.Models.Game.Genre.get6
+	Genre.set)IndieVisible.Domain.Models.Game.Genre.setF
+CoverImageUrl.get1IndieVisible.Domain.Models.Game.CoverImageUrl.getF
+CoverImageUrl.set1IndieVisible.Domain.Models.Game.CoverImageUrl.setD
+ThumbnailUrl.get0IndieVisible.Domain.Models.Game.ThumbnailUrl.getD
+ThumbnailUrl.set0IndieVisible.Domain.Models.Game.ThumbnailUrl.set8
+
+Engine.get*IndieVisible.Domain.Models.Game.Engine.get8
+
+Engine.set*IndieVisible.Domain.Models.Game.Engine.set<
+Language.get,IndieVisible.Domain.Models.Game.Language.get<
+Language.set,IndieVisible.Domain.Models.Game.Language.set@
+WebsiteUrl.get.IndieVisible.Domain.Models.Game.WebsiteUrl.get@
+WebsiteUrl.set.IndieVisible.Domain.Models.Game.WebsiteUrl.set8
+
+Status.get*IndieVisible.Domain.Models.Game.Status.get8
+
+Status.set*IndieVisible.Domain.Models.Game.Status.setB
+ReleaseDate.get/IndieVisible.Domain.Models.Game.ReleaseDate.getB
+ReleaseDate.set/IndieVisible.Domain.Models.Game.ReleaseDate.set>
+Platforms.get-IndieVisible.Domain.Models.Game.Platforms.get>
+Platforms.set-IndieVisible.Domain.Models.Game.Platforms.setD
+UserContents.get0IndieVisible.Domain.Models.Game.UserContents.getD
+UserContents.set0IndieVisible.Domain.Models.Game.UserContents.setB
+FacebookUrl.get/IndieVisible.Domain.Models.Game.FacebookUrl.getB
+FacebookUrl.set/IndieVisible.Domain.Models.Game.FacebookUrl.set@
+TwitterUrl.get.IndieVisible.Domain.Models.Game.TwitterUrl.get@
+TwitterUrl.set.IndieVisible.Domain.Models.Game.TwitterUrl.setD
+InstagramUrl.get0IndieVisible.Domain.Models.Game.InstagramUrl.getD
+InstagramUrl.set0IndieVisible.Domain.Models.Game.InstagramUrl.set

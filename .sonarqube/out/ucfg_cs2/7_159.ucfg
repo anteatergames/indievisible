@@ -1,0 +1,35 @@
+
+àIndieVisible.Web.Controllers.Base.SecureBaseController.UploadImage(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string, byte[])}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csï ï($"0*⁄
+0©
+¶
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csó ó(A
+containerNamestring"__id*
+""ñ
+ì
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csô ô(O
+%0string"gIndieVisible.Web.Controllers.Base.SecureBaseController.UploadImage(System.Guid, string, string, byte[])*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController*
+
+userIdSystem.Guid*
+
+containerNamestring*
+
+filenamestring*
+
+	fileBytesbyte[]"è
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csô ô(P
+
+%0string*ö
+1"î
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csö ö(	
+implicit return:
+userIdSystem.Guid:4
+	container'IndieVisible.Domain.Core.Enums.BlobType:
+filenamestring:
+	fileBytesbyte[]B:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController

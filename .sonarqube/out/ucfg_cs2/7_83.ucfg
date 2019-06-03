@@ -1,0 +1,54 @@
+
+FIndieVisible.Web.Controllers.BrainstormController.NewIdea(System.Guid)v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs-! -(("2*ˇ
+0ëé
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs/) /(FL
+%0FIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel"FIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModelπ
+∂
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs/- /(D
+
+%1void"`IndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel.BrainstormIdeaViewModel()*N
+L
+%0FIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModelü
+ú
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs/$ /(FL
+vmFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel"__id*N
+L
+%0FIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel…
+∆
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs0 0($
+
+%2void"TIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel.SessionId.set*N
+L
+vmFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel*
+
+	sessionIdSystem.Guidåâ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs2 2(10
+%3*Microsoft.AspNetCore.Mvc.PartialViewResult"?Microsoft.AspNetCore.Mvc.Controller.PartialView(string, object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+""*N
+L
+vmFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel2PartialView(string, object)"¨
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs2 2(22
+0
+%3*Microsoft.AspNetCore.Mvc.PartialViewResult*ì
+1"ç
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs3 3(	
+implicit return*∂
+2´
+®
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs-! -((
+%4"__entrypoint*
+
+	sessionIdSystem.Guid*
+0:
+	sessionIdSystem.GuidB53
+1IndieVisible.Web.Controllers.BrainstormController

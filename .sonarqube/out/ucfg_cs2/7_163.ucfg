@@ -1,0 +1,58 @@
+
+gIndieVisible.Web.Controllers.Base.SecureBaseController.UploadFeaturedImage(System.Guid, string, byte[])}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs´ ´(,"0*é
+0ñ
+ì
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs≠ ≠(-
+%0"__id*
+""ºπ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs≠ ≠(8
+%1string"System.Enum.ToString()*
+
+%02
+ToString()≤
+Ø
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs≠ ≠(B
+%2string"string.ToLower()*
+
+%1string®
+•
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs≠ ≠(B
+typestring"__id*
+
+%2stringç
+ä
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÆ Æ(L
+%3string"gIndieVisible.Web.Controllers.Base.SecureBaseController.UploadImage(System.Guid, string, string, byte[])*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController*
+
+userIdSystem.Guid*
+
+typestring*
+
+filenamestring*
+
+	fileBytesbyte[]™
+ß
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csÆ Æ(L
+resultstring"__id*
+
+%3string"ì
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs∞ ∞(
+
+resultstring*ö
+1"î
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs± ±(	
+implicit return:
+userIdSystem.Guid:
+filenamestring:
+	fileBytesbyte[]B:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController

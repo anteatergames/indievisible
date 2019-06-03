@@ -1,0 +1,136 @@
+
+vIndieVisible.Web.Controllers.StorageController.UserImage(IndieVisible.Domain.Core.Enums.BlobType, System.Guid, string)s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs (&"6*Ó
+0Å
+Â
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs" "(/
+
+%0bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+namestring*
+1
+2*ã
+1·
+´
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs$ $((
+%1string"System.Guid.ToString()*
+
+userIdSystem.Guidž
+›
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs$ $((
+namestring"__id*
+
+%1string*
+2*š
+2Œ
+‰
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs' '(-
+%2"__id*
+""*
+3
+4*þ
+3Ò
+Ï
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs) )(<
+%3string"string.Format(string, object)*
+"
+string*
+""*
+
+userIdSystem.Guidž
+›
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs) )(<
+namestring"__id*
+
+%3string*
+4*²
+4„
+
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs. .(/,
+%4&Microsoft.AspNetCore.Mvc.IActionResult"uIndieVisible.Web.Controllers.StorageController.GetImage(IndieVisible.Domain.Core.Enums.BlobType, System.Guid, string)*20
+.IndieVisible.Web.Controllers.StorageController*
+""*
+
+userIdSystem.Guid*
+
+namestring"¥
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs. .(0.
+,
+%4&Microsoft.AspNetCore.Mvc.IActionResult*
+5"Š
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs/ /(	
+implicit return*Ñ
+6¿
+¼
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs (&
+%5"__entrypoint*
+""*
+
+userIdSystem.Guid*
+
+namestringñ
+î
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs	 (2
+%6"
+__annotate*LJ
+HMicrosoft.AspNetCore.Mvc.ResponseCacheAttribute.ResponseCacheAttribute()*
+
+userIdSystem.Guidç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs	 (>
+%7"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+userIdSystem.Guid­
+ª
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs6 (A
+userIdSystem.Guid"__annotation*
+
+%6*
+
+%7ê
+ç
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs	 (2
+%8"
+__annotate*LJ
+HMicrosoft.AspNetCore.Mvc.ResponseCacheAttribute.ResponseCacheAttribute()*
+
+namestringà
+Ý
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs	 (>
+%9"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+namestring¦
+£
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csC (N
+namestring"__annotation*
+
+%8*
+
+%9*
+0:/
+type'IndieVisible.Domain.Core.Enums.BlobType:
+userIdSystem.Guid:
+namestringB20
+.IndieVisible.Web.Controllers.StorageController

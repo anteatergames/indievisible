@@ -1,0 +1,25 @@
+©
+-IndieVisible.Web.Models.TimeLineItemViewModelobject`
+TimeLineItemViewModel()EIndieVisible.Web.Models.TimeLineItemViewModel.TimeLineItemViewModel()D
+	Start.get7IndieVisible.Web.Models.TimeLineItemViewModel.Start.getD
+	Start.set7IndieVisible.Web.Models.TimeLineItemViewModel.Start.set@
+End.get5IndieVisible.Web.Models.TimeLineItemViewModel.End.get@
+End.set5IndieVisible.Web.Models.TimeLineItemViewModel.End.setB
+Date.get6IndieVisible.Web.Models.TimeLineItemViewModel.Date.getB
+Date.set6IndieVisible.Web.Models.TimeLineItemViewModel.Date.setB
+Icon.get6IndieVisible.Web.Models.TimeLineItemViewModel.Icon.getB
+Icon.set6IndieVisible.Web.Models.TimeLineItemViewModel.Icon.setD
+	Color.get7IndieVisible.Web.Models.TimeLineItemViewModel.Color.getD
+	Color.set7IndieVisible.Web.Models.TimeLineItemViewModel.Color.setD
+	Title.get7IndieVisible.Web.Models.TimeLineItemViewModel.Title.getD
+	Title.set7IndieVisible.Web.Models.TimeLineItemViewModel.Title.setJ
+Subtitle.get:IndieVisible.Web.Models.TimeLineItemViewModel.Subtitle.getJ
+Subtitle.set:IndieVisible.Web.Models.TimeLineItemViewModel.Subtitle.setP
+Description.get=IndieVisible.Web.Models.TimeLineItemViewModel.Description.getP
+Description.set=IndieVisible.Web.Models.TimeLineItemViewModel.Description.setD
+	Items.get7IndieVisible.Web.Models.TimeLineItemViewModel.Items.getD
+	Items.set7IndieVisible.Web.Models.TimeLineItemViewModel.Items.setF
+
+Future.get8IndieVisible.Web.Models.TimeLineItemViewModel.Future.getF
+
+Future.set8IndieVisible.Web.Models.TimeLineItemViewModel.Future.set

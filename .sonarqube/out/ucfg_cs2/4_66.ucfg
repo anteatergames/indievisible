@@ -1,0 +1,70 @@
+
+tIndieVisible.Infra.Data.Migrations.useridoneveryentity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs  (""0*’
+0±®
+‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs (N
+%0System.Guid"System.GuidÔ
+Ñ
+‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs" (&
+
+%1void"System.Guid.Guid(string)*
+
+%0System.Guid*
+""·´
+‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs
+ (O_
+%2YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"žMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.AddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+
+%0System.Guid*
+""*
+""*
+""2dAddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)±®
+‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs (N
+%3System.Guid"System.GuidÔ
+Ñ
+‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs" (&
+
+%4void"System.Guid.Guid(string)*
+
+%3System.Guid*
+""·´
+‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs (O_
+%5YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"žMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.AddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+
+%3System.Guid*
+""*
+""*
+""2dAddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*
+1*©
+1"£
+‹
+€C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181125015731_useridoneveryentity.cs (	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB:8
+6IndieVisible.Infra.Data.Migrations.useridoneveryentity

@@ -1,0 +1,100 @@
+
+>IndieVisible.Application.Services.UserBadgeAppService.GetAll()z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs.9 .(?"0*
+0*	
+1
+2
+3*â
+2‰
+·
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs43 4(ID
+%0>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService"__id*ñ*ì7
+5IndieVisible.Application.Services.UserBadgeAppService"X
+userBadgeDomainService>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainServiceΩ∫
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs43 4(R/
+%1)System.Collections.Generic.IEnumerable<T>"9IndieVisible.Domain.Interfaces.IDomainService<T>.GetAll()*F
+D
+%0>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService2GetAll()
+Ì
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs4' 4(R6
+	allModels)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%1)System.Collections.Generic.IEnumerable<T>˙
+˜
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs66 6(<
+%2AutoMapper.IMapper"__id*Y*W7
+5IndieVisible.Application.Services.UserBadgeAppService"
+mapperAutoMapper.IMapper‰·
+{
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs66 6(Ñ/
+%3)System.Collections.Generic.IEnumerable<T>"6AutoMapper.IMapper.Map<TSource, TDestination>(TSource)*
+
+%2AutoMapper.IMapper*8
+6
+	allModels)System.Collections.Generic.IEnumerable<T>2#Map<TSource, TDestination>(TSource)Î
+Ë
+{
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs60 6(Ñ0
+vms)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%3)System.Collections.Generic.IEnumerable<T>˚¯
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs8 8(K?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>˛
+˚
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs8 8(F
+
+%5void"zIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(System.Collections.Generic.IEnumerable<T>)*A
+?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*2
+0
+vms)System.Collections.Generic.IEnumerable<T>ç
+ä
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs8 8(KC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*	
+1
+4
+3*•
+1“œ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs<G <(Q
+%6string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get˚¯
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs< <(R?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>∑
+¥
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs< <(F
+
+%8void"WIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(string)*A
+?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+
+%6stringç
+ä
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs< <(RC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+4*…
+4"√
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs? ?(E
+C
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*ó
+3"ë
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs@ @(	
+implicit returnB97
+5IndieVisible.Application.Services.UserBadgeAppService

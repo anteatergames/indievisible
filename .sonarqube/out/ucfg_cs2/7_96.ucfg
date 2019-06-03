@@ -1,0 +1,42 @@
+
+µIndieVisible.Web.Controllers.ProfileController.ProfileController(IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.INotificationAppService)s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs ( "2*”
+0è
+å
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs> (F
+
+%0void"MIndieVisible.Web.Controllers.Base.SecureBaseController.SecureBaseController()*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController–
+Õ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs (2Ä0
+.IndieVisible.Web.Controllers.ProfileController"L
+_profileAppService6IndieVisible.Application.Interfaces.IProfileAppService"__id*M
+K
+profileAppService6IndieVisible.Application.Interfaces.IProfileAppService„
+‡
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs (@â0
+.IndieVisible.Web.Controllers.ProfileController"U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService"__id*W
+U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService*
+1*ê
+1"ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs (	
+implicit return*ø
+2¥
+±
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs ( 
+%1"__entrypoint*M
+K
+profileAppService6IndieVisible.Application.Interfaces.IProfileAppService*W
+U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService*
+0:K
+profileAppService6IndieVisible.Application.Interfaces.IProfileAppService:U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceB20
+.IndieVisible.Web.Controllers.ProfileController

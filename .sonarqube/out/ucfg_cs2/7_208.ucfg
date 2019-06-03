@@ -1,0 +1,19 @@
+
+fIndieVisible.Web.Startup.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)_
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs“ “(,"0*™
+0Ž
+‹
+_
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs– –(A
+
+%0void"ŒIndieVisible.Infra.CrossCutting.IoC.NativeInjectorBootStrapper.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)*B"@
+>IndieVisible.Infra.CrossCutting.IoC.NativeInjectorBootStrapper*I
+G
+services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
+1*{
+1"v
+_
+SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs— —(	
+implicit return:G
+services;Microsoft.Extensions.DependencyInjection.IServiceCollectionB"
+IndieVisible.Web.Startup

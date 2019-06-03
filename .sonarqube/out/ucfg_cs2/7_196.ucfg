@@ -1,0 +1,193 @@
+
+ñIndieVisible.Web.Controllers.AccountController.ResetPassword(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs˛) ˛(6"8*ƒ
+0°
+û
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÄ Ä(@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"6Microsoft.AspNetCore.Mvc.ControllerBase.ModelState.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseí
+è
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÄ Ä(#
+
+%1bool"FMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid.get*B
+@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+1
+2*†
+1Û
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÇ Ç(")
+%2#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel2View(object)"§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÇ Ç(#+
+)
+%2#Microsoft.AspNetCore.Mvc.ViewResult*À
+2∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÑ) Ñ(56
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*v*t0
+.IndieVisible.Web.Controllers.AccountController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>‘
+—
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÑF Ñ(T
+%4string"eIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel.UserName.get*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel”–
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÑ) Ñ(U*
+%5$System.Threading.Tasks.Task<TResult>"HMicrosoft.AspNetCore.Identity.UserManager<TUser>.FindByNameAsync(string)*8
+6
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>*
+
+%4string2FindByNameAsync(string)—
+Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÑ Ñ(UG
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""â
+Ü
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÖ Ö(
+
+%6bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+3
+4*˚
+3¬ø
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csà à(J5
+%7/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""2RedirectToAction(string)"∞
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csà à(K7
+5
+%7/Microsoft.AspNetCore.Mvc.RedirectToActionResult*É
+4∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csä* ä(66
+%80Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*v*t0
+.IndieVisible.Web.Controllers.AccountController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>–
+Õ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csäP ä(Z
+%9string"aIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel.Code.get*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel’
+“
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csä\ ä(j
+%10string"eIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel.Password.get*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel‘—
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csä* ä(k+
+%11$System.Threading.Tasks.Task<TResult>"ZMicrosoft.AspNetCore.Identity.UserManager<TUser>.ResetPasswordAsync(TUser, string, string)*8
+6
+%80Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+
+%9string*
+
+%10string2)ResetPasswordAsync(TUser, string, string)¿
+Ω
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csä ä(k6
+result,Microsoft.AspNetCore.Identity.IdentityResult"__id*
+""˝
+˙
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csã ã( 
+%12bool":Microsoft.AspNetCore.Identity.IdentityResult.Succeeded.get*8
+6
+result,Microsoft.AspNetCore.Identity.IdentityResult*
+5
+6*˝
+5√¿
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csç ç(J6
+%13/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""2RedirectToAction(string)"±
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csç ç(K8
+6
+%13/Microsoft.AspNetCore.Mvc.RedirectToActionResult*ë
+6›
+⁄
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csè è(
+%14void"fIndieVisible.Web.Controllers.AccountController.AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)*20
+.IndieVisible.Web.Controllers.AccountController*8
+6
+result,Microsoft.AspNetCore.Identity.IdentityResultÉÄ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csê ê(*
+%15#Microsoft.AspNetCore.Mvc.ViewResult"*Microsoft.AspNetCore.Mvc.Controller.View()*'%
+#Microsoft.AspNetCore.Mvc.Controller2View()"•
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csê ê(,
+*
+%15#Microsoft.AspNetCore.Mvc.ViewResult*í
+7"å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csë ë(	
+implicit return*È
+8Ù
+Ò
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs˛) ˛(6
+%16"__entrypoint*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel∂
+≥
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs˚	 ˚(
+%17"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModelÃ
+…
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¸	 ¸(
+%18"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel÷
+”
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs˝	 ˝(!
+%19"
+__annotate*b`
+^Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute.ValidateAntiForgeryTokenAttribute()*c
+a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModelÜ
+É
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs˛7 ˛(Sa
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel"__annotation*
+
+%17*
+
+%18*
+
+%19*
+0:a
+modelXIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModelB20
+.IndieVisible.Web.Controllers.AccountController

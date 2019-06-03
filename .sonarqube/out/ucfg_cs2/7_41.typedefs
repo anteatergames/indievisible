@@ -1,0 +1,6 @@
+¶
+0IndieVisible.Web.TagHelpers.CustomInputTagHelper2Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper/Microsoft.AspNetCore.Razor.TagHelpers.TagHelperobjectÉ
+JCustomInputTagHelper(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator){IndieVisible.Web.TagHelpers.CustomInputTagHelper.CustomInputTagHelper(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator)¢
+vProcess(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext, Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)§IndieVisible.Web.TagHelpers.CustomInputTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext, Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)Q
+IsDisabled.get?IndieVisible.Web.TagHelpers.CustomInputTagHelper.IsDisabled.getQ
+IsDisabled.set?IndieVisible.Web.TagHelpers.CustomInputTagHelper.IsDisabled.set

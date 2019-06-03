@@ -1,0 +1,68 @@
+
+UIndieVisible.Web.Areas.Gamification.Controllers.UserBadgeController.List(System.Guid)à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs$ $(!"2*¢
+0Ú
+Ô
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs&? &(R>
+%08IndieVisible.Application.Interfaces.IUserBadgeAppService"__id*õ*òE
+CIndieVisible.Web.Areas.Gamification.Controllers.UserBadgeController"O
+userBadgeAppService8IndieVisible.Application.Interfaces.IUserBadgeAppServiceèå
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs&? &(`?
+%19IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"OIndieVisible.Application.Interfaces.IUserBadgeAppService.GetByUser(System.Guid)*@
+>
+%08IndieVisible.Application.Interfaces.IUserBadgeAppService*
+
+idSystem.Guid2GetByUser(System.Guid)ú
+ô
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs&6 &(`C
+badges9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%19IndieVisible.Domain.ValueObjects.OperationResultListVo<T>À
+»
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs(! ((-/
+%2)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*E
+C
+badges9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>ÌÍ
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs( ((.)
+%3#Microsoft.AspNetCore.Mvc.ViewResult"8Microsoft.AspNetCore.Mvc.Controller.View(string, object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+""*1
+/
+%2)System.Collections.Generic.IEnumerable<T>2View(string, object)"∏
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs( ((/+
+)
+%3#Microsoft.AspNetCore.Mvc.ViewResult*¶
+1"†
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs) )(	
+implicit return*¯
+2∑
+¥
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs$ $(!
+%4"__entrypoint*
+
+idSystem.Guid˘
+ˆ
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs#	 #(
+%5"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+idSystem.Guid∑
+¥
+à
+~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Gamification\Controllers\UserBadgeController.cs$" $()
+idSystem.Guid"__annotation*
+
+%5*
+0:
+idSystem.GuidBGE
+CIndieVisible.Web.Areas.Gamification.Controllers.UserBadgeController

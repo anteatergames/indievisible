@@ -1,0 +1,90 @@
+
+OIndieVisible.Application.Services.FeaturedContentAppService.Remove(System.Guid)Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csb! b('"0*
+0*	
+1
+2
+3*ﬂ
+2Ú
+Ô
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csj j(J
+%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository"__id*ó*î=
+;IndieVisible.Application.Services.FeaturedContentAppService"S
+_repositoryDIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepositoryÿ’
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csj j(&
+
+%1void"LIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Remove(System.Guid)*L
+J
+%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository*
+
+idSystem.Guid2Remove(System.Guid)«
+ƒ
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csl l(5
+%2/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*Å*=
+;IndieVisible.Application.Services.FeaturedContentAppService">
+_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkèå
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csl l($
+
+%3bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*7
+5
+%2/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()ÙÒ
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csn n(48
+%42IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo¢
+ü
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csn n(.
+
+%5void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
+8
+%42IndieVisible.Domain.ValueObjects.OperationResultVo*
+""Ü
+É
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csn n(4<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%42IndieVisible.Domain.ValueObjects.OperationResultVo*	
+1
+4
+3*ì
+1Ÿ÷
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csr/ r(9
+%6string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getÙÒ
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csr r(:8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo¨
+©
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csr r(.
+
+%8void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
+8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo*
+
+%6stringÜ
+É
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csr r(:<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo*
+4*…
+4"√
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csu u(>
+<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo*û
+3"ò
+Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csv v(	
+implicit return:
+idSystem.GuidB?=
+;IndieVisible.Application.Services.FeaturedContentAppService

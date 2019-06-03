@@ -1,0 +1,31 @@
+
+DIndieVisible.Infra.Data.Repository.BrainstormIdeaRepository.GetAll()€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormIdeaRepository.cs3 (9"0*Â
+0À
+½
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormIdeaRepository.cs) (+9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext"__id*w*u8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"9
+Db3IndieVisible.Infra.Data.Context.IndieVisibleContextÀ
+½
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormIdeaRepository.cs) (;2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"GIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormIdeas.get*;
+9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContextø
+õ
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormIdeaRepository.cs" (;4
+data,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*4
+2
+%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"»
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormIdeaRepository.cs (6
+4
+data,Microsoft.EntityFrameworkCore.DbSet<TEntity>*ž
+1"˜
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormIdeaRepository.cs (	
+implicit returnB?=
+;IndieVisible.Infra.Data.Repository.BrainstormIdeaRepository

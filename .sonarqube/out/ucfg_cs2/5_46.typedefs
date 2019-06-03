@@ -1,0 +1,14 @@
+©
+;IndieVisible.Application.Services.FeaturedContentAppService0IndieVisible.Application.Services.BaseAppServiceobject¬
+õFeaturedContentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository)±IndieVisible.Application.Services.FeaturedContentAppService.FeaturedContentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository)N
+Count()CIndieVisible.Application.Services.FeaturedContentAppService.Count()P
+GetAll()DIndieVisible.Application.Services.FeaturedContentAppService.GetAll()h
+GetById(System.Guid)PIndieVisible.Application.Services.FeaturedContentAppService.GetById(System.Guid)f
+Remove(System.Guid)OIndieVisible.Application.Services.FeaturedContentAppService.Remove(System.Guid)å
+RSave(IndieVisible.Application.ViewModels.FeaturedContent.FeaturedContentViewModel)ŽIndieVisible.Application.Services.FeaturedContentAppService.Save(IndieVisible.Application.ViewModels.FeaturedContent.FeaturedContentViewModel)`
+GetFeaturedNow()LIndieVisible.Application.Services.FeaturedContentAppService.GetFeaturedNow()š
+-Add(System.Guid, System.Guid, string, string)iIndieVisible.Application.Services.FeaturedContentAppService.Add(System.Guid, System.Guid, string, string)p
+GetContentToBeFeatured()TIndieVisible.Application.Services.FeaturedContentAppService.GetContentToBeFeatured()l
+Unfeature(System.Guid)RIndieVisible.Application.Services.FeaturedContentAppService.Unfeature(System.Guid)b
+CurrentUserId.getMIndieVisible.Application.Services.FeaturedContentAppService.CurrentUserId.getb
+CurrentUserId.setMIndieVisible.Application.Services.FeaturedContentAppService.CurrentUserId.set

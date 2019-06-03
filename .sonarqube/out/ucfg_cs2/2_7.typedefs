@@ -1,0 +1,7 @@
+×
+.IndieVisible.Domain.ValueObjects.PermissionsVoobjectQ
+PermissionsVo()>IndieVisible.Domain.ValueObjects.PermissionsVo.PermissionsVo()I
+CanEdit.get:IndieVisible.Domain.ValueObjects.PermissionsVo.CanEdit.getI
+CanEdit.set:IndieVisible.Domain.ValueObjects.PermissionsVo.CanEdit.setY
+CanPostActivity.getBIndieVisible.Domain.ValueObjects.PermissionsVo.CanPostActivity.getY
+CanPostActivity.setBIndieVisible.Domain.ValueObjects.PermissionsVo.CanPostActivity.set

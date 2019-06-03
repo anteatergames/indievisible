@@ -1,0 +1,27 @@
+
+uIndieVisible.Infra.Data.Migrations.commentsauthordata.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs  ($"0*Ä
+0ÛØ
+‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs ("_
+%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"\Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropColumn(string, string, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""2"DropColumn(string, string, string)ÛØ
+‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs ("_
+%1YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"\Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropColumn(string, string, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""2"DropColumn(string, string, string)*
+1*§
+1"¡
+‰
+C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181130104210_commentsauthordata.cs (	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB97
+5IndieVisible.Infra.Data.Migrations.commentsauthordata

@@ -1,0 +1,4 @@
+ï
+9IndieVisible.Infra.Data.Mappings.GamificationActionConfigobjectµ
+{Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GamificationAction>)µIndieVisible.Infra.Data.Mappings.GamificationActionConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GamificationAction>)r
+GamificationActionConfig()TIndieVisible.Infra.Data.Mappings.GamificationActionConfig.GamificationActionConfig()

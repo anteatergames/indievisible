@@ -1,0 +1,255 @@
+
+HIndieVisible.Web.Controllers.InteractionController.LikeGame(System.Guid)w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cso o(%"2*êK
+0æ
+ª
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csq q(9
+%03IndieVisible.Application.Interfaces.ILikeAppService"__id**}4
+2IndieVisible.Web.Controllers.InteractionController"E
+likeAppService3IndieVisible.Application.Interfaces.ILikeAppServiceë
+é
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csq+ q(=
+%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*64
+2IndieVisible.Web.Controllers.InteractionController∑¥
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csq q(=
+
+%2void"HIndieVisible.Application.Interfaces.ICrudAppService<T>.CurrentUserId.set*;
+9
+%03IndieVisible.Application.Interfaces.ILikeAppService*
+
+%1System.Guid2CurrentUserId.setæ
+ª
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csr) r(79
+%33IndieVisible.Application.Interfaces.ILikeAppService"__id**}4
+2IndieVisible.Web.Controllers.InteractionController"E
+likeAppService3IndieVisible.Application.Interfaces.ILikeAppServiceÔÏ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csr) r(I8
+%42IndieVisible.Domain.ValueObjects.OperationResultVo"IIndieVisible.Application.Interfaces.ILikeAppService.GameLike(System.Guid)*;
+9
+%33IndieVisible.Application.Interfaces.ILikeAppService*
+
+likedIdSystem.Guid2GameLike(System.Guid)˛
+˚
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csr r(I>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%42IndieVisible.Domain.ValueObjects.OperationResultVoæ
+ª
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cst: t(H9
+%53IndieVisible.Application.Interfaces.IGameAppService"__id**}4
+2IndieVisible.Web.Controllers.InteractionController"E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceÛ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cst: t(Y;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"KIndieVisible.Application.Interfaces.ICrudAppService<T>.GetById(System.Guid)*;
+9
+%53IndieVisible.Application.Interfaces.IGameAppService*
+
+likedIdSystem.Guid2GetById(System.Guid)Ü
+É
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cst- t(YC
+
+gameResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>…
+∆
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csv) v(:<
+%76IndieVisible.Application.Interfaces.IProfileAppService"__id*Ü*É4
+2IndieVisible.Web.Controllers.InteractionController"K
+profileAppService6IndieVisible.Application.Interfaces.IProfileAppServiceë
+é
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csvG v(Y
+%8System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*64
+2IndieVisible.Web.Controllers.InteractionControllerê
+ç
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csv[ v(o
+%9"__id*
+""ﬁ€
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csv) v(p@
+%109IndieVisible.Application.ViewModels.User.ProfileViewModel"{IndieVisible.Application.Interfaces.IProfileAppService.GetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)*>
+<
+%76IndieVisible.Application.Interfaces.IProfileAppService*
+
+%8System.Guid*
+
+%92DGetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)é
+ã
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csv v(pF
+	myProfile9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*B
+@
+%109IndieVisible.Application.ViewModels.User.ProfileViewModel∂
+≥
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csx( x(7<
+%115Microsoft.Extensions.Localization.IStringLocalizer<T>"DIndieVisible.Web.Controllers.Base.BaseController.SharedLocalizer.get*42
+0IndieVisible.Web.Controllers.Base.BaseController’“
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csx( x(S8
+%121Microsoft.Extensions.Localization.LocalizedString"CMicrosoft.Extensions.Localization.IStringLocalizer.this[string].get*>
+<
+%115Microsoft.Extensions.Localization.IStringLocalizer<T>*
+""2this[string].getô
+ñ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csxU x(c
+%13string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*H
+F
+	myProfile9IndieVisible.Application.ViewModels.User.ProfileViewModel√
+¿
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csxe x(u=
+%146IndieVisible.Application.ViewModels.Game.GameViewModel"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*E
+C
+
+gameResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>é
+ã
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csxe x({
+%15string"@IndieVisible.Application.ViewModels.Game.GameViewModel.Title.get*?
+=
+%146IndieVisible.Application.ViewModels.Game.GameViewModelú
+ô
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csx x(|
+%16string"%string.Format(string, object, object)*
+"
+string*:
+8
+%121Microsoft.Extensions.Localization.LocalizedString*
+
+%13string*
+
+%15string£
+†
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csx x(|
+textstring"__id*
+
+%16stringÜ
+É
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csz z(*
+%17#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseı
+Ú
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csz z(L
+%18string"pMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.Action(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, object)*0".
+,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*,
+*
+%17#Microsoft.AspNetCore.Mvc.IUrlHelper*
+""*
+""*
+""¢
+ü
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csz z(L
+urlstring"__id*
+
+%18stringŸ
+÷
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs|3 |(IB
+%19;IndieVisible.Application.Interfaces.INotificationAppService"__id*ê*ç4
+2IndieVisible.Web.Controllers.InteractionController"U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService√
+¿
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs|Q |(a=
+%206IndieVisible.Application.ViewModels.Game.GameViewModel"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*E
+C
+
+gameResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>è
+å
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs|Q |(h
+%21System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*?
+=
+%206IndieVisible.Application.ViewModels.Game.GameViewModelí
+è
+x
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs|j |(Ü
+%22"__id*
+""›⁄
+x
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs|3 |(õ9
+%232IndieVisible.Domain.ValueObjects.OperationResultVo"ùIndieVisible.Application.Interfaces.INotificationAppService.Notify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)*D
+B
+%19;IndieVisible.Application.Interfaces.INotificationAppService*
+
+%21System.Guid*
+
+%22*
+
+likedIdSystem.Guid*
+
+textstring*
+
+urlstring2aNotify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)ä
+á
+x
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs| |(õH
+notificationResult2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*;
+9
+%232IndieVisible.Domain.ValueObjects.OperationResultVo”–
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs (!*
+%24#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"ß
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs (",
+*
+%24#Microsoft.AspNetCore.Mvc.JsonResult*ñ
+1"ê
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csÄ Ä(	
+implicit return*Õ
+2´
+®
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cso o(%
+%25"__entrypoint*
+
+likedIdSystem.GuidÌ
+Í
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csm	 m(
+%26"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+likedIdSystem.GuidÌ
+Í
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csn	 n(
+%27"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+likedIdSystem.Guid¥
+±
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cso& o(2
+likedIdSystem.Guid"__annotation*
+
+%26*
+
+%27*
+0:
+likedIdSystem.GuidB64
+2IndieVisible.Web.Controllers.InteractionController

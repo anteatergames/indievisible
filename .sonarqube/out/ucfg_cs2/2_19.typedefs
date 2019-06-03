@@ -1,0 +1,5 @@
+‘
+$IndieVisible.Domain.Models.UserBadge&IndieVisible.Domain.Core.Models.Entityobject?
+UserBadge()0IndieVisible.Domain.Models.UserBadge.UserBadge();
+	Badge.get.IndieVisible.Domain.Models.UserBadge.Badge.get;
+	Badge.set.IndieVisible.Domain.Models.UserBadge.Badge.set

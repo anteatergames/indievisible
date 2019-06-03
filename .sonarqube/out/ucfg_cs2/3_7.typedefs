@@ -1,0 +1,4 @@
+Ç
+FIndieVisible.Infra.CrossCutting.Identity.Services.SendGridEmailServiceobjectÚ
+GSendGridEmailService(Microsoft.Extensions.Configuration.IConfiguration)ŽIndieVisible.Infra.CrossCutting.Identity.Services.SendGridEmailService.SendGridEmailService(Microsoft.Extensions.Configuration.IConfiguration)—
+&SendEmailAsync(string, string, string)mIndieVisible.Infra.CrossCutting.Identity.Services.SendGridEmailService.SendEmailAsync(string, string, string)

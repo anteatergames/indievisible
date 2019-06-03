@@ -1,0 +1,7 @@
+¿	
+.IndieVisible.Web.Controllers.ProfileController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectÁ
+†ProfileController(IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.INotificationAppService)µIndieVisible.Web.Controllers.ProfileController.ProfileController(IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.INotificationAppService)u
+!Details(System.Guid, System.Guid)PIndieVisible.Web.Controllers.ProfileController.Details(System.Guid, System.Guid)U
+Edit(System.Guid)@IndieVisible.Web.Controllers.ProfileController.Edit(System.Guid)ü
+dSave(IndieVisible.Application.ViewModels.User.ProfileViewModel, Microsoft.AspNetCore.Http.IFormFile)“IndieVisible.Web.Controllers.ProfileController.Save(IndieVisible.Application.ViewModels.User.ProfileViewModel, Microsoft.AspNetCore.Http.IFormFile)»
+DSetImages(IndieVisible.Application.ViewModels.User.ProfileViewModel)sIndieVisible.Web.Controllers.ProfileController.SetImages(IndieVisible.Application.ViewModels.User.ProfileViewModel)

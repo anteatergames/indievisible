@@ -1,0 +1,231 @@
+
+IndieVisible.Application.Services.UserBadgeAppService.Save(IndieVisible.Application.ViewModels.Gamification.UserBadgeViewModel)z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csj' j(+"0*
+0*	
+1
+2
+3*‡
+2‰
+·
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cst% t(;D
+%0>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService"__id*ñ*ì7
+5IndieVisible.Application.Services.UserBadgeAppService"X
+userBadgeDomainService>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService†
+ù
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cstD t(P
+%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*R
+P
+	viewModelCIndieVisible.Application.ViewModels.Gamification.UserBadgeViewModelÂ‚
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cst% t(Q*
+%2$IndieVisible.Domain.Models.UserBadge"EIndieVisible.Domain.Interfaces.IDomainService<T>.GetById(System.Guid)*F
+D
+%0>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService*
+
+%1System.Guid2GetById(System.Guid)Â
+‚
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cst t(Q0
+existing$IndieVisible.Domain.Models.UserBadge"__id*,
+*
+%2$IndieVisible.Domain.Models.UserBadge¯
+ı
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csu u($
+
+%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*2
+0
+existing$IndieVisible.Domain.Models.UserBadge*
+""*
+4
+5*µ
+4˙
+˜
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csw w("
+%4AutoMapper.IMapper"__id*Y*W7
+5IndieVisible.Application.Services.UserBadgeAppService"
+mapperAutoMapper.IMapper»≈
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csw w(;*
+%5$IndieVisible.Domain.Models.UserBadge"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
+
+%4AutoMapper.IMapper*R
+P
+	viewModelCIndieVisible.Application.ViewModels.Gamification.UserBadgeViewModel*2
+0
+existing$IndieVisible.Domain.Models.UserBadge21Map<TSource, TDestination>(TSource, TDestination)‚
+ﬂ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csw w(;-
+model$IndieVisible.Domain.Models.UserBadge"__id*,
+*
+%5$IndieVisible.Domain.Models.UserBadge*
+6*—
+5˙
+˜
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs{ {("
+%6AutoMapper.IMapper"__id*Y*W7
+5IndieVisible.Application.Services.UserBadgeAppService"
+mapperAutoMapper.IMapper‰·
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs{ {(<*
+%7$IndieVisible.Domain.Models.UserBadge",AutoMapper.IMapper.Map<TDestination>(object)*
+
+%6AutoMapper.IMapper*R
+P
+	viewModelCIndieVisible.Application.ViewModels.Gamification.UserBadgeViewModel2Map<TDestination>(object)‚
+ﬂ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs{ {(<-
+model$IndieVisible.Domain.Models.UserBadge"__id*,
+*
+%7$IndieVisible.Domain.Models.UserBadge*
+6*Ô
+6†
+ù
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs~ ~( 
+%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*R
+P
+	viewModelCIndieVisible.Application.ViewModels.Gamification.UserBadgeViewModel¡
+æ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs~$ ~(.
+%9System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guid˙
+˜
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs~ ~(.
+%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%8System.Guid*
+
+%9System.Guid*
+7
+8*Ú	
+7Á
+‰
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csÄ Ä(*E
+%11>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService"__id*ñ*ì7
+5IndieVisible.Application.Services.UserBadgeAppService"X
+userBadgeDomainService>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService–Õ
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csÄ Ä(5
+%12System.Guid"7IndieVisible.Domain.Interfaces.IDomainService<T>.Add(T)*G
+E
+%11>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService*/
+-
+model$IndieVisible.Domain.Models.UserBadge2Add(T)ı
+Ú
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csÅ# Å(+
+%13System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*/
+-
+model$IndieVisible.Domain.Models.UserBadge≤
+Ø
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csÅ Å(+
+%14void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*R
+P
+	viewModelCIndieVisible.Application.ViewModels.Gamification.UserBadgeViewModel*
+
+%13System.Guid*
+9*À
+8Á
+‰
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csÖ Ö(*E
+%15>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService"__id*ñ*ì7
+5IndieVisible.Application.Services.UserBadgeAppService"X
+userBadgeDomainService>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService÷”
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csÖ Ö(8
+%16System.Guid":IndieVisible.Domain.Interfaces.IDomainService<T>.Update(T)*G
+E
+%15>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService*/
+-
+model$IndieVisible.Domain.Models.UserBadge2	Update(T)*
+9*ã
+9ª
+∏
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csà à(6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*z*x7
+5IndieVisible.Application.Services.UserBadgeAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkåâ
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csà à(#
+%18bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()ı
+Ú
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csä5 ä(=
+%19System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*/
+-
+model$IndieVisible.Domain.Models.UserBadgeˆÛ
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csä ä(><
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∞
+≠
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csä ä(4
+%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%19System.Guidà
+Ö
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csä ä(>?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+1
+10
+3*ò
+1’“
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csé5 é(?
+%22string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getˆÛ
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csé é(@<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∞
+≠
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csé é(4
+%24void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%22stringà
+Ö
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csé é(@?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+10*»
+10"¡
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csë ë(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ô
+3"ì
+|
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.csí í(	
+implicit return:P
+	viewModelCIndieVisible.Application.ViewModels.Gamification.UserBadgeViewModelB97
+5IndieVisible.Application.Services.UserBadgeAppService

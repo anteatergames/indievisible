@@ -1,0 +1,11 @@
+˙
+>IndieVisible.Application.Services.UserContentCommentAppServiceobjectô
+™UserContentCommentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository)ÈIndieVisible.Application.Services.UserContentCommentAppService.UserContentCommentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository)Q
+Count()FIndieVisible.Application.Services.UserContentCommentAppService.Count()S
+GetAll()GIndieVisible.Application.Services.UserContentCommentAppService.GetAll()k
+GetById(System.Guid)SIndieVisible.Application.Services.UserContentCommentAppService.GetById(System.Guid)i
+Remove(System.Guid)RIndieVisible.Application.Services.UserContentCommentAppService.Remove(System.Guid)ﬁ
+MSave(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)åIndieVisible.Application.Services.UserContentCommentAppService.Save(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)‰
+PComment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)èIndieVisible.Application.Services.UserContentCommentAppService.Comment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)e
+CurrentUserId.getPIndieVisible.Application.Services.UserContentCommentAppService.CurrentUserId.gete
+CurrentUserId.setPIndieVisible.Application.Services.UserContentCommentAppService.CurrentUserId.set

@@ -1,0 +1,16 @@
+¿
+
+IIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel1IndieVisible.Application.ViewModels.BaseViewModelobject†
+BrainstormCommentViewModel()fIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.BrainstormCommentViewModel()t
+ParentCommentId.get]IndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.ParentCommentId.gett
+ParentCommentId.set]IndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.ParentCommentId.setb
+
+IdeaId.getTIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.IdeaId.getb
+
+IdeaId.setTIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.IdeaId.setj
+AuthorName.getXIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.AuthorName.getj
+AuthorName.setXIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.AuthorName.setp
+AuthorPicture.get[IndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.AuthorPicture.getp
+AuthorPicture.set[IndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.AuthorPicture.set^
+Text.getRIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.Text.get^
+Text.setRIndieVisible.Application.ViewModels.Brainstorm.BrainstormCommentViewModel.Text.set

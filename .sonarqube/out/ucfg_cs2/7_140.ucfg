@@ -1,0 +1,70 @@
+
+dIndieVisible.Web.Controllers.StorageController.GetFileExtension(Microsoft.AspNetCore.Http.IFormFile)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs´ ´(."0*Ç
+0ÿü
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¶ ¶(2
+%0string"0Microsoft.AspNetCore.Http.IFormFile.FileName.get*5
+3
+uploadedFile#Microsoft.AspNetCore.Http.IFormFile2FileName.getÙ
+Ö
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¶ ¶(=
+%1string[]"-string.Split(char, System.StringSplitOptions)*
+
+%0string*
+""*
+""¥
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¶ ¶(=
+splitstring[]"__id*
+
+%1string[]³
+°
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs· ·(+	
+%2int"System.Array.Length.get*
+
+splitstring[]*
+1
+2*º
+1¯
+¬
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs·2 ·(:
+%6string"
+__arrayGet*
+
+splitstring[]*2*
+3*²
+2Ž
+‹
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs·= ·(B
+%5"__id*
+""–
+“
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs·= ·(B
+%3string"__id*
+
+%5*
+3*¼
+3¥
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs· ·(B
+	extensionstring"__id*
+
+%3string"Ž
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¸ ¸(
+
+	extensionstring*’
+4"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¹ ¹(	
+implicit return:3
+uploadedFile#Microsoft.AspNetCore.Http.IFormFileB2"0
+.IndieVisible.Web.Controllers.StorageController

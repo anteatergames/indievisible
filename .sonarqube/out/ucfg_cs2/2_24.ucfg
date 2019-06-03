@@ -1,0 +1,32 @@
+
+FIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Count()x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs ("0*š
+0÷
+ô
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs   ('
+%0TRepository"__id*_*]@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
+
+repositoryTRepositoryìé
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs   (8	
+%1int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*
+
+%0TRepository*
+""2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)ž
+›
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs   (8
+countint"__id*
+	
+%1int"Š
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs" "(
+
+countint*•
+1"
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs# #(	
+implicit returnBB@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

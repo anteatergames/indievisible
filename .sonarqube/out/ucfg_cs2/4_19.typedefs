@@ -1,0 +1,4 @@
+Ú
+6IndieVisible.Infra.Data.Mappings.UserPreferencesConfigobject¬
+xConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserPreferences>)¯IndieVisible.Infra.Data.Mappings.UserPreferencesConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserPreferences>)i
+UserPreferencesConfig()NIndieVisible.Infra.Data.Mappings.UserPreferencesConfig.UserPreferencesConfig()

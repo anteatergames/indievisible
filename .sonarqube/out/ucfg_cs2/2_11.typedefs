@@ -1,0 +1,13 @@
+¥
+,IndieVisible.Domain.Models.BrainstormSession&IndieVisible.Domain.Core.Models.EntityobjectW
+BrainstormSession()@IndieVisible.Domain.Models.BrainstormSession.BrainstormSession()C
+	Title.get6IndieVisible.Domain.Models.BrainstormSession.Title.getC
+	Title.set6IndieVisible.Domain.Models.BrainstormSession.Title.setO
+Description.get<IndieVisible.Domain.Models.BrainstormSession.Description.getO
+Description.set<IndieVisible.Domain.Models.BrainstormSession.Description.setA
+Type.get5IndieVisible.Domain.Models.BrainstormSession.Type.getA
+Type.set5IndieVisible.Domain.Models.BrainstormSession.Type.setW
+TargetContextId.get@IndieVisible.Domain.Models.BrainstormSession.TargetContextId.getW
+TargetContextId.set@IndieVisible.Domain.Models.BrainstormSession.TargetContextId.setC
+	Ideas.get6IndieVisible.Domain.Models.BrainstormSession.Ideas.getC
+	Ideas.set6IndieVisible.Domain.Models.BrainstormSession.Ideas.set

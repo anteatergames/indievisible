@@ -1,0 +1,130 @@
+
+ƒIndieVisible.Web.Controllers.StorageController.FormatBasePath(IndieVisible.Domain.Core.Enums.BlobType, System.Guid, string, string)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csË Ë(,"0*
+0*
+1
+2
+3
+4
+5
+6
+7*
+3*
+4*
+4*
+5*
+5*
+6*
+6*
+7*¦
+7À
+½
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÚ& Ú(6
+%0string"__concat*
+
+baseUrlstring*
+
+userIdSystem.Guidª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÚ& Ú(<
+%1string"__concat*
+
+%0string*
+""«
+¨
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÚ Ú(<
+storageBasePathstring"__id*
+
+%1string*
+8*€
+2À
+½
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÓ& Ó(6
+%2string"__concat*
+
+baseUrlstring*
+
+userIdSystem.Guidª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÓ& Ó(<
+%3string"__concat*
+
+%2string*
+""ª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÓ& Ó(X
+%4string"__concat*
+
+%3string*
+""ª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÓ& Ó(^
+%5string"__concat*
+
+%4string*
+""«
+¨
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÓ Ó(^
+storageBasePathstring"__id*
+
+%5string*
+8*€
+1À
+½
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÐ& Ð(6
+%6string"__concat*
+
+baseUrlstring*
+
+userIdSystem.Guidª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÐ& Ð(<
+%7string"__concat*
+
+%6string*
+""ª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÐ& Ð(X
+%8string"__concat*
+
+%7string*
+""ª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÐ& Ð(^
+%9string"__concat*
+
+%8string*
+""«
+¨
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÐ Ð(^
+storageBasePathstring"__id*
+
+%9string*
+8*š
+8"”
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÞ Þ(#
+
+storageBasePathstring*’
+9"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csß ß(	
+implicit return:/
+type'IndieVisible.Domain.Core.Enums.BlobType:
+userIdSystem.Guid:
+baseUrlstring:
+storageBasePathstringB2"0
+.IndieVisible.Web.Controllers.StorageController

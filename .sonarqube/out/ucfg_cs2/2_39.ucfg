@@ -1,0 +1,35 @@
+
+SIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.GetById(System.Guid)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs: :("0*¹
+0÷
+ô
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs< <(%
+%0TRepository"__id*_*]@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
+
+repositoryTRepository•’
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs< <(1
+%1T"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*
+
+%0TRepository*
+
+idSystem.Guid2GetById(System.Guid)˜
+•
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs< <(1
+objT"__id*	
+
+%1T"†
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs> >(
+
+
+objT*•
+1"
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs? ?(	
+implicit return:
+idSystem.GuidBB@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

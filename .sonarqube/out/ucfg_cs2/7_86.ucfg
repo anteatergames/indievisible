@@ -1,0 +1,74 @@
+
+FIndieVisible.Web.Controllers.BrainstormController.Details(System.Guid)v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs< <($"2*
+0–
+Õ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs>< >(U?
+%09IndieVisible.Application.Interfaces.IBrainstormAppService"__id*ã*à3
+1IndieVisible.Web.Controllers.BrainstormController"Q
+brainstormAppService9IndieVisible.Application.Interfaces.IBrainstormAppServiceè
+å
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs>^ >(p
+%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*53
+1IndieVisible.Web.Controllers.BrainstormController•¢
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs>< >(u;
+%25IndieVisible.Domain.ValueObjects.OperationResultVo<T>"[IndieVisible.Application.Interfaces.IBrainstormAppService.GetById(System.Guid, System.Guid)*A
+?
+%09IndieVisible.Application.Interfaces.IBrainstormAppService*
+
+%1System.Guid*
+
+idSystem.Guid2!GetById(System.Guid, System.Guid)˝
+˙
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs>7 >(u;
+op5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%25IndieVisible.Domain.ValueObjects.OperationResultVo<T>…
+∆
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs@) @(1L
+%3FIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*=
+;
+op5IndieVisible.Domain.ValueObjects.OperationResultVo<T>ü
+ú
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs@$ @(1L
+vmFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel"__id*N
+L
+%3FIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModelÕ
+ 
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csB B(%?
+%49IndieVisible.Application.ViewModels.User.ProfileViewModel"áIndieVisible.Web.Controllers.Base.SecureBaseController.SetAuthorDetails(IndieVisible.Application.ViewModels.UserGeneratedBaseViewModel)*53
+1IndieVisible.Web.Controllers.BrainstormController*N
+L
+vmFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel˜Ù
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csD D(')
+%5#Microsoft.AspNetCore.Mvc.ViewResult"8Microsoft.AspNetCore.Mvc.Controller.View(string, object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+""*N
+L
+vmFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel2View(string, object)"•
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csD D((+
+)
+%5#Microsoft.AspNetCore.Mvc.ViewResult*ì
+1"ç
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csE E(	
+implicit return*Ø
+2§
+°
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs< <($
+%6"__entrypoint*
+
+idSystem.Guid*
+0:
+idSystem.GuidB53
+1IndieVisible.Web.Controllers.BrainstormController

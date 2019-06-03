@@ -1,0 +1,28 @@
+
+ŽIndieVisible.Infra.Data.Repository.UserBadgeRepository.IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository.GetByUserId(System.Guid){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs4 (?"0*Ý
+0¯
+¬
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs (2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>‚
+ÿ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs (7
+%1System.Linq.IQueryable<T>"…System.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+""" 
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs (8!
+
+%1System.Linq.IQueryable<T>*˜
+1"’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs (	
+implicit return:
+userIdSystem.GuidB:8
+6IndieVisible.Infra.Data.Repository.UserBadgeRepository

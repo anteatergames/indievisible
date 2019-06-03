@@ -1,0 +1,231 @@
+
+IndieVisible.Application.Services.BrainstormAppService.Vote(System.Guid, System.Guid, IndieVisible.Domain.Core.Enums.VoteValue)}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csÄ! Ä(%"0*
+0*	
+1
+2
+3*±
+2Ù
+Ò
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csà* à(BI
+%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository"__id*û*õ8
+6IndieVisible.Application.Services.BrainstormAppService"_
+brainstormVoteRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository¥±
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csà* à(V/
+%1)IndieVisible.Domain.Models.BrainstormVote"aIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository.Get(System.Guid, System.Guid)*K
+I
+%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository*
+
+ideaIdSystem.Guid*
+
+userIdSystem.Guid2Get(System.Guid, System.Guid)Ú
+Ô
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csà à(V5
+existing)IndieVisible.Domain.Models.BrainstormVote"__id*1
+/
+%1)IndieVisible.Domain.Models.BrainstormVoteÄ
+˝
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csâ â($
+
+%2bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*7
+5
+existing)IndieVisible.Domain.Models.BrainstormVote*
+""*
+4
+5*à
+4ı
+Ú
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csã ã($2
+model)IndieVisible.Domain.Models.BrainstormVote"__id*7
+5
+existing)IndieVisible.Domain.Models.BrainstormVoteÖ
+Ç
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cså å(*
+
+%3void"7IndieVisible.Domain.Models.BrainstormVote.VoteValue.set*4
+2
+model)IndieVisible.Domain.Models.BrainstormVote*
+""*
+6*É
+5ﬁ€
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csê ï(/
+%4)IndieVisible.Domain.Models.BrainstormVote")IndieVisible.Domain.Models.BrainstormVote˝
+˙
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csê  ê(.
+
+%5void":IndieVisible.Domain.Models.BrainstormVote.BrainstormVote()*1
+/
+%4)IndieVisible.Domain.Models.BrainstormVoteç
+ä
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csí í('
+
+%6void"1IndieVisible.Domain.Core.Models.Entity.UserId.set*1
+/
+%4)IndieVisible.Domain.Models.BrainstormVote*
+
+userIdSystem.Guidê
+ç
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csì ì('
+
+%7void"4IndieVisible.Domain.Models.BrainstormVote.IdeaId.set*1
+/
+%4)IndieVisible.Domain.Models.BrainstormVote*
+
+ideaIdSystem.GuidÇ
+ˇ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csî î((
+
+%8void"7IndieVisible.Domain.Models.BrainstormVote.VoteValue.set*1
+/
+%4)IndieVisible.Domain.Models.BrainstormVote*
+""Ô
+Ï
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csê ï(2
+model)IndieVisible.Domain.Models.BrainstormVote"__id*1
+/
+%4)IndieVisible.Domain.Models.BrainstormVote*
+6*—
+6˙
+˜
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csò ò(
+%9System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*4
+2
+model)IndieVisible.Domain.Models.BrainstormVote≈
+¬
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csò  ò(*
+%10System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guid˛
+˚
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csò ò(*
+%11bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%9System.Guid*
+
+%10System.Guid*
+7
+8*Î
+7ı
+Ú
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csö ö(,J
+%12CIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository"__id*û*õ8
+6IndieVisible.Application.Services.BrainstormAppService"_
+brainstormVoteRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepositoryËÂ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csö ö(7
+%13void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*L
+J
+%12CIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository*4
+2
+model)IndieVisible.Domain.Models.BrainstormVote2Add(TEntity)*
+9*Ò
+8ı
+Ú
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csû û(,J
+%14CIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository"__id*û*õ8
+6IndieVisible.Application.Services.BrainstormAppService"_
+brainstormVoteRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepositoryÓÎ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csû û(:
+%15void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*L
+J
+%14CIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository*4
+2
+model)IndieVisible.Domain.Models.BrainstormVote2Update(TEntity)*
+9*î
+9Ω
+∫
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs° °(6
+%16/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*{*y8
+6IndieVisible.Application.Services.BrainstormAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkçä
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs° °(#
+%17bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%16/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()˚
+¯
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs£5 £(=
+%18System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*4
+2
+model)IndieVisible.Domain.Models.BrainstormVote˜Ù
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs£ £(><
+%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
+Æ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs£ £(4
+%20void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%18System.GuidÜ
+É
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs£ £(><
+result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*>
+<
+%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+1
+10
+3*ô
+1÷”
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csß5 ß(?
+%21string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get˜Ù
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csß ß(@<
+%225IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
+Æ
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csß ß(4
+%23void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
+<
+%225IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%21stringÜ
+É
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csß ß(@<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*>
+<
+%225IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+10*∆
+10"ø
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs™ ™(>
+<
+result2IndieVisible.Domain.ValueObjects.OperationResultVo*ö
+3"î
+}
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs´ ´(	
+implicit return:
+userIdSystem.Guid:
+ideaIdSystem.Guid:0
+vote(IndieVisible.Domain.Core.Enums.VoteValueB:8
+6IndieVisible.Application.Services.BrainstormAppService

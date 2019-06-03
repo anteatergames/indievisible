@@ -1,0 +1,13 @@
+Ë
+3IndieVisible.Domain.Core.Attributes.UiInfoAttributeSystem.AttributeobjectZ
+UiInfoAttribute()EIndieVisible.Domain.Core.Attributes.UiInfoAttribute.UiInfoAttribute()J
+	Order.get=IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Order.getJ
+	Order.set=IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Order.setJ
+	Class.get=IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Class.getJ
+	Class.set=IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Class.setN
+Culture.get?IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Culture.getN
+Culture.set?IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Culture.setV
+Description.getCIndieVisible.Domain.Core.Attributes.UiInfoAttribute.Description.getV
+Description.setCIndieVisible.Domain.Core.Attributes.UiInfoAttribute.Description.setN
+Display.get?IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Display.getN
+Display.set?IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Display.set

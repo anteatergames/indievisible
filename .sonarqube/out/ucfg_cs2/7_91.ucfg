@@ -1,0 +1,127 @@
+
+2IndieVisible.Web.Controllers.UserController.List()p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs& &(!"5*˚
+0∫
+∑
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs(D ((V<
+%06IndieVisible.Application.Interfaces.IProfileAppService"__id**}-
++IndieVisible.Web.Controllers.UserController"L
+_profileAppService6IndieVisible.Application.Interfaces.IProfileAppService¡æ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs(D ((_?
+%19IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"?IndieVisible.Application.Interfaces.ICrudAppService<T>.GetAll()*>
+<
+%06IndieVisible.Application.Interfaces.IProfileAppService2GetAll()ä
+á
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs(4 ((_J
+serviceResult9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%19IndieVisible.Domain.ValueObjects.OperationResultListVo<T>π
+∂
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs*. *(A/
+%2)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*L
+J
+serviceResult9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>É
+Ä
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs*. *(f.
+%3(System.Linq.IOrderedEnumerable<TElement>"ÑSystem.Linq.Enumerable.OrderByDescending<TSource, TKey>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, TKey>)*"
+System.Linq.Enumerable*1
+/
+%2)System.Collections.Generic.IEnumerable<T>*
+""∆
+√
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs*. *(o(
+%4"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*0
+.
+%3(System.Linq.IOrderedEnumerable<TElement>◊
+‘
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs*# *(o.
+profiles"System.Collections.Generic.List<T>"__id**
+(
+%4"System.Collections.Generic.List<T>*
+1*
+1*
+2
+3*Ô
+2é
+ã
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs.D .(R
+%5System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModelö
+ó
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs.* .(S
+%6string"JIndieVisible.Application.Formatters.UrlFormatter.ProfileImage(System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%5System.Guid®
+•
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs. .(S
+
+%7void"MIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileImageUrl.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%6stringé
+ã
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs/G /(U
+%8System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModelä
+á
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs/W /(a
+%9System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel¬
+ø
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs/( /(b
+%10string"\IndieVisible.Application.Formatters.UrlFormatter.ProfileCoverImage(System.Guid, System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%8System.Guid*
+
+%9System.Guid®
+•
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs/ /(b
+%11void"KIndieVisible.Application.ViewModels.User.ProfileViewModel.CoverImageUrl.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%10string*
+1*Â
+3ºπ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs2 2(!*
+%12#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*0
+.
+profiles"System.Collections.Generic.List<T>2View(object)"†
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs2 2(",
+*
+%12#Microsoft.AspNetCore.Mvc.ViewResult*ç
+4"á
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs3 3(	
+implicit return*ï
+5ä
+á
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs& &(!
+%13"__entrypoint*
+0B/-
++IndieVisible.Web.Controllers.UserController

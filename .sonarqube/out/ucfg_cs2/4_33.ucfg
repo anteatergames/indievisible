@@ -1,0 +1,28 @@
+
+MIndieVisible.Infra.Data.Repository.ProfileRepository.GetByUserId(System.Guid)y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\ProfileRepository.cs( (3"0*◊
+0≠
+™
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\ProfileRepository.cs (2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>Ä
+˝
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\ProfileRepository.cs (7
+%1System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
+"""û
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\ProfileRepository.cs (8!
+
+%1System.Linq.IQueryable<T>*ñ
+1"ê
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\ProfileRepository.cs (	
+implicit return:
+userIdSystem.GuidB86
+4IndieVisible.Infra.Data.Repository.ProfileRepository

@@ -1,0 +1,154 @@
+
+àIndieVisible.Web.Controllers.BrainstormController.SaveSession(IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel)v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csh h(("5*
+0*	
+1
+2
+3*µ
+2è
+å
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csl l(.
+%0System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*53
+1IndieVisible.Web.Controllers.BrainstormController≠
+™
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csl l(.
+
+%1void"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.set*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel*
+
+%0System.Guid–
+Õ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csn n($?
+%29IndieVisible.Application.Interfaces.IBrainstormAppService"__id*ã*à3
+1IndieVisible.Web.Controllers.BrainstormController"Q
+brainstormAppService9IndieVisible.Application.Interfaces.IBrainstormAppServiceπ∂
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csn n(4;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>"êIndieVisible.Application.Interfaces.IBrainstormAppService.SaveSession(IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel)*A
+?
+%29IndieVisible.Application.Interfaces.IBrainstormAppService*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel2VSaveSession(IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel)Ñ
+Å
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csp p( )
+%4#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseÆ
+´
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cspL p(X
+%5string"__id**
+string"
+Emptystringõ
+ò
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csp_ p(d
+%6System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel∂
+≥
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csp_ p(o
+%7string"System.Guid.ToString()*
+
+%6System.GuidÚ
+Ô
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csp p(r
+%8string"pMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.Action(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, object)*0".
+,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*+
+)
+%4#Microsoft.AspNetCore.Mvc.IUrlHelper*
+""*
+""*
+""†
+ù
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csp p(r
+urlstring"__id*
+
+%8string˘ˆ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csr r(>@
+%9:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo":IndieVisible.Domain.ValueObjects.OperationResultRedirectVoª
+∏
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csr  r(9
+%10void"\IndieVisible.Domain.ValueObjects.OperationResultRedirectVo.OperationResultRedirectVo(string)*B
+@
+%9:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo*
+
+urlstring‘—
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csr r(?*
+%11#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*B
+@
+%9:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo2Json(object)"¶
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csr r(@,
+*
+%11#Microsoft.AspNetCore.Mvc.JsonResult*
+4*	
+1
+3
+3*‚	
+1œÃ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csv2 v(<
+%12string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getÍÁ
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csv v(=9
+%132IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo§
+°
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csv  v(1
+%14void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*;
+9
+%132IndieVisible.Domain.ValueObjects.OperationResultVo*
+
+%12stringÕ 
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csv v(>*
+%15#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*;
+9
+%132IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"¶
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csv v(?,
+*
+%15#Microsoft.AspNetCore.Mvc.JsonResult*ì
+3"ç
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csx x(	
+implicit return*¸
+5„
+‡
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csh h((
+%16"__entrypoint*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel•
+¢
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csg	 g(
+%17"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*Q
+O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel„
+‡
+v
+lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csh) h(FO
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel"__annotation*
+
+%17*
+0:O
+vmIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModelB53
+1IndieVisible.Web.Controllers.BrainstormController

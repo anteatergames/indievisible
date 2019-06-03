@@ -1,0 +1,84 @@
+
+jIndieVisible.Web.Controllers.StorageController.ReturnDefaultImage(IndieVisible.Domain.Core.Enums.BlobType)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs© ©(0"0*‚
+0­
+ª
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs«+ «(@
+%0string"gIndieVisible.Web.Controllers.StorageController.GetDefaultImage(IndieVisible.Domain.Core.Enums.BlobType)*2"0
+.IndieVisible.Web.Controllers.StorageController*
+""±
+®
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs« «(@
+defaultImageNotRootedstring"__id*
+
+%0string¯
+¬
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs­* ­(56
+%10Microsoft.AspNetCore.Hosting.IHostingEnvironment"__id*u*s0
+.IndieVisible.Web.Controllers.StorageController"?
+_hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironment•’
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs­* ­(A
+%2string"@Microsoft.AspNetCore.Hosting.IHostingEnvironment.WebRootPath.get*8
+6
+%10Microsoft.AspNetCore.Hosting.IHostingEnvironment2WebRootPath.get÷
+ô
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs­ ­(Y
+%3string"&System.IO.Path.Combine(string, string)*"
+System.IO.Path*
+
+%2string*!
+
+defaultImageNotRootedstring£
+ 
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs­ ­(Y
+retornostring"__id*
+
+%3stringÖ
+Ó
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¯ ¯(?
+%4byte[]"#System.IO.File.ReadAllBytes(string)*"
+System.IO.File*
+
+retornostring¡
+ž
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs¯ ¯(?
+bytesbyte[]"__id*
+
+%4byte[]°­
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs± ±(/
+%5System.IO.MemoryStream"System.IO.MemoryStreamæ
+ã
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs± ±((
+
+%6void"+System.IO.MemoryStream.MemoryStream(byte[])*
+
+%5System.IO.MemoryStream*
+
+bytesbyte[]èå
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs± ±(=/
+%7)Microsoft.AspNetCore.Mvc.FileStreamResult"FMicrosoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+
+%5System.IO.MemoryStream*
+""2File(System.IO.Stream, string)"ª
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs± ±(>1
+/
+%7)Microsoft.AspNetCore.Mvc.FileStreamResult*’
+1"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs² ²(	
+implicit return:/
+type'IndieVisible.Domain.Core.Enums.BlobTypeB20
+.IndieVisible.Web.Controllers.StorageController

@@ -1,0 +1,9 @@
+õ
+6IndieVisible.Application.Services.GameFollowAppService0IndieVisible.Application.Services.BaseAppServiceobjectñ
+šGameFollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService)ÑIndieVisible.Application.Services.GameFollowAppService.GameFollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService)I
+Count()>IndieVisible.Application.Services.GameFollowAppService.Count()K
+GetAll()?IndieVisible.Application.Services.GameFollowAppService.GetAll()k
+GetByGameId(System.Guid)OIndieVisible.Application.Services.GameFollowAppService.GetByGameId(System.Guid)c
+GetById(System.Guid)KIndieVisible.Application.Services.GameFollowAppService.GetById(System.Guid)a
+Remove(System.Guid)JIndieVisible.Application.Services.GameFollowAppService.Remove(System.Guid)¿
+BSave(IndieVisible.Application.ViewModels.Game.GameFollowViewModel)yIndieVisible.Application.Services.GameFollowAppService.Save(IndieVisible.Application.ViewModels.Game.GameFollowViewModel)

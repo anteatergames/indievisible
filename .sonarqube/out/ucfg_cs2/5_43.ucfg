@@ -1,0 +1,64 @@
+
+ÇIndieVisible.Application.Services.GameAppService.GameAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IGameRepository, IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository, IndieVisible.Domain.Interfaces.Service.IGamificationDomainService, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService)u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs ("0*€
+0Ù
+Ò
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs! !( R2
+0IndieVisible.Application.Services.GameAppService"
+mapperAutoMapper.IMapper"__id*
+
+mapperAutoMapper.IMapper∂
+≥
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs" "((s2
+0IndieVisible.Application.Services.GameAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
+=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork 
+«
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs# #((}2
+0IndieVisible.Application.Services.GameAppService"G
+
+repository9IndieVisible.Domain.Interfaces.Repository.IGameRepository"__id*I
+G
+
+repository9IndieVisible.Domain.Interfaces.Repository.IGameRepository„
+‡
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs$ $(8â2
+0IndieVisible.Application.Services.GameAppService"S
+gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository"__id*U
+S
+gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository˘
+ˆ
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs% %(Fî2
+0IndieVisible.Application.Services.GameAppService"^
+gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService"__id*`
+^
+gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainServiceÒ
+Ó
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs& &(Bê2
+0IndieVisible.Application.Services.GameAppService"Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*\
+Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService*
+1*í
+1"å
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs' '(	
+implicit return:
+mapperAutoMapper.IMapper:=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:G
+
+repository9IndieVisible.Domain.Interfaces.Repository.IGameRepository:S
+gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository:^
+gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService:Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainServiceB42
+0IndieVisible.Application.Services.GameAppService

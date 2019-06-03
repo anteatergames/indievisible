@@ -1,0 +1,88 @@
+
+>IndieVisible.Application.Services.BrainstormAppService.Count(){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs,& ,(+"0*
+0*	
+1
+2
+3*¢
+2Ú
+Ô
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs2 2(4I
+%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository"__id*û*õ8
+6IndieVisible.Application.Services.BrainstormAppService"_
+brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepositoryª∏
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs2 2(=
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*K
+I
+%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository2GetAll()ê
+ç
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs2 2(E	
+%2int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>°
+û
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs2 2(E
+countint"__id*
+	
+%2intÙÒ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs4 4(:;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>ß
+§
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs4 4(3
+
+%4void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+countintÜ
+É
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs4 4(:?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
+1
+4
+3*ç
+1”–
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs84 8(>
+%5string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getÙÒ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs8 8(?;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¨
+©
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs8 8(3
+
+%7void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%5stringÜ
+É
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs8 8(??
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+4*∆
+4"¿
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs; ;(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ò
+3"í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs< <(	
+implicit returnB:8
+6IndieVisible.Application.Services.BrainstormAppService

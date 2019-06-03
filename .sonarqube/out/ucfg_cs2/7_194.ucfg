@@ -1,0 +1,249 @@
+
+òIndieVisible.Web.Controllers.AccountController.ForgotPassword(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csœ) œ(7"7*ƒ
+0°
+û
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs— —(@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"6Microsoft.AspNetCore.Mvc.ControllerBase.ModelState.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseí
+è
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs— —("
+
+%1bool"FMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid.get*B
+@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+1
+2*ƒ
+1∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs”- ”(96
+%20Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*v*t0
+.IndieVisible.Web.Controllers.AccountController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>”
+–
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs”K ”(V
+%3string"cIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel.Email.get*d
+b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel’“
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs”- ”(W*
+%4$System.Threading.Tasks.Task<TResult>"IMicrosoft.AspNetCore.Identity.UserManager<TUser>.FindByEmailAsync(string)*8
+6
+%20Microsoft.AspNetCore.Identity.UserManager<TUser>*
+
+%3string2FindByEmailAsync(string)—
+Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs”  ”(WG
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs‘2 ‘(>6
+%50Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*v*t0
+.IndieVisible.Web.Controllers.AccountController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>òï
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs‘2 ‘(Z*
+%6$System.Threading.Tasks.Task<TResult>"MMicrosoft.AspNetCore.Identity.UserManager<TUser>.IsEmailConfirmedAsync(TUser)*8
+6
+%50Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2IsEmailConfirmedAsync(TUser)ß
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs‘ ‘(Z
+emailAlreadyConfirmedbool"__id*
+""â
+Ü
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs’ ’( 
+
+%7bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+3
+4*
+4*
+3
+5*˚
+3¬ø
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÿ ÿ(O5
+%8/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""2RedirectToAction(string)"∞
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÿ ÿ(P7
+5
+%8/Microsoft.AspNetCore.Mvc.RedirectToActionResult*ò#
+5∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs›$ ›(06
+%90Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*v*t0
+.IndieVisible.Web.Controllers.AccountController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>≠™
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs›$ ›(V+
+%10$System.Threading.Tasks.Task<TResult>"WMicrosoft.AspNetCore.Identity.UserManager<TUser>.GeneratePasswordResetTokenAsync(TUser)*8
+6
+%90Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2&GeneratePasswordResetTokenAsync(TUser)ò
+ï
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs› ›(V
+codestring"__id*
+""Ñ
+Å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬁ% ﬁ((*
+%11#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseïí
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬁC ﬁ(J
+%12string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2Id.getä
+á
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬁR ﬁ(Y,
+%13%Microsoft.AspNetCore.Http.HttpRequest"3Microsoft.AspNetCore.Mvc.ControllerBase.Request.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseÎ
+Ë
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬁR ﬁ(`
+%14string"0Microsoft.AspNetCore.Http.HttpRequest.Scheme.get*.
+,
+%13%Microsoft.AspNetCore.Http.HttpRequest£
+†
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬁ% ﬁ(a
+%15string"ÉMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.ResetPasswordCallbackLink(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, string)*0".
+,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*,
+*
+%11#Microsoft.AspNetCore.Mvc.IUrlHelper*
+
+%12string*
+
+codestring*
+
+%14string®
+•
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬁ ﬁ(a
+callbackUrlstring"__id*
+
+%15stringœ
+Ã
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬂ ﬂ("E
+%16>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender"__id*Ö*Ç0
+.IndieVisible.Web.Controllers.AccountController"N
+_emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender‘
+—
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬂ2 ﬂ(=
+%17string"cIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel.Email.get*d
+b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel¥
+±
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs‡ ‡(c
+%18string"__concat*
+""*
+
+callbackUrlstring¨
+©
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs‡ ‡(c
+%19string"__concat*
+
+%18string*
+""†ù
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csﬂ ‡(d"
+%20System.Threading.Tasks.Task"eIndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender.SendEmailAsync(string, string, string)*G
+E
+%16>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender*
+
+%17string*
+""*
+
+%19string2&SendEmailAsync(string, string, string)√¿
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs· ·(K6
+%21/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""2RedirectToAction(string)"±
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs· ·(L8
+6
+%21/Microsoft.AspNetCore.Mvc.RedirectToActionResult*£
+2ıÚ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÂ Â(*
+%22#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*d
+b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel2View(object)"•
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÂ Â(,
+*
+%22#Microsoft.AspNetCore.Mvc.ViewResult*í
+6"å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÊ Ê(	
+implicit return*Ó
+7ı
+Ú
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csœ) œ(7
+%23"__entrypoint*d
+b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel∑
+¥
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÃ	 Ã(
+%24"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*d
+b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModelÕ
+ 
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÕ	 Õ(
+%25"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*d
+b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel◊
+‘
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csŒ	 Œ(!
+%26"
+__annotate*b`
+^Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute.ValidateAntiForgeryTokenAttribute()*d
+b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModelá
+Ñ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csœ8 œ(Ub
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel"__annotation*
+
+%24*
+
+%25*
+
+%26*
+0:b
+modelYIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModelB20
+.IndieVisible.Web.Controllers.AccountController

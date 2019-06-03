@@ -1,0 +1,146 @@
+
+LIndieVisible.Web.Controllers.AccountController.ExternalLogin(string, string)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¶ ¶(*"2*´
+0É
+Ä
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs©! ©($)
+%0#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseÒ
+Ó
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs©! ©(h
+%1string"pMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.Action(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, object)*0".
+,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*+
+)
+%0#Microsoft.AspNetCore.Mvc.IUrlHelper*
+""*
+""*
+""ß
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs© ©(h
+redirectUrlstring"__id*
+
+%1string∂
+≥
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs™2 ™(@8
+%22Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*z*x0
+.IndieVisible.Web.Controllers.AccountController"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>ÎË
+v
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs™2 ™(ÅB
+%3<Microsoft.AspNetCore.Authentication.AuthenticationProperties"tMicrosoft.AspNetCore.Identity.SignInManager<TUser>.ConfigureExternalAuthenticationProperties(string, string, string)*:
+8
+%22Microsoft.AspNetCore.Identity.SignInManager<TUser>*
+
+providerstring*
+
+redirectUrlstring*
+""2AConfigureExternalAuthenticationProperties(string, string, string)ì
+ê
+v
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs™% ™(ÅJ
+
+properties<Microsoft.AspNetCore.Authentication.AuthenticationProperties"__id*D
+B
+%3<Microsoft.AspNetCore.Authentication.AuthenticationPropertiesòï
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs´ ´(2.
+%4(Microsoft.AspNetCore.Mvc.ChallengeResult"ÄMicrosoft.AspNetCore.Mvc.ControllerBase.Challenge(Microsoft.AspNetCore.Authentication.AuthenticationProperties, params string[])*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*L
+J
+
+properties<Microsoft.AspNetCore.Authentication.AuthenticationProperties*
+
+providerstring2XChallenge(Microsoft.AspNetCore.Authentication.AuthenticationProperties, params string[])"©
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs´ ´(30
+.
+%4(Microsoft.AspNetCore.Mvc.ChallengeResult*í
+1"å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¨ ¨(	
+implicit return*û
+2ª
+∏
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¶ ¶(*
+%5"__entrypoint*
+
+providerstring*
+
+	returnUrlstringÊ
+„
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs£	 £(
+%6"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+providerstring¸
+˘
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs§	 §(
+%7"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*
+
+providerstringÜ
+É
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs•	 •(!
+%8"
+__annotate*b`
+^Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute.ValidateAntiForgeryTokenAttribute()*
+
+providerstring¥
+±
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¶+ ¶(:
+providerstring"__annotation*
+
+%6*
+
+%7*
+
+%8Á
+‰
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs£	 £(
+%9"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
+
+	returnUrlstring˛
+˚
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs§	 §(
+%10"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*
+
+	returnUrlstringà
+Ö
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs•	 •(!
+%11"
+__annotate*b`
+^Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute.ValidateAntiForgeryTokenAttribute()*
+
+	returnUrlstring∑
+¥
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¶< ¶(S
+	returnUrlstring"__annotation*
+
+%9*
+
+%10*
+
+%11*
+0:
+providerstring:
+	returnUrlstringB20
+.IndieVisible.Web.Controllers.AccountController

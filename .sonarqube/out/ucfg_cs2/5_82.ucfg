@@ -1,0 +1,104 @@
+
+HIndieVisible.Application.Services.ProfileAppService.GetById(System.Guid)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs[3 [(:"0*
+0*	
+1
+2
+3*Ê
+2–
+Õ
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csa$ a(.B
+%0<IndieVisible.Domain.Interfaces.Repository.IProfileRepository"__id*Ü*É5
+3IndieVisible.Application.Services.ProfileAppService"J
+
+repository<IndieVisible.Domain.Interfaces.Repository.IProfileRepositoryÎË
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csa$ a(:,
+%1&IndieVisible.Domain.Models.UserProfile"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*D
+B
+%0<IndieVisible.Domain.Interfaces.Repository.IProfileRepository*
+
+idSystem.Guid2GetById(System.Guid)‰
+·
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csa a(:/
+model&IndieVisible.Domain.Models.UserProfile"__id*.
+,
+%1&IndieVisible.Domain.Models.UserProfileˆ
+Û
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csc& c(,
+%2AutoMapper.IMapper"__id*W*U5
+3IndieVisible.Application.Services.ProfileAppService"
+mapperAutoMapper.IMapper÷”
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csc& c(I?
+%39IndieVisible.Application.ViewModels.User.ProfileViewModel",AutoMapper.IMapper.Map<TDestination>(object)*
+
+%2AutoMapper.IMapper*1
+/
+model&IndieVisible.Domain.Models.UserProfile2Map<TDestination>(object)á
+Ñ
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csc! c(I?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
+?
+%39IndieVisible.Application.ViewModels.User.ProfileViewModelÒÓ
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cse e(D;
+%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>◊
+‘
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cse e(@
+
+%5void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
+;
+%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>*A
+?
+vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÉ
+Ä
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cse e(D?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
+1
+4
+3*Å
+1–Õ
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csiA i(K
+%6string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getÒÓ
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csi i(L;
+%75IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>©
+¶
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csi i(@
+
+%8void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
+;
+%75IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%6stringÉ
+Ä
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csi i(L?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%75IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+4*√
+4"Ω
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csl l(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ï
+3"è
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csm m(	
+implicit return:
+idSystem.GuidB75
+3IndieVisible.Application.Services.ProfileAppService

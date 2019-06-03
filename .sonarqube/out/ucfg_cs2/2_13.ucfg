@@ -1,0 +1,32 @@
+
+DIndieVisible.Domain.Services.GamificationDomainService.GetLevel(int){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs$! $()"0*ª	
+0û
+ø
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs& &(3L
+%0FIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository"__id*¤*¡8
+6IndieVisible.Domain.Services.GamificationDomainService"e
+gamificationLevelRepositoryFIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository÷ô
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs& &(L2
+%1,IndieVisible.Domain.Models.GamificationLevel"WIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository.GetByNumber(int)*N
+L
+%0FIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository*
+""2GetByNumber(int)ó
+ð
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs& &(L5
+level,IndieVisible.Domain.Models.GamificationLevel"__id*4
+2
+%1,IndieVisible.Domain.Models.GamificationLevel"¶
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs( ((7
+5
+level,IndieVisible.Domain.Models.GamificationLevel*˜
+1"’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs) )(	
+implicit return:
+levelNumberintB:8
+6IndieVisible.Domain.Services.GamificationDomainService

@@ -1,0 +1,19 @@
+
+¨IndieVisible.Infra.Data.Context.IndieVisibleContext.IndieVisibleContext(Microsoft.EntityFrameworkCore.DbContextOptions<IndieVisible.Infra.Data.Context.IndieVisibleContext>)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs8 8(""0*Î
+0‡
+›
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs8R 8(a
+
+%0void"aMicrosoft.EntityFrameworkCore.DbContext.DbContext(Microsoft.EntityFrameworkCore.DbContextOptions)*+)
+'Microsoft.EntityFrameworkCore.DbContext*E
+C
+options8Microsoft.EntityFrameworkCore.DbContextOptions<TContext>*
+1*ï
+1"è
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs: :(	
+implicit return:C
+options8Microsoft.EntityFrameworkCore.DbContextOptions<TContext>B75
+3IndieVisible.Infra.Data.Context.IndieVisibleContext

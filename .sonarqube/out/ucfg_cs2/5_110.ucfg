@@ -1,0 +1,232 @@
+
+ÅIndieVisible.Application.Services.UserConnectionAppService.Save(IndieVisible.Application.ViewModels.User.UserConnectionViewModel)
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csl' l(+"0*
+0*	
+1
+2
+3*£
+2˝
+˙
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csv* v(JI
+%0CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*•*¢<
+:IndieVisible.Application.Services.UserConnectionAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService¢
+ü
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csvS v(_
+%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*O
+M
+	viewModel@IndieVisible.Application.ViewModels.User.UserConnectionViewModelÙÒ
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csv* v(`/
+%2)IndieVisible.Domain.Models.UserConnection"EIndieVisible.Domain.Interfaces.IDomainService<T>.GetById(System.Guid)*K
+I
+%0CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
+
+%1System.Guid2GetById(System.Guid)Ù
+Ò
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csv v(`5
+existing)IndieVisible.Domain.Models.UserConnection"__id*1
+/
+%2)IndieVisible.Domain.Models.UserConnectionÇ
+ˇ
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csw w($
+
+%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*7
+5
+existing)IndieVisible.Domain.Models.UserConnection*
+""*
+4
+5*⁄
+4Ñ
+Å
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csy y("
+%4AutoMapper.IMapper"__id*^*\<
+:IndieVisible.Application.Services.UserConnectionAppService"
+mapperAutoMapper.IMapper‘—
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csy y(;/
+%5)IndieVisible.Domain.Models.UserConnection"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
+
+%4AutoMapper.IMapper*O
+M
+	viewModel@IndieVisible.Application.ViewModels.User.UserConnectionViewModel*7
+5
+existing)IndieVisible.Domain.Models.UserConnection21Map<TSource, TDestination>(TSource, TDestination)Ò
+Ó
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csy y(;2
+model)IndieVisible.Domain.Models.UserConnection"__id*1
+/
+%5)IndieVisible.Domain.Models.UserConnection*
+6*Ò
+5Ñ
+Å
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs} }("
+%6AutoMapper.IMapper"__id*^*\<
+:IndieVisible.Application.Services.UserConnectionAppService"
+mapperAutoMapper.IMapperÎË
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs} }(A/
+%7)IndieVisible.Domain.Models.UserConnection",AutoMapper.IMapper.Map<TDestination>(object)*
+
+%6AutoMapper.IMapper*O
+M
+	viewModel@IndieVisible.Application.ViewModels.User.UserConnectionViewModel2Map<TDestination>(object)Ò
+Ó
+
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs} }(A2
+model)IndieVisible.Domain.Models.UserConnection"__id*1
+/
+%7)IndieVisible.Domain.Models.UserConnection*
+6*Ñ
+6•
+¢
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÄ Ä( 
+%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*O
+M
+	viewModel@IndieVisible.Application.ViewModels.User.UserConnectionViewModel…
+∆
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÄ$ Ä(.
+%9System.Guid"__id*'*%
+System.Guid"
+EmptySystem.GuidÇ
+ˇ
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÄ Ä(.
+%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%8System.Guid*
+
+%9System.Guid*
+7
+8*™
+
+7Å
+˛
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÇ Ç(4J
+%11CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*•*¢<
+:IndieVisible.Application.Services.UserConnectionAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService‡›
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÇ Ç(?
+%12System.Guid"7IndieVisible.Domain.Interfaces.IDomainService<T>.Add(T)*L
+J
+%11CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*4
+2
+model)IndieVisible.Domain.Models.UserConnection2Add(T)Ä
+˝
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÉ# É(+
+%13System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*4
+2
+model)IndieVisible.Domain.Models.UserConnectionµ
+≤
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÉ É(+
+%14void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*O
+M
+	viewModel@IndieVisible.Application.ViewModels.User.UserConnectionViewModel*
+
+%13System.Guid*
+9*ı
+8Å
+˛
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csá á(4J
+%15CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*•*¢<
+:IndieVisible.Application.Services.UserConnectionAppService"b
+userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceÊ„
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csá á(B
+%16System.Guid":IndieVisible.Domain.Interfaces.IDomainService<T>.Update(T)*L
+J
+%15CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*4
+2
+model)IndieVisible.Domain.Models.UserConnection2	Update(T)*
+9*π
+9∆
+√
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csä ä(6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id**}<
+:IndieVisible.Application.Services.UserConnectionAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkíè
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csä ä(#
+%18bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()Ä
+˝
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cså5 å(=
+%19System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*4
+2
+model)IndieVisible.Domain.Models.UserConnection¸˘
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cså å(><
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∂
+≥
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cså å(4
+%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%19System.Guidé
+ã
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cså å(>?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+1
+10
+3*∞
+1€ÿ
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csê5 ê(?
+%22string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get¸˘
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csê ê(@<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∂
+≥
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csê ê(4
+%24void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%22stringé
+ã
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csê ê(@?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+10*Œ
+10"«
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csì ì(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ü
+3"ô
+Å
+uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csî î(	
+implicit return:M
+	viewModel@IndieVisible.Application.ViewModels.User.UserConnectionViewModelB><
+:IndieVisible.Application.Services.UserConnectionAppService

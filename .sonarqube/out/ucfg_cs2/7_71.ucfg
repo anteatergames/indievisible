@@ -1,0 +1,136 @@
+
+IIndieVisible.Web.Controllers.AccountController.LoginWith2fa(bool, string)s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csv) v(5"4*‚	
+0´
+±
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csy) y(78
+%02Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*z*x0
+.IndieVisible.Web.Controllers.AccountController"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>áÞ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csy) y(]*
+%1$System.Threading.Tasks.Task<TResult>"XMicrosoft.AspNetCore.Identity.SignInManager<TUser>.GetTwoFactorAuthenticationUserAsync()*:
+8
+%02Microsoft.AspNetCore.Identity.SignInManager<TUser>2%GetTwoFactorAuthenticationUserAsync()Ï
+Ì
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csy y(]G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""‡
+„
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs{ {(
+
+%2bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+1
+2*±
+1¸µ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs} }(a!
+%3System.ApplicationException"System.ApplicationExceptionë
+è
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs} }(.
+
+%4void"8System.ApplicationException.ApplicationException(string)*#
+!
+%3System.ApplicationException*
+""*
+3*Ù
+2²¯
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs€* €(_]
+%5WIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel"WIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModelØ
+Õ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs€. €(C
+
+%6void"oIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel.LoginWith2faViewModel()*_
+]
+%5WIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel×
+Ô
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs€F €(]
+
+%7void"fIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel.RememberMe.set*_
+]
+%5WIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel*
+""Ã
+À
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs€" €(_`
+modelWIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel"__id*_
+]
+%5WIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel•
+’
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs (>
+%88Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.ViewData.get*'%
+#Microsoft.AspNetCore.Mvc.Controllerí
+ê
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs (-
+%9"
+__arraySet*@
+>
+%88Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
+""*
+
+	returnUrlstringóð
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csƒ ƒ(*
+%10#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*b
+`
+modelWIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel2View(object)"¥
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csƒ ƒ(,
+*
+%10#Microsoft.AspNetCore.Mvc.ViewResult*’
+3"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs„ „(	
+implicit return*Í
+4¬
+©
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csv) v(5
+%11"__entrypoint*
+""*
+
+	returnUrlstringä
+á
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cst	 t(
+%12"
+__annotate*@>
+<Microsoft.AspNetCore.Mvc.HttpGetAttribute.HttpGetAttribute()*
+
+	returnUrlstringü
+ù
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csu	 u(
+%13"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*
+
+	returnUrlstring­
+ª
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csvG v(^
+	returnUrlstring"__annotation*
+
+%12*
+
+%13*
+0:
+
+rememberMebool:
+	returnUrlstringB20
+.IndieVisible.Web.Controllers.AccountController

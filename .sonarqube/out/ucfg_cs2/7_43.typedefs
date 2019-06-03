@@ -1,0 +1,30 @@
+¢'
+-IndieVisible.Web.Controllers.ManageController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobject¶
+πManageController(Microsoft.AspNetCore.Identity.UserManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, Microsoft.AspNetCore.Identity.SignInManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, Microsoft.Extensions.Logging.ILogger<IndieVisible.Web.Controllers.ManageController>, System.Text.Encodings.Web.UrlEncoder, AutoMapper.IMapper)ÁIndieVisible.Web.Controllers.ManageController.ManageController(Microsoft.AspNetCore.Identity.UserManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, Microsoft.AspNetCore.Identity.SignInManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, Microsoft.Extensions.Logging.ILogger<IndieVisible.Web.Controllers.ManageController>, System.Text.Encodings.Web.UrlEncoder, AutoMapper.IMapper)@
+Index()5IndieVisible.Web.Controllers.ManageController.Index()ﬂ
+VIndex(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel)ÑIndieVisible.Web.Controllers.ManageController.Index(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel)ˇ
+fSendVerificationEmail(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel)îIndieVisible.Web.Controllers.ManageController.SendVerificationEmail(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel)R
+ChangePassword()>IndieVisible.Web.Controllers.ManageController.ChangePassword()É
+hChangePassword(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel)ñIndieVisible.Web.Controllers.ManageController.ChangePassword(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ChangePasswordViewModel)L
+SetPassword();IndieVisible.Web.Controllers.ManageController.SetPassword()˜
+bSetPassword(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel)êIndieVisible.Web.Controllers.ManageController.SetPassword(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel)R
+ExternalLogins()>IndieVisible.Web.Controllers.ManageController.ExternalLogins()T
+LinkLogin(string)?IndieVisible.Web.Controllers.ManageController.LinkLogin(string)X
+LinkLoginCallback()AIndieVisible.Web.Controllers.ManageController.LinkLoginCallback()˜
+bRemoveLogin(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.RemoveLoginViewModel)êIndieVisible.Web.Controllers.ManageController.RemoveLogin(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.RemoveLoginViewModel)d
+TwoFactorAuthentication()GIndieVisible.Web.Controllers.ManageController.TwoFactorAuthentication()X
+Disable2faWarning()AIndieVisible.Web.Controllers.ManageController.Disable2faWarning()J
+Disable2fa():IndieVisible.Web.Controllers.ManageController.Disable2fa()\
+EnableAuthenticator()CIndieVisible.Web.Controllers.ManageController.EnableAuthenticator()ó
+rEnableAuthenticator(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)†IndieVisible.Web.Controllers.ManageController.EnableAuthenticator(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)X
+ShowRecoveryCodes()AIndieVisible.Web.Controllers.ManageController.ShowRecoveryCodes()h
+ResetAuthenticatorWarning()IIndieVisible.Web.Controllers.ManageController.ResetAuthenticatorWarning()Z
+ResetAuthenticator()BIndieVisible.Web.Controllers.ManageController.ResetAuthenticator()n
+GenerateRecoveryCodesWarning()LIndieVisible.Web.Controllers.ManageController.GenerateRecoveryCodesWarning()`
+GenerateRecoveryCodes()EIndieVisible.Web.Controllers.ManageController.GenerateRecoveryCodes()†
+7AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)eIndieVisible.Web.Controllers.ManageController.AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)T
+FormatKey(string)?IndieVisible.Web.Controllers.ManageController.FormatKey(string)t
+!GenerateQrCodeUri(string, string)OIndieVisible.Web.Controllers.ManageController.GenerateQrCodeUri(string, string)∞
+æLoadSharedKeyAndQrCodeUriAsync(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)ÏIndieVisible.Web.Controllers.ManageController.LoadSharedKeyAndQrCodeUriAsync(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)T
+StatusMessage.get?IndieVisible.Web.Controllers.ManageController.StatusMessage.getT
+StatusMessage.set?IndieVisible.Web.Controllers.ManageController.StatusMessage.set

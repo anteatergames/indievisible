@@ -1,0 +1,250 @@
+
+îIndieVisible.Web.Controllers.ManageController.SendVerificationEmail(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel)r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csq) q(>"6*æ
+0û
+õ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.css s(@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"6Microsoft.AspNetCore.Mvc.ControllerBase.ModelState.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseè
+å
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.css s(#
+
+%1bool"FMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid.get*B
+@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+1
+2*ë
+1Á‰
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csu u(")
+%2#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*Z
+X
+modelOIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel2View(object)"°
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csu u(#+
+)
+%2#Microsoft.AspNetCore.Mvc.ViewResult*»
+2¨
+©
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csx) x(56
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ñ
+Å
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csxC x(G,
+%4&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase™ß
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csx) x(H*
+%5$System.Threading.Tasks.Task<TResult>"eMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserAsync(System.Security.Claims.ClaimsPrincipal)*8
+6
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%4&System.Security.Claims.ClaimsPrincipal24GetUserAsync(System.Security.Claims.ClaimsPrincipal)Œ
+À
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csx x(HG
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""Ü
+É
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csy y(
+
+%6bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+3
+4*—
+3¨
+©
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs{O {([6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ñ
+Å
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs{f {(j,
+%8&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseÜÉ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs{O {(k
+%9string"bMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserId(System.Security.Claims.ClaimsPrincipal)*8
+6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%8&System.Security.Claims.ClaimsPrincipal21GetUserId(System.Security.Claims.ClaimsPrincipal)®
+•
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs{/ {(o
+%10string"__concat*
+""*
+
+%9string©
+¶
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs{/ {(o
+%11string"__concat*
+
+%10string*
+""∏µ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs{ {(p"
+%12System.ApplicationException"System.ApplicationExceptionı
+Ú
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs{ {(.
+%13void"8System.ApplicationException.ApplicationException(string)*$
+"
+%12System.ApplicationException*
+
+%11string*
+5*˙#
+4≠
+™
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs~  ~(,7
+%140Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>≥∞
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs~  ~(V+
+%15$System.Threading.Tasks.Task<TResult>"[Microsoft.AspNetCore.Identity.UserManager<TUser>.GenerateEmailConfirmationTokenAsync(TUser)*9
+7
+%140Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2*GenerateEmailConfirmationTokenAsync(TUser)ï
+í
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs~ ~(V
+codestring"__id*
+""Å
+˛
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs! ($*
+%16#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseíè
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs; (B
+%17string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2Id.getá
+Ñ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csJ (Q,
+%18%Microsoft.AspNetCore.Http.HttpRequest"3Microsoft.AspNetCore.Mvc.ControllerBase.Request.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseË
+Â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csJ (X
+%19string"0Microsoft.AspNetCore.Http.HttpRequest.Scheme.get*.
+,
+%18%Microsoft.AspNetCore.Http.HttpRequestõ
+ò
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs! (Y
+%20string"Microsoft.AspNetCore.Mvc.UrlHelperExtensions.EmailConfirmationLink(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, string)*0".
+,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*,
+*
+%16#Microsoft.AspNetCore.Mvc.IUrlHelper*
+
+%17string*
+
+codestring*
+
+%19string•
+¢
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs (Y
+callbackUrlstring"__id*
+
+%20stringöó
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÄ Ä(%
+%21string":Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Email.get*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2	Email.get°
+û
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÄ Ä(%
+emailstring"__id*
+
+%21stringÕ
+ 
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÅ Å(E
+%22>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender"__id*Ñ*Å/
+-IndieVisible.Web.Controllers.ManageController"N
+_emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSenderî
+ë
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÅ Å(M"
+%23System.Threading.Tasks.Task"≤IndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions.SendEmailConfirmationAsync(IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, string, string)*K"I
+GIndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions*G
+E
+%22>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender*
+
+emailstring*
+
+callbackUrlstringÇ
+ˇ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÉ É(O
+%24void"?IndieVisible.Web.Controllers.ManageController.StatusMessage.set*1/
+-IndieVisible.Web.Controllers.ManageController*
+""¬ø
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÑ Ñ(26
+%25/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""2RedirectToAction(string)"∞
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÑ Ñ(38
+6
+%25/Microsoft.AspNetCore.Mvc.RedirectToActionResult*ë
+5"ã
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÖ Ö(	
+implicit return*·
+6Ë
+Â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csq) q(>
+%26"__entrypoint*Z
+X
+modelOIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel™
+ß
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cso	 o(
+%27"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*Z
+X
+modelOIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel 
+«
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csp	 p(!
+%28"
+__annotate*b`
+^Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute.ValidateAntiForgeryTokenAttribute()*Z
+X
+modelOIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModelÒ
+Ó
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csq? q(SX
+modelOIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel"__annotation*
+
+%27*
+
+%28*
+0:X
+modelOIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModelB1/
+-IndieVisible.Web.Controllers.ManageController

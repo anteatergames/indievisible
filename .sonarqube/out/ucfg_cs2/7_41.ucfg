@@ -1,0 +1,102 @@
+
+SIndieVisible.Web.Areas.Member.Controllers.PreferencesController.SetLanguage(string)„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs8 8("2*Ë
+0›
+˜
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs: :(,
+%0&Microsoft.AspNetCore.Http.HttpResponse"4Microsoft.AspNetCore.Mvc.ControllerBase.Response.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase 
+
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs: :(0
+%1*Microsoft.AspNetCore.Http.IResponseCookies"2Microsoft.AspNetCore.Http.HttpResponse.Cookies.get*.
+,
+%0&Microsoft.AspNetCore.Http.HttpResponse
+þ
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs; ;(>
+%2string"__id*a*_@
+>Microsoft.AspNetCore.Localization.CookieRequestCultureProvider"
+DefaultCookieNamestringôñ
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs<= <(X6
+%30Microsoft.AspNetCore.Localization.RequestCulture"0Microsoft.AspNetCore.Localization.RequestCulture®
+«
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs<A <(O
+
+%4void"GMicrosoft.AspNetCore.Localization.RequestCulture.RequestCulture(string)*8
+6
+%30Microsoft.AspNetCore.Localization.RequestCulture*
+
+culturestring™
+–
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs< <(Y
+%5string"€Microsoft.AspNetCore.Localization.CookieRequestCultureProvider.MakeCookieValue(Microsoft.AspNetCore.Localization.RequestCulture)*B"@
+>Microsoft.AspNetCore.Localization.CookieRequestCultureProvider*8
+6
+%30Microsoft.AspNetCore.Localization.RequestCultureâß
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs= =(e-
+%6'Microsoft.AspNetCore.Http.CookieOptions"'Microsoft.AspNetCore.Http.CookieOptions€
+ý
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs= =(!
+
+%7void"7Microsoft.AspNetCore.Http.CookieOptions.CookieOptions()*/
+-
+%6'Microsoft.AspNetCore.Http.CookieOptionsä
+á
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs=. =(C
+%8System.DateTimeOffset" System.DateTimeOffset.UtcNow.get*"
+System.DateTimeOffsetñ
+î
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs=. =(O
+%9System.DateTimeOffset"#System.DateTimeOffset.AddYears(int)*
+
+%8System.DateTimeOffset*2œ
+™
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs=$ =(O
+%10void"3Microsoft.AspNetCore.Http.CookieOptions.Expires.set*/
+-
+%6'Microsoft.AspNetCore.Http.CookieOptions*
+
+%9System.DateTimeOffset‰
+†
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs=Q =(c
+%11void"7Microsoft.AspNetCore.Http.CookieOptions.IsEssential.set*/
+-
+%6'Microsoft.AspNetCore.Http.CookieOptions*
+""ÉÆ
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs: >(
+%12void"jMicrosoft.AspNetCore.Http.IResponseCookies.Append(string, string, Microsoft.AspNetCore.Http.CookieOptions)*2
+0
+%1*Microsoft.AspNetCore.Http.IResponseCookies*
+
+%2string*
+
+%5string*/
+-
+%6'Microsoft.AspNetCore.Http.CookieOptions2?Append(string, string, Microsoft.AspNetCore.Http.CookieOptions)*
+1*¢
+1"œ
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs? ?(	
+implicit return*¿
+2´
+±
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs8 8(
+%13"__entrypoint*
+
+culturestring*
+0:
+culturestringBCA
+?IndieVisible.Web.Areas.Member.Controllers.PreferencesController

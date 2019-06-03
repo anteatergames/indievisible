@@ -1,0 +1,11 @@
+£
+'IndieVisible.Domain.Models.Gamification&IndieVisible.Domain.Core.Models.EntityobjectH
+Gamification()6IndieVisible.Domain.Models.Gamification.Gamification()X
+CurrentLevelNumber.get>IndieVisible.Domain.Models.Gamification.CurrentLevelNumber.getX
+CurrentLevelNumber.set>IndieVisible.Domain.Models.Gamification.CurrentLevelNumber.setB
+XpTotal.get3IndieVisible.Domain.Models.Gamification.XpTotal.getB
+XpTotal.set3IndieVisible.Domain.Models.Gamification.XpTotal.setP
+XpCurrentLevel.get:IndieVisible.Domain.Models.Gamification.XpCurrentLevel.getP
+XpCurrentLevel.set:IndieVisible.Domain.Models.Gamification.XpCurrentLevel.setN
+XpToNextLevel.get9IndieVisible.Domain.Models.Gamification.XpToNextLevel.getN
+XpToNextLevel.set9IndieVisible.Domain.Models.Gamification.XpToNextLevel.set

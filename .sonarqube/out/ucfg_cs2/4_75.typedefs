@@ -1,0 +1,4 @@
+³
+6IndieVisible.Infra.Data.Repository.UserBadgeRepository6IndieVisible.Infra.Data.Repository.Repository<TEntity>objectË
+HUserBadgeRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)IndieVisible.Infra.Data.Repository.UserBadgeRepository.UserBadgeRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)ê
+WIndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository.GetByUserId(System.Guid)ŽIndieVisible.Infra.Data.Repository.UserBadgeRepository.IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository.GetByUserId(System.Guid)

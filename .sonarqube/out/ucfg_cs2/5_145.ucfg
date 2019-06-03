@@ -1,0 +1,74 @@
+
+GIndieVisible.Application.Services.GameAppService.GetByUser(System.Guid)w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csØ- Ø(6"0*û
+0Ä
+Á
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÚ) Ú(3?
+%09IndieVisible.Domain.Interfaces.Repository.IGameRepository"__id**}2
+0IndieVisible.Application.Services.GameAppService"G
+
+repository9IndieVisible.Domain.Interfaces.Repository.IGameRepository­ª
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÚ) Ú(<
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*A
+?
+%09IndieVisible.Domain.Interfaces.Repository.IGameRepository2GetAll()ë
+è
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÚ) Ú([
+%2System.Linq.IQueryable<T>"…System.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>*
+""Í
+Ê
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÚ Ú([&
+	allModelsSystem.Linq.IQueryable<T>"__id*!
+
+%2System.Linq.IQueryable<T>ò
+ï
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÜO Ü(U
+%3AutoMapper.IMapper"__id*T*R2
+0IndieVisible.Application.Services.GameAppService"
+mapperAutoMapper.IMapperŠ‡
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÜO Ü(k'
+%4!AutoMapper.IConfigurationProvider",AutoMapper.IMapper.ConfigurationProvider.get*
+
+%3AutoMapper.IMapper2ConfigurationProvider.getø
+õ
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÜ) Ü(l
+%5System.Linq.IQueryable<T>"ÌAutoMapper.QueryableExtensions.Extensions.ProjectTo<TDestination>(System.Linq.IQueryable, AutoMapper.IConfigurationProvider, params System.Linq.Expressions.Expression<System.Func<TDestination, object>>[])*-"+
+)AutoMapper.QueryableExtensions.Extensions*(
+&
+	allModelsSystem.Linq.IQueryable<T>*)
+'
+%4!AutoMapper.IConfigurationProvider*
+""¾
+»
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÜ) Ü(u(
+%6"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*!
+
+%5System.Linq.IQueryable<T>Ù
+Ö
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÜ# Ü(u)
+vms"System.Collections.Generic.List<T>"__id**
+(
+%6"System.Collections.Generic.List<T>"¦
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csÞ Þ(+
+)
+vms"System.Collections.Generic.List<T>*”
+1"Ž
+w
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csß ß(	
+implicit return:
+userIdSystem.GuidB42
+0IndieVisible.Application.Services.GameAppService

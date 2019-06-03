@@ -1,0 +1,13 @@
+—
+'IndieVisible.Domain.Models.Notification&IndieVisible.Domain.Core.Models.EntityobjectH
+Notification()6IndieVisible.Domain.Models.Notification.Notification()<
+Type.get0IndieVisible.Domain.Models.Notification.Type.get<
+Type.set0IndieVisible.Domain.Models.Notification.Type.set@
+
+IsRead.get2IndieVisible.Domain.Models.Notification.IsRead.get@
+
+IsRead.set2IndieVisible.Domain.Models.Notification.IsRead.set<
+Text.get0IndieVisible.Domain.Models.Notification.Text.get<
+Text.set0IndieVisible.Domain.Models.Notification.Text.set:
+Url.get/IndieVisible.Domain.Models.Notification.Url.get:
+Url.set/IndieVisible.Domain.Models.Notification.Url.set

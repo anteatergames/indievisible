@@ -1,0 +1,6 @@
+Æ
+-IndieVisible.Infra.Data.Migrations.userbadges2Microsoft.EntityFrameworkCore.Migrations.Migrationobject¬
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)kIndieVisible.Infra.Data.Migrations.userbadges.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)°
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)mIndieVisible.Infra.Data.Migrations.userbadges.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)ª
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)jIndieVisible.Infra.Data.Migrations.userbadges.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)J
+userbadges():IndieVisible.Infra.Data.Migrations.userbadges.userbadges()

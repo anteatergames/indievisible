@@ -1,0 +1,103 @@
+
+OIndieVisible.Application.Services.UserFollowAppService.GetByUserId(System.Guid){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csC: C(E"0*
+0*	
+1
+2
+3*Ñ
+2é
+æ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csI4 I(PE
+%0?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*™*–8
+6IndieVisible.Application.Services.UserFollowAppService"Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceøõ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csI4 I(d/
+%1)System.Collections.Generic.IEnumerable<T>"IIndieVisible.Domain.Interfaces.IDomainService<T>.GetByUserId(System.Guid)*G
+E
+%0?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
+
+userIdSystem.Guid2GetByUserId(System.Guid)ñ
+î
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csI( I(d6
+	allModels)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%1)System.Collections.Generic.IEnumerable<T>ü
+ù
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csK7 K(=
+%2AutoMapper.IMapper"__id*Z*X8
+6IndieVisible.Application.Services.UserFollowAppService"
+mapperAutoMapper.IMapperåâ
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csK7 K(‡/
+%3)System.Collections.Generic.IEnumerable<T>"6AutoMapper.IMapper.Map<TSource, TDestination>(TSource)*
+
+%2AutoMapper.IMapper*8
+6
+	allModels)System.Collections.Generic.IEnumerable<T>2#Map<TSource, TDestination>(TSource)ì
+é
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csK1 K(‡0
+vms)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%3)System.Collections.Generic.IEnumerable<T>üù
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csM M(L?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>ÿ
+ü
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csM M(G
+
+%5void"zIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(System.Collections.Generic.IEnumerable<T>)*A
+?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*2
+0
+vms)System.Collections.Generic.IEnumerable<T>Ž
+‹
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csM M(LC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%49IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*	
+1
+4
+3*©
+1ÓÐ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csQH Q(R
+%6string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getüù
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csQ Q(S?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>¸
+µ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csQ Q(G
+
+%8void"WIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(string)*A
+?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+
+%6stringŽ
+‹
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csQ Q(SC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%79IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+4*Ê
+4"Ä
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csT T(E
+C
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*˜
+3"’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csU U(	
+implicit return:
+userIdSystem.GuidB:8
+6IndieVisible.Application.Services.UserFollowAppService

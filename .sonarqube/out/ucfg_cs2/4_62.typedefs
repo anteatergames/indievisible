@@ -1,0 +1,6 @@
+Æ
+-IndieVisible.Infra.Data.Migrations.userfollow2Microsoft.EntityFrameworkCore.Migrations.Migrationobject¬
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)kIndieVisible.Infra.Data.Migrations.userfollow.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)°
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)mIndieVisible.Infra.Data.Migrations.userfollow.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)ª
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)jIndieVisible.Infra.Data.Migrations.userfollow.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)J
+userfollow():IndieVisible.Infra.Data.Migrations.userfollow.userfollow()

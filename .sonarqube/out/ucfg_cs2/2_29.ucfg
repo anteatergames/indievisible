@@ -1,0 +1,33 @@
+
+IIndieVisible.Domain.Services.GameFollowDomainService.GetById(System.Guid)y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs" "(!"0*Ô
+0‚
+ﬂ
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs$ $(8E
+%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository"__id*î*ë6
+4IndieVisible.Domain.Services.GameFollowDomainService"W
+gameFollowRepository?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepositoryÓÎ
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs$ $(D+
+%1%IndieVisible.Domain.Models.GameFollow"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*G
+E
+%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository*
+
+idSystem.Guid2GetById(System.Guid)„
+‡
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs$ $(D.
+model%IndieVisible.Domain.Models.GameFollow"__id*-
++
+%1%IndieVisible.Domain.Models.GameFollow"≠
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs& &(0
+.
+model%IndieVisible.Domain.Models.GameFollow*ñ
+1"ê
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs' '(	
+implicit return:
+idSystem.GuidB86
+4IndieVisible.Domain.Services.GameFollowDomainService

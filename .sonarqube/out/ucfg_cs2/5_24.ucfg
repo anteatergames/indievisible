@@ -1,0 +1,80 @@
+
+LIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileViewModel()~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csB B("0*è
+0˜Ù
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csD D();
+%05IndieVisible.Application.ViewModels.User.UserCounters"5IndieVisible.Application.ViewModels.User.UserCountersî
+ë
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csD D('
+
+%1void"DIndieVisible.Application.ViewModels.User.UserCounters.UserCounters()*=
+;
+%05IndieVisible.Application.ViewModels.User.UserCounters’
+“
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csD D()
+
+%2void"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Counters.set*=;
+9IndieVisible.Application.ViewModels.User.ProfileViewModel*=
+;
+%05IndieVisible.Application.ViewModels.User.UserCounters˚¯
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csE E(*=
+%37IndieVisible.Application.ViewModels.User.IndieXpCounter"7IndieVisible.Application.ViewModels.User.IndieXpCounterö
+ó
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csE E((
+
+%4void"HIndieVisible.Application.ViewModels.User.IndieXpCounter.IndieXpCounter()*?
+=
+%37IndieVisible.Application.ViewModels.User.IndieXpCounter÷
+”
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csE E(*
+
+%5void"EIndieVisible.Application.ViewModels.User.ProfileViewModel.IndieXp.set*=;
+9IndieVisible.Application.ViewModels.User.ProfileViewModel*?
+=
+%37IndieVisible.Application.ViewModels.User.IndieXpCounterÛ
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csF F(C9
+%63System.Collections.Generic.Dictionary<TKey, TValue>"3System.Collections.Generic.Dictionary<TKey, TValue>é
+ã
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csF  F(A
+
+%7void"@System.Collections.Generic.Dictionary<TKey, TValue>.Dictionary()*;
+9
+%63System.Collections.Generic.Dictionary<TKey, TValue>ÿ
+’
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csF F(C
+
+%8void"KIndieVisible.Application.ViewModels.User.ProfileViewModel.ExternalLinks.set*=;
+9IndieVisible.Application.ViewModels.User.ProfileViewModel*;
+9
+%63System.Collections.Generic.Dictionary<TKey, TValue>ìê
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csG  G(@I
+%9CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel"CIndieVisible.Application.ViewModels.User.ConnectionControlViewModelø
+º
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csG$ G(>
+%10void"`IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.ConnectionControlViewModel()*K
+I
+%9CIndieVisible.Application.ViewModels.User.ConnectionControlViewModelÌ
+Í
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csG G(@
+%11void"OIndieVisible.Application.ViewModels.User.ProfileViewModel.ConnectionControl.set*=;
+9IndieVisible.Application.ViewModels.User.ProfileViewModel*K
+I
+%9CIndieVisible.Application.ViewModels.User.ConnectionControlViewModel*
+1*õ
+1"ï
+~
+tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csH H(	
+implicit returnB=;
+9IndieVisible.Application.ViewModels.User.ProfileViewModel

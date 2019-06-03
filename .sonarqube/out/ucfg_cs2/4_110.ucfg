@@ -1,0 +1,18 @@
+
+mIndieVisible.Infra.Data.Migrations.userfollow.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190531014216_userfollow.cs  ($"0*ƒ
+0π∂
+Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190531014216_userfollow.cs ( _
+%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""2DropTable(string, string)*
+1*ü
+1"ô
+Å
+wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190531014216_userfollow.cs (	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB1/
+-IndieVisible.Infra.Data.Migrations.userfollow

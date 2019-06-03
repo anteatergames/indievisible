@@ -1,0 +1,14 @@
+Ï
+
+OIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModelobjectt
+IndexViewModel()`IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.IndexViewModel()l
+Username.get\IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.Username.getl
+Username.set\IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.Username.set|
+IsEmailConfirmed.getdIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.IsEmailConfirmed.get|
+IsEmailConfirmed.setdIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.IsEmailConfirmed.setf
+	Email.getYIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.Email.getf
+	Email.setYIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.Email.setr
+PhoneNumber.get_IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.PhoneNumber.getr
+PhoneNumber.set_IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.PhoneNumber.setv
+StatusMessage.getaIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.StatusMessage.getv
+StatusMessage.setaIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.IndexViewModel.StatusMessage.set

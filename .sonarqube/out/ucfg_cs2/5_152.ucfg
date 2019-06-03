@@ -1,0 +1,175 @@
+
+nIndieVisible.Application.Services.ProfileAppService.GenerateNewOne(IndieVisible.Domain.Core.Enums.ProfileType)z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs´  ´(."0*§0
+0˚¯
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≠' ≠(=?
+%09IndieVisible.Application.ViewModels.User.ProfileViewModel"9IndieVisible.Application.ViewModels.User.ProfileViewModelú
+ô
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≠+ ≠(;
+
+%1void"LIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileViewModel()*A
+?
+%09IndieVisible.Application.ViewModels.User.ProfileViewModelé
+ã
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≠ ≠(=D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
+?
+%09IndieVisible.Application.ViewModels.User.ProfileViewModelƒ
+¡
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÆ' Æ(3
+%2System.DateTime"System.DateTime.Now.get*"
+System.DateTimeø
+º
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÆ' Æ(9
+
+%3long"System.DateTime.Ticks.get*
+
+%2System.DateTimeô
+ñ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÆ" Æ(9
+%4"__id*
+
+
+%3long£†
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÆ Æ(:
+%5System.Random"System.Random≈
+¬
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÆ Æ(!
+
+%6void"System.Random.Random(int)*
+
+%5System.Random*
+
+%4∞
+≠
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÆ Æ(:
+rSystem.Random"__id*
+
+%5System.Randomì
+ê
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs∞ ∞(/
+%7"__id*
+""ü
+ú
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs∞ ∞(/
+
+%8void"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Type.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%7€ÿ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≤$ ≤(4	
+%9int"System.Random.Next(int, int)*
+
+rSystem.Random*2**2®F2Next(int, int)´
+®
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≤$ ≤(?
+%10string"int.ToString()*
+	
+%9int±
+Æ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≤ ≤(?
+%11string"__concat*
+""*
+
+%10string©
+¶
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≤ ≤(?
+%12void"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%11string°
+û
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs≥ ≥(E
+%13void"CIndieVisible.Application.ViewModels.User.ProfileViewModel.Motto.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+""ö
+ó
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csµ µ(&
+%14string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel±
+Æ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csµ µ(|
+%15string"__concat*
+
+%14string*
+""®
+•
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csµ µ(|
+%16void"AIndieVisible.Application.ViewModels.User.ProfileViewModel.Bio.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%15string¶
+£
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs∑ ∑(6
+%17void"HIndieVisible.Application.ViewModels.User.ProfileViewModel.StudioName.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+""§
+°
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs∏ ∏()
+%18void"FIndieVisible.Application.ViewModels.User.ProfileViewModel.Location.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+""Ï
+È
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs∫& ∫(=
+%19string"4IndieVisible.Application.Constants.DefaultAvatar.get*&"$
+"IndieVisible.Application.Constants¥
+±
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs∫ ∫(=
+%20void"MIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileImageUrl.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%19stringÙ
+Ò
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csª$ ª(C
+%21string"<IndieVisible.Application.Constants.DefaultGameCoverImage.get*&"$
+"IndieVisible.Application.Constants≤
+Ø
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csª ª(C
+%22void"KIndieVisible.Application.ViewModels.User.ProfileViewModel.CoverImageUrl.set*F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
+
+%21string"ƒ
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csΩ Ω(F
+D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*ó
+1"ë
+z
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csæ æ(	
+implicit return:2
+type*IndieVisible.Domain.Core.Enums.ProfileTypeB75
+3IndieVisible.Application.Services.ProfileAppService

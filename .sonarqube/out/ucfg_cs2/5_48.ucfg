@@ -1,0 +1,205 @@
+
+WIndieVisible.Application.Services.FollowAppService.GameFollow(System.Guid, System.Guid)w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs! (+"0*É
+0¾
+»
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs" "($
+%0System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guidú
+÷
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs" "($
+
+%1bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+userIdSystem.Guid*
+
+%0System.Guid*
+1
+2*“
+1êç
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs$ $(Z8
+%22IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVoš
+—
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs$ $(0
+
+%3void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
+8
+%22IndieVisible.Domain.ValueObjects.OperationResultVo*
+""þ
+û
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs$ $(Z>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%22IndieVisible.Domain.ValueObjects.OperationResultVo*
+3*ª	
+2á
+Þ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs($ ((;E
+%4?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*•*’4
+2IndieVisible.Application.Services.FollowAppService"Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService»¸
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs($ ((D/
+%5)System.Collections.Generic.IEnumerable<T>"9IndieVisible.Domain.Interfaces.IDomainService<T>.GetAll()*G
+E
+%4?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService2GetAll()Ñ
+Î
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs($ ((w
+
+%6bool"pSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*1
+/
+%5)System.Collections.Generic.IEnumerable<T>*
+""¦
+£
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs( ((w
+alreadyLikedbool"__id*
+
+
+%6bool*
+4
+5*¦
+4êç
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs, ,(;8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo˜
+•
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs,# ,(4
+
+%8void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
+8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo*
+""þ
+û
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs, ,(;>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo’
+
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs- -(>
+
+%9void">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.set*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo*
+""*
+3*Î!
+5ÑÎ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs1' 1(7,
+%10%IndieVisible.Domain.Models.GameFollow"%IndieVisible.Domain.Models.GameFollowí
+ê
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs1+ 1(5
+%11void"2IndieVisible.Domain.Models.GameFollow.GameFollow()*.
+,
+%10%IndieVisible.Domain.Models.GameFollowâ
+ß
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs1 1(7.
+model%IndieVisible.Domain.Models.GameFollow"__id*.
+,
+%10%IndieVisible.Domain.Models.GameFollow†
+ƒ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs3 3()
+%12void"0IndieVisible.Domain.Models.GameFollow.GameId.set*0
+.
+model%IndieVisible.Domain.Models.GameFollow*
+
+gameIdSystem.Guid‡
+„
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs4 4()
+%13void"1IndieVisible.Domain.Core.Models.Entity.UserId.set*0
+.
+model%IndieVisible.Domain.Models.GameFollow*
+
+userIdSystem.Guidâ
+ß
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs6 6(0F
+%14?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*•*’4
+2IndieVisible.Application.Services.FollowAppService"Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainServiceÍÊ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs6 6(;
+%15System.Guid"7IndieVisible.Domain.Interfaces.IDomainService<T>.Add(T)*H
+F
+%14?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService*0
+.
+model%IndieVisible.Domain.Models.GameFollow2Add(T)³
+°
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs8 8(6
+%16/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*w*u4
+2IndieVisible.Application.Services.FollowAppService"=
+
+unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork‡„
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs8 8('
+%17bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%16/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()â
+ß
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs:# :(?F
+%18?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*•*’4
+2IndieVisible.Application.Services.FollowAppService"Z
+gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainServiceåâ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs:# :(^
+
+%19int"£IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService.Count(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.GameFollow, bool>>)*H
+F
+%18?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService*
+""2cCount(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.GameFollow, bool>>)¡
+ž
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs: :(^
+newCountint"__id*
+
+
+%19intñî
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs< <(C<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¨
+¥
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs<# <(9
+%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+newCountint‚
+ÿ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs< <(C>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*>
+<
+%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+3*Á
+3"»
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs@ @(@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo*”
+6"Ž
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csA A(	
+implicit return:
+userIdSystem.Guid:
+gameIdSystem.GuidB64
+2IndieVisible.Application.Services.FollowAppService

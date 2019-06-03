@@ -1,0 +1,34 @@
+
+ÙIndieVisible.Web.ViewComponents.CountersViewComponent.CountersViewComponent(IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Application.Interfaces.IUserContentAppService)z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs ($"0*°
+0“
+œ
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (,Å7
+5IndieVisible.Web.ViewComponents.CountersViewComponent"F
+_gameAppService3IndieVisible.Application.Interfaces.IGameAppService"__id*G
+E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceﬁ
+€
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (2á7
+5IndieVisible.Web.ViewComponents.CountersViewComponent"L
+_profileAppService6IndieVisible.Application.Interfaces.IProfileAppService"__id*M
+K
+profileAppService6IndieVisible.Application.Interfaces.IProfileAppService‡
+›
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (,à7
+5IndieVisible.Web.ViewComponents.CountersViewComponent"M
+_contentService:IndieVisible.Application.Interfaces.IUserContentAppService"__id*N
+L
+contentService:IndieVisible.Application.Interfaces.IUserContentAppService*
+1*ó
+1"ë
+z
+pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\CountersViewComponent.cs (	
+implicit return:E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppService:K
+profileAppService6IndieVisible.Application.Interfaces.IProfileAppService:L
+contentService:IndieVisible.Application.Interfaces.IUserContentAppServiceB97
+5IndieVisible.Web.ViewComponents.CountersViewComponent

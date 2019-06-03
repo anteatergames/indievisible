@@ -1,0 +1,230 @@
+
+KIndieVisible.Web.Controllers.AccountController.ConfirmEmail(string, string)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∂) ∂(5"10*‡
+0“
+œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∏ ∏(
+
+%0bool""string.operator ==(string, string)*
+"
+string*
+
+userIdstring*
+""*
+1
+2*ﬁ
+2–
+Õ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∏" ∏(.
+
+%1bool""string.operator ==(string, string)*
+"
+string*
+
+codestring*
+""*
+1
+3*ì
+1⁄◊
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∫ ∫(M5
+%2/Microsoft.AspNetCore.Mvc.RedirectToActionResult"HMicrosoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string, string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""*
+""2 RedirectToAction(string, string)"∞
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∫ ∫(N7
+5
+%2/Microsoft.AspNetCore.Mvc.RedirectToActionResult*Ù
+3∞
+≠
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csº) º(56
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*v*t0
+.IndieVisible.Web.Controllers.AccountController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>”–
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csº) º(K*
+%4$System.Threading.Tasks.Task<TResult>"FMicrosoft.AspNetCore.Identity.UserManager<TUser>.FindByIdAsync(string)*8
+6
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>*
+
+userIdstring2FindByIdAsync(string)—
+Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csº º(KG
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""â
+Ü
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csΩ Ω(
+
+%5bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+4
+5*õ
+4Æ
+´
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csø/ ø(Y
+%6string"__concat*
+""*
+
+userIdstring™
+ß
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csø/ ø(Y
+%7string"__concat*
+
+%6string*
+""∫∑
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csø ø(Z!
+%8System.ApplicationException"System.ApplicationExceptionı
+Ú
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csø ø(.
+
+%9void"8System.ApplicationException.ApplicationException(string)*#
+!
+%8System.ApplicationException*
+
+%7string*
+6*π	
+5±
+Æ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¡* ¡(67
+%100Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*v*t0
+.IndieVisible.Web.Controllers.AccountController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>¥±
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¡* ¡(T+
+%11$System.Threading.Tasks.Task<TResult>"QMicrosoft.AspNetCore.Identity.UserManager<TUser>.ConfirmEmailAsync(TUser, string)*9
+7
+%100Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+
+codestring2 ConfirmEmailAsync(TUser, string)¿
+Ω
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¡ ¡(T6
+result,Microsoft.AspNetCore.Identity.IdentityResult"__id*
+""˝
+˙
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬ ¬((
+%12bool":Microsoft.AspNetCore.Identity.IdentityResult.Succeeded.get*8
+6
+result,Microsoft.AspNetCore.Identity.IdentityResult*
+7
+8*µ
+7è
+å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬+ ¬(9
+%14"__id*
+""ò
+ï
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬+ ¬(9
+%13string"__id*
+
+%14*
+9*µ
+8è
+å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬< ¬(C
+%15"__id*
+""ò
+ï
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬< ¬(C
+%13string"__id*
+
+%15*
+9*Œ
+9†ù
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬ ¬(D*
+%16#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(string)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+
+%13string2View(string)"•
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¬ ¬(E,
+*
+%16#Microsoft.AspNetCore.Mvc.ViewResult*í
+6"å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs√ √(	
+implicit return*·
+10µ
+≤
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∂) ∂(5
+%17"__entrypoint*
+
+userIdstring*
+
+codestring„
+‡
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¥	 ¥(
+%18"
+__annotate*@>
+<Microsoft.AspNetCore.Mvc.HttpGetAttribute.HttpGetAttribute()*
+
+userIdstring˚
+¯
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csµ	 µ(
+%19"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*
+
+userIdstring¨
+©
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∂6 ∂(C
+userIdstring"__annotation*
+
+%18*
+
+%19·
+ﬁ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs¥	 ¥(
+%20"
+__annotate*@>
+<Microsoft.AspNetCore.Mvc.HttpGetAttribute.HttpGetAttribute()*
+
+codestring˘
+ˆ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csµ	 µ(
+%21"
+__annotate*XV
+TMicrosoft.AspNetCore.Authorization.AllowAnonymousAttribute.AllowAnonymousAttribute()*
+
+codestring™
+ß
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs∂E ∂(P
+codestring"__annotation*
+
+%20*
+
+%21*
+0:
+userIdstring:
+codestringB20
+.IndieVisible.Web.Controllers.AccountController

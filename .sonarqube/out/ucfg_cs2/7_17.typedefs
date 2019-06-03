@@ -1,0 +1,5 @@
+¯
+CIndieVisible.Web.Areas.Gamification.Controllers.UserBadgeController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectã
+MUserBadgeController(IndieVisible.Application.Interfaces.IUserBadgeAppService)‘IndieVisible.Web.Areas.Gamification.Controllers.UserBadgeController.UserBadgeController(IndieVisible.Application.Interfaces.IUserBadgeAppService)V
+Index()KIndieVisible.Web.Areas.Gamification.Controllers.UserBadgeController.Index()j
+List(System.Guid)UIndieVisible.Web.Areas.Gamification.Controllers.UserBadgeController.List(System.Guid)

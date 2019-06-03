@@ -1,0 +1,34 @@
+
+bIndieVisible.Domain.Services.GameFollowDomainService.Update(IndieVisible.Domain.Models.GameFollow)y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs: :("0*”
+0‚
+ﬂ
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs< <(%E
+%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository"__id*î*ë6
+4IndieVisible.Domain.Services.GameFollowDomainService"W
+gameFollowRepository?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository‡›
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs< <(3
+
+%1void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*G
+E
+%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository*0
+.
+model%IndieVisible.Domain.Models.GameFollow2Update(TEntity)Ú
+Ô
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs> >(
+%2System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*0
+.
+model%IndieVisible.Domain.Models.GameFollow"ê
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs> >(
+
+%2System.Guid*ñ
+1"ê
+y
+oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs? ?(	
+implicit return:.
+model%IndieVisible.Domain.Models.GameFollowB86
+4IndieVisible.Domain.Services.GameFollowDomainService

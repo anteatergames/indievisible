@@ -1,0 +1,7 @@
+É	
+BIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentControllerAIndieVisible.Web.Areas.Staff.Controllers.Base.StaffBaseController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectÛ
+ïFeaturedContentController(IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IFeaturedContentAppService)ÿIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController.FeaturedContentController(IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IFeaturedContentAppService)U
+Index()JIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController.Index()S
+List()IIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController.List()á
+ Add(System.Guid, string, string)cIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController.Add(System.Guid, string, string)ç
+#Remove(System.Guid, string, string)fIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController.Remove(System.Guid, string, string)

@@ -1,0 +1,232 @@
+
+êIndieVisible.Web.Controllers.ManageController.SetPassword(IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel)t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÕ) Õ(4"8*¬
+0†
+ù
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csœ œ(@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary"6Microsoft.AspNetCore.Mvc.ControllerBase.ModelState.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseë
+é
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csœ œ(#
+
+%1bool"FMicrosoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid.get*B
+@
+%0:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary*
+1
+2*õ
+1ÔÏ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs— —(")
+%2#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*`
+^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel2View(object)"£
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs— —(#+
+)
+%2#Microsoft.AspNetCore.Mvc.ViewResult*“
+2Æ
+´
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs‘) ‘(56
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ü
+É
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs‘C ‘(G,
+%4&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase¨©
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs‘) ‘(H*
+%5$System.Threading.Tasks.Task<TResult>"eMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserAsync(System.Security.Claims.ClaimsPrincipal)*8
+6
+%30Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%4&System.Security.Claims.ClaimsPrincipal24GetUserAsync(System.Security.Claims.ClaimsPrincipal)–
+Õ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs‘ ‘(HG
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""à
+Ö
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs’ ’(
+
+%6bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+3
+4*ﬂ
+3Æ
+´
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs◊O ◊([6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ü
+É
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs◊f ◊(j,
+%8&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseàÖ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs◊O ◊(k
+%9string"bMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserId(System.Security.Claims.ClaimsPrincipal)*8
+6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>*.
+,
+%8&System.Security.Claims.ClaimsPrincipal21GetUserId(System.Security.Claims.ClaimsPrincipal)™
+ß
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs◊/ ◊(o
+%10string"__concat*
+""*
+
+%9string´
+®
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs◊/ ◊(o
+%11string"__concat*
+
+%10string*
+""∫∑
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs◊ ◊(p"
+%12System.ApplicationException"System.ApplicationException˜
+Ù
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs◊ ◊(.
+%13void"8System.ApplicationException.ApplicationException(string)*$
+"
+%12System.ApplicationException*
+
+%11string*
+5*õ
+4Ø
+¨
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs⁄5 ⁄(A7
+%140Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
+-IndieVisible.Web.Controllers.ManageController"@
+_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>—
+Œ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs⁄Y ⁄(j
+%15string"eIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel.NewPassword.get*`
+^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel∞≠
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs⁄5 ⁄(k+
+%16$System.Threading.Tasks.Task<TResult>"PMicrosoft.AspNetCore.Identity.UserManager<TUser>.AddPasswordAsync(TUser, string)*9
+7
+%140Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+
+%15string2AddPasswordAsync(TUser, string) 
+«
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs⁄ ⁄(kA
+addPasswordResult,Microsoft.AspNetCore.Identity.IdentityResult"__id*
+""á
+Ñ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs€ €(,
+%17bool":Microsoft.AspNetCore.Identity.IdentityResult.Succeeded.get*C
+A
+addPasswordResult,Microsoft.AspNetCore.Identity.IdentityResult*
+6
+7*Ö
+6Â
+‚
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs› ›(,
+%18void"eIndieVisible.Web.Controllers.ManageController.AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)*1/
+-IndieVisible.Web.Controllers.ManageController*C
+A
+addPasswordResult,Microsoft.AspNetCore.Identity.IdentityResultÌ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csﬁ ﬁ("*
+%19#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*`
+^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel2View(object)"§
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csﬁ ﬁ(#,
+*
+%19#Microsoft.AspNetCore.Mvc.ViewResult*Á
+7µ
+≤
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs· ·( 9
+%202Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*y*w/
+-IndieVisible.Web.Controllers.ManageController"D
+_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>¨©
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs· ·(G"
+%21System.Threading.Tasks.Task"SMicrosoft.AspNetCore.Identity.SignInManager<TUser>.SignInAsync(TUser, bool, string)*;
+9
+%202Microsoft.AspNetCore.Identity.SignInManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+""2 SignInAsync(TUser, bool, string)Ç
+ˇ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs‚ ‚(9
+%22void"?IndieVisible.Web.Controllers.ManageController.StatusMessage.set*1/
+-IndieVisible.Web.Controllers.ManageController*
+""¬ø
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs‰ ‰(86
+%23/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""2RedirectToAction(string)"∞
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs‰ ‰(98
+6
+%23/Microsoft.AspNetCore.Mvc.RedirectToActionResult*ë
+5"ã
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÂ Â(	
+implicit return*Å	
+8
+Ì
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÕ) Õ(4
+%24"__entrypoint*`
+^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel≤
+Ø
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÀ	 À(
+%25"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*`
+^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel“
+œ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÃ	 Ã(!
+%26"
+__annotate*b`
+^Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute.ValidateAntiForgeryTokenAttribute()*`
+^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel˘
+ˆ
+t
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÕ5 Õ(O^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModel"__annotation*
+
+%25*
+
+%26*
+0:^
+modelUIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.SetPasswordViewModelB1/
+-IndieVisible.Web.Controllers.ManageController

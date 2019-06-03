@@ -1,0 +1,209 @@
+
+õIndieVisible.Web.Controllers.AccountController.GetExternalProfilePicture(Microsoft.AspNetCore.Identity.ExternalLoginInfo, IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Application.ViewModels.User.ProfileViewModel)u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csë# ë(<"0*–
+0æ
+ã
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csí í(5
+%0string"4IndieVisible.Application.Constants.DefaultAvatar.get*&"$
+"IndieVisible.Application.Constants¤
+¡
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csí í(5
+imageUrlstring"__id*
+
+%0string¢
+Ÿ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csï ï((
+thumbnailBytesbyte[]"__id*
+""‚
+ÿ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csğ ğ("
+%1string"=Microsoft.AspNetCore.Identity.UserLoginInfo.LoginProvider.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfoÎ
+Ë
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csğ ğ(0
+
+%2bool""string.operator ==(string, string)*
+"
+string*
+
+%1string*
+""*
+1
+2*¼
+1¢
+Ÿ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csò( ò(6,
+%3&System.Security.Claims.ClaimsPrincipal"=Microsoft.AspNetCore.Identity.ExternalLoginInfo.Principal.get*9
+7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo
+‹
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csòF ò(_
+%4"__id*
+""Û
+Ø
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csò( ò(`
+%5string"iSystem.Security.Claims.PrincipalExtensions.FindFirstValue(System.Security.Claims.ClaimsPrincipal, string)*.",
+*System.Security.Claims.PrincipalExtensions*.
+,
+%3&System.Security.Claims.ClaimsPrincipal*
+
+%4ª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csò ò(`
+nameIdentifierstring"__id*
+
+%5string¶
+³
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csó& ó(g
+%6string"__concat*
+""*
+
+nameIdentifierstringª
+§
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csó& ó(g
+%7string"__concat*
+
+%6string*
+""¨
+¥
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csó ó(g
+thumbnailUrlstring"__id*
+
+%7string¸µ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csõ/ õ(? 
+%8System.Net.Http.HttpClient"System.Net.Http.HttpClientÓ
+Ğ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csõ3 õ(=
+
+%9void"'System.Net.Http.HttpClient.HttpClient()*"
+ 
+%8System.Net.Http.HttpClientÎ
+Ë
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csõ" õ(?(
+
+httpClientSystem.Net.Http.HttpClient"__id*"
+ 
+%8System.Net.Http.HttpClient*
+3*œ
+3•’
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs÷& ÷(-
+%10string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2Id.get¬
+©
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs÷& ÷(3
+%11string"__concat*
+
+%10string*
+""
+Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs÷6 ÷(J
+%12"__id*
+""¶³
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs÷6 ÷(U
+%13string"System.Enum.ToString()*
+
+%122
+ToString()µ
+²
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs÷& ÷(U
+%14string"__concat*
+
+%11string*
+
+%13string¥
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs÷ ÷(U
+filenamestring"__id*
+
+%14string£
+ 
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csø+ ø(U+
+%15$System.Threading.Tasks.Task<TResult>"4System.Net.Http.HttpClient.GetByteArrayAsync(string)**
+(
+
+httpClientSystem.Net.Http.HttpClient*
+
+thumbnailUrlstring¢
+Ÿ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csø ø(U
+thumbnailBytesbyte[]"__id*
+""•’
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csú9 ú(@
+%16string"7Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id.get*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2Id.get›˜
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csú0 ú(A
+%17System.Guid"System.GuidÈ
+Å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csú4 ú(8
+%18void"System.Guid.Guid(string)*
+
+%17System.Guid*
+
+%16string
+Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csúC ú(X
+%19"__id*
+""™
+–
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csú ú(s
+%20string"ˆIndieVisible.Web.Controllers.Base.SecureBaseController.UploadImage(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string, byte[])*20
+.IndieVisible.Web.Controllers.AccountController*
+
+%17System.Guid*
+
+%19*
+
+filenamestring*
+
+thumbnailBytesbyte[]¥
+¢
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csú ú(s
+imageUrlstring"__id*
+
+%20string*
+2*“
+2"
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csş ş(
+
+imageUrlstring*’
+4"Œ
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.csÿ ÿ(	
+implicit return:7
+info/Microsoft.AspNetCore.Identity.ExternalLoginInfo:G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser:D
+profile9IndieVisible.Application.ViewModels.User.ProfileViewModelB20
+.IndieVisible.Web.Controllers.AccountController

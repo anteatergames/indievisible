@@ -1,0 +1,282 @@
+
+IndieVisible.Web.Controllers.Base.SecureBaseController.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs' '(."11*œ
+0ÊÇ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs) )(+
+
+%0void"nMicrosoft.AspNetCore.Mvc.Controller.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController*D
+B
+context7Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext2JOnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)é
+æ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs+ +(
+%1dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.ControllerÕ
+Ò
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs+ +((
+%2dynamic"%dynamic.operator ==(dynamic, dynamic)*"
+	__unknown*
+""*
+""*
+1
+2*°
+1î
+ë
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs-" -(;
+%3string"6IndieVisible.Application.Constants.DefaultUsername.get*&"$
+"IndieVisible.Application.Constantsª
+§
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs- -(;
+usernamestring"__id*
+
+%3string
+Š
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs/ /(,
+%4&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseô
+ñ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs/ /( 
+
+%5bool""object.operator !=(object, object)*
+"
+object*.
+,
+%4&System.Security.Claims.ClaimsPrincipal*
+""*
+3
+2*Æ
+3
+Š
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs/$ /((,
+%6&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBasež›
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs/$ /(1)
+%7#System.Security.Principal.IIdentity"3System.Security.Claims.ClaimsPrincipal.Identity.get*.
+,
+%6&System.Security.Claims.ClaimsPrincipal2Identity.get‡„
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs/$ /(A
+
+%8bool"7System.Security.Principal.IIdentity.IsAuthenticated.get*+
+)
+%7#System.Security.Principal.IIdentity2IsAuthenticated.get*
+4
+2*°
+4œ
+™
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs1$ 1(-,
+%9&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController•
+’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs1= 1(V
+%10"__id*
+""ã
+à
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs1$ 1(W
+%11string"iSystem.Security.Claims.PrincipalExtensions.FindFirstValue(System.Security.Claims.ClaimsPrincipal, string)*.",
+*System.Security.Claims.PrincipalExtensions*.
+,
+%9&System.Security.Claims.ClaimsPrincipal*
+
+%10©
+¦
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs1 1(W
+userIdstring"__id*
+
+%11string¡ž
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs2$ 2(4
+%12System.Guid"System.GuidÑ
+Î
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs2( 2(,
+%13void"System.Guid.Guid(string)*
+
+%12System.Guid*
+
+userIdstring©
+¦
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs2 2(4
+%14void"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.set*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController*
+
+%12System.Guid
+š
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs4 4((-
+%15&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController•
+’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs48 4(G
+%16"__id*
+""ä
+á
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs4 4(H
+%17string"iSystem.Security.Claims.PrincipalExtensions.FindFirstValue(System.Security.Claims.ClaimsPrincipal, string)*.",
+*System.Security.Claims.PrincipalExtensions*/
+-
+%15&System.Security.Claims.ClaimsPrincipal*
+
+%16«
+¨
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs4 4(H
+usernamestring"__id*
+
+%17string•
+’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs6= 6(S
+%18"__id*
+""¶
+³
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs6- 6(T
+%19string"fIndieVisible.Web.Controllers.Base.BaseController.GetSessionValue(IndieVisible.Web.Enums.SessionValues)*42
+0IndieVisible.Web.Controllers.Base.BaseController*
+
+%18²
+¯
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs6 6(T
+sessionUserNamestring"__id*
+
+%19stringâ
+ß
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs8 8(/
+%20bool""string.operator !=(string, string)*
+"
+string*
+
+sessionUserNamestring*
+""*
+5
+6*å
+5×
+Ô
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs84 8(T
+%21bool"string.Equals(string)*
+
+sessionUserNamestring*
+
+usernamestring*
+7
+6*õ
+7•
+’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs:( :(>
+%22"__id*
+""Ò
+Ï
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs: :(I
+%23void"nIndieVisible.Web.Controllers.Base.BaseController.SetSessionValue(IndieVisible.Web.Enums.SessionValues, string)*42
+0IndieVisible.Web.Controllers.Base.BaseController*
+
+%22*
+
+usernamestring*
+6*Ï
+6ê
+ç
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs= =(
+%27dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.Controller«
+¨
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs=' =(/
+%25string"__id*
+
+usernamestring¦
+£
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs=' =(/
+%24string"__id*
+
+%25string*
+8
+9*Ì
+8ï
+ì
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs=3 =(L
+%28string"6IndieVisible.Application.Constants.DefaultUsername.get*&"$
+"IndieVisible.Application.Constants¦
+£
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs=3 =(L
+%26string"__id*
+
+%28string¦
+£
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs=3 =(L
+%24string"__id*
+
+%26string*
+9*¼
+9ê
+ç
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs> >(
+%29dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.Controllerš
+—
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs>E >(R
+%30System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController§
+¤
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs>+ >(S
+%31string"JIndieVisible.Application.Formatters.UrlFormatter.ProfileImage(System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%30System.Guid*
+2*ƒ
+2ê
+ç
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csB B(
+%32dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.ControllerŠ
+‡
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csB B(/
+%33string"=IndieVisible.Web.Controllers.Base.BaseController.GetBaseUrl()*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController*
+10*™
+10"’
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csC C(	
+implicit return*ç
+11Û
+Ø
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs' '(.
+%34"__entrypoint*D
+B
+context7Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext*
+0:B
+context7Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContextB:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController

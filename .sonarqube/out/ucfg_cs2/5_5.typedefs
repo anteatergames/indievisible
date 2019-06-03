@@ -1,0 +1,7 @@
+ë
+0IndieVisible.Application.Services.BaseAppServiceobject]
+GetMediaType(string)EIndieVisible.Application.Services.BaseAppService.GetMediaType(string)G
+	Dispose():IndieVisible.Application.Services.BaseAppService.Dispose()U
+BaseAppService()AIndieVisible.Application.Services.BaseAppService.BaseAppService()W
+CurrentUserId.getBIndieVisible.Application.Services.BaseAppService.CurrentUserId.getW
+CurrentUserId.setBIndieVisible.Application.Services.BaseAppService.CurrentUserId.set

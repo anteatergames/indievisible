@@ -1,0 +1,25 @@
+
+GIndieVisible.Domain.Services.UserBadgeDomainService.Remove(System.Guid)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs/ /("0*¥
+0›
+⁄
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs1 1($D
+%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository"__id*ë*é5
+3IndieVisible.Domain.Services.UserBadgeDomainService"U
+userBadgeRepository>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository…∆
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs1 1(/
+
+%1void"LIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Remove(System.Guid)*F
+D
+%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository*
+
+idSystem.Guid2Remove(System.Guid)*
+1*ï
+1"è
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs2 2(	
+implicit return:
+idSystem.GuidB75
+3IndieVisible.Domain.Services.UserBadgeDomainService

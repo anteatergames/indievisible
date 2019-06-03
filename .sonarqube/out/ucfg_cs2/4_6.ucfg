@@ -1,0 +1,19 @@
+
+ÅIndieVisible.Infra.Data.Repository.UserFollowRepository.UserFollowRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserFollowRepository.cs	 	(#"0*é
+0É
+Ä
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserFollowRepository.cs	A 	(P
+
+%0void"vIndieVisible.Infra.Data.Repository.Repository<TEntity>.Repository(IndieVisible.Infra.Data.Context.IndieVisibleContext)*:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>*@
+>
+context3IndieVisible.Infra.Data.Context.IndieVisibleContext*
+1*ô
+1"ì
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserFollowRepository.cs (	
+implicit return:>
+context3IndieVisible.Infra.Data.Context.IndieVisibleContextB;9
+7IndieVisible.Infra.Data.Repository.UserFollowRepository

@@ -1,0 +1,42 @@
+
+|IndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Get(System.Linq.Expressions.Expression<System.Func<T, bool>>)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs, ,(!"0*È
+
+0˜
+Ù
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs. .(%
+%0TRepository"__id*_*]@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
+
+repositoryTRepository∞≠
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs. .(0
+%1System.Linq.IQueryable<T>"|IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Get(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*
+
+%0TRepository*8
+6
+where-System.Linq.Expressions.Expression<TDelegate>2CGet(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)…
+∆
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs. .(0!
+objsSystem.Linq.IQueryable<T>"__id*!
+
+%1System.Linq.IQueryable<T>¡
+æ
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs0 0( (
+%2"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*#
+!
+objsSystem.Linq.IQueryable<T>"¶
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs0 0(!*
+(
+%2"System.Collections.Generic.List<T>*ï
+1"è
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs1 1(	
+implicit return:6
+where-System.Linq.Expressions.Expression<TDelegate>BB@
+>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

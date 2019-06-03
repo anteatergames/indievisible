@@ -1,0 +1,19 @@
+
+IndieVisible.Infra.Data.Repository.UserBadgeRepository.UserBadgeRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs (""0*ç
+0Ç
+ˇ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs@ (O
+
+%0void"vIndieVisible.Infra.Data.Repository.Repository<TEntity>.Repository(IndieVisible.Infra.Data.Context.IndieVisibleContext)*:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>*@
+>
+context3IndieVisible.Infra.Data.Context.IndieVisibleContext*
+1*ò
+1"í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserBadgeRepository.cs (	
+implicit return:>
+context3IndieVisible.Infra.Data.Context.IndieVisibleContextB:8
+6IndieVisible.Infra.Data.Repository.UserBadgeRepository

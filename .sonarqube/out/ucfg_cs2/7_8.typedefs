@@ -1,0 +1,4 @@
+ñ
++IndieVisible.Web.Middlewares.ETagMiddlewareobject¢
+9ETagMiddleware(Microsoft.AspNetCore.Http.RequestDelegate)eIndieVisible.Web.Middlewares.ETagMiddleware.ETagMiddleware(Microsoft.AspNetCore.Http.RequestDelegate)”
+2InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)^IndieVisible.Web.Middlewares.ETagMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)

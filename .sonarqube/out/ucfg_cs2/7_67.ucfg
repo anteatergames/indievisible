@@ -1,0 +1,95 @@
+
+∂IndieVisible.Web.ViewComponents.LatestGamesViewComponent.LatestGamesViewComponent(IndieVisible.Application.Interfaces.IGameAppService, Microsoft.AspNetCore.Http.IHttpContextAccessor)}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs ('"0*—
+0ÿ
+’
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (,Ñ:
+8IndieVisible.Web.ViewComponents.LatestGamesViewComponent"F
+_gameAppService3IndieVisible.Application.Interfaces.IGameAppService"__id*G
+E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceÿ
+’
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (6Ñ:
+8IndieVisible.Web.ViewComponents.LatestGamesViewComponent"F
+_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*G
+E
+httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor»
+≈
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (,4
+%0.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*á*Ñ:
+8IndieVisible.Web.ViewComponents.LatestGamesViewComponent"F
+_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor∏µ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (8+
+%1%Microsoft.AspNetCore.Http.HttpContext">Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext.get*6
+4
+%0.Microsoft.AspNetCore.Http.IHttpContextAccessor2HttpContext.getè
+å
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (=,
+%2&System.Security.Claims.ClaimsPrincipal".Microsoft.AspNetCore.Http.HttpContext.User.get*-
++
+%1%Microsoft.AspNetCore.Http.HttpContextñ
+ì
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.csM (f
+%3"__id*
+""„
+‡
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (g
+%4string"iSystem.Security.Claims.PrincipalExtensions.FindFirstValue(System.Security.Claims.ClaimsPrincipal, string)*.",
+*System.Security.Claims.PrincipalExtensions*.
+,
+%2&System.Security.Claims.ClaimsPrincipal*
+
+%3¶
+£
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (g
+idstring"__id*
+
+%4stringÕ
+ 
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (.
+
+%5bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+idstring*
+1
+2*¶
+1¢ü
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (%
+%6System.Guid"System.GuidÕ
+ 
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (!
+
+%7void"System.Guid.Guid(string)*
+
+%6System.Guid*
+
+idstring¶
+£
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs (%
+
+%8void"CIndieVisible.Web.ViewComponents.LatestGamesViewComponent.UserId.set*<:
+8IndieVisible.Web.ViewComponents.LatestGamesViewComponent*
+
+%6System.Guid*
+2*ö
+2"î
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\LatestGamesViewComponent.cs   (	
+implicit return:E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppService:E
+httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessorB<:
+8IndieVisible.Web.ViewComponents.LatestGamesViewComponent

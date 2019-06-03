@@ -1,0 +1,249 @@
+
+LIndieVisible.Application.Services.UserContentAppService.GetById(System.Guid)|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csT7 T(>"0*
+0*	
+1
+2
+3*´
+2à
+Ý
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csZ$ Z(.F
+%0@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository"__id*Ž*‹9
+7IndieVisible.Application.Services.UserContentAppService"N
+
+repository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepositoryóð
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csZ$ Z(:,
+%1&IndieVisible.Domain.Models.UserContent"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*H
+F
+%0@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository*
+
+idSystem.Guid2GetById(System.Guid)è
+å
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csZ Z(:/
+model&IndieVisible.Domain.Models.UserContent"__id*.
+,
+%1&IndieVisible.Domain.Models.UserContentþ
+û
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs\* \(0
+%2AutoMapper.IMapper"__id*[*Y9
+7IndieVisible.Application.Services.UserContentAppService"
+mapperAutoMapper.IMapperáÞ
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs\* \(QF
+%3@IndieVisible.Application.ViewModels.Content.UserContentViewModel",AutoMapper.IMapper.Map<TDestination>(object)*
+
+%2AutoMapper.IMapper*1
+/
+model&IndieVisible.Domain.Models.UserContent2Map<TDestination>(object)™
+–
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs\% \(QF
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel"__id*H
+F
+%3@IndieVisible.Application.ViewModels.Content.UserContentViewModel§
+¤
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs_1 _(;
+%4string"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel±
+®
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs_ _(<
+%5string"SIndieVisible.Application.Services.UserContentAppService.FormatContentToShow(string)*;9
+7IndieVisible.Application.Services.UserContentAppService*
+
+%4stringµ
+²
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs_ _(<
+
+%6void"LIndieVisible.Application.ViewModels.Content.UserContentViewModel.Content.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%5string•
+’
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csa% a(9
+%7"__id*
+""³
+°
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csa a(9
+
+%8void"RIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.UserContentType.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%7­
+ª
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cscA c(Q
+%9string"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedImage.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelÍ
+Ê
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csc' c(R
+%10bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%9string*
+4
+5*ÿ
+4®
+«
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cscW c(g
+%11string"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedImage.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelö
+ó
+}
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cscq c(
+%12string";IndieVisible.Application.Constants.DefaultFeaturedImage.get*&"$
+"IndieVisible.Application.ConstantsÊ
+Ç
+}
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cscW c(
+%13bool"string.Contains(string)*
+
+%11string*
+
+%12string*
+5*
+5¸
+µ
+}
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csc c(
+%14void"UIndieVisible.Application.ViewModels.Content.UserContentViewModel.HasFeaturedImage.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+""®
+«
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cse4 e(D
+%15string"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedImage.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelÀ
+½
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cse' e(E/
+%16(IndieVisible.Domain.Core.Enums.MediaType"EIndieVisible.Application.Services.BaseAppService.GetMediaType(string)*42
+0IndieVisible.Application.Services.BaseAppService*
+
+%15stringã
+à
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cse e(E
+%17void"VIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedMediaType.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*1
+/
+%16(IndieVisible.Domain.Core.Enums.MediaTypeÔ
+Ñ
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csg g((/
+%18(IndieVisible.Domain.Core.Enums.MediaType"VIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedMediaType.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel–
+“
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csg, g(=
+%19"__id*
+""*
+6
+7*ï	
+6
+š
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csi8 i(A
+%20System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel®
+«
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csiC i(S
+%21string"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedImage.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelÓ
+Ð
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csi' i(T
+%22string"]IndieVisible.Application.Services.UserContentAppService.SetFeaturedImage(System.Guid, string)*;"9
+7IndieVisible.Application.Services.UserContentAppService*
+
+%20System.Guid*
+
+%21string½
+º
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csi i(T
+%23void"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedImage.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%22string*
+7*ù
+7öó
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csm m(H<
+%245IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>ä
+á
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csm m(D
+%25void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%245IndieVisible.Domain.ValueObjects.OperationResultVo<T>*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelˆ
+…
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csm m(H?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%245IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
+1
+8
+3*—
+1ÕÒ
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csqE q(O
+%26string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getöó
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csq q(P<
+%275IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>°
+­
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csq q(D
+%28void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
+<
+%275IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%26stringˆ
+…
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csq q(P?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%275IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+8*Ç
+8"Á
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cst t(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*™
+3"“
+|
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csu u(	
+implicit return:
+idSystem.GuidB;9
+7IndieVisible.Application.Services.UserContentAppService

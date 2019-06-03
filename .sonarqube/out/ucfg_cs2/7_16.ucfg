@@ -1,0 +1,50 @@
+
+FIndieVisible.Web.Areas.Member.Controllers.PreferencesController.Edit()„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs (!"2*Î
+0î
+ë
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs* (5D
+%0>IndieVisible.Application.Interfaces.IUserPreferencesAppService"__id*•*’A
+?IndieVisible.Web.Areas.Member.Controllers.PreferencesController"M
+_appService>IndieVisible.Application.Interfaces.IUserPreferencesAppService£
+ 
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.csB (O
+%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController®«
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs* (PR
+%2LIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel"WIndieVisible.Application.Interfaces.IUserPreferencesAppService.GetByUserId(System.Guid)*F
+D
+%0>IndieVisible.Application.Interfaces.IUserPreferencesAppService*
+
+%1System.Guid2GetByUserId(System.Guid)º
+·
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs% (PR
+vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel"__id*T
+R
+%2LIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelŒ‰
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs ())
+%3#Microsoft.AspNetCore.Mvc.ViewResult"8Microsoft.AspNetCore.Mvc.Controller.View(string, object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+""*T
+R
+vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel2View(string, object)"´
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs (*+
+)
+%3#Microsoft.AspNetCore.Mvc.ViewResult*¢
+1"œ
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs   (	
+implicit return*©
+2ž
+›
+„
+zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs (!
+%4"__entrypoint*
+0BCA
+?IndieVisible.Web.Areas.Member.Controllers.PreferencesController

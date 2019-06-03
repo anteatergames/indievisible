@@ -1,0 +1,8 @@
+î
+8IndieVisible.Web.ViewComponents.UserContentViewComponent&Microsoft.AspNetCore.Mvc.ViewComponentobjectÇ
+ÄUserContentViewComponent(Microsoft.AspNetCore.Http.IHttpContextAccessor, IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IUserPreferencesAppService)ýIndieVisible.Web.ViewComponents.UserContentViewComponent.UserContentViewComponent(Microsoft.AspNetCore.Http.IHttpContextAccessor, IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IUserPreferencesAppService)‘
+*InvokeAsync(int, System.Guid, System.Guid)cIndieVisible.Web.ViewComponents.UserContentViewComponent.InvokeAsync(int, System.Guid, System.Guid)Q
+
+UserId.getCIndieVisible.Web.ViewComponents.UserContentViewComponent.UserId.getQ
+
+UserId.setCIndieVisible.Web.ViewComponents.UserContentViewComponent.UserId.set

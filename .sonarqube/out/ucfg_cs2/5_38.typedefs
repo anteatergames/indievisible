@@ -1,0 +1,10 @@
+Ò
+
+2IndieVisible.Application.Services.FollowAppService0IndieVisible.Application.Services.BaseAppServiceobjectç
+×FollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService, IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService)ŠIndieVisible.Application.Services.FollowAppService.FollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService, IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService)
+$GameFollow(System.Guid, System.Guid)WIndieVisible.Application.Services.FollowAppService.GameFollow(System.Guid, System.Guid)ƒ
+&GameUnfollow(System.Guid, System.Guid)YIndieVisible.Application.Services.FollowAppService.GameUnfollow(System.Guid, System.Guid)q
+RemoveGameFollow(System.Guid)PIndieVisible.Application.Services.FollowAppService.RemoveGameFollow(System.Guid)
+$UserFollow(System.Guid, System.Guid)WIndieVisible.Application.Services.FollowAppService.UserFollow(System.Guid, System.Guid)ƒ
+&UserUnfollow(System.Guid, System.Guid)YIndieVisible.Application.Services.FollowAppService.UserUnfollow(System.Guid, System.Guid)w
+ RemoveProfileFollow(System.Guid)SIndieVisible.Application.Services.FollowAppService.RemoveProfileFollow(System.Guid)

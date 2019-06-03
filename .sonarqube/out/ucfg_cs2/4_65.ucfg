@@ -1,0 +1,18 @@
+
+lIndieVisible.Infra.Data.Migrations.userconet.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181124230911_userconet.cs  ($"0*Ã
+0¸µ
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181124230911_userconet.cs (%_
+%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""2DropTable(string, string)*
+1*ž
+1"˜
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181124230911_userconet.cs (	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB0.
+,IndieVisible.Infra.Data.Migrations.userconet

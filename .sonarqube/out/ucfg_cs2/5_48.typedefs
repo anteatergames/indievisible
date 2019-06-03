@@ -1,0 +1,13 @@
+ƒ
+:IndieVisible.Application.Services.UserConnectionAppService0IndieVisible.Application.Services.BaseAppServiceobjectÖ
+¢UserConnectionAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService)›IndieVisible.Application.Services.UserConnectionAppService.UserConnectionAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService)M
+Count()BIndieVisible.Application.Services.UserConnectionAppService.Count()O
+GetAll()CIndieVisible.Application.Services.UserConnectionAppService.GetAll()g
+GetById(System.Guid)OIndieVisible.Application.Services.UserConnectionAppService.GetById(System.Guid)e
+Remove(System.Guid)NIndieVisible.Application.Services.UserConnectionAppService.Remove(System.Guid)Ã
+FSave(IndieVisible.Application.ViewModels.User.UserConnectionViewModel)ÅIndieVisible.Application.Services.UserConnectionAppService.Save(IndieVisible.Application.ViewModels.User.UserConnectionViewModel){
+GetByTargetUserId(System.Guid)YIndieVisible.Application.Services.UserConnectionAppService.GetByTargetUserId(System.Guid)Å
+!Connect(System.Guid, System.Guid)\IndieVisible.Application.Services.UserConnectionAppService.Connect(System.Guid, System.Guid)á
+$Disconnect(System.Guid, System.Guid)_IndieVisible.Application.Services.UserConnectionAppService.Disconnect(System.Guid, System.Guid)}
+Allow(System.Guid, System.Guid)ZIndieVisible.Application.Services.UserConnectionAppService.Allow(System.Guid, System.Guid){
+Deny(System.Guid, System.Guid)YIndieVisible.Application.Services.UserConnectionAppService.Deny(System.Guid, System.Guid)

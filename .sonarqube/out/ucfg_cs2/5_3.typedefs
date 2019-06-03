@@ -1,0 +1,4 @@
+Ú
+LIndieVisible.Application.AutoMapper.Resolvers.GamePlatformFromDomainResolverobjectí
+ÍResolve(IndieVisible.Domain.Models.Game, IndieVisible.Application.ViewModels.Game.GameViewModel, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.GamePlatforms>, AutoMapper.ResolutionContext)šIndieVisible.Application.AutoMapper.Resolvers.GamePlatformFromDomainResolver.Resolve(IndieVisible.Domain.Models.Game, IndieVisible.Application.ViewModels.Game.GameViewModel, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.GamePlatforms>, AutoMapper.ResolutionContext)‘
+ GamePlatformFromDomainResolver()mIndieVisible.Application.AutoMapper.Resolvers.GamePlatformFromDomainResolver.GamePlatformFromDomainResolver()

@@ -1,0 +1,28 @@
+
+yIndieVisible.Infra.Data.Migrations.removedurlfromfeatured.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)Ž
+ƒC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181209155617_removedurlfromfeatured.cs  ($"0*¸
+0­ª
+Ž
+ƒC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181209155617_removedurlfromfeatured.cs (_
+%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"žMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.AddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""*
+""2dAddColumn<T>(string, string, string, bool?, int?, bool, string, bool, object, string, string, bool?)*
+1*¬
+1"¦
+Ž
+ƒC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20181209155617_removedurlfromfeatured.cs (	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB=;
+9IndieVisible.Infra.Data.Migrations.removedurlfromfeatured

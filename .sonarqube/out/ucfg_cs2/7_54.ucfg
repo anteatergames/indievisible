@@ -1,0 +1,26 @@
+
+ﬂIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalUrlMiddlewareExtensions.UseCanonicalUrlMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder, IndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptions)ç
+ÇC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalMiddlewareExtensions.cs* (C"0*Ç
+0Ø
+¨
+ç
+ÇC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalMiddlewareExtensions.cs	 	(I6
+%00Microsoft.AspNetCore.Builder.IApplicationBuilder"íMicrosoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware<TMiddleware>(Microsoft.AspNetCore.Builder.IApplicationBuilder, params object[])*8"6
+4Microsoft.AspNetCore.Builder.UseMiddlewareExtensions*=
+;
+builder0Microsoft.AspNetCore.Builder.IApplicationBuilder*T
+R
+optionsGIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptions" 
+ç
+ÇC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalMiddlewareExtensions.cs	 	(J8
+6
+%00Microsoft.AspNetCore.Builder.IApplicationBuilder*´
+1"•
+ç
+ÇC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\CanonicalUrl\CanonicalMiddlewareExtensions.cs
+ 
+(	
+implicit return:;
+builder0Microsoft.AspNetCore.Builder.IApplicationBuilder:R
+optionsGIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalURLMiddlewareOptionsBN"L
+JIndieVisible.Web.Middlewares.CanonicalUrl.CanonicalUrlMiddlewareExtensions

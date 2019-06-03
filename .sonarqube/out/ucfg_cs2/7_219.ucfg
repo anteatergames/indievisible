@@ -1,0 +1,217 @@
+
+ÊIndieVisible.Web.Extensions.ViewModelExtensions.NotificationViewModelExtensions.DefineVisuals(System.Collections.Generic.List<IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel>)•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (("0*
+0*
+1*
+1*
+2
+3*«
+2ý
+ú
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (!5
+%0/IndieVisible.Domain.Core.Enums.NotificationType"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Type.get*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*&
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14*È
+14Ú
+×
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs< <(7
+
+%1void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""ß
+Ü
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs= =(5
+
+%2void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*È
+13Ú
+×
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs8 8(5
+
+%3void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""ß
+Ü
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs9 9(5
+
+%4void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*È
+12Ú
+×
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs4 4(7
+
+%5void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""ß
+Ü
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs5 5(5
+
+%6void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*È
+11Ú
+×
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs0 0(7
+
+%7void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""ß
+Ü
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs1 1(5
+
+%8void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*É
+10Ú
+×
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs, ,(7
+
+%9void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""à
+Ý
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs- -(5
+%10void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*É
+9Û
+Ø
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs( ((0
+%11void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""à
+Ý
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs) )(6
+%12void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*É
+8Û
+Ø
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs$ $(0
+%13void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""à
+Ý
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs% %(4
+%14void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*É
+7Û
+Ø
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs   (6
+%15void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""à
+Ý
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs! !(6
+%16void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*É
+6Û
+Ø
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (4
+%17void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""à
+Ý
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (5
+%18void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*É
+5Û
+Ø
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (2
+%19void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""à
+Ý
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (3
+%20void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*É
+4Û
+Ø
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (2
+%21void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""à
+Ý
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.cs (3
+%22void"XIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.set*T
+R
+itemJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
+""*
+1*³
+3"­
+•
+ŠC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\ViewModelExtensions\NotificationViewModelExtensions.csA A(	
+implicit return:(
+vm"System.Collections.Generic.List<T>BS"Q
+OIndieVisible.Web.Extensions.ViewModelExtensions.NotificationViewModelExtensions

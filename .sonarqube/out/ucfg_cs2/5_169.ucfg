@@ -1,0 +1,834 @@
+
+∆IndieVisible.Application.Services.UserContentAppService.GetActivityFeed(System.Guid, int, System.Guid, System.Guid, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.SupportedLanguage>)~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs‹9 ‹(H"0*Ñ	
+0‚
+ﬂ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csﬁ0 ﬁ(:F
+%0@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository"__id*é*ã9
+7IndieVisible.Application.Services.UserContentAppService"N
+
+repository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository√¿
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csﬁ0 ﬁ(C
+%1System.Linq.IQueryable<T>"IIndieVisible.Domain.Interfaces.Repository.IUserContentRepository.GetAll()*H
+F
+%0@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository2GetAll()‘
+—
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csﬁ$ ﬁ(C&
+	allModelsSystem.Linq.IQueryable<T>"__id*!
+
+%1System.Linq.IQueryable<T>Ù
+Ò
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs‡ ‡(
+
+%2bool"1System.Guid.operator !=(System.Guid, System.Guid)*"
+System.Guid*
+
+userIdSystem.Guid*
+""*
+1
+2*◊
+1≈
+¬
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs‡, ‡(6
+%3System.Guid"__id*'*%
+System.Guid"
+EmptySystem.GuidÅ
+˛
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs‡" ‡(6
+
+%4bool"1System.Guid.operator !=(System.Guid, System.Guid)*"
+System.Guid*
+
+userIdSystem.Guid*
+
+%3System.Guid*
+3
+2*€
+3˘
+ˆ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs‚ ‚(^
+%5System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*(
+&
+	allModelsSystem.Linq.IQueryable<T>*
+""‘
+—
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs‚ ‚(^&
+	allModelsSystem.Linq.IQueryable<T>"__id*!
+
+%5System.Linq.IQueryable<T>*
+2*Ç
+2Ù
+Ò
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÂ Â(
+
+%6bool"1System.Guid.operator !=(System.Guid, System.Guid)*"
+System.Guid*
+
+gameIdSystem.Guid*
+""*
+4
+5*◊
+4≈
+¬
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÂ, Â(6
+%7System.Guid"__id*'*%
+System.Guid"
+EmptySystem.GuidÅ
+˛
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÂ" Â(6
+
+%8bool"1System.Guid.operator !=(System.Guid, System.Guid)*"
+System.Guid*
+
+gameIdSystem.Guid*
+
+%7System.Guid*
+6
+5*€
+6˘
+ˆ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÁ Á(^
+%9System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*(
+&
+	allModelsSystem.Linq.IQueryable<T>*
+""‘
+—
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÁ Á(^&
+	allModelsSystem.Linq.IQueryable<T>"__id*!
+
+%9System.Linq.IQueryable<T>*
+5*â
+5˚
+¯
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÍ Í(!
+%10bool""object.operator !=(object, object)*
+"
+object*1
+/
+	languages"System.Collections.Generic.List<T>*
+""*
+7
+8*√
+7µ
+≤
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÍ% Í(4
+%11bool"TSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*1
+/
+	languages"System.Collections.Generic.List<T>*
+9
+8*›
+9˙
+˜
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÏ Ï(c 
+%12System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*(
+&
+	allModelsSystem.Linq.IQueryable<T>*
+""’
+“
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÏ Ï(c&
+	allModelsSystem.Linq.IQueryable<T>"__id*"
+ 
+%12System.Linq.IQueryable<T>*
+8*ˇ
+8ì
+ê
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÔ9 (5'
+%13 System.Linq.IOrderedQueryable<T>"óSystem.Linq.Queryable.OrderByDescending<TSource, TKey>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, TKey>>)*"
+System.Linq.Queryable*(
+&
+	allModelsSystem.Linq.IQueryable<T>*
+""Â
+‚
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÔ+ (5/
+orderedList System.Linq.IOrderedQueryable<T>"__id*)
+'
+%13 System.Linq.IOrderedQueryable<T>∆
+√
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÚ0 Ú(G 
+%14System.Linq.IQueryable<T>"ISystem.Linq.Queryable.Take<TSource>(System.Linq.IQueryable<TSource>, int)*"
+System.Linq.Queryable*1
+/
+orderedList System.Linq.IOrderedQueryable<T>*
+""’
+“
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÚ$ Ú(G&
+	finalListSystem.Linq.IQueryable<T>"__id*"
+ 
+%14System.Linq.IQueryable<T>Å
+˛
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÙn Ù(t
+%15AutoMapper.IMapper"__id*[*Y9
+7IndieVisible.Application.Services.UserContentAppService"
+mapperAutoMapper.IMapperîë
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÙn Ù(ä(
+%16!AutoMapper.IConfigurationProvider",AutoMapper.IMapper.ConfigurationProvider.get*
+
+%15AutoMapper.IMapper2ConfigurationProvider.getÇ
+ˇ
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÙ< Ù(ã 
+%17System.Linq.IQueryable<T>"ÃAutoMapper.QueryableExtensions.Extensions.ProjectTo<TDestination>(System.Linq.IQueryable, AutoMapper.IConfigurationProvider, params System.Linq.Expressions.Expression<System.Func<TDestination, object>>[])*-"+
+)AutoMapper.QueryableExtensions.Extensions*(
+&
+	finalListSystem.Linq.IQueryable<T>**
+(
+%16!AutoMapper.IConfigurationProvider*
+""»
+≈
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÙ< Ù(î)
+%18"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*"
+ 
+%17System.Linq.IQueryable<T>È
+Ê
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÙ/ Ù(î0
+
+viewModels"System.Collections.Generic.List<T>"__id*+
+)
+%18"System.Collections.Generic.List<T>*
+10*
+10*
+11
+12*ô
+11µ
+≤
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯< ¯(K
+%19string"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel–
+Õ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯" ¯(L
+%20bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%19string*
+13
+14*…
+13ò
+ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯O ¯(]
+%22"__id*
+""°
+û
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯O ¯(]
+%21string"__id*
+
+%22*
+15*ö
+14µ
+≤
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯` ¯(o
+%24string"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel©
+¶
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯` ¯(o
+%23string"__id*
+
+%24string©
+¶
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯` ¯(o
+%21string"__id*
+
+%23string*
+15*à
+15ƒ
+¡
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¯ ¯(o
+%25void"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+%21string©
+¶
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˘? ˘(J
+%26System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel™
+ß
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˘% ˘(K
+%27string"JIndieVisible.Application.Formatters.UrlFormatter.ProfileImage(System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%26System.Guid«
+ƒ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˘ ˘(K
+%28void"PIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorPicture.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+%27string∫
+∑
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˚< ˚(F
+%29string"RIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Title.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel–
+Õ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˚" ˚(G
+%30bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%29string*
+16
+17*°
+16¡
+æ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˚f ˚(w
+%31string"YIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Introduction.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel–
+Õ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˚L ˚(x
+%32bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%31string*
+17*Ì
+17ƒ
+¡
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˚ ˚(x
+%33void"VIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.IsArticle.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+""¬
+ø
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˝C ˝(U
+%34string"ZIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImage.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel–
+Õ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˝) ˝(V
+%35bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%34string*
+18
+19*ô
+18¬
+ø
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˝[ ˝(m
+%36string"ZIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImage.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel¯
+ı
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˝w ˝(ï
+%37string";IndieVisible.Application.Constants.DefaultFeaturedImage.get*&"$
+"IndieVisible.Application.ConstantsÃ
+…
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˝[ ˝(ñ
+%38bool"string.Contains(string)*
+
+%36string*
+
+%37string*
+19*Ó
+19Ã
+…
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs˝ ˝(ñ
+%39void"]IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.HasFeaturedImage.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+""¬
+ø
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csˇ; ˇ(M
+%40string"ZIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImage.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel…
+∆
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csˇ) ˇ(N/
+%41(IndieVisible.Domain.Core.Enums.MediaType"EIndieVisible.Application.Services.BaseAppService.GetMediaType(string)*;9
+7IndieVisible.Application.Services.UserContentAppService*
+
+%40string˜
+Ù
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csˇ ˇ(N
+%42void"^IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImageType.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*1
+/
+%41(IndieVisible.Domain.Core.Enums.MediaTypeË
+Â
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÅ Å(*/
+%43(IndieVisible.Domain.Core.Enums.MediaType"^IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImageType.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModelò
+ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÅ. Å(?
+%44"__id*
+""*
+20
+21*ß
+
+20©
+¶
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÉ: É(E
+%45System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel¬
+ø
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÉG É(Y
+%46string"ZIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImage.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel’
+“
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÉ) É(Z
+%47string"]IndieVisible.Application.Services.UserContentAppService.SetFeaturedImage(System.Guid, string)*;"9
+7IndieVisible.Application.Services.UserContentAppService*
+
+%45System.Guid*
+
+%46string—
+Œ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÉ É(Z
+%48void"ZIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImage.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+%47string*
+21*ª
+21Ô
+Ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÜ! Ü(/K
+%49DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*ñ*ì9
+7IndieVisible.Application.Services.UserContentAppService"V
+likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository¡æ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÜ! Ü(8 
+%50System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*M
+K
+%49DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository2GetAll()ﬁ
+€
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÜ! Ü([
+
+%51int"ÖSystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*"
+ 
+%50System.Linq.IQueryable<T>*
+"" 
+«
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csÜ Ü([
+%52void"VIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.LikeCount.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+
+%51int¯
+ı
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csà$ à(5N
+%53GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*ú*ô9
+7IndieVisible.Application.Services.UserContentAppService"\
+commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryƒ¡
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csà$ à(> 
+%54System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*P
+N
+%53GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository2GetAll()ﬁ
+€
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csà$ à(e
+
+%55int"ÖSystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*"
+ 
+%54System.Linq.IQueryable<T>*
+""Õ
+ 
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csà à(e
+%56void"YIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.CommentCount.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+
+%55int∆
+√
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csä% ä(/
+%57System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guidä
+á
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csä ä(/
+%58bool"1System.Guid.operator !=(System.Guid, System.Guid)*"
+System.Guid*
+
+currentUserIdSystem.Guid*
+
+%57System.Guid*
+22
+23*ƒ*
+22Ô
+Ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cså, å(:K
+%59DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*ñ*ì9
+7IndieVisible.Application.Services.UserContentAppService"V
+likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository¡æ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cså, å(C 
+%60System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*M
+K
+%59DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository2GetAll()ﬁ
+€
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cså, å(Å
+%61bool"ÉSystem.Linq.Queryable.Any<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*"
+ 
+%60System.Linq.IQueryable<T>*
+""”
+–
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cså å(Å
+%62void"]IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.CurrentUserLiked.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+%61bool¯
+ı
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cséE é(VN
+%63GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*ú*ô9
+7IndieVisible.Application.Services.UserContentAppService"\
+commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryƒ¡
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cséE é(_ 
+%64System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*P
+N
+%63GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository2GetAll()ı
+Ú
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cséE é(Ü 
+%65System.Linq.IQueryable<T>"ÖSystem.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*"
+ 
+%64System.Linq.IQueryable<T>*
+""Ñ
+Å
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cséE é(°'
+%66 System.Linq.IOrderedQueryable<T>"çSystem.Linq.Queryable.OrderBy<TSource, TKey>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, TKey>>)*"
+System.Linq.Queryable*"
+ 
+%65System.Linq.IQueryable<T>*
+""„
+‡
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csé: é(°,
+comments System.Linq.IOrderedQueryable<T>"__id*)
+'
+%66 System.Linq.IOrderedQueryable<T>Å
+˛
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csêy ê(
+%67AutoMapper.IMapper"__id*[*Y9
+7IndieVisible.Application.Services.UserContentAppService"
+mapperAutoMapper.IMapperîë
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csêy ê(ï(
+%68!AutoMapper.IConfigurationProvider",AutoMapper.IMapper.ConfigurationProvider.get*
+
+%67AutoMapper.IMapper2ConfigurationProvider.getà
+Ö
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csêI ê(ñ 
+%69System.Linq.IQueryable<T>"ÃAutoMapper.QueryableExtensions.Extensions.ProjectTo<TDestination>(System.Linq.IQueryable, AutoMapper.IConfigurationProvider, params System.Linq.Expressions.Expression<System.Func<TDestination, object>>[])*-"+
+)AutoMapper.QueryableExtensions.Extensions*.
+,
+comments System.Linq.IOrderedQueryable<T>**
+(
+%68!AutoMapper.IConfigurationProvider*
+""◊
+‘
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csê< ê(ñ'
+
+commentsVmSystem.Linq.IQueryable<T>"__id*"
+ 
+%69System.Linq.IQueryable<T>Œ
+À
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csí$ í(7)
+%70"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*)
+'
+
+commentsVmSystem.Linq.IQueryable<T>Ô
+Ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csí í(7
+%71void"\IndieVisible.Application.ViewModels.UserGeneratedCommentBaseViewModel<TComment>.Comments.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*+
+)
+%70"System.Collections.Generic.List<T>‡
+›
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csîD î(Q)
+%72"System.Collections.Generic.List<T>"\IndieVisible.Application.ViewModels.UserGeneratedCommentBaseViewModel<TComment>.Comments.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+24*
+24*
+25
+23*õ
+25∑
+¥
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñG ñ(Y
+%73string"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.get*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel–
+Õ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñ- ñ(Z
+%74bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%73string*
+26
+27*…
+26ò
+ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñ] ñ(k
+%76"__id*
+""°
+û
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñ] ñ(k
+%75string"__id*
+
+%76*
+28*ü
+27∏
+µ
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñn ñ(Ä
+%78string"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.get*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel™
+ß
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñn ñ(Ä
+%77string"__id*
+
+%78string™
+ß
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñn ñ(Ä
+%75string"__id*
+
+%77string*
+28*è
+28«
+ƒ
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csñ ñ(Ä
+%79void"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.set*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*
+
+%75string´
+®
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csóJ ó(X
+%80System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel™
+ß
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csó0 ó(Y
+%81string"JIndieVisible.Application.Formatters.UrlFormatter.ProfileImage(System.Guid)*4"2
+0IndieVisible.Application.Formatters.UrlFormatter*
+
+%80System.Guid…
+∆
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csó ó(Y
+%82void"PIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorPicture.set*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*
+
+%81string∫
+∑
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csòA ò(M
+%83string"PIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel.Text.get*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel–
+Õ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csò' ò(N
+%84bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%83string*
+29
+30*…
+29ò
+ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csòQ ò(u
+%86"__id*
+""°
+û
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csòQ ò(u
+%85string"__id*
+
+%86*
+31*¢
+30ª
+∏
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csòx ò(Ñ
+%88string"PIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel.Text.get*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel™
+ß
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csòx ò(Ñ
+%87string"__id*
+
+%88string™
+ß
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csòx ò(Ñ
+%85string"__id*
+
+%87string*
+31*◊
+31 
+«
+
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csò ò(Ñ
+%89void"PIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel.Text.set*T
+R
+commentGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*
+
+%85string*
+24*Æ
+23º
+π
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csú3 ú(?
+%90string"TIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Content.get*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModelµ
+≤
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csú ú(@
+%91string"SIndieVisible.Application.Services.UserContentAppService.FormatContentToShow(string)*;9
+7IndieVisible.Application.Services.UserContentAppService*
+
+%90stringÀ
+»
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csú ú(@
+%92void"TIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Content.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+%91stringò
+ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csù' ù(;
+%93"__id*
+""¡
+æ
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csù ù(;
+%94void"RIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.UserContentType.set*R
+P
+itemHIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel*
+
+%93*
+10*ª
+12"¥
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs† †(2
+0
+
+viewModels"System.Collections.Generic.List<T>*ú
+32"ï
+~
+rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs° °(	
+implicit return:
+currentUserIdSystem.Guid:
+countint:
+gameIdSystem.Guid:
+userIdSystem.Guid:/
+	languages"System.Collections.Generic.List<T>B;9
+7IndieVisible.Application.Services.UserContentAppService

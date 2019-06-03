@@ -1,0 +1,29 @@
+
+@IndieVisible.Infra.Data.Repository.Repository<TEntity>.Dispose()r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs< <("0*≤
+0±
+Æ
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs> >(9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext"__id*w*u8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"9
+Db3IndieVisible.Infra.Data.Context.IndieVisibleContext˛˚
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs> >(
+
+%1void"1Microsoft.EntityFrameworkCore.DbContext.Dispose()*;
+9
+%03IndieVisible.Infra.Data.Context.IndieVisibleContext2	Dispose()Ú
+Ô
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs? ?(%
+
+%2void""System.GC.SuppressFinalize(object)*"
+	System.GC*:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>*
+1*è
+1"â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs@ @(	
+implicit returnB:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>

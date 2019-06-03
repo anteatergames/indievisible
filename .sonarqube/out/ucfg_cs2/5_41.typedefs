@@ -1,0 +1,15 @@
+•
+0IndieVisible.Application.Services.LikeAppService0IndieVisible.Application.Services.BaseAppServiceobjectç
+ØLikeAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository)‰IndieVisible.Application.Services.LikeAppService.LikeAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository)C
+Count()8IndieVisible.Application.Services.LikeAppService.Count()E
+GetAll()9IndieVisible.Application.Services.LikeAppService.GetAll()]
+GetById(System.Guid)EIndieVisible.Application.Services.LikeAppService.GetById(System.Guid)[
+Remove(System.Guid)DIndieVisible.Application.Services.LikeAppService.Remove(System.Guid)½
+DSave(IndieVisible.Application.ViewModels.UserLike.UserLikeViewModel)uIndieVisible.Application.Services.LikeAppService.Save(IndieVisible.Application.ViewModels.UserLike.UserLikeViewModel)e
+ContentLike(System.Guid)IIndieVisible.Application.Services.LikeAppService.ContentLike(System.Guid)i
+ContentUnlike(System.Guid)KIndieVisible.Application.Services.LikeAppService.ContentUnlike(System.Guid)_
+GameLike(System.Guid)FIndieVisible.Application.Services.LikeAppService.GameLike(System.Guid)c
+GameUnlike(System.Guid)HIndieVisible.Application.Services.LikeAppService.GameUnlike(System.Guid)k
+RemoveGameLike(System.Guid)LIndieVisible.Application.Services.LikeAppService.RemoveGameLike(System.Guid)W
+CurrentUserId.getBIndieVisible.Application.Services.LikeAppService.CurrentUserId.getW
+CurrentUserId.setBIndieVisible.Application.Services.LikeAppService.CurrentUserId.set

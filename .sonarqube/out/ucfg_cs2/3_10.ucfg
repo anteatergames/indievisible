@@ -1,0 +1,151 @@
+
+yIndieVisible.Infra.CrossCutting.Identity.Migrations.initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)ê
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs	  	(""0*¡P
+0éã
+ê
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs (_
+%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"≠Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""2ÛCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)éã
+ê
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs 0(_
+%1YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"≠Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""2ÛCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)éã
+ê
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs2 E(_
+%2YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"≠Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""2ÛCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)éã
+ê
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.csG Z(_
+%3YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"≠Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""2ÛCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)éã
+ê
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs\ n(_
+%4YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"≠Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""2ÛCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)èå
+ë
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.csp Ü(_
+%5YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"≠Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""2ÛCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)êç
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.csà ö(_
+%6YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"≠Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""2ÛCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)™ß
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.csú ü(!_
+%7YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"sMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateIndex(string, string, string, string, bool, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""29CreateIndex(string, string, string, string, bool, string)™ß
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs° ¶(7_
+%8YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"sMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateIndex(string, string, string, string, bool, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""29CreateIndex(string, string, string, string, bool, string)™ß
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs® ´(!_
+%9YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"sMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateIndex(string, string, string, string, bool, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""29CreateIndex(string, string, string, string, bool, string)´®
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs≠ ∞(!`
+%10YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"sMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateIndex(string, string, string, string, bool, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""29CreateIndex(string, string, string, string, bool, string)´®
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs≤ µ(!`
+%11YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"sMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateIndex(string, string, string, string, bool, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""29CreateIndex(string, string, string, string, bool, string)´®
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs∑ ∫(*`
+%12YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"sMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateIndex(string, string, string, string, bool, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""29CreateIndex(string, string, string, string, bool, string)´®
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.csº ¡(;`
+%13YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"sMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateIndex(string, string, string, string, bool, string)*O
+M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
+""*
+""*
+""*
+""*
+""*
+""29CreateIndex(string, string, string, string, bool, string)*
+1*∞
+1"™
+í
+ÖC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Migrations\20181118015612_initial.cs¬ ¬(	
+implicit return:M
+migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB?=
+;IndieVisible.Infra.CrossCutting.Identity.Migrations.initial

@@ -1,0 +1,33 @@
+
+\IndieVisible.Application.Formatters.UrlFormatter.ProfileCoverImage(System.Guid, System.Guid)u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (."0*ä
+0Á
+‰
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs= (U
+%0string"5IndieVisible.Application.Constants.DefaultCdnPath.get*&"$
+"IndieVisible.Application.Constantsê
+ç
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (i
+%1string"-string.Format(string, object, object, object)*
+"
+string*
+""*
+
+%0string*
+
+userIdSystem.Guid*
+
+	profileIdSystem.Guid"á
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (j
+
+%1string*í
+1"å
+u
+kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (	
+implicit return:
+userIdSystem.Guid:
+	profileIdSystem.GuidB4"2
+0IndieVisible.Application.Formatters.UrlFormatter

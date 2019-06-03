@@ -1,0 +1,64 @@
+
+3IndieVisible.Web.ETagGenerator.GenerateETag(byte[])k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs? ?(*"0*À
+0é
+æ
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csA A()&
+%0 System.Security.Cryptography.MD5")System.Security.Cryptography.MD5.Create()*$""
+ System.Security.Cryptography.MD5É
+Æ
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csA A()'
+md5 System.Security.Cryptography.MD5"__id*(
+&
+%0 System.Security.Cryptography.MD5*
+1*Å
+1û
+ø
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csC C(3
+%1byte[]">System.Security.Cryptography.HashAlgorithm.ComputeHash(byte[])*)
+'
+md5 System.Security.Cryptography.MD5*
+
+databyte[]–
+“
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csC C(3
+hashbyte[]"__id*
+
+%1byte[]Ï
+Ì
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csD D(8
+%2string"$System.BitConverter.ToString(byte[])*"
+System.BitConverter*
+
+hashbyte[]•
+’
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csD D(8
+hexstring"__id*
+
+%2string¿
+¼
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csE E(+
+%3string"string.Replace(string, string)*
+
+hexstring*
+""*
+"""}
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csE E(,
+
+%3string*
+2*
+3*ˆ
+3"‚
+k
+aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.csG G(	
+implicit return:
+databyte[]B"" 
+IndieVisible.Web.ETagGenerator

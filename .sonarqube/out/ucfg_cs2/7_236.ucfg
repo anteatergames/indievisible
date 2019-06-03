@@ -1,0 +1,69 @@
+
+xIndieVisible.Web.Controllers.InteractionController.TranslateResponse(IndieVisible.Domain.ValueObjects.OperationResultVo)y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs‘ ‘(&"0*’
+0„
+
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs“ “( 
+
+%0bool""object.operator !=(object, object)*
+"
+object*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo*
+""*
+1
+2*è
+1Ž
+‹
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs“? “(O
+%1string">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.get*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVoÉ
+Æ
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs“% “(P
+
+%2bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+%1string*
+3
+2*ý	
+3·
+´
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs•# •(2;
+%35Microsoft.Extensions.Localization.IStringLocalizer<T>"DIndieVisible.Web.Controllers.Base.BaseController.SharedLocalizer.get*42
+0IndieVisible.Web.Controllers.Base.BaseControllerŽ
+‹
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs•3 •(C
+%4string">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.get*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVoÝÚ
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs•# •(D7
+%51Microsoft.Extensions.Localization.LocalizedString"CMicrosoft.Extensions.Localization.IStringLocalizer.this[string].get*=
+;
+%35Microsoft.Extensions.Localization.IStringLocalizer<T>*
+
+%4string2this[string].getÇ
+Ä
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs• •(D
+
+%6void">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.set*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo*9
+7
+%51Microsoft.Extensions.Localization.LocalizedString*
+2*–
+2"
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs— —(	
+implicit return:>
+response2IndieVisible.Domain.ValueObjects.OperationResultVoB64
+2IndieVisible.Web.Controllers.InteractionController

@@ -1,0 +1,128 @@
+
+fIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController.Remove(System.Guid, string, string)‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs4 4(#"5*
+0*	
+1
+2
+3*±
+2ñ
+î
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs:" :(*D
+%0>IndieVisible.Application.Interfaces.IFeaturedContentAppService"__id*•*’D
+BIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController"J
+_service>IndieVisible.Application.Interfaces.IFeaturedContentAppService“
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs:" :(88
+%12IndieVisible.Domain.ValueObjects.OperationResultVo"UIndieVisible.Application.Interfaces.IFeaturedContentAppService.Unfeature(System.Guid)*F
+D
+%0>IndieVisible.Application.Interfaces.IFeaturedContentAppService*
+
+idSystem.Guid2Unfeature(System.Guid)–
+“
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs: :(8E
+operationResult2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%12IndieVisible.Domain.ValueObjects.OperationResultVo*	
+1
+4
+3*¸
+1àÝ
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs>8 >(B
+%2string"System.Exception.Message.get*
+
+exSystem.Exception2Message.getûø
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs>" >(C8
+%32IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo³
+°
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs>& >(7
+
+%4void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
+8
+%32IndieVisible.Domain.ValueObjects.OperationResultVo*
+
+%2string–
+“
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs> >(CE
+operationResult2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%32IndieVisible.Domain.ValueObjects.OperationResultVo*
+4*ª
+4êç
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.csA A(()
+%5#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*G
+E
+operationResult2IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"·
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.csA A()+
+)
+%5#Microsoft.AspNetCore.Mvc.JsonResult*¥
+3"Ÿ
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.csB B(	
+implicit return*¢
+5ã
+à
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs4 4(#
+%6"__entrypoint*
+
+idSystem.Guid*
+
+titlestring*
+
+introductionstringþ
+û
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs3	 3(
+%7"
+__annotate*HF
+DMicrosoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute(string)*
+
+idSystem.Guid¶
+³
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs4$ 4(+
+idSystem.Guid"__annotation*
+
+%7ü
+ù
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs3	 3(
+%8"
+__annotate*HF
+DMicrosoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute(string)*
+
+titlestring´
+±
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs4- 4(9
+titlestring"__annotation*
+
+%8ƒ
+€
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs3	 3(
+%9"
+__annotate*HF
+DMicrosoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute(string)*
+
+introductionstring»
+¸
+‡
+}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs4; 4(N
+introductionstring"__annotation*
+
+%9*
+0:
+idSystem.Guid:
+titlestring:
+introductionstringBFD
+BIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController

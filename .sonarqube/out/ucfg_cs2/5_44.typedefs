@@ -1,0 +1,13 @@
+®
+7IndieVisible.Application.Services.UserContentAppService0IndieVisible.Application.Services.BaseAppServiceobjectœ
+¯UserContentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository, IndieVisible.Domain.Interfaces.Service.IGamificationDomainService, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService)çIndieVisible.Application.Services.UserContentAppService.UserContentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository, IndieVisible.Domain.Interfaces.Service.IGamificationDomainService, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService)J
+Count()?IndieVisible.Application.Services.UserContentAppService.Count()L
+GetAll()@IndieVisible.Application.Services.UserContentAppService.GetAll()d
+GetById(System.Guid)LIndieVisible.Application.Services.UserContentAppService.GetById(System.Guid)b
+Remove(System.Guid)KIndieVisible.Application.Services.UserContentAppService.Remove(System.Guid)È
+FSave(IndieVisible.Application.ViewModels.Content.UserContentViewModel)~IndieVisible.Application.Services.UserContentAppService.Save(IndieVisible.Application.ViewModels.Content.UserContentViewModel)Z
+CountArticles()GIndieVisible.Application.Services.UserContentAppService.CountArticles()Ú
+ŽGetActivityFeed(System.Guid, int, System.Guid, System.Guid, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.SupportedLanguage>)ÆIndieVisible.Application.Services.UserContentAppService.GetActivityFeed(System.Guid, int, System.Guid, System.Guid, System.Collections.Generic.List<IndieVisible.Domain.Core.Enums.SupportedLanguage>)r
+FormatContentToShow(string)SIndieVisible.Application.Services.UserContentAppService.FormatContentToShow(string)^
+CurrentUserId.getIIndieVisible.Application.Services.UserContentAppService.CurrentUserId.get^
+CurrentUserId.setIIndieVisible.Application.Services.UserContentAppService.CurrentUserId.set

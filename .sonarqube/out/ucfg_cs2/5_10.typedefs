@@ -1,0 +1,17 @@
+•	
+1IndieVisible.Application.ViewModels.BaseViewModelobjectT
+BaseViewModel()AIndieVisible.Application.ViewModels.BaseViewModel.BaseViewModel()B
+Id.get8IndieVisible.Application.ViewModels.BaseViewModel.Id.getB
+Id.set8IndieVisible.Application.ViewModels.BaseViewModel.Id.setJ
+
+UserId.get<IndieVisible.Application.ViewModels.BaseViewModel.UserId.getJ
+
+UserId.set<IndieVisible.Application.ViewModels.BaseViewModel.UserId.setR
+CreateDate.get@IndieVisible.Application.ViewModels.BaseViewModel.CreateDate.getR
+CreateDate.set@IndieVisible.Application.ViewModels.BaseViewModel.CreateDate.set^
+CurrentUserLiked.getFIndieVisible.Application.ViewModels.BaseViewModel.CurrentUserLiked.get^
+CurrentUserLiked.setFIndieVisible.Application.ViewModels.BaseViewModel.CurrentUserLiked.setf
+CurrentUserFollowing.getJIndieVisible.Application.ViewModels.BaseViewModel.CurrentUserFollowing.getf
+CurrentUserFollowing.setJIndieVisible.Application.ViewModels.BaseViewModel.CurrentUserFollowing.setT
+Permissions.getAIndieVisible.Application.ViewModels.BaseViewModel.Permissions.getT
+Permissions.setAIndieVisible.Application.ViewModels.BaseViewModel.Permissions.set

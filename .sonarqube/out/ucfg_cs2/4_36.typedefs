@@ -1,0 +1,5 @@
+Ø
+&IndieVisible.Infra.Data.UoW.UnitOfWorkobject©
+?UnitOfWork(IndieVisible.Infra.Data.Context.IndieVisibleContext)fIndieVisible.Infra.Data.UoW.UnitOfWork.UnitOfWork(IndieVisible.Infra.Data.Context.IndieVisibleContext);
+Commit()/IndieVisible.Infra.Data.UoW.UnitOfWork.Commit()=
+	Dispose()0IndieVisible.Infra.Data.UoW.UnitOfWork.Dispose()

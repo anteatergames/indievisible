@@ -1,0 +1,131 @@
+
+­IndieVisible.Infra.Data.Mappings.BrainstormIdeaConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.BrainstormIdea>)€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs ("0*©Y
+0¹¶
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs ('P
+%0JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)¬
+©
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs ($P
+%1JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"®Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasColumnName<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%0JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""¹¶
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (/P
+%2JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)±
+®
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (0P
+%3JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"³Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasDefaultValueSql<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%2JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""¹¶
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (*P
+%4JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)¬
+©
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (/P
+%5JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"®Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasColumnType<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%4JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""¤¡
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs ("P
+%6JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"\Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>.HasMaxLength(int)*R
+P
+%5JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*2€2HasMaxLength(int)¹¶
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (0P
+%7JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"£Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.Property<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2XProperty<TProperty>(System.Linq.Expressions.Expression<System.Func<TEntity, TProperty>>)¬
+©
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (0P
+%8JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"®Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions.HasColumnType<TProperty>(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>, string)*E"C
+AMicrosoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions*R
+P
+%7JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*
+""¤¡
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (#P
+%9JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>"\Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>.HasMaxLength(int)*R
+P
+%8JMicrosoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder<TProperty>*2€2HasMaxLength(int)ãà
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (*j
+%10cMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceNavigationBuilder<TEntity, TRelatedEntity>"«Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.HasOne<TRelatedEntity>(System.Linq.Expressions.Expression<System.Func<TEntity, TRelatedEntity>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2`HasOne<TRelatedEntity>(System.Linq.Expressions.Expression<System.Func<TEntity, TRelatedEntity>>)ÐÍ
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs ('u
+%11nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>"ÞMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceNavigationBuilder<TEntity, TRelatedEntity>.WithMany(System.Linq.Expressions.Expression<System.Func<TRelatedEntity, System.Collections.Generic.IEnumerable<TEntity>>>)*l
+j
+%10cMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceNavigationBuilder<TEntity, TRelatedEntity>*
+""2zWithMany(System.Linq.Expressions.Expression<System.Func<TRelatedEntity, System.Collections.Generic.IEnumerable<TEntity>>>)¢Ÿ
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (0u
+%12nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>"ÇMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>.HasForeignKey(System.Linq.Expressions.Expression<System.Func<TDependentEntity, object>>)*w
+u
+%11nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>*
+""2XHasForeignKey(System.Linq.Expressions.Expression<System.Func<TDependentEntity, object>>)·´
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs (,k
+%13dMicrosoft.EntityFrameworkCore.Metadata.Builders.CollectionNavigationBuilder<TEntity, TRelatedEntity>"ÔMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.HasMany<TRelatedEntity>(System.Linq.Expressions.Expression<System.Func<TEntity, System.Collections.Generic.IEnumerable<TRelatedEntity>>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2‰HasMany<TRelatedEntity>(System.Linq.Expressions.Expression<System.Func<TEntity, System.Collections.Generic.IEnumerable<TRelatedEntity>>>)€ý
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs  (%u
+%14nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>"¶Microsoft.EntityFrameworkCore.Metadata.Builders.CollectionNavigationBuilder<TEntity, TRelatedEntity>.WithOne(System.Linq.Expressions.Expression<System.Func<TRelatedEntity, TEntity>>)*m
+k
+%13dMicrosoft.EntityFrameworkCore.Metadata.Builders.CollectionNavigationBuilder<TEntity, TRelatedEntity>*
+""2QWithOne(System.Linq.Expressions.Expression<System.Func<TRelatedEntity, TEntity>>)¢Ÿ
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs !(-u
+%15nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>"ÇMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>.HasForeignKey(System.Linq.Expressions.Expression<System.Func<TDependentEntity, object>>)*w
+u
+%14nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>*
+""2XHasForeignKey(System.Linq.Expressions.Expression<System.Func<TDependentEntity, object>>)·´
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs# #()k
+%16dMicrosoft.EntityFrameworkCore.Metadata.Builders.CollectionNavigationBuilder<TEntity, TRelatedEntity>"ÔMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>.HasMany<TRelatedEntity>(System.Linq.Expressions.Expression<System.Func<TEntity, System.Collections.Generic.IEnumerable<TRelatedEntity>>>)*W
+U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>*
+""2‰HasMany<TRelatedEntity>(System.Linq.Expressions.Expression<System.Func<TEntity, System.Collections.Generic.IEnumerable<TRelatedEntity>>>)€ý
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs# $(%u
+%17nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>"¶Microsoft.EntityFrameworkCore.Metadata.Builders.CollectionNavigationBuilder<TEntity, TRelatedEntity>.WithOne(System.Linq.Expressions.Expression<System.Func<TRelatedEntity, TEntity>>)*m
+k
+%16dMicrosoft.EntityFrameworkCore.Metadata.Builders.CollectionNavigationBuilder<TEntity, TRelatedEntity>*
+""2QWithOne(System.Linq.Expressions.Expression<System.Func<TRelatedEntity, TEntity>>)¢Ÿ
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs# %(-u
+%18nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>"ÇMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>.HasForeignKey(System.Linq.Expressions.Expression<System.Func<TDependentEntity, object>>)*w
+u
+%17nMicrosoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder<TPrincipalEntity, TDependentEntity>*
+""2XHasForeignKey(System.Linq.Expressions.Expression<System.Func<TDependentEntity, object>>)*
+1*ž
+1"˜
+€
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Configurations\BrainstormIdeaConfig.cs& &(	
+implicit return:U
+builderJMicrosoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<TEntity>B97
+5IndieVisible.Infra.Data.Mappings.BrainstormIdeaConfig

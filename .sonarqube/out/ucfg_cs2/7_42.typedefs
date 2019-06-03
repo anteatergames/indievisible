@@ -1,0 +1,32 @@
+‹,
+.IndieVisible.Web.Controllers.AccountController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectÏ
+ÍAccountController(Microsoft.AspNetCore.Identity.UserManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, Microsoft.AspNetCore.Identity.SignInManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, Microsoft.Extensions.Logging.ILogger<IndieVisible.Web.Controllers.AccountController>, AutoMapper.IMapper)üIndieVisible.Web.Controllers.AccountController.AccountController(Microsoft.AspNetCore.Identity.UserManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, Microsoft.AspNetCore.Identity.SignInManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, Microsoft.Extensions.Logging.ILogger<IndieVisible.Web.Controllers.AccountController>, AutoMapper.IMapper)M
+Login(string)<IndieVisible.Web.Controllers.AccountController.Login(string)ò
+_Login(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginViewModel, string)ŽIndieVisible.Web.Controllers.AccountController.Login(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginViewModel, string)g
+LoginWith2fa(bool, string)IIndieVisible.Web.Controllers.AccountController.LoginWith2fa(bool, string)š
+sLoginWith2fa(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel, bool, string)¢IndieVisible.Web.Controllers.AccountController.LoginWith2fa(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWith2faViewModel, bool, string)m
+LoginWithRecoveryCode(string)LIndieVisible.Web.Controllers.AccountController.LoginWithRecoveryCode(string)²
+LoginWithRecoveryCode(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWithRecoveryCodeViewModel, string)®IndieVisible.Web.Controllers.AccountController.LoginWithRecoveryCode(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.LoginWithRecoveryCodeViewModel, string)E
+	Lockout()8IndieVisible.Web.Controllers.AccountController.Lockout()S
+Register(string)?IndieVisible.Web.Controllers.AccountController.Register(string)¯
+>Register(IndieVisible.Web.Models.MvcRegisterViewModel, string)mIndieVisible.Web.Controllers.AccountController.Register(IndieVisible.Web.Models.MvcRegisterViewModel, string)C
+Logout()7IndieVisible.Web.Controllers.AccountController.Logout()m
+ExternalLogin(string, string)LIndieVisible.Web.Controllers.AccountController.ExternalLogin(string, string)}
+%ExternalLoginCallback(string, string)TIndieVisible.Web.Controllers.AccountController.ExternalLoginCallback(string, string)Ü
+TExternalLoginConfirmation(IndieVisible.Web.Models.MvcExternalLoginViewModel, string)ƒIndieVisible.Web.Controllers.AccountController.ExternalLoginConfirmation(IndieVisible.Web.Models.MvcExternalLoginViewModel, string)k
+ConfirmEmail(string, string)KIndieVisible.Web.Controllers.AccountController.ConfirmEmail(string, string)S
+ForgotPassword()?IndieVisible.Web.Controllers.AccountController.ForgotPassword()†
+iForgotPassword(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel)˜IndieVisible.Web.Controllers.AccountController.ForgotPassword(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ForgotPasswordViewModel)k
+ForgotPasswordConfirmation()KIndieVisible.Web.Controllers.AccountController.ForgotPasswordConfirmation()]
+ResetPassword(string)DIndieVisible.Web.Controllers.AccountController.ResetPassword(string)‚
+gResetPassword(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel)–IndieVisible.Web.Controllers.AccountController.ResetPassword(IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.ResetPasswordViewModel)i
+ResetPasswordConfirmation()JIndieVisible.Web.Controllers.AccountController.ResetPasswordConfirmation()O
+AccessDenied()=IndieVisible.Web.Controllers.AccountController.AccessDenied()c
+ValidateUserName(string)GIndieVisible.Web.Controllers.AccountController.ValidateUserName(string)Ï
+NSetStaffRoles(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser)}IndieVisible.Web.Controllers.AccountController.SetStaffRoles(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser)¡
+7AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)fIndieVisible.Web.Controllers.AccountController.AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)a
+RedirectToLocal(string)FIndieVisible.Web.Controllers.AccountController.RedirectToLocal(string)u
+!SetProfileSession(string, string)PIndieVisible.Web.Controllers.AccountController.SetProfileSession(string, string)Á
+ÆGetExternalProfilePicture(Microsoft.AspNetCore.Identity.ExternalLoginInfo, IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Application.ViewModels.User.ProfileViewModel)õIndieVisible.Web.Controllers.AccountController.GetExternalProfilePicture(Microsoft.AspNetCore.Identity.ExternalLoginInfo, IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Application.ViewModels.User.ProfileViewModel)S
+ErrorMessage.get?IndieVisible.Web.Controllers.AccountController.ErrorMessage.getS
+ErrorMessage.set?IndieVisible.Web.Controllers.AccountController.ErrorMessage.set

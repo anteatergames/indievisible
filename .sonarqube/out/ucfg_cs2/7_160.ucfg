@@ -1,0 +1,854 @@
+
+\IndieVisible.Web.Middlewares.SitemapMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs6 6( "0*Ì
+0å
+â
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs8 8(+
+%0%Microsoft.AspNetCore.Http.HttpRequest"1Microsoft.AspNetCore.Http.HttpContext.Request.get*2
+0
+context%Microsoft.AspNetCore.Http.HttpContextÉ
+Ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs8 8($*
+%1$Microsoft.AspNetCore.Http.PathString".Microsoft.AspNetCore.Http.HttpRequest.Path.get*-
++
+%0%Microsoft.AspNetCore.Http.HttpRequest‰
+·
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs8 8(*
+%2string".Microsoft.AspNetCore.Http.PathString.Value.get*,
+*
+%1$Microsoft.AspNetCore.Http.PathStringå
+â
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs8B 8(d
+%3"__id*
+""‘
+—
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs8 8(e
+
+%4bool".string.Equals(string, System.StringComparison)*
+
+%2string*
+""*
+
+%3*
+1
+2*∞
+1é
+ã
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs:  :(0,
+%5&Microsoft.AspNetCore.Http.HttpResponse"2Microsoft.AspNetCore.Http.HttpContext.Response.get*2
+0
+context%Microsoft.AspNetCore.Http.HttpContextÒ
+Ó
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs:  :(5
+%6System.IO.Stream"/Microsoft.AspNetCore.Http.HttpResponse.Body.get*.
+,
+%5&Microsoft.AspNetCore.Http.HttpResponse¥
+±
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs: :(5
+streamSystem.IO.Stream"__id*
+
+%6System.IO.Streamé
+ã
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs; ;( ,
+%7&Microsoft.AspNetCore.Http.HttpResponse"2Microsoft.AspNetCore.Http.HttpContext.Response.get*2
+0
+context%Microsoft.AspNetCore.Http.HttpContextÚ
+Ô
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs; ;(1
+
+%8void"5Microsoft.AspNetCore.Http.HttpResponse.StatusCode.set*.
+,
+%7&Microsoft.AspNetCore.Http.HttpResponse*2»é
+ã
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs< <( ,
+%9&Microsoft.AspNetCore.Http.HttpResponse"2Microsoft.AspNetCore.Http.HttpContext.Response.get*2
+0
+context%Microsoft.AspNetCore.Http.HttpContextı
+Ú
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs< <(@
+%10void"6Microsoft.AspNetCore.Http.HttpResponse.ContentType.set*.
+,
+%9&Microsoft.AspNetCore.Http.HttpResponse*
+""†
+ù
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs= =(h
+sitemapContentstring"__id*
+""Ó
+Î
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs?$ ?(C!
+%11System.Reflection.Assembly"1System.Reflection.Assembly.GetExecutingAssembly()*"
+System.Reflection.AssemblyÀ
+»
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs? ?(C&
+assemblySystem.Reflection.Assembly"__id*#
+!
+%11System.Reflection.AssemblyÎË
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csA) A(<
+%12System.Type[]"%System.Reflection.Assembly.GetTypes()*(
+&
+assemblySystem.Reflection.Assembly2
+GetTypes()⁄
+◊
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csA) C(80
+%13)System.Collections.Generic.IEnumerable<T>"rSystem.Linq.Enumerable.Where<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*
+
+%12System.Type[]*
+""Ã
+…
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csA) C(A)
+%14"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*2
+0
+%13)System.Collections.Generic.IEnumerable<T>ﬁ
+€
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csA C(A1
+controllers"System.Collections.Generic.List<T>"__id*+
+)
+%14"System.Collections.Generic.List<T>*
+3*
+3*
+4
+5*í
+
+4ç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csGL G(_
+%15"__id*
+""ç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csGb G(w
+%16"__id*
+""é
+ã
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csGz G(ì
+%17"__id*
+""˝
+˙
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csG6 G(î%
+%18System.Reflection.MethodInfo[]"6System.Type.GetMethods(System.Reflection.BindingFlags)*
+
+
+controllerSystem.Type*
+""Î
+Ë
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csG6 H(c0
+%19)System.Collections.Generic.IEnumerable<T>"rSystem.Linq.Enumerable.Where<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*'
+%
+%18System.Reflection.MethodInfo[]*
+""Ë
+Â
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csG, H(c4
+methods)System.Collections.Generic.IEnumerable<T>"__id*2
+0
+%19)System.Collections.Generic.IEnumerable<T>*
+6*
+6*
+7
+3*»
+7À
+»
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csK- K(<
+%20string"%System.Reflection.MemberInfo.Name.get*
+
+
+controllerSystem.Type™
+ß
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csK- K(F
+%21string"string.ToLower()*
+
+%20string»
+≈
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csK- K(`
+%22string"string.Replace(string, string)*
+
+%21string*
+""*
+""©
+¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csK K(`
+controllerNamestring"__id*
+
+%22stringÿ
+’
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csL) L(4
+%23string"%System.Reflection.MemberInfo.Name.get*(
+&
+methodSystem.Reflection.MethodInfo™
+ß
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csL) L(>
+%24string"string.ToLower()*
+
+%23string•
+¢
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csL L(>
+
+actionNamestring"__id*
+
+%24stringê
+ç
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csN* N(3)
+%25"System.Collections.Generic.List<T>"__id*e*c0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"/
+	forbidden"System.Collections.Generic.List<T>ÌÍ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csN= N(y<
+%265System.Collections.Generic.KeyValuePair<TKey, TValue>"5System.Collections.Generic.KeyValuePair<TKey, TValue>À
+»
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csNA N(]
+%27void"PSystem.Collections.Generic.KeyValuePair<TKey, TValue>.KeyValuePair(TKey, TValue)*>
+<
+%265System.Collections.Generic.KeyValuePair<TKey, TValue>*
+
+controllerNamestring*
+
+
+actionNamestring¢
+ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csN* N(z
+%28bool".System.Collections.Generic.List<T>.Contains(T)*+
+)
+%25"System.Collections.Generic.List<T>*>
+<
+%265System.Collections.Generic.KeyValuePair<TKey, TValue>¢
+ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csN N(z
+isForbiddenbool"__id*
+
+%28bool*
+8
+9*Ó
+9ê
+ç
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csO5 O(>)
+%29"System.Collections.Generic.List<T>"__id*e*c0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"/
+	forbidden"System.Collections.Generic.List<T>ÌÍ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csOH O(}<
+%305System.Collections.Generic.KeyValuePair<TKey, TValue>"5System.Collections.Generic.KeyValuePair<TKey, TValue>ª
+∏
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csOL O(h
+%31void"PSystem.Collections.Generic.KeyValuePair<TKey, TValue>.KeyValuePair(TKey, TValue)*>
+<
+%305System.Collections.Generic.KeyValuePair<TKey, TValue>*
+
+controllerNamestring*
+""¢
+ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csO5 O(~
+%32bool".System.Collections.Generic.List<T>.Contains(T)*+
+)
+%29"System.Collections.Generic.List<T>*>
+<
+%305System.Collections.Generic.KeyValuePair<TKey, TValue>*
+8*´
+8õ
+ò
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csO O(~
+isForbiddenbool"__id*
+""*
+10
+11*Ï
+11ê
+ç
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csP5 P(>)
+%33"System.Collections.Generic.List<T>"__id*e*c0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"/
+	forbidden"System.Collections.Generic.List<T>ÌÍ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csPH P(y<
+%345System.Collections.Generic.KeyValuePair<TKey, TValue>"5System.Collections.Generic.KeyValuePair<TKey, TValue>∑
+¥
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csPL P(h
+%35void"PSystem.Collections.Generic.KeyValuePair<TKey, TValue>.KeyValuePair(TKey, TValue)*>
+<
+%345System.Collections.Generic.KeyValuePair<TKey, TValue>*
+""*
+
+
+actionNamestring¢
+ü
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csP5 P(z
+%36bool".System.Collections.Generic.List<T>.Contains(T)*+
+)
+%33"System.Collections.Generic.List<T>*>
+<
+%345System.Collections.Generic.KeyValuePair<TKey, TValue>*
+10*è
+10õ
+ò
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csP P(z
+isForbiddenbool"__id*
+""ùö
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csR& R(=0
+%37)System.Collections.Generic.IEnumerable<T>"1System.Reflection.MemberInfo.CustomAttributes.get*(
+&
+methodSystem.Reflection.MethodInfo2CustomAttributes.getœ
+Ã
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csR& R(t
+%38bool"pSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*2
+0
+%37)System.Collections.Generic.IEnumerable<T>*
+""ù
+ö
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csR R(t
+isPostbool"__id*
+
+%38boolï
+í
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csS- S(;)
+%39"System.Collections.Generic.List<T>"__id*j*h0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"4
+forbiddenAreas"System.Collections.Generic.List<T>»
+≈
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csS- S(|
+%40bool"pSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable*+
+)
+%39"System.Collections.Generic.List<T>*
+""§
+°
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csS S(|
+areaForbiddenbool"__id*
+
+%40bool£
+†
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csT T(8
+controllerForbiddenbool"__id*
+""ü
+ú
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csU U(4
+methodForbiddenbool"__id*
+""*
+12
+6*
+12*
+13
+6*
+13*
+14
+6*
+14*
+15
+6*
+15*
+16
+6*£
+16µ
+≤
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csY Y(5
+%41string"__concat*
+
+sitemapContentstring*
+""©
+¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csY Y(5
+sitemapContentstring"__id*
+
+%41stringÁ
+‰
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs[< [(h0
+%42)System.Collections.Generic.IEnumerable<T>"`System.Reflection.CustomAttributeExtensions.GetCustomAttributes<T>(System.Reflection.MemberInfo)*/"-
++System.Reflection.CustomAttributeExtensions*(
+&
+methodSystem.Reflection.MethodInfoŸ
+÷
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs[< [(y.
+%43'Microsoft.AspNetCore.Mvc.RouteAttribute"_System.Linq.Enumerable.FirstOrDefault<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*2
+0
+%42)System.Collections.Generic.IEnumerable<T>Î
+Ë
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs[+ [(y9
+routeAttribute'Microsoft.AspNetCore.Mvc.RouteAttribute"__id*0
+.
+%43'Microsoft.AspNetCore.Mvc.RouteAttribute˙
+˜
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs]  ](6
+%44bool""object.operator !=(object, object)*
+"
+object*;
+9
+routeAttribute'Microsoft.AspNetCore.Mvc.RouteAttribute*
+""*
+17
+18*≈
+17˙
+˜
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs]; ](R
+%45string"4Microsoft.AspNetCore.Mvc.RouteAttribute.Template.get*;
+9
+routeAttribute'Microsoft.AspNetCore.Mvc.RouteAttribute∑
+¥
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs]; ](`
+%46bool"string.Contains(string)*
+
+%45string*
+""*
+19
+18*¶
+19◊
+‘
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs_W _(_
+%47string"__id*H*F0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"
+_rootUrlstring≥
+∞
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs_W _(i
+%48string"string.Trim(char)*
+
+%47string*
+""˚
+¯
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs_k _(Ç
+%49string"4Microsoft.AspNetCore.Mvc.RouteAttribute.Template.get*;
+9
+routeAttribute'Microsoft.AspNetCore.Mvc.RouteAttribute¥
+±
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs_k _(å
+%50string"string.Trim(char)*
+
+%49string*
+""Â
+‚
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs_2 _(ç
+%51string"%string.Format(string, object, object)*
+"
+string*
+""*
+
+%48string*
+
+%50stringø
+º
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs_  _(ç
+%52string"__concat*
+
+sitemapContentstring*
+
+%51string™
+ß
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs_  _(ç
+sitemapContentstring"__id*
+
+%52string*
+20*Œ
+18ÿ
+’
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csc4 c(?
+%53string"%System.Reflection.MemberInfo.Name.get*(
+&
+methodSystem.Reflection.MethodInfo™
+ß
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csc4 c(I
+%54string"string.ToLower()*
+
+%53stringµ
+≤
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csc4 c(Y
+%55bool"string.Equals(string)*
+
+%54string*
+""*
+21
+22*˚
+21¨
+©
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csc\ c(h
+%59string"__id**
+string"
+Emptystringû
+õ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csc\ c(h
+%57string"__id*
+
+%59stringû
+õ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csc\ c(h
+%56string"__id*
+
+%57string*
+23*”
+22•
+¢
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csck c(u
+%58string"__id*
+
+
+actionNamestringû
+õ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csck c(u
+%56string"__id*
+
+%58string*
+23*Ö
+23•
+¢
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csc' c(u
+
+methodNamestring"__id*
+
+%56stringÃ
+…
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csd$ d(I
+%60bool"!string.IsNullOrWhiteSpace(string)*
+"
+string*
+
+
+methodNamestring*
+24
+25*≥	
+24◊
+‘
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csf[ f(c
+%61string"__id*H*F0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"
+_rootUrlstring≥
+∞
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csf[ f(m
+%62string"string.Trim(char)*
+
+%61string*
+""ø
+º
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csfo f(á
+%63string"string.Trim(char)*
+
+controllerNamestring*
+""Â
+‚
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csf6 f(à
+%64string"%string.Format(string, object, object)*
+"
+string*
+""*
+
+%62string*
+
+%63stringø
+º
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csf$ f(à
+%65string"__concat*
+
+sitemapContentstring*
+
+%64string™
+ß
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csf$ f(à
+sitemapContentstring"__id*
+
+%65string*
+20*ã
+25◊
+‘
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csj_ j(g
+%66string"__id*H*F0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"
+_rootUrlstring≥
+∞
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csj_ j(q
+%67string"string.Trim(char)*
+
+%66string*
+""ø
+º
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csjs j(ã
+%68string"string.Trim(char)*
+
+controllerNamestring*
+""º
+π
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csjç j(°
+%69string"string.Trim(char)*
+
+
+methodNamestring*
+""˛
+˚
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csj6 j(¢
+%70string"-string.Format(string, object, object, object)*
+"
+string*
+""*
+
+%67string*
+
+%68string*
+
+%69stringø
+º
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csj$ j(¢
+%71string"__concat*
+
+sitemapContentstring*
+
+%70string™
+ß
+t
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csj$ j(¢
+sitemapContentstring"__id*
+
+%71string*
+20*∫
+
+20¡
+æ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csnV n(e
+%72System.DateTime"System.DateTime.UtcNow.get*"
+System.DateTimeÀ
+»
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csnV n(|
+%73string" System.DateTime.ToString(string)*
+
+%72System.DateTime*
+""À
+»
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csn. n(}
+%74string"string.Format(string, object)*
+"
+string*
+""*
+
+%73stringæ
+ª
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csn n(}
+%75string"__concat*
+
+sitemapContentstring*
+
+%74string©
+¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csn n(}
+sitemapContentstring"__id*
+
+%75stringµ
+≤
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cso o(6
+%76string"__concat*
+
+sitemapContentstring*
+""©
+¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cso o(6
+sitemapContentstring"__id*
+
+%76string*
+6*π
+5µ
+≤
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.css s(-
+%77string"__concat*
+
+sitemapContentstring*
+""©
+¶
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.css s(-
+sitemapContentstring"__id*
+
+%77stringØ¨
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cst3 t(E
+%78System.IO.MemoryStream"System.IO.MemoryStreamÕ
+ 
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cst7 t(C
+%79void"%System.IO.MemoryStream.MemoryStream()*
+
+%78System.IO.MemoryStream«
+ƒ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cst$ t(E&
+memoryStreamSystem.IO.MemoryStream"__id*
+
+%78System.IO.MemoryStream*
+26*÷
+26Œ
+À
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csv# v(0
+%80System.Text.Encoding"System.Text.Encoding.UTF8.get*"
+System.Text.Encoding˚¯
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csv# v(I
+%81byte[]"%System.Text.Encoding.GetBytes(string)*
+
+%80System.Text.Encoding*
+
+sitemapContentstring2GetBytes(string)†
+ù
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csv v(I
+bytesbyte[]"__id*
+
+%81byte[]∞
+≠
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csw1 w(=
+
+%82int"System.Array.Length.get*
+
+bytesbyte[]ùö
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csw w(>
+%83void".System.IO.MemoryStream.Write(byte[], int, int)*(
+&
+memoryStreamSystem.IO.MemoryStream*
+
+bytesbyte[]*2 *
+
+
+%82int2Write(byte[], int, int)ç
+ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csx) x(9
+%84"__id*
+""óî
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csx x(:
+%85long"7System.IO.MemoryStream.Seek(long, System.IO.SeekOrigin)*(
+&
+memoryStreamSystem.IO.MemoryStream*2 *
+
+%842 Seek(long, System.IO.SeekOrigin)∞
+≠
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csy; y(G
+
+%86int"System.Array.Length.get*
+
+bytesbyte[]ß
+§
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csy y(H"
+%87System.Threading.Tasks.Task"3System.IO.Stream.CopyToAsync(System.IO.Stream, int)*(
+&
+memoryStreamSystem.IO.MemoryStream*
+
+streamSystem.IO.Stream*
+
+
+%86int*
+27*Å
+2ö
+ó
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs~ ~(0
+%88)Microsoft.AspNetCore.Http.RequestDelegate"__id*h*f0
+.IndieVisible.Web.Middlewares.SitemapMiddleware"2
+_next)Microsoft.AspNetCore.Http.RequestDelegateÿ
+’
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.cs~ ~($"
+%89System.Threading.Tasks.Task"WMicrosoft.AspNetCore.Http.RequestDelegate.Invoke(Microsoft.AspNetCore.Http.HttpContext)*-+
+)Microsoft.AspNetCore.Http.RequestDelegate*2
+0
+context%Microsoft.AspNetCore.Http.HttpContext*
+27*ì
+27"å
+u
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Middlewares\SitemapMiddleware.csÄ Ä(	
+implicit return:0
+context%Microsoft.AspNetCore.Http.HttpContextB20
+.IndieVisible.Web.Middlewares.SitemapMiddleware

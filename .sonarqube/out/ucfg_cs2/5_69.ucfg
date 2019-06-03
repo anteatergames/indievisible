@@ -1,0 +1,273 @@
+
+éIndieVisible.Application.Services.UserPreferencesAppService.Save(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)Ä
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs|' |(+"0*
+0*	
+1
+2
+3*˛
+2≤
+Ø
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csÑ Ñ( 
+%0System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel∂
+≥
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csÑ$ Ñ(4
+%1System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelÇ
+ˇ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csÑ Ñ(4
+
+%2bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%0System.Guid*
+
+%1System.Guid*
+4
+5*ò
+4 
+«
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csÜ# Ü(-
+%3System.Guid"__id*'*%
+System.Guid"
+EmptySystem.Guid¿
+Ω
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csÜ Ü(-
+
+%4void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel*
+
+%3System.Guid*
+5*√
+5Ù
+Ò
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csã+ ã(6J
+%5DIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository"__id*ó*î=
+;IndieVisible.Application.Services.UserPreferencesAppService"S
+_repositoryDIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository≤
+Ø
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csã? ã(K
+%6System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelÇˇ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csã+ ã(L0
+%7*IndieVisible.Domain.Models.UserPreferences"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*L
+J
+%5DIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository*
+
+%6System.Guid2GetById(System.Guid)˙
+˜
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csã  ã(L6
+existing*IndieVisible.Domain.Models.UserPreferences"__id*2
+0
+%7*IndieVisible.Domain.Models.UserPreferencesá
+Ñ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cså å($
+
+%8bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
+&IndieVisible.Domain.Core.Models.Entity*8
+6
+existing*IndieVisible.Domain.Models.UserPreferences*
+""*
+6
+7*˙
+6ä
+á
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csé é(#
+%9AutoMapper.IMapper"__id*`*^=
+;IndieVisible.Application.Services.UserPreferencesAppService"
+_mapperAutoMapper.IMapperÁ‰
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csé é(<1
+%10*IndieVisible.Domain.Models.UserPreferences"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
+
+%9AutoMapper.IMapper*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel*8
+6
+existing*IndieVisible.Domain.Models.UserPreferences21Map<TSource, TDestination>(TSource, TDestination)¯
+ı
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csé é(<3
+model*IndieVisible.Domain.Models.UserPreferences"__id*3
+1
+%10*IndieVisible.Domain.Models.UserPreferences*
+8*í
+7ã
+à
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csí í(#
+%11AutoMapper.IMapper"__id*`*^=
+;IndieVisible.Application.Services.UserPreferencesAppService"
+_mapperAutoMapper.IMapper˛˚
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csí í(C1
+%12*IndieVisible.Domain.Models.UserPreferences",AutoMapper.IMapper.Map<TDestination>(object)*
+
+%11AutoMapper.IMapper*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel2Map<TDestination>(object)¯
+ı
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csí í(C3
+model*IndieVisible.Domain.Models.UserPreferences"__id*3
+1
+%12*IndieVisible.Domain.Models.UserPreferences*
+8*ò
+8≥
+∞
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csï ï( 
+%13System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelÀ
+»
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csï$ ï(.
+%14System.Guid"__id*'*%
+System.Guid"
+EmptySystem.GuidÖ
+Ç
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csï ï(.
+%15bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%13System.Guid*
+
+%14System.Guid*
+9
+10*æ
+
+9ı
+Ú
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csó ó(K
+%16DIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository"__id*ó*î=
+;IndieVisible.Application.Services.UserPreferencesAppService"S
+_repositoryDIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepositoryÌ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csó ó(*
+%17void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*M
+K
+%16DIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository*5
+3
+model*IndieVisible.Domain.Models.UserPreferences2Add(TEntity)Ç
+ˇ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csò# ò(+
+%18System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*5
+3
+model*IndieVisible.Domain.Models.UserPreferences¬
+ø
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csò ò(+
+%19void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*[
+Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel*
+
+%18System.Guid*
+11*˚
+10ı
+Ú
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csú ú(K
+%20DIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository"__id*ó*î=
+;IndieVisible.Application.Services.UserPreferencesAppService"S
+_repositoryDIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepositoryˆÛ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csú ú(-
+%21void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*M
+K
+%20DIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository*5
+3
+model*IndieVisible.Domain.Models.UserPreferences2Update(TEntity)*
+11*ƒ
+11 
+«
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csü ü(6
+%22/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*Å*=
+;IndieVisible.Application.Services.UserPreferencesAppService">
+_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkìê
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.csü ü($
+%23bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
+6
+%22/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()Ç
+ˇ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs°5 °(=
+%24System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*5
+3
+model*IndieVisible.Domain.Models.UserPreferences˝˙
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs° °(><
+%255IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∑
+¥
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs° °(4
+%26void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
+<
+%255IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%24System.Guidè
+å
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs° °(>?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%255IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+1
+12
+3*¥
+1‹Ÿ
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs•5 •(?
+%27string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get˝˙
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs• •(@<
+%285IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∑
+¥
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs• •(4
+%29void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
+<
+%285IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%27stringè
+å
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs• •(@?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
+<
+%285IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+12*œ
+12"»
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs® ®(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*†
+3"ö
+Ç
+vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs© ©(	
+implicit return:Y
+	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelB?=
+;IndieVisible.Application.Services.UserPreferencesAppService

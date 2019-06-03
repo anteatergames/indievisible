@@ -1,0 +1,6 @@
+¡
+8IndieVisible.Domain.Services.UserConnectionDomainService>IndieVisible.Domain.Services.BaseDomainService<T, TRepository>objectþ
+`UserConnectionDomainService(IndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository)™IndieVisible.Domain.Services.UserConnectionDomainService.UserConnectionDomainService(IndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository)y
+GetByTargetUserId(System.Guid)WIndieVisible.Domain.Services.UserConnectionDomainService.GetByTargetUserId(System.Guid)w
+Get(System.Guid, System.Guid)VIndieVisible.Domain.Services.UserConnectionDomainService.Get(System.Guid, System.Guid)§
+5CheckConnection(System.Guid, System.Guid, bool, bool)nIndieVisible.Domain.Services.UserConnectionDomainService.CheckConnection(System.Guid, System.Guid, bool, bool)

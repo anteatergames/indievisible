@@ -1,0 +1,185 @@
+
+mIndieVisible.Infra.CrossCutting.Identity.Services.SendGridEmailService.SendEmailAsync(string, string, string)å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (("0*ù
+0Û
+
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (N
+%0string"1System.Environment.GetEnvironmentVariable(string)*"
+System.Environment*
+""∫
+∑
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (N
+apiKeystring"__id*
+
+%0string‹
+Ÿ
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (,
+
+%1bool"string.IsNullOrEmpty(string)*
+"
+string*
+
+apiKeystring*
+1
+2*‘	
+1Ê
+„
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs ('7
+%21Microsoft.Extensions.Configuration.IConfiguration"__id*í*èH
+FIndieVisible.Infra.CrossCutting.Identity.Services.SendGridEmailService"C
+_configuration1Microsoft.Extensions.Configuration.IConfigurationÔÏ
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (E>
+%38Microsoft.Extensions.Configuration.IConfigurationSection"DMicrosoft.Extensions.Configuration.IConfiguration.GetSection(string)*9
+7
+%21Microsoft.Extensions.Configuration.IConfiguration*
+""2GetSection(string)±Æ
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (K
+%4string"BMicrosoft.Extensions.Configuration.IConfigurationSection.Value.get*@
+>
+%38Microsoft.Extensions.Configuration.IConfigurationSection2	Value.get∫
+∑
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (K
+apiKeystring"__id*
+
+%4string*
+2*˛&
+2 «
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (3
+%5SendGrid.SendGridClient"SendGrid.SendGridClientÚ
+Ô
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (+
+
+%6void"}SendGrid.SendGridClient.SendGridClient(string, string, System.Collections.Generic.Dictionary<string, string>, string, string)*
+
+%5SendGrid.SendGridClient*
+
+apiKeystring*
+""*
+""*
+""*
+""‹
+Ÿ
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (3!
+clientSendGrid.SendGridClient"__id*
+
+%5SendGrid.SendGridClient‡›
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (^(
+%7"SendGrid.Helpers.Mail.EmailAddress""SendGrid.Helpers.Mail.EmailAddressõ
+ò
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs ('
+
+%8void"?SendGrid.Helpers.Mail.EmailAddress.EmailAddress(string, string)**
+(
+%7"SendGrid.Helpers.Mail.EmailAddress*
+""*
+""
+Ì
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs (^*
+from"SendGrid.Helpers.Mail.EmailAddress"__id**
+(
+%7"SendGrid.Helpers.Mail.EmailAddressÊ„
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs %(+
+%9%SendGrid.Helpers.Mail.SendGridMessage"%SendGrid.Helpers.Mail.SendGridMessageá
+Ñ
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs ()
+%10void"7SendGrid.Helpers.Mail.SendGridMessage.SendGridMessage()*-
++
+%9%SendGrid.Helpers.Mail.SendGridMessage¨
+©
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs! !(
+%11void".SendGrid.Helpers.Mail.SendGridMessage.From.set*-
++
+%9%SendGrid.Helpers.Mail.SendGridMessage*,
+*
+from"SendGrid.Helpers.Mail.EmailAddressñ
+ì
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs" "(!
+%12void"1SendGrid.Helpers.Mail.SendGridMessage.Subject.set*-
++
+%9%SendGrid.Helpers.Mail.SendGridMessage*
+
+subjectstringü
+ú
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs# #(*
+%13void":SendGrid.Helpers.Mail.SendGridMessage.PlainTextContent.set*-
++
+%9%SendGrid.Helpers.Mail.SendGridMessage*
+
+messagestringö
+ó
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs$ $(%
+%14void"5SendGrid.Helpers.Mail.SendGridMessage.HtmlContent.set*-
++
+%9%SendGrid.Helpers.Mail.SendGridMessage*
+
+messagestringı
+Ú
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs %(,
+msg%SendGrid.Helpers.Mail.SendGridMessage"__id*-
++
+%9%SendGrid.Helpers.Mail.SendGridMessage·ﬁ
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs' '(-)
+%15"SendGrid.Helpers.Mail.EmailAddress""SendGrid.Helpers.Mail.EmailAddress®
+•
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs' '(&
+%16void"?SendGrid.Helpers.Mail.EmailAddress.EmailAddress(string, string)*+
+)
+%15"SendGrid.Helpers.Mail.EmailAddress*
+
+emailstring*
+""â
+Ü
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs' '(.
+%17void"{SendGrid.Helpers.Mail.SendGridMessage.AddTo(SendGrid.Helpers.Mail.EmailAddress, int, SendGrid.Helpers.Mail.Personalization)*.
+,
+msg%SendGrid.Helpers.Mail.SendGridMessage*+
+)
+%15"SendGrid.Helpers.Mail.EmailAddress*
+""*
+""è
+å
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs)! )(;+
+%18$System.Threading.Tasks.Task<TResult>"qSendGrid.SendGridClient.SendEmailAsync(SendGrid.Helpers.Mail.SendGridMessage, System.Threading.CancellationToken)*#
+!
+clientSendGrid.SendGridClient*.
+,
+msg%SendGrid.Helpers.Mail.SendGridMessage*
+""ø
+º
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs) )(;
+responseSendGrid.Response"__id*
+""*
+3*™
+3"§
+å
+ÅC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\SendGridEmailService.cs* *(	
+implicit return:
+emailstring:
+subjectstring:
+messagestringBJH
+FIndieVisible.Infra.CrossCutting.Identity.Services.SendGridEmailService

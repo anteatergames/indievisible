@@ -1,0 +1,46 @@
+
+¬IndieVisible.Web.Controllers.HomeController.HomeController(IndieVisible.Application.Interfaces.IFeaturedContentAppService, Microsoft.AspNetCore.Hosting.IHostingEnvironment)p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs ("2*
+0Œ
+‰
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csb (j
+
+%0void"MIndieVisible.Web.Controllers.Base.SecureBaseController.SecureBaseController()*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerÅ
+Â
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs ({-
++IndieVisible.Web.Controllers.HomeController"J
+_service>IndieVisible.Application.Interfaces.IFeaturedContentAppService"__id*K
+I
+service>IndieVisible.Application.Interfaces.IFeaturedContentAppService®
+«
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs ((o-
++IndieVisible.Web.Controllers.HomeController">
+
+hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironment"__id*@
+>
+
+hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironment*
+1*
+1"‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs (	
+implicit return*£
+2˜
+•
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs (
+%1"__entrypoint*K
+I
+service>IndieVisible.Application.Interfaces.IFeaturedContentAppService*@
+>
+
+hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironment*
+0:I
+service>IndieVisible.Application.Interfaces.IFeaturedContentAppService:>
+
+hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironmentB/-
++IndieVisible.Web.Controllers.HomeController

@@ -1,0 +1,133 @@
+
+ƒIndieVisible.Web.Controllers.InteractionController.Comment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csS S($"6*‹
+0 
+
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csW W(%
+
+%0void"ŒIndieVisible.Web.Controllers.InteractionController.SetAuthorDetails(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)*64
+2IndieVisible.Web.Controllers.InteractionController*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel×
+Ô
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csY Y(&4
+%1.IndieVisible.Domain.Core.Enums.UserContentType"RIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.UserContentType.get*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*	
+1
+2
+3*²	
+3ê
+ç
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csb b(;G
+%2AIndieVisible.Application.Interfaces.IUserContentCommentAppService"__id*œ*™4
+2IndieVisible.Web.Controllers.InteractionController"a
+userContentCommentAppServiceAIndieVisible.Application.Interfaces.IUserContentCommentAppService¹¶
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csb b(G8
+%32IndieVisible.Domain.ValueObjects.OperationResultVo"’IndieVisible.Application.Interfaces.IUserContentCommentAppService.Comment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)*I
+G
+%2AIndieVisible.Application.Interfaces.IUserContentCommentAppService*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel2PComment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)þ
+û
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csb b(G>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%32IndieVisible.Domain.ValueObjects.OperationResultVo*
+4*Š	
+2Ò
+Ï
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs_ _(3?
+%49IndieVisible.Application.Interfaces.IBrainstormAppService"__id*Œ*‰4
+2IndieVisible.Web.Controllers.InteractionController"Q
+brainstormAppService9IndieVisible.Application.Interfaces.IBrainstormAppService©¦
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs_ _(?8
+%52IndieVisible.Domain.ValueObjects.OperationResultVo"ŠIndieVisible.Application.Interfaces.IBrainstormAppService.Comment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)*A
+?
+%49IndieVisible.Application.Interfaces.IBrainstormAppService*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel2PComment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)þ
+û
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs_ _(?>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%52IndieVisible.Domain.ValueObjects.OperationResultVo*
+4*²	
+1ê
+ç
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs\ \(;G
+%6AIndieVisible.Application.Interfaces.IUserContentCommentAppService"__id*œ*™4
+2IndieVisible.Web.Controllers.InteractionController"a
+userContentCommentAppServiceAIndieVisible.Application.Interfaces.IUserContentCommentAppService¹¶
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs\ \(G8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo"’IndieVisible.Application.Interfaces.IUserContentCommentAppService.Comment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)*I
+G
+%6AIndieVisible.Application.Interfaces.IUserContentCommentAppService*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel2PComment(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)þ
+û
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs\ \(G>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%72IndieVisible.Domain.ValueObjects.OperationResultVo*
+4*
+4ÒÏ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csf f(!)
+%8#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"¦
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csf f("+
+)
+%8#Microsoft.AspNetCore.Mvc.JsonResult*”
+5"Ž
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csg g(	
+implicit return*¨
+6á
+Þ
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csS S($
+%9"__entrypoint*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel¤
+¡
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csQ	 Q(
+%10"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel¤
+¡
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csR	 R(!
+%11"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*O
+M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModelë
+è
+w
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csS% S(CM
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel"__annotation*
+
+%10*
+
+%11*
+0:M
+vmGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModelB64
+2IndieVisible.Web.Controllers.InteractionController

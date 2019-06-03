@@ -1,0 +1,21 @@
+
+îIndieVisible.Domain.Services.UserBadgeDomainService.Get(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.UserBadge, bool>>)x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.csG& G()"0*º
+0√¿
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.csI I(/$
+%0System.NotImplementedException"System.NotImplementedExceptionÎ
+Ë
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.csI I(-
+
+%1void"8System.NotImplementedException.NotImplementedException()*&
+$
+%0System.NotImplementedException*
+1*ï
+1"è
+x
+nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.csJ J(	
+implicit return:6
+where-System.Linq.Expressions.Expression<TDelegate>B75
+3IndieVisible.Domain.Services.UserBadgeDomainService

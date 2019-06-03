@@ -1,0 +1,19 @@
+
+?IndieVisible.Infra.Data.Repository.Repository<TEntity>.GetAll()r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs)+ )(1"0*Ÿ
+0¶
+£
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs+ +(2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
+DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>"™
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs+ +(4
+2
+%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*è
+1"â
+r
+hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs, ,(	
+implicit returnB:8
+6IndieVisible.Infra.Data.Repository.Repository<TEntity>

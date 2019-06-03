@@ -1,0 +1,21 @@
+
+ÍIndieVisible.Application.Services.NotificationAppService.IndieVisible.Application.Interfaces.ICrudAppService<IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel>.GetById(System.Guid)}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs_` _(g"0*Æ
+0ÈÅ
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csa a(/$
+%0System.NotImplementedException"System.NotImplementedExceptionð
+í
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csa a(-
+
+%1void"8System.NotImplementedException.NotImplementedException()*&
+$
+%0System.NotImplementedException*
+1*š
+1"”
+}
+sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csb b(	
+implicit return:
+idSystem.GuidB<:
+8IndieVisible.Application.Services.NotificationAppService

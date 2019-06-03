@@ -1,0 +1,121 @@
+
+?IndieVisible.Application.Services.BrainstormAppService.GetAll(){
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs>> >(D"0*
+0*	
+1
+2
+3*Ú
+2Ú
+Ô
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csD7 D(OI
+%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository"__id*û*õ8
+6IndieVisible.Application.Services.BrainstormAppService"_
+brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepositoryª∏
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csD7 D(X
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*K
+I
+%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository2GetAll()—
+Œ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csD+ D(X&
+	allModelsSystem.Linq.IQueryable<T>"__id*!
+
+%1System.Linq.IQueryable<T>¸
+˘
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csF; F(A
+%2AutoMapper.IMapper"__id*Z*X8
+6IndieVisible.Application.Services.BrainstormAppService"
+mapperAutoMapper.IMapper’“
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csF; F(ì/
+%3)System.Collections.Generic.IEnumerable<T>"6AutoMapper.IMapper.Map<TSource, TDestination>(TSource)*
+
+%2AutoMapper.IMapper*(
+&
+	allModelsSystem.Linq.IQueryable<T>2#Map<TSource, TDestination>(TSource)Ï
+È
+|
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csF5 F(ì0
+vms)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%3)System.Collections.Generic.IEnumerable<T>è
+å
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csH H(=.
+%4(System.Linq.IOrderedEnumerable<TElement>"ÑSystem.Linq.Enumerable.OrderByDescending<TSource, TKey>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, TKey>)*"
+System.Linq.Enumerable*2
+0
+vms)System.Collections.Generic.IEnumerable<T>*
+""É
+Ä
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csH H(a.
+%5(System.Linq.IOrderedEnumerable<TElement>"{System.Linq.Enumerable.ThenByDescending<TSource, TKey>(System.Linq.IOrderedEnumerable<TSource>, System.Func<TSource, TKey>)*"
+System.Linq.Enumerable*0
+.
+%4(System.Linq.IOrderedEnumerable<TElement>*
+""Í
+Á
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csH H(a0
+vms)System.Collections.Generic.IEnumerable<T>"__id*0
+.
+%5(System.Linq.IOrderedEnumerable<TElement>¸˘
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csJ J(P?
+%69IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>ˇ
+¸
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csJ J(K
+
+%7void"zIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(System.Collections.Generic.IEnumerable<T>)*A
+?
+%69IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*2
+0
+vms)System.Collections.Generic.IEnumerable<T>é
+ã
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csJ J(PC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%69IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*	
+1
+4
+3*™
+1”–
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csNL N(V
+%8string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get¸˘
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csN N(W?
+%99IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>π
+∂
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csN N(K
+%10void"WIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(string)*A
+?
+%99IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+
+%8stringé
+ã
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csN N(WC
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
+?
+%99IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
+4* 
+4"ƒ
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csQ Q(E
+C
+result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*ò
+3"í
+{
+qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csR R(	
+implicit returnB:8
+6IndieVisible.Application.Services.BrainstormAppService

@@ -1,0 +1,135 @@
+
+@IndieVisible.Web.Controllers.ContentController.Add(System.Guid?)s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csb b( "4*ˇ 
+0Çˇ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csd& d(@F
+%0@IndieVisible.Application.ViewModels.Content.UserContentViewModel"@IndieVisible.Application.ViewModels.Content.UserContentViewModelß
+§
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csd* d(>
+
+%1void"WIndieVisible.Application.ViewModels.Content.UserContentViewModel.UserContentViewModel()*H
+F
+%0@IndieVisible.Application.ViewModels.Content.UserContentViewModelê
+ç
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csd! d(@F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel"__id*H
+F
+%0@IndieVisible.Application.ViewModels.Content.UserContentViewModelë
+é
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cse e(%
+%2System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController°
+û
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cse e(%
+
+%3void"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%2System.GuidÎ
+Ë
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csf f(=
+%4string";IndieVisible.Application.Constants.DefaultFeaturedImage.get*&"$
+"IndieVisible.Application.Constants≤
+Ø
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csf f(=
+
+%5void"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedImage.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+%4string∂
+≥
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csh2 h(@9
+%63IndieVisible.Application.Interfaces.IGameAppService"__id*{*y0
+.IndieVisible.Web.Controllers.ContentController"E
+gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceì
+ê
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cshK h(T
+%7System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModelﬂ‹
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csh2 h(U/
+%8)System.Collections.Generic.IEnumerable<T>"JIndieVisible.Application.Interfaces.IGameAppService.GetByUser(System.Guid)*;
+9
+%63IndieVisible.Application.Interfaces.IGameAppService*
+
+%7System.Guid2GetByUser(System.Guid)Â
+‚
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csh* h(U2
+games)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%8)System.Collections.Generic.IEnumerable<T>´
+®
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csi1 i(E(
+%9"System.Collections.Generic.List<T>"ôIndieVisible.Web.Extensions.IEnumerableExtensions.ToSelectList(System.Collections.Generic.IEnumerable<IndieVisible.Domain.ValueObjects.SelectListItemVo>)*5"3
+1IndieVisible.Web.Extensions.IEnumerableExtensions*4
+2
+games)System.Collections.Generic.IEnumerable<T>ﬂ
+‹
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csi! i(E3
+gamesDropDown"System.Collections.Generic.List<T>"__id**
+(
+%9"System.Collections.Generic.List<T>‚
+ﬂ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csj j(
+%10dynamic"/Microsoft.AspNetCore.Mvc.Controller.ViewBag.get*'%
+#Microsoft.AspNetCore.Mvc.Controller∆
+√
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csl l(
+%11bool"System.Nullable<T>.HasValue.get*
+
+gameIdSystem.Nullable<T>*
+1
+2*«
+1º
+π
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csn n("
+%12void"KIndieVisible.Application.ViewModels.Content.UserContentViewModel.GameId.set*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel*
+
+gameIdSystem.Nullable<T>*
+2*õ
+2ÔÏ
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csq q()*
+%13#Microsoft.AspNetCore.Mvc.ViewResult"8Microsoft.AspNetCore.Mvc.Controller.View(string, object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*
+""*H
+F
+vm@IndieVisible.Application.ViewModels.Content.UserContentViewModel2View(string, object)"£
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csq q(*,
+*
+%13#Microsoft.AspNetCore.Mvc.ViewResult*ê
+3"ä
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csr r(	
+implicit return*∏
+4≠
+™
+s
+iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csb b( 
+%14"__entrypoint*
+
+gameIdSystem.Nullable<T>*
+0:
+gameIdSystem.Nullable<T>B20
+.IndieVisible.Web.Controllers.ContentController

@@ -1,0 +1,88 @@
+
+FIndieVisible.Application.Services.UserContentCommentAppService.Count()É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs& (+"0*
+0*	
+1
+2
+3*Ë
+2˛
+˚
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs# #('M
+%0GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*ù*ö@
+>IndieVisible.Application.Services.UserContentCommentAppService"V
+_repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository»≈
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs# #(0
+%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*O
+M
+%0GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository2GetAll()ô
+ñ
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs# #(8	
+%2int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>™
+ß
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs# #(8
+countint"__id*
+	
+%2int˝˙
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs% %(:;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∞
+≠
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs% %(3
+
+%4void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+countintè
+å
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs% %(:?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
+1
+4
+3*±
+1‹Ÿ
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs)4 )(>
+%5string"System.Exception.Message.get*
+
+exSystem.Exception2Message.get˝˙
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs) )(?;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>µ
+≤
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs) )(3
+
+%7void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+
+%5stringè
+å
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs) )(??
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
+4*œ
+4"…
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs, ,(A
+?
+result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*°
+3"õ
+É
+yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs- -(	
+implicit returnBB@
+>IndieVisible.Application.Services.UserContentCommentAppService

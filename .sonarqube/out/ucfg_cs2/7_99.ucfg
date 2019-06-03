@@ -1,0 +1,300 @@
+
+MIndieVisible.Web.Controllers.GameController.Details(System.Guid, System.Guid)p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs) (0"7*Ù!
+0±
+®
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs! !(9
+%03IndieVisible.Application.Interfaces.IGameAppService"__id*y*w-
++IndieVisible.Web.Controllers.GameController"F
+_gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceƒ
+€
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs!, !(>
+%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*/-
++IndieVisible.Web.Controllers.GameController°­
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs! !(>
+
+%2void"HIndieVisible.Application.Interfaces.ICrudAppService<T>.CurrentUserId.set*;
+9
+%03IndieVisible.Application.Interfaces.IGameAppService*
+
+%1System.Guid2CurrentUserId.set±
+®
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs"= "(L9
+%33IndieVisible.Application.Interfaces.IGameAppService"__id*y*w-
++IndieVisible.Web.Controllers.GameController"F
+_gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceçä
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs"= "(X;
+%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>"KIndieVisible.Application.Interfaces.ICrudAppService<T>.GetById(System.Guid)*;
+9
+%33IndieVisible.Application.Interfaces.IGameAppService*
+
+idSystem.Guid2GetById(System.Guid)‚
+ÿ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs"- "(XF
+serviceResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
+;
+%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>¾
+»
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs$ $(2<
+%56IndieVisible.Application.ViewModels.Game.GameViewModel"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*H
+F
+serviceResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>ù
+ö
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs$ $(2<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel"__id*>
+<
+%56IndieVisible.Application.ViewModels.Game.GameViewModelá
+Þ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs% %(
+
+%6void"mIndieVisible.Web.Controllers.GameController.SetImages(IndieVisible.Application.ViewModels.Game.GameViewModel)*/-
++IndieVisible.Web.Controllers.GameController*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel±
+®
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs') '(46
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>"FIndieVisible.Web.Controllers.Base.SecureBaseController.UserManager.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerŽ
+‹
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs'C '(P
+%8System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseController°
+­
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs'C '([
+%9string"System.Guid.ToString()*
+
+%8System.GuidËÈ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs') '(\+
+%10$System.Threading.Tasks.Task<TResult>"FMicrosoft.AspNetCore.Identity.UserManager<TUser>.FindByIdAsync(string)*8
+6
+%70Microsoft.AspNetCore.Identity.UserManager<TUser>*
+
+%9string2FindByIdAsync(string)Ì
+É
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs' '(\G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
+""…
+‚
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs( ((+
+%11bool""object.operator ==(object, object)*
+"
+object*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+""*
+1
+2*©
+1Š
+‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(. ((3
+%13"__id*
+""‘
+Ž
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(. ((3
+%12bool"__id*
+
+%13*
+3*È
+
+2²
+¯
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(< ((G7
+%150Microsoft.AspNetCore.Identity.UserManager<TUser>"FIndieVisible.Web.Controllers.Base.SecureBaseController.UserManager.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerŠ
+‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(\ ((o
+%16"__id*
+""±®
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(\ ((z
+%17string"System.Enum.ToString()*
+
+%162
+ToString()¦£
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(< (({+
+%18$System.Threading.Tasks.Task<TResult>"MMicrosoft.AspNetCore.Identity.UserManager<TUser>.IsInRoleAsync(TUser, string)*9
+7
+%150Microsoft.AspNetCore.Identity.UserManager<TUser>*I
+G
+user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
+
+%17string2IsInRoleAsync(TUser, string)Š
+‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(6 (({
+%14"__id*
+""‘
+Ž
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs(6 (({
+%12bool"__id*
+
+%14*
+3*ð	
+3Ÿ
+œ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs( (({
+userIsAdminbool"__id*
+
+%12bool¯
+¬
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs) )(5
+%19.IndieVisible.Domain.ValueObjects.PermissionsVo"AIndieVisible.Application.ViewModels.BaseViewModel.Permissions.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel‡
+„
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs)% )(.
+%20System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel
+Œ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs)2 )(?
+%21System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerò
+ï
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs)% )(?
+%22bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%20System.Guid*
+
+%21System.Guid*
+4
+5*
+5*
+4*¤
+4ÿ
+ü
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs) )(N
+%23void":IndieVisible.Domain.ValueObjects.PermissionsVo.CanEdit.set*7
+5
+%19.IndieVisible.Domain.ValueObjects.PermissionsVo*
+""¯
+¬
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs* *(5
+%24.IndieVisible.Domain.ValueObjects.PermissionsVo"AIndieVisible.Application.ViewModels.BaseViewModel.Permissions.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel‡
+„
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs*- *(6
+%25System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel
+Œ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs*: *(G
+%26System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
+6IndieVisible.Web.Controllers.Base.SecureBaseControllerò
+ï
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs*- *(G
+%27bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
+System.Guid*
+
+%25System.Guid*
+
+%26System.GuidŽ
+‹
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs* *(G
+%28void"BIndieVisible.Domain.ValueObjects.PermissionsVo.CanPostActivity.set*7
+5
+%24.IndieVisible.Domain.ValueObjects.PermissionsVo*
+
+%27boolË
+È
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs, ,('B
+%29;IndieVisible.Application.Interfaces.INotificationAppService"__id*‰*†-
++IndieVisible.Web.Controllers.GameController"U
+notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceŠ‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs, ,(G9
+%302IndieVisible.Domain.ValueObjects.OperationResultVo"SIndieVisible.Application.Interfaces.INotificationAppService.MarkAsRead(System.Guid)*D
+B
+%29;IndieVisible.Application.Interfaces.INotificationAppService*$
+"
+notificationclickedSystem.Guid2MarkAsRead(System.Guid)ÊÇ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs. .(*
+%31#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*>
+<
+vm6IndieVisible.Application.ViewModels.Game.GameViewModel2View(object)" 
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs. .(,
+*
+%31#Microsoft.AspNetCore.Mvc.ViewResult*
+6"‡
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs/ /(	
+implicit return*þ
+7Å
+Â
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs) (0
+%32"__entrypoint*
+
+idSystem.Guid*$
+"
+notificationclickedSystem.Guidá
+Þ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs	 ( 
+%33"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+idSystem.GuidŸ
+œ
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs1 (8
+idSystem.Guid"__annotation*
+
+%33ò
+ï
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs	 ( 
+%34"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*$
+"
+notificationclickedSystem.Guid°
+­
+p
+fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs: (R"
+notificationclickedSystem.Guid"__annotation*
+
+%34*
+0:
+idSystem.Guid:"
+notificationclickedSystem.GuidB/-
++IndieVisible.Web.Controllers.GameController

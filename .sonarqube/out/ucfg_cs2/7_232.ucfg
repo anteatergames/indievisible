@@ -1,0 +1,76 @@
+
+IIndieVisible.Web.Controllers.InteractionController.AllowUser(System.Guid)y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csï ï(&"2*²
+0à
+Ý
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csñ) ñ(AC
+%0=IndieVisible.Application.Interfaces.IUserConnectionAppService"__id*”*‘4
+2IndieVisible.Web.Controllers.InteractionController"Y
+userConnectionAppService=IndieVisible.Application.Interfaces.IUserConnectionAppService“
+
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csñH ñ(Z
+%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*64
+2IndieVisible.Web.Controllers.InteractionController­ª
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csñ) ñ(c8
+%22IndieVisible.Domain.ValueObjects.OperationResultVo"]IndieVisible.Application.Interfaces.IUserConnectionAppService.Allow(System.Guid, System.Guid)*E
+C
+%0=IndieVisible.Application.Interfaces.IUserConnectionAppService*
+
+%1System.Guid*
+
+userIdSystem.Guid2Allow(System.Guid, System.Guid)€
+ý
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csñ ñ(c>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
+8
+%22IndieVisible.Domain.ValueObjects.OperationResultVoþ
+û
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csó ó('
+
+%3void"xIndieVisible.Web.Controllers.InteractionController.TranslateResponse(IndieVisible.Domain.ValueObjects.OperationResultVo)*64
+2IndieVisible.Web.Controllers.InteractionController*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVoÔÑ
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csõ õ(!)
+%4#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*@
+>
+response2IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"¨
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csõ õ("+
+)
+%4#Microsoft.AspNetCore.Mvc.JsonResult*–
+1"
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csö ö(	
+implicit return*Ô
+2«
+¨
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csï ï(&
+%5"__entrypoint*
+
+userIdSystem.Guidí
+ê
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csî	 î(&
+%6"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
+
+userIdSystem.Guid«
+¨
+y
+mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csï' ï(2
+userIdSystem.Guid"__annotation*
+
+%6*
+0:
+userIdSystem.GuidB64
+2IndieVisible.Web.Controllers.InteractionController
