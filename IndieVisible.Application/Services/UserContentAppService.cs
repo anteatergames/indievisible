@@ -297,7 +297,8 @@ namespace IndieVisible.Application.Services
         {
             content.Replace("note-video-clip", "note-video-clip embed-responsive");
 
-            string patternUrl = @"(<img(.?)?src="")?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))("">?)?";
+            //string patternUrl = @"(<img(.?)?src="")?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))("">?)?";
+            string patternUrl = @"(<img(.?)?(data-)?src="")?(\()?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))""?(\))?(.>)?";
 
             Regex regexImage = new Regex(patternUrl);
 
@@ -309,14 +310,14 @@ namespace IndieVisible.Application.Services
             {
                 string toReplace = match.Groups[0].Value;
                 string urlBefore = match.Groups[1].Value;
-                string url = match.Groups[3].Value;
+                string url = match.Groups[5].Value;
                 string urlComplement = match.Groups[4].Value;
-                string urlAfter = match.Groups[5].Value;
+                string urlAfter = match.Groups[7].Value;
 
-                url = !toReplace.ToLower().StartsWith("http") ? String.Format("http://{0}", url) : url;
+                url = !toReplace.TrimStart('(').TrimEnd(')').ToLower().StartsWith("http") ? String.Format("http://{0}", url) : url;
 
                 string newText = string.Empty;
-                if (string.IsNullOrWhiteSpace(urlBefore) && string.IsNullOrWhiteSpace(urlAfter))
+                if (string.IsNullOrWhiteSpace(urlBefore))
                 {
                     newText = string.Format(@"<a href=""{0}"" target=""_blank"" style=""font-weight:500"">{0}</a>", url);
                 }

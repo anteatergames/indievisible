@@ -23,13 +23,13 @@
         $('.content').on('click', '.btn-interaction-like', function (e) {
             var btn = $(this);
             var likeCount = btn.closest('.box-content').find('.like-count');
-            var likedId = btn.data('id');
+            var targetId = btn.data('id');
 
             if (btn.hasClass("like-liked")) {
-                unlike(likedId).done(function (response) { unlikeCallback(response, likeCount, btn); });
+                unlike(targetId).done(function (response) { unlikeCallback(response, likeCount, btn); });
             }
             else {
-                like(likedId).done(function (response) { likeCallback(response, likeCount, btn); });
+                like(targetId).done(function (response) { likeCallback(response, likeCount, btn); });
             }
         });
     }
@@ -95,8 +95,8 @@
 
 
 
-    function like(likedId) {
-        return $.post("/interact/content/like", { likedId: likedId});
+    function like(targetId) {
+        return $.post("/interact/content/like", { targetId: targetId});
     }
     function likeCallback(response, likeCount, btn) {
         if (response.success === true) {
@@ -107,8 +107,8 @@
         }
     }
 
-    function unlike(likedId) {
-        return $.post("/interact/content/unlike", { likedId: likedId});
+    function unlike(targetId) {
+        return $.post("/interact/content/unlike", { targetId: targetId});
     }
     function unlikeCallback(response, likeCount, btn) {
         if (response.success === true) {

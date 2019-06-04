@@ -69,10 +69,10 @@ namespace IndieVisible.Web.Controllers
 
         [HttpPost]
         [Route("content/unlike")]
-        public IActionResult UnLikeContent(Guid likedId)
+        public IActionResult UnLikeContent(Guid targetId)
         {
             likeAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo response = likeAppService.ContentUnlike(likedId);
+            OperationResultVo response = likeAppService.ContentUnlike(targetId);
 
             return Json(response);
         }
