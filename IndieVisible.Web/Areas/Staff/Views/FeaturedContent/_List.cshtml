@@ -34,7 +34,7 @@
                         <td>@item.CommentCount</td>
                         <td>
                             <div class="col-12">
-                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-default bg-blue text-white"><i class="fa fa-fw fa-2x fa-eye"></i></a>
+                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-default bg-blue text-white"><i class="fa fa-fw fa-2x fa-eye" aria-hidden="true"></i></a>
                                 <button class="btn btn-default bg-green text-white btn-feature-ok" @(item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></button>
                                 <button class="btn btn-default bg-red text-white btn-feature-nok" @(!item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-down" aria-hidden="true"></i></button>
                             </div>

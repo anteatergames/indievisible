@@ -21,7 +21,7 @@
                                 </a>
                             </div>
                             <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@game.UserId">
-                                <img class="rounded-circle img-sm" src="@game.DeveloperImageUrl" alt=".">
+                                <img class="rounded-circle img-sm" src="@game.DeveloperImageUrl" alt="@game.DeveloperName">
                                 <div class="gamebox-description-text">
                                     <span class="gamebox-description-number">@game.DeveloperName</span>
                                 </div>
@@ -36,12 +36,12 @@
                                 {
                                     foreach (var platform in game.PlatformList)
                                     {
-                                        <i class="fab fa-2x fa-@platform"></i>
+                                        <i class="fab fa-2x fa-@platform" aria-hidden="true"></i>
                                     }
                                 }
                                 else
                                 {
-                                    <i class="far fa-2x fa-calendar"></i>
+                                    <i class="far fa-2x fa-calendar" aria-hidden="true"></i>
                                 }
 
                             </div>

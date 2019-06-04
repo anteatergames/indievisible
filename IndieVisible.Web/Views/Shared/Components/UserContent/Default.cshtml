@@ -72,18 +72,18 @@ else
                 {
                     <div class="row no-gutters bb-1">
                         <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-like @(item.CurrentUserLiked ? "text-blue like-liked" : string.Empty)" data-id="@item.Id">
-                            <i class="fa fa-thumbs-up">&nbsp;</i>@SharedLocalizer["Like"]
+                            <i class="fa fa-thumbs-up" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Like"]
                         </button>
                         <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-comment">
-                            <i class="fa fa-comment">&nbsp;</i>@SharedLocalizer["Comment"]
+                            <i class="fa fa-comment" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Comment"]
                         </button>
                         <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-share">
-                            <i class="fa fa-share">&nbsp;</i>@SharedLocalizer["Share"]
+                            <i class="fa fa-share" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Share"]
                         </button>
                     </div>
                     <div class="box-commentsection mt-10">
                         <div class="box-comment-template hidden-xl-down">
-                            <img class="rounded img-sm rounded-circle" src="# alt="User Image">
+                            <img class="rounded img-sm rounded-circle" src="#" alt="User Image">
 
                             <div class="comment-text">
                                 <span class="username">
