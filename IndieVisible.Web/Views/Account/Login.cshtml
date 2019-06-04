@@ -49,7 +49,7 @@
                 <!-- /.col -->
                 <div class="col-6">
                     <div class="fog-pwd">
-                        <a asp-area="" asp-controller="account" asp-action="forgotpassword"><i class="ion ion-locked"></i>@SharedLocalizer["Forgot pwd?"]</a><br>
+                        <a asp-area="" asp-controller="account" asp-action="forgotpassword"><i class="ion ion-locked" aria-hidden="true"></i>@SharedLocalizer["Forgot pwd?"]</a><br>
                     </div>
                 </div>
                 <!-- /.col -->
@@ -65,9 +65,9 @@
                 - @SharedLocalizer["OR"] -
             </p>
             <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-                <button type="submit" class="btn btn-social-icon btn-circle btn-facebook" name="provider" value="Facebook" title="@SharedLocalizer["Log in using your Facebook account"]"><i class="fab fa-facebook-f"></i></button>
-                <button type="submit" class="btn btn-social-icon btn-circle btn-google" name="provider" value="Google" title="@SharedLocalizer["Log in using your Google account"]"><i class="fab fa-google-plus-g"></i></button>
-                <button type="submit" class="btn btn-social-icon btn-circle btn-microsoft" name="provider" value="Microsoft" title="@SharedLocalizer["Log in using your Microsoft account"]"><i class="fab fa-microsoft"></i></button>
+                <button type="submit" class="btn btn-social-icon btn-circle btn-facebook" name="provider" value="Facebook" title="@SharedLocalizer["Log in using your Facebook account"]"><i class="fab fa-facebook-f" aria-hidden="true"></i></button>
+                <button type="submit" class="btn btn-social-icon btn-circle btn-google" name="provider" value="Google" title="@SharedLocalizer["Log in using your Google account"]"><i class="fab fa-google-plus-g" aria-hidden="true"></i></button>
+                <button type="submit" class="btn btn-social-icon btn-circle btn-microsoft" name="provider" value="Microsoft" title="@SharedLocalizer["Log in using your Microsoft account"]"><i class="fab fa-microsoft" aria-hidden="true"></i></button>
             </form>
         </div>
         <!-- /.social-auth-links -->

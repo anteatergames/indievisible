@@ -23,7 +23,7 @@
                     liClass = "timeline-inverted";
                 }
                 <li @(inverted ? "class=" + liClass : string.Empty)>
-                    <div class="timeline-badge @(item.Color)"><i class="@item.Icon"></i></div>
+                    <div class="timeline-badge @(item.Color)"><i class="@item.Icon" aria-hidden="true"></i></div>
                     <div class="timeline-panel @(item.Future ? "future": string.Empty)">
                         <div class="timeline-heading">
                             <h4 class="timeline-title">@item.Title</h4>

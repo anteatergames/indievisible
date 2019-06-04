@@ -11,7 +11,7 @@
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="about">
                         <div class="flex-square-inner-content text-white">
-                            <div><i class="fa fa-3x fa-question"></i></div>
+                            <div><i class="fa fa-3x fa-question" aria-hidden="true"></i></div>
                             <div>@SharedLocalizer["What is this"]</div>
                         </div>
                     </a>
@@ -26,7 +26,7 @@
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="timeline">
                         <div class="flex-square-inner-content text-white">
-                            <div><i class="far fa-3x fa-calendar"></i></div>
+                            <div><i class="far fa-3x fa-calendar" aria-hidden="true"></i></div>
                             <div>@SharedLocalizer["Roadmap"]</div>
                         </div>
                     </a>
@@ -38,7 +38,7 @@
                 <div class="flex-square-inner">
                     <a href="https://www.patreon.com/indievisible" target="_blank">
                         <div class="flex-square-inner-content text-white">
-                            <div><i class="fab fa-3x fa-patreon"></i></div>
+                            <div><i class="fab fa-3x fa-patreon" aria-hidden="true"></i></div>
                             <div>@SharedLocalizer["be a Patron"]</div>
                         </div>
                     </a>
@@ -71,14 +71,14 @@
                                         <div class="img-push simplecontentpostarea">
                                             <textarea id="txtPostContent" aria-label="@SharedLocalizer["Comment"]" class="form-control posttextarea input-sm postbox" rows="1" placeholder="@SharedLocalizer["What is on your mind?"]"></textarea>
                                             <div class="float-right comment-send-button">
-                                                <button type="button" role="button" aria-label="@SharedLocalizer["Post Content"]" id="btnSendSimpleContent" class="btn bg-transparent"><i class="fa fa-2x fa-paper-plane"></i></button>
+                                                <button type="button" role="button" aria-label="@SharedLocalizer["Post Content"]" id="btnSendSimpleContent" class="btn bg-transparent"><i class="fa fa-2x fa-paper-plane" aria-hidden="true"></i></button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" id="btnPostAddImage" class="btn btn-default btn-vertical-align"><i class="far fa-images"></i> <span>@SharedLocalizer["image"]</span></button>
-                                    <button type="button" class="btn btn-default btn-vertical-align notimplemented"><i class="fas fa-poll"></i> <span>@SharedLocalizer["poll"]</span></button>
+                                    <button type="button" id="btnPostAddImage" class="btn btn-default btn-vertical-align"><i class="far fa-images" aria-hidden="true"></i> <span>@SharedLocalizer["image"]</span></button>
+                                    <button type="button" class="btn btn-default btn-vertical-align notimplemented"><i class="fas fa-poll" aria-hidden="true"></i> <span>@SharedLocalizer["poll"]</span></button>
                                     <div id="divPostImages" class="dropzone">
                                         <div class="dz-message needsclick">
                                             @SharedLocalizer["Drop files here or click to upload."]<br>
@@ -115,7 +115,7 @@
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="about">
                         <div class="flex-square-inner-content text-white">
-                            <div><i class="fa fa-3x fa-question"></i></div>
+                            <div><i class="fa fa-3x fa-question" aria-hidden="true"></i></div>
                             <div>@SharedLocalizer["What is this"]</div>
                         </div>
                     </a>
@@ -128,7 +128,7 @@
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="timeline">
                         <div class="flex-square-inner-content text-white">
-                            <div><i class="far fa-3x fa-calendar"></i></div>
+                            <div><i class="far fa-3x fa-calendar" aria-hidden="true"></i></div>
                             <div>@SharedLocalizer["Roadmap"]</div>
                         </div>
                     </a>
@@ -140,7 +140,7 @@
                 <div class="flex-square-inner">
                     <a href="https://www.patreon.com/indievisible" target="_blank">
                         <div class="flex-square-inner-content text-white">
-                            <div><i class="fab fa-3x fa-patreon"></i></div>
+                            <div><i class="fab fa-3x fa-patreon" aria-hidden="true"></i></div>
                             <div>@SharedLocalizer["be a Patron"]</div>
                         </div>
                     </a>
@@ -155,11 +155,11 @@
 </div>
 @section Styles {
     <environment include="Development">
-        <link rel="stylesheet" href="~/css/home.css"/>
+        <link rel="stylesheet" href="~/css/home.css" />
         <link rel="stylesheet" href="~/lib/dropzone/dropzone.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/home.min.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/css/home.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/lib/dropzone/min/dropzone.min.css" />
     </environment>
 }

@@ -75,12 +75,12 @@
                     <div class="row text-right mt-4 mb-3">
                         <div class="col-6">
                             <button type="button" id="btn-game-follow" class="btn btn-lg btn-block btn-default @(Model.CurrentUserFollowing ? "bg-blue follow-following" : string.Empty)" data-id="@Model.Id">
-                                <i class="fa fa-eye">&nbsp;</i>@SharedLocalizer["Follow"]
+                                <i class="fa fa-eye" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Follow"]
                             </button>
                         </div>
                         <div class="col-6">
                             <button type="button" id="btn-game-like" class="btn btn-lg btn-block btn-default bg-transparent @(Model.CurrentUserLiked ? "bg-red like-liked" : string.Empty)" data-id="@Model.Id">
-                                <i class="fa fa-heart">&nbsp;</i>@SharedLocalizer["I love it"]
+                                <i class="fa fa-heart" aria-hidden="true">&nbsp;</i>@SharedLocalizer["I love it"]
                             </button>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             <div class="row">
-                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" /></div>
+                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="Game Thumbnail"/></div>
                                 <div class="col-12">
                                     <div class="game-info">
                                         <p>

@@ -26,13 +26,13 @@
                 <!-- Nav tabs -->
                 <div class="vtabs customvtab col-12">
                     <ul class="nav nav-tabs tabs-vertical" role="tablist">
-                        <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#tabbasic" role="tab" aria-expanded="true" aria-selected="true"><span class="hidden-sm-up"><i class="ion-ios-home"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Basic"]</span> </a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabdescription" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-information-circle"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Description"]</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabeyecandy" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-eye"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Eye Candy"]</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabtechnical" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-person"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Technical"]</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabpresence" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-mail"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Presence"]</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsocial" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-share"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Social"]</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsettings" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-cog"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Settings"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#tabbasic" role="tab" aria-expanded="true" aria-selected="true"><span class="hidden-sm-up"><i class="ion-ios-home" aria-hidden="true"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Basic"]</span> </a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabdescription" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-information-circle" aria-hidden="true"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Description"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabeyecandy" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-eye" aria-hidden="true"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Eye Candy"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabtechnical" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-person" aria-hidden="true"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Technical"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabpresence" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-mail" aria-hidden="true"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Presence"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsocial" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-md-share" aria-hidden="true"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Social"]</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsettings" role="tab" aria-expanded="false" aria-selected="false"><span class="hidden-sm-up"><i class="ion-ios-cog" aria-hidden="true"></i></span> <span class="hidden-xs-down">@SharedLocalizer["Settings"]</span></a> </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content p-0">
@@ -46,12 +46,12 @@
                                     </div>
                                 </div>
                                 @*<div class="col-md-12">
-                                    <div class="form-group">
-                                        <label asp-for="Url"></label>
-                                        <input asp-for="Url" type="text" class="form-control">
-                                        <span asp-validation-for="Url" class="text-danger"></span>
-                                    </div>
-                                </div>*@
+                                        <div class="form-group">
+                                            <label asp-for="Url"></label>
+                                            <input asp-for="Url" type="text" class="form-control">
+                                            <span asp-validation-for="Url" class="text-danger"></span>
+                                        </div>
+                                    </div>*@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label asp-for="Genre"></label>
@@ -160,7 +160,7 @@
                                     <div class="row">
                                         <div class="col-xl-6 col-md-12 col-12">
                                             <div class="info-box bg-blue-active">
-                                                <span class="info-box-icon push-bottom"><i class="fab fa-facebook-f"></i></span>
+                                                <span class="info-box-icon push-bottom"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Facebook</span>
                                                     <div class="block">
@@ -175,7 +175,7 @@
                                         </div>
                                         <div class="col-xl-6 col-md-12 col-12">
                                             <div class="info-box bg-light-blue">
-                                                <span class="info-box-icon push-bottom"><i class="fab fa-twitter"></i></span>
+                                                <span class="info-box-icon push-bottom"><i class="fab fa-twitter" aria-hidden="true"></i></span>
                                                 <div class="info-box-content">
                                                     <span class="info-box-text">Twitter</span>
                                                     <div class="block">
@@ -203,7 +203,7 @@
                 <!-- /.box-body -->
 
                 <div class="text-right">
-                    <button type="button" id="btnGameSave" class="btn btn-info"><i class="fas fa-save">&nbsp;</i>@SharedLocalizer["Save"]</button>
+                    <button type="button" id="btnGameSave" class="btn btn-info"><i class="fas fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
                 </div>
             </div>
             <!-- /.box -->

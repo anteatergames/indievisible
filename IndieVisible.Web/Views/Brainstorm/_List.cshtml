@@ -16,13 +16,13 @@ else
         <div class="col-12 brainstorm-item list-item" data-id="@item.Id" data-currentuservote="@item.CurrentUserVote">
             <div class="brainstorm-panel">
                 <div class="col-12 brainstorm-icon">
-                    <button type="button" class="brainstorm-button brainstorm-up" data-vote="@(VoteValue.Positive)"><i class="fa fa-arrow-alt-circle-up @(item.CurrentUserVote == VoteValue.Positive ? "text-green": string.Empty)"></i></button>
+                    <button type="button" class="brainstorm-button brainstorm-up" data-vote="@(VoteValue.Positive)"><i class="fa fa-arrow-alt-circle-up @(item.CurrentUserVote == VoteValue.Positive ? "text-green": string.Empty)" aria-hidden="true"></i></button>
                 </div>
                 <div class="col-12 brainstorm-count">
                     <span>@item.Score</span>
                 </div>
                 <div class="col-12 brainstorm-icon">
-                    <button type="button" class="brainstorm-button brainstorm-down" data-vote="@(VoteValue.Negative)"><i class="fa fa-arrow-alt-circle-down @(item.CurrentUserVote == VoteValue.Negative ? "text-red": string.Empty)"></i></button>
+                    <button type="button" class="brainstorm-button brainstorm-down" data-vote="@(VoteValue.Negative)"><i class="fa fa-arrow-alt-circle-down @(item.CurrentUserVote == VoteValue.Negative ? "text-red": string.Empty)" aria-hidden="true"></i></button>
                 </div>
             </div>
             <div class="brainstorm-details">

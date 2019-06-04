@@ -15,7 +15,7 @@
         <div class="box box-default  box-content" data-id="@Model.Id">
             <div class="box-header with-border">
                 <div class="float-left pr-10">
-                    <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@Model.SessionId" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left"></i></a>
+                    <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@Model.SessionId" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
                 <div class="float-left">
                     <h2 class="card-title">@ViewData["Title"]</h2>
@@ -30,13 +30,13 @@
                 <div class="brainstorm-item" data-id="@Model.Id" data-currentuservote="@Model.CurrentUserVote">
                     <div class="brainstorm-panel">
                         <div class="col-12 brainstorm-icon">
-                            <button type="button" class="brainstorm-button brainstorm-up" data-vote="@(VoteValue.Positive)"><i class="fa fa-arrow-alt-circle-up @(Model.CurrentUserVote == VoteValue.Positive ? "text-green": string.Empty)"></i></button>
+                            <button type="button" class="brainstorm-button brainstorm-up" data-vote="@(VoteValue.Positive)"><i class="fa fa-arrow-alt-circle-up @(Model.CurrentUserVote == VoteValue.Positive ? "text-green": string.Empty)" aria-hidden="true"></i></button>
                         </div>
                         <div class="col-12 brainstorm-count">
                             <span>@Model.Score</span>
                         </div>
                         <div class="col-12 brainstorm-icon">
-                            <button type="button" class="brainstorm-button brainstorm-down" data-vote="@(VoteValue.Negative)"><i class="fa fa-arrow-alt-circle-down @(Model.CurrentUserVote == VoteValue.Negative ? "text-red": string.Empty)"></i></button>
+                            <button type="button" class="brainstorm-button brainstorm-down" data-vote="@(VoteValue.Negative)"><i class="fa fa-arrow-alt-circle-down @(Model.CurrentUserVote == VoteValue.Negative ? "text-red": string.Empty)" aria-hidden="true"></i></button>
                         </div>
                     </div>
                     <div class="brainstorm-details">
@@ -111,7 +111,7 @@
                                 <label aria-label="Comment_@Model.Id" style="width:100%">
                                     <textarea data-userContentId="@Model.Id" data-userContentType="@Model.UserContentType" class="form-control commenttextarea input-sm commentbox" rows="1" placeholder="@SharedLocalizer["Press CTRL+ENTER to send your comment"]"></textarea>
                                     <div class="float-right comment-send-button">
-                                        <button type="button" role="button" aria-label="@SharedLocalizer["Post Comment"]" class="btn bg-transparent btn-interaction-comment-send"><i class="fa fa-2x fa-comment"></i></button>
+                                        <button type="button" role="button" aria-label="@SharedLocalizer["Post Comment"]" class="btn bg-transparent btn-interaction-comment-send"><i class="fa fa-2x fa-comment" aria-hidden="true"></i></button>
                                     </div>
                                 </label>
                             </div>
