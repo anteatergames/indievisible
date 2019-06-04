@@ -12,8 +12,6 @@ namespace IndieVisible.Web.ViewComponents
 {
     public class LatestGamesViewComponent : ViewComponent
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
         public Guid UserId { get; set; }
 
         private readonly IGameAppService _gameAppService;
@@ -21,9 +19,8 @@ namespace IndieVisible.Web.ViewComponents
         public LatestGamesViewComponent(IGameAppService gameAppService, IHttpContextAccessor httpContextAccessor)
         {
             _gameAppService = gameAppService;
-            _httpContextAccessor = httpContextAccessor;
 
-            string id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string id = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (!string.IsNullOrWhiteSpace(id))
             {
@@ -40,7 +37,7 @@ namespace IndieVisible.Web.ViewComponents
 
             List<GameListItemViewModel> model = _gameAppService.GetLatest(UserId, qtd, userId, 0).ToList();
 
-            return View(model);
+            return await Task.Run(() => View(model));
         }
     }
 }

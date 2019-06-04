@@ -8,14 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.ViewComponents
 {
     public class UserContentViewComponent : ViewComponent
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IUserPreferencesAppService _userPreferencesAppService;
 
         public Guid UserId { get; set; }
@@ -24,11 +22,10 @@ namespace IndieVisible.Web.ViewComponents
 
         public UserContentViewComponent(IHttpContextAccessor httpContextAccessor, IUserContentAppService userContentAppService, IUserPreferencesAppService userPreferencesAppService)
         {
-            _httpContextAccessor = httpContextAccessor;
             _userContentAppService = userContentAppService;
             _userPreferencesAppService = userPreferencesAppService;
 
-            string id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string id = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (!string.IsNullOrWhiteSpace(id))
             {
@@ -44,7 +41,7 @@ namespace IndieVisible.Web.ViewComponents
 
             List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(UserId, count, gameId, userId, languages).ToList();
 
-            return View(model);
+            return await Task.Run(() => View(model));
         }
     }
 }

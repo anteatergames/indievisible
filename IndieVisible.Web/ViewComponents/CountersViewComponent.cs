@@ -44,7 +44,7 @@ namespace IndieVisible.Web.ViewComponents
             model.ArticlesCount = _contentService.CountArticles();
 
 
-            return View(model);
+            return await Task.Run(() => View(model));
         }
     }
 }

@@ -13,17 +13,15 @@ namespace IndieVisible.Web.ViewComponents
 {
     public class NotificationViewComponent : ViewComponent
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly INotificationAppService _notificationAppService;
 
         public Guid UserId { get; set; }
 
         public NotificationViewComponent(IHttpContextAccessor httpContextAccessor, INotificationAppService notificationAppService)
         {
-            _httpContextAccessor = httpContextAccessor;
             _notificationAppService = notificationAppService;
 
-            string id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string id = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (!string.IsNullOrWhiteSpace(id))
             {
@@ -39,20 +37,20 @@ namespace IndieVisible.Web.ViewComponents
             }
 
             _notificationAppService.CurrentUserId = this.UserId;
-            var result = _notificationAppService.GetByUserId(this.UserId, qtd);
+            OperationResultListVo<NotificationItemViewModel> result = _notificationAppService.GetByUserId(this.UserId, qtd);
 
-            var model = result.Value.ToList();
+            System.Collections.Generic.List<NotificationItemViewModel> model = result.Value.ToList();
 
-            foreach (var item in model)
+            foreach (NotificationItemViewModel item in model)
             {
-                item.Url += String.Format("?notificationclicked={0}", item.Id);
+                item.Url = string.Format("{0}?notificationclicked={1}", item.Url, item.Id);
             }
 
             model.DefineVisuals();
 
             ViewData["UnreadCount"] = model.Count(x => !x.IsRead);
-            
-            return View(model);
+
+            return await Task.Run(() => View(model));
         }
     }
 }
