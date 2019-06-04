@@ -5,6 +5,14 @@
     <Company>IndieVisible</Company>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>IndieVisible.Domain.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet>IndieVisible.Domain.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\IndieVisible.Domain.Core\IndieVisible.Domain.Core.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.CrossCutting.Bus\IndieVisible.Infra.CrossCutting.Bus.csproj" />

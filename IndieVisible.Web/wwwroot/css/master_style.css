@@ -337,7 +337,7 @@ a {
     background-color: transparent;
     background-image: none;
     padding: 13px;
-    font-family: fontAwesome;
+    /*font-family: fontAwesome;*/
 }
 
     .main-header .sidebar-toggle:before {
@@ -3239,7 +3239,7 @@ input[type="color"] {
             }
 
                 .vtabs .tabs-vertical li .nav-link.has-error:after {
-                    font-family: 'Font Awesome 5 Free';
+                    /*font-family: 'Font Awesome 5 Free';*/
                     font-weight: 900;
                     content: '\f06a';
                 }
@@ -4938,7 +4938,7 @@ ul.panel-actions {
             position: absolute;
             top: 15px;
             right: 30px;
-            font-family: "Material-Design-Iconic-Font";
+            /*font-family: "Material-Design-Iconic-Font";*/
             transition: all 300ms linear 0s;
         }
 
@@ -5569,7 +5569,7 @@ ul.panel-actions {
     }
 
 .avatar-add {
-    font-family: themify;
+    /*font-family: themify;*/
     background-color: transparent;
     border: 1px dashed #afb7c5;
     color: #929daf;
@@ -6116,7 +6116,7 @@ ul.flexbox {
 
 .collapse-arrow::before {
     content: "\e64b";
-    font-family: themify;
+    /*font-family: themify;*/
     display: inline-block;
     -webkit-transition: .4s;
     transition: .4s;
@@ -6601,15 +6601,15 @@ ul.flexbox {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 8px;
     margin: -8px;
+    margin-left: 8px;
 }
 
     .dock-title > * {
         margin: 8px;
     }
 
-.dock-actions {
+/*.dock-actions {
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: horizontal;
@@ -6666,7 +6666,7 @@ ul.flexbox {
     .dock-actions [data-dock="minimize"]::before {
         content: "\e622";
         vertical-align: sub;
-    }
+    }*/
 
 .dock-header-inverse .dock-info {
     color: #fff;
@@ -6916,7 +6916,7 @@ ul.flexbox {
         }
 
 .control {
-    font-family: arial;
+    /*font-family: arial;*/
     display: inline;
     padding-left: 0;
     padding-top: 0;
@@ -8102,21 +8102,21 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
     table.dataTable thead .sorting_asc:after {
         content: "\f0de";
         margin-left: 10px;
-        font-family: fontawesome;
+        /*font-family: fontawesome;*/
         cursor: pointer;
     }
 
     table.dataTable thead .sorting_desc:after {
         content: "\f0dd";
         margin-left: 10px;
-        font-family: fontawesome;
+        /*font-family: fontawesome;*/
         cursor: pointer;
     }
 
     table.dataTable thead .sorting:after {
         content: "\f0dc";
         margin-left: 10px;
-        font-family: fontawesome;
+        /*font-family: fontawesome;*/
         cursor: pointer;
         color: rgba(50, 50, 50, .5);
     }
@@ -9115,7 +9115,7 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
     margin: 10px 25px 0px;
 }
 
-.btn-adn.active, .btn-adn:active, .btn-bitbucket.active, .btn-bitbucket:active, .btn-dropbox.active, .btn-dropbox:active, .btn-facebook.active, .btn-facebook:active, .btn-flickr.active, .btn-flickr:active, .btn-foursquare.active, .btn-foursquare:active, .btn-github.active, .btn-github:active, .btn-google.active, .btn-google:active, .btn-instagram.active, .btn-instagram:active, .btn-microsoft.active, .btn-microsoft:active, .btn-openid.active, .btn-openid:active, .btn-pinterest.active, .btn-pinterest:active, .btn-reddit.active, .btn-reddit:active, .btn-soundcloud.active, .btn-soundcloud:active, .btn-tumblr.active, .btn-tumblr:active, .btn-twitter.active, .btn-twitter:active, .btn-vimeo.active, .btn-vimeo:active, .btn-vk.active, .btn-vk:active, .btn-yahoo.active, .btn-yahoo:active, .show > .dropdown-toggle.btn-adn, show > .dropdown-toggle.btn-bitbucket, .show > .dropdown-toggle.btn-dropbox, .show > .dropdown-toggle.btn-facebook, .show > .dropdown-toggle.btn-flickr, .show > .dropdown-toggle.btn-foursquare, .show > .dropdown-toggle.btn-github, .show > .dropdown-toggle.btn-google, .show > .dropdown-toggle.btn-instagram, .show > .dropdown-toggle.btn-microsoft, .show > .dropdown-toggle.btn-openid, .show > .dropdown-toggle.btn-pinterest, .show > .dropdown-toggle.btn-reddit, .show > .dropdown-toggle.btn-soundcloud, .show > .dropdown-toggle.btn-tumblr, .show > .dropdown-toggle.btn-twitter, .show > .dropdown-toggle.btn-vimeo, .show > .dropdown-toggle.btn-vk, .show > .dropdown-toggle.btn-yahoo {
+.btn-adn.active, .btn-adn:active, .btn-bitbucket.active, .btn-bitbucket:active, .btn-dropbox.active, .btn-dropbox:active, .btn-facebook.active, .btn-facebook:active, .btn-flickr.active, .btn-flickr:active, .btn-foursquare.active, .btn-foursquare:active, .btn-github.active, .btn-github:active, .btn-google.active, .btn-google:active, .btn-instagram.active, .btn-instagram:active, .btn-microsoft.active, .btn-microsoft:active, .btn-openid.active, .btn-openid:active, .btn-pinterest.active, .btn-pinterest:active, .btn-reddit.active, .btn-reddit:active, .btn-soundcloud.active, .btn-soundcloud:active, .btn-tumblr.active, .btn-tumblr:active, .btn-twitter.active, .btn-twitter:active, .btn-vimeo.active, .btn-vimeo:active, .btn-vk.active, .btn-vk:active, .btn-yahoo.active, .btn-yahoo:active, .show > .dropdown-toggle.btn-adn, .show > .dropdown-toggle.btn-bitbucket, .show > .dropdown-toggle.btn-dropbox, .show > .dropdown-toggle.btn-facebook, .show > .dropdown-toggle.btn-flickr, .show > .dropdown-toggle.btn-foursquare, .show > .dropdown-toggle.btn-github, .show > .dropdown-toggle.btn-google, .show > .dropdown-toggle.btn-instagram, .show > .dropdown-toggle.btn-microsoft, .show > .dropdown-toggle.btn-openid, .show > .dropdown-toggle.btn-pinterest, .show > .dropdown-toggle.btn-reddit, .show > .dropdown-toggle.btn-soundcloud, .show > .dropdown-toggle.btn-tumblr, .show > .dropdown-toggle.btn-twitter, .show > .dropdown-toggle.btn-vimeo, .show > .dropdown-toggle.btn-vk, .show > .dropdown-toggle.btn-yahoo {
     background-image: none;
 }
 
@@ -10410,8 +10410,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-teal-gradient {
     background: #39cccc;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #39cccc), color-stop(1, #7adddd));
-    background: -ms-linear-gradient(bottom, #39cccc, #7adddd);
-    background: -moz-linear-gradient(center bottom, #39cccc 0, #7adddd 100%);
+    background: -ms-linear-gradient(to bottom, #39cccc, #7adddd);
+    background: -moz-linear-gradient(center to bottom, #39cccc 0, #7adddd 100%);
     background: -o-linear-gradient(#7adddd, #39cccc);
     color: #fff;
 }
@@ -10419,8 +10419,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-light-blue-gradient {
     background: #45aef1;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #45aef1), color-stop(1, #25a4f4));
-    background: -ms-linear-gradient(bottom, #45aef1, #25a4f4);
-    background: -moz-linear-gradient(center bottom, #45aef1 0, #25a4f4 100%);
+    background: -ms-linear-gradient(to bottom, #45aef1, #25a4f4);
+    background: -moz-linear-gradient(center to bottom, #45aef1 0, #25a4f4 100%);
     background: -o-linear-gradient(#25a4f4, #45aef1);
     color: #fff;
 }
@@ -10428,8 +10428,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-blue-gradient {
     background: #45aef1;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #45aef1), color-stop(1, #0089db));
-    background: -ms-linear-gradient(bottom, #45aef1, #0089db);
-    background: -moz-linear-gradient(center bottom, #45aef1 0, #0089db 100%);
+    background: -ms-linear-gradient(to bottom, #45aef1, #0089db);
+    background: -moz-linear-gradient(center to bottom, #45aef1 0, #0089db 100%);
     background: -o-linear-gradient(#0089db, #45aef1);
     color: #fff;
 }
@@ -10437,8 +10437,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-aqua-gradient {
     background: #0092ee;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0092ee), color-stop(1, #14d1ff));
-    background: -ms-linear-gradient(bottom, #0092ee, #14d1ff);
-    background: -moz-linear-gradient(center bottom, #0092ee 0, #14d1ff 100%);
+    background: -ms-linear-gradient(to bottom, #0092ee, #14d1ff);
+    background: -moz-linear-gradient(center to bottom, #0092ee 0, #14d1ff 100%);
     background: -o-linear-gradient(#14d1ff, #0092ee);
     color: #fff;
 }
@@ -10446,8 +10446,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-yellow-gradient {
     background: #ffbf36;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffbf36), color-stop(1, #f7bc60));
-    background: -ms-linear-gradient(bottom, #ffbf36, #f7bc60);
-    background: -moz-linear-gradient(center bottom, #ffbf36 0, #f7bc60 100%);
+    background: -ms-linear-gradient(to bottom, #ffbf36, #f7bc60);
+    background: -moz-linear-gradient(center to bottom, #ffbf36 0, #f7bc60 100%);
     background: -o-linear-gradient(#f7bc60, #ffbf36);
     color: #fff;
 }
@@ -10455,8 +10455,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-purple-gradient {
     background: #ab26aa;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ab26aa), color-stop(1, #9491c4));
-    background: -ms-linear-gradient(bottom, #ab26aa, #9491c4);
-    background: -moz-linear-gradient(center bottom, #ab26aa 0, #9491c4 100%);
+    background: -ms-linear-gradient(to bottom, #ab26aa, #9491c4);
+    background: -moz-linear-gradient(center to bottom, #ab26aa 0, #9491c4 100%);
     background: -o-linear-gradient(#9491c4, #ab26aa);
     color: #fff;
 }
@@ -10464,8 +10464,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-green-gradient {
     background: #22af47;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #22af47), color-stop(1, #00ca6d));
-    background: -ms-linear-gradient(bottom, #22af47, #00ca6d);
-    background: -moz-linear-gradient(center bottom, #22af47 0, #00ca6d 100%);
+    background: -ms-linear-gradient(to bottom, #22af47, #00ca6d);
+    background: -moz-linear-gradient(center to bottom, #22af47 0, #00ca6d 100%);
     background: -o-linear-gradient(#00ca6d, #22af47);
     color: #fff;
 }
@@ -10473,8 +10473,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-red-gradient {
     background: #f83f37;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f83f37), color-stop(1, #e47365));
-    background: -ms-linear-gradient(bottom, #f83f37, #e47365);
-    background: -moz-linear-gradient(center bottom, #f83f37 0, #e47365 100%);
+    background: -ms-linear-gradient(to bottom, #f83f37, #e47365);
+    background: -moz-linear-gradient(center to bottom, #f83f37 0, #e47365 100%);
     background: -o-linear-gradient(#e47365, #f83f37);
     color: #fff;
 }
@@ -10482,8 +10482,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-black-gradient {
     background: #111;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #111), color-stop(1, #2b2b2b));
-    background: -ms-linear-gradient(bottom, #111, #2b2b2b);
-    background: -moz-linear-gradient(center bottom, #111 0, #2b2b2b 100%);
+    background: -ms-linear-gradient(to bottom, #111, #2b2b2b);
+    background: -moz-linear-gradient(center to bottom, #111 0, #2b2b2b 100%);
     background: -o-linear-gradient(#2b2b2b, #111);
     color: #fff;
 }
@@ -10491,8 +10491,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-maroon-gradient {
     background: #8C1919;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8C1919), color-stop(1, #e73f7c));
-    background: -ms-linear-gradient(bottom, #8C1919, #e73f7c);
-    background: -moz-linear-gradient(center bottom, #8C1919 0, #e73f7c 100%);
+    background: -ms-linear-gradient(to bottom, #8C1919, #e73f7c);
+    background: -moz-linear-gradient(center to bottom, #8C1919 0, #e73f7c 100%);
     background: -o-linear-gradient(#e73f7c, #8C1919);
     color: #fff;
 }
