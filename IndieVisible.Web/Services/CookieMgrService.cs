@@ -35,15 +35,8 @@ namespace IndieVisible.Web.Services
             option.IsEssential = true; // TODO GDPR related. Make a parameter and set cookie consent popup
             
             string cookieValueFromContext = _httpContextAccessor.HttpContext.Request.Cookies[key];
-
-            if (cookieValueFromContext != null)
-            {
-                _httpContextAccessor.HttpContext.Response.Cookies.Append(key, value, option);
-            }
-            else
-            {
-                _httpContextAccessor.HttpContext.Response.Cookies.Append(key, value, option);
-            }
+            
+            _httpContextAccessor.HttpContext.Response.Cookies.Append(key, value, option);
         }
     }
 }

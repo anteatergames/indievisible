@@ -295,7 +295,7 @@ namespace IndieVisible.Application.Services
 
         private string FormatContentToShow(string content)
         {
-            content.Replace("note-video-clip", "note-video-clip embed-responsive");
+            //content.Replace("note-video-clip", "note-video-clip embed-responsive");
 
             //string patternUrl = @"(<img(.?)?src="")?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))("">?)?";
             string patternUrl = @"(<img(.?)?(data-)?src="")?(\()?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))""?(\))?(.>)?";
