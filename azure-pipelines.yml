@@ -23,6 +23,7 @@ steps:
     organization: 'anteatergames'
     projectKey: 'anteatergames_indievisible'
     projectName: 'indievisible'
+    projectVersion: $(Build.BuildNumber)
     extraProperties: 'sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/coverage/coverage.opencover.xml'
 
 - script: dotnet build $(solution) --configuration $(buildConfiguration)
