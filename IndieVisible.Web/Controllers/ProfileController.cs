@@ -40,11 +40,18 @@ namespace IndieVisible.Web.Controllers
 
             this.SetImages(vm);
 
-            ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
-            bool userIsAdmin = user == null ? false : await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
-            vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
+            if (this.CurrentUserId != Guid.Empty)
+            {
+                ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
+                bool userIsAdmin = user == null ? false : await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
+                vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
 
-            this.notificationAppService.MarkAsRead(notificationclicked);
+                if (notificationclicked != Guid.Empty)
+                {
+                    this.notificationAppService.MarkAsRead(notificationclicked); 
+                }
+            }
+
 
             return View(vm);
         }

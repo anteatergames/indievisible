@@ -11,7 +11,7 @@
     string currentUserId = UserManager.GetUserId(User);
     var urlUserId = ViewContext.RouteData.Values["id"];
 
-    var canFollowAndConnect = !currentUserId.Equals(Model.UserId.ToString());
+    var canFollowAndConnect = currentUserId != null ? !currentUserId.Equals(Model.UserId.ToString()) : false;
 }
 <div class="col-12">
     <input type="hidden" asp-for="Id" />
