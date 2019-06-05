@@ -4,6 +4,7 @@ using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Services;
 using NSubstitute;
 using System;
+using System.Linq.Expressions;
 using Xunit;
 
 namespace IndieVisible.Tests
@@ -27,6 +28,8 @@ namespace IndieVisible.Tests
             };
 
             mockRepository.GetById(guidValid).Returns(fakeUserFollow);
+
+            mockRepository.Count(Arg.Any<Expression<Func<UserFollow, bool>>>()).Returns(10);
         }
 
         [Fact]
@@ -44,6 +47,14 @@ namespace IndieVisible.Tests
             IUserFollowDomainService service = new UserFollowDomainService(mockRepository);
 
             Assert.Null(service.GetById(Guid.Empty));
+        }
+
+        [Fact]
+        public void CountMustReturnValue()
+        {
+            IUserFollowDomainService service = new UserFollowDomainService(mockRepository);
+
+            Assert.Equal(10, service.Count());
         }
     }
 }
