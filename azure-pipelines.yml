@@ -7,8 +7,6 @@ strategy:
   matrix:
     linux:
       imageName: 'ubuntu-16.04'
-    windows:
-      imageName: 'vs2017-win2016'
 
 trigger:
 - master
@@ -38,12 +36,6 @@ steps:
     ./reportgenerator "-reports:$(Build.SourcesDirectory)/coverage/coverage.opencover.xml" "-targetdir:coverage/Cobertura" "-reporttypes:Cobertura;HTMLInline;HTMLChart"
   condition: eq( variables['Agent.OS'], 'Linux' )
   displayName: Run Reportgenerator on Linux
-
-- script: |
-    dotnet tool install dotnet-reportgenerator-globaltool --tool-path .
-    .\reportgenerator.exe "-reports:$(Build.SourcesDirectory)/coverage/coverage.opencover.xml" "-targetdir:coverage/Cobertura" "-reporttypes:Cobertura;HTMLInline;HTMLChart"
-  condition: eq( variables['Agent.OS'], 'Windows_NT' )
-  displayName: Run Reportgenerator on Windows
 
 - task: SonarSource.sonarcloud.ce096e50-6155-4de8-8800-4221aaeed4a1.SonarCloudAnalyze@1
   displayName: 'Run Code Analysis'
