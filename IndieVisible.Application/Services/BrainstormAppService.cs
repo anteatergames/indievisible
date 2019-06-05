@@ -135,8 +135,6 @@ namespace IndieVisible.Application.Services
             {
                 BrainstormIdea model;
 
-                // TODO validate before
-
                 BrainstormIdea existing = brainstormIdeaRepository.GetById(viewModel.Id);
                 if (existing != null)
                 {
@@ -383,8 +381,6 @@ namespace IndieVisible.Application.Services
             try
             {
                 BrainstormSession model;
-
-                // TODO validate before
 
                 BrainstormSession existing = brainstormSessionRepository.GetById(vm.Id);
                 if (existing != null)

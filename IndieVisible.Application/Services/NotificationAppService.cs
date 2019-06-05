@@ -105,8 +105,6 @@ namespace IndieVisible.Application.Services
             {
                 Notification model;
 
-                // TODO validate before
-
                 Notification existing = _notificationRepository.GetById(viewModel.Id);
                 if (existing != null)
                 {

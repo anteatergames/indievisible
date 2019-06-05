@@ -111,8 +111,6 @@ namespace IndieVisible.Application.Services
             {
                 UserBadge model;
 
-                // TODO validate before
-
                 UserBadge existing = userBadgeDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {

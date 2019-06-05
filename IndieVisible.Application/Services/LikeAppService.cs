@@ -117,8 +117,6 @@ namespace IndieVisible.Application.Services
             {
                 UserContentLike model;
 
-                // TODO validate before
-
                 UserContentLike existing = _contentLikeRepository.GetById(viewModel.Id);
                 if (existing != null)
                 {

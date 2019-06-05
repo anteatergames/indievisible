@@ -140,8 +140,6 @@ namespace IndieVisible.Application.Services
 
                 viewModel.GameJoltUrl = viewModel.GameJoltUrl?.TrimStart('@');
 
-                // TODO validate before
-
                 UserProfile existing = repository.GetById(viewModel.Id);
                 if (existing != null)
                 {

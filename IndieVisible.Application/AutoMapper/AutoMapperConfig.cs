@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndieVisible.Application.AutoMapper
 {
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
         public static MapperConfiguration RegisterMappings()
         {

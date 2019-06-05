@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
@@ -20,9 +19,6 @@ namespace IndieVisible.Application.Services
 
         public async Task<string> StoreImageAsync(string container, string filename, byte[] image)
         {
-
-            string filenameonly = Path.GetFileName(filename);
-
             string storageConnectionString = _config["Storage:ConnectionString"];
 
             if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
@@ -60,8 +56,6 @@ namespace IndieVisible.Application.Services
 
             if (!string.IsNullOrWhiteSpace(filename))
             {
-                string filenameonly = Path.GetFileName(filename);
-
                 string storageConnectionString = _config["Storage:ConnectionString"];
 
                 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))

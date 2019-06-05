@@ -148,8 +148,6 @@ namespace IndieVisible.Application.Services
             {
                 Game model;
 
-                // TODO validate before
-
                 Game existing = repository.GetById(viewModel.Id);
                 if (existing != null)
                 {

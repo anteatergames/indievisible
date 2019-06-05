@@ -76,12 +76,6 @@ namespace IndieVisible.Application
             game2.Title = "Who I See";
             game2.DeveloperName = "ChillingCircuits";
             game2.Price = "FREE";
-            //game2.PlatformList = new List<string>
-            //{
-            //    "android",
-            //    "ios",
-            //    "windows"
-            //};
             games.Add(game2);
 
             GameListItemViewModel game3 = new GameListItemViewModel();
@@ -90,10 +84,6 @@ namespace IndieVisible.Application
             game3.Title = "Black Paradox";
             game3.DeveloperName = "fantasticostudio";
             game3.Price = "FREE";
-            //game3.PlatformList = new List<string>
-            //{
-            //    "windows"
-            //};
             games.Add(game3);
 
             GameListItemViewModel game1 = new GameListItemViewModel();
@@ -102,11 +92,6 @@ namespace IndieVisible.Application
             game1.Title = "SWITCH!";
             game1.DeveloperName = "NitrogenLive";
             game1.Price = "FREE";
-            //game1.PlatformList = new List<string>
-            //{
-            //    "android",
-            //    "windows"
-            //};
             games.Add(game1);
 
             return games;

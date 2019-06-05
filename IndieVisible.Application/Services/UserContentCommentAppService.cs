@@ -114,8 +114,6 @@ namespace IndieVisible.Application.Services
             {
                 UserContentComment model;
 
-                // TODO validate before
-
                 UserContentComment existing = _repository.GetById(viewModel.Id);
                 if (existing != null)
                 {

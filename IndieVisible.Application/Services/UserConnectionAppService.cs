@@ -113,8 +113,6 @@ namespace IndieVisible.Application.Services
             {
                 UserConnection model;
 
-                // TODO validate before
-
                 UserConnection existing = this.userConnectionDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
@@ -179,8 +177,6 @@ namespace IndieVisible.Application.Services
                     UserId = currentUserId,
                     TargetUserId = userId
                 };
-
-                // TODO validate before
 
                 UserConnection existing = this.userConnectionDomainService.Get(currentUserId, userId);
 
@@ -251,8 +247,6 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                // TODO validate before
-
                 UserConnection existing = this.userConnectionDomainService.Get(userId, currentUserId);
 
                 if (existing == null)
@@ -286,8 +280,6 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                // TODO validate before
-
                 UserConnection existing = this.userConnectionDomainService.Get(userId, currentUserId);
 
                 if (existing == null)

@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace IndieVisible.Application.Services
 {
-    public class BaseAppService
+    public class BaseAppService : IDisposable
     {
         public Guid CurrentUserId { get; set; }
 

@@ -134,8 +134,6 @@ namespace IndieVisible.Application.Services
             {
                 UserFollow model;
 
-                // TODO validate before
-
                 UserFollow existing = this.gameFollowDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {

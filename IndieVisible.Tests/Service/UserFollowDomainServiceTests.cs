@@ -7,7 +7,7 @@ using System;
 using System.Linq.Expressions;
 using Xunit;
 
-namespace IndieVisible.Tests
+namespace IndieVisible.Tests.Service
 {
     public class UserFollowDomainServiceTests
     {

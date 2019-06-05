@@ -134,8 +134,6 @@ namespace IndieVisible.Application.Services
                     viewModel.Id = Guid.Empty;
                 }
 
-                // TODO validate before
-
                 UserPreferences existing = _repository.GetById(viewModel.Id);
                 if (existing != null)
                 {

@@ -172,8 +172,6 @@ namespace IndieVisible.Application.Services
 
                 });
 
-                // TODO validate before
-
                 UserContent existing = repository.GetById(viewModel.Id);
                 if (existing != null)
                 {

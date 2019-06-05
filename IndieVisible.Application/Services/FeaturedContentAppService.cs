@@ -125,8 +125,6 @@ namespace IndieVisible.Application.Services
             {
                 FeaturedContent model;
 
-                // TODO validate before
-
                 FeaturedContent existing = _repository.GetById(viewModel.Id);
 
                 if (existing != null)
@@ -264,9 +262,6 @@ namespace IndieVisible.Application.Services
 
             try
             {
-
-                // TODO validate before
-
                 FeaturedContent existing = _repository.GetById(id);
 
                 if (existing != null)
