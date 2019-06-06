@@ -410,7 +410,7 @@ namespace IndieVisible.Web.Controllers
 
                     if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl.Equals(Constants.DefaultAvatar))
                     {
-                        string imageFileName = await GetExternalProfilePicture(info, user, profile);
+                        string imageFileName = await GetExternalProfilePicture(info, user);
 
                         profile.ProfileImageUrl = imageFileName.Equals(Constants.DefaultAvatar) ? imageFileName : Constants.DefaultImagePath + imageFileName;
                     }
@@ -616,7 +616,7 @@ namespace IndieVisible.Web.Controllers
             }
         }
 
-        private async Task<string> GetExternalProfilePicture(ExternalLoginInfo info, ApplicationUser user, ProfileViewModel profile)
+        private async Task<string> GetExternalProfilePicture(ExternalLoginInfo info, ApplicationUser user)
         {
             string imageUrl = Constants.DefaultAvatar;
 

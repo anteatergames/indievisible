@@ -444,9 +444,6 @@ namespace IndieVisible.Web.Controllers
         {
             string[] urlSplit = currentImage.Split('/');
             string split = urlSplit[urlSplit.Length - 1];
-            //NameValueCollection queryStringParams = HttpUtility.ParseQueryString(split);
-            //string currentParam = queryStringParams["name"];
-            //return currentParam;
 
             return split;
         }
@@ -518,15 +515,6 @@ namespace IndieVisible.Web.Controllers
 
             ImageOptimizer optimizer = new ImageOptimizer();
             optimizer.LosslessCompress(ms);
-
-            //using (MagickImage image = new MagickImage(ms))
-            //{
-            //    image.Alpha(AlphaOption.Remove);
-            //    image.BackgroundColor = MagickColors.White;
-            //    image.Format = MagickFormat.Jpeg;
-
-            //    image.Write(ms);
-            //}
         }
         #endregion
     }

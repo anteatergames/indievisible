@@ -20,20 +20,20 @@ namespace IndieVisible.Domain.Services
             return connnections.ToList();
         }
 
-        public UserConnection Get(Guid currentUserId, Guid userId)
+        public UserConnection Get(Guid originalUserId, Guid connectedUserId)
         {
-            UserConnection existingConnection = this.repository.Get(x => x.UserId == currentUserId && x.TargetUserId == userId).FirstOrDefault();
+            UserConnection existingConnection = this.repository.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId).FirstOrDefault();
 
             return existingConnection;
         }
 
-        public bool CheckConnection(Guid currentUserId, Guid userId, bool accepted, bool bothWays)
+        public bool CheckConnection(Guid originalUserId, Guid connectedUserId, bool accepted, bool bothWays)
         {
-            var exists = this.repository.Get(x => x.UserId == currentUserId && x.TargetUserId == userId && x.ApprovalDate.HasValue == accepted).Any();
+            var exists = this.repository.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId && x.ApprovalDate.HasValue == accepted).Any();
 
             if (bothWays)
             {
-                var existsToMe = this.repository.Get(x => x.UserId == userId && x.TargetUserId == currentUserId && x.ApprovalDate.HasValue == accepted).Any();
+                var existsToMe = this.repository.Get(x => x.UserId == connectedUserId && x.TargetUserId == originalUserId && x.ApprovalDate.HasValue == accepted).Any();
 
                 exists = exists || existsToMe;
             }

@@ -151,10 +151,6 @@ namespace IndieVisible.Web
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddProgressiveWebApp();
-            //services.AddProgressiveWebApp(new PwaOptions
-            //{
-            //    Strategy = ServiceWorkerStrategy.CacheFirst
-            //});
 
             List<CultureInfo> supportedCultures = new List<CultureInfo>
                 {
@@ -186,8 +182,6 @@ namespace IndieVisible.Web
             {
                 myOptions.FacebookAppId = Configuration["Authentication:Facebook:AppId"];
             });
-
-            //services.AddResponseCompression();
 
             // .NET Native DI Abstraction
             RegisterServices(services);
@@ -239,14 +233,7 @@ namespace IndieVisible.Web
 
             app.UseSitemapMiddleware();
 
-            //CanonicalURLMiddlewareOptions canonicalUrlOptions = new CanonicalURLMiddlewareOptions();
-            //canonicalUrlOptions.LowerCaseUrls = true;
-            //canonicalUrlOptions.TrailingSlash = true;
-
-            //app.UseCanonicalUrlMiddleware(canonicalUrlOptions);
-
             app.UseRewriter(new RewriteOptions()
-               //.AddRedirectToWww()
                .AddRedirectToHttps()
             );
 
@@ -267,8 +254,6 @@ namespace IndieVisible.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //app.UseResponseCompression();
-
             CreateUserRoles(serviceProvider).Wait();
         }
 
@@ -286,17 +271,16 @@ namespace IndieVisible.Web
 
             foreach (Roles role in roles)
             {
-                await CreateIrNotExists(roleManager, role.ToString());
+                await CreateIfNotExists(roleManager, role.ToString());
             }
         }
 
-        private static async Task CreateIrNotExists(RoleManager<IdentityRole> RoleManager, string roleName)
+        private static async Task CreateIfNotExists(RoleManager<IdentityRole> RoleManager, string roleName)
         {
-            IdentityResult roleResult;
             bool roleCheck = await RoleManager.RoleExistsAsync(roleName);
             if (!roleCheck)
             {
-                roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
+                await RoleManager.CreateAsync(new IdentityRole(roleName));
             }
         }
     }

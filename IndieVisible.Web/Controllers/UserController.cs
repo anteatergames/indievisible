@@ -24,8 +24,6 @@ namespace IndieVisible.Web.Controllers
         {
             ProfileViewModel model = FakeData.FakeProfile();
 
-            //ViewBag.Games = FakeData.FakeFeaturedGames();
-
             return View(model);
         }
 

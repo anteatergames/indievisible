@@ -20,12 +20,6 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             // ASP.NET HttpContext dependency
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            // Domain Bus (Mediator)
-            //services.AddScoped<IMediatorHandler, InMemoryBus>();
-
-            // ASP.NET Authorization Polices
-            //services.AddSingleton<IAuthorizationHandler, ClaimsRequirementHandler>();
-
             #region Game
             services.AddScoped<IGameAppService, GameAppService>();
             services.AddScoped<IGameRepository, GameRepository>();
@@ -97,33 +91,12 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IUserConnectionRepository, UserConnectionRepository>();
             #endregion
 
-
-            // Domain - Events
-            //services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
-            //services.AddScoped<INotificationHandler<CustomerRegisteredEvent>, CustomerEventHandler>();
-            //services.AddScoped<INotificationHandler<CustomerUpdatedEvent>, CustomerEventHandler>();
-            //services.AddScoped<INotificationHandler<CustomerRemovedEvent>, CustomerEventHandler>();
-
-            // Domain - Commands
-            //services.AddScoped<IRequestHandler<RegisterNewCustomerCommand>, CustomerCommandHandler>();
-            //services.AddScoped<IRequestHandler<UpdateCustomerCommand>, CustomerCommandHandler>();
-            //services.AddScoped<IRequestHandler<RemoveCustomerCommand>, CustomerCommandHandler>();
-
             // Infra - Data
             services.AddScoped<IndieVisibleContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            // Infra - Data EventSourcing
-            //services.AddScoped<IEventStoreRepository, EventStoreSQLRepository>();
-            //services.AddScoped<IEventStore, SqlEventStore>();
-            //services.AddScoped<EventStoreSQLContext>();
-
             // Infra - Identity Services
             services.AddTransient<IEmailSender, SendGridEmailService>();
-            //services.AddTransient<ISmsSender, AuthSMSMessageSender>();
-
-            // Infra - Identity
-            //services.AddScoped<IUser, AspNetUser>();
 
             services.AddTransient<IImageStorageService, ImageStorageService>();
         }

@@ -23,10 +23,6 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
 
         public IActionResult Index()
         {
-            //IEnumerable<UserContentToBeFeaturedViewModel> model = _contentService.GetContentToBeFeatured();
-
-            //return View(model);
-
             return View();
         }
 

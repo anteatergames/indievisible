@@ -13,12 +13,12 @@ namespace IndieVisible.Web.Middlewares
 {
     public class SitemapMiddleware
     {
-        private RequestDelegate _next;
-        private string _rootUrl;
+        private readonly RequestDelegate _next;
+        private readonly string _rootUrl;
 
-        private List<string> forbiddenAreas;
+        private readonly List<string> forbiddenAreas;
 
-        private List<KeyValuePair<string, string>> forbidden;
+        private readonly List<KeyValuePair<string, string>> forbidden;
 
         public SitemapMiddleware(RequestDelegate next, string rootUrl)
         {
@@ -124,10 +124,8 @@ namespace IndieVisible.Web.Middlewares
 
             bool isPost = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPostAttribute));
             bool areaForbidden = forbiddenAreas.Any(x => controller.Namespace.ToLower().Contains(".areas." + x));
-            bool controllerForbidden = false;
-            bool methodForbidden = false;
 
-            if (!isPost && !areaForbidden && !isForbidden && !controllerForbidden && !methodForbidden)
+            if (!isPost && !areaForbidden && !isForbidden)
             {
                 sitemapContent += "<url>";
 

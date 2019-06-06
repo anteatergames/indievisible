@@ -12,7 +12,7 @@ namespace IndieVisible.Web.Controllers
 {
     public class BrainstormController : SecureBaseController
     {
-        private IBrainstormAppService brainstormAppService;
+        private readonly IBrainstormAppService brainstormAppService;
 
         public BrainstormController(IBrainstormAppService brainstormAppService)
         {

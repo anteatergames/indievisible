@@ -42,14 +42,12 @@ namespace IndieVisible.Web.Controllers.Base
 
             if (ViewBag.Username == null)
             {
-                string username = Constants.DefaultUsername;
-
                 if (User != null && User.Identity.IsAuthenticated)
                 {
                     string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                     CurrentUserId = new Guid(userId);
 
-                    username = this.User.FindFirstValue(ClaimTypes.Name);
+                    string username = this.User.FindFirstValue(ClaimTypes.Name);
 
                     string sessionUserName = GetSessionValue(SessionValues.Username);
 
@@ -68,13 +66,11 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected string GetAvatar()
         {
-            //userprofileimageurl = GetSessionValue(SessionValues.UserProfileImageUrl);
             return GetCookieValue(SessionValues.UserProfileImageUrl);
         }
 
         protected void SetAvatar(string profileImageUrl)
         {
-            //SetSessionValue(SessionValues.UserProfileImageUrl, profile.ProfileImageUrl);
             SetCookieValue(SessionValues.UserProfileImageUrl, profileImageUrl, 7);
         }
 
