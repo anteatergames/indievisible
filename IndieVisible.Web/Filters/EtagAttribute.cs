@@ -24,6 +24,7 @@ namespace IndieVisible.Web
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
+            throw new NotSupportedException();
         }
 
         public void OnActionExecuted(ActionExecutedContext context)

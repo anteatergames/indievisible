@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
@@ -82,9 +81,12 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    this.RemoveGameFollow(existingLike.Id); // TODO move to domain service
+                    OperationResultVo result = this.RemoveGameFollow(existingLike.Id); // TODO move to domain service
 
-                    unitOfWork.Commit();
+                    if (result.Success)
+                    {
+                        unitOfWork.Commit();
+                    }
 
                     int newCount = this.gameFollowDomainService.Count(x => x.GameId == gameId);
 
@@ -176,9 +178,12 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    this.RemoveProfileFollow(existingLike.Id); // TODO move to domain service
+                    OperationResultVo result = this.RemoveProfileFollow(existingLike.Id); // TODO move to domain service
 
-                    unitOfWork.Commit();
+                    if (result.Success)
+                    {
+                        unitOfWork.Commit();
+                    }
 
                     int newCount = this.userFollowDomainService.GetAll().Count(x => x.FollowUserId == followUserId);
 
@@ -195,8 +200,6 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                // validate before
-
                 this.userFollowDomainService.Remove(id);
 
                 unitOfWork.Commit();
@@ -209,7 +212,7 @@ namespace IndieVisible.Application.Services
             }
 
             return result;
-        } 
+        }
         #endregion
     }
 }

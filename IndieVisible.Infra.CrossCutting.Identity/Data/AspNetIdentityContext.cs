@@ -17,19 +17,15 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
 
             SeedRoles(builder);
-
         }
 
         private static void SeedRoles(ModelBuilder builder)
         {
-            var roles = Enum.GetNames(typeof(Roles));
+            string[] roles = Enum.GetNames(typeof(Roles));
 
-            foreach (var role in roles)
+            foreach (string role in roles)
             {
                 builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = role, NormalizedName = role.ToUpper() });
             }

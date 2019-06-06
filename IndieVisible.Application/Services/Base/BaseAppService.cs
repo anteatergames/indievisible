@@ -47,7 +47,7 @@ namespace IndieVisible.Application.Services
             return MediaType.Image;
         }
 
-        public virtual void Dispose(bool dispose)
+        protected virtual void Dispose(bool dispose)
         {
             // dispose resources
         }

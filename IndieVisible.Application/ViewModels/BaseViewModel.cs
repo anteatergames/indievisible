@@ -18,7 +18,7 @@ namespace IndieVisible.Application.ViewModels
 
         public PermissionsVo Permissions { get; set; }
 
-        public BaseViewModel()
+        protected BaseViewModel()
         {
             Permissions = new PermissionsVo();
         }

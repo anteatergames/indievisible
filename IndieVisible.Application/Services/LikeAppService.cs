@@ -259,9 +259,12 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    this.RemoveGameLike(existingLike.Id);
+                    OperationResultVo result = this.RemoveGameLike(existingLike.Id);
 
-                    _unitOfWork.Commit();
+                    if (result.Success)
+                    {
+                        _unitOfWork.Commit();
+                    }
 
                     int newCount = _gameLikeRepository.GetAll().Count(x => x.GameId == likedId && x.UserId == this.CurrentUserId);
 

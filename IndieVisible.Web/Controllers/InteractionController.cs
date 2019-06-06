@@ -235,6 +235,7 @@ namespace IndieVisible.Web.Controllers
         }
 
 
+        [HttpPost]
         [Route("user/allowconnection")]
         public IActionResult AllowUser(Guid userId)
         {
@@ -244,6 +245,9 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
+
+
+        [HttpPost]
         [Route("user/denyconnection")]
         public IActionResult DenyUser(Guid userId)
         {

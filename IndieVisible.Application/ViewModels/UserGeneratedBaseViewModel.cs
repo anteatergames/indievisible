@@ -16,7 +16,7 @@ namespace IndieVisible.Application.ViewModels
 
         public UserContentType UserContentType { get; set; }
 
-        public UserGeneratedBaseViewModel() : base()
+        protected UserGeneratedBaseViewModel() : base()
         {
 
         }
@@ -25,7 +25,7 @@ namespace IndieVisible.Application.ViewModels
     {
         public List<TComment> Comments { get; set; }
 
-        public UserGeneratedCommentBaseViewModel() : base()
+        protected UserGeneratedCommentBaseViewModel() : base()
         {
             Comments = new List<TComment>();
         }

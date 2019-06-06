@@ -33,22 +33,36 @@ namespace IndieVisible.Web.Middlewares
             forbidden.Add("storage", "*");
             forbidden.Add("user", "*");
 
+            forbidden.Add("*", "edit");
+
             forbidden.Add("account", "lockout");
             forbidden.Add("account", "externallogin");
             forbidden.Add("account", "resetpassword");
             forbidden.Add("account", "forgotpasswordconfirmation");
             forbidden.Add("account", "resetpasswordconfirmation");
             forbidden.Add("account", "accessdenied");
+
+            forbidden.Add("home", "error");
+            forbidden.Add("home", "counters");
+            forbidden.Add("home", "notifications");
+
             forbidden.Add("user", "listprofiles");
+
             forbidden.Add("manage", "resetauthenticatorwarning");
             forbidden.Add("manage", "showrecoverycodes");
             forbidden.Add("manage", "error");
             forbidden.Add("manage", "showrecoverycodes");
+
             forbidden.Add("game", "latest");
-            forbidden.Add("home", "counters");
+            forbidden.Add("game", "list");
+
             forbidden.Add("content", "feed");
 
-            forbidden.Add("*", "edit");
+            forbidden.Add("brainstorm", "list");
+            forbidden.Add("brainstorm", "newsession");
+            forbidden.Add("brainstorm", "newidea");
+
+            forbidden.Add("userbadge", "list");
         }
 
         public async Task Invoke(HttpContext context)
@@ -68,50 +82,9 @@ namespace IndieVisible.Web.Middlewares
 
                 foreach (Type controller in controllers)
                 {
-                    IEnumerable<MethodInfo> methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
-                        .Where(method => typeof(IActionResult).IsAssignableFrom(method.ReturnType));
-                    foreach (MethodInfo method in methods)
-                    {
-                        var controllerName = controller.Name.ToLower().Replace("controller", "");
-                        var actionName = method.Name.ToLower();
-
-                        var isForbidden = forbidden.Contains(new KeyValuePair<string, string>(controllerName, actionName));
-                        isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>(controllerName, "*"));
-                        isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>("*", actionName));
-
-                        bool isPost = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPostAttribute));
-                        bool areaForbidden = forbiddenAreas.Any(x => controller.Namespace.ToLower().Contains(".areas." + x));
-                        bool controllerForbidden = false;
-                        bool methodForbidden = false;
-
-                        if (!isPost && !areaForbidden && !isForbidden && !controllerForbidden && !methodForbidden)
-                        {
-                            sitemapContent += "<url>";
-
-                            RouteAttribute routeAttribute = method.GetCustomAttributes<RouteAttribute>().FirstOrDefault();
-
-                            if (routeAttribute != null && !routeAttribute.Template.Contains("{"))
-                            {
-                                sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), routeAttribute.Template.Trim('/'));
-                            }
-                            else
-                            {
-                                string methodName = method.Name.ToLower().Equals("index") ? string.Empty : actionName;
-                                if (string.IsNullOrWhiteSpace(methodName))
-                                {
-                                    sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'));
-                                }
-                                else
-                                {
-                                    sitemapContent += string.Format("<loc>{0}/{1}/{2}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'), methodName.Trim('/'));
-                                }
-                            }
-
-                            sitemapContent += string.Format("<lastmod>{0}</lastmod>", DateTime.UtcNow.ToString("yyyy-MM-dd"));
-                            sitemapContent += "</url>";
-                        }
-                    }
+                    sitemapContent = CheckController(sitemapContent, controller);
                 }
+
                 sitemapContent += "</urlset>";
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
@@ -125,6 +98,63 @@ namespace IndieVisible.Web.Middlewares
             {
                 await _next(context);
             }
+        }
+
+        private string CheckController(string sitemapContent, Type controller)
+        {
+            IEnumerable<MethodInfo> methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                                    .Where(method => typeof(IActionResult).IsAssignableFrom(method.ReturnType));
+
+            foreach (MethodInfo method in methods)
+            {
+                sitemapContent = CheckMethod(sitemapContent, controller, method);
+            }
+
+            return sitemapContent;
+        }
+
+        private string CheckMethod(string sitemapContent, Type controller, MethodInfo method)
+        {
+            string controllerName = controller.Name.ToLower().Replace("controller", "");
+            string actionName = method.Name.ToLower();
+
+            bool isForbidden = forbidden.Contains(new KeyValuePair<string, string>(controllerName, actionName));
+            isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>(controllerName, "*"));
+            isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>("*", actionName));
+
+            bool isPost = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPostAttribute));
+            bool areaForbidden = forbiddenAreas.Any(x => controller.Namespace.ToLower().Contains(".areas." + x));
+            bool controllerForbidden = false;
+            bool methodForbidden = false;
+
+            if (!isPost && !areaForbidden && !isForbidden && !controllerForbidden && !methodForbidden)
+            {
+                sitemapContent += "<url>";
+
+                RouteAttribute routeAttribute = method.GetCustomAttributes<RouteAttribute>().FirstOrDefault();
+
+                if (routeAttribute != null && !routeAttribute.Template.Contains("{"))
+                {
+                    sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), routeAttribute.Template.Trim('/'));
+                }
+                else
+                {
+                    string methodName = method.Name.ToLower().Equals("index") ? string.Empty : actionName;
+                    if (string.IsNullOrWhiteSpace(methodName))
+                    {
+                        sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'));
+                    }
+                    else
+                    {
+                        sitemapContent += string.Format("<loc>{0}/{1}/{2}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'), methodName.Trim('/'));
+                    }
+                }
+
+                sitemapContent += string.Format("<lastmod>{0}</lastmod>", DateTime.UtcNow.ToString("yyyy-MM-dd"));
+                sitemapContent += "</url>";
+            }
+
+            return sitemapContent;
         }
     }
 
