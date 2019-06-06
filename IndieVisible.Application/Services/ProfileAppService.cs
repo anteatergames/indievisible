@@ -28,8 +28,6 @@ namespace IndieVisible.Application.Services
         private readonly IUserFollowDomainService userFollowDomainService;
         private readonly IUserConnectionDomainService userConnectionDomainService;
 
-        public Guid CurrentUserId { get; set; }
-
         public ProfileAppService(IMapper mapper, IUnitOfWork unitOfWork, IProfileRepository repository, IGameRepository gameRepository, IUserContentRepository userContentRepository
             , IUserContentCommentRepository userContentCommentRepository
             , IBrainstormCommentRepository brainstormCommentRepositor
@@ -251,8 +249,8 @@ namespace IndieVisible.Application.Services
 
             vm.Counters.Followers = this.userFollowDomainService.Count(x => x.FollowUserId == vm.UserId);
             vm.Counters.Following = this.userFollowDomainService.Count(x => x.UserId == currentUserId);
-            var connectionsToUser = this.userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
-            var connectionsFromUser = this.userConnectionDomainService.Count(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
+            int connectionsToUser = this.userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
+            int connectionsFromUser = this.userConnectionDomainService.Count(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
 
             vm.Counters.Connections = connectionsToUser + connectionsFromUser;
 

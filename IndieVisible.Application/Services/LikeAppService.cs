@@ -18,8 +18,6 @@ namespace IndieVisible.Application.Services
         private readonly IUserContentLikeRepository _contentLikeRepository;
         private readonly IGameLikeRepository _gameLikeRepository;
 
-        public Guid CurrentUserId { get; set; }
-
         public LikeAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IUserContentLikeRepository contentLikeRepository, IGameLikeRepository gameLikeRepository)
         {
@@ -204,7 +202,7 @@ namespace IndieVisible.Application.Services
             return response;
         }
 
-        public OperationResultVo GameLike(Guid likedId)
+        public OperationResultVo GameLike(Guid gameId)
         {
             OperationResultVo response;
 
@@ -214,7 +212,7 @@ namespace IndieVisible.Application.Services
             }
             else
             {
-                bool alreadyLiked = _gameLikeRepository.GetAll().Any(x => x.GameId == likedId && x.UserId == this.CurrentUserId);
+                bool alreadyLiked = _gameLikeRepository.GetAll().Any(x => x.GameId == gameId && x.UserId == this.CurrentUserId);
 
                 if (alreadyLiked)
                 {
@@ -225,14 +223,14 @@ namespace IndieVisible.Application.Services
                 {
                     GameLike model = new GameLike();
 
-                    model.GameId = likedId;
+                    model.GameId = gameId;
                     model.UserId = this.CurrentUserId;
 
                     _gameLikeRepository.Add(model);
 
                     _unitOfWork.Commit();
 
-                    int newCount = _gameLikeRepository.GetAll().Count(x => x.GameId == likedId && x.UserId == this.CurrentUserId);
+                    int newCount = _gameLikeRepository.GetAll().Count(x => x.GameId == gameId && x.UserId == this.CurrentUserId);
 
                     response = new OperationResultVo<int>(newCount);
                 }

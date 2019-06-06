@@ -19,8 +19,6 @@ namespace IndieVisible.Application.ViewModels.Content
 
         public int CommentCount { get; set; }
 
-        public bool CurrentUserLiked { get; set; }
-
         public Guid GameId { get; set; }
 
         public string GameName { get; set; }

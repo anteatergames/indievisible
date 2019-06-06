@@ -15,7 +15,7 @@ namespace IndieVisible.Domain.Services
     {
         protected readonly TRepository repository;
 
-        public BaseDomainService(TRepository repository)
+        protected BaseDomainService(TRepository repository)
         {
             this.repository = repository;
         }

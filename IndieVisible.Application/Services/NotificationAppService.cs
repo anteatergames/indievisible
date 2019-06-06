@@ -19,8 +19,6 @@ namespace IndieVisible.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly INotificationRepository _notificationRepository;
 
-        public Guid CurrentUserId { get; set; }
-
         public NotificationAppService(IMapper mapper, IUnitOfWork unitOfWork, INotificationRepository notificationRepository)
         {
             _mapper = mapper;
@@ -137,7 +135,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo Notify(Guid targetUserId, NotificationType notificationType, Guid likedId, string text, string url)
+        public OperationResultVo Notify(Guid targetUserId, NotificationType notificationType, Guid targetId, string text, string url)
         {
             NotificationItemViewModel vm = new NotificationItemViewModel();
             vm.UserId = targetUserId;

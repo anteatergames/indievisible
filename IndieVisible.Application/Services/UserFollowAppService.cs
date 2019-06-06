@@ -24,8 +24,6 @@ namespace IndieVisible.Application.Services
             this.gameFollowDomainService = gameFollowDomainService;
         }
 
-        public Guid CurrentUserId { get; set; }
-
         public OperationResultVo<int> Count()
         {
             OperationResultVo<int> result;

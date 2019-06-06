@@ -25,8 +25,6 @@ namespace IndieVisible.Application.Services
         private readonly IUserContentLikeRepository _likeRepository;
         private readonly IUserContentCommentRepository _commentRepository;
 
-        public Guid CurrentUserId { get; set; }
-
         public FeaturedContentAppService(IMapper mapper, IUnitOfWork unitOfWork, IFeaturedContentRepository repository, IUserContentRepository contentRepository, IUserContentLikeRepository likeRepository, IUserContentCommentRepository commentRepository)
         {
             _mapper = mapper;
@@ -224,7 +222,7 @@ namespace IndieVisible.Application.Services
 
             foreach (UserContentToBeFeaturedViewModel item in viewModels)
             {
-                FeaturedContent featuredNow = _repository.GetAll().FirstOrDefault(x => x.UserContentId == item.Id && x.StartDate.Date <= DateTime.Today && (x.EndDate.Date == null || x.EndDate.Date == DateTime.MinValue || x.EndDate.Date > DateTime.Today));
+                FeaturedContent featuredNow = _repository.GetAll().FirstOrDefault(x => x.UserContentId == item.Id && x.StartDate.Date <= DateTime.Today && (x.EndDate.Date == DateTime.MinValue || x.EndDate.Date > DateTime.Today));
 
                 if (featuredNow != null)
                 {

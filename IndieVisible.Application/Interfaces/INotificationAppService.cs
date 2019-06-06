@@ -10,7 +10,7 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultListVo<NotificationItemViewModel> GetByUserId(Guid userId, int count);
 
-        OperationResultVo Notify(Guid targetUserId, NotificationType contentLike, Guid targetId, string text, string url);
+        OperationResultVo Notify(Guid targetUserId, NotificationType notificationType, Guid targetId, string text, string url);
         OperationResultVo MarkAsRead(Guid id);
     }
 }

@@ -26,8 +26,6 @@ namespace IndieVisible.Application.Services
         private readonly IBrainstormCommentRepository brainstormCommentRepository;
         private readonly IGamificationDomainService gamificationDomainService;
 
-        public Guid CurrentUserId { get; set; }
-
         public BrainstormAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IBrainstormSessionRepository brainstormSessionRepository, IBrainstormIdeaRepository brainstormIdeaRepository, IBrainstormVoteRepository brainstormVoteRepository, IBrainstormCommentRepository brainstormCommentRepository
             , IGamificationDomainService gamificationDomainService)

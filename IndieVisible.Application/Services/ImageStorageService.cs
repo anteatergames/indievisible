@@ -10,7 +10,6 @@ namespace IndieVisible.Application.Services
     {
         private readonly IConfiguration _config;
         private CloudStorageAccount storageAccount;
-        private CloudBlobContainer cloudBlobContainer;
 
         public ImageStorageService(IConfiguration config)
         {
@@ -26,7 +25,7 @@ namespace IndieVisible.Application.Services
                 // If the connection string is valid, proceed with operations against Blob storage here.
                 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-                cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
+                CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
                 bool created = await cloudBlobContainer.CreateIfNotExistsAsync();
                 if (created)
                 {
@@ -63,7 +62,7 @@ namespace IndieVisible.Application.Services
                     // If the connection string is valid, proceed with operations against Blob storage here.
                     CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-                    cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
+                    CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
 
 
                     CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(filename);

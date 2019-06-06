@@ -170,8 +170,6 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Guid newId;
-
                 UserConnection model = new UserConnection
                 {
                     UserId = currentUserId,
@@ -188,8 +186,6 @@ namespace IndieVisible.Application.Services
                 {
 
                     this.userConnectionDomainService.Add(model);
-
-                    newId = model.Id;
                 }
 
                 unitOfWork.Commit();
@@ -243,15 +239,13 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo Allow(Guid currentUserId, Guid userId)
         {
-            OperationResultVo result;
-
             try
             {
                 UserConnection existing = this.userConnectionDomainService.Get(userId, currentUserId);
 
                 if (existing == null)
                 {
-                    result = new OperationResultVo("There is no connection requested by this user.");
+                    return new OperationResultVo("There is no connection requested by this user.");
                 }
                 else
                 {
@@ -264,27 +258,23 @@ namespace IndieVisible.Application.Services
 
                 int newCount = this.userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
 
-                result = new OperationResultVo<int>(newCount);
+                return new OperationResultVo<int>(newCount);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Deny(Guid currentUserId, Guid userId)
         {
-            OperationResultVo result;
-
             try
             {
                 UserConnection existing = this.userConnectionDomainService.Get(userId, currentUserId);
 
                 if (existing == null)
                 {
-                    result = new OperationResultVo("There is no connection requested by this user.");
+                    return new OperationResultVo("There is no connection requested by this user.");
                 }
                 else
                 {
@@ -295,14 +285,12 @@ namespace IndieVisible.Application.Services
 
                 int newCount = this.userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
 
-                result = new OperationResultVo<int>(newCount);
+                return new OperationResultVo<int>(newCount);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
     }
 }

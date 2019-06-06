@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace IndieVisible.Application.Services
 {
-    public class BaseAppService : IDisposable
+    public abstract class BaseAppService : IDisposable
     {
         public Guid CurrentUserId { get; set; }
 
@@ -47,8 +47,14 @@ namespace IndieVisible.Application.Services
             return MediaType.Image;
         }
 
+        public virtual void Dispose(bool dispose)
+        {
+            // dispose resources
+        }
+
         public void Dispose()
         {
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
     }

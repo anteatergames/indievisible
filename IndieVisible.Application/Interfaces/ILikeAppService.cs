@@ -15,7 +15,7 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo ContentUnlike(Guid likedId);
 
 
-        OperationResultVo GameLike(Guid userId);
+        OperationResultVo GameLike(Guid gameId);
 
         OperationResultVo GameUnlike(Guid likedId);
     }

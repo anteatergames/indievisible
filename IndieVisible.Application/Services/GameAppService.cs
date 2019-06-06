@@ -24,8 +24,6 @@ namespace IndieVisible.Application.Services
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IGameFollowDomainService gameFollowDomainService;
 
-        public Guid CurrentUserId { get; set; }
-
         public GameAppService(IMapper mapper, IUnitOfWork unitOfWork, IGameRepository repository, IGameLikeRepository gameLikeRepository
             , IGamificationDomainService gamificationDomainService
             , IGameFollowDomainService gameFollowDomainService)

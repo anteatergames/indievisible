@@ -17,8 +17,6 @@ namespace IndieVisible.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserPreferencesRepository _repository;
 
-        public Guid CurrentUserId { get; set; }
-
         public UserPreferencesAppService(IMapper mapper, IUnitOfWork unitOfWork, IUserPreferencesRepository repository)
         {
             _mapper = mapper;

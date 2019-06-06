@@ -8,7 +8,6 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface IGameFollowDomainService : IDomainService<GameFollow>
     {
-        int Count(Expression<Func<GameFollow, bool>> where);
         IEnumerable<GameFollow> GetByGameId(Guid gameId);
     }
 }

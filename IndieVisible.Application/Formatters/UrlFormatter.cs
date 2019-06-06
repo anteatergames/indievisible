@@ -7,7 +7,7 @@ namespace IndieVisible.Application.Formatters
     {
         public static string ProfileImage(Guid userId)
         {
-            return String.Format("{0}/{1}/{2}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, userId);
+            return String.Format("{0}/{1}/{2}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId);
         }
         public static string ProfileCoverImage(Guid userId, Guid profileId)
         {

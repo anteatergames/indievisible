@@ -24,15 +24,11 @@ namespace IndieVisible.Application.Services
         private readonly IUserContentLikeRepository likeRepository;
         private readonly IUserContentCommentRepository commentRepository;
         private readonly IGamificationDomainService gamificationDomainService;
-        private readonly IGameFollowDomainService gameFollowDomainService;
-
-        public Guid CurrentUserId { get; set; }
 
         public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IUserContentRepository repository
             , IUserContentLikeRepository likeRepository, IUserContentCommentRepository commentRepository
-            , IGamificationDomainService gamificationDomainService
-            , IGameFollowDomainService gameFollowDomainService)
+            , IGamificationDomainService gamificationDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
@@ -40,7 +36,6 @@ namespace IndieVisible.Application.Services
             this.likeRepository = likeRepository;
             this.commentRepository = commentRepository;
             this.gamificationDomainService = gamificationDomainService;
-            this.gameFollowDomainService = gameFollowDomainService;
         }
 
         public OperationResultVo<int> Count()
@@ -219,20 +214,7 @@ namespace IndieVisible.Application.Services
         {
             IQueryable<UserContent> allModels = repository.GetAll();
 
-            if (userId != null && userId != Guid.Empty)
-            {
-                allModels = allModels.Where(x => x.UserId != Guid.Empty && x.UserId == userId);
-            }
-
-            if (gameId != null && gameId != Guid.Empty)
-            {
-                allModels = allModels.Where(x => x.GameId != Guid.Empty && x.GameId == gameId);
-            }
-
-            if (languages != null && languages.Any())
-            {
-                allModels = allModels.Where(x => x.Language == 0 || languages.Contains(x.Language));
-            }
+            allModels = FilterActivityFeed(gameId, userId, languages, allModels);
 
             IOrderedQueryable<UserContent> orderedList = allModels
                 .OrderByDescending(x => x.CreateDate);
@@ -261,29 +243,54 @@ namespace IndieVisible.Application.Services
 
                 item.CommentCount = commentRepository.GetAll().Count(x => x.UserContentId == item.Id);
 
-                if (currentUserId != Guid.Empty)
-                {
-                    item.CurrentUserLiked = likeRepository.GetAll().Any(x => x.ContentId == item.Id && x.UserId == currentUserId);
-
-                    IOrderedQueryable<UserContentComment> comments = commentRepository.GetAll().Where(x => x.UserContentId == item.Id).OrderBy(x => x.CreateDate);
-
-                    IQueryable<UserContentCommentViewModel> commentsVm = comments.ProjectTo<UserContentCommentViewModel>(mapper.ConfigurationProvider);
-
-                    item.Comments = commentsVm.ToList();
-
-                    foreach (UserContentCommentViewModel comment in item.Comments)
-                    {
-                        comment.AuthorName = string.IsNullOrWhiteSpace(comment.AuthorName) ? "Unknown soul" : comment.AuthorName;
-                        comment.AuthorPicture = UrlFormatter.ProfileImage(comment.UserId);
-                        comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? "this is the sound... of silence..." : comment.Text;
-                    }
-                }
+                LoadAuthenticatedData(currentUserId, item);
 
                 item.Content = FormatContentToShow(item.Content);
                 item.UserContentType = UserContentType.Post;
             }
 
             return viewModels;
+        }
+
+        private void LoadAuthenticatedData(Guid currentUserId, UserContentListItemViewModel item)
+        {
+            if (currentUserId != Guid.Empty)
+            {
+                item.CurrentUserLiked = likeRepository.GetAll().Any(x => x.ContentId == item.Id && x.UserId == currentUserId);
+
+                IOrderedQueryable<UserContentComment> comments = commentRepository.GetAll().Where(x => x.UserContentId == item.Id).OrderBy(x => x.CreateDate);
+
+                IQueryable<UserContentCommentViewModel> commentsVm = comments.ProjectTo<UserContentCommentViewModel>(mapper.ConfigurationProvider);
+
+                item.Comments = commentsVm.ToList();
+
+                foreach (UserContentCommentViewModel comment in item.Comments)
+                {
+                    comment.AuthorName = string.IsNullOrWhiteSpace(comment.AuthorName) ? "Unknown soul" : comment.AuthorName;
+                    comment.AuthorPicture = UrlFormatter.ProfileImage(comment.UserId);
+                    comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? "this is the sound... of silence..." : comment.Text;
+                }
+            }
+        }
+
+        private static IQueryable<UserContent> FilterActivityFeed(Guid gameId, Guid userId, List<SupportedLanguage> languages, IQueryable<UserContent> allModels)
+        {
+            if (userId != Guid.Empty)
+            {
+                allModels = allModels.Where(x => x.UserId != Guid.Empty && x.UserId == userId);
+            }
+
+            if (gameId != Guid.Empty)
+            {
+                allModels = allModels.Where(x => x.GameId != Guid.Empty && x.GameId == gameId);
+            }
+
+            if (languages != null && languages.Any())
+            {
+                allModels = allModels.Where(x => x.Language == 0 || languages.Contains(x.Language));
+            }
+
+            return allModels;
         }
 
         private static string SetFeaturedImage(Guid userId, string featuredImage)
@@ -293,24 +300,17 @@ namespace IndieVisible.Application.Services
 
         private string FormatContentToShow(string content)
         {
-            //content.Replace("note-video-clip", "note-video-clip embed-responsive");
-
-            //string patternUrl = @"(<img(.?)?src="")?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))("">?)?";
             string patternUrl = @"(<img(.?)?(data-)?src="")?(\()?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))""?(\))?(.>)?";
 
             Regex regexImage = new Regex(patternUrl);
 
             MatchCollection matchesImg = regexImage.Matches(content);
 
-            bool ismatch = regexImage.IsMatch(content);
-
             foreach (Match match in matchesImg)
             {
                 string toReplace = match.Groups[0].Value;
                 string urlBefore = match.Groups[1].Value;
                 string url = match.Groups[5].Value;
-                string urlComplement = match.Groups[4].Value;
-                string urlAfter = match.Groups[7].Value;
 
                 url = !toReplace.TrimStart('(').TrimEnd(')').ToLower().StartsWith("http") ? String.Format("http://{0}", url) : url;
 
