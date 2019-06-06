@@ -74,18 +74,15 @@ namespace IndieVisible.Web.Controllers
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
+                if (result.Succeeded && !string.IsNullOrWhiteSpace(model.UserName))
                 {
-                    if (!string.IsNullOrWhiteSpace(model.UserName))
+                    ApplicationUser user = await _userManager.FindByNameAsync(model.UserName);
+
+                    if (user != null && !string.IsNullOrWhiteSpace(user.UserName))
                     {
-                        ApplicationUser user = await _userManager.FindByNameAsync(model.UserName);
+                        this.SetProfileSession(user.Id, user.UserName);
 
-                        if (user != null && !string.IsNullOrWhiteSpace(user.UserName))
-                        {
-                            this.SetProfileSession(user.Id, user.UserName);
-
-                            await SetStaffRoles(user);
-                        }
+                        await SetStaffRoles(user);
                     }
 
                     _logger.LogInformation("User logged in.");
@@ -237,7 +234,7 @@ namespace IndieVisible.Web.Controllers
         {
             ViewData["ReturnUrl"] = returnUrl;
 
-            var model = new MvcRegisterViewModel();
+            MvcRegisterViewModel model = new MvcRegisterViewModel();
 
             return View(model);
         }
@@ -465,7 +462,7 @@ namespace IndieVisible.Web.Controllers
             if (ModelState.IsValid)
             {
                 ApplicationUser user = await _userManager.FindByEmailAsync(model.Email);
-                var emailAlreadyConfirmed = await _userManager.IsEmailConfirmedAsync(user);
+                bool emailAlreadyConfirmed = await _userManager.IsEmailConfirmedAsync(user);
                 if (user == null || !emailAlreadyConfirmed)
                 {
                     // Don't reveal that the user does not exist or is not confirmed
@@ -550,7 +547,7 @@ namespace IndieVisible.Web.Controllers
 
             try
             {
-                var user = await UserManager.FindByNameAsync(UserName);
+                ApplicationUser user = await UserManager.FindByNameAsync(UserName);
 
                 if (user == null)
                 {

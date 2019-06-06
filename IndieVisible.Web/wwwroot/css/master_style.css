@@ -7539,18 +7539,18 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
                 float: right;
             }
 
-        .nav-tabs-custom > .nav-tabs.float-right > li:first-of-type {
-            margin-right: 0;
-        }
-
-            .nav-tabs-custom > .nav-tabs.float-right > li:first-of-type > a {
-                border-left-width: 1px;
-            }
-
-                .nav-tabs-custom > .nav-tabs.float-right > li:first-of-type > a.active {
-                    border-left-color: #f4f4f4;
-                    border-right-color: transparent;
+                .nav-tabs-custom > .nav-tabs.float-right > li:first-of-type {
+                    margin-right: 0;
                 }
+
+                    .nav-tabs-custom > .nav-tabs.float-right > li:first-of-type > a {
+                        border-left-width: 1px;
+                    }
+
+                        .nav-tabs-custom > .nav-tabs.float-right > li:first-of-type > a.active {
+                            border-left-color: #f4f4f4;
+                            border-right-color: transparent;
+                        }
 
         .nav-tabs-custom > .nav-tabs > li.header {
             line-height: 35px;
@@ -8811,37 +8811,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
     }
 }
 
-.invoice {
-    position: relative;
-    background: #fff;
-    border: 1px solid #f4f4f4;
-    padding: 20px;
-    margin: 10px 25px 0px;
-}
-
 .btn-adn.active, .btn-adn:active, .btn-bitbucket.active, .btn-bitbucket:active, .btn-dropbox.active, .btn-dropbox:active, .btn-facebook.active, .btn-facebook:active, .btn-flickr.active, .btn-flickr:active, .btn-foursquare.active, .btn-foursquare:active, .btn-github.active, .btn-github:active, .btn-google.active, .btn-google:active, .btn-instagram.active, .btn-instagram:active, .btn-microsoft.active, .btn-microsoft:active, .btn-openid.active, .btn-openid:active, .btn-pinterest.active, .btn-pinterest:active, .btn-reddit.active, .btn-reddit:active, .btn-soundcloud.active, .btn-soundcloud:active, .btn-tumblr.active, .btn-tumblr:active, .btn-twitter.active, .btn-twitter:active, .btn-vimeo.active, .btn-vimeo:active, .btn-vk.active, .btn-vk:active, .btn-yahoo.active, .btn-yahoo:active, .show > .dropdown-toggle.btn-adn, .show > .dropdown-toggle.btn-bitbucket, .show > .dropdown-toggle.btn-dropbox, .show > .dropdown-toggle.btn-facebook, .show > .dropdown-toggle.btn-flickr, .show > .dropdown-toggle.btn-foursquare, .show > .dropdown-toggle.btn-github, .show > .dropdown-toggle.btn-google, .show > .dropdown-toggle.btn-instagram, .show > .dropdown-toggle.btn-microsoft, .show > .dropdown-toggle.btn-openid, .show > .dropdown-toggle.btn-pinterest, .show > .dropdown-toggle.btn-reddit, .show > .dropdown-toggle.btn-soundcloud, .show > .dropdown-toggle.btn-tumblr, .show > .dropdown-toggle.btn-twitter, .show > .dropdown-toggle.btn-vimeo, .show > .dropdown-toggle.btn-vk, .show > .dropdown-toggle.btn-yahoo {
     background-image: none;
-}
-
-.invoice-details, .total-payment h3 {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.invoice-title {
-    margin-top: 0;
-}
-
-.invoice-details {
-    background-color: #f2f6f8;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-}
-
-.total-payment h3 {
-    border-top: 1px solid #ccc;
-    display: inline-block;
-    margin-top: 0;
 }
 
 .profile-user-img {
@@ -9050,10 +9021,6 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
 .box .datepicker-inline, .box .datepicker-inline .datepicker-days, .box .datepicker-inline .datepicker-days > table, .box .datepicker-inline > table, .fc-grid {
     width: 100%
-}
-
-.fc-day-number, .fc-header-right {
-    padding-right: 10px;
 }
 
 .btn-default.green-btn {
@@ -9391,87 +9358,6 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
         background-color: #fff;
     }
 
-.btn-yahoo {
-    color: #fff;
-    background-color: #720e9e;
-    border-color: rgba(0, 0, 0, .2);
-}
-
-    .btn-yahoo.active, .btn-yahoo.focus, .btn-yahoo:active, .btn-yahoo:focus, .btn-yahoo:hover, .show > .dropdown-toggle.btn-yahoo {
-        color: #fff;
-        background-color: #500a6f;
-        border-color: rgba(0, 0, 0, .2);
-    }
-
-    .btn-yahoo .badge {
-        color: #720e9e;
-        background-color: #fff;
-    }
-
-.fc-button.hover, .fc-button:active, .fc-button:hover {
-    background-color: #e9e9e9;
-}
-
-.fc-header-title h2 {
-    font-size: 15px;
-    line-height: 1.6em;
-    color: #666;
-    margin-left: 10px;
-}
-
-.fc-header-left {
-    padding-left: 10px;
-}
-
-.fc-widget-header {
-    background: #fafafa;
-}
-
-.fc-grid {
-    border: 0;
-}
-
-.fc-widget-content:first-of-type, .fc-widget-header:first-of-type {
-    border-left: 0;
-    border-right: 0;
-}
-
-.fc-widget-content:last-of-type, .fc-widget-header:last-of-type {
-    border-right: 0;
-}
-
-.fc-day-number {
-    font-size: 20px;
-    font-weight: 300;
-}
-
-.fc-color-picker {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-    .fc-color-picker > li {
-        float: left;
-        font-size: 30px;
-        margin-right: 5px;
-        line-height: 30px;
-    }
-
-        .fc-color-picker > li .fa {
-            -webkit-transition: -webkit-transform linear .3s;
-            -moz-transition: -moz-transform linear .3s;
-            -o-transition: -o-transform linear .3s;
-            transition: transform linear .3s;
-        }
-
-            .fc-color-picker > li .fa:hover {
-                -webkit-transform: rotate(30deg);
-                -ms-transform: rotate(30deg);
-                -o-transform: rotate(30deg);
-                transform: rotate(30deg);
-            }
-
 .calendar {
     float: left;
     margin-bottom: 0;
@@ -9479,53 +9365,6 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
 .none-border .modal-footer {
     border-top: none;
-}
-
-.fc-toolbar {
-    margin-bottom: 5px;
-    margin-top: 15px;
-}
-
-    .fc-toolbar h2 {
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 30px;
-    }
-
-.fc-day {
-    background: #fff;
-}
-
-.fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active, .fc-toolbar .ui-state-hover, .fc-toolbar button:focus, .fc-toolbar button:hover {
-    z-index: 0;
-}
-
-.fc-widget-content {
-    border-color: rgba(120, 130, 140, .13) !important;
-}
-
-.fc th.fc-widget-header {
-    color: #67757c;
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 20px;
-    padding: 7px 0;
-    border: 0;
-}
-
-.fc th.fc-fri, .fc th.fc-mon, .fc th.fc-sat, .fc th.fc-sun, .fc th.fc-thu, .fc th.fc-tue, .fc th.fc-wed {
-    background: #f2f7f8;
-}
-
-.fc-view {
-    margin-top: 0;
-}
-
-.fc-button {
-    background: #fff;
-    border: 1px solid rgba(120, 130, 140, .13);
-    color: #67757c;
-    text-transform: capitalize;
 }
 
 .description-block > .description-text, .external-event {
@@ -10176,97 +10015,6 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
     width: 30px !important;
     height: 30px !important;
 }
-
-.img-md {
-    width: 60px;
-    height: 60px;
-}
-
-    .img-md + .img-push {
-        margin-left: 70px;
-    }
-
-.attachment-block .attachment-pushed, .img-lg + .img-push {
-    margin-left: 110px;
-}
-
-.img-lg {
-    width: 100px;
-    height: 100px;
-}
-
-.img-bordered {
-    border: 3px solid #d2d6de;
-    padding: 3px;
-}
-
-.img-bordered-sm {
-    border: 2px solid #d2d6de;
-    padding: 2px;
-}
-
-.attachment-block {
-    border: 1px solid #f4f4f4;
-    padding: 5px;
-    margin-bottom: 10px;
-    background: #f7f7f7;
-}
-
-    .attachment-block .attachment-img {
-        max-width: 100px;
-        max-height: 100px;
-        height: auto;
-        float: left;
-    }
-
-    .attachment-block .attachment-heading {
-        margin: 0;
-    }
-
-    .attachment-block .attachment-text {
-        color: #555;
-    }
-
-.connectedSortable {
-    min-height: 100px;
-}
-
-.ui-helper-hidden-accessible {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-.sort-highlight {
-    background: #f4f4f4;
-    border: 1px dashed #ddd;
-    margin-bottom: 10px;
-}
-
-.full-opacity-hover {
-    opacity: .65;
-    filter: alpha(opacity=65);
-}
-
-    .full-opacity-hover:hover {
-        opacity: 1;
-        filter: alpha(opacity=100);
-    }
-
-.chart {
-    position: relative;
-    overflow: hidden;
-    width: 100%
-}
-
-    .chart canvas, .chart svg {
-        width: 100% !important;
-    }
 
 @media print {
     .content-header, .left-side, .main-header, .main-sidebar, .no-print {
