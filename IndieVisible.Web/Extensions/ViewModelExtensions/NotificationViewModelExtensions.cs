@@ -17,9 +17,6 @@ namespace IndieVisible.Web.Extensions.ViewModelExtensions
                 switch (item.Type)
                 {
                     case Domain.Core.Enums.NotificationType.ContentLike:
-                        item.Icon = "fas fa-heart";
-                        item.IconColor = "text-red";
-                        break;
                     case Domain.Core.Enums.NotificationType.GameLike:
                         item.Icon = "fas fa-heart";
                         item.IconColor = "text-red";

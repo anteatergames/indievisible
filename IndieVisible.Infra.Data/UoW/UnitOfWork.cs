@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Infra.Data.Context;
+using System;
 
 namespace IndieVisible.Infra.Data.UoW
 {
@@ -19,13 +20,16 @@ namespace IndieVisible.Infra.Data.UoW
 
         protected virtual void Dispose(bool disposing)
         {
-
+            if (disposing)
+            {
+                _context.Dispose();
+            }
         }
 
         public void Dispose()
         {
             Dispose(true);
-            _context.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
