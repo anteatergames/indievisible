@@ -109,8 +109,6 @@ namespace IndieVisible.Web.Controllers
 
                         byte[] fileBytes = ms.ToArray();
 
-                        string extension = GetFileExtension(image);
-
                         string filename = userId + "_Personal";
 
                         imageUrl = base.UploadImage(userId, BlobType.ProfileImage, filename, fileBytes);
@@ -153,8 +151,6 @@ namespace IndieVisible.Web.Controllers
                         OptimizeImage(ms);
 
                         byte[] fileBytes = ms.ToArray();
-
-                        string extension = GetFileExtension(image);
 
                         string filename = profileId.ToString();
 
@@ -226,7 +222,7 @@ namespace IndieVisible.Web.Controllers
                 {
                     string currentParam = GetImageNameFromUrl(currentImage);
 
-                    string delete = base.DeleteGameImage(userId, type, currentParam);
+                    base.DeleteGameImage(userId, type, currentParam);
                 }
 
                 var json = new
@@ -281,7 +277,6 @@ namespace IndieVisible.Web.Controllers
                         imageUrl = base.UploadContentImage(CurrentUserId, filename, fileBytes);
                     }
                 }
-                string baseUrl = GetAbsoluteBaseUri();
 
                 var json = new
                 {
@@ -330,7 +325,6 @@ namespace IndieVisible.Web.Controllers
                         imageUrl = base.UploadContentImage(CurrentUserId, filename, fileBytes);
                     }
                 }
-                string baseUrl = GetAbsoluteBaseUri();
 
                 var json = new
                 {
@@ -390,7 +384,7 @@ namespace IndieVisible.Web.Controllers
                 {
                     string currentParam = GetImageNameFromUrl(currentImage);
 
-                    string delete = base.DeleteFeaturedImage(userId, currentParam);
+                    base.DeleteFeaturedImage(userId, currentParam);
                 }
 
                 var json = new
@@ -457,10 +451,6 @@ namespace IndieVisible.Web.Controllers
                 case BlobType.ProfileCover:
                     storageBasePath = baseUrl + userId + "/" + type.ToString().ToLower() + "_";
                     break;
-                case BlobType.GameThumbnail:
-                case BlobType.GameCover:
-                case BlobType.ContentImage:
-                case BlobType.FeaturedImage:
                 default:
                     storageBasePath = baseUrl + userId + "/";
                     break;

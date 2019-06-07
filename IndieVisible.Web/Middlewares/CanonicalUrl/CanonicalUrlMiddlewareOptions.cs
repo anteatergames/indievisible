@@ -7,7 +7,7 @@ namespace IndieVisible.Web.Middlewares.CanonicalUrl
     /// <summary>
     /// Options for CanonicalUrlConfigurations
     /// </summary>
-    public class CanonicalURLMiddlewareOptions
+    public class CanonicalUrlMiddlewareOptions
     {
         /// <summary>
         /// A flag that tell the middlware if it should make the urls lowercase
@@ -26,7 +26,7 @@ namespace IndieVisible.Web.Middlewares.CanonicalUrl
         /// </summary>
         public bool TrailingSlash { get; set; }
 
-        public CanonicalURLMiddlewareOptions(){}
+        public CanonicalUrlMiddlewareOptions(){}
 
     }
 }

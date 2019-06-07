@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Http;
 
 namespace IndieVisible.Web.Middlewares.CanonicalUrl
 {
-    public class CanonicalURLMiddleware
+    public class CanonicalUrlMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly CanonicalURLMiddlewareOptions _options;
+        private readonly CanonicalUrlMiddlewareOptions _options;
 
-        public CanonicalURLMiddleware(RequestDelegate next, CanonicalURLMiddlewareOptions options){
+        public CanonicalUrlMiddleware(RequestDelegate next, CanonicalUrlMiddlewareOptions options){
             _next = next;
             _options = options;
         }
@@ -40,7 +40,7 @@ namespace IndieVisible.Web.Middlewares.CanonicalUrl
                 }
                 else
                 {
-                    canonicalUrl = (canonicalUrl + queryString).ToLower(); ;
+                    canonicalUrl = (canonicalUrl + queryString).ToLower();
                 }
             }
 

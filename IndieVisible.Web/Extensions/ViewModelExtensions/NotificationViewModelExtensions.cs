@@ -37,10 +37,6 @@ namespace IndieVisible.Web.Extensions.ViewModelExtensions
                         item.Icon = "fas fa-eye";
                         item.IconColor = "text-purple";
                         break;
-                    case Domain.Core.Enums.NotificationType.AchivementEarned:
-                    case Domain.Core.Enums.NotificationType.LevelUp:
-                    case Domain.Core.Enums.NotificationType.ArticleAboutYourGame:
-                    case Domain.Core.Enums.NotificationType.ContentPosted:
                     default:
                         item.IconColor = "text-gray";
                         break;
