@@ -9082,9 +9082,18 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
         background-color: #fff;
     }
 
+
+.bg-facebook {
+    background: #1877f2 !important;
+}
+
+    .bg-facebook i {
+        color: #fff;
+    }
+
 .btn-facebook {
     color: #fff;
-    background: #4267b2;
+    background: #1877f2;
     border-color: white;
     width: 41px;
     height: 41px;
@@ -9097,11 +9106,11 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
     .btn-facebook.active, .btn-facebook.focus, .btn-facebook:active, .btn-facebook:focus, .btn-facebook:hover, .show > .dropdown-toggle.btn-facebook {
         color: #fff;
-        background-color: #4267b2;
+        background-color: #3b5998;
     }
 
     .btn-facebook .badge {
-        color: #4267b2;
+        color: #1877f2;
         background-color: #fff;
     }
 
