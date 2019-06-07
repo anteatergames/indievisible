@@ -1,8 +1,5 @@
 ﻿using IndieVisible.Application.ViewModels.Notification;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Extensions.ViewModelExtensions
 {
@@ -12,8 +9,11 @@ namespace IndieVisible.Web.Extensions.ViewModelExtensions
         public static void DefineVisuals(this List<NotificationItemViewModel> vm)
         {
 
-            foreach (var item in vm)
+            foreach (NotificationItemViewModel item in vm)
             {
+                item.Icon = "far fa-dot-circle";
+                item.IconColor = "text-black";
+
                 switch (item.Type)
                 {
                     case Domain.Core.Enums.NotificationType.ContentLike:
@@ -41,24 +41,11 @@ namespace IndieVisible.Web.Extensions.ViewModelExtensions
                         item.IconColor = "text-purple";
                         break;
                     case Domain.Core.Enums.NotificationType.AchivementEarned:
-                        item.Icon = "far fa-dot-circle";
-                        item.IconColor = "text-black";
-                        break;
                     case Domain.Core.Enums.NotificationType.LevelUp:
-                        item.Icon = "far fa-dot-circle";
-                        item.IconColor = "text-black";
-                        break;
                     case Domain.Core.Enums.NotificationType.ArticleAboutYourGame:
-                        item.Icon = "far fa-dot-circle";
-                        item.IconColor = "text-black";
-                        break;
                     case Domain.Core.Enums.NotificationType.ContentPosted:
-                        item.Icon = "fas fa-asterisk";
-                        item.IconColor = "text-green";
-                        break;
                     default:
-                        item.Icon = "far fa-dot-circle";
-                        item.IconColor = "text-black";
+                        item.IconColor = "text-gray";
                         break;
                 }
             }

@@ -29,23 +29,19 @@ namespace IndieVisible.Web
 
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            if (context.HttpContext.Request.Method == "GET")
+            if (context.HttpContext.Request.Method == "GET" && _statusCodes.Contains(context.HttpContext.Response.StatusCode))
             {
-                if (_statusCodes.Contains(context.HttpContext.Response.StatusCode))
+                IActionResult test = context.Result;
+                //I just serialize the result to JSON, could do something less costly
+                string content = JsonConvert.SerializeObject(context.Result);
+
+                string etag = ETagGenerator.GetETag(context.HttpContext.Request.Path.ToString(), Encoding.UTF8.GetBytes(content));
+
+                if (context.HttpContext.Request.Headers.Keys.Contains(HeaderNames.IfNoneMatch) && context.HttpContext.Request.Headers[HeaderNames.IfNoneMatch].ToString() == etag)
                 {
-
-                    var test = context.Result;
-                    //I just serialize the result to JSON, could do something less costly
-                    string content = JsonConvert.SerializeObject(context.Result);
-
-                    string etag = ETagGenerator.GetETag(context.HttpContext.Request.Path.ToString(), Encoding.UTF8.GetBytes(content));
-
-                    if (context.HttpContext.Request.Headers.Keys.Contains(HeaderNames.IfNoneMatch) && context.HttpContext.Request.Headers[HeaderNames.IfNoneMatch].ToString() == etag)
-                    {
-                        context.Result = new StatusCodeResult(304);
-                    }
-                    context.HttpContext.Response.Headers.Add(HeaderNames.ETag, new[] { etag });
+                    context.Result = new StatusCodeResult(304);
                 }
+                context.HttpContext.Response.Headers.Add(HeaderNames.ETag, new[] { etag });
             }
         }
     }

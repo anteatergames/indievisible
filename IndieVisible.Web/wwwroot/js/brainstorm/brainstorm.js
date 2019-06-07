@@ -33,9 +33,7 @@
     }
 
     function bindBtnNewIdea() {
-        selectors.container.on('click', '.btn-idea-new', function (e) {
-            var btn = $(this);
-
+        selectors.container.on('click', '.btn-idea-new', function () {
             if (canInteract) {
                 loadNewForm();
             }
@@ -43,10 +41,7 @@
     }
 
     function bindBtnNewSession() {
-        selectors.container.on('click', '.btn-session-new', function (e) {
-            console.log('newsession');
-            var btn = $(this);
-
+        selectors.container.on('click', '.btn-session-new', function () {
             if (canInteract) {
                 loadNewSessionForm();
             }
@@ -54,9 +49,7 @@
     }
 
     function bindBtnSaveIdea() {
-        selectors.container.on('click', '#btnPostBrainstormIdea', function (e) {
-            var btn = $(this);
-
+        selectors.container.on('click', '#btnPostBrainstormIdea', function () {
             var valid = selectors.form.valid();
             if (valid && canInteract) {
                 submitForm();
@@ -65,9 +58,7 @@
     }
 
     function bindBtnSaveSession() {
-        selectors.container.on('click', '#btnPostBrainstormSession', function (e) {
-            var btn = $(this);
-
+        selectors.container.on('click', '#btnPostBrainstormSession', function () {
             var valid = selectors.form.valid();
             if (valid && canInteract) {
                 submitForm();
@@ -76,7 +67,7 @@
     }
 
     function bindBtnVote() {
-        selectors.container.on('click', '.brainstorm-button', function (e) {
+        selectors.container.on('click', '.brainstorm-button', function () {
             var btn = $(this);
             var item = btn.closest('.brainstorm-item');
             var id = item.data('id');

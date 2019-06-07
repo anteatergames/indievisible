@@ -27,16 +27,12 @@
 
         .skin-indievisible .main-header .navbar .sidebar-toggle:hover {
             color: white;
-            background: rgba(0, 0, 0, 0.1);
+            background-color: transparent;
         }
 
     .skin-indievisible .main-header .navbar .sidebar-toggle {
         color: white;
     }
-
-        .skin-indievisible .main-header .navbar .sidebar-toggle:hover {
-            background-color: transparent;
-        }
 
 @media (max-width: 767px) {
     .skin-indievisible .main-header .navbar .dropdown-menu li.divider {
@@ -223,9 +219,6 @@
 
 .gamebox-description, .gamebox-description-text {
     display: block;
-}
-
-.gamebox-description {
 }
 
     .gamebox-description .gamebox-description-number, .gamebox-description .gamebox-description-text {

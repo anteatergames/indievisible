@@ -320,7 +320,6 @@ $.validator.setDefaults({
         var tabPane = $(element).closest('.tab-pane');
         var tabs = tabPane.parent().parent();
         var tabPaneId = tabPane.prop('id');
-        var tabsNav = tabs.find('.nav.nav-tabs');
         var tabPending = tabs.find('.nav-link[href$=' + tabPaneId + ']');   
 
         tabPending.addClass('has-error');
@@ -338,7 +337,6 @@ $.validator.setDefaults({
         var tabPane = $(element).closest('.tab-pane');
         var tabs = tabPane.parent().parent();
         var tabPaneId = tabPane.prop('id');
-        var tabsNav = tabs.find('.nav.nav-tabs');
         var tabPending = tabs.find('.nav-link[href$=' + tabPaneId + ']');
         
         var countError = $(element).closest('.tab-pane').find('.has-error').length;

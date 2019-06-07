@@ -142,8 +142,6 @@
             else {
                 postImagesDropZone.processQueue();
 
-                var files = postImagesDropZone.getAcceptedFiles();
-
                 postImagesDropZone.on("success", function (file) {
                     var response = JSON.parse(file.xhr.response);
                     if (response.uploaded) {

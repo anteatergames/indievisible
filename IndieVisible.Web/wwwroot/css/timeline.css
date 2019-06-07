@@ -30,16 +30,6 @@
             clear: both;
         }
 
-        .timeline > li:before,
-        .timeline > li:after {
-            content: " ";
-            display: table;
-        }
-
-        .timeline > li:after {
-            clear: both;
-        }
-
         .timeline > li > .timeline-panel {
             width: 46%;
             float: left;
