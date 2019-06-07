@@ -2,7 +2,7 @@
 
 @foreach (var game in Model)
 {
-    <div class="box box-default">
+    <div class="box box-default box-game">
         <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
             <img class="card-img-top img-responsive lazyload" data-src="@game.ThumbnailUrl" src="~/images/placeholders/gameplaceholder.jpg"  alt="@game.Title">
         </a>

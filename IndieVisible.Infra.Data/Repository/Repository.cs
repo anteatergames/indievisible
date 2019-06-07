@@ -57,9 +57,18 @@ namespace IndieVisible.Infra.Data.Repository
         {
             return Db.SaveChanges();
         }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                Db.Dispose();
+            }
+        }
+
         public void Dispose()
         {
-            Db.Dispose();
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
     }

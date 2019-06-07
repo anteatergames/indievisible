@@ -40,25 +40,22 @@ namespace IndieVisible.Web.Controllers.Base
         {
             base.OnActionExecuting(context);
 
-            if (ViewBag.Username == null)
+            if (User != null && User.Identity.IsAuthenticated && ViewBag.Username == null)
             {
-                if (User != null && User.Identity.IsAuthenticated)
+                string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                CurrentUserId = new Guid(userId);
+
+                string username = this.User.FindFirstValue(ClaimTypes.Name);
+
+                string sessionUserName = GetSessionValue(SessionValues.Username);
+
+                if (sessionUserName != null && !sessionUserName.Equals(username))
                 {
-                    string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    CurrentUserId = new Guid(userId);
-
-                    string username = this.User.FindFirstValue(ClaimTypes.Name);
-
-                    string sessionUserName = GetSessionValue(SessionValues.Username);
-
-                    if (sessionUserName != null && !sessionUserName.Equals(username))
-                    {
-                        SetSessionValue(SessionValues.Username, username);
-                    }
-
-                    ViewBag.Username = username ?? Constants.DefaultUsername;
-                    ViewBag.ProfileImage = UrlFormatter.ProfileImage(CurrentUserId);
+                    SetSessionValue(SessionValues.Username, username);
                 }
+
+                ViewBag.Username = username ?? Constants.DefaultUsername;
+                ViewBag.ProfileImage = UrlFormatter.ProfileImage(CurrentUserId);
             }
 
             ViewBag.BaseUrl = base.GetBaseUrl();
@@ -151,38 +148,38 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected string UploadGameImage(Guid userId, BlobType type, string filename, byte[] fileBytes)
         {
-            var result = this.UploadImage(userId, type.ToString().ToLower(), filename, fileBytes);
+            string result = this.UploadImage(userId, type.ToString().ToLower(), filename, fileBytes);
 
             return result;
         }
 
         protected string UploadContentImage(Guid userId, string filename, byte[] fileBytes)
         {
-            var type = BlobType.ContentImage.ToString().ToLower();
-            var result = this.UploadImage(userId, type, filename, fileBytes);
+            string type = BlobType.ContentImage.ToString().ToLower();
+            string result = this.UploadImage(userId, type, filename, fileBytes);
 
             return result;
         }
 
         protected string UploadFeaturedImage(Guid userId, string filename, byte[] fileBytes)
         {
-            var type = BlobType.FeaturedImage.ToString().ToLower();
-            var result = this.UploadImage(userId, type, filename, fileBytes);
+            string type = BlobType.FeaturedImage.ToString().ToLower();
+            string result = this.UploadImage(userId, type, filename, fileBytes);
 
             return result;
         }
 
         protected string DeleteGameImage(Guid userId, BlobType type, string filename)
         {
-            var result = this.DeleteImage(userId, filename);
+            string result = this.DeleteImage(userId, filename);
 
             return result;
         }
 
         protected string DeleteFeaturedImage(Guid userId, string filename)
         {
-            var type = BlobType.FeaturedImage.ToString().ToLower();
-            var result = this.DeleteImage(userId, filename);
+            string type = BlobType.FeaturedImage.ToString().ToLower();
+            string result = this.DeleteImage(userId, filename);
 
             return result;
         }

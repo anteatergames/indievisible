@@ -18,7 +18,7 @@ namespace IndieVisible.Web.Controllers
     public class StorageController : SecureBaseController
     {
         private readonly IHostingEnvironment _hostingEnv;
-        private static IHttpContextAccessor HttpContextAccessor;
+        private readonly IHttpContextAccessor HttpContextAccessor;
 
         public StorageController(IHostingEnvironment hostingEnv, IHttpContextAccessor httpContextAccessor)
         {
@@ -222,14 +222,11 @@ namespace IndieVisible.Web.Controllers
                     }
                 }
 
-                if (!string.IsNullOrWhiteSpace(currentImage))
+                if (!string.IsNullOrWhiteSpace(currentImage) && !currentImage.Equals(defaultImage))
                 {
-                    if (!currentImage.Equals(defaultImage))
-                    {
-                        string currentParam = GetImageNameFromUrl(currentImage);
+                    string currentParam = GetImageNameFromUrl(currentImage);
 
-                        string delete = base.DeleteGameImage(userId, type, currentParam);
-                    }
+                    string delete = base.DeleteGameImage(userId, type, currentParam);
                 }
 
                 var json = new
@@ -389,14 +386,11 @@ namespace IndieVisible.Web.Controllers
                     }
                 }
 
-                if (!string.IsNullOrWhiteSpace(currentImage))
+                if (!string.IsNullOrWhiteSpace(currentImage) && !currentImage.Equals(Constants.DefaultFeaturedImage))
                 {
-                    if (!currentImage.Equals(Constants.DefaultFeaturedImage))
-                    {
-                        string currentParam = GetImageNameFromUrl(currentImage);
+                    string currentParam = GetImageNameFromUrl(currentImage);
 
-                        string delete = base.DeleteFeaturedImage(userId, currentParam);
-                    }
+                    string delete = base.DeleteFeaturedImage(userId, currentParam);
                 }
 
                 var json = new

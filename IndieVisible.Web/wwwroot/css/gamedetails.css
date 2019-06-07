@@ -8,6 +8,8 @@
 }
 
 .game-top-details {
+    color: white !important;
+    text-shadow: 1px 1px black;
     margin-top: 130px;
 }
 
@@ -17,6 +19,9 @@
 
 
 
+.box.widget-game {
+    padding: 0;
+}
 
 .widget-game .widget-game-header {
     text-align: center;
@@ -29,7 +34,7 @@
 }
 
 .widget-game .widget-game-header .game-top-details h3 {
-    margin: 0px;
+    margin: 0;
 }
 
 
@@ -78,6 +83,10 @@
 
 .widget-game .box {
     box-shadow: none;
+}
+
+.widget-game-gametitle {
+    margin:0;
 }
 
 

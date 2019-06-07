@@ -3,6 +3,7 @@ using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Exceptions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -54,7 +55,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             IndexViewModel model = new IndexViewModel
@@ -81,7 +82,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             string email = user.Email;
@@ -90,7 +91,7 @@ namespace IndieVisible.Web.Controllers
                 IdentityResult setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
                 if (!setEmailResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+                    throw new CustomApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
                 }
             }
 
@@ -100,7 +101,7 @@ namespace IndieVisible.Web.Controllers
                 IdentityResult setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
+                    throw new CustomApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
                 }
             }
 
@@ -120,7 +121,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -138,7 +139,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             bool hasPassword = await _userManager.HasPasswordAsync(user);
@@ -163,7 +164,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             IdentityResult changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
@@ -186,7 +187,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             bool hasPassword = await _userManager.HasPasswordAsync(user);
@@ -212,7 +213,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             IdentityResult addPasswordResult = await _userManager.AddPasswordAsync(user, model.NewPassword);
@@ -234,7 +235,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             ExternalLoginsViewModel model = new ExternalLoginsViewModel { CurrentLogins = await _userManager.GetLoginsAsync(user) };
@@ -266,19 +267,19 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync(user.Id);
             if (info == null)
             {
-                throw new ApplicationException($"Unexpected error occurred loading external login info for user with ID '{user.Id}'.");
+                throw new CustomApplicationException($"Unexpected error occurred loading external login info for user with ID '{user.Id}'.");
             }
 
             IdentityResult result = await _userManager.AddLoginAsync(user, info);
             if (!result.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occurred adding external login for user with ID '{user.Id}'.");
+                throw new CustomApplicationException($"Unexpected error occurred adding external login for user with ID '{user.Id}'.");
             }
 
             // Clear the existing external cookie to ensure a clean login process
@@ -295,13 +296,13 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             IdentityResult result = await _userManager.RemoveLoginAsync(user, model.LoginProvider, model.ProviderKey);
             if (!result.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occurred removing external login for user with ID '{user.Id}'.");
+                throw new CustomApplicationException($"Unexpected error occurred removing external login for user with ID '{user.Id}'.");
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
@@ -315,7 +316,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             TwoFactorAuthenticationViewModel model = new TwoFactorAuthenticationViewModel
@@ -334,12 +335,12 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
             {
-                throw new ApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
+                throw new CustomApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
             }
 
             return View(nameof(Disable2fa));
@@ -352,13 +353,13 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             IdentityResult disable2faResult = await _userManager.SetTwoFactorEnabledAsync(user, false);
             if (!disable2faResult.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
+                throw new CustomApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
             }
 
             _logger.LogInformation("User with ID {UserId} has disabled 2fa.", user.Id);
@@ -371,7 +372,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             EnableAuthenticatorViewModel model = new EnableAuthenticatorViewModel();
@@ -387,7 +388,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -443,7 +444,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             await _userManager.SetTwoFactorEnabledAsync(user, false);
@@ -459,12 +460,12 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
             {
-                throw new ApplicationException($"Cannot generate recovery codes for user with ID '{user.Id}' because they do not have 2FA enabled.");
+                throw new CustomApplicationException($"Cannot generate recovery codes for user with ID '{user.Id}' because they do not have 2FA enabled.");
             }
 
             return View(nameof(GenerateRecoveryCodes));
@@ -477,12 +478,12 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
             {
-                throw new ApplicationException($"Cannot generate recovery codes for user with ID '{user.Id}' as they do not have 2FA enabled.");
+                throw new CustomApplicationException($"Cannot generate recovery codes for user with ID '{user.Id}' as they do not have 2FA enabled.");
             }
 
             IEnumerable<string> recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);

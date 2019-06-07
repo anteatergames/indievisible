@@ -153,7 +153,7 @@
             }
             <!-- /.col -->
             <div class="row">
-                <div class="col-xl-4 col-lg-5 col-sm-12 p-0">
+                <div class="col-xl-4 col-lg-5 col-sm-12">
                     <!-- Profile Image -->
                     <div class="box box-primary">
                         <div class="box-body box-profile">
@@ -179,26 +179,24 @@
                             </div>
                         </div>
                         <!-- /.box-body -->
-                        <div class="col-12">
-                            <div class="user-profile-xp">
-                                <div class="info-box bg-purple">
-                                    <span class="info-box-icon push-bottom">@Model.IndieXp.Level</span>
+                        <div class="user-profile-xp">
+                            <div class="info-box bg-purple">
+                                <span class="info-box-icon push-bottom">@Model.IndieXp.Level</span>
 
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">@Model.IndieXp.LevelName</span>
-                                        <span class="info-box-number">@Model.IndieXp.LevelXp</span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">@Model.IndieXp.LevelName</span>
+                                    <span class="info-box-number">@Model.IndieXp.LevelXp</span>
 
-                                        <div class="progress">
-                                            <div class="progress-bar bg-white" style="width: @(Model.IndieXp.PercentageToNextLevel)%"></div>
-                                        </div>
-                                        <span class="progress-description">
-                                            @Model.IndieXp.XpToNextLevel @SharedLocalizer["to the next level"]
-                                        </span>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-white" style="width: @(Model.IndieXp.PercentageToNextLevel)%"></div>
                                     </div>
-                                    <!-- /.info-box-content -->
+                                    <span class="progress-description">
+                                        @Model.IndieXp.XpToNextLevel @SharedLocalizer["to the next level"]
+                                    </span>
                                 </div>
-                                <!-- /.info-box -->
+                                <!-- /.info-box-content -->
                             </div>
+                            <!-- /.info-box -->
                         </div>
 
                         <div class="col-12">
@@ -292,7 +290,7 @@
                                             <div class="user-profile-others">
                                                 <a href="@Model.GameJoltUrl" target="_blank">
                                                     <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt"/>
+                                                        <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt" />
                                                     </div>
                                                     @Html.DisplayNameFor(x => x.GameJoltUrl)
                                                 </a>
@@ -304,7 +302,7 @@
                                             <div class="user-profile-others">
                                                 <a href="@Model.ItchIoUrl" target="_blank">
                                                     <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/itchio32.png" alt="Itch.io"/>
+                                                        <img src="~/images/otherprofiles/itchio32.png" alt="Itch.io" />
                                                     </div>
                                                     Itch.io
                                                 </a>
@@ -316,7 +314,7 @@
                                             <div class="user-profile-others">
                                                 <a href="@Model.IndieDbUrl" target="_blank">
                                                     <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDb"/>
+                                                        <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDb" />
                                                     </div>
                                                     @Html.DisplayNameFor(x => x.IndieDbUrl)
                                                 </a>
@@ -328,7 +326,7 @@
                                             <div class="user-profile-others">
                                                 <a href="@Model.UnityConnectUrl" target="_blank">
                                                     <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect"/>
+                                                        <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect" />
                                                     </div>
                                                     @Html.DisplayNameFor(x => x.UnityConnectUrl)
                                                 </a>
@@ -340,7 +338,7 @@
                                             <div class="user-profile-others">
                                                 <a href="@Model.GameDevNetUrl" target="_blank">
                                                     <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net"/>
+                                                        <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net" />
                                                     </div>
                                                     @Html.DisplayNameFor(x => x.GameDevNetUrl)
                                                 </a>

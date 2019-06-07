@@ -17,8 +17,14 @@ namespace IndieVisible.Infra.Data.UoW
             return _context.SaveChanges() > 0;
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+
+        }
+
         public void Dispose()
         {
+            Dispose(true);
             _context.Dispose();
         }
     }

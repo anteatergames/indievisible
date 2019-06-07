@@ -8369,6 +8369,9 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
         height: auto;
     }
 
+.box.widget-user-4 {
+    padding: 0;
+}
 
 .box.widget-user-4 .overlay {
     z-index: 50;
@@ -10086,4 +10089,8 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
 .notimplemented {
     color: #686868 !important;
+}
+
+.box-game {
+    padding: 0;
 }
