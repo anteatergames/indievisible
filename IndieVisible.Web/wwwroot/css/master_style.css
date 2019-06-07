@@ -9084,18 +9084,24 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
 .btn-facebook {
     color: #fff;
-    background-color: #3b5998;
-    border-color: rgba(0, 0, 0, .2);
+    background: #4267b2;
+    border-color: white;
+    width: 41px;
+    height: 41px;
 }
+
+    .btn-facebook.btn-circle i {
+        top: 5px;
+        font-size: 29px;
+    }
 
     .btn-facebook.active, .btn-facebook.focus, .btn-facebook:active, .btn-facebook:focus, .btn-facebook:hover, .show > .dropdown-toggle.btn-facebook {
         color: #fff;
-        background-color: #2d4373;
-        border-color: rgba(0, 0, 0, .2);
+        background-color: #4267b2;
     }
 
     .btn-facebook .badge {
-        color: #3b5998;
+        color: #4267b2;
         background-color: #fff;
     }
 
@@ -9153,12 +9159,10 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .btn-google {
     color: #fff;
     background-color: #dd4b39;
-    border-color: rgba(0, 0, 0, .2);
 }
 
     .btn-google.active, .btn-google.focus, .btn-google:active, .btn-google:focus, .btn-google:hover, .show > .dropdown-toggle.btn-google {
         color: #fff;
-        background-color: #c23321;
         border-color: rgba(0, 0, 0, .2);
     }
 
@@ -9208,12 +9212,10 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .btn-microsoft {
     color: #fff;
     background-color: #2672ec;
-    border-color: rgba(0, 0, 0, .2);
 }
 
     .btn-microsoft.active, .btn-microsoft.focus, .btn-microsoft:active, .btn-microsoft:focus, .btn-microsoft:hover, .show > .dropdown-toggle.btn-microsoft {
         color: #fff;
-        background-color: #125acd;
         border-color: rgba(0, 0, 0, .2);
     }
 

@@ -9,6 +9,7 @@ using IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
+using IndieVisible.Web.Exceptions;
 using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -119,7 +120,7 @@ namespace IndieVisible.Web.Controllers
 
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load two-factor authentication user.");
+                throw new CustomApplicationException($"Unable to load two-factor authentication user.");
             }
 
             LoginWith2faViewModel model = new LoginWith2faViewModel { RememberMe = rememberMe };
@@ -141,7 +142,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             string authenticatorCode = model.TwoFactorCode.Replace(" ", string.Empty).Replace("-", string.Empty);
@@ -174,7 +175,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load two-factor authentication user.");
+                throw new CustomApplicationException($"Unable to load two-factor authentication user.");
             }
 
             ViewData["ReturnUrl"] = returnUrl;
@@ -195,7 +196,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load two-factor authentication user.");
+                throw new CustomApplicationException($"Unable to load two-factor authentication user.");
             }
 
             string recoveryCode = model.RecoveryCode.Replace(" ", string.Empty);
@@ -368,13 +369,13 @@ namespace IndieVisible.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityResult result = new IdentityResult();
+                IdentityResult result;
 
                 // Get the information about the user from the external login provider
                 ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
                 if (info == null)
                 {
-                    throw new ApplicationException("Error loading external login information during confirmation.");
+                    throw new CustomApplicationException("Error loading external login information during confirmation.");
                 }
 
                 ApplicationUser user = new ApplicationUser { UserName = model.Username, Email = model.Email };
@@ -386,7 +387,7 @@ namespace IndieVisible.Web.Controllers
                 }
                 else
                 {
-                    result = await _userManager.CreateAsync(user);
+                    await _userManager.CreateAsync(user);
                 }
 
                 result = await _userManager.AddLoginAsync(user, info);
@@ -405,12 +406,7 @@ namespace IndieVisible.Web.Controllers
 
                     profile.Name = info.Principal.FindFirstValue(ClaimTypes.Name);
 
-                    if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl.Equals(Constants.DefaultAvatar))
-                    {
-                        string imageFileName = await GetExternalProfilePicture(info, user);
-
-                        profile.ProfileImageUrl = imageFileName.Equals(Constants.DefaultAvatar) ? imageFileName : Constants.DefaultImagePath + imageFileName;
-                    }
+                    await SetProfileImage(info, user, profile);
 
                     _profileAppService.Save(profile);
 
@@ -441,7 +437,7 @@ namespace IndieVisible.Web.Controllers
             ApplicationUser user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{userId}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userId}'.");
             }
             IdentityResult result = await _userManager.ConfirmEmailAsync(user, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
@@ -495,7 +491,7 @@ namespace IndieVisible.Web.Controllers
         {
             if (code == null)
             {
-                throw new ApplicationException("A code must be supplied for password reset.");
+                throw new CustomApplicationException("A code must be supplied for password reset.");
             }
             ResetPasswordViewModel model = new ResetPasswordViewModel { Code = code };
             return View(model);
@@ -541,7 +537,7 @@ namespace IndieVisible.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> ValidateUserName(string UserName)
+        public async Task<IActionResult> ValidateUserName(string UserName, string Email)
         {
             OperationResultVo result;
 
@@ -555,6 +551,11 @@ namespace IndieVisible.Web.Controllers
                 }
                 else
                 {
+                    if (user.Email.Equals(Email))
+                    {
+                        return Json(true);
+                    }
+
                     return Json(false);
                 }
             }
@@ -610,6 +611,16 @@ namespace IndieVisible.Web.Controllers
             if (profile != null)
             {
                 SetSessionValue(SessionValues.FullName, profile.Name);
+            }
+        }
+
+        private async Task SetProfileImage(ExternalLoginInfo info, ApplicationUser user, ProfileViewModel profile)
+        {
+            if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl.Equals(Constants.DefaultAvatar))
+            {
+                string imageFileName = await GetExternalProfilePicture(info, user);
+
+                profile.ProfileImageUrl = imageFileName.Equals(Constants.DefaultAvatar) ? imageFileName : Constants.DefaultImagePath + imageFileName;
             }
         }
 
