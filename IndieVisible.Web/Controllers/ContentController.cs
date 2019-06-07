@@ -73,7 +73,9 @@ namespace IndieVisible.Web.Controllers
 
 
             ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
-            bool userIsAdmin = user == null ? false : await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
+
+            bool userIsAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
+
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
 
             this.notificationAppService.MarkAsRead(notificationclicked);
@@ -97,9 +99,11 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Add(Guid? gameId)
         {
-            UserContentViewModel vm = new UserContentViewModel();
-            vm.UserId = CurrentUserId;
-            vm.FeaturedImage = Constants.DefaultFeaturedImage;
+            UserContentViewModel vm = new UserContentViewModel
+            {
+                UserId = CurrentUserId,
+                FeaturedImage = Constants.DefaultFeaturedImage
+            };
 
             IEnumerable<SelectListItemVo> games = gameAppService.GetByUser(vm.UserId);
             List<SelectListItem> gamesDropDown = games.ToSelectList();
@@ -148,9 +152,11 @@ namespace IndieVisible.Web.Controllers
         public IActionResult SimplePost(string text, string images)
         {
 
-            UserContentViewModel vm = new UserContentViewModel();
-            vm.Language = SupportedLanguage.English; // TODO need to get the user language
-            vm.Content = text;
+            UserContentViewModel vm = new UserContentViewModel
+            {
+                Language = SupportedLanguage.English, // TODO need to get the user language
+                Content = text
+            };
 
             ProfileViewModel profile = this.SetAuthorDetails(vm);
 
@@ -165,7 +171,7 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Feed(Guid gameId, Guid userId)
         {
-            return ViewComponent("UserContent", new { count = 10, gameId = gameId, userId = userId });
+            return ViewComponent("UserContent", new { count = 10, gameId, userId });
         }
 
         private void SetContentImages(UserContentViewModel vm, string images)
@@ -213,6 +219,13 @@ namespace IndieVisible.Web.Controllers
                 }
             }
 
+            gameName = CheckIfIsGamePost(gameId, followers, gameName);
+
+            Notify(profile, followers, notificationText, notificationUrl, gameName, targetId);
+        }
+
+        private string CheckIfIsGamePost(Guid? gameId, Dictionary<Guid, FollowType> followers, string gameName)
+        {
             if (gameId.HasValue)
             {
                 OperationResultListVo<GameFollowViewModel> gameFollowResult = this.gameFollowAppService.GetByGameId(gameId.Value);
@@ -240,6 +253,11 @@ namespace IndieVisible.Web.Controllers
                 }
             }
 
+            return gameName;
+        }
+
+        private void Notify(ProfileViewModel profile, Dictionary<Guid, FollowType> followers, string notificationText, string notificationUrl, string gameName, Guid targetId)
+        {
             foreach (KeyValuePair<Guid, FollowType> follower in followers)
             {
                 switch (follower.Value)

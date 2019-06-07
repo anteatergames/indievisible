@@ -62,7 +62,8 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Content", new { id = targetId });
 
-            OperationResultVo notificationResult = notificationAppService.Notify(content.Value.UserId, NotificationType.ContentLike, targetId, text, url);
+            this.notificationAppService.Notify(content.Value.UserId, NotificationType.ContentLike, targetId, text, url);
+
 
             return Json(response);
         }
@@ -100,7 +101,7 @@ namespace IndieVisible.Web.Controllers
             }
 
             return Json(response);
-        } 
+        }
         #endregion
 
 
@@ -121,7 +122,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Game", new { id = likedId });
 
-            OperationResultVo notificationResult = notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
+            this.notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
 
 
             return Json(response);
@@ -155,7 +156,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Profile", new { id = this.CurrentUserId });
 
-            OperationResultVo notificationResult = notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
+            this.notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
 
 
             return Json(response);
@@ -186,7 +187,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Profile", new { id = this.CurrentUserId });
 
-            OperationResultVo notificationResult = notificationAppService.Notify(userId, NotificationType.ContentLike, userId, text, url);
+            this.notificationAppService.Notify(userId, NotificationType.ContentLike, userId, text, url);
 
             return Json(response);
         }
@@ -216,7 +217,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Profile", new { id = this.CurrentUserId });
 
-            OperationResultVo notificationResult = notificationAppService.Notify(userId, NotificationType.ConnectionRequest, userId, text, url);
+            this.notificationAppService.Notify(userId, NotificationType.ConnectionRequest, userId, text, url);
 
             TranslateResponse(response);
 
