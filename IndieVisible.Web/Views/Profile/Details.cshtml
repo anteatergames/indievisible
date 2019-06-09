@@ -68,7 +68,7 @@
                 <div class="user-profile-cover-topright">
                     <div class="btn-group">
                         <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@urlUserId" class="btn btn-default bg-transparent">
-                            <i class="fas fa-pencil-alt"></i>
+                            <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                             @SharedLocalizer["Edit Profile"]
                         </a>
                     </div>
@@ -80,7 +80,7 @@
                     @if (Model.Permissions.CanFollow)
                     {
                         <button type="button" id="btn-profile-follow" class="btn btn-lg btn-default bg-transparent btn-follow text-capitalize @(Model.CurrentUserFollowing ? "btn-follow-following" : string.Empty)" data-id="@Model.UserId" data-type="@Model.Type">
-                            <i class="fa fa-eye"></i>
+                            <i class="fa fa-eye" aria-hidden="true"></i>
                             @SharedLocalizer["Follow"]
                         </button>
                     }
@@ -88,7 +88,7 @@
                     {
                         <button type="button" id="btn-profile-connect" class="btn btn-lg btn-default bg-transparent btn-connect text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "btn-connect-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToFollowMe || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
                                 data-id="@Model.UserId" data-type="@Model.Type" data-text-pending="@SharedLocalizer["pending"]" data-text-connected="@SharedLocalizer["connected"]" data-text-connect="@SharedLocalizer["connect"]">
-                            <i class="fas fa-user-friends"></i>
+                            <i class="fas fa-user-friends" aria-hidden="true"></i>
                             @if (Model.ConnectionControl.ConnectionIsPending)
                             {
                                 @SharedLocalizer["pending"]
