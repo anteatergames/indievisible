@@ -27,9 +27,12 @@ namespace IndieVisible.Web.Helpers
                 string toReplace = match.Groups[0].Value;
                 string imagePrefix = match.Groups[2].Value;
                 string oembedPrefix = match.Groups[5].Value;
+                string openParenthesis = match.Groups[6].Value;
                 string url = match.Groups[7].Value;
+                string closeParenthesis = match.Groups[9].Value;
 
                 url = !url.TrimStart('(').TrimEnd(')').ToLower().StartsWith("http") ? String.Format("http://{0}", url) : url;
+
 
                 string newText = string.Empty;
                 if (!string.IsNullOrWhiteSpace(imagePrefix))
@@ -43,6 +46,11 @@ namespace IndieVisible.Web.Helpers
                 else
                 {
                     newText = string.Format(@"<a href=""{0}"" target=""_blank"" style=""font-weight:500"">{0}</a>", url);
+                }
+
+                if (!string.IsNullOrWhiteSpace(openParenthesis) && !string.IsNullOrWhiteSpace(closeParenthesis))
+                {
+                    newText = String.Format("({0})", newText);
                 }
 
                 content = content.Replace(toReplace, newText);
