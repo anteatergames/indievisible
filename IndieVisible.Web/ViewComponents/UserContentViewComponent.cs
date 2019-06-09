@@ -2,6 +2,7 @@
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Web.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -40,6 +41,11 @@ namespace IndieVisible.Web.ViewComponents
             List<SupportedLanguage> languages = preferences.Languages;
 
             List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(UserId, count, gameId, userId, languages).ToList();
+
+            foreach (var item in model)
+            {
+                item.Content = ContentHelper.FormatContentToShow(item.Content);
+            }
 
             ViewData["UserId"] = userId;
 

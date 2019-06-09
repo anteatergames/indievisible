@@ -22,25 +22,21 @@
     <Compile Remove="Areas\Member\Models\**" />
     <Compile Remove="Areas\Staff\Data\**" />
     <Compile Remove="Areas\Staff\Models\**" />
-    <Compile Remove="Helpers\**" />
     <Compile Remove="wwwroot\assets\**" />
     <Content Remove="Areas\Member\Data\**" />
     <Content Remove="Areas\Member\Models\**" />
     <Content Remove="Areas\Staff\Data\**" />
     <Content Remove="Areas\Staff\Models\**" />
-    <Content Remove="Helpers\**" />
     <Content Remove="wwwroot\assets\**" />
     <EmbeddedResource Remove="Areas\Member\Data\**" />
     <EmbeddedResource Remove="Areas\Member\Models\**" />
     <EmbeddedResource Remove="Areas\Staff\Data\**" />
     <EmbeddedResource Remove="Areas\Staff\Models\**" />
-    <EmbeddedResource Remove="Helpers\**" />
     <EmbeddedResource Remove="wwwroot\assets\**" />
     <None Remove="Areas\Member\Data\**" />
     <None Remove="Areas\Member\Models\**" />
     <None Remove="Areas\Staff\Data\**" />
     <None Remove="Areas\Staff\Models\**" />
-    <None Remove="Helpers\**" />
     <None Remove="wwwroot\assets\**" />
   </ItemGroup>
 

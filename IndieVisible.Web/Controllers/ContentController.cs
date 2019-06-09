@@ -9,6 +9,7 @@ using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Extensions;
+using IndieVisible.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -44,6 +45,8 @@ namespace IndieVisible.Web.Controllers
             OperationResultVo<UserContentViewModel> serviceResult = service.GetById(id);
 
             UserContentViewModel vm = serviceResult.Value;
+
+            vm.Content = ContentHelper.FormatContentToShow(vm.Content);
 
             this.SetAuthorDetails(vm);
 
@@ -94,6 +97,11 @@ namespace IndieVisible.Web.Controllers
             List<SelectListItem> gamesDropDown = games.ToSelectList();
             ViewBag.UserGames = gamesDropDown;
 
+            if (!vm.HasFeaturedImage)
+            {
+                vm.FeaturedImage = Constants.DefaultFeaturedImage;
+            }
+
             return View("CreateEdit", vm);
         }
 
@@ -133,7 +141,7 @@ namespace IndieVisible.Web.Controllers
                 }
                 else
                 {
-                    this.NotifyFollowers(this.CurrentUserId, profile, vm.GameId.Value, vm.Id);
+                    this.NotifyFollowers(this.CurrentUserId, profile, vm.GameId, vm.Id);
 
                     string url = Url.Action("Index", "Home", new { area = string.Empty, id = vm.Id });
 

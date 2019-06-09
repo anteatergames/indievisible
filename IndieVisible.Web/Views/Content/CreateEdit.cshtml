@@ -19,7 +19,6 @@
                 <h3 class="card-title">@ViewData["Title"]</h3>
                 <h6 class="card-subtitle">@SharedLocalizer["Fill in with the content you want to post"]</h6>
             </div>
-            <!-- /.box-header -->
             <div class="box-body no-gutters px-md-10">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -42,16 +41,11 @@
                         <label asp-for="FeaturedImage"></label>
                     </div>
                     <div class="mx-auto d-block" style="max-width:400px;">
-                        <label class="label" data-toggle="tooltip" title="" data-original-title="Change your avatar">
-                            <img class="rounded img-fluid" id="imgFeaturedImage" src="@Model.FeaturedImage" alt="avatar">
+                        <label class="label" data-toggle="tooltip" title="" data-original-title="Change the featured image">
+                            <img class="rounded img-fluid" id="imgFeaturedImage" src="@Model.FeaturedImage" alt="Featured Image">
                             <input type="file" class="sr-only" id="featuredimage" name="featuredimage" accept="image/*">
                         </label>
                     </div>
-                    @*<div class="mx-auto d-block" style="max-width:300px;">
-                        <div class="widget-user-header img-responsive">
-                            <input id="featuredimage" name="featuredimage" type="file" style="opacity:0">
-                        </div>
-                    </div>*@
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-md-12">
@@ -80,12 +74,11 @@
                     </div>
                 </div>
             </div>
-            <!-- /.box-body -->
 
             <div class="text-right">
                 <button type="button" id="btnSave" class="btn btn-info"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save"]</button>
             </div>
-            <!-- /.box -->
+        </div>
     </form>
 </div>
 
@@ -119,6 +112,7 @@
         .ck.ck-content.ck-editor__editable {
             min-height: 300px !important;
         }
+
         .ck-content .media {
             display: block;
         }
@@ -133,6 +127,7 @@
     @await Html.PartialAsync("_ValidationScriptsPartial")
 
     <script src="~/lib/ckeditor5-build-classic/ckeditor.js"></script>
+    @*<script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js"></script>*@
     <script src="~/js/content/contentedit.js"></script>
 }
 

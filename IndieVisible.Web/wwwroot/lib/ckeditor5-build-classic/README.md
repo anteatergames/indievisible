@@ -1,4 +1,4 @@
-CKEditor 5 classic editor build v11.1.1
+CKEditor 5 classic editor build v11.2.0
 =======================================
 
 In order to start using CKEditor 5 Builds, configure or customize them, please visit http://docs.ckeditor.com/ckeditor5/latest/builds/index.html

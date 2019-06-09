@@ -86,12 +86,13 @@ namespace IndieVisible.Application.Services
 
                 UserContentViewModel vm = mapper.Map<UserContentViewModel>(model);
 
-
-                vm.Content = FormatContentToShow(vm.Content);
-
                 vm.UserContentType = UserContentType.Post;
 
-                vm.HasFeaturedImage = !string.IsNullOrWhiteSpace(vm.FeaturedImage) && !vm.FeaturedImage.Contains(Constants.DefaultFeaturedImage);
+                string youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";
+
+                var isYoutube = Regex.IsMatch(vm.FeaturedImage, youtubePattern);
+
+                vm.HasFeaturedImage = !string.IsNullOrWhiteSpace(vm.FeaturedImage) && !vm.FeaturedImage.Contains(Constants.DefaultFeaturedImage) && !isYoutube;
 
                 vm.FeaturedMediaType = GetMediaType(vm.FeaturedImage);
 
@@ -117,8 +118,6 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                // validate before
-
                 repository.Remove(id);
 
                 unitOfWork.Commit();
@@ -158,13 +157,8 @@ namespace IndieVisible.Application.Services
                     if (match.Index == 0 && String.IsNullOrWhiteSpace(viewModel.FeaturedImage))
                     {
                         viewModel.FeaturedImage = v;
-                        return String.Empty;
                     }
-                    else
-                    {
-                        return string.Format(@"<a href=""{0}"">{0}</a>", v);
-                    }
-
+                    return v;
                 });
 
                 UserContent existing = repository.GetById(viewModel.Id);
@@ -245,7 +239,6 @@ namespace IndieVisible.Application.Services
 
                 LoadAuthenticatedData(currentUserId, item);
 
-                item.Content = FormatContentToShow(item.Content);
                 item.UserContentType = UserContentType.Post;
             }
 
@@ -296,38 +289,6 @@ namespace IndieVisible.Application.Services
         private static string SetFeaturedImage(Guid userId, string featuredImage)
         {
             return string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
-        }
-
-        private string FormatContentToShow(string content)
-        {
-            string patternUrl = @"(<img(.?)?(data-)?src="")?(\()?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))""?(\))?(.>)?";
-
-            Regex regexImage = new Regex(patternUrl);
-
-            MatchCollection matchesImg = regexImage.Matches(content);
-
-            foreach (Match match in matchesImg)
-            {
-                string toReplace = match.Groups[0].Value;
-                string urlBefore = match.Groups[1].Value;
-                string url = match.Groups[5].Value;
-
-                url = !toReplace.TrimStart('(').TrimEnd(')').ToLower().StartsWith("http") ? String.Format("http://{0}", url) : url;
-
-                string newText = string.Empty;
-                if (string.IsNullOrWhiteSpace(urlBefore))
-                {
-                    newText = string.Format(@"<a href=""{0}"" target=""_blank"" style=""font-weight:500"">{0}</a>", url);
-                }
-                else
-                {
-                    newText = String.Format("<img src=\"{0}\" />", url);
-                }
-
-                content = content.Replace(toReplace, newText);
-            }
-
-            return content;
         }
     }
 }

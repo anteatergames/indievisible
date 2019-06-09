@@ -58,11 +58,13 @@
                     ]
                 },
                 mediaEmbed: {
-                    previewsInData: true
+                    //previewsInData: true
                 }
             })
             .then(newEditor => {
                 window.editor = newEditor;
+
+                //window.editor.setData(document.querySelector('.wysiwygeditor').value);
             })
             .catch(error => {
                 console.error(error);
