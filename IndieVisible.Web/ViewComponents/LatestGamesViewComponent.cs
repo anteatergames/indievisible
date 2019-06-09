@@ -37,6 +37,8 @@ namespace IndieVisible.Web.ViewComponents
 
             List<GameListItemViewModel> model = _gameAppService.GetLatest(UserId, qtd, userId, 0).ToList();
 
+            ViewData["UserId"] = userId;
+
             return await Task.Run(() => View(model));
         }
     }

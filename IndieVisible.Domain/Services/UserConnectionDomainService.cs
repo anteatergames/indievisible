@@ -13,11 +13,28 @@ namespace IndieVisible.Domain.Services
         {
         }
 
-        public IEnumerable<UserConnection> GetByTargetUserId(Guid targetUserId)
+        public IEnumerable<UserConnection> GetByTargetUserId(Guid targetUserId, bool approvedOnly)
         {
-            IQueryable<UserConnection> connnections = this.repository.Get(x => x.TargetUserId == targetUserId);
+            IQueryable<UserConnection> connections = this.repository.Get(x => x.TargetUserId == targetUserId);
 
-            return connnections.ToList();
+            if (approvedOnly)
+            {
+                connections = connections.Where(x => x.ApprovalDate.HasValue);
+            }
+
+            return connections.ToList();
+        }
+
+        public IEnumerable<UserConnection> GetByUserId(Guid userId, bool approvedOnly)
+        {
+            IQueryable<UserConnection> connections = this.repository.Get(x => x.UserId == userId);
+
+            if (approvedOnly)
+            {
+                connections = connections.Where(x => x.ApprovalDate.HasValue);
+            }
+
+            return connections.ToList();
         }
 
         public UserConnection Get(Guid originalUserId, Guid connectedUserId)

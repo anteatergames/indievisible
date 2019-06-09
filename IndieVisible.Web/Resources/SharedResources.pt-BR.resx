@@ -767,7 +767,7 @@
   </data>
   <data name="connected" xml:space="preserve">
     <value>conectado</value>
-    <comment>Profile</comment>
+    <comment>Generic</comment>
   </data>
   <data name="This user wants to connect with you." xml:space="preserve">
     <value>Este usuário quer conectar-se a você.</value>
@@ -792,5 +792,9 @@
   <data name="{0} wants to connect" xml:space="preserve">
     <value>{0} quer se conectar</value>
     <comment>Notification</comment>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>conexões</value>
+    <comment>Generic</comment>
   </data>
 </root>

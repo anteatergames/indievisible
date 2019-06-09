@@ -8,18 +8,18 @@
 
         bindAll();
 
-        var userId = selectors.Id.val();
-
-        loadActivityFeed(userId);
-        loadGameList(userId);
-        loadBadges(userId);
+        //loadActivityFeed(selectors.Id.val());
+        //loadGameList(selectors.Id.val());
+        loadBadges(selectors.Id.val());
     }
 
     function cacheSelectors() {
         selectors.content = $('.content');
         selectors.tabActivity = $("#tabactivity");
         selectors.tabGames = $("#tabgames");
+        selectors.tabConnections = $("#tabconnections");
         selectors.Id = $('#Id');
+        selectors.UserId = $('#UserId');
         selectors.divBadges = $('#divBadges');
     }
 
@@ -28,6 +28,7 @@
         bindConnectBtn();
         bindAllowConnectionBtn();
         bindDenyConnectionBtn();
+        bindTabs();
     }
 
     function bindFollowBtn() {
@@ -36,7 +37,7 @@
             var followCount = btn.closest('.user-profile').find('.follow-count');
             var targetId = btn.data('id');
 
-            if (btn.hasClass("follow-following")) {
+            if (btn.hasClass("btn-follow-following")) {
                 unfollow(targetId).done(function (response) { unfollowCallback(response, followCount, btn); });
             }
             else {
@@ -52,7 +53,7 @@
             var targetId = btn.data('id');
 
             if (!btn.hasClass('disabled')) {
-                if (btn.hasClass("connection-connected")) {
+                if (btn.hasClass("btn-connect-connected")) {
                     disconnect(targetId).done(function (response) { disconnectCallback(response, connectionCount, btn); });
                 }
                 else {
@@ -86,6 +87,23 @@
         });
     }
 
+    function bindTabs() {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var tabOrigin = e.relatedTarget.getAttribute('href');
+            var tabDestination = e.target.getAttribute('href');
+
+            if (tabDestination === '#' + selectors.tabActivity.prop('id')) {
+                loadActivityFeed(selectors.Id.val());
+            }
+            else if (tabDestination === '#' + selectors.tabGames.prop('id')) {
+                loadGameList(selectors.Id.val());
+            }
+            else if (tabDestination === '#' + selectors.tabConnections.prop('id')) {
+                loadConnections(selectors.UserId.val());
+            }
+        });
+    }
+
 
     function loadActivityFeed(userId) {
         selectors.tabActivity.html(MAINMODULE.Default.Spinner);
@@ -112,6 +130,14 @@
         });
     }
 
+    function loadConnections(userId) {
+        selectors.tabConnections.html(MAINMODULE.Default.Spinner);
+
+        $.get("/user/connections/" + userId, function (data) {
+            selectors.tabConnections.html(data);
+        });
+    }
+
 
 
     function follow(userId) {
@@ -120,9 +146,8 @@
     function followCallback(response, counterSelector, btn) {
         if (response.success === true) {
             $(counterSelector).text(response.value);
-
-            btn.addClass('bg-blue');
-            btn.addClass('follow-following');
+            
+            btn.addClass('btn-follow-following');
         }
         else {
             ALERTSYSTEM.ShowWarningMessage(response.message);
@@ -135,9 +160,8 @@
     function unfollowCallback(response, counterSelector, btn) {
         if (response.success === true) {
             $(counterSelector).text(response.value);
-
-            btn.removeClass('bg-blue');
-            btn.removeClass('follow-following');
+            
+            btn.removeClass('btn-follow-following');
         }
         else {
             ALERTSYSTEM.ShowWarningMessage(response.message);
@@ -167,9 +191,8 @@
     function disconnectCallback(response, counterSelector, btn) {
         if (response.success === true) {
             $(counterSelector).text(response.value);
-
-            btn.removeClass('bg-green');
-            btn.removeClass('connection-connected');
+            
+            btn.removeClass('btn-connect-connected');
             btn.text(btn.data('textConnect'));
         }
         else {
@@ -187,11 +210,12 @@
             $(counterSelector).text(response.value);
 
             $('.connectionalertbox').hide();
-
-            btnConnect.addClass('bg-green');
-            btnConnect.addClass('connection-connected');
+            
+            btnConnect.addClass('btn-connect-connected');
             btnConnect.removeClass('disabled');
             btnConnect.text(btnConnect.data('textConnected'));
+
+            loadConnections(selectors.UserId.val());
         }
         else {
             ALERTSYSTEM.ShowWarningMessage(response.message);

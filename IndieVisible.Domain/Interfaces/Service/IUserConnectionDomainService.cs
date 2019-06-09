@@ -7,8 +7,12 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface IUserConnectionDomainService : IDomainService<UserConnection>
     {
-        IEnumerable<UserConnection> GetByTargetUserId(Guid targetUserId);
+        IEnumerable<UserConnection> GetByTargetUserId(Guid targetUserId, bool approvedOnly);
+
+        IEnumerable<UserConnection> GetByUserId(Guid userId, bool approvedOnly);
+
         UserConnection Get(Guid originalUserId, Guid connectedUserId);
+
         bool CheckConnection(Guid originalUserId, Guid connectedUserId, bool accepted, bool bothWays);
     }
 }

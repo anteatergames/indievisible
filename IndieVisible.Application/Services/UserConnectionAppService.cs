@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IndieVisible.Application.Services
 {
@@ -15,13 +17,16 @@ namespace IndieVisible.Application.Services
         private readonly IMapper mapper;
         private readonly IUnitOfWork unitOfWork;
         private readonly IUserConnectionDomainService userConnectionDomainService;
+        private readonly IProfileAppService profileAppService;
 
         public UserConnectionAppService(IMapper mapper, IUnitOfWork unitOfWork
-            , IUserConnectionDomainService userConnectionDomainService)
+            , IUserConnectionDomainService userConnectionDomainService
+            , IProfileAppService profileAppService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
             this.userConnectionDomainService = userConnectionDomainService;
+            this.profileAppService = profileAppService;
         }
 
         #region Basic
@@ -152,11 +157,72 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                IEnumerable<UserConnection> allModels = this.userConnectionDomainService.GetByTargetUserId(targetUserId);
+                IEnumerable<UserConnection> allModels = this.userConnectionDomainService.GetByTargetUserId(targetUserId, false);
 
                 IEnumerable<UserConnectionViewModel> vms = mapper.Map<IEnumerable<UserConnection>, IEnumerable<UserConnectionViewModel>>(allModels);
 
                 result = new OperationResultListVo<UserConnectionViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                result = new OperationResultListVo<UserConnectionViewModel>(ex.Message);
+            }
+
+            return result;
+        }
+
+        public OperationResultListVo<UserConnectionViewModel> GetByUserId(Guid userId)
+        {
+            OperationResultListVo<UserConnectionViewModel> result;
+
+            try
+            {
+                List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
+
+                IEnumerable<UserConnection> connectionsFromMe = this.userConnectionDomainService.GetByUserId(userId, true);
+                IEnumerable<UserConnection> connectionsToMe = this.userConnectionDomainService.GetByTargetUserId(userId, true);
+
+                foreach (UserConnection item in connectionsFromMe)
+                {
+                    if (!newList.Any(x => x.UserId == item.TargetUserId))
+                    {
+                        ProfileViewModel profile = profileAppService.GetByUserId(item.TargetUserId, ProfileType.Personal);
+
+                        UserConnectionViewModel obj = new UserConnectionViewModel
+                        {
+                            UserId = userId,
+                            TargetUserId = item.TargetUserId,
+                            TargetUserName = profile.Name,
+                            ProfileId = profile.Id,
+                            Location = profile.Location,
+                            CreateDate = profile.CreateDate
+                        };
+
+                        newList.Add(obj);
+                    }
+                }
+
+                foreach (UserConnection item in connectionsToMe)
+                {
+                    if (!newList.Any(x => x.UserId == item.UserId))
+                    {
+                        ProfileViewModel profile = profileAppService.GetByUserId(item.UserId, ProfileType.Personal);
+
+                        UserConnectionViewModel obj = new UserConnectionViewModel
+                        {
+                            UserId = userId,
+                            TargetUserId = item.UserId,
+                            TargetUserName = profile.Name,
+                            ProfileId = profile.Id,
+                            Location = profile.Location,
+                            CreateDate = profile.CreateDate
+                        };
+
+                        newList.Add(obj);
+                    }
+                }
+
+                result = new OperationResultListVo<UserConnectionViewModel>(newList);
             }
             catch (Exception ex)
             {

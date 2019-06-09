@@ -3,10 +3,6 @@
     display: flex !important;
 }
 
-.widget-user-header {
-    height: 200px !important;
-}
-
 .game-top-details {
     color: white !important;
     text-shadow: 1px 1px black;
@@ -86,7 +82,7 @@
 }
 
 .widget-game-gametitle {
-    margin:0;
+    margin: 0;
 }
 
 

@@ -8,7 +8,8 @@
       "wwwroot/css/main.css",
       "wwwroot/css/master_style.css",
       "wwwroot/css/skins/indievisible-skin.css",
-      "wwwroot/css/cssmenu.css"
+      "wwwroot/css/cssmenu.css",
+      "wwwroot/css/userwidgets.css"
     ]
   },
   {

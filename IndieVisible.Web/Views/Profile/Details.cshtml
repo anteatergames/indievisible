@@ -15,17 +15,17 @@
 }
 <div class="col-12">
     <input type="hidden" asp-for="Id" />
-    <!-- Widget: user widget style 1 -->
-    <div class="box box-widget widget-user-4 user-profile">
-        <div class="widget-user-header bg-orange" style="background: url('@Model.CoverImageUrl') center center; background-size:cover;">
+    <input type="hidden" asp-for="UserId" />
+    <div class="box box-widget user-profile">
+        <div class="user-profile-header" style="background-image: url('@Model.CoverImageUrl'); background-size:cover;">
             <div class="overlay dark">
-                <div class="widget-user-image">
+                <div class="user-profile-image">
                     <div class="avatar-wrapper">
                         <img class="rounded-circle" src="@Model.ProfileImageUrl" alt="User Avatar">
                     </div>
                 </div>
-                <h1 class="widget-user-username">@Model.Name</h1>
-                <h2 class="widget-user-desc">@Model.Motto</h2>
+                <h1 class="user-profile-username">@Model.Name</h1>
+                <h2 class="user-profile-desc">@Model.Motto</h2>
 
                 <div class="user-social-acount">
                     @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Website))
@@ -67,162 +67,138 @@
             {
                 <div class="user-profile-cover-topright">
                     <div class="btn-group">
-                        <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@urlUserId" class="btn btn-default bg-transparent">@SharedLocalizer["Edit Profile"]</a>
+                        <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@urlUserId" class="btn btn-default bg-transparent">
+                            <i class="fas fa-pencil-alt"></i>
+                            @SharedLocalizer["Edit Profile"]
+                        </a>
                     </div>
                 </div>
             }
-        </div>
-        <div class="box-footer">
-            <div class="row mb-10 mt-2">
-                <div class="col-6 col-md-4 border-right">
-                    <div class="description-block">
-                        <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
-                        <span class="description-text">@SharedLocalizer["followers"]</span>
-                    </div>
-                    <!-- /.description-block -->
+
+            <div class="profileactions">
+                <div class="">
+                    @if (Model.Permissions.CanFollow)
+                    {
+                        <button type="button" id="btn-profile-follow" class="btn btn-lg btn-default bg-transparent btn-follow text-capitalize @(Model.CurrentUserFollowing ? "btn-follow-following" : string.Empty)" data-id="@Model.UserId" data-type="@Model.Type">
+                            <i class="fa fa-eye"></i>
+                            @SharedLocalizer["Follow"]
+                        </button>
+                    }
+                    @if (Model.Permissions.CanConnect)
+                    {
+                        <button type="button" id="btn-profile-connect" class="btn btn-lg btn-default bg-transparent btn-connect text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "btn-connect-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToFollowMe || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
+                                data-id="@Model.UserId" data-type="@Model.Type" data-text-pending="@SharedLocalizer["pending"]" data-text-connected="@SharedLocalizer["connected"]" data-text-connect="@SharedLocalizer["connect"]">
+                            <i class="fas fa-user-friends"></i>
+                            @if (Model.ConnectionControl.ConnectionIsPending)
+                            {
+                                @SharedLocalizer["pending"]
+                            }
+                            else if (Model.ConnectionControl.CurrentUserConnected)
+                            {
+                                @SharedLocalizer["connected"]
+                            }
+                            else
+                            {
+                                @SharedLocalizer["connect"]
+                            }
+                        </button>
+                    }
                 </div>
-                <!-- /.col -->
-                <div class="col-md-4 border-right hidden-sm-down">
-                    <div class="description-block">
-                        <h5 class="description-header">@Model.Counters.Following</h5>
-                        <span class="description-text">@SharedLocalizer["following"]</span>
-                    </div>
-                    <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-6 col-md-4">
-                    <div class="description-block">
-                        <h5 class="description-header connection-count">@Model.Counters.Connections</h5>
-                        <span class="description-text">@SharedLocalizer["connections"]</span>
-                    </div>
-                    <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
             </div>
-
-            @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
+        </div>
+        @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
+        {
+            if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
             {
-                if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
-                {
-                    <div class="row text-center connectionalertbox">
-                        <div class="col-12 alert alert-info">
-                            <div class="col-12 col-lg-6 offset-lg-3 mb-10">
-                                <p>@SharedLocalizer["This user wants to connect with you."]</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                            @SharedLocalizer["allow"]
-                                        </button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                            @SharedLocalizer["deny"]
-                                        </button>
-                                    </div>
+                <div class="text-center connectionalertbox">
+                    <div class="col-12 alert alert-info">
+                        <div class="col-12 col-lg-6 offset-lg-3 mb-10">
+                            <p>@SharedLocalizer["This user wants to connect with you."]</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                        @SharedLocalizer["allow"]
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                        @SharedLocalizer["deny"]
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                }
-                <div class="col-12 col-lg-6 offset-lg-3 mb-10">
-                    <div class="row text-right mt-2 mb-2">
-                        <div class="col-12 col-md-6">
-                            <button type="button" id="btn-profile-follow" class="btn btn-lg btn-block btn-default text-capitalize @(Model.CurrentUserFollowing ? "bg-blue follow-following" : string.Empty)" data-id="@Model.UserId" data-type="@Model.Type">
-                                @SharedLocalizer["Follow"]
-                            </button>
-                        </div>
-                        <div class="col-12 col-md-6 mt-1 mt-md-0">
-                            <button type="button" id="btn-profile-connect" class="btn btn-lg btn-block btn-default text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "bg-green connection-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToFollowMe || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
-                                    data-id="@Model.UserId" data-type="@Model.Type" data-text-pending="@SharedLocalizer["pending"]" data-text-connected="@SharedLocalizer["connected"]" data-text-connect="@SharedLocalizer["connect"]">
-                                @if (Model.ConnectionControl.ConnectionIsPending)
-                                {
-                                    @SharedLocalizer["pending"]
-                                }
-                                else if (Model.ConnectionControl.CurrentUserConnected)
-                                {
-                                    @SharedLocalizer["connected"]
-                                }
-                                else
-                                {
-                                    @SharedLocalizer["connect"]
-                                }
-                            </button>
                         </div>
                     </div>
                 </div>
             }
-            <!-- /.col -->
-            <div class="row">
-                <div class="col-xl-4 col-lg-5 col-sm-12">
-                    <!-- Profile Image -->
-                    <div class="box box-primary">
-                        <div class="box-body box-profile">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="user-profile-bio">
-                                        <h6>
-                                            @SharedLocalizer["Bio"]
-                                        </h6>
-                                        @Model.Bio
+        }
+        <div class="box-footer">
+            <div class="nav-tabs-custom">
+                <nav class="nav nav-pills flex-column flex-sm-row">
+                    <a class="flex-sm-fill text-sm-center nav-link active" data-toggle="tab" href="#about">@SharedLocalizer["Profile"]</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabactivity">@SharedLocalizer["Activity"]</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabgames">@SharedLocalizer["Games"]</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabconnections">@SharedLocalizer["connections"]</a>
+                    }
+                </nav>
+
+                <div class="tab-content pt-2">
+                    <div class="active tab-pane m-10" id="about">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-5 col-sm-12">
+                                <div class="box box-primary">
+                                    <div class="box-body box-profile">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="user-profile-bio">
+                                                    <h6>
+                                                        @SharedLocalizer["Bio"]
+                                                    </h6>
+                                                    @Model.Bio
+                                                </div>
+                                                <div class="profile-user-info">
+                                                    <p>
+                                                        @SharedLocalizer["Studio"]
+                                                    </p>
+                                                    <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
+                                                    <p>
+                                                        @SharedLocalizer["Location"]
+                                                    </p>
+                                                    <h6 class="margin-bottom">@Model.Location</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="profile-user-info">
-                                        <p>
-                                            @SharedLocalizer["Studio"]
-                                        </p>
-                                        <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
-                                        <p>
-                                            @SharedLocalizer["Location"]
-                                        </p>
-                                        <h6 class="margin-bottom">@Model.Location</h6>
+                                    <div class="user-profile-xp">
+                                        <div class="info-box bg-purple">
+                                            <span class="info-box-icon push-bottom">@Model.IndieXp.Level</span>
+
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">@Model.IndieXp.LevelName</span>
+                                                <span class="info-box-number">@Model.IndieXp.LevelXp</span>
+
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-white" style="width: @(Model.IndieXp.PercentageToNextLevel)%"></div>
+                                                </div>
+                                                <span class="progress-description">
+                                                    @Model.IndieXp.XpToNextLevel @SharedLocalizer["to the next level"]
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div id="divBadges"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="user-profile-xp">
-                            <div class="info-box bg-purple">
-                                <span class="info-box-icon push-bottom">@Model.IndieXp.Level</span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">@Model.IndieXp.LevelName</span>
-                                    <span class="info-box-number">@Model.IndieXp.LevelXp</span>
-
-                                    <div class="progress">
-                                        <div class="progress-bar bg-white" style="width: @(Model.IndieXp.PercentageToNextLevel)%"></div>
-                                    </div>
-                                    <span class="progress-description">
-                                        @Model.IndieXp.XpToNextLevel @SharedLocalizer["to the next level"]
-                                    </span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-
-                        <div class="col-12">
-                            <div id="divBadges"></div>
-                        </div>
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!-- /.col -->
-                <div class="col-xl-8 col-lg-7">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-
-                            <li><a class="active" href="#about" data-toggle="tab">@SharedLocalizer["About"]</a></li>
-                            <li><a href="#tabactivity" data-toggle="tab">@SharedLocalizer["Activity"]</a></li>
-                            <li><a href="#tabgames" data-toggle="tab">@SharedLocalizer["Games"]</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div class="active tab-pane m-10" id="about">
+                            <div class="col-xl-8 col-lg-7">
                                 <h6>
                                     @SharedLocalizer["Stats"]
                                 </h6>
                                 <div class="row">
                                     <div class="col-xl-3 col-md-6 col-6">
-                                        <!-- small box -->
                                         <div class="small-box bg-green">
                                             <div class="inner">
                                                 <h3>@Model.Counters.Games</h3>
@@ -234,9 +210,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ./col -->
                                     <div class="col-xl-3 col-md-6 col-6">
-                                        <!-- small box -->
                                         <div class="small-box bg-yellow">
                                             <div class="inner">
                                                 <h3>@Model.Counters.Posts</h3>
@@ -248,9 +222,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ./col -->
                                     <div class="col-xl-3 col-md-6 col-6">
-                                        <!-- small box -->
                                         <div class="small-box bg-blue">
                                             <div class="inner">
                                                 <h3>@Model.Counters.Comments</h3>
@@ -262,9 +234,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ./col -->
                                     <div class="col-xl-3 col-md-6 col-6">
-                                        <!-- small box -->
                                         <div class="small-box bg-red">
                                             <div class="inner">
                                                 <h3>@Model.Counters.Jams</h3>
@@ -276,7 +246,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ./col -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-4 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
+                                            <span class="description-text">@SharedLocalizer["followers"]</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 border-right hidden-sm-down">
+                                        <div class="description-block">
+                                            <h5 class="description-header">@Model.Counters.Following</h5>
+                                            <span class="description-text">@SharedLocalizer["following"]</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="description-block">
+                                            <h5 class="description-header connection-count">@Model.Counters.Connections</h5>
+                                            <span class="description-text">@SharedLocalizer["connections"]</span>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 @if (Model.HasOtherProfiles)
@@ -348,25 +337,20 @@
                                 }
 
                             </div>
-                            <!-- /.tab-pane -->
-
-                            <div class="tab-pane" id="tabactivity">
-                            </div>
-
-                            <div class="tab-pane" id="tabgames">
-                            </div>
-                            <!-- /.tab-pane -->
                         </div>
-                        <!-- /.tab-content -->
                     </div>
-                    <!-- /.nav-tabs-custom -->
+                    <div class="tab-pane" id="tabactivity">
+                    </div>
+
+                    <div class="tab-pane" id="tabgames">
+                    </div>
+
+                    <div class="tab-pane" id="tabconnections">
+                    </div>
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
     </div>
-    <!-- /.widget-user -->
 </div>
 
 

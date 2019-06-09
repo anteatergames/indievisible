@@ -41,6 +41,8 @@ namespace IndieVisible.Web.ViewComponents
 
             List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(UserId, count, gameId, userId, languages).ToList();
 
+            ViewData["UserId"] = userId;
+
             return await Task.Run(() => View(model));
         }
     }

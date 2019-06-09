@@ -7510,6 +7510,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
                 .nav-tabs-custom > .nav-tabs > li > a, .nav-tabs-custom > .nav-tabs > li > a:hover {
                     background: 0 0;
                     margin: 0;
+                    text-transform: capitalize;
                 }
 
                     .nav-tabs-custom > .nav-tabs > li > a.active:hover, .nav-tabs-custom > .nav-tabs > li > a.active {
@@ -8201,12 +8202,6 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
     display: inline-block;
     margin-top: -20px;
 }
-
-.widget-user .widget-user-username, .widget-user-2 .widget-user-username, .widget-user-3 .widget-user-username, .widget-user-4 .widget-user-username {
-    margin-bottom: 5px;
-    font-size: 25px;
-    font-weight: 300;
-}
 /*modal*/
 .modal {
     /* background: rgba(0, 0, 0, .3); */
@@ -8258,137 +8253,6 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .box-widget {
     border: none;
     position: relative;
-}
-
-.widget-user .widget-user-header {
-    padding: 20px;
-    height: 140px;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-}
-
-.widget-user .widget-user-username {
-    margin-top: 0;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-}
-
-.widget-user .widget-user-desc {
-    margin-top: 0;
-}
-
-.widget-user .widget-user-image {
-    position: absolute;
-    top: 85px;
-    left: 50%;
-    margin-left: -45px;
-}
-
-    .widget-user .widget-user-image img {
-        width: 90px;
-        height: auto;
-        border: 3px solid #fff;
-        background-color: white;
-    }
-
-.widget-user-2 .widget-user-header, .widget-user-3 .widget-user-header {
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    padding: 20px;
-}
-
-.widget-user .box-footer {
-    padding-top: 30px;
-}
-
-.widget-user-2 .widget-user-username {
-    margin-top: 5px;
-}
-
-.widget-user-2 .widget-user-desc {
-    margin-top: 0;
-}
-
-.widget-user-2 .widget-user-desc, .widget-user-2 .widget-user-username {
-    margin-left: 75px;
-}
-
-.widget-user-2 .widget-user-image > img {
-    width: 65px;
-    height: auto;
-    float: left;
-}
-
-.widget-user-3 .widget-user-username {
-    margin-top: 5px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-}
-
-.widget-user-3 .widget-user-desc {
-    margin-top: 0;
-}
-
-.widget-user-3 .info-user {
-    float: left;
-    margin-top: 15px;
-}
-
-.widget-user-3 .widget-user-image > img {
-    width: 100px;
-    height: auto;
-    float: right;
-    border: 3px solid #fff;
-}
-
-.mailbox-controls.with-border, .mailbox-read-info {
-    border-bottom: 1px solid #f4f4f4;
-}
-
-.widget-user-4 .widget-user-header {
-    text-align: center;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-}
-
-.widget-user-4 .widget-user-username {
-    margin-top: 0;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-}
-
-.widget-user-4 .widget-user-desc {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.widget-user-4 .widget-user-image {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-    .widget-user-4 .widget-user-image img {
-        width: 90px;
-        height: auto;
-    }
-
-.box.widget-user-4 {
-    padding: 0;
-}
-
-.box.widget-user-4 .overlay {
-    z-index: 50;
-    border-radius: 0;
-    padding: 20px;
-}
-
-    .box.widget-user-4 .overlay.overlay-none {
-        background: rgba(0, 0, 0, 0);
-    }
-
-.widget-user-4 .box {
-    box-shadow: none;
-}
-
-.widget-user-4 .box-footer {
-    padding-top: 30px;
 }
 /*treevie*/
 .treeview-menu {
@@ -10093,4 +9957,11 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 
 .box-game {
     padding: 0;
+}
+
+
+
+
+.mailbox-controls.with-border, .mailbox-read-info {
+    border-bottom: 1px solid #f4f4f4;
 }

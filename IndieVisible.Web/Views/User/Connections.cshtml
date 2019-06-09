@@ -1,0 +1,52 @@
+﻿@model List<UserConnectionViewModel>
+
+@{
+}
+
+@if (!Model.Any())
+{
+    <div class="text-center mt-10 p-5">
+        <i class="fa-10x fas fa-exclamation-triangle" aria-hidden="true"></i>
+        <div class="mt-3">
+            <h3>@SharedLocalizer["This user has no connections, yet."]</h3>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="box box-widget widget-user">
+                    <div class="widget-user-image">
+                        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.TargetUserId">
+                            <img class="rounded-circle lazyload" data-src="@item.ProfileImageUrl" src="~/images/profileimages/developer.png" alt="User Avatar">
+                        </a>
+                    </div>
+                    <div class="widget-user-header bg-black" style="background-image: url('@item.CoverImageUrl')">
+                    </div>
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="widget-user-username">@Html.DisplayFor(modelItem => item.TargetUserName)</h3>
+                            </div>
+                            <div class="col-sm-6 border-right">
+                                <div class="description-block">
+                                    <span class="description-text">Location</span>
+                                    <h5 class="description-header text-truncate">@item.Location</h5>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="description-block">
+                                    <span class="description-text">Member since</span>
+                                    <h5 class="description-header">@item.CreateDate.ToShortDateString()</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,41 +1,62 @@
 ﻿@model List<GameListItemViewModel>
 
-@foreach (var game in Model)
+@{
+    bool userFiltered = ((Guid)ViewData["UserId"]) != Guid.Empty;
+}
+
+@if (!Model.Any())
 {
-    <div class="box box-default box-game">
-        <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
-            <img class="card-img-top img-responsive lazyload" data-src="@game.ThumbnailUrl" src="~/images/placeholders/gameplaceholder.jpg"  alt="@game.Title">
-        </a>
-        <div class="box-body">
-            <div class="gamebox-description">
-
-                <div class="row text-truncate">
-                    <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
-                        <span class="gamebox-description-text">@game.Title</span>
-                    </a>
-                </div>
-                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@game.UserId">
-                    <img class="rounded-circle img-sm lazyload" data-src="@game.DeveloperImageUrl" src="~/images/profileimages/developer.png" alt=".">
-                    <div class="gamebox-description-text">
-                        <span class="gamebox-description-number">@game.DeveloperName</span>
-                    </div>
-                </a>
-
-                <div class="price-tag pull-right float-right">
-                    <span class="badge badge-secondary">@game.Price</span>
-                </div>
-
-                <div class="release-platforms">
-                    @foreach (var platform in game.PlatformList)
-                    {
-                        <i class="fab fa-2x fa-@platform" aria-hidden="true"></i>
-                    }
-                </div>
-            </div>
+    <div class="text-center mt-10 p-5">
+        <i class="fa-10x fas fa-exclamation-triangle" aria-hidden="true"></i>
+        <div class="mt-3">
+            <h3>@SharedLocalizer["This user has no games, yet."]</h3>
         </div>
     </div>
 }
+else
+{
+    <div class="@(userFiltered ? "offset-lg-2 col-lg-8 col-xl-7 pr-lg-2 pl-xl-2 pr-xl-2" : string.Empty)">
+        @foreach (var game in Model)
+        {
+            <div class="box box-default box-game">
+                <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
+                    <img class="card-img-top img-responsive lazyload" data-src="@game.ThumbnailUrl" src="~/images/placeholders/gameplaceholder.jpg" alt="@game.Title">
+                </a>
+                <div class="box-body">
+                    <div class="gamebox-description">
 
-<div class="col-12 mb-2">
-    <a asp-area="" asp-controller="games" asp-action="index" class="btn btn-lg btn-default btn-block">@SharedLocalizer["More Games"]</a>
-</div>
+                        <div class="row text-truncate">
+                            <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
+                                <span class="gamebox-description-text">@game.Title</span>
+                            </a>
+                        </div>
+                        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@game.UserId">
+                            <img class="rounded-circle img-sm lazyload" data-src="@game.DeveloperImageUrl" src="~/images/profileimages/developer.png" alt=".">
+                            <div class="gamebox-description-text">
+                                <span class="gamebox-description-number">@game.DeveloperName</span>
+                            </div>
+                        </a>
+
+                        <div class="price-tag pull-right float-right">
+                            <span class="badge badge-secondary">@game.Price</span>
+                        </div>
+
+                        <div class="release-platforms">
+                            @foreach (var platform in game.PlatformList)
+                            {
+                                <i class="fab fa-2x fa-@platform" aria-hidden="true"></i>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (!userFiltered)
+        {
+            <div class="col-12 mb-2">
+                <a asp-area="" asp-controller="games" asp-action="index" class="btn btn-lg btn-default btn-block">@SharedLocalizer["More Games"]</a>
+            </div>
+        }
+    </div>
+}

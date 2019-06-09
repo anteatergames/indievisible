@@ -101,7 +101,7 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Latest(int qtd, Guid userId)
         {
-            return ViewComponent("LatestGames", new { qtd = qtd, userId = userId });
+            return ViewComponent("LatestGames", new { qtd, userId });
         }
 
         private void SetImages(GameViewModel vm)
