@@ -793,8 +793,16 @@
     <value>{0} quer se conectar</value>
     <comment>Notification</comment>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>conexões</value>
-    <comment>Generic</comment>
+  <data name="This user has no connections, yet." xml:space="preserve">
+    <value>Este usuário não possui conexões, ainda.</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="This user has no games, yet." xml:space="preserve">
+    <value>Este usuário não possui jogos, ainda.</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="What? Apparently this user has not yet posted anything!" xml:space="preserve">
+    <value>O que? Aparentemente este usuário ainda não postou nada!</value>
+    <comment>Profile</comment>
   </data>
 </root>
