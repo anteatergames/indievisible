@@ -8,6 +8,7 @@
     width: 100%;
     min-height: 160px;
 }
+
     .commentmodal .modal-header, .commentmodal .modal-body, .commentmodal .modal-footer {
         padding: 10px !important;
     }
@@ -61,3 +62,86 @@
     .dropzone .dz-message {
         font-weight: 400;
     }
+
+
+#divPostPoll {
+    color: #495057;
+    margin-top: 10px;
+    display: none;
+    min-height: 150px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: white;
+    padding: 20px 20px;
+}
+
+    #divPostPoll input {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    #divPostPoll .input-group-append .btn-image-add {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+        #divPostPoll .input-group-append .btn-image-add:hover {
+            color: black;
+            box-shadow: none !important;
+        }
+
+
+    #divPostPoll .btn-option-remove {
+        margin-left: 5px;
+        color: #495057;
+    }
+
+        #divPostPoll .btn-option-remove:hover {
+            color: black;
+            box-shadow: none !important;
+        }
+
+    #divPostPoll #btnAddOption {
+        color: #495057;
+    }
+
+        #divPostPoll #btnAddOption:hover {
+            color: black;
+            box-shadow: none !important;
+        }
+
+
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: #c7c7c7;
+}
+
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: #999;
+}
+
+input:focus:-moz-placeholder {
+    color: #c7c7c7;
+}
+
+/* Firefox > 19 */
+input::-moz-placeholder {
+    color: #999;
+}
+
+input:focus::-moz-placeholder {
+    color: #c7c7c7;
+}
+
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+    color: #999;
+}
+
+input:focus:-ms-input-placeholder {
+    color: #c7c7c7;
+}

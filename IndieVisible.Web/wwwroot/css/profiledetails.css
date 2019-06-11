@@ -2,8 +2,7 @@
     color: #fff;
     background-color: #89ad87;
     text-align: center;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
+    border-radius: 5px 5px 0 0;
 }
 
 .user-profile .user-profile-username {
@@ -32,7 +31,7 @@
 
     .box.user-profile .overlay {
         z-index: 50;
-        border-radius: 0;
+        border-radius: 5px 5px 0 0;
         padding: 20px;
     }
 
@@ -129,3 +128,33 @@
 .user-profile .nav-pills .nav-link {
     border-radius: 0;
 }
+
+
+.user-profile-others {
+    position: relative;
+    /*padding: 15px 5px;*/
+    margin: 0 0 10px 10px;
+    min-width: 100px;
+    min-height: 100px;
+    vertical-align:middle;
+    /*padding:20px;*/
+    color: #666;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    font-size: 12px;
+    overflow: visible;
+    text-align: center;
+}
+
+    .user-profile-others div.centered {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        width:100%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .user-profile-others > .other-icon {
+        padding: 5px;
+    }

@@ -1,5 +1,10 @@
 ﻿@charset 'UTF-8';
 
+button:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
 @media (max-width: 575px) {
     .container {
         padding-top: 0 !important;

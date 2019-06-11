@@ -207,6 +207,7 @@
     right: 0px;
     bottom: 0px;
     padding-top: 0px;
+    border-radius: 0 0 3px 3px;
 }
 
     .carousel-caption p {

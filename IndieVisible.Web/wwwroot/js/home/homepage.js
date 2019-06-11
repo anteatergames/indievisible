@@ -3,14 +3,12 @@
 
     var postModalActive = false;
     var divPostImagesActive = false;
+    var divPostPollActive = false;
 
     var postImagesDropZone = null;
 
     var defaultCommentBoxHeight = 0;
     var defaultTxtPostContentHeight = 0;
-
-    //var spinner = '<div class="flex-square overlay rectangle bg-transparent"><div class="flex-square-inner"><div class="flex-square-inner-content text-dark"><i class="fa fa-spinner fa-3x fa-spin"></i></div></div></div>';
-
     var selectors = {};
 
     function init() {
@@ -34,6 +32,7 @@
         selectors.divLatestGames = $("#divLatestGames");
         selectors.divActivityFeed = $("#divActivityFeed");
         selectors.divPostImages = $('div#divPostImages');
+        selectors.divPostPoll = $('div#divPostPoll');
         selectors.txtPostContent = $('#txtPostContent');
         selectors.commentBox = $('.commentmodal');
         selectors.commentModal = $('.commentmodal .modal');
@@ -45,6 +44,8 @@
         bindShowCommentModal();
         bindPostAddImageBtn();
         bindPostTextArea();
+        bindBtnPostAddPollBtn();
+        bindPostModalHide();
     }
 
     function bindPostTextArea() {
@@ -65,16 +66,10 @@
     function bindShowCommentModal() {
         $('.content').on('click', '.posttextarea', function (e) {
             if (postModalActive === false) {
-                postModalActive = true;
-                $('#modalPost').addClass('modal');
-                $('#modalPost').modal('show');
-                $('.commentmodal .modal').css('padding-right', '');
-                $('.commentmodal .modal-header .close').show();
-                $('.modal-backdrop').css('height', window.innerHeight + 'px');
-                $('.modal-backdrop').css('top', window.pageYOffset + 'px');
+                showPostModal();
             }
             $(this).focus();
-            resizeCommentBox();
+            resizePostBox();
             selectors.commentModal.animate({ scrollTop: 0 }, "fast");
         });
 
@@ -82,17 +77,19 @@
             if (postModalActive === true) {
                 hidePostModal();
             }
-            resizeCommentBox();
+            resizePostBox();
         });
     }
 
     function bindPostAddImageBtn() {
         Dropzone.autoDiscover = false;
         $('.content').on('click', '#btnPostAddImage', function (e) {
+            if (postModalActive === false) {
+                showPostModal();
+            }
 
             if (divPostImagesActive) {
                 hideImageAdd();
-                resizeCommentBox();
             }
             else {
                 divPostImagesActive = true;
@@ -107,14 +104,31 @@
                     });
 
                     postImagesDropZone.on("addedfile", function (file) {
-                        resizeCommentBox();
+                        resizePostBox();
                     });
                 }
 
                 selectors.divPostImages.show();
 
-                resizeCommentBox();
             }
+
+            resizePostBox();
+        });
+    }
+
+    function bindBtnPostAddPollBtn() {
+        $('.content').on('click', '#btnPostAddPoll', function (e) {
+            if (postModalActive === false) {
+                showPostModal();
+            }
+
+            if (divPostPollActive) {
+                hidePollAdd();
+            } else {
+                showPollAdd();
+            }
+
+            resizePostBox();
         });
     }
 
@@ -163,17 +177,46 @@
         });
     }
 
-    function resizeCommentBox() {
+    function bindPostModalHide() {
+        $('#modalPost').on('hide.bs.modal', function (e) {
+            hideImageAdd();
+            hidePollAdd();
+        });
+    }
+
+    function showPostModal() {
+        postModalActive = true;
+        $('#modalPost').addClass('modal');
+        $('#modalPost').modal('show');
+        $('.commentmodal .modal').css('padding-right', '');
+        $('.commentmodal .modal-header .close').show();
+        $('.modal-backdrop').css('height', window.innerHeight + 'px');
+        $('.modal-backdrop').css('top', window.pageYOffset + 'px');
+    }
+
+    function resizePostBox() {
 
         var divPostImagesHeight = selectors.divPostImages.outerHeight();
+        var divPostPollHeight = selectors.divPostPoll.outerHeight();
+
         var h = Math.floor(selectors.txtPostContent.height());
         var txtPostContentHeight = h === defaultTxtPostContentHeight ? 0 : h - defaultTxtPostContentHeight;
 
         var height = defaultCommentBoxHeight + txtPostContentHeight;
 
+        var extra = 0;
+
         if (divPostImagesActive) {
             height += divPostImagesHeight;
+            extra += 10;
         }
+
+        if (divPostPollActive) {
+            height += divPostPollHeight;
+            extra += 10;
+        }
+
+        height += extra;
 
         selectors.commentModal.height(height);
 
@@ -192,6 +235,16 @@
     function hideImageAdd() {
         divPostImagesActive = false;
         selectors.divPostImages.hide();
+    }
+
+    function hidePollAdd() {
+        divPostPollActive = false;
+        selectors.divPostPoll.hide();
+    }
+
+    function showPollAdd() {
+        divPostPollActive = true;
+        selectors.divPostPoll.show();
     }
 
     function sendSimpleContent(text, images) {
@@ -270,7 +323,7 @@
             el.style.cssText = 'height:auto;';
             el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
 
-            resizeCommentBox();
+            resizePostBox();
         }, 0);
     }
 

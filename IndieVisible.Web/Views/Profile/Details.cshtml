@@ -270,69 +270,81 @@
 
                                 @if (Model.HasOtherProfiles)
                                 {
-                                    <h6>
-                                        @SharedLocalizer["Other Profiles"]
-                                    </h6>
-                                    <div class="row">
-                                        @if (!string.IsNullOrWhiteSpace(Model.GameJoltUrl))
-                                        {
-                                            <div class="user-profile-others">
-                                                <a href="@Model.GameJoltUrl" target="_blank">
-                                                    <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt" />
+                                    <div class="mt-3">
+                                        <h6>
+                                            @SharedLocalizer["Other Profiles"]
+                                        </h6>
+                                        <div class="row">
+                                            @if (!string.IsNullOrWhiteSpace(Model.GameJoltUrl))
+                                            {
+                                                <div class="user-profile-others">
+                                                    <div class="centered">
+                                                        <a href="@Model.GameJoltUrl" target="_blank">
+                                                            <div class="other-icon">
+                                                                <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt" />
+                                                            </div>
+                                                            @Html.DisplayNameFor(x => x.GameJoltUrl)
+                                                        </a>
                                                     </div>
-                                                    @Html.DisplayNameFor(x => x.GameJoltUrl)
-                                                </a>
-                                            </div>
-                                        }
+                                                </div>
+                                            }
 
-                                        @if (!string.IsNullOrWhiteSpace(Model.ItchIoUrl))
-                                        {
-                                            <div class="user-profile-others">
-                                                <a href="@Model.ItchIoUrl" target="_blank">
-                                                    <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/itchio32.png" alt="Itch.io" />
+                                            @if (!string.IsNullOrWhiteSpace(Model.ItchIoUrl))
+                                            {
+                                                <div class="user-profile-others">
+                                                    <div class="centered">
+                                                        <a href="@Model.ItchIoUrl" target="_blank">
+                                                            <div class="other-icon">
+                                                                <img src="~/images/otherprofiles/itchio32.png" alt="Itch.io" />
+                                                            </div>
+                                                            Itch.io
+                                                        </a>
                                                     </div>
-                                                    Itch.io
-                                                </a>
-                                            </div>
-                                        }
+                                                </div>
+                                            }
 
-                                        @if (!string.IsNullOrWhiteSpace(Model.IndieDbUrl))
-                                        {
-                                            <div class="user-profile-others">
-                                                <a href="@Model.IndieDbUrl" target="_blank">
-                                                    <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDb" />
+                                            @if (!string.IsNullOrWhiteSpace(Model.IndieDbUrl))
+                                            {
+                                                <div class="user-profile-others">
+                                                    <div class="centered">
+                                                        <a href="@Model.IndieDbUrl" target="_blank">
+                                                            <div class="other-icon">
+                                                                <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDb" />
+                                                            </div>
+                                                            @Html.DisplayNameFor(x => x.IndieDbUrl)
+                                                        </a>
                                                     </div>
-                                                    @Html.DisplayNameFor(x => x.IndieDbUrl)
-                                                </a>
-                                            </div>
-                                        }
+                                                </div>
+                                            }
 
-                                        @if (!string.IsNullOrWhiteSpace(Model.UnityConnectUrl))
-                                        {
-                                            <div class="user-profile-others">
-                                                <a href="@Model.UnityConnectUrl" target="_blank">
-                                                    <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect" />
+                                            @if (!string.IsNullOrWhiteSpace(Model.UnityConnectUrl))
+                                            {
+                                                <div class="user-profile-others">
+                                                    <div class="centered">
+                                                        <a href="@Model.UnityConnectUrl" target="_blank">
+                                                            <div class="other-icon">
+                                                                <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect" />
+                                                            </div>
+                                                            @Html.DisplayNameFor(x => x.UnityConnectUrl)
+                                                        </a>
                                                     </div>
-                                                    @Html.DisplayNameFor(x => x.UnityConnectUrl)
-                                                </a>
-                                            </div>
-                                        }
+                                                </div>
+                                            }
 
-                                        @if (!string.IsNullOrWhiteSpace(Model.GameDevNetUrl))
-                                        {
-                                            <div class="user-profile-others">
-                                                <a href="@Model.GameDevNetUrl" target="_blank">
-                                                    <div class="other-icon">
-                                                        <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net" />
+                                            @if (!string.IsNullOrWhiteSpace(Model.GameDevNetUrl))
+                                            {
+                                                <div class="user-profile-others">
+                                                    <div class="centered">
+                                                        <a href="@Model.GameDevNetUrl" target="_blank">
+                                                            <div class="other-icon">
+                                                                <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net" />
+                                                            </div>
+                                                            @Html.DisplayNameFor(x => x.GameDevNetUrl)
+                                                        </a>
                                                     </div>
-                                                    @Html.DisplayNameFor(x => x.GameDevNetUrl)
-                                                </a>
-                                            </div>
-                                        }
+                                                </div>
+                                            }
+                                        </div>
                                     </div>
                                 }
 

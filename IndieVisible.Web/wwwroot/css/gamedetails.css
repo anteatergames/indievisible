@@ -21,8 +21,7 @@
 
 .widget-game .widget-game-header {
     text-align: center;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
+    border-radius: 3px 3px 0 0;
 }
 
 .widget-game h1 {
@@ -61,7 +60,7 @@
 
 .box.widget-game .overlay {
     z-index: 50;
-    border-radius: 0;
+    border-radius: 3px 3px 0 0;
     padding: 20px;
 }
 

@@ -77,14 +77,39 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" id="btnPostAddImage" class="btn btn-default btn-vertical-align"><i class="far fa-images" aria-hidden="true"></i> <span>@SharedLocalizer["image"]</span></button>
-                                    <button type="button" class="btn btn-default btn-vertical-align notimplemented"><i class="fas fa-poll" aria-hidden="true"></i> <span>@SharedLocalizer["poll"]</span></button>
-                                    <div id="divPostImages" class="dropzone">
-                                        <div class="dz-message needsclick">
-                                            @SharedLocalizer["Drop files here or click to upload."]<br>
-                                            <span class="note needsclick">
-                                                (@SharedLocalizer["only image files"])
-                                            </span>
+                                    <div>
+                                        <button type="button" id="btnPostAddImage" class="btn btn-default btn-vertical-align"><i class="far fa-images" aria-hidden="true"></i> <span>@SharedLocalizer["image"]</span></button>
+                                        <button type="button" id="btnPostAddPoll" class="btn btn-default btn-vertical-align"><i class="fas fa-poll" aria-hidden="true"></i> <span>@SharedLocalizer["poll"]</span></button>
+                                        <div id="divPostImages" class="dropzone">
+                                            <div class="dz-message needsclick">
+                                                @SharedLocalizer["Drop files here or click to upload."]<br>
+                                                <span class="note needsclick">
+                                                    (@SharedLocalizer["only image files"])
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div id="divPostPoll">
+                                            <div class="input-group input-group-lg mt-2">
+                                                <input type="text" class="form-control input-lg" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer[" add option..."]">
+                                                <div class="input-group-append">
+                                                    <button class="input-group-text btn-image-add">
+                                                        <i class="fas fa-image" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <button class="btn btn-lg bg-transparent btn-option-remove"><i class="fas fa-2x fa-times" aria-hidden="true"></i></button>
+                                            </div>
+                                            <div class="input-group input-group-lg mt-2">
+                                                <input type="text" class="form-control input-lg" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer["add option..."]">
+                                                <div class="input-group-append">
+                                                    <button class="input-group-text btn-image-add">
+                                                        <i class="fas fa-image" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <button class="btn btn-lg bg-transparent btn-option-remove"><i class="fas fa-2x fa-times" aria-hidden="true"></i></button>
+                                            </div>
+                                            <div class="mt-2">
+                                                <button id="btnAddOption" class="btn bg-transparent"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["add option"]</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
