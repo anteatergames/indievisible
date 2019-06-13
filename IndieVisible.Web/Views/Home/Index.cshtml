@@ -89,23 +89,23 @@
                                             </div>
                                         </div>
                                         <div id="divPostPoll">
-                                            <div class="input-group input-group-lg mt-2">
-                                                <input type="text" class="form-control input-lg" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer[" add option..."]">
+                                            <div class="input-group mt-2 polloption">
+                                                <input type="text" class="form-control polloptioninput" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer[" add option..."]">
                                                 <div class="input-group-append">
                                                     <button class="input-group-text btn-image-add">
                                                         <i class="fas fa-image" aria-hidden="true"></i>
                                                     </button>
                                                 </div>
-                                                <button class="btn btn-lg bg-transparent btn-option-remove"><i class="fas fa-2x fa-times" aria-hidden="true"></i></button>
+                                                <button class="btn btn-lg bg-transparent btn-option-remove invisible"><i class="fas fa-times" aria-hidden="true"></i></button>
                                             </div>
-                                            <div class="input-group input-group-lg mt-2">
-                                                <input type="text" class="form-control input-lg" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer["add option..."]">
+                                            <div class="input-group mt-2 polloption">
+                                                <input type="text" class="form-control polloptioninput" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer["add option..."]">
                                                 <div class="input-group-append">
                                                     <button class="input-group-text btn-image-add">
                                                         <i class="fas fa-image" aria-hidden="true"></i>
                                                     </button>
                                                 </div>
-                                                <button class="btn btn-lg bg-transparent btn-option-remove"><i class="fas fa-2x fa-times" aria-hidden="true"></i></button>
+                                                <button class="btn btn-lg bg-transparent btn-option-remove invisible"><i class="fas fa-times" aria-hidden="true"></i></button>
                                             </div>
                                             <div class="mt-2">
                                                 <button id="btnAddOption" class="btn bg-transparent"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["add option"]</button>
@@ -193,6 +193,7 @@
     <environment include="Development">
         <script src="~/lib/dropzone/dropzone.js"></script>
         <script src="~/js/shared/contentactions.js"></script>
+        <script src="~/js/home/polls.js"></script>
         <script src="~/js/home/homepage.js"></script>
     </environment>
     <environment exclude="Development">

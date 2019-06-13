@@ -51,6 +51,7 @@
     "inputFiles": [
       "wwwroot/lib/dropzone/dropzone.js",
       "wwwroot/js/shared/contentactions.js",
+      "wwwroot/js/home/polls.js",
       "wwwroot/js/home/homepage.js"
     ]
   },

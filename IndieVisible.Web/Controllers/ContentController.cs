@@ -157,7 +157,7 @@ namespace IndieVisible.Web.Controllers
 
         [HttpPost]
         [Route("content/post")]
-        public IActionResult SimplePost(string text, string images)
+        public IActionResult SimplePost(string text, string images, IEnumerable<string> pollOptions)
         {
 
             UserContentViewModel vm = new UserContentViewModel

@@ -54,7 +54,7 @@
 .dropzone {
     margin-top: 10px;
     display: none;
-    border: 2px dashed #0087F7;
+    border: 1px dashed rgba(0, 0, 0, 0.3) !important;
     border-radius: 5px;
     background: white
 }
@@ -69,7 +69,7 @@
     margin-top: 10px;
     display: none;
     min-height: 150px;
-    border: 2px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
     background: white;
     padding: 20px 20px;
 }

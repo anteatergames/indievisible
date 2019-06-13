@@ -12,6 +12,7 @@
     var selectors = {};
 
     function init() {
+        console.log('homepage init');
         setSelectors();
 
         bindAll();
@@ -25,6 +26,8 @@
         defaultCommentBoxHeight = Math.ceil(selectors.commentBox.outerHeight());
 
         defaultTxtPostContentHeight = Math.ceil(selectors.txtPostContent.height());
+
+        POLLS.Events.PostAddOption = resizePostBox;
     }
 
     function setSelectors() {
@@ -94,14 +97,7 @@
             else {
                 divPostImagesActive = true;
                 if (!postImagesDropZone) {
-                    postImagesDropZone = new Dropzone("div#divPostImages", {
-                        url: '/storage/uploadcontentimage',
-                        paramName: 'upload',
-                        addRemoveLinks: true,
-                        autoProcessQueue: false,
-                        maxFiles: 1
-                        //resizeWidth
-                    });
+                    instantiateDropZone();
 
                     postImagesDropZone.on("addedfile", function (file) {
                         resizePostBox();
@@ -133,7 +129,10 @@
     }
 
     function bindSendSimpleContent() {
+        console.log('bindSendSimpleContent');
         $('.content').on('click', '#btnSendSimpleContent', function (e) {
+            console.log('sendpostclick');
+
             var btn = $(this);
             var txtArea = btn.closest('.simplecontentpostarea').find('.posttextarea');
             var text = txtArea.val().replace(/\n/g, '<br>\n');
@@ -142,14 +141,17 @@
                 return false;
             }
 
+            var pollOptions = document.getElementsByClassName("polloptioninput");
+
+            var options = $(pollOptions).map(function () {
+                return this.value ? this.value : null;
+            }).get();
+
             if (!postImagesDropZone) {
                 var images = selectors.postImages.val();
-                sendSimpleContent(text, images).done(function (response) {
-                    hidePostModal();
-                    hideImageAdd();
-                    if (postImagesDropZone) {
-                        postImagesDropZone.removeAllFiles();
-                    }
+                var json = { text: text, images: images, pollOptions: options };
+
+                sendSimpleContent(json).done(function (response) {
                     sendSimpleContentCallback(response, txtArea);
                 });
             }
@@ -165,15 +167,20 @@
 
                 postImagesDropZone.on("queuecomplete", function (file) {
                     var images = selectors.postImages.val();
-                    sendSimpleContent(text, images).done(function (response) {
-                        hidePostModal();
-                        hideImageAdd();
-                        postImagesDropZone.removeAllFiles();
+                    var json = { text: text, images: images, pollOptions: options };
+                    sendSimpleContent(json).done(function (response) {
                         sendSimpleContentCallback(response, txtArea);
+
+                        if (postImagesDropZone) {
+                            postImagesDropZone.destroy();
+                            postImagesDropZone = null;
+                        }
+
+
+                        instantiateDropZone();
                     });
                 });
             }
-
         });
     }
 
@@ -181,6 +188,17 @@
         $('#modalPost').on('hide.bs.modal', function (e) {
             hideImageAdd();
             hidePollAdd();
+        });
+    }
+
+    function instantiateDropZone() {
+        postImagesDropZone = new Dropzone("div#divPostImages", {
+            url: '/storage/uploadcontentimage',
+            paramName: 'upload',
+            addRemoveLinks: true,
+            autoProcessQueue: false,
+            maxFiles: 1
+            //resizeWidth
         });
     }
 
@@ -247,8 +265,8 @@
         selectors.divPostPoll.show();
     }
 
-    function sendSimpleContent(text, images) {
-        return $.post("/content/post", { text: text, images: images })
+    function sendSimpleContent(json) {
+        return $.post("/content/post", json)
             .done(function (response) {
                 if (!response.success) {
                     ALERTSYSTEM.ShowWarningMessage(response.message);
@@ -256,6 +274,13 @@
             });
     }
     function sendSimpleContentCallback(response, txtArea) {
+
+        hidePostModal();
+        hideImageAdd();
+        if (postImagesDropZone) {
+            postImagesDropZone.removeAllFiles();
+        }
+
         if (response.success === true) {
             txtArea.val('');
             CONTENTACTIONS.AutosizeTextArea(txtArea[0]);
@@ -263,6 +288,8 @@
             if (postImagesDropZone) {
                 postImagesDropZone.disable();
             }
+
+            selectors.postImages.val('');
         }
     }
 
