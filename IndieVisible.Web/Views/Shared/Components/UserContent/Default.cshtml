@@ -105,13 +105,13 @@ else
                             @foreach (var comment in item.Comments)
                             {
                                 <div class="box-comment">
-                                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
+                                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@comment.UserId">
                                         <img class="rounded img-sm rounded-circle lazyload" data-src="@comment.AuthorPicture" alt="User Image">
                                     </a>
 
                                     <div class="comment-text">
                                         <span class="username">
-                                            <span class="comment-authorname"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">@comment.AuthorName</a></span>
+                                            <span class="comment-authorname"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@comment.UserId">@comment.AuthorName</a></span>
                                             <span class="text-muted pull-right comment-date">@comment.CreateDate.ToString()</span>
                                         </span>
                                         <div class="comment-content">

@@ -81,6 +81,7 @@
                 hidePostModal();
             }
             resizePostBox();
+            POLLS.Methods.ClearOptions();
         });
     }
 
@@ -120,6 +121,7 @@
 
             if (divPostPollActive) {
                 hidePollAdd();
+                POLLS.Methods.ClearOptions();
             } else {
                 showPollAdd();
             }

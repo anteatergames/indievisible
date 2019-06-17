@@ -30,6 +30,7 @@
             $(btnRemoveOption).removeClass('invisible');
 
             newOption.insertBefore('#btnAddOption');
+            newOption.addClass('polloptionextra');
             input.focus();
             POLLS.Events.PostAddOption();
         });
@@ -40,11 +41,13 @@
             var option = $(this).closest('.polloption');
 
             option.remove();
+            POLLS.Events.PostAddOption();
         });
     }
 
     function clearOptions() {
         selectors.options.val('');
+        $('.polloptionextra').remove();
     }
 
     return {
