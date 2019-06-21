@@ -1,11 +1,8 @@
-/*---Skin: Black---*/
-
 .skin-indievisible .main-header .navbar {
     background-color: #242a33;
 }
 
     .skin-indievisible .main-header .navbar .nav > li > a {
-        /*color: #313131;*/
         color: white;
     }
 
@@ -15,8 +12,7 @@
         .skin-indievisible .main-header .navbar .nav .open > a,
         .skin-indievisible .main-header .navbar .nav .open > a:hover,
         .skin-indievisible .main-header .navbar .nav .open > a:focus,
-        .skin-indievisible .main-header .navbar .nav > .active > a,
-        .skin-indievisible.layout-top-nav .mega-dropdown > a.nav-link.dropdown-toggle:hover {
+        .skin-indievisible .main-header .navbar .nav > .active > a {
             background: rgba(0, 0, 0, 0.1);
             color: #666666;
         }
@@ -66,14 +62,9 @@
     background: #f2f6f8;
 }
 
-.skin-indievisible .content {
-    /*background: #f2f6f8;*/
-}
-
 .skin-indievisible .wrapper,
 .skin-indievisible .main-sidebar,
 .skin-indievisible .left-side {
-    /*background-color: #f2f6f8;*/
     background-color: #dedada;
     box-shadow: 1px 0px 20px rgba(0,0,0,0.08);
 }
@@ -110,28 +101,6 @@
     border-left-color: #232323;
 }
 
-.skin-indievisible .sidebar-menu > li > .treeview-menu {
-    margin: 0 0px;
-    background: #242a33;
-}
-
-/*.skin-indievisible .sidebar a {
-    color: #79818e;
-}
-
-    .skin-indievisible .sidebar a:hover {
-        text-decoration: none;
-    }
-
-.skin-indievisible .sidebar-menu .treeview-menu > li > a {
-    color: #79818e;
-}
-
-    .skin-indievisible .sidebar-menu .treeview-menu > li.active > a,
-    .skin-indievisible .sidebar-menu .treeview-menu > li > a:hover {
-        color: #fff;
-    }*/
-
 .skin-indievisible .sidebar-form {
     border-radius: 3px;
     border: 1px solid #898989;
@@ -166,16 +135,6 @@
         border-bottom-left-radius: 0;
     }
 
-.skin-indievisible.layout-top-nav .main-header > .logo {
-    background-color: #313131;
-    color: #ffffff;
-    border-bottom: 0 solid transparent;
-}
-
-    .skin-indievisible.layout-top-nav .main-header > .logo:hover {
-        background-color: #232323;
-    }
-
 .skin-indievisible .btn-blue {
     background-color: #232323;
     color: #fff;
@@ -186,11 +145,6 @@
         background-color: #fff;
         color: #232323;
     }
-
-.horizontal-menu .skin-indievisible.layout-top-nav .sidebar-menu > li.active > a {
-    background: #232323;
-    color: #fff;
-}
 
 .skin-indievisible .main-header .messages-menu .dropdown-toggle i::after, .skin-indievisible .main-header .notifications-menu .dropdown-toggle i::after, .skin-indievisible .main-header .tasks-menu .dropdown-toggle i::after {
     border-color: #ffffff;
@@ -241,10 +195,6 @@
         height: 30px;
     }
 
-    .gamebox-description .price-tag {
-        /*margin-top: -55px;*/
-    }
-
         .gamebox-description .price-tag span.badge {
             padding: 5px;
         }
@@ -290,15 +240,9 @@
     padding-top: 10px;
 }
 
-.main-sidebar {
-    /*position: fixed;*/
-}
-
 .user-panel .sidebar-full .btn {
     color: white !important;
     display: block;
-    /*margin-left: 10px;
-    margin-right: 10px;*/
 }
 
 .user-panel .info a {
@@ -395,9 +339,6 @@ video {
 
 .videoWrapper {
     position: relative;
-    /* padding-bottom: 59.25%; */ /* 16:9 */
-    /* padding-top: 25px; */
-    /* height: 0; */
 }
 
     .videoWrapper iframe {
