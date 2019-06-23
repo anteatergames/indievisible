@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
+using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Repository;
@@ -24,11 +25,15 @@ namespace IndieVisible.Application.Services
         private readonly IUserContentLikeRepository likeRepository;
         private readonly IUserContentCommentRepository commentRepository;
         private readonly IGamificationDomainService gamificationDomainService;
+        private readonly IPollDomainService pollDomainService;
+        private readonly IPollOptionDomainService pollOptionDomainService;
 
         public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IUserContentRepository repository
             , IUserContentLikeRepository likeRepository, IUserContentCommentRepository commentRepository
-            , IGamificationDomainService gamificationDomainService)
+            , IGamificationDomainService gamificationDomainService
+            , IPollDomainService pollDomainService
+            , IPollOptionDomainService pollOptionDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
@@ -36,6 +41,8 @@ namespace IndieVisible.Application.Services
             this.likeRepository = likeRepository;
             this.commentRepository = commentRepository;
             this.gamificationDomainService = gamificationDomainService;
+            this.pollDomainService = pollDomainService;
+            this.pollOptionDomainService = pollOptionDomainService;
         }
 
         public OperationResultVo<int> Count()
@@ -90,7 +97,7 @@ namespace IndieVisible.Application.Services
 
                 string youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";
 
-                var isYoutube = Regex.IsMatch(vm.FeaturedImage, youtubePattern);
+                bool isYoutube = Regex.IsMatch(vm.FeaturedImage, youtubePattern);
 
                 vm.HasFeaturedImage = !string.IsNullOrWhiteSpace(vm.FeaturedImage) && !vm.FeaturedImage.Contains(Constants.DefaultFeaturedImage) && !isYoutube;
 
@@ -179,6 +186,12 @@ namespace IndieVisible.Application.Services
                 {
                     repository.Add(model);
                     viewModel.Id = model.Id;
+
+
+                    if (viewModel.PollOptions.Any())
+                    {
+                        this.CreatePoll(viewModel);
+                    }
                 }
                 else
                 {
@@ -195,6 +208,31 @@ namespace IndieVisible.Application.Services
             }
 
             return result;
+        }
+
+        private void CreatePoll(UserContentViewModel contentVm)
+        {
+            List<PollOption> options = new List<PollOption>();
+
+            foreach (PollOptionViewModel o in contentVm.PollOptions)
+            {
+                var newOption = new PollOption
+                {
+                    UserId = contentVm.UserId,
+                    Text = o.Text
+                };
+
+                options.Add(newOption);
+            }
+
+            Poll newPoll = new Poll
+            {
+                UserId = contentVm.UserId,
+                UserContentId = contentVm.Id,
+                Options = options
+            };
+
+            Guid pollId = pollDomainService.Add(newPoll);
         }
 
         public int CountArticles()
@@ -240,6 +278,24 @@ namespace IndieVisible.Application.Services
                 LoadAuthenticatedData(currentUserId, item);
 
                 item.UserContentType = UserContentType.Post;
+
+                Poll poll = pollDomainService.GetByUserContentId(item.Id);
+
+                if (poll != null)
+                {
+                    item.PollOptions = new List<PollOptionViewModel>();
+                    IEnumerable<PollOption> options = pollOptionDomainService.GetByPollId(poll.Id);
+
+                    foreach (var o in options)
+                    {
+                        var loadedOption = new PollOptionViewModel
+                        {
+                            Text = o.Text
+                        };
+
+                        item.PollOptions.Add(loadedOption);
+                    }
+                }
             }
 
             return viewModels;

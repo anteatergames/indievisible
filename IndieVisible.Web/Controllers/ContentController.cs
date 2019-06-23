@@ -3,6 +3,7 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Game;
+using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
@@ -157,13 +158,14 @@ namespace IndieVisible.Web.Controllers
 
         [HttpPost]
         [Route("content/post")]
-        public IActionResult SimplePost(string text, string images, IEnumerable<string> pollOptions)
+        public IActionResult SimplePost(string text, string images, IEnumerable<PollOptionViewModel> pollOptions)
         {
 
             UserContentViewModel vm = new UserContentViewModel
             {
                 Language = SupportedLanguage.English, // TODO need to get the user language
-                Content = text
+                Content = text,
+                PollOptions = pollOptions
             };
 
             ProfileViewModel profile = this.SetAuthorDetails(vm);

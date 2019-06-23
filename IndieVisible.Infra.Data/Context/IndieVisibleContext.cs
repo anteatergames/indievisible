@@ -47,6 +47,11 @@ namespace IndieVisible.Infra.Data.Context
         public DbSet<UserBadge> UserBadges { get; set; }
         #endregion
 
+        #region Poll
+        public DbSet<Poll> Polls { get; set; }
+        public DbSet<PollOption> PollOptions { get; set; } 
+        #endregion
+
 
         public IndieVisibleContext()
         {
@@ -88,6 +93,12 @@ namespace IndieVisible.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new GamificationActionConfig());
             modelBuilder.ApplyConfiguration(new GamificationLevelConfig());
             modelBuilder.ApplyConfiguration(new UserBadgeConfig());
+            #endregion
+
+            #region Poll
+            modelBuilder.ApplyConfiguration(new PollConfig());
+
+            modelBuilder.ApplyConfiguration(new PollOptionConfig()); 
             #endregion
 
             base.OnModelCreating(modelBuilder);

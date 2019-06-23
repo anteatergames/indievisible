@@ -13,6 +13,9 @@ namespace IndieVisible.Infra.Data.Mappings
             builder.Property(c => c.Id)
                 .HasColumnName("Id");
 
+            builder.Property(x => x.CreateDate)
+                .HasDefaultValueSql("getdate()");
+
             builder.Property(c => c.Title)
                 .HasColumnType("nvarchar(128)")
                 .HasMaxLength(128);
@@ -23,8 +26,9 @@ namespace IndieVisible.Infra.Data.Mappings
             builder.Property(x => x.Language)
                 .HasDefaultValue(SupportedLanguage.English);
 
-            builder.Property(x => x.CreateDate)
-                .HasDefaultValueSql("getdate()");
+            builder.HasMany(x => x.Polls)
+                .WithOne(x => x.UserContent)
+                .HasForeignKey(x => x.UserContentId);
         }
     }
 }

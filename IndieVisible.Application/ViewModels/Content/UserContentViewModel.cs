@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Application.ViewModels.Poll;
+using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -38,5 +39,7 @@ namespace IndieVisible.Application.ViewModels.Content
         public MediaType FeaturedMediaType { get; set; }
 
         public bool IsComplex { get { return !string.IsNullOrWhiteSpace(this.Title) && !string.IsNullOrWhiteSpace(this.FeaturedImage); } }
+
+        public IEnumerable<PollOptionViewModel> PollOptions { get; set; }
     }
 }

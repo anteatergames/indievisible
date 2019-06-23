@@ -146,8 +146,15 @@
             var pollOptions = document.getElementsByClassName("polloptioninput");
 
             var options = $(pollOptions).map(function () {
-                return this.value ? this.value : null;
+                var imageBtn = $(this).next().children();
+                var img = imageBtn.data('image');
+                return this.value ? {
+                    text: this.value,
+                    image: img
+                } : null;
             }).get();
+
+            console.log(options);
 
             if (!postImagesDropZone) {
                 var images = selectors.postImages.val();

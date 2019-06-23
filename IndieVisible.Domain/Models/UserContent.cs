@@ -28,5 +28,7 @@ namespace IndieVisible.Domain.Models
         public virtual ICollection<UserContentLike> Likes { get; set; }
 
         public virtual ICollection<UserContentComment> Comments { get; set; }
+
+        public virtual ICollection<Poll> Polls { get; set; }
     }
 }

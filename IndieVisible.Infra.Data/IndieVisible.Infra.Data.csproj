@@ -22,6 +22,7 @@
     <Compile Remove="Migrations\20190509010504_gamification01.cs" />
     <Compile Remove="Migrations\20190523030844_userbadges.cs" />
     <Compile Remove="Migrations\20190523031239_userbadges.cs" />
+    <Compile Remove="Migrations\20190622235525_pollbasic.cs" />
   </ItemGroup>
 
   <ItemGroup>

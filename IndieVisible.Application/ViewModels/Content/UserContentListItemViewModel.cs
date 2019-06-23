@@ -1,5 +1,8 @@
-﻿using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Application.ViewModels.Poll;
+using IndieVisible.Domain.Core.Enums;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.Content
 {
@@ -28,5 +31,9 @@ namespace IndieVisible.Application.ViewModels.Content
         public bool HasFeaturedImage { get; set; }
 
         public MediaType FeaturedImageType { get; set; }
+
+        public bool HasPoll { get { return this.PollOptions != null && PollOptions.Any(); } }
+
+        public List<PollOptionViewModel> PollOptions { get; set; }
     }
 }
