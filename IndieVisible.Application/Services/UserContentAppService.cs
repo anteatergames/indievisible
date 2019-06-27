@@ -242,7 +242,7 @@ namespace IndieVisible.Application.Services
             return count;
         }
 
-        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid gameId, Guid userId, List<SupportedLanguage> languages)
+        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid? gameId, Guid? userId, List<SupportedLanguage> languages)
         {
             IQueryable<UserContent> allModels = repository.GetAll();
 
@@ -322,14 +322,14 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        private static IQueryable<UserContent> FilterActivityFeed(Guid gameId, Guid userId, List<SupportedLanguage> languages, IQueryable<UserContent> allModels)
+        private static IQueryable<UserContent> FilterActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, IQueryable<UserContent> allModels)
         {
-            if (userId != Guid.Empty)
+            if (userId.HasValue && userId != Guid.Empty)
             {
                 allModels = allModels.Where(x => x.UserId != Guid.Empty && x.UserId == userId);
             }
 
-            if (gameId != Guid.Empty)
+            if (gameId.HasValue && gameId != Guid.Empty)
             {
                 allModels = allModels.Where(x => x.GameId != Guid.Empty && x.GameId == gameId);
             }

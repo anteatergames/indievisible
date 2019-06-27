@@ -34,7 +34,7 @@ namespace IndieVisible.Web.ViewComponents
             }
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int count, Guid gameId, Guid userId)
+        public async Task<IViewComponentResult> InvokeAsync(int count, Guid? gameId, Guid? userId)
         {
             UserPreferencesViewModel preferences = _userPreferencesAppService.GetByUserId(UserId);
 

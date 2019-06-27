@@ -179,9 +179,11 @@ namespace IndieVisible.Web.Controllers
             return Json(result);
         }
 
-        public IActionResult Feed(Guid gameId, Guid userId)
+        public IActionResult Feed(Guid? gameId, Guid? userId)
         {
-            return ViewComponent("UserContent", new { count = 10, gameId, userId });
+            var component = ViewComponent("UserContent", new { count = 10, gameId, userId });
+
+            return component;
         }
 
         private void SetContentImages(UserContentViewModel vm, string images)

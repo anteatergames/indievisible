@@ -105,3 +105,80 @@
     color: #fff;
     background-color: #5bc0de;
 }
+
+
+
+ul.poll {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+}
+
+
+    ul.poll li {
+        display: block;
+        border: solid 1px #ddd;
+        margin-bottom: 10px;
+        position: relative;
+        padding: 5px;
+    }
+
+        ul.poll li.perc-back {
+            background: #d2dfe5;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            z-index: -1;
+        }
+
+    ul.poll input {
+        display: none;
+    }
+
+    ul.poll label {
+        vertical-align: middle;
+        cursor: pointer;
+        line-height: 10px;
+        overflow: hidden;
+        margin: 0;
+    }
+
+        ul.poll label :before {
+            content: url('http://img.qa01.medscapestatic.com/pi/videoplayer/icons/qna-radio-off.png');
+            overflow: hidden;
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 2px;
+            margin-left: 2px;
+            margin-bottom: -1px;
+        }
+
+    ul.poll input[type=radio]:checked + label:before {
+        content: url('http://img.qa01.medscapestatic.com/pi/videoplayer/icons/qna-radio-on.png');
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: -3px;
+        margin-right: 8px;
+    }
+
+    ul.poll li.correct label:before {
+        content: url('http://img.qa01.medscapestatic.com/pi/videoplayer/icons/qna-correct.png');
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: -5px;
+        margin-right: 6px;
+    }
+
+    ul.poll li.correct input[type=radio]:checked + label:before {
+        content: url('http://img.qa01.medscapestatic.com/pi/videoplayer/icons/qna-correct.png');
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: -5px;
+        margin-right: 6px;
+    }
+
+    ul.poll .perc-number {
+        float: right;
+    }
