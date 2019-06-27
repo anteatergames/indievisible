@@ -15,7 +15,8 @@
   {
     "outputFileName": "wwwroot/css/home.min.css",
     "inputFiles": [
-      "wwwroot/css/home.css"
+      "wwwroot/css/home.css",
+      "wwwroot/css/polls.css"
     ]
   },
   {

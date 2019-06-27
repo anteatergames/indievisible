@@ -877,10 +877,6 @@ a {
                 color: #fff;
             }
 
-#control-sidebar-theme-demo-options-tab p {
-    font-size: 12px;
-}
-
 .control-sidebar-dark .control-sidebar-menu > li > a:hover {
     background: #1e282c;
 }
@@ -1448,17 +1444,6 @@ a {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
 }
 
-.demo-checkbox label, .demo-radio-button label {
-    min-width: 200px;
-    margin-bottom: 20px;
-}
-
-.demo-swtich .demo-switch-title, .demo-swtich .switch {
-    width: 150px;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-
 [type=checkbox]:checked.chk-col-red + label:before {
     border-right: 2px solid #f83f37;
     border-bottom: 2px solid #f83f37;
@@ -1909,13 +1894,13 @@ a {
     animation: ripple .2s linear forwards;
 }
 
-[type=checkbox]:checked, [type=checkbox]:not(:checked) {
+/*[type=checkbox]:checked, [type=checkbox]:not(:checked) {
     position: absolute;
     left: -9999px;
     opacity: 0;
-}
+}*/
 
-[type=checkbox] + label {
+/*[type=checkbox] + label {
     font-weight: 400;
     position: relative;
     padding-left: 35px;
@@ -1943,9 +1928,9 @@ a {
         -webkit-transition: .2s;
         -o-transition: .2s;
         transition: .2s;
-    }
+    }*/
 
-[type=checkbox]:not(.filled-in) + label:after {
+/*[type=checkbox]:not(.filled-in) + label:after {
     border: 0;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
@@ -2108,7 +2093,7 @@ a {
 [type=checkbox].filled-in:disabled:checked + label:after {
     background-color: #BDBDBD;
     border-color: #BDBDBD;
-}
+}*/
 
 [type=radio]:checked, [type=radio]:not(:checked) {
     position: absolute;
@@ -6710,21 +6695,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.demo-social .btn-social {
-    display: inline-block;
-    width: auto;
-    min-width: 250px;
-    margin-bottom: 5px;
-}
-
-.demo-social .btn-social-icon {
-    border: none;
-}
-
-.demo-social .btn-block + .btn-block {
-    margin-top: 0;
 }
 
 .btn-social > :first-child {

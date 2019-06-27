@@ -76,15 +76,19 @@ else
                         <div class="row m-1 align-items">
                             @foreach (var option in item.PollOptions)
                             {
-                                <div class="col-12 pt-1">
-                                    <div class="input-group">
-                                        <span class="input-group-addon align-items">
-                                            <input type="checkbox" class="align-middle" id="addon_Checkbox_1">
-                                            <label for="addon_Checkbox_1" style="padding-left: 20px;height: 24px;"></label>
-                                        </span>
-                                        <input type="text" class="form-control">
-                                    </div>
+                            <div class="col-12 pt-1 funkyradio">
+                                @*<div class="input-group">
+            <span class="input-group-addon align-items">
+                <input type="checkbox" class="align-middle" id="addon_Checkbox_1">
+                <label for="addon_Checkbox_1" style="padding-left: 20px;height: 24px;"></label>
+            </span>
+            <input type="text" class="form-control">
+        </div>*@
+                                <div class="funkyradio-primary">
+                                    <input type="checkbox" name="checkbox" id="checkbox2">
+                                    <label for="checkbox2">@option.Text</label>
                                 </div>
+                            </div>
                             }
                         </div>
                     }
