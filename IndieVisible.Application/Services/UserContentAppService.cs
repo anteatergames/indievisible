@@ -290,6 +290,7 @@ namespace IndieVisible.Application.Services
                     {
                         var loadedOption = new PollOptionViewModel
                         {
+                            Id = o.Id,
                             Text = o.Text
                         };
 

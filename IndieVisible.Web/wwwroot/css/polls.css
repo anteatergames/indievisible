@@ -1,4 +1,4 @@
-﻿.funkyradio div {
+﻿/*.funkyradio div {
     clear: both;
     overflow: hidden;
 }
@@ -104,7 +104,7 @@
 .funkyradio-info input[type="checkbox"]:checked ~ label:before {
     color: #fff;
     background-color: #5bc0de;
-}
+}*/
 
 
 
