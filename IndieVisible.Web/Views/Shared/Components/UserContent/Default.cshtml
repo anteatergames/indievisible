@@ -73,37 +73,17 @@ else
 
                     @if (item.HasPoll)
                     {
-
-                        @*<div class="row m-1 align-items funkyradio">
-
-                            @for (int i = 0; i < item.PollOptions.Count; i++)
-                            {
-                                var option = item.PollOptions.ElementAt(i);
-
-                                <div class="col-12 pt-1">
-                                    @*<div class="input-group">
-                                            <span class="input-group-addon align-items">
-                                                <input type="checkbox" class="align-middle" id="addon_Checkbox_1">
-                                                <label for="addon_Checkbox_1" style="padding-left: 20px;height: 24px;"></label>
-                                            </span>
-                                            <input type="text" class="form-control">
-                                        </div>*@
-                        @*<div class="funkyradio-primary">
-                                    <input type="checkbox" name="checkbox" id="@string.Format("checkbox{0}", i)">
-                                    <label for="@string.Format("checkbox{0}", i)">@option.Text</label>
-                                </div>
-                            </div>
-                                }*@
-                        @*</div>*@
                         <ul class="poll">
                             @for (int i = 0; i < item.PollOptions.Count; i++)
                             {
                                 var option = item.PollOptions.ElementAt(i);
                                 <li>
-                                    <span class="perc-back" style="width: 30%"></span>
-                                    <input type="radio" name="answer" id="answer1" value="1">
-                                    <label for="answer1">Answer 1</label>
-                                    <span class="perc-number">30%</span>
+                                    <span class="perc-back" style="width: @((i+1)*10)%"></span>
+                                    <input type="checkbox" name="answer" id="answer@(i+1)" value="@(i+1)">
+                                    <label for="answer@(i+1)">
+                                        <span>@option.Text</span>
+                                    </label>
+                                    <span class="perc-number">@((i + 1) * 10)%</span>
                                 </li>
                             }
                         </ul>
