@@ -4,24 +4,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IndieVisible.Infra.Data.Mappings
 {
-    public class PollOptionConfig : IEntityTypeConfiguration<PollOption>
+    public class PollVoteConfig : IEntityTypeConfiguration<PollVote>
     {
-        public void Configure(EntityTypeBuilder<PollOption> builder)
+        public void Configure(EntityTypeBuilder<PollVote> builder)
         {
             builder.Property(c => c.Id)
                 .HasColumnName("Id");
 
             builder.Property(x => x.CreateDate)
                 .HasDefaultValueSql("getdate()");
-
-            builder.Property(x => x.Index)
-                .IsRequired()
-                .HasDefaultValue(0);
-
-            builder.Property(x => x.Image)
-                .HasMaxLength(256);
-
-            builder.HasMany(x => x.Votes);
         }
     }
 }

@@ -32,8 +32,8 @@ namespace IndieVisible.Application.ViewModels.Content
 
         public MediaType FeaturedImageType { get; set; }
 
-        public bool HasPoll { get { return this.PollOptions != null && PollOptions.Any(); } }
+        public bool HasPoll { get { return this.Poll != null && this.Poll.PollOptions.Any(); } }
 
-        public List<PollOptionViewModel> PollOptions { get; set; }
+        public PollViewModel Poll { get; set; }
     }
 }

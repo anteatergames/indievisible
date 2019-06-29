@@ -22,6 +22,7 @@ namespace IndieVisible.Web.Controllers
         private readonly INotificationAppService notificationAppService;
         private readonly IFollowAppService followAppService;
         private readonly IUserConnectionAppService userConnectionAppService;
+        private readonly IPollAppService pollAppService;
 
         public InteractionController(ILikeAppService likeAppService
             , IProfileAppService profileAppService
@@ -31,7 +32,8 @@ namespace IndieVisible.Web.Controllers
             , IBrainstormAppService brainstormAppService
             , INotificationAppService notificationAppService
             , IFollowAppService followAppService
-            , IUserConnectionAppService userConnectionAppService)
+            , IUserConnectionAppService userConnectionAppService
+            , IPollAppService pollAppService)
         {
             this.likeAppService = likeAppService;
             this.profileAppService = profileAppService;
@@ -42,6 +44,7 @@ namespace IndieVisible.Web.Controllers
             this.notificationAppService = notificationAppService;
             this.followAppService = followAppService;
             this.userConnectionAppService = userConnectionAppService;
+            this.pollAppService = pollAppService;
         }
 
 
@@ -258,6 +261,18 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
+        #endregion
+
+
+        #region Poll
+        [HttpPost]
+        [Route("poll/vote")]
+        public IActionResult PollVote(Guid pollOptionId)
+        {
+            OperationResultVo response = pollAppService.PollVote(this.CurrentUserId, pollOptionId);
+
+            return Json(response);
+        } 
         #endregion
 
 

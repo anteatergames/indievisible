@@ -17,6 +17,7 @@
     function bindAll() {
         bindBtnAddOptionBtn();
         bindBtnRemoveOptionBtn();
+        bindPollVote();
     }
 
     function bindBtnAddOptionBtn() {
@@ -44,10 +45,28 @@
             POLLS.Events.PostAddOption();
         });
     }
+    
+
+    function bindPollVote() {
+        $('.content').on('click', '.poll-option', function (e) {
+            var pollOptionCtrl = $(this);
+
+            vote(pollOptionCtrl.val()).done(function (response) { voteCallback(response, pollOptionCtrl); });
+        });
+    }
 
     function clearOptions() {
         selectors.options.val('');
         $('.polloptionextra').remove();
+    }
+
+    function vote(pollOptionId) {
+        return $.post("/interact/poll/vote", { pollOptionId: pollOptionId });
+    }
+    function voteCallback(response, likeCount, btn) {
+        if (response.success === true) {
+            console.log(response);
+        }
     }
 
     return {

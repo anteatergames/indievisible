@@ -32,8 +32,7 @@ namespace IndieVisible.Infra.Data.Mappings
 
             builder.HasMany(x => x.Options)
                 .WithOne(x => x.Poll)
-                .HasForeignKey(x => x.PollId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(x => x.PollId);
         }
     }
 }

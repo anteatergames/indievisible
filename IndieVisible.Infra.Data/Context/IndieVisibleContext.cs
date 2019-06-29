@@ -49,7 +49,8 @@ namespace IndieVisible.Infra.Data.Context
 
         #region Poll
         public DbSet<Poll> Polls { get; set; }
-        public DbSet<PollOption> PollOptions { get; set; } 
+        public DbSet<PollOption> PollOptions { get; set; }
+        public DbSet<PollVote> PollVotes { get; set; }
         #endregion
 
 
@@ -98,7 +99,9 @@ namespace IndieVisible.Infra.Data.Context
             #region Poll
             modelBuilder.ApplyConfiguration(new PollConfig());
 
-            modelBuilder.ApplyConfiguration(new PollOptionConfig()); 
+            modelBuilder.ApplyConfiguration(new PollOptionConfig());
+
+            modelBuilder.ApplyConfiguration(new PollVoteConfig());
             #endregion
 
             base.OnModelCreating(modelBuilder);

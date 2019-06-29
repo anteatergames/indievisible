@@ -93,10 +93,13 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
 
             #region Poll
+            services.AddScoped<IPollAppService, PollAppService>();
             services.AddScoped<IPollDomainService, PollDomainService>();
             services.AddScoped<IPollOptionDomainService, PollOptionDomainService>();
+            services.AddScoped<IPollVoteDomainService, PollVoteDomainService>();
             services.AddScoped<IPollRepository, PollRepository>();
             services.AddScoped<IPollOptionRepository, PollOptionRepository>();
+            services.AddScoped<IPollVoteRepository, PollVoteRepository>();
             #endregion
 
             // Infra - Data

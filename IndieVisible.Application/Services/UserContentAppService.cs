@@ -27,13 +27,15 @@ namespace IndieVisible.Application.Services
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
         private readonly IPollOptionDomainService pollOptionDomainService;
+        private readonly IPollVoteDomainService pollVoteDomainService;
 
         public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IUserContentRepository repository
             , IUserContentLikeRepository likeRepository, IUserContentCommentRepository commentRepository
             , IGamificationDomainService gamificationDomainService
             , IPollDomainService pollDomainService
-            , IPollOptionDomainService pollOptionDomainService)
+            , IPollOptionDomainService pollOptionDomainService
+            , IPollVoteDomainService pollVoteDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
@@ -43,6 +45,7 @@ namespace IndieVisible.Application.Services
             this.gamificationDomainService = gamificationDomainService;
             this.pollDomainService = pollDomainService;
             this.pollOptionDomainService = pollOptionDomainService;
+            this.pollVoteDomainService = pollVoteDomainService;
         }
 
         public OperationResultVo<int> Count()
@@ -216,7 +219,7 @@ namespace IndieVisible.Application.Services
 
             foreach (PollOptionViewModel o in contentVm.PollOptions)
             {
-                var newOption = new PollOption
+                PollOption newOption = new PollOption
                 {
                     UserId = contentVm.UserId,
                     Text = o.Text
@@ -279,27 +282,41 @@ namespace IndieVisible.Application.Services
 
                 item.UserContentType = UserContentType.Post;
 
-                Poll poll = pollDomainService.GetByUserContentId(item.Id);
-
-                if (poll != null)
-                {
-                    item.PollOptions = new List<PollOptionViewModel>();
-                    IEnumerable<PollOption> options = pollOptionDomainService.GetByPollId(poll.Id);
-
-                    foreach (var o in options)
-                    {
-                        var loadedOption = new PollOptionViewModel
-                        {
-                            Id = o.Id,
-                            Text = o.Text
-                        };
-
-                        item.PollOptions.Add(loadedOption);
-                    }
-                }
+                item.Poll = SetPoll(currentUserId, item.Id);
             }
 
             return viewModels;
+        }
+
+        private PollViewModel SetPoll(Guid currentUserId, Guid contentId)
+        {
+            PollViewModel pollVm = null;
+            Poll poll = pollDomainService.GetByUserContentId(contentId);
+
+            if (poll != null)
+            {
+                pollVm = new PollViewModel();
+                IEnumerable<PollOption> options = pollOptionDomainService.GetByPollId(poll.Id);
+
+                int totalVotes = pollVoteDomainService.Count(x => x.PollId == poll.Id);
+
+                foreach (PollOption o in options)
+                {
+                    PollOptionViewModel loadedOption = new PollOptionViewModel
+                    {
+                        Id = o.Id,
+                        Text = o.Text
+                    };
+
+                    loadedOption.Votes = pollVoteDomainService.Count(x => x.PollOptionId == o.Id);
+                    loadedOption.VotePercentage = loadedOption.Votes > 0 ? (loadedOption.Votes / (decimal)totalVotes) * 100 : 0;
+                    loadedOption.CurrentUserVoted = pollVoteDomainService.CheckUserVoted(currentUserId, o.Id);
+
+                    pollVm.PollOptions.Add(loadedOption);
+                }
+            }
+
+            return pollVm;
         }
 
         private void LoadAuthenticatedData(Guid currentUserId, UserContentListItemViewModel item)
