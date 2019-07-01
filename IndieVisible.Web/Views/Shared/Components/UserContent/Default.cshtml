@@ -73,22 +73,30 @@ else
 
                     @if (item.HasPoll)
                     {
-                        <ul class="poll">
-                            @for (int i = 0; i < item.Poll.PollOptions.Count; i++)
-                            {
-                                var option = item.Poll.PollOptions.ElementAt(i);
+                        <div class="poll-wrapper">
+                            @{
                                 var pollName = String.Format("poll_{0}", item.Id);
-                                var optionName = String.Format("poll_{0}_{1}", item.Id, option.Id);
-                                <li class="@(option.CurrentUserVoted ? "voted" : string.Empty)">
-                                    <span class="perc-back" style="width: @(option.VotePercentageText)%"></span>
-                                    <input type="radio" class="poll-option" name="@pollName" id="@optionName" value="@option.Id">
-                                    <label for="@optionName">
-                                        <span>@option.Text</span>
-                                    </label>
-                                    <span class="perc-number">@(option.VotePercentageText)%</span>
-                                </li>
+                                <ul class="poll @(User.Identity.IsAuthenticated ? "canvote" : " cannotvote")" id="@pollName">
+                                    @for (int i = 0; i < item.Poll.PollOptions.Count; i++)
+                                    {
+                                        var option = item.Poll.PollOptions.ElementAt(i);
+                                        var optionName = String.Format("poll_{0}_{1}", item.Id, option.Id);
+                                        <li class="@(option.CurrentUserVoted ? "voted" : "notvoted") ">
+                                            <span class="perc-back" style="width: @(option.VotePercentageText)%"></span>
+                                            <input type="radio" class="poll-option" name="@pollName" id="@optionName" value="@option.Id">
+                                            <label for="@optionName">
+                                                <span>@option.Text</span>
+                                            </label>
+                                            <span class="perc-number">@(option.VotePercentageText)%</span>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="col-12 px-3 text-right">
+                                    <span class="poll-vote-count">@item.Poll.TotalVotes</span>
+                                    &nbsp;@SharedLocalizer["votes"]
+                                </div>
                             }
-                        </ul>
+                        </div>
                     }
                 </div>
                 <div class="box-footer box-comments">

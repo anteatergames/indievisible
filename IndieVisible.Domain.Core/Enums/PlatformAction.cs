@@ -13,6 +13,7 @@ namespace IndieVisible.Domain.Core.Enums
         IdeaImplemented = 5,
         PopularPost = 6,
         PostFeatured = 7,
-        GameFeatured = 8
+        GameFeatured = 8,
+        PollPost = 9
     }
 }

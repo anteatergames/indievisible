@@ -276,13 +276,26 @@ namespace IndieVisible.Web.Controllers
                 }
             });
 
-            // Future
             model.Items.Add(new TimeLineItemViewModel
             {
                 Date = new DateTime(2019, 07, 01),
+                Icon = "fas fa-poll",
+                Color = "success",
+                Title = "July 2019",
+                Subtitle = "This or that?",
+                Description = "Get opinions from your fellow devs!",
+                Items = {
+                    "Basic Polls",
+                }
+            });
+
+            // Future
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2019, 10, 01),
                 Icon = "fas fa-bug",
                 Color = "danger",
-                Title = "July 2019",
+                Title = "October 2019",
                 Subtitle = "Open Beta",
                 Description = "At this point, we hope to have a consistent beta tester base so we can polish the platform and fix every possible bug tha shows up."
             });

@@ -2,6 +2,7 @@
     margin-left: 10px;
     margin-right: 10px;
     padding: 0;
+    margin-bottom: 0;
 }
 
 
@@ -36,24 +37,37 @@
         margin: 0;
     }
 
-        ul.poll label span {
-            position: absolute;
-            top: 7px;
-            left: 35px;
-        }
+    ul.poll.cannotvote label {
+        cursor: auto;
+    }
 
-        ul.poll label:before {
-            content: url('../images/controls/poll-radio-off.png');
-            overflow: hidden;
-            display: inline-block;
-            margin-right: 10px;
-            margin-top: 2px;
-            margin-left: 2px;
-            margin-bottom: -1px;
-        }
+    ul.poll label span {
+        position: absolute;
+        top: 7px;
+        left: 35px;
+    }
 
-    ul.poll input[type=radio]:checked + label:before,
-    ul.poll input[type=checkbox]:checked + label:before {
+    ul.poll.cannotvote label span {
+        left: 5px;
+    }
+
+    ul.poll.canvote li.notvoted label:before {
+        content: url('../images/controls/poll-radio-off.png');
+        overflow: hidden;
+        display: inline-block;
+        margin-right: 10px;
+        margin-top: 2px;
+        margin-left: 2px;
+        margin-bottom: -1px;
+    }
+
+    ul.poll.cannotvote li input,
+    ul.poll.cannotvote label:before,
+    ul.poll.cannotvote label:before {
+        display: none;
+    }
+
+    ul .poll input[type=radio]:checked + label:before, ul.poll input[type=checkbox]:checked + label:before {
         content: url('../images/controls/poll-radio-on.png');
         margin-bottom: -3px;
         margin-right: 8px;
@@ -65,13 +79,8 @@
         margin-right: 6px;
     }
 
-    ul.poll li.voted input[type=radio]:checked + label:before,
-    ul.poll li.voted input[type=checkbox]:checked + label:before {
+    ul.poll li.voted input[type=radio]:checked + label:before, ul.poll li.voted input[type=checkbox]:checked + label:before {
         content: url('../images/controls/poll-voted.png');
-        /*margin-top: 0;
-        margin-left: 0;
-        margin-bottom: -5px;
-        margin-right: 6px;*/
     }
 
     ul.poll .perc-number {

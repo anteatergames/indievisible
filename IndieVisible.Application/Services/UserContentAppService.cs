@@ -180,7 +180,7 @@ namespace IndieVisible.Application.Services
                 {
                     model = mapper.Map<UserContent>(viewModel);
 
-                    PlatformAction action = viewModel.IsComplex ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
+                    PlatformAction action = viewModel.IsComplex || viewModel.PollOptions.Any() ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
 
                     this.gamificationDomainService.ProcessAction(viewModel.UserId, action);
                 }
@@ -299,6 +299,7 @@ namespace IndieVisible.Application.Services
                 IEnumerable<PollOption> options = pollOptionDomainService.GetByPollId(poll.Id);
 
                 int totalVotes = pollVoteDomainService.Count(x => x.PollId == poll.Id);
+                pollVm.TotalVotes = totalVotes;
 
                 foreach (PollOption o in options)
                 {
