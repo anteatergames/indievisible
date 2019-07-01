@@ -98,9 +98,14 @@ namespace IndieVisible.Application.Services
 
                 vm.UserContentType = UserContentType.Post;
 
-                string youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";
+                bool isYoutube = false;
 
-                bool isYoutube = Regex.IsMatch(vm.FeaturedImage, youtubePattern);
+                if (!string.IsNullOrWhiteSpace(vm.FeaturedImage))
+                {
+                    string youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";
+
+                    isYoutube = Regex.IsMatch(vm.FeaturedImage, youtubePattern);
+                }
 
                 vm.HasFeaturedImage = !string.IsNullOrWhiteSpace(vm.FeaturedImage) && !vm.FeaturedImage.Contains(Constants.DefaultFeaturedImage) && !isYoutube;
 
