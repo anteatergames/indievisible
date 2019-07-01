@@ -1,4 +1,8 @@
-﻿ul.poll {
+﻿.poll-wrapper {
+    margin-top: 10px;
+}
+
+ul.poll {
     margin-left: 10px;
     margin-right: 10px;
     padding: 0;
