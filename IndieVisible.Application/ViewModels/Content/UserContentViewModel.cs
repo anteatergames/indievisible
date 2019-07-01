@@ -3,6 +3,7 @@ using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.Content
 {
@@ -39,7 +40,9 @@ namespace IndieVisible.Application.ViewModels.Content
         public MediaType FeaturedMediaType { get; set; }
 
         public bool IsComplex { get { return !string.IsNullOrWhiteSpace(this.Title) && !string.IsNullOrWhiteSpace(this.FeaturedImage); } }
+        
+        public bool HasPoll { get { return this.Poll != null && this.Poll.PollOptions.Any(); } }
 
-        public IEnumerable<PollOptionViewModel> PollOptions { get; set; }
+        public PollViewModel Poll { get; set; }
     }
 }

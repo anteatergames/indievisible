@@ -20,9 +20,39 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/js/home.min.js",
+    "inputFiles": [
+      "wwwroot/lib/dropzone/dropzone.js",
+      "wwwroot/js/shared/contentactions.js",
+      "wwwroot/js/home/polls.js",
+      "wwwroot/js/home/homepage.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/css/gamedetails.min.css",
     "inputFiles": [
       "wwwroot/css/gamedetails.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/gamedetails.min.js",
+    "inputFiles": [
+      "wwwroot/js/shared/contentactions.js",
+      "wwwroot/js/game/gamedetails.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/contentdetails.min.css",
+    "inputFiles": [
+      "wwwroot/css/polls.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/content/contentdetails.min.js",
+    "inputFiles": [
+      "wwwroot/js/content/contentdetails.js",
+      "wwwroot/js/polls.js",
+      "wwwroot/lib/embedo/embedo.js"
     ]
   },
   {
@@ -48,19 +78,9 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/home.min.js",
+    "outputFileName": "wwwroot/css/brainstorm.min.css",
     "inputFiles": [
-      "wwwroot/lib/dropzone/dropzone.js",
-      "wwwroot/js/shared/contentactions.js",
-      "wwwroot/js/home/polls.js",
-      "wwwroot/js/home/homepage.js"
-    ]
-  },
-  {
-    "outputFileName": "wwwroot/js/gamedetails.min.js",
-    "inputFiles": [
-      "wwwroot/js/shared/contentactions.js",
-      "wwwroot/js/game/gamedetails.js"
+      "wwwroot/css/brainstorm.css"
     ]
   },
   {
@@ -68,12 +88,6 @@
     "inputFiles": [
       "wwwroot/js/brainstorm/brainstorm.js",
       "wwwroot/js/shared/contentactions.js"
-    ]
-  },
-  {
-    "outputFileName": "wwwroot/css/brainstorm.min.css",
-    "inputFiles": [
-      "wwwroot/css/brainstorm.css"
     ]
   }
 ]

@@ -117,6 +117,9 @@ namespace IndieVisible.Application.Services
                 }
 
 
+                vm.Poll = SetPoll(this.CurrentUserId, vm.Id);
+
+
                 result = new OperationResultVo<UserContentViewModel>(vm);
             }
             catch (Exception ex)
@@ -185,7 +188,7 @@ namespace IndieVisible.Application.Services
                 {
                     model = mapper.Map<UserContent>(viewModel);
 
-                    PlatformAction action = viewModel.IsComplex || viewModel.PollOptions.Any() ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
+                    PlatformAction action = viewModel.IsComplex || viewModel.Poll.PollOptions.Any() ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
 
                     this.gamificationDomainService.ProcessAction(viewModel.UserId, action);
                 }
@@ -196,7 +199,7 @@ namespace IndieVisible.Application.Services
                     viewModel.Id = model.Id;
 
 
-                    if (viewModel.PollOptions != null && viewModel.PollOptions.Any())
+                    if (viewModel.Poll.PollOptions != null && viewModel.Poll.PollOptions.Any())
                     {
                         this.CreatePoll(viewModel);
                     }
@@ -222,7 +225,7 @@ namespace IndieVisible.Application.Services
         {
             List<PollOption> options = new List<PollOption>();
 
-            foreach (PollOptionViewModel o in contentVm.PollOptions)
+            foreach (PollOptionViewModel o in contentVm.Poll.PollOptions)
             {
                 PollOption newOption = new PollOption
                 {

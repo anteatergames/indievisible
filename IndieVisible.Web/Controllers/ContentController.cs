@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Controllers
@@ -43,6 +44,7 @@ namespace IndieVisible.Web.Controllers
         [Route("content/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
+            service.CurrentUserId = this.CurrentUserId;
             OperationResultVo<UserContentViewModel> serviceResult = service.GetById(id);
 
             UserContentViewModel vm = serviceResult.Value;
@@ -165,7 +167,10 @@ namespace IndieVisible.Web.Controllers
             {
                 Language = SupportedLanguage.English, // TODO need to get the user language
                 Content = text,
-                PollOptions = pollOptions
+                Poll = new PollViewModel
+                {
+                    PollOptions = pollOptions.ToList()
+                }
             };
 
             ProfileViewModel profile = this.SetAuthorDetails(vm);

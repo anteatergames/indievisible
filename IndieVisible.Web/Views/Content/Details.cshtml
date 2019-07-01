@@ -66,11 +66,55 @@
     <div class="box-body">
         @Html.Raw(Model.Content)
     </div>
+
+    @if (Model.HasPoll)
+    {
+        <div class="poll-wrapper">
+            @{
+                var pollName = String.Format("poll_{0}", Model.Id);
+                <ul class="poll @(User.Identity.IsAuthenticated ? "canvote" : " cannotvote")" id="@pollName">
+                    @for (int i = 0; i < Model.Poll.PollOptions.Count; i++)
+                    {
+                        var option = Model.Poll.PollOptions.ElementAt(i);
+                        var optionName = String.Format("poll_{0}_{1}", Model.Id, option.Id);
+                        <li class="@(option.CurrentUserVoted ? "voted" : "notvoted") ">
+                            <span class="perc-back" style="width: @(option.VotePercentageText)%"></span>
+                            <input type="radio" class="poll-option" name="@pollName" id="@optionName" value="@option.Id">
+                            <label for="@optionName">
+                                <span>@option.Text</span>
+                            </label>
+                            <span class="perc-number">@(option.VotePercentageText)%</span>
+                        </li>
+                    }
+                </ul>
+                <div class="col-12 px-3 text-right">
+                    <span class="poll-vote-count">@Model.Poll.TotalVotes</span>
+                    &nbsp;@SharedLocalizer["votes"]
+                </div>
+            }
+        </div>
+    }
 </div>
 
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/polls.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/contentdetails.min.css" asp-append-version="true" />
+    </environment>
+}
 @section Scripts {
 
-    <script src="~/lib/embedo/embedo.js"></script>
+    <environment include="Development">
+        <script src="~/js/home/polls.js"></script>
+        <script src="~/js/content/contentdetails.js"></script>
+        <script src="~/lib/embedo/embedo.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/content/contentdetails.min.js" asp-append-version="true"></script>
+    </environment>
+
     <script>
         var embedo = new Embedo({
             youtube: true,
