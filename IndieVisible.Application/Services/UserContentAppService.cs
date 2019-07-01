@@ -191,7 +191,7 @@ namespace IndieVisible.Application.Services
                     viewModel.Id = model.Id;
 
 
-                    if (viewModel.PollOptions.Any())
+                    if (viewModel.PollOptions != null && viewModel.PollOptions.Any())
                     {
                         this.CreatePoll(viewModel);
                     }
