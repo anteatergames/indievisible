@@ -1,231 +1,0 @@
-
-åIndieVisible.Application.Services.UserContentCommentAppService.Save(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csm' m(+"0*
-0*	
-1
-2
-3*€
-2˛
-˚
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csw. w(9M
-%0GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*ù*ö@
->IndieVisible.Application.Services.UserContentCommentAppService"V
-_repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryÆ
-´
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cswB w(N
-%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModelâÜ
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csw. w(O3
-%2-IndieVisible.Domain.Models.UserContentComment"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*O
-M
-%0GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository*
-
-%1System.Guid2GetById(System.Guid)Å
-˛
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csw# w(O9
-existing-IndieVisible.Domain.Models.UserContentComment"__id*5
-3
-%2-IndieVisible.Domain.Models.UserContentCommentã
-à
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csx x($
-
-%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
-&IndieVisible.Domain.Core.Models.Entity*;
-9
-existing-IndieVisible.Domain.Models.UserContentComment*
-""*
-4
-5*Ö
-4é
-ã
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csz z(#
-%4AutoMapper.IMapper"__id*c*a@
->IndieVisible.Application.Services.UserContentCommentAppService"
-_mapperAutoMapper.IMapperËÂ
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csz z(<3
-%5-IndieVisible.Domain.Models.UserContentComment"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
-
-%4AutoMapper.IMapper*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*;
-9
-existing-IndieVisible.Domain.Models.UserContentComment21Map<TSource, TDestination>(TSource, TDestination)˛
-˚
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csz z(<6
-model-IndieVisible.Domain.Models.UserContentComment"__id*5
-3
-%5-IndieVisible.Domain.Models.UserContentComment*
-6*ò
-5é
-ã
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs~ ~(#
-%6AutoMapper.IMapper"__id*c*a@
->IndieVisible.Application.Services.UserContentCommentAppService"
-_mapperAutoMapper.IMapper˚¯
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs~ ~(F3
-%7-IndieVisible.Domain.Models.UserContentComment",AutoMapper.IMapper.Map<TDestination>(object)*
-
-%6AutoMapper.IMapper*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel2Map<TDestination>(object)˛
-˚
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.cs~ ~(F6
-model-IndieVisible.Domain.Models.UserContentComment"__id*5
-3
-%7-IndieVisible.Domain.Models.UserContentComment*
-6*ó
-6∞
-≠
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csÅ Å( 
-%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModelÕ
- 
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csÅ$ Å(.
-%9System.Guid"__id*'*%
-System.Guid"
-EmptySystem.GuidÜ
-É
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csÅ Å(.
-%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
-System.Guid*
-
-%8System.Guid*
-
-%9System.Guid*
-7
-8*÷
-
-7Å
-˛
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csÉ É(N
-%11GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*ù*ö@
->IndieVisible.Application.Services.UserContentCommentAppService"V
-_repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository˘ˆ
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csÉ É(*
-%12void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*P
-N
-%11GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository*8
-6
-model-IndieVisible.Domain.Models.UserContentComment2Add(TEntity)à
-Ö
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csÑ# Ñ(+
-%13System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*8
-6
-model-IndieVisible.Domain.Models.UserContentComment¿
-Ω
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csÑ Ñ(+
-%14void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*
-
-%13System.Guid*
-9*é
-8Å
-˛
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csà à(N
-%15GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*ù*ö@
->IndieVisible.Application.Services.UserContentCommentAppService"V
-_repositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryˇ¸
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csà à(-
-%16void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*P
-N
-%15GIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository*8
-6
-model-IndieVisible.Domain.Models.UserContentComment2Update(TEntity)*
-9*‹
-9—
-Œ
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csã ã(6
-%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*Ö*Ç@
->IndieVisible.Application.Services.UserContentCommentAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkñì
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csã ã($
-%18bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
-6
-%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()à
-Ö
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csç5 ç(=
-%19System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*8
-6
-model-IndieVisible.Domain.Models.UserContentCommentÄ˝
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csç ç(><
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∫
-∑
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csç ç(4
-%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%19System.Guidí
-è
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csç ç(>?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-1
-10
-3*¿
-1ﬂ‹
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csë5 ë(?
-%22string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getÄ˝
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csë ë(@<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>∫
-∑
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csë ë(4
-%24void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
-<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%22stringí
-è
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csë ë(@?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-10*“
-10"À
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csî î(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*£
-3"ù
-Ö
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentCommentAppService.csï ï(	
-implicit return:T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModelBB@
->IndieVisible.Application.Services.UserContentCommentAppService

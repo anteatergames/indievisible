@@ -1,21 +1,0 @@
-
-™IndieVisible.Domain.Services.UserConnectionDomainService.UserConnectionDomainService(IndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository)}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (*"0*‘
-0†
-ƒ
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.csQ (c
-
-%0void"]IndieVisible.Domain.Services.BaseDomainService<T, TRepository>.BaseDomainService(TRepository)*B@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>*S
-Q
-
-repositoryCIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository*
-1*š
-1"”
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (	
-implicit return:Q
-
-repositoryCIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepositoryB<:
-8IndieVisible.Domain.Services.UserConnectionDomainService

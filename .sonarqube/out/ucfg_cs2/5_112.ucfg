@@ -1,197 +1,0 @@
-
-\IndieVisible.Application.Services.UserConnectionAppService.Connect(System.Guid, System.Guid)Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs´! ´(("0*
-0*	
-1
-2
-3*Ô
-2„‡
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs±' µ(/
-%0)IndieVisible.Domain.Models.UserConnection")IndieVisible.Domain.Models.UserConnectionÇ
-ˇ
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs±+ ±(9
-
-%1void":IndieVisible.Domain.Models.UserConnection.UserConnection()*1
-/
-%0)IndieVisible.Domain.Models.UserConnectionô
-ñ
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs≥ ≥(*
-
-%2void"1IndieVisible.Domain.Core.Models.Entity.UserId.set*1
-/
-%0)IndieVisible.Domain.Models.UserConnection*
-
-currentUserIdSystem.Guidõ
-ò
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs¥ ¥()
-
-%3void":IndieVisible.Domain.Models.UserConnection.TargetUserId.set*1
-/
-%0)IndieVisible.Domain.Models.UserConnection*
-
-userIdSystem.GuidÙ
-Ò
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs± µ(2
-model)IndieVisible.Domain.Models.UserConnection"__id*1
-/
-%0)IndieVisible.Domain.Models.UserConnectionÄ
-˝
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csπ* π(JI
-%4CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*•*¢<
-:IndieVisible.Application.Services.UserConnectionAppService"b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService¿Ω
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csπ* π(e/
-%5)IndieVisible.Domain.Models.UserConnection"aIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService.Get(System.Guid, System.Guid)*K
-I
-%4CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
-
-currentUserIdSystem.Guid*
-
-userIdSystem.Guid2Get(System.Guid, System.Guid)˜
-Ù
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csπ π(e5
-existing)IndieVisible.Domain.Models.UserConnection"__id*1
-/
-%5)IndieVisible.Domain.Models.UserConnectionÖ
-Ç
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csª ª($
-
-%6bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
-&IndieVisible.Domain.Core.Models.Entity*7
-5
-existing)IndieVisible.Domain.Models.UserConnection*
-""*
-4
-5*Ê
-4ıÚ
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csΩ Ω([8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo•
-¢
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csΩ Ω(0
-
-%8void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
-8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo*
-"""¿
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csΩ Ω(\:
-8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo*¨	
-5Ä
-˝
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs¬ ¬(4I
-%9CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*•*¢<
-:IndieVisible.Application.Services.UserConnectionAppService"b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceﬂ‹
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs¬ ¬(?
-%10System.Guid"7IndieVisible.Domain.Interfaces.IDomainService<T>.Add(T)*K
-I
-%9CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*4
-2
-model)IndieVisible.Domain.Models.UserConnection2Add(T)Ä
-˝
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csƒ ƒ($
-%11System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*4
-2
-model)IndieVisible.Domain.Models.UserConnectionπ
-∂
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csƒ ƒ($
-newIdSystem.Guid"__id*
-
-%11System.Guid*
-6*±
-6∆
-√
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs« «(6
-%12/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id**}<
-:IndieVisible.Application.Services.UserConnectionAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkíè
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs« «(#
-%13bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
-6
-%12/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()Å
-˛
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs… …(?J
-%14CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*•*¢<
-:IndieVisible.Application.Services.UserConnectionAppService"b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceùö
-Ç
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs… …(ï
-
-%15int"pIndieVisible.Domain.Interfaces.IDomainService<T>.Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)*L
-J
-%14CIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
-""2?Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)≠
-™
-Ç
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs… …(ï
-newCountint"__id*
-
-
-%15int¸˘
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÀ À(;<
-%165IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>≥
-∞
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÀ À(1
-%17void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%165IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-newCountint"ƒ
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csÀ À(<>
-<
-%165IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-7*	
-1
-3
-3*—
-1€ÿ
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csœ- œ(7
-%18string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getˆÛ
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csœ œ(89
-%192IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo∞
-≠
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csœ œ(,
-%20void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*;
-9
-%192IndieVisible.Domain.ValueObjects.OperationResultVo*
-
-%18string"¡
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.csœ œ(9;
-9
-%192IndieVisible.Domain.ValueObjects.OperationResultVo*ü
-3"ô
-Å
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs— —(	
-implicit return:
-currentUserIdSystem.Guid:
-userIdSystem.GuidB><
-:IndieVisible.Application.Services.UserConnectionAppService

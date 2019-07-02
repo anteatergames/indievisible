@@ -1,17 +1,0 @@
-³
-JIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel1IndieVisible.Application.ViewModels.BaseViewModelobject…
-NotificationItemViewModel()fIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.NotificationItemViewModel()_
-Text.getSIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Text.get_
-Text.setSIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Text.set]
-Url.getRIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Url.get]
-Url.setRIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Url.set_
-Icon.getSIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.get_
-Icon.setSIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Icon.seti
-IconColor.getXIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.geti
-IconColor.setXIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IconColor.setc
-
-IsRead.getUIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IsRead.getc
-
-IsRead.setUIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.IsRead.set_
-Type.getSIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Type.get_
-Type.setSIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Type.set

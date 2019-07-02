@@ -1,12 +1,0 @@
-ÿ
-3IndieVisible.Domain.Services.UserBadgeDomainServiceobjectå
-VUserBadgeDomainService(IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository)ŠIndieVisible.Domain.Services.UserBadgeDomainService.UserBadgeDomainService(IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository)F
-Count();IndieVisible.Domain.Services.UserBadgeDomainService.Count()H
-GetAll()<IndieVisible.Domain.Services.UserBadgeDomainService.GetAll()`
-GetById(System.Guid)HIndieVisible.Domain.Services.UserBadgeDomainService.GetById(System.Guid)h
-GetByUserId(System.Guid)LIndieVisible.Domain.Services.UserBadgeDomainService.GetByUserId(System.Guid)^
-Remove(System.Guid)GIndieVisible.Domain.Services.UserBadgeDomainService.Remove(System.Guid)Š
-)Add(IndieVisible.Domain.Models.UserBadge)]IndieVisible.Domain.Services.UserBadgeDomainService.Add(IndieVisible.Domain.Models.UserBadge)
-,Update(IndieVisible.Domain.Models.UserBadge)`IndieVisible.Domain.Services.UserBadgeDomainService.Update(IndieVisible.Domain.Models.UserBadge)ý
-bCount(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.UserBadge, bool>>)–IndieVisible.Domain.Services.UserBadgeDomainService.Count(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.UserBadge, bool>>)ù
-`Get(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.UserBadge, bool>>)”IndieVisible.Domain.Services.UserBadgeDomainService.Get(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.UserBadge, bool>>)

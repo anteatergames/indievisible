@@ -1,99 +1,0 @@
-
-ŒIndieVisible.Web.Controllers.InteractionController.SetAuthorDetails(IndieVisible.Application.ViewModels.Content.UserContentCommentViewModel)y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs„ „(%"0*‚
-0Æ
-Ã
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs†' †(8<
-%06IndieVisible.Application.Interfaces.IProfileAppService"LIndieVisible.Web.Controllers.Base.SecureBaseController.ProfileAppService.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController—
-”
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs†E †(R
-%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController’
-
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs†T †(h
-%2"__id*
-""ßÜ
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs†' †(i?
-%39IndieVisible.Application.ViewModels.User.ProfileViewModel"{IndieVisible.Application.Interfaces.IProfileAppService.GetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)*>
-<
-%06IndieVisible.Application.Interfaces.IProfileAppService*
-
-%1System.Guid*
-
-%22DGetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)
-Š
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs† †(iD
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
-?
-%39IndieVisible.Application.ViewModels.User.ProfileViewModelŠ
-‡
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csˆ ˆ(
-
-%4bool""object.operator !=(object, object)*
-"
-object*F
-D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModel*
-""*
-1
-2*Ô	
-1˜
-•
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csŠ' Š(3
-%5string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*F
-D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModelÁ
-¾
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csŠ Š(3
-
-%6void"MIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorName.set*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*
-
-%5string£
- 
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs‹* ‹(A
-%7string"MIndieVisible.Application.ViewModels.User.ProfileViewModel.ProfileImageUrl.get*F
-D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModelÄ
-Á
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs‹ ‹(A
-
-%8void"PIndieVisible.Application.ViewModels.UserGeneratedBaseViewModel.AuthorPicture.set*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*
-
-%7string*
-2*Û
-2—
-”
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csŽ Ž(,
-%9System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController¶
-³
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.csŽ Ž(,
-%10void"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.set*V
-T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModel*
-
-%9System.Guid*
-3*–
-3"
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\InteractionController.cs (	
-implicit return:T
-	viewModelGIndieVisible.Application.ViewModels.Content.UserContentCommentViewModelB64
-2IndieVisible.Web.Controllers.InteractionController

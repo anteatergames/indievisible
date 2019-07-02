@@ -1,62 +1,0 @@
-
-±IndieVisible.Application.Services.FeaturedContentAppService.FeaturedContentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository)Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs (("0*˙
-0å
-â
-Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs   (^=
-;IndieVisible.Application.Services.FeaturedContentAppService"
-_mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperŒ
-À
-Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs! !($=
-;IndieVisible.Application.Services.FeaturedContentAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork˘
-ˆ
-Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs" "($î=
-;IndieVisible.Application.Services.FeaturedContentAppService"S
-_repositoryDIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository"__id*T
-R
-
-repositoryDIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepositoryˇ
-¸
-Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs# #(2ó=
-;IndieVisible.Application.Services.FeaturedContentAppService"V
-_contentRepository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository"__id*W
-U
-contentRepository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepositoryÅ
-˛
-Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs$ $(,ò=
-;IndieVisible.Application.Services.FeaturedContentAppService"W
-_likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*X
-V
-likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepositoryç
-ä
-Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs% %(2û=
-;IndieVisible.Application.Services.FeaturedContentAppService"]
-_commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*^
-\
-commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository*
-1*û
-1"ò
-Ä
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs& &(	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:R
-
-repositoryDIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository:U
-contentRepository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository:V
-likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository:\
-commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryB?=
-;IndieVisible.Application.Services.FeaturedContentAppService

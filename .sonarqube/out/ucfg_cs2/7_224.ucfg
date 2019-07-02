@@ -1,113 +1,0 @@
-
-ÏIndieVisible.Web.Controllers.ManageController.LoadSharedKeyAndQrCodeUriAsync(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csî î(9"0*Œ
-0Æ
-´
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csñ* ñ(66
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>ùö
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csñ* ñ(U*
-%1$System.Threading.Tasks.Task<TResult>"PMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetAuthenticatorKeyAsync(TUser)*8
-6
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2GetAuthenticatorKeyAsync(TUser)°
-û
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csñ ñ(U
-unformattedKeystring"__id*
-""À
-»
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csó ó(4
-
-%2bool"string.IsNullOrEmpty(string)*
-"
-string*
-
-unformattedKeystring*
-1
-2*“
-1Æ
-´
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csô ô("6
-%30Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>°û
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csô ô(C*
-%4$System.Threading.Tasks.Task<TResult>"RMicrosoft.AspNetCore.Identity.UserManager<TUser>.ResetAuthenticatorKeyAsync(TUser)*8
-6
-%30Microsoft.AspNetCore.Identity.UserManager<TUser>*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2!ResetAuthenticatorKeyAsync(TUser)Æ
-´
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csö' ö(36
-%50Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>ùö
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csö' ö(R*
-%6$System.Threading.Tasks.Task<TResult>"PMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetAuthenticatorKeyAsync(TUser)*8
-6
-%50Microsoft.AspNetCore.Identity.UserManager<TUser>*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2GetAuthenticatorKeyAsync(TUser)°
-û
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csö ö(R
-unformattedKeystring"__id*
-""*
-2*‡
-2ó
-î
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csù ù(7
-%7string"?IndieVisible.Web.Controllers.ManageController.FormatKey(string)*1/
--IndieVisible.Web.Controllers.ManageController*
-
-unformattedKeystringÏ
-È
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csù ù(7
-
-%8void"kIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel.SharedKey.set*h
-f
-model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel*
-
-%7stringôñ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csû7 û(A
-%9string":Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Email.get*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser2	Email.get∏
-µ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csû% û(R
-%10string"OIndieVisible.Web.Controllers.ManageController.GenerateQrCodeUri(string, string)*1/
--IndieVisible.Web.Controllers.ManageController*
-
-%9string*
-
-unformattedKeystringı
-Ú
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csû û(R
-%11void"rIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel.AuthenticatorUri.set*h
-f
-model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel*
-
-%10string*
-3*ë
-3"ã
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csü ü(	
-implicit return:G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser:f
-model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModelB1/
--IndieVisible.Web.Controllers.ManageController

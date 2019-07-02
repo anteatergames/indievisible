@@ -1,103 +1,0 @@
-
-PIndieVisible.Application.Services.FeaturedContentAppService.GetById(System.Guid)€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csN; N(B"0*
-0*	
-1
-2
-3*½
-2ò
-ï
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csT( T(3J
-%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository"__id*—*”=
-;IndieVisible.Application.Services.FeaturedContentAppService"S
-_repositoryDIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository€ý
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csT( T(?0
-%1*IndieVisible.Domain.Models.FeaturedContent"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*L
-J
-%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository*
-
-idSystem.Guid2GetById(System.Guid)õ
-ò
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csT  T(?3
-model*IndieVisible.Domain.Models.FeaturedContent"__id*2
-0
-%1*IndieVisible.Domain.Models.FeaturedContentˆ
-…
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csV. V(5
-%2AutoMapper.IMapper"__id*`*^=
-;IndieVisible.Application.Services.FeaturedContentAppService"
-_mapperAutoMapper.IMapperöó
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csV. V(ZR
-%3LIndieVisible.Application.ViewModels.FeaturedContent.FeaturedContentViewModel",AutoMapper.IMapper.Map<TDestination>(object)*
-
-%2AutoMapper.IMapper*5
-3
-model*IndieVisible.Domain.Models.FeaturedContent2Map<TDestination>(object)¶
-³
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csV) V(ZR
-vmLIndieVisible.Application.ViewModels.FeaturedContent.FeaturedContentViewModel"__id*T
-R
-%3LIndieVisible.Application.ViewModels.FeaturedContent.FeaturedContentViewModelú÷
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csX X(L;
-%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>ó
-ð
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csX X(H
-
-%5void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
-;
-%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>*T
-R
-vmLIndieVisible.Application.ViewModels.FeaturedContent.FeaturedContentViewModelŒ
-‰
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.csX X(L?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%45IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
-1
-4
-3*¥
-1ÙÖ
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs\I \(S
-%6string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getú÷
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs\ \(T;
-%75IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>²
-¯
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs\ \(H
-
-%8void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
-;
-%75IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%6stringŒ
-‰
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs\ \(T?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%75IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-4*Ì
-4"Æ
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs_ _(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ž
-3"˜
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs` `(	
-implicit return:
-idSystem.GuidB?=
-;IndieVisible.Application.Services.FeaturedContentAppService

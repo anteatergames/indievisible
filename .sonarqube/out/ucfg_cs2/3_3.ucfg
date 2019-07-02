@@ -1,19 +1,0 @@
-
-ÎIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext.AspNetIdentityContext(Microsoft.EntityFrameworkCore.DbContextOptions<IndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext>)ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Data\AspNetIdentityContext.cs ($"0*Ë
-0À
-½
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Data\AspNetIdentityContext.cs (
-
-%0void"ŒMicrosoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext<TUser>.IdentityDbContext(Microsoft.EntityFrameworkCore.DbContextOptions)*NL
-JMicrosoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext<TUser>*E
-C
-options8Microsoft.EntityFrameworkCore.DbContextOptions<TContext>*
-1*¦
-1" 
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Data\AspNetIdentityContext.cs (	
-implicit return:C
-options8Microsoft.EntityFrameworkCore.DbContextOptions<TContext>BGE
-CIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext

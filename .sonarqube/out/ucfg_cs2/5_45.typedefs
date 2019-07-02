@@ -1,12 +1,0 @@
-¨
-6IndieVisible.Application.Services.UserFollowAppService0IndieVisible.Application.Services.BaseAppServiceobjectñ
-šUserFollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService)ÑIndieVisible.Application.Services.UserFollowAppService.UserFollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService)I
-Count()>IndieVisible.Application.Services.UserFollowAppService.Count()K
-GetAll()?IndieVisible.Application.Services.UserFollowAppService.GetAll()k
-GetByUserId(System.Guid)OIndieVisible.Application.Services.UserFollowAppService.GetByUserId(System.Guid)c
-GetById(System.Guid)KIndieVisible.Application.Services.UserFollowAppService.GetById(System.Guid)a
-Remove(System.Guid)JIndieVisible.Application.Services.UserFollowAppService.Remove(System.Guid)¿
-BSave(IndieVisible.Application.ViewModels.User.UserFollowViewModel)yIndieVisible.Application.Services.UserFollowAppService.Save(IndieVisible.Application.ViewModels.User.UserFollowViewModel)s
-GetByFollowedId(System.Guid)SIndieVisible.Application.Services.UserFollowAppService.GetByFollowedId(System.Guid)]
-CurrentUserId.getHIndieVisible.Application.Services.UserFollowAppService.CurrentUserId.get]
-CurrentUserId.setHIndieVisible.Application.Services.UserFollowAppService.CurrentUserId.set

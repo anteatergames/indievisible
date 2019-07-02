@@ -1,78 +1,0 @@
-
-ÁIndieVisible.Web.Controllers.ManageController.ManageController(Microsoft.AspNetCore.Identity.UserManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, Microsoft.AspNetCore.Identity.SignInManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, Microsoft.Extensions.Logging.ILogger<IndieVisible.Web.Controllers.ManageController>, System.Text.Encodings.Web.UrlEncoder, AutoMapper.IMapper)r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs! !("2*©
-0é
-ã
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs' '("
-
-%0void"MIndieVisible.Web.Controllers.Base.SecureBaseController.SecureBaseController()*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseControllerµ
-≤
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs) )(&s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
-?
-userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>Ω
-∫
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs* *(*w/
--IndieVisible.Web.Controllers.ManageController"D
-_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
-C
-signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>“
-œ
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs+ +(&Å/
--IndieVisible.Web.Controllers.ManageController"N
-_emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender"__id*O
-M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender¢
-ü
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs, ,(b/
--IndieVisible.Web.Controllers.ManageController"/
-_logger$Microsoft.Extensions.Logging.ILogger"__id*?
-=
-logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>õ
-ò
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs- -($f/
--IndieVisible.Web.Controllers.ManageController"3
-_urlEncoder$System.Text.Encodings.Web.UrlEncoder"__id*4
-2
-
-urlEncoder$System.Text.Encodings.Web.UrlEncoder*
-1*è
-1"â
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs. .(	
-implicit return*à
-2˝
-˙
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs! !(
-%1"__entrypoint*A
-?
-userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>*E
-C
-signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>*O
-M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender*?
-=
-logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*4
-2
-
-urlEncoder$System.Text.Encodings.Web.UrlEncoder*
-
-mapperAutoMapper.IMapper*
-0:?
-userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
-signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender:=
-logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>:2
-
-urlEncoder$System.Text.Encodings.Web.UrlEncoder:
-mapperAutoMapper.IMapperB1/
--IndieVisible.Web.Controllers.ManageController

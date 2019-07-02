@@ -1,38 +1,0 @@
-
-GIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.GetAll()x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs3 3($"0*¹	
-0÷
-ô
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs5 5(&
-%0TRepository"__id*_*]@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
-
-repositoryTRepository€ý
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs5 5(/
-%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*
-
-%0TRepository2GetAll()É
-Æ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs5 5(/!
-objsSystem.Linq.IQueryable<T>"__id*!
-
-%1System.Linq.IQueryable<T>Á
-¾
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs7 7( (
-%2"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
-System.Linq.Enumerable*#
-!
-objsSystem.Linq.IQueryable<T>"¦
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs7 7(!*
-(
-%2"System.Collections.Generic.List<T>*•
-1"
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs8 8(	
-implicit returnBB@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

@@ -1,96 +1,0 @@
-
-üIndieVisible.Application.Services.ProfileAppService.ProfileAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IProfileRepository, IndieVisible.Domain.Interfaces.Repository.IGameRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository, IndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepository, IndieVisible.Domain.Interfaces.Service.IGamificationDomainService, IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService, IndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService)x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs! !( "0*õ
-0˙
-˜
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs( (( U5
-3IndieVisible.Application.Services.ProfileAppService"
-mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperº
-π
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs) )((v5
-3IndieVisible.Application.Services.ProfileAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork◊
-‘
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs* *((É5
-3IndieVisible.Application.Services.ProfileAppService"J
-
-repository<IndieVisible.Domain.Interfaces.Repository.IProfileRepository"__id*L
-J
-
-repository<IndieVisible.Domain.Interfaces.Repository.IProfileRepositoryŸ
-÷
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs+ +(0Ñ5
-3IndieVisible.Application.Services.ProfileAppService"K
-gameRepository9IndieVisible.Domain.Interfaces.Repository.IGameRepository"__id*M
-K
-gameRepository9IndieVisible.Domain.Interfaces.Repository.IGameRepositoryı
-Ú
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs, ,(>í5
-3IndieVisible.Application.Services.ProfileAppService"Y
-userContentRepository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository"__id*[
-Y
-userContentRepository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepositoryë
-é
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs- -(L†5
-3IndieVisible.Application.Services.ProfileAppService"g
-userContentCommentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*i
-g
-userContentCommentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepositoryå
-â
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs. .(Iû5
-3IndieVisible.Application.Services.ProfileAppService"e
-brainstormCommentRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepository"__id*f
-d
-brainstormCommentRepositorFIndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepositoryˇ
-¸
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs/ /(Fó5
-3IndieVisible.Application.Services.ProfileAppService"^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService"__id*`
-^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService˜
-Ù
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs0 0(Bì5
-3IndieVisible.Application.Services.ProfileAppService"Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*\
-Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceá
-Ñ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs1 1(Jõ5
-3IndieVisible.Application.Services.ProfileAppService"b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*d
-b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
-1*ï
-1"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs2 2(	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:J
-
-repository<IndieVisible.Domain.Interfaces.Repository.IProfileRepository:K
-gameRepository9IndieVisible.Domain.Interfaces.Repository.IGameRepository:Y
-userContentRepository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository:g
-userContentCommentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository:d
-brainstormCommentRepositorFIndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepository:^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService:Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService:b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceB75
-3IndieVisible.Application.Services.ProfileAppService

@@ -1,11 +1,0 @@
-Ù
-.IndieVisible.Web.Controllers.ContentController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectŸ
-µContentController(IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.IGameFollowAppService, IndieVisible.Application.Interfaces.IUserFollowAppService, IndieVisible.Application.Interfaces.INotificationAppService)äIndieVisible.Web.Controllers.ContentController.ContentController(IndieVisible.Application.Interfaces.IUserContentAppService, IndieVisible.Application.Interfaces.IGameAppService, IndieVisible.Application.Interfaces.IGameFollowAppService, IndieVisible.Application.Interfaces.IUserFollowAppService, IndieVisible.Application.Interfaces.INotificationAppService)u
-!Details(System.Guid, System.Guid)PIndieVisible.Web.Controllers.ContentController.Details(System.Guid, System.Guid)U
-Edit(System.Guid)@IndieVisible.Web.Controllers.ContentController.Edit(System.Guid)U
-Add(System.Guid?)@IndieVisible.Web.Controllers.ContentController.Add(System.Guid?)¿
-FSave(IndieVisible.Application.ViewModels.Content.UserContentViewModel)uIndieVisible.Web.Controllers.ContentController.Save(IndieVisible.Application.ViewModels.Content.UserContentViewModel)g
-SimplePost(string, string)IIndieVisible.Web.Controllers.ContentController.SimplePost(string, string)o
-Feed(System.Guid, System.Guid)MIndieVisible.Web.Controllers.ContentController.Feed(System.Guid, System.Guid)è
-ZSetContentImages(IndieVisible.Application.ViewModels.Content.UserContentViewModel, string)‰IndieVisible.Web.Controllers.ContentController.SetContentImages(IndieVisible.Application.ViewModels.Content.UserContentViewModel, string)˜
-rNotifyFollowers(System.Guid, IndieVisible.Application.ViewModels.User.ProfileViewModel, System.Guid?, System.Guid)¡IndieVisible.Web.Controllers.ContentController.NotifyFollowers(System.Guid, IndieVisible.Application.ViewModels.User.ProfileViewModel, System.Guid?, System.Guid)

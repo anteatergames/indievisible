@@ -1,189 +1,0 @@
-
-HIndieVisible.Application.Services.LikeAppService.GameUnlike(System.Guid)w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csˆ! ˆ(+"0*—
-0â
-Ü
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs˙ ˙("
-%0System.Guid"BIndieVisible.Application.Services.LikeAppService.CurrentUserId.get*42
-0IndieVisible.Application.Services.LikeAppServiceæ
-ª
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs˙& ˙(0
-%1System.Guid"__id*'*%
-System.Guid"
-EmptySystem.Guidˆ
-Û
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs˙ ˙(0
-
-%2bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
-System.Guid*
-
-%0System.Guid*
-
-%1System.Guid*
-1
-2*ì
-1ÍÁ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¸ ¸(Z8
-%32IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVoö
-ó
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¸ ¸(0
-
-%4void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
-8
-%32IndieVisible.Domain.ValueObjects.OperationResultVo*
-""˛
-˚
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs¸ ¸(Z>
-response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
-8
-%32IndieVisible.Domain.ValueObjects.OperationResultVo*
-3*˛
-2◊
-‘
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÅ( Å(;C
-%5=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository"__id*ç*ä2
-0IndieVisible.Application.Services.LikeAppService"T
-_gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository±Æ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÅ( Å(D
-%6System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*E
-C
-%5=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository2GetAll()ˇ
-¸
-x
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÅ( Å(è)
-%7#IndieVisible.Domain.Models.GameLike"éSystem.Linq.Queryable.FirstOrDefault<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
-System.Linq.Queryable*!
-
-%6System.Linq.IQueryable<T>*
-""Â
-‚
-x
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÅ Å(è3
-existingLike#IndieVisible.Domain.Models.GameLike"__id*+
-)
-%7#IndieVisible.Domain.Models.GameLike¯
-ı
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÉ É((
-
-%8bool"ÇIndieVisible.Domain.Core.Models.Entity.operator ==(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
-&IndieVisible.Domain.Core.Models.Entity*5
-3
-existingLike#IndieVisible.Domain.Models.GameLike*
-""*
-4
-5*®
-4ÍÁ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÖ Ö(;8
-%92IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVoô
-ñ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÖ# Ö(4
-%10void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
-8
-%92IndieVisible.Domain.ValueObjects.OperationResultVo*
-""˛
-˚
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÖ Ö(;>
-response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
-8
-%92IndieVisible.Domain.ValueObjects.OperationResultVoì
-ê
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÜ Ü(7
-%11void">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.set*@
->
-response2IndieVisible.Domain.ValueObjects.OperationResultVo*
-""*
-3*…
-5ˆ
-Û
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csä( ä(7
-%12System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*5
-3
-existingLike#IndieVisible.Domain.Models.GameLike—
-Œ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csä ä(89
-%132IndieVisible.Domain.ValueObjects.OperationResultVo"LIndieVisible.Application.Services.LikeAppService.RemoveGameLike(System.Guid)*42
-0IndieVisible.Application.Services.LikeAppService*
-
-%12System.Guid≤
-Ø
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cså å(6
-%14/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*v*t2
-0IndieVisible.Application.Services.LikeAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkáÑ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cså å((
-%15bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
-6
-%14/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()ÿ
-’
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csé# é(6D
-%16=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository"__id*ç*ä2
-0IndieVisible.Application.Services.LikeAppService"T
-_gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository≥∞
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csé# é(? 
-%17System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*F
-D
-%16=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository2GetAll()ÿ
-’
-x
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csé# é(Å
-
-%18int"ÖSystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
-System.Linq.Queryable*"
- 
-%17System.Linq.IQueryable<T>*
-""¢
-ü
-x
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csé é(Å
-newCountint"__id*
-
-
-%18intÒÓ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csê ê(C<
-%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>®
-•
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csê# ê(9
-%20void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-newCountintÇ
-ˇ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csê ê(C>
-response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*>
-<
-%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-3*¡
-3"ª
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csî î(@
->
-response2IndieVisible.Domain.ValueObjects.OperationResultVo*î
-6"é
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csï ï(	
-implicit return:
-likedIdSystem.GuidB42
-0IndieVisible.Application.Services.LikeAppService

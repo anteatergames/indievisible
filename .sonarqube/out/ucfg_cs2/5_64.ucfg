@@ -1,36 +1,0 @@
-
-◊IndieVisible.Application.Services.NotificationAppService.NotificationAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.INotificationRepository)}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs (%"0*·
-0Ö
-Ç
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs ([:
-8IndieVisible.Application.Services.NotificationAppService"
-_mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapper«
-ƒ
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs ($|:
-8IndieVisible.Application.Services.NotificationAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkÑ
-Å
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs (<ö:
-8IndieVisible.Application.Services.NotificationAppService"\
-_notificationRepositoryAIndieVisible.Domain.Interfaces.Repository.INotificationRepository"__id*]
-[
-notificationRepositoryAIndieVisible.Domain.Interfaces.Repository.INotificationRepository*
-1*ö
-1"î
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs (	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:[
-notificationRepositoryAIndieVisible.Domain.Interfaces.Repository.INotificationRepositoryB<:
-8IndieVisible.Application.Services.NotificationAppService

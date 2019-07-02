@@ -1,29 +1,0 @@
-
-Microsoft.AspNetCore.Mvc.UrlHelperExtensions.EmailConfirmationLink(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, string)t
-jC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\UrlHelperExtensions.cs (2"0*¢
-0ì
-ê
-t
-jC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\UrlHelperExtensions.cs (!
-%0string"xMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.Action(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, object, string)*0".
-,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*2
-0
-	urlHelper#Microsoft.AspNetCore.Mvc.IUrlHelper*
-""*
-""*
-""*
-
-schemestring"Ü
-t
-jC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\UrlHelperExtensions.cs ("
-
-%0string*ë
-1"ã
-t
-jC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\UrlHelperExtensions.cs (	
-implicit return:0
-	urlHelper#Microsoft.AspNetCore.Mvc.IUrlHelper:
-userIdstring:
-codestring:
-schemestringB0".
-,Microsoft.AspNetCore.Mvc.UrlHelperExtensions

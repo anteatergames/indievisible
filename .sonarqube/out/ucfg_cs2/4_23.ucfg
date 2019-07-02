@@ -1,27 +1,0 @@
-
-KIndieVisible.Infra.Data.Repository.Repository<TEntity>.GetById(System.Guid)r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs (&"0*„
-0¶
-£
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs (2
-%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
-DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>¨©
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs (!
-%1TEntity"BMicrosoft.EntityFrameworkCore.DbSet<TEntity>.Find(params object[])*4
-2
-%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
-
-idSystem.Guid2Find(params object[])"Ö
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs ("
-
-%1TEntity*è
-1"â
-r
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\Repository.cs (	
-implicit return:
-idSystem.GuidB:8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>

@@ -1,15 +1,0 @@
-ï	
-7IndieVisible.Application.ViewModels.User.IndieXpCounterobject\
-IndieXpCounter()HIndieVisible.Application.ViewModels.User.IndieXpCounter.IndieXpCounter()N
-	Level.getAIndieVisible.Application.ViewModels.User.IndieXpCounter.Level.getN
-	Level.setAIndieVisible.Application.ViewModels.User.IndieXpCounter.Level.setR
-LevelXp.getCIndieVisible.Application.ViewModels.User.IndieXpCounter.LevelXp.getR
-LevelXp.setCIndieVisible.Application.ViewModels.User.IndieXpCounter.LevelXp.setZ
-NextLevelXp.getGIndieVisible.Application.ViewModels.User.IndieXpCounter.NextLevelXp.getZ
-NextLevelXp.setGIndieVisible.Application.ViewModels.User.IndieXpCounter.NextLevelXp.set^
-XpToNextLevel.getIIndieVisible.Application.ViewModels.User.IndieXpCounter.XpToNextLevel.get^
-XpToNextLevel.setIIndieVisible.Application.ViewModels.User.IndieXpCounter.XpToNextLevel.setn
-PercentageToNextLevel.getQIndieVisible.Application.ViewModels.User.IndieXpCounter.PercentageToNextLevel.getn
-PercentageToNextLevel.setQIndieVisible.Application.ViewModels.User.IndieXpCounter.PercentageToNextLevel.setV
-LevelName.getEIndieVisible.Application.ViewModels.User.IndieXpCounter.LevelName.getV
-LevelName.setEIndieVisible.Application.ViewModels.User.IndieXpCounter.LevelName.set

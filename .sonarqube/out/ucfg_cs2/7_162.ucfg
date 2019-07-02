@@ -1,31 +1,0 @@
-
-ÑIndieVisible.Web.Controllers.Base.SecureBaseController.DeleteGameImage(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string)}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs≥ ≥(("0*ù
-0‘
-—
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csµ µ(;
-%0string"WIndieVisible.Web.Controllers.Base.SecureBaseController.DeleteImage(System.Guid, string)*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController*
-
-userIdSystem.Guid*
-
-filenamestring™
-ß
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.csµ µ(;
-resultstring"__id*
-
-%0string"ì
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs∑ ∑(
-
-resultstring*ö
-1"î
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs∏ ∏(	
-implicit return:
-userIdSystem.Guid:/
-type'IndieVisible.Domain.Core.Enums.BlobType:
-filenamestringB:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController

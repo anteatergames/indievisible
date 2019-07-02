@@ -1,24 +1,0 @@
-Ô
->IndieVisible.Application.ViewModels.Game.GameListItemViewModelobjectq
-GameListItemViewModel()VIndieVisible.Application.ViewModels.Game.GameListItemViewModel.GameListItemViewModel()i
-PopulatePlatforms()RIndieVisible.Application.ViewModels.Game.GameListItemViewModel.PopulatePlatforms()O
-Id.getEIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Id.getO
-Id.setEIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Id.setW
-
-UserId.getIIndieVisible.Application.ViewModels.Game.GameListItemViewModel.UserId.getW
-
-UserId.setIIndieVisible.Application.ViewModels.Game.GameListItemViewModel.UserId.setc
-ThumbnailUrl.getOIndieVisible.Application.ViewModels.Game.GameListItemViewModel.ThumbnailUrl.getc
-ThumbnailUrl.setOIndieVisible.Application.ViewModels.Game.GameListItemViewModel.ThumbnailUrl.setm
-DeveloperImageUrl.getTIndieVisible.Application.ViewModels.Game.GameListItemViewModel.DeveloperImageUrl.getm
-DeveloperImageUrl.setTIndieVisible.Application.ViewModels.Game.GameListItemViewModel.DeveloperImageUrl.setU
-	Title.getHIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Title.getU
-	Title.setHIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Title.sete
-DeveloperName.getPIndieVisible.Application.ViewModels.Game.GameListItemViewModel.DeveloperName.gete
-DeveloperName.setPIndieVisible.Application.ViewModels.Game.GameListItemViewModel.DeveloperName.setU
-	Price.getHIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Price.getU
-	Price.setHIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Price.set]
-Platforms.getLIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Platforms.get]
-Platforms.setLIndieVisible.Application.ViewModels.Game.GameListItemViewModel.Platforms.setc
-PlatformList.getOIndieVisible.Application.ViewModels.Game.GameListItemViewModel.PlatformList.getc
-PlatformList.setOIndieVisible.Application.ViewModels.Game.GameListItemViewModel.PlatformList.set

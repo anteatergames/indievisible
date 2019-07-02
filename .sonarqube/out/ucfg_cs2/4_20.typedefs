@@ -1,4 +1,0 @@
-Ú
-6IndieVisible.Infra.Data.Mappings.UserContentLikeConfigobject¬
-xConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserContentLike>)¯IndieVisible.Infra.Data.Mappings.UserContentLikeConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserContentLike>)i
-UserContentLikeConfig()NIndieVisible.Infra.Data.Mappings.UserContentLikeConfig.UserContentLikeConfig()

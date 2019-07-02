@@ -1,26 +1,0 @@
-
-RIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Remove(System.Guid)x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csH H("0*›
-0÷
-ô
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csJ J(
-%0TRepository"__id*_*]@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
-
-repositoryTRepository–“
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csJ J(&
-
-%1void"LIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Remove(System.Guid)*
-
-%0TRepository*
-
-idSystem.Guid2Remove(System.Guid)*
-1*•
-1"
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csK K(	
-implicit return:
-idSystem.GuidBB@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

@@ -1,4 +1,0 @@
-è
-8IndieVisible.Infra.Data.Mappings.BrainstormSessionConfigobject²
-zConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.BrainstormSession>)³IndieVisible.Infra.Data.Mappings.BrainstormSessionConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.BrainstormSession>)o
-BrainstormSessionConfig()RIndieVisible.Infra.Data.Mappings.BrainstormSessionConfig.BrainstormSessionConfig()

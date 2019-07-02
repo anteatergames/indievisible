@@ -1,33 +1,0 @@
-
-zIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(System.Collections.Generic.IEnumerable<T>)w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.csL L($"0*ö
-0”
-‘
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.csL; L(G
-
-%0void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*64
-2IndieVisible.Domain.ValueObjects.OperationResultVo*
-""
-Œ
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.csN N(
-
-%1void">IndieVisible.Domain.ValueObjects.OperationResultVo.Success.set*=;
-9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
-""Â
-¿
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.csO O(
-
-%2void"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.set*=;
-9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*4
-2
-items)System.Collections.Generic.IEnumerable<T>*
-1*”
-1"Ž
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\ValueObjects\OperationResultVo.csP P(	
-implicit return:2
-items)System.Collections.Generic.IEnumerable<T>B=;
-9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>

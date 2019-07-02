@@ -1,34 +1,0 @@
-
-4IndieVisible.Domain.Core.Models.Entity.GetHashCode()k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs- -('"0*ê
-0¡
-ž
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs/ /(
-%0System.Type"object.GetType()*
-
-objectº·
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs/ /(+	
-%1int"System.Type.GetHashCode()*
-
-%0System.Type2GetHashCode()Þ
-Û
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs/5 /(7
-%2System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get**(
-&IndieVisible.Domain.Core.Models.Entity«
-¨
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs/5 /(E	
-%3int"System.Guid.GetHashCode()*
-
-%2System.Guid"u
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs/ /(F
-""*ˆ
-1"‚
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs0 0(	
-implicit returnB*(
-&IndieVisible.Domain.Core.Models.Entity

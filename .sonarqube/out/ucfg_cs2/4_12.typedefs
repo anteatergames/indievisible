@@ -1,4 +1,0 @@
-Å
-3IndieVisible.Infra.Data.Mappings.NotificationConfigobject£
-uConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.Notification>)©IndieVisible.Infra.Data.Mappings.NotificationConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.Notification>)`
-NotificationConfig()HIndieVisible.Infra.Data.Mappings.NotificationConfig.NotificationConfig()

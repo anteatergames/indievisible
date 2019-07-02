@@ -1,39 +1,0 @@
-
-MIndieVisible.Domain.Services.GameFollowDomainService.GetByGameId(System.Guid)y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csH' H(2"0*‰
-0‚
-ﬂ
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csJ J(5E
-%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository"__id*î*ë6
-4IndieVisible.Domain.Services.GameFollowDomainService"W
-gameFollowRepository?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository≥∞
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csJ J(R
-%1System.Linq.IQueryable<T>"|IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Get(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*G
-E
-%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository*
-""2CGet(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)œ
-Ã
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csJ J(R&
-	followersSystem.Linq.IQueryable<T>"__id*!
-
-%1System.Linq.IQueryable<T>«
-ƒ
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csL L(%(
-%2"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
-System.Linq.Enumerable*(
-&
-	followersSystem.Linq.IQueryable<T>"ß
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csL L(&*
-(
-%2"System.Collections.Generic.List<T>*ñ
-1"ê
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.csM M(	
-implicit return:
-gameIdSystem.GuidB86
-4IndieVisible.Domain.Services.GameFollowDomainService

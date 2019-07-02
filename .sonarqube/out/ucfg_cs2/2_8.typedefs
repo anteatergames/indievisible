@@ -1,15 +1,0 @@
-ÿ
-)IndieVisible.Domain.Models.BrainstormIdea&IndieVisible.Domain.Core.Models.EntityobjectN
-BrainstormIdea():IndieVisible.Domain.Models.BrainstormIdea.BrainstormIdea()@
-	Title.get3IndieVisible.Domain.Models.BrainstormIdea.Title.get@
-	Title.set3IndieVisible.Domain.Models.BrainstormIdea.Title.setL
-Description.get9IndieVisible.Domain.Models.BrainstormIdea.Description.getL
-Description.set9IndieVisible.Domain.Models.BrainstormIdea.Description.setH
-SessionId.get7IndieVisible.Domain.Models.BrainstormIdea.SessionId.getH
-SessionId.set7IndieVisible.Domain.Models.BrainstormIdea.SessionId.setD
-Session.get5IndieVisible.Domain.Models.BrainstormIdea.Session.getD
-Session.set5IndieVisible.Domain.Models.BrainstormIdea.Session.setF
-Comments.get6IndieVisible.Domain.Models.BrainstormIdea.Comments.getF
-Comments.set6IndieVisible.Domain.Models.BrainstormIdea.Comments.set@
-	Votes.get3IndieVisible.Domain.Models.BrainstormIdea.Votes.get@
-	Votes.set3IndieVisible.Domain.Models.BrainstormIdea.Votes.set

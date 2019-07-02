@@ -1,76 +1,0 @@
-
-@IndieVisible.Web.Controllers.ProfileController.Edit(System.Guid)s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs5 5(!"2*¦
-0Â
-¿
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs7" 7(4<
-%06IndieVisible.Application.Interfaces.IProfileAppService"__id*ƒ*€0
-.IndieVisible.Web.Controllers.ProfileController"L
-_profileAppService6IndieVisible.Application.Interfaces.IProfileAppServiceŒ
-‰
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs7I 7(]
-%1"__id*
-""ÝÚ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs7" 7(^?
-%29IndieVisible.Application.ViewModels.User.ProfileViewModel"{IndieVisible.Application.Interfaces.IProfileAppService.GetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)*>
-<
-%06IndieVisible.Application.Interfaces.IProfileAppService*
-
-userIdSystem.Guid*
-
-%12DGetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)‚
-ÿ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs7 7(^?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel"__id*A
-?
-%29IndieVisible.Application.ViewModels.User.ProfileViewModelð
-í
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs8 8(
-
-%3void"sIndieVisible.Web.Controllers.ProfileController.SetImages(IndieVisible.Application.ViewModels.User.ProfileViewModel)*20
-.IndieVisible.Web.Controllers.ProfileController*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModelÏÌ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs: :()
-%4#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel2View(object)"¢
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs: :(+
-)
-%4#Microsoft.AspNetCore.Mvc.ViewResult*
-1"Š
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs; ;(	
-implicit return*Â
-2¥
-¢
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs5 5(!
-%5"__entrypoint*
-
-userIdSystem.Guidç
-ä
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs4	 4(,
-%6"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-userIdSystem.Guid¥
-¢
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs5" 5(-
-userIdSystem.Guid"__annotation*
-
-%6*
-0:
-userIdSystem.GuidB20
-.IndieVisible.Web.Controllers.ProfileController

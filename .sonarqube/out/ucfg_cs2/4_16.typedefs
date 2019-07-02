@@ -1,4 +1,0 @@
-ï
-9IndieVisible.Infra.Data.Mappings.UserContentCommentConfigobjectµ
-{Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserContentComment>)µIndieVisible.Infra.Data.Mappings.UserContentCommentConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserContentComment>)r
-UserContentCommentConfig()TIndieVisible.Infra.Data.Mappings.UserContentCommentConfig.UserContentCommentConfig()

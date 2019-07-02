@@ -1,45 +1,0 @@
-
-NIndieVisible.Application.ViewModels.Content.UserContentViewModel.IsComplex.get…
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Content\UserContentViewModel.cs(  ((#"0*’
-0«
-¨
-…
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Content\UserContentViewModel.cs(H ((R
-%0string"JIndieVisible.Application.ViewModels.Content.UserContentViewModel.Title.get*DB
-@IndieVisible.Application.ViewModels.Content.UserContentViewModelÖ
-Ó
-…
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Content\UserContentViewModel.cs(. ((S
-
-%1bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-%0string*
-1
-2*™
-1´
-±
-†
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Content\UserContentViewModel.cs(r ((„
-%2string"RIndieVisible.Application.ViewModels.Content.UserContentViewModel.FeaturedImage.get*DB
-@IndieVisible.Application.ViewModels.Content.UserContentViewModel×
-Ô
-†
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Content\UserContentViewModel.cs(X ((…
-
-%3bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-%2string*
-2*ž
-2"˜
-†
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Content\UserContentViewModel.cs(& ((†
-	{unknown}*¥
-3"Ÿ
-‡
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\Content\UserContentViewModel.cs(‡ ((ˆ
-implicit returnBDB
-@IndieVisible.Application.ViewModels.Content.UserContentViewModel

@@ -1,13 +1,0 @@
-ÿ
-.IndieVisible.Domain.Core.Models.ExternalEntity&IndieVisible.Domain.Core.Models.EntityobjectS
-ExternalEntity()?IndieVisible.Domain.Core.Models.ExternalEntity.ExternalEntity()Q
-GameJoltUrl.get>IndieVisible.Domain.Core.Models.ExternalEntity.GameJoltUrl.getQ
-GameJoltUrl.set>IndieVisible.Domain.Core.Models.ExternalEntity.GameJoltUrl.setM
-ItchIoUrl.get<IndieVisible.Domain.Core.Models.ExternalEntity.ItchIoUrl.getM
-ItchIoUrl.set<IndieVisible.Domain.Core.Models.ExternalEntity.ItchIoUrl.setO
-IndieDbUrl.get=IndieVisible.Domain.Core.Models.ExternalEntity.IndieDbUrl.getO
-IndieDbUrl.set=IndieVisible.Domain.Core.Models.ExternalEntity.IndieDbUrl.setU
-GameDevNetUrl.get@IndieVisible.Domain.Core.Models.ExternalEntity.GameDevNetUrl.getU
-GameDevNetUrl.set@IndieVisible.Domain.Core.Models.ExternalEntity.GameDevNetUrl.setY
-UnityConnectUrl.getBIndieVisible.Domain.Core.Models.ExternalEntity.UnityConnectUrl.getY
-UnityConnectUrl.setBIndieVisible.Domain.Core.Models.ExternalEntity.UnityConnectUrl.set

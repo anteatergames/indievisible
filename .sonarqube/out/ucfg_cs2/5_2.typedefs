@@ -1,4 +1,0 @@
-Â
-JIndieVisible.Application.AutoMapper.Resolvers.GamePlatformToDomainResolverobjectÝ
-†Resolve(IndieVisible.Application.ViewModels.Game.GameViewModel, IndieVisible.Domain.Models.Game, string, AutoMapper.ResolutionContext)ÑIndieVisible.Application.AutoMapper.Resolvers.GamePlatformToDomainResolver.Resolve(IndieVisible.Application.ViewModels.Game.GameViewModel, IndieVisible.Domain.Models.Game, string, AutoMapper.ResolutionContext)‹
-GamePlatformToDomainResolver()iIndieVisible.Application.AutoMapper.Resolvers.GamePlatformToDomainResolver.GamePlatformToDomainResolver()

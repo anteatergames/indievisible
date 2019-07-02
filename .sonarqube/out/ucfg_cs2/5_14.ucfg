@@ -1,57 +1,0 @@
-
-0IndieVisible.Application.FakeData.FakeCounters()f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs9( 9(4"0*‹
-0éæ
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs;) ;(@@
-%0:IndieVisible.Application.ViewModels.Home.CountersViewModel":IndieVisible.Application.ViewModels.Home.CountersViewModel‹
-ˆ
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs;- ;(>
-
-%1void"NIndieVisible.Application.ViewModels.Home.CountersViewModel.CountersViewModel()*B
-@
-%0:IndieVisible.Application.ViewModels.Home.CountersViewModelý
-ú
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs; ;(@F
-counters:IndieVisible.Application.ViewModels.Home.CountersViewModel"__id*B
-@
-%0:IndieVisible.Application.ViewModels.Home.CountersViewModel“
-
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs= =(&
-
-%2void"IIndieVisible.Application.ViewModels.Home.CountersViewModel.GamesCount.set*H
-F
-counters:IndieVisible.Application.ViewModels.Home.CountersViewModel*2ú“
-
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs> >(&
-
-%3void"IIndieVisible.Application.ViewModels.Home.CountersViewModel.UsersCount.set*H
-F
-counters:IndieVisible.Application.ViewModels.Home.CountersViewModel*2ã–
-“
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs? ?((
-
-%4void"LIndieVisible.Application.ViewModels.Home.CountersViewModel.ArticlesCount.set*H
-F
-counters:IndieVisible.Application.ViewModels.Home.CountersViewModel*2Õ‘
-Ž
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.cs@ @(#
-
-%5void"HIndieVisible.Application.ViewModels.Home.CountersViewModel.JamsCount.set*H
-F
-counters:IndieVisible.Application.ViewModels.Home.CountersViewModel*2*"²
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.csB B(H
-F
-counters:IndieVisible.Application.ViewModels.Home.CountersViewModel*‚
-1"}
-f
-\C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\FakeData.csC C(	
-implicit returnB%"#
-!IndieVisible.Application.FakeData

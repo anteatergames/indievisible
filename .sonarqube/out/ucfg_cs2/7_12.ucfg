@@ -1,32 +1,0 @@
-
-rIndieVisible.Web.Controllers.UserController.UserController(IndieVisible.Application.Interfaces.IProfileAppService)p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs ("2*„
-0å
-â
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.csD (L
-
-%0void"MIndieVisible.Web.Controllers.Base.SecureBaseController.SecureBaseController()*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController…
-∆
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs (2}-
-+IndieVisible.Web.Controllers.UserController"L
-_profileAppService6IndieVisible.Application.Interfaces.IProfileAppService"__id*M
-K
-profileAppService6IndieVisible.Application.Interfaces.IProfileAppService*
-1*ç
-1"á
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs (	
-implicit return*„
-2ÿ
-’
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\UserController.cs (
-%1"__entrypoint*M
-K
-profileAppService6IndieVisible.Application.Interfaces.IProfileAppService*
-0:K
-profileAppService6IndieVisible.Application.Interfaces.IProfileAppServiceB/-
-+IndieVisible.Web.Controllers.UserController

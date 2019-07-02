@@ -1,19 +1,0 @@
-
-èIndieVisible.Infra.Data.Repository.BrainstormCommentRepository.BrainstormCommentRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormCommentRepository.cs	 	(*"0*ñ
-0ã
-à
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormCommentRepository.cs	H 	(W
-
-%0void"vIndieVisible.Infra.Data.Repository.Repository<TEntity>.Repository(IndieVisible.Infra.Data.Context.IndieVisibleContext)*:8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>*@
->
-context3IndieVisible.Infra.Data.Context.IndieVisibleContext*
-1*°
-1"õ
-É
-yC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormCommentRepository.cs (	
-implicit return:>
-context3IndieVisible.Infra.Data.Context.IndieVisibleContextBB@
->IndieVisible.Infra.Data.Repository.BrainstormCommentRepository

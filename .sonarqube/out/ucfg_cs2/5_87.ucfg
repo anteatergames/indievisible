@@ -1,230 +1,0 @@
-
-uIndieVisible.Application.Services.LikeAppService.Save(IndieVisible.Application.ViewModels.UserLike.UserLikeViewModel)u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csp' p(+"0*
-0*	
-1
-2
-3*Ô
-2Ê
-„
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csz+ z(AJ
-%0DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*ó*î2
-0IndieVisible.Application.Services.LikeAppService"^
-_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepositoryñ
-ì
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cszJ z(V
-%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*M
-K
-	viewModel>IndieVisible.Application.ViewModels.UserLike.UserLikeViewModelÙÒ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csz+ z(W0
-%2*IndieVisible.Domain.Models.UserContentLike"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*L
-J
-%0DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository*
-
-%1System.Guid2GetById(System.Guid)Ï
-È
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csz  z(W6
-existing*IndieVisible.Domain.Models.UserContentLike"__id*2
-0
-%2*IndieVisible.Domain.Models.UserContentLike˘
-ˆ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs{ {($
-
-%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
-&IndieVisible.Domain.Core.Models.Entity*8
-6
-existing*IndieVisible.Domain.Models.UserContentLike*
-""*
-4
-5*µ
-4Ò
-Ó
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs} }(#
-%4AutoMapper.IMapper"__id*U*S2
-0IndieVisible.Application.Services.LikeAppService"
-_mapperAutoMapper.IMapper «
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs} }(<0
-%5*IndieVisible.Domain.Models.UserContentLike"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
-
-%4AutoMapper.IMapper*M
-K
-	viewModel>IndieVisible.Application.ViewModels.UserLike.UserLikeViewModel*8
-6
-existing*IndieVisible.Domain.Models.UserContentLike21Map<TSource, TDestination>(TSource, TDestination)È
-Ê
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs} }(<3
-model*IndieVisible.Domain.Models.UserContentLike"__id*2
-0
-%5*IndieVisible.Domain.Models.UserContentLike*
-6*—
-5Û
-
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÅ Å(#
-%6AutoMapper.IMapper"__id*U*S2
-0IndieVisible.Application.Services.LikeAppService"
-_mapperAutoMapper.IMapper‚ﬂ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÅ Å(C0
-%7*IndieVisible.Domain.Models.UserContentLike",AutoMapper.IMapper.Map<TDestination>(object)*
-
-%6AutoMapper.IMapper*M
-K
-	viewModel>IndieVisible.Application.ViewModels.UserLike.UserLikeViewModel2Map<TDestination>(object)Î
-Ë
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÅ Å(C3
-model*IndieVisible.Domain.Models.UserContentLike"__id*2
-0
-%7*IndieVisible.Domain.Models.UserContentLike*
-6*·
-6ò
-ï
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÑ Ñ( 
-%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*M
-K
-	viewModel>IndieVisible.Application.ViewModels.UserLike.UserLikeViewModelæ
-ª
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÑ$ Ñ(.
-%9System.Guid"__id*'*%
-System.Guid"
-EmptySystem.Guid˜
-Ù
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÑ Ñ(.
-%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
-System.Guid*
-
-%8System.Guid*
-
-%9System.Guid*
-7
-8*ˇ	
-7È
-Ê
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÜ Ü(*K
-%11DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*ó*î2
-0IndieVisible.Application.Services.LikeAppService"^
-_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository‰·
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csÜ Ü(5
-%12void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*M
-K
-%11DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository*5
-3
-model*IndieVisible.Domain.Models.UserContentLike2Add(TEntity)ˆ
-Û
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csá# á(+
-%13System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*5
-3
-model*IndieVisible.Domain.Models.UserContentLike®
-•
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csá á(+
-%14void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*M
-K
-	viewModel>IndieVisible.Application.ViewModels.UserLike.UserLikeViewModel*
-
-%13System.Guid*
-9*·
-8È
-Ê
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csã ã(*K
-%15DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*ó*î2
-0IndieVisible.Application.Services.LikeAppService"^
-_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepositoryÍÁ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csã ã(8
-%16void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*M
-K
-%15DIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository*5
-3
-model*IndieVisible.Domain.Models.UserContentLike2Update(TEntity)*
-9*Ô
-9≤
-Ø
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csé é(6
-%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*v*t2
-0IndieVisible.Application.Services.LikeAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkáÑ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csé é($
-%18bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
-6
-%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()ˆ
-Û
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csê5 ê(=
-%19System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*5
-3
-model*IndieVisible.Domain.Models.UserContentLikeÒÓ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csê ê(><
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>´
-®
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csê ê(4
-%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%19System.GuidÉ
-Ä
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csê ê(>?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-1
-10
-3*Ñ
-1–Õ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csî5 î(?
-%22string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getÒÓ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csî î(@<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>´
-®
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csî î(4
-%24void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
-<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%22stringÉ
-Ä
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csî î(@?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-10*√
-10"º
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csó ó(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*î
-3"é
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csò ò(	
-implicit return:K
-	viewModel>IndieVisible.Application.ViewModels.UserLike.UserLikeViewModelB42
-0IndieVisible.Application.Services.LikeAppService

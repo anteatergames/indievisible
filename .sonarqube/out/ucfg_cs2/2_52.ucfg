@@ -1,41 +1,0 @@
-
-VIndieVisible.Domain.Services.UserConnectionDomainService.Get(System.Guid, System.Guid)}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (!"0*∂
-0Ë
-Â
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs0 (?I
-%0CIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository"__id*í*è:
-8IndieVisible.Domain.Services.UserConnectionDomainService"Q
-
-repositoryCIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepositoryª∏
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs0 (
-%1System.Linq.IQueryable<T>"|IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Get(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*K
-I
-%0CIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository*
-""2CGet(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)¬
-ø
-~
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs0 (ê/
-%2)IndieVisible.Domain.Models.UserConnection"NSystem.Linq.Queryable.FirstOrDefault<TSource>(System.Linq.IQueryable<TSource>)*"
-System.Linq.Queryable*!
-
-%1System.Linq.IQueryable<T>˝
-˙
-~
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (ê?
-existingConnection)IndieVisible.Domain.Models.UserConnection"__id*1
-/
-%2)IndieVisible.Domain.Models.UserConnection"¬
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (&A
-?
-existingConnection)IndieVisible.Domain.Models.UserConnection*ö
-1"î
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (	
-implicit return:
-currentUserIdSystem.Guid:
-userIdSystem.GuidB<:
-8IndieVisible.Domain.Services.UserConnectionDomainService

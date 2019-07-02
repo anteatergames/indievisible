@@ -1,106 +1,0 @@
-
-eIndieVisible.Application.AutoMapper.ViewModelToDomainMappingProfile.ViewModelToDomainMappingProfile()ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (."0*î1
-0™
-–
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (P:
-%04AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profile™
-–
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (P:
-%14AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profile»¸
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (s:
-%24AutoMapper.IMappingExpression<TSource, TDestination>"éAutoMapper.IMappingExpression<TSource, TDestination>.ForMember<TMember>(System.Linq.Expressions.Expression<System.Func<TDestination, TMember>>, System.Action<AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>>)*<
-:
-%14AutoMapper.IMappingExpression<TSource, TDestination>*
-""*
-""2´ForMember<TMember>(System.Linq.Expressions.Expression<System.Func<TDestination, TMember>>, System.Action<AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>>)™
-–
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (N:
-%34AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profile™
-–
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (::
-%44AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profile»¸
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (e:
-%54AutoMapper.IMappingExpression<TSource, TDestination>"éAutoMapper.IMappingExpression<TSource, TDestination>.ForMember<TMember>(System.Linq.Expressions.Expression<System.Func<TDestination, TMember>>, System.Action<AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>>)*<
-:
-%44AutoMapper.IMappingExpression<TSource, TDestination>*
-""*
-""2´ForMember<TMember>(System.Linq.Expressions.Expression<System.Func<TDestination, TMember>>, System.Action<AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>>)»¸
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs (o:
-%64AutoMapper.IMappingExpression<TSource, TDestination>"éAutoMapper.IMappingExpression<TSource, TDestination>.ForMember<TMember>(System.Linq.Expressions.Expression<System.Func<TDestination, TMember>>, System.Action<AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>>)*<
-:
-%54AutoMapper.IMappingExpression<TSource, TDestination>*
-""*
-""2´ForMember<TMember>(System.Linq.Expressions.Expression<System.Func<TDestination, TMember>>, System.Action<AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>>)™
-–
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs" "(D:
-%74AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profile™
-–
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs& &(H:
-%84AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profile™
-–
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs' '(P:
-%94AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs+ +(T;
-%104AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs, ,(N;
-%114AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs- -(N;
-%124AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs. .(T;
-%134AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs2 2(D;
-%144AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs6 6(F;
-%154AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs8 8(F;
-%164AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profileš
-—
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs: :(N;
-%174AutoMapper.IMappingExpression<TSource, TDestination>"5AutoMapper.Profile.CreateMap<TSource, TDestination>()*
-AutoMapper.Profile*
-1*¦
-1" 
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\ViewModelToDomainMappingProfile.cs< <(	
-implicit returnBGE
-CIndieVisible.Application.AutoMapper.ViewModelToDomainMappingProfile

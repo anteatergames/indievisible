@@ -1,34 +1,0 @@
-
-]IndieVisible.Domain.Services.UserBadgeDomainService.Add(IndieVisible.Domain.Models.UserBadge)x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs4 4("0*¬
-0›
-⁄
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs6 6($D
-%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository"__id*ë*é5
-3IndieVisible.Domain.Services.UserBadgeDomainService"U
-userBadgeRepository>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository◊‘
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs6 6(/
-
-%1void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*F
-D
-%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository*/
--
-model$IndieVisible.Domain.Models.UserBadge2Add(TEntity)
-Ì
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs8 8(
-%2System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*/
--
-model$IndieVisible.Domain.Models.UserBadge"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs8 8(
-
-%2System.Guid*ï
-1"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs9 9(	
-implicit return:-
-model$IndieVisible.Domain.Models.UserBadgeB75
-3IndieVisible.Domain.Services.UserBadgeDomainService

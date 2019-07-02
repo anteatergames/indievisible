@@ -1,309 +1,0 @@
-
-üIndieVisible.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IHostingEnvironment, System.IServiceProvider)_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs≈ ≈("0*¯	
-0°û
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs«) «(@
-%0System.IServiceProvider"HMicrosoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices.get*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder2ApplicationServices.getì
-ê
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs«) «(kC
-%1=Microsoft.Extensions.DependencyInjection.IServiceScopeFactory"xMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<T>(System.IServiceProvider)*M"K
-IMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions*
-
-%0System.IServiceProvider≈¬
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs«) «(y<
-%26Microsoft.Extensions.DependencyInjection.IServiceScope"KMicrosoft.Extensions.DependencyInjection.IServiceScopeFactory.CreateScope()*E
-C
-%1=Microsoft.Extensions.DependencyInjection.IServiceScopeFactory2CreateScope()Î
-Ë
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs«! «(y?
-scope6Microsoft.Extensions.DependencyInjection.IServiceScope"__id*>
-<
-%26Microsoft.Extensions.DependencyInjection.IServiceScope*
-1*Á
-1ß§
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs… …(%
-%3System.IServiceProvider"JMicrosoft.Extensions.DependencyInjection.IServiceScope.ServiceProvider.get*A
-?
-scope6Microsoft.Extensions.DependencyInjection.IServiceScope2ServiceProvider.getë
-é
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs… …(II
-%4CIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext"pMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService<T>(System.IServiceProvider)*M"K
-IMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions*
-
-%3System.IServiceProvider∏µ
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs… …(RA
-%5;Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade"4Microsoft.EntityFrameworkCore.DbContext.Database.get*K
-I
-%4CIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext2Database.getÉ
-Ä
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs… …(\
-
-%6void"ÖMicrosoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade)*D"B
-@Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions*C
-A
-%5;Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacadeß§
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs   (%
-%7System.IServiceProvider"JMicrosoft.Extensions.DependencyInjection.IServiceScope.ServiceProvider.get*A
-?
-scope6Microsoft.Extensions.DependencyInjection.IServiceScope2ServiceProvider.getÅ
-˛
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs   (G9
-%83IndieVisible.Infra.Data.Context.IndieVisibleContext"pMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService<T>(System.IServiceProvider)*M"K
-IMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions*
-
-%7System.IServiceProvider®•
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs   (PA
-%9;Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade"4Microsoft.EntityFrameworkCore.DbContext.Database.get*;
-9
-%83IndieVisible.Infra.Data.Context.IndieVisibleContext2Database.getÑ
-Å
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs   (Z
-%10void"ÖMicrosoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade)*D"B
-@Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions*C
-A
-%9;Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade*
-2*Ù
-2Ê
-„
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÕ Õ(#
-%11bool"yMicrosoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment(Microsoft.AspNetCore.Hosting.IHostingEnvironment)*=";
-9Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions*9
-7
-env0Microsoft.AspNetCore.Hosting.IHostingEnvironment*
-3
-4*Ã
-3ß
-§
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csœ œ(/7
-%120Microsoft.AspNetCore.Builder.IApplicationBuilder"âMicrosoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage(Microsoft.AspNetCore.Builder.IApplicationBuilder)*A"?
-=Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilderó
-î
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs– –(*7
-%130Microsoft.AspNetCore.Builder.IApplicationBuilder"Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage(Microsoft.AspNetCore.Builder.IApplicationBuilder)*<":
-8Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
-5*∞
-4•
-¢
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs‘ ‘(67
-%140Microsoft.AspNetCore.Builder.IApplicationBuilder"ÖMicrosoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder, string)*;"9
-7Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
-""*
-5*¢H
-5ò
-ï
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs◊ ◊(%7
-%150Microsoft.AspNetCore.Builder.IApplicationBuilder"Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection(Microsoft.AspNetCore.Builder.IApplicationBuilder)*=";
-9Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilderÒÓ
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csŸ8 Ÿ(^H
-%16AMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider"AMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider£
-†
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csŸ< Ÿ(\
-%17void"dMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider.FileExtensionContentTypeProvider()*J
-H
-%16AMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProviderÖ
-Ç
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csŸ- Ÿ(^M
-providerAMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider"__id*J
-H
-%16AMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider¬
-ø
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs⁄ ⁄(;
-%184System.Collections.Generic.IDictionary<TKey, TValue>"NMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider.Mappings.get*O
-M
-providerAMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider∆
-√
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs⁄ ⁄(K
-%19"
-__arraySet*=
-;
-%184System.Collections.Generic.IDictionary<TKey, TValue>*
-""*
-""À»
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs‹ „(5
-%20.Microsoft.AspNetCore.Builder.StaticFileOptions".Microsoft.AspNetCore.Builder.StaticFileOptionsÓ
-Î
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs‹# ‹(4
-%21void"BMicrosoft.AspNetCore.Builder.StaticFileOptions.StaticFileOptions()*7
-5
-%20.Microsoft.AspNetCore.Builder.StaticFileOptions√
-¿
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csﬁ ﬁ(.
-%22void"FMicrosoft.AspNetCore.Builder.StaticFileOptions.ContentTypeProvider.set*7
-5
-%20.Microsoft.AspNetCore.Builder.StaticFileOptions*O
-M
-providerAMicrosoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider¯
-ı
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csﬂ ‚(
-%23void"DMicrosoft.AspNetCore.Builder.StaticFileOptions.OnPrepareResponse.set*7
-5
-%20.Microsoft.AspNetCore.Builder.StaticFileOptions*
-""Ì
-Í
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs‹ „(7
-%240Microsoft.AspNetCore.Builder.IApplicationBuilder"¢Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Builder.StaticFileOptions)*5"3
-1Microsoft.AspNetCore.Builder.StaticFileExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder*7
-5
-%20.Microsoft.AspNetCore.Builder.StaticFileOptions„
-‡
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÂ Â(
-%25void"vIndieVisible.Web.Middlewares.ApplicationBuilderExtensions.UseETagger(Microsoft.AspNetCore.Builder.IApplicationBuilder)*=";
-9IndieVisible.Web.Middlewares.ApplicationBuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder¢ü
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÁ; Á(R
-%26System.IServiceProvider"HMicrosoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices.get*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder2ApplicationServices.getÄ
-˝
-`
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÁ; Á(Ö6
-%27/Microsoft.Extensions.Options.IOptions<TOptions>"pMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService<T>(System.IServiceProvider)*M"K
-IMicrosoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions* 
-
-%26System.IServiceProvider·
-ﬁ
-`
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÁ1 Á(Ö:
-options/Microsoft.Extensions.Options.IOptions<TOptions>"__id*8
-6
-%27/Microsoft.Extensions.Options.IOptions<TOptions>®•
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csË' Ë(4>
-%287Microsoft.AspNetCore.Builder.RequestLocalizationOptions"9Microsoft.Extensions.Options.IOptions<TOptions>.Value.get*<
-:
-options/Microsoft.Extensions.Options.IOptions<TOptions>2	Value.getó
-î
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csË Ë(57
-%290Microsoft.AspNetCore.Builder.IApplicationBuilder"ªMicrosoft.AspNetCore.Builder.ApplicationBuilderExtensions.UseRequestLocalization(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Builder.RequestLocalizationOptions)*=";
-9Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder*@
->
-%287Microsoft.AspNetCore.Builder.RequestLocalizationOptionsú
-ô
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÍ Í(!7
-%300Microsoft.AspNetCore.Builder.IApplicationBuilder"Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy(Microsoft.AspNetCore.Builder.IApplicationBuilder)*A"?
-=Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilderé
-ã
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÏ Ï(#7
-%310Microsoft.AspNetCore.Builder.IApplicationBuilder"yMicrosoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication(Microsoft.AspNetCore.Builder.IApplicationBuilder)*9"7
-5Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilderç
-ä
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csÓ Ó(7
-%320Microsoft.AspNetCore.Builder.IApplicationBuilder"uMicrosoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession(Microsoft.AspNetCore.Builder.IApplicationBuilder)*<":
-8Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilderì
-ê
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs (&7
-%330Microsoft.AspNetCore.Builder.IApplicationBuilder"}IndieVisible.Web.Middlewares.BuilderExtensions.UseSitemapMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder, string)*2"0
-.IndieVisible.Web.Middlewares.BuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
-""≈¬
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¯ ¯(02
-%34+Microsoft.AspNetCore.Rewrite.RewriteOptions"+Microsoft.AspNetCore.Rewrite.RewriteOptionsÂ
-‚
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¯  ¯(.
-%35void"<Microsoft.AspNetCore.Rewrite.RewriteOptions.RewriteOptions()*4
-2
-%34+Microsoft.AspNetCore.Rewrite.RewriteOptionsÄ
-˝
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¯ ˙($2
-%36+Microsoft.AspNetCore.Rewrite.RewriteOptions"uMicrosoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToHttps(Microsoft.AspNetCore.Rewrite.RewriteOptions)*9"7
-5Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions*4
-2
-%34+Microsoft.AspNetCore.Rewrite.RewriteOptionsÏ
-È
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¯ ˚(7
-%370Microsoft.AspNetCore.Builder.IApplicationBuilder"†Microsoft.AspNetCore.Builder.RewriteBuilderExtensions.UseRewriter(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Rewrite.RewriteOptions)*9"7
-5Microsoft.AspNetCore.Builder.RewriteBuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder*4
-2
-%36+Microsoft.AspNetCore.Rewrite.RewriteOptions’
-“
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs˝ å(7
-%380Microsoft.AspNetCore.Builder.IApplicationBuilder"∞Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc(Microsoft.AspNetCore.Builder.IApplicationBuilder, System.Action<Microsoft.AspNetCore.Routing.IRouteBuilder>)*@">
-<Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions*9
-7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
-""ó
-î
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csê ê(,"
-%39System.Threading.Tasks.Task"AIndieVisible.Web.Startup.CreateUserRoles(System.IServiceProvider)*
-IndieVisible.Web.Startup*,
-*
-serviceProviderSystem.IServiceProviderª
-∏
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csê ê(3
-%40void""System.Threading.Tasks.Task.Wait()*$
-"
-%39System.Threading.Tasks.Task*
-6*{
-6"v
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csë ë(	
-implicit return:7
-app0Microsoft.AspNetCore.Builder.IApplicationBuilder:7
-env0Microsoft.AspNetCore.Hosting.IHostingEnvironment:*
-serviceProviderSystem.IServiceProviderB
-IndieVisible.Web.Startup

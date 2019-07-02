@@ -1,73 +1,0 @@
-
-qIndieVisible.Infra.Data.Migrations.gamification01.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csb  b($"0*ò
-0Ω∫
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csd e(,_
-%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""2DropTable(string, string)Ω∫
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csg h(+_
-%1YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""2DropTable(string, string)Ω∫
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csj k(&_
-%2YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""2DropTable(string, string)´®
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csp p(J
-%3System.Guid"System.GuidŒ
-À
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csp p("
-
-%4void"System.Guid.Guid(string)*
-
-%3System.Guid*
-""ü
-ú
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csrB r(T
-%5"__id*
-""≥∞
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csr r(U
-%6System.DateTime"System.DateTime∂
-≥
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csr r(#
-
-%7void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%6System.DateTime*2„*2*2*2*2*2/*2Œ*
-
-%5Ω∫
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.csm r(V_
-%8YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%3System.Guid*
-""*
-
-%6System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)*
-1*£
-1"ù
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190509011043_gamification01.css s(	
-implicit return:M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB53
-1IndieVisible.Infra.Data.Migrations.gamification01

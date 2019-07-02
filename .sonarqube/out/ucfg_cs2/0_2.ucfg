@@ -1,52 +1,0 @@
-
-1IndieVisible.Domain.Core.Models.Entity.ToString()k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs2 2('"0*∫	
-0°
-û
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs4 4(
-%0System.Type"object.GetType()*
-
-object∫
-∑
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs4 4(!
-%1string"%System.Reflection.MemberInfo.Name.get*
-
-%0System.Type†
-ù
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs4 4(+
-%2string"__concat*
-
-%1string*
-""ﬁ
-€
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs4. 4(0
-%3System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get**(
-&IndieVisible.Domain.Core.Models.Entity≠
-™
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs4 4(0
-%4string"__concat*
-
-%2string*
-
-%3System.Guid†
-ù
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs4 4(6
-%5string"__concat*
-
-%4string*
-"""}
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs4 4(7
-
-%5string*à
-1"Ç
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain.Core\Models\Entity.cs5 5(	
-implicit returnB*(
-&IndieVisible.Domain.Core.Models.Entity

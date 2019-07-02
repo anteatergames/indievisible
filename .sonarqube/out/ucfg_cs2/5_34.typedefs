@@ -1,9 +1,0 @@
-Â
-CIndieVisible.Application.ViewModels.User.ConnectionControlViewModelobject€
-ConnectionControlViewModel()`IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.ConnectionControlViewModel()v
-ConnectionIsPending.get[IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.ConnectionIsPending.getv
-ConnectionIsPending.set[IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.ConnectionIsPending.setx
-CurrentUserConnected.get\IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.CurrentUserConnected.getx
-CurrentUserConnected.set\IndieVisible.Application.ViewModels.User.ConnectionControlViewModel.CurrentUserConnected.set„
-CurrentUserWantsToFollowMe.getbIndieVisible.Application.ViewModels.User.ConnectionControlViewModel.CurrentUserWantsToFollowMe.get„
-CurrentUserWantsToFollowMe.setbIndieVisible.Application.ViewModels.User.ConnectionControlViewModel.CurrentUserWantsToFollowMe.set

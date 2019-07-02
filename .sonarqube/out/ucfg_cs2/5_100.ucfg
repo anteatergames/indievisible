@@ -1,37 +1,0 @@
-
-ÝIndieVisible.Application.Services.UserConnectionAppService.UserConnectionAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService)
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs ('"0*ø
-0ˆ
-…
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs ( \<
-:IndieVisible.Application.Services.UserConnectionAppService"
-mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperÊ
-Ç
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs ((}<
-:IndieVisible.Application.Services.UserConnectionAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork•
-’
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs (J¢<
-:IndieVisible.Application.Services.UserConnectionAppService"b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService"__id*d
-b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainService*
-1*œ
-1"–
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserConnectionAppService.cs (	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:b
-userConnectionDomainServiceCIndieVisible.Domain.Interfaces.Service.IUserConnectionDomainServiceB><
-:IndieVisible.Application.Services.UserConnectionAppService

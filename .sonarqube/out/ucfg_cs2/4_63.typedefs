@@ -1,4 +1,0 @@
-©
-4IndieVisible.Infra.Data.Repository.ProfileRepository6IndieVisible.Infra.Data.Repository.Repository<TEntity>objectÅ
-FProfileRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext){IndieVisible.Infra.Data.Repository.ProfileRepository.ProfileRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)i
-GetByUserId(System.Guid)MIndieVisible.Infra.Data.Repository.ProfileRepository.GetByUserId(System.Guid)

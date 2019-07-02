@@ -1,92 +1,0 @@
-
-ÑIndieVisible.Application.AutoMapper.Resolvers.GamePlatformToDomainResolver.Resolve(IndieVisible.Application.ViewModels.Game.GameViewModel, IndieVisible.Domain.Models.Game, string, AutoMapper.ResolutionContext)‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs ("0*Ê
-0À
-½
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs (%
-%0string"__id**
-string"
-Emptystringµ
-²
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs (%
-resultstring"__id*
-
-%0stringÁ
-¾
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs ( (
-%1"System.Collections.Generic.List<T>"DIndieVisible.Application.ViewModels.Game.GameViewModel.Platforms.get*B
-@
-source6IndieVisible.Application.ViewModels.Game.GameViewModelý
-ú
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs ((
-
-%2bool""object.operator ==(object, object)*
-"
-object**
-(
-%1"System.Collections.Generic.List<T>*
-""*
-1
-2*‰
-2Á
-¾
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs- (=(
-%3"System.Collections.Generic.List<T>"DIndieVisible.Application.ViewModels.Game.GameViewModel.Platforms.get*B
-@
-source6IndieVisible.Application.ViewModels.Game.GameViewModel·
-´
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs- (C
-
-%4bool"TSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
-System.Linq.Enumerable**
-(
-%3"System.Collections.Generic.List<T>*
-1
-3*¤
-1"ž
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs (
-
-resultstring*¿
-3Á
-¾
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs& (6(
-%5"System.Collections.Generic.List<T>"DIndieVisible.Application.ViewModels.Game.GameViewModel.Platforms.get*B
-@
-source6IndieVisible.Application.ViewModels.Game.GameViewModelœ
-™
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs (7
-%6string"?string.Join<T>(char, System.Collections.Generic.IEnumerable<T>)*
-"
-string*
-""**
-(
-%5"System.Collections.Generic.List<T>µ
-²
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs (7
-resultstring"__id*
-
-%6string"ž
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs (
-
-resultstring*¥
-4"Ÿ
-‡
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\AutoMapper\Resolvers\GamePlatformResolver.cs (	
-implicit return:@
-source6IndieVisible.Application.ViewModels.Game.GameViewModel:.
-destinationIndieVisible.Domain.Models.Game:
-
-destMemberstring:'
-contextAutoMapper.ResolutionContextBNL
-JIndieVisible.Application.AutoMapper.Resolvers.GamePlatformToDomainResolver

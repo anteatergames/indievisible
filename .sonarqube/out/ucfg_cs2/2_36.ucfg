@@ -1,33 +1,0 @@
-
-LIndieVisible.Domain.Services.UserBadgeDomainService.GetByUserId(System.Guid)x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs(& ((1"0*à	
-0›
-⁄
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs*+ *(CD
-%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository"__id*ë*é5
-3IndieVisible.Domain.Services.UserBadgeDomainService"U
-userBadgeRepository>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepositoryÇˇ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs*+ *(W/
-%1)System.Collections.Generic.IEnumerable<T>"WIndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository.GetByUserId(System.Guid)*F
-D
-%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository*
-
-userIdSystem.Guid2GetByUserId(System.Guid)Í
-Á
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs*# *(W2
-model)System.Collections.Generic.IEnumerable<T>"__id*1
-/
-%1)System.Collections.Generic.IEnumerable<T>"∞
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs, ,(4
-2
-model)System.Collections.Generic.IEnumerable<T>*ï
-1"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs- -(	
-implicit return:
-userIdSystem.GuidB75
-3IndieVisible.Domain.Services.UserBadgeDomainService

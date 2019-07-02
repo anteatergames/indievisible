@@ -1,19 +1,0 @@
-
-ÖIndieVisible.Infra.Data.Repository.GamificationRepository.GamificationRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.cs (%"0*ê
-0Ö
-Ç
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.csC (R
-
-%0void"vIndieVisible.Infra.Data.Repository.Repository<TEntity>.Repository(IndieVisible.Infra.Data.Context.IndieVisibleContext)*:8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>*@
->
-context3IndieVisible.Infra.Data.Context.IndieVisibleContext*
-1*õ
-1"ï
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.cs (	
-implicit return:>
-context3IndieVisible.Infra.Data.Context.IndieVisibleContextB=;
-9IndieVisible.Infra.Data.Repository.GamificationRepository

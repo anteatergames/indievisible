@@ -1,205 +1,0 @@
-
-EIndieVisible.Application.Services.GameAppService.GetById(System.Guid)u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csP0 P(7"0*
-0*	
-1
-2
-3*°<
-2¬
-ø
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csV V('?
-%09IndieVisible.Domain.Interfaces.Repository.IGameRepository"__id**}2
-0IndieVisible.Application.Services.GameAppService"G
-
-repository9IndieVisible.Domain.Interfaces.Repository.IGameRepositoryﬁ€
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csV V(3%
-%1IndieVisible.Domain.Models.Game"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*A
-?
-%09IndieVisible.Domain.Interfaces.Repository.IGameRepository*
-
-idSystem.Guid2GetById(System.Guid)”
-–
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csV V(3(
-modelIndieVisible.Domain.Models.Game"__id*'
-%
-%1IndieVisible.Domain.Models.Game
-Ì
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csX# X()
-%2AutoMapper.IMapper"__id*T*R2
-0IndieVisible.Application.Services.GameAppService"
-mapperAutoMapper.IMapper…∆
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csX# X(C<
-%36IndieVisible.Application.ViewModels.Game.GameViewModel",AutoMapper.IMapper.Map<TDestination>(object)*
-
-%2AutoMapper.IMapper**
-(
-modelIndieVisible.Domain.Models.Game2Map<TDestination>(object)˛
-˚
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csX X(C<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel"__id*>
-<
-%36IndieVisible.Application.ViewModels.Game.GameViewModelÙ
-Ò
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csZ Z(!
-
-%4void"vIndieVisible.Application.Services.GameAppService.SetWebsiteUrl(IndieVisible.Application.ViewModels.Game.GameViewModel)*4"2
-0IndieVisible.Application.Services.GameAppService*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel‘
-—
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs\ \(1C
-%5=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository"__id*å*â2
-0IndieVisible.Application.Services.GameAppService"S
-gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepositoryõò
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs\ \(O	
-%6int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*E
-C
-%5=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository*
-""2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)ô
-ñ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs\ \(O
-
-%7void"DIndieVisible.Application.ViewModels.Game.GameViewModel.LikeCount.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-	
-%6int›
-⁄
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs]# ](:E
-%8?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*ì*ê2
-0IndieVisible.Application.Services.GameAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService·ﬁ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs]# ](X	
-%9int"£IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService.Count(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.GameFollow, bool>>)*G
-E
-%8?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService*
-""2cCount(System.Linq.Expressions.Expression<System.Func<IndieVisible.Domain.Models.GameFollow, bool>>)û
-õ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs] ](X
-%10void"HIndieVisible.Application.ViewModels.Game.GameViewModel.FollowerCount.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-	
-%9int’
-“
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs_& _(8D
-%11=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository"__id*å*â2
-0IndieVisible.Application.Services.GameAppService"S
-gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository±Æ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs_& _(A 
-%12System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*F
-D
-%11=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository2GetAll()‘
-—
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs_& _(
-%13bool"ÉSystem.Linq.Queryable.Any<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
-System.Linq.Queryable*"
- 
-%12System.Linq.IQueryable<T>*
-""û
-õ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs_ _(
-%14void"FIndieVisible.Application.ViewModels.BaseViewModel.CurrentUserLiked.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-
-%13boolﬁ
-€
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs`* `(FF
-%15?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*ì*ê2
-0IndieVisible.Application.Services.GameAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainServiceª∏
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs`* `(O0
-%16)System.Collections.Generic.IEnumerable<T>"9IndieVisible.Domain.Interfaces.IDomainService<T>.GetAll()*H
-F
-%15?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService2GetAll()“
-œ
-v
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs`* `(ç
-%17bool"pSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
-System.Linq.Enumerable*2
-0
-%16)System.Collections.Generic.IEnumerable<T>*
-""£
-†
-v
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.cs` `(ç
-%18void"JIndieVisible.Application.ViewModels.BaseViewModel.CurrentUserFollowing.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-
-%17boolÔÏ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csb b(A<
-%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>”
-–
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csb b(=
-%20void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModelÅ
-˛
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csb b(A?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%195IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
-1
-4
-3*˚
-1ŒÀ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csf> f(H
-%21string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getÔÏ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csf f(I<
-%225IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>©
-¶
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csf f(=
-%23void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
-<
-%225IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%21stringÅ
-˛
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csf f(I?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%225IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-4*¿
-4"∫
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csi i(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*í
-3"å
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameAppService.csj j(	
-implicit return:
-idSystem.GuidB42
-0IndieVisible.Application.Services.GameAppService

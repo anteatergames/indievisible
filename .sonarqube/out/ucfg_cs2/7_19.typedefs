@@ -1,11 +1,0 @@
-›
-1IndieVisible.Web.Controllers.BrainstormController6IndieVisible.Web.Controllers.Base.SecureBaseController0IndieVisible.Web.Controllers.Base.BaseController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectÕ
-OBrainstormController(IndieVisible.Application.Interfaces.IBrainstormAppService)IndieVisible.Web.Controllers.BrainstormController.BrainstormController(IndieVisible.Application.Interfaces.IBrainstormAppService)\
-Index(System.Guid?)EIndieVisible.Web.Controllers.BrainstormController.Index(System.Guid?)^
-NewIdea(System.Guid)FIndieVisible.Web.Controllers.BrainstormController.NewIdea(System.Guid)N
-NewSession()>IndieVisible.Web.Controllers.BrainstormController.NewSession()^
-Details(System.Guid)FIndieVisible.Web.Controllers.BrainstormController.Details(System.Guid)X
-List(System.Guid)CIndieVisible.Web.Controllers.BrainstormController.List(System.Guid)Î
-LSave(IndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel)~IndieVisible.Web.Controllers.BrainstormController.Save(IndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel)ã
-VSaveSession(IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel)ˆIndieVisible.Web.Controllers.BrainstormController.SaveSession(IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel)Î
-LVote(IndieVisible.Application.ViewModels.Brainstorm.BrainstormVoteViewModel)~IndieVisible.Web.Controllers.BrainstormController.Vote(IndieVisible.Application.ViewModels.Brainstorm.BrainstormVoteViewModel)

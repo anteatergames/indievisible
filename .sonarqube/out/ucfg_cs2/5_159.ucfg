@@ -1,68 +1,0 @@
-
-]IndieVisible.Application.Services.UserContentAppService.SetFeaturedImage(System.Guid, string)~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs£ £(."0*Á
-0Ÿ
-÷
-~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs• •(;
-
-%0bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-featuredImagestring*
-1
-2*ÿ
-2ˆ
-Û
-~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs•T •(r
-%1string";IndieVisible.Application.Constants.DefaultFeaturedImage.get*&"$
-"IndieVisible.Application.Constants—
-Œ
-~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs•? •(s
-
-%2bool"string.Equals(string)*
-
-featuredImagestring*
-
-%1string*
-1
-3*Ç
-1˜
-Ù
-
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs•v •(î
-%3string";IndieVisible.Application.Constants.DefaultFeaturedImage.get*&"$
-"IndieVisible.Application.Constants*
-4*§
-3ö
-ó
-Ä
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs•≤ •(»
-%4"__id*
-""¸
-˘
-Ä
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs•ó •(ÿ
-%5string"tIndieVisible.Application.Formatters.UrlFormatter.Image(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string)*4"2
-0IndieVisible.Application.Formatters.UrlFormatter*
-
-userIdSystem.Guid*
-
-%4*
-
-featuredImagestring*
-4*ñ
-4"ê
-
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs• •(Ÿ
-	{unknown}*õ
-5"ï
-~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs¶ ¶(	
-implicit return:
-userIdSystem.Guid:
-featuredImagestringB;"9
-7IndieVisible.Application.Services.UserContentAppService

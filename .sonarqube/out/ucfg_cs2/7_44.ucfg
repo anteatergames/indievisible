@@ -1,95 +1,0 @@
-
-¿IndieVisible.Web.ViewComponents.NotificationViewComponent.NotificationViewComponent(Microsoft.AspNetCore.Http.IHttpContextAccessor, IndieVisible.Application.Interfaces.INotificationAppService)~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (("0*˝
-0⁄
-◊
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (6Ö;
-9IndieVisible.Web.ViewComponents.NotificationViewComponent"F
-_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*G
-E
-httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor˙
-˜
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (<ï;
-9IndieVisible.Web.ViewComponents.NotificationViewComponent"V
-_notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService"__id*W
-U
-notificationAppService;IndieVisible.Application.Interfaces.INotificationAppService 
-«
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (,4
-%0.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*à*Ö;
-9IndieVisible.Web.ViewComponents.NotificationViewComponent"F
-_httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessorπ∂
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (8+
-%1%Microsoft.AspNetCore.Http.HttpContext">Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext.get*6
-4
-%0.Microsoft.AspNetCore.Http.IHttpContextAccessor2HttpContext.getê
-ç
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (=,
-%2&System.Security.Claims.ClaimsPrincipal".Microsoft.AspNetCore.Http.HttpContext.User.get*-
-+
-%1%Microsoft.AspNetCore.Http.HttpContextó
-î
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.csM (f
-%3"__id*
-""‰
-·
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (g
-%4string"iSystem.Security.Claims.PrincipalExtensions.FindFirstValue(System.Security.Claims.ClaimsPrincipal, string)*.",
-*System.Security.Claims.PrincipalExtensions*.
-,
-%2&System.Security.Claims.ClaimsPrincipal*
-
-%3ß
-§
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (g
-idstring"__id*
-
-%4stringŒ
-À
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (.
-
-%5bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-idstring*
-1
-2*´
-1£†
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (%
-%6System.Guid"System.GuidŒ
-À
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (!
-
-%7void"System.Guid.Guid(string)*
-
-%6System.Guid*
-
-idstring©
-¶
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs (%
-
-%8void"DIndieVisible.Web.ViewComponents.NotificationViewComponent.UserId.set*=;
-9IndieVisible.Web.ViewComponents.NotificationViewComponent*
-
-%6System.Guid*
-2*õ
-2"ï
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\ViewComponents\NotificationViewComponent.cs   (	
-implicit return:E
-httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor:U
-notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceB=;
-9IndieVisible.Web.ViewComponents.NotificationViewComponent

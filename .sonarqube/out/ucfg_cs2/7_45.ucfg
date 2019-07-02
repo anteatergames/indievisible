@@ -1,51 +1,0 @@
-
-{IndieVisible.Web.Extensions.AutoMapperSetup.AddAutoMapperSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\AutoMapperConfig.cs
- 
-(-"0*“
-0…
-‚
-q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\AutoMapperConfig.cs ( 
-
-%0bool""object.operator ==(object, object)*
-"
-object*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""*
-1
-2*²
-1¸µ
-q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\AutoMapperConfig.cs (A"
-%1System.ArgumentNullException"System.ArgumentNullExceptionì
-é
-q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\AutoMapperConfig.cs (/
-
-%2void":System.ArgumentNullException.ArgumentNullException(string)*$
-"
-%1System.ArgumentNullException*
-""*
-3*Ð
-2£
- 
-q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\AutoMapperConfig.cs ($A
-%3;Microsoft.Extensions.DependencyInjection.IServiceCollection"qAutoMapper.ServiceCollectionExtensions.AddAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)**"(
-&AutoMapper.ServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollectionŸ
-œ
-q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\AutoMapperConfig.cs (/$
-%4AutoMapper.MapperConfiguration"GIndieVisible.Application.AutoMapper.AutoMapperConfig.RegisterMappings()*8"6
-4IndieVisible.Application.AutoMapper.AutoMapperConfig*
-3*Ž
-3"ˆ
-q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Extensions\AutoMapperConfig.cs (	
-implicit return:G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollectionB/"-
-+IndieVisible.Web.Extensions.AutoMapperSetup

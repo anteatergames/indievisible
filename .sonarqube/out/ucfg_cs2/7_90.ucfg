@@ -1,151 +1,0 @@
-
-EIndieVisible.Web.Controllers.BrainstormController.Index(System.Guid?)v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs (""5*≠
-0–
-Õ
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csI (]?
-%09IndieVisible.Application.Interfaces.IBrainstormAppService"__id*ã*à3
-1IndieVisible.Web.Controllers.BrainstormController"Q
-brainstormAppService9IndieVisible.Application.Interfaces.IBrainstormAppServiceè
-å
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csj (|
-%1System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*53
-1IndieVisible.Web.Controllers.BrainstormControllerÇˇ
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.csI (}?
-%29IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"RIndieVisible.Application.Interfaces.IBrainstormAppService.GetSessions(System.Guid)*A
-?
-%09IndieVisible.Application.Interfaces.IBrainstormAppService*
-
-%1System.Guid2GetSessions(System.Guid)ã
-à
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs> (}E
-sessions9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
-?
-%29IndieVisible.Domain.ValueObjects.OperationResultListVo<T>ñ
-ì
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs (>
-%38Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.ViewData.get*'%
-#Microsoft.AspNetCore.Mvc.Controller∫
-∑
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs# (1/
-%4)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*G
-E
-sessions9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>ä
-á
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs (1
-%5"
-__arraySet*@
->
-%38Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary*
-""*1
-/
-%4)System.Collections.Generic.IEnumerable<T>ƒ
-¡
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs   (
-
-%6bool"System.Nullable<T>.HasValue.get*
-
-idSystem.Nullable<T>*
-1
-2*ú
-1∫
-∑
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs"! "(//
-%7)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*G
-E
-sessions9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>†
-ù
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs"! "(UO
-%8IIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel"{System.Linq.Enumerable.FirstOrDefault<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
-System.Linq.Enumerable*1
-/
-%7)System.Collections.Generic.IEnumerable<T>*
-""±
-Æ
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs" "(U[
-currentSessionIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel"__id*Q
-O
-%8IIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel*
-3*û
-2∫
-∑
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs&! &(//
-%9)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*G
-E
-sessions9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>°
-û
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs&! &(iP
-%10IIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel"{System.Linq.Enumerable.FirstOrDefault<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
-System.Linq.Enumerable*1
-/
-%9)System.Collections.Generic.IEnumerable<T>*
-""≤
-Ø
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs& &(i[
-currentSessionIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel"__id*R
-P
-%10IIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel*
-3*û
-3ÔÏ
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs* *('*
-%11#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*]
-[
-currentSessionIIndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel2View(object)"¶
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs* *((,
-*
-%11#Microsoft.AspNetCore.Mvc.ViewResult*ì
-4"ç
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs+ +(	
-implicit return*—
-5¨
-©
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs ("
-%12"__entrypoint*
-
-idSystem.Nullable<T>Ó
-Î
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs	 (&
-%13"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-idSystem.Nullable<T>Ó
-Î
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs	 (
-%14"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-idSystem.Nullable<T>µ
-≤
-v
-lC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\BrainstormController.cs# (+
-idSystem.Nullable<T>"__annotation*
-
-%13*
-
-%14*
-0:
-idSystem.Nullable<T>B53
-1IndieVisible.Web.Controllers.BrainstormController

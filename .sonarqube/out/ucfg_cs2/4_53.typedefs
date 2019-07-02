@@ -1,6 +1,0 @@
-Û
-0IndieVisible.Infra.Data.Migrations.votingcontext2Microsoft.EntityFrameworkCore.Migrations.Migrationobject¯
-=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)nIndieVisible.Infra.Data.Migrations.votingcontext.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)³
-?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)pIndieVisible.Infra.Data.Migrations.votingcontext.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)­
-<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)mIndieVisible.Infra.Data.Migrations.votingcontext.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)S
-votingcontext()@IndieVisible.Infra.Data.Migrations.votingcontext.votingcontext()

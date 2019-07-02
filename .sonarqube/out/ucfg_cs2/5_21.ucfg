@@ -1,38 +1,0 @@
-
-àIndieVisible.Application.Services.UserPreferencesAppService.UserPreferencesAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository)€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs (("0*ä
-0Œ
-‰
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs (^=
-;IndieVisible.Application.Services.UserPreferencesAppService"
-_mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperÎ
-Ë
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs ($=
-;IndieVisible.Application.Services.UserPreferencesAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkù
-ö
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs ($”=
-;IndieVisible.Application.Services.UserPreferencesAppService"S
-_repositoryDIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository"__id*T
-R
-
-repositoryDIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository*
-1*ž
-1"˜
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserPreferencesAppService.cs (	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:R
-
-repositoryDIndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepositoryB?=
-;IndieVisible.Application.Services.UserPreferencesAppService

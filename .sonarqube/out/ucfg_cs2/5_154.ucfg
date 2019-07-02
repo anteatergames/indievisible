@@ -1,296 +1,0 @@
-
-ÉIndieVisible.Application.Services.BrainstormAppService.Save(IndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel)}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csÇ' Ç(+"0*
-0*	
-1
-2
-3*†
-2Ù
-Ò
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cså* å(BI
-%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository"__id*û*õ8
-6IndieVisible.Application.Services.BrainstormAppService"_
-brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository¶
-£
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csåK å(W
-%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*U
-S
-	viewModelFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel˙˜
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cså* å(X/
-%2)IndieVisible.Domain.Models.BrainstormIdea"MIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetById(System.Guid)*K
-I
-%0CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository*
-
-%1System.Guid2GetById(System.Guid)Ú
-Ô
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cså å(X5
-existing)IndieVisible.Domain.Models.BrainstormIdea"__id*1
-/
-%2)IndieVisible.Domain.Models.BrainstormIdeaÄ
-˝
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csç ç($
-
-%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
-&IndieVisible.Domain.Core.Models.Entity*7
-5
-existing)IndieVisible.Domain.Models.BrainstormIdea*
-""*
-4
-5*÷
-4˛
-˚
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csè è("
-%4AutoMapper.IMapper"__id*Z*X8
-6IndieVisible.Application.Services.BrainstormAppService"
-mapperAutoMapper.IMapperÿ’
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csè è(;/
-%5)IndieVisible.Domain.Models.BrainstormIdea"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
-
-%4AutoMapper.IMapper*U
-S
-	viewModelFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel*7
-5
-existing)IndieVisible.Domain.Models.BrainstormIdea21Map<TSource, TDestination>(TSource, TDestination)Ô
-Ï
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csè è(;2
-model)IndieVisible.Domain.Models.BrainstormIdea"__id*1
-/
-%5)IndieVisible.Domain.Models.BrainstormIdea*
-6*Ì
-5˛
-˚
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csì ì("
-%6AutoMapper.IMapper"__id*Z*X8
-6IndieVisible.Application.Services.BrainstormAppService"
-mapperAutoMapper.IMapperÔÏ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csì ì(A/
-%7)IndieVisible.Domain.Models.BrainstormIdea",AutoMapper.IMapper.Map<TDestination>(object)*
-
-%6AutoMapper.IMapper*U
-S
-	viewModelFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel2Map<TDestination>(object)Ô
-Ï
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csì ì(A2
-model)IndieVisible.Domain.Models.BrainstormIdea"__id*1
-/
-%7)IndieVisible.Domain.Models.BrainstormIdea*
-6*˚
-6¶
-£
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csñ ñ( 
-%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*U
-S
-	viewModelFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModelƒ
-¡
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csñ$ ñ(.
-%9System.Guid"__id*'*%
-System.Guid"
-EmptySystem.Guid˝
-˙
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csñ ñ(.
-%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
-System.Guid*
-
-%8System.Guid*
-
-%9System.Guid*
-7
-8*§#
-7˛
-˚
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csò0 ò(KM
-%11FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository"__id*§*°8
-6IndieVisible.Application.Services.BrainstormAppService"e
-brainstormSessionRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository¬ø
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csò0 ò(T 
-%12System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*O
-M
-%11FIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository2GetAll()ê
-ç
-~
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csò0 ò(é3
-%13,IndieVisible.Domain.Models.BrainstormSession"éSystem.Linq.Queryable.FirstOrDefault<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
-System.Linq.Queryable*"
- 
-%12System.Linq.IQueryable<T>*
-""˘
-ˆ
-~
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csò& ò(é7
-session,IndieVisible.Domain.Models.BrainstormSession"__id*5
-3
-%13,IndieVisible.Domain.Models.BrainstormSessionÄ
-˝
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csö& ö(0
-%14System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*9
-7
-session,IndieVisible.Domain.Models.BrainstormSessionî
-ë
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csö ö(0
-%15void"7IndieVisible.Domain.Models.BrainstormIdea.SessionId.set*4
-2
-model)IndieVisible.Domain.Models.BrainstormIdea*
-
-%14System.Guidı
-Ú
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csú ú(,J
-%16CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository"__id*û*õ8
-6IndieVisible.Application.Services.BrainstormAppService"_
-brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepositoryËÂ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csú ú(7
-%17void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*L
-J
-%16CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository*4
-2
-model)IndieVisible.Domain.Models.BrainstormIdea2Add(TEntity)˚
-¯
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csù# ù(+
-%18System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*4
-2
-model)IndieVisible.Domain.Models.BrainstormIdea∂
-≥
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csù ù(+
-%19void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*U
-S
-	viewModelFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModel*
-
-%18System.GuidÚ
-Ô
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csü ü(2H
-%20AIndieVisible.Domain.Interfaces.Service.IGamificationDomainService"__id*ù*ö8
-6IndieVisible.Application.Services.BrainstormAppService"^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService´
-®
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csüA ü(Q
-%21System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*U
-S
-	viewModelFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModeló
-î
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csüS ü(o
-%22"__id*
-""”–
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csü ü(p
-%23void"ãIndieVisible.Domain.Interfaces.Service.IGamificationDomainService.ProcessAction(System.Guid, IndieVisible.Domain.Core.Enums.PlatformAction)*J
-H
-%20AIndieVisible.Domain.Interfaces.Service.IGamificationDomainService*
-
-%21System.Guid*
-
-%222IProcessAction(System.Guid, IndieVisible.Domain.Core.Enums.PlatformAction)*
-9*Ò
-8ı
-Ú
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs£ £(,J
-%24CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository"__id*û*õ8
-6IndieVisible.Application.Services.BrainstormAppService"_
-brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepositoryÓÎ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs£ £(:
-%25void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*L
-J
-%24CIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository*4
-2
-model)IndieVisible.Domain.Models.BrainstormIdea2Update(TEntity)*
-9*ó
-9Ω
-∫
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs¶ ¶(6
-%26/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*{*y8
-6IndieVisible.Application.Services.BrainstormAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkçä
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs¶ ¶(#
-%27bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
-6
-%26/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()˚
-¯
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs®5 ®(=
-%28System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*4
-2
-model)IndieVisible.Domain.Models.BrainstormIdea˜Ù
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs® ®(><
-%295IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
-Æ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs® ®(4
-%30void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%295IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%28System.Guidâ
-Ü
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs® ®(>?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%295IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-1
-10
-3*ú
-1÷”
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs¨5 ¨(?
-%31string"System.Exception.Message.get*
-
-exSystem.Exception2Message.get˜Ù
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs¨ ¨(@<
-%325IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
-Æ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs¨ ¨(4
-%33void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
-<
-%325IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%31stringâ
-Ü
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs¨ ¨(@?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%325IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-10*…
-10"¬
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.csØ Ø(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ö
-3"î
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs∞ ∞(	
-implicit return:S
-	viewModelFIndieVisible.Application.ViewModels.Brainstorm.BrainstormIdeaViewModelB:8
-6IndieVisible.Application.Services.BrainstormAppService

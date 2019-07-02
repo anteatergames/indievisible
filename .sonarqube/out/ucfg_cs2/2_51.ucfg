@@ -1,38 +1,0 @@
-
-HIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Update(T)x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csM M("0*é
-0÷
-ô
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csO O(
-%0TRepository"__id*_*]@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
-
-repositoryTRepository‡„
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csO O()
-
-%1void"HIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Update(TEntity)*
-
-%0TRepository*
-
-
-modelT2Update(TEntity)Í
-Ê
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csQ Q(
-%2System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*
-
-
-modelT"
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csQ Q(
-
-%2System.Guid*•
-1"
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.csR R(	
-implicit return:
-
-modelTBB@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

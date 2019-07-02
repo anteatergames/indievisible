@@ -1,331 +1,0 @@
-
-oIndieVisible.Infra.Data.Context.IndieVisibleContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs<  <(/"0*Å£
-0ÌÍ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs>, >(D9
-%03IndieVisible.Infra.Data.Mappings.NotificationConfig"3IndieVisible.Infra.Data.Mappings.NotificationConfigê
-ç
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs>0 >(B
-
-%1void"HIndieVisible.Infra.Data.Mappings.NotificationConfig.NotificationConfig()*;
-9
-%03IndieVisible.Infra.Data.Mappings.NotificationConfigíè
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs> >(E0
-%2*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*;
-9
-%03IndieVisible.Infra.Data.Mappings.NotificationConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)›⁄
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs@, @(<1
-%3+IndieVisible.Infra.Data.Mappings.GameConfig"+IndieVisible.Infra.Data.Mappings.GameConfig¯
-ı
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs@0 @(:
-
-%4void"8IndieVisible.Infra.Data.Mappings.GameConfig.GameConfig()*3
-1
-%3+IndieVisible.Infra.Data.Mappings.GameConfigäá
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs@ @(=0
-%5*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*3
-1
-%3+IndieVisible.Infra.Data.Mappings.GameConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)Â‚
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csA, A(@5
-%6/IndieVisible.Infra.Data.Mappings.GameLikeConfig"/IndieVisible.Infra.Data.Mappings.GameLikeConfigÑ
-Å
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csA0 A(>
-
-%7void"@IndieVisible.Infra.Data.Mappings.GameLikeConfig.GameLikeConfig()*7
-5
-%6/IndieVisible.Infra.Data.Mappings.GameLikeConfigéã
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csA A(A0
-%8*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*7
-5
-%6/IndieVisible.Infra.Data.Mappings.GameLikeConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÈÊ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csB, B(B7
-%91IndieVisible.Infra.Data.Mappings.GameFollowConfig"1IndieVisible.Infra.Data.Mappings.GameFollowConfigã
-à
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csB0 B(@
-%10void"DIndieVisible.Infra.Data.Mappings.GameFollowConfig.GameFollowConfig()*9
-7
-%91IndieVisible.Infra.Data.Mappings.GameFollowConfigëé
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csB B(C1
-%11*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*9
-7
-%91IndieVisible.Infra.Data.Mappings.GameFollowConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)‰·
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csD, D(?5
-%12.IndieVisible.Infra.Data.Mappings.ProfileConfig".IndieVisible.Infra.Data.Mappings.ProfileConfigÉ
-Ä
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csD0 D(=
-%13void">IndieVisible.Infra.Data.Mappings.ProfileConfig.ProfileConfig()*7
-5
-%12.IndieVisible.Infra.Data.Mappings.ProfileConfigèå
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csD D(@1
-%14*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*7
-5
-%12.IndieVisible.Infra.Data.Mappings.ProfileConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÍÁ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csE, E(B8
-%151IndieVisible.Infra.Data.Mappings.UserFollowConfig"1IndieVisible.Infra.Data.Mappings.UserFollowConfigå
-â
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csE0 E(@
-%16void"DIndieVisible.Infra.Data.Mappings.UserFollowConfig.UserFollowConfig()*:
-8
-%151IndieVisible.Infra.Data.Mappings.UserFollowConfigíè
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csE E(C1
-%17*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*:
-8
-%151IndieVisible.Infra.Data.Mappings.UserFollowConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÚÔ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csF, F(F<
-%185IndieVisible.Infra.Data.Mappings.UserConnectionConfig"5IndieVisible.Infra.Data.Mappings.UserConnectionConfigò
-ï
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csF0 F(D
-%19void"LIndieVisible.Infra.Data.Mappings.UserConnectionConfig.UserConnectionConfig()*>
-<
-%185IndieVisible.Infra.Data.Mappings.UserConnectionConfigñì
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csF F(G1
-%20*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*>
-<
-%185IndieVisible.Infra.Data.Mappings.UserConnectionConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÏÈ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csH, H(C9
-%212IndieVisible.Infra.Data.Mappings.UserContentConfig"2IndieVisible.Infra.Data.Mappings.UserContentConfigè
-å
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csH0 H(A
-%22void"FIndieVisible.Infra.Data.Mappings.UserContentConfig.UserContentConfig()*;
-9
-%212IndieVisible.Infra.Data.Mappings.UserContentConfigìê
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csH H(D1
-%23*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*;
-9
-%212IndieVisible.Infra.Data.Mappings.UserContentConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÙÒ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csI, I(G=
-%246IndieVisible.Infra.Data.Mappings.UserContentLikeConfig"6IndieVisible.Infra.Data.Mappings.UserContentLikeConfigõ
-ò
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csI0 I(E
-%25void"NIndieVisible.Infra.Data.Mappings.UserContentLikeConfig.UserContentLikeConfig()*?
-=
-%246IndieVisible.Infra.Data.Mappings.UserContentLikeConfigóî
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csI I(H1
-%26*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*?
-=
-%246IndieVisible.Infra.Data.Mappings.UserContentLikeConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)˙˜
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csJ, J(J@
-%279IndieVisible.Infra.Data.Mappings.UserContentCommentConfig"9IndieVisible.Infra.Data.Mappings.UserContentCommentConfig§
-°
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csJ0 J(H
-%28void"TIndieVisible.Infra.Data.Mappings.UserContentCommentConfig.UserContentCommentConfig()*B
-@
-%279IndieVisible.Infra.Data.Mappings.UserContentCommentConfigöó
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csJ J(K1
-%29*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*B
-@
-%279IndieVisible.Infra.Data.Mappings.UserContentCommentConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÙÒ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csL, L(G=
-%306IndieVisible.Infra.Data.Mappings.FeaturedContentConfig"6IndieVisible.Infra.Data.Mappings.FeaturedContentConfigõ
-ò
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csL0 L(E
-%31void"NIndieVisible.Infra.Data.Mappings.FeaturedContentConfig.FeaturedContentConfig()*?
-=
-%306IndieVisible.Infra.Data.Mappings.FeaturedContentConfigóî
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csL L(H1
-%32*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*?
-=
-%306IndieVisible.Infra.Data.Mappings.FeaturedContentConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)¯ı
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csO, O(I?
-%338IndieVisible.Infra.Data.Mappings.BrainstormSessionConfig"8IndieVisible.Infra.Data.Mappings.BrainstormSessionConfig°
-û
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csO0 O(G
-%34void"RIndieVisible.Infra.Data.Mappings.BrainstormSessionConfig.BrainstormSessionConfig()*A
-?
-%338IndieVisible.Infra.Data.Mappings.BrainstormSessionConfigôñ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csO O(J1
-%35*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*A
-?
-%338IndieVisible.Infra.Data.Mappings.BrainstormSessionConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÚÔ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csP, P(F<
-%365IndieVisible.Infra.Data.Mappings.BrainstormIdeaConfig"5IndieVisible.Infra.Data.Mappings.BrainstormIdeaConfigò
-ï
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csP0 P(D
-%37void"LIndieVisible.Infra.Data.Mappings.BrainstormIdeaConfig.BrainstormIdeaConfig()*>
-<
-%365IndieVisible.Infra.Data.Mappings.BrainstormIdeaConfigñì
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csP P(G1
-%38*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*>
-<
-%365IndieVisible.Infra.Data.Mappings.BrainstormIdeaConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÚÔ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csQ, Q(F<
-%395IndieVisible.Infra.Data.Mappings.BrainstormVoteConfig"5IndieVisible.Infra.Data.Mappings.BrainstormVoteConfigò
-ï
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csQ0 Q(D
-%40void"LIndieVisible.Infra.Data.Mappings.BrainstormVoteConfig.BrainstormVoteConfig()*>
-<
-%395IndieVisible.Infra.Data.Mappings.BrainstormVoteConfigñì
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csQ Q(G1
-%41*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*>
-<
-%395IndieVisible.Infra.Data.Mappings.BrainstormVoteConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)¯ı
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csR, R(I?
-%428IndieVisible.Infra.Data.Mappings.BrainstormCommentConfig"8IndieVisible.Infra.Data.Mappings.BrainstormCommentConfig°
-û
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csR0 R(G
-%43void"RIndieVisible.Infra.Data.Mappings.BrainstormCommentConfig.BrainstormCommentConfig()*A
-?
-%428IndieVisible.Infra.Data.Mappings.BrainstormCommentConfigôñ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csR R(J1
-%44*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*A
-?
-%428IndieVisible.Infra.Data.Mappings.BrainstormCommentConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ÓÎ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csW, W(D:
-%453IndieVisible.Infra.Data.Mappings.GamificationConfig"3IndieVisible.Infra.Data.Mappings.GamificationConfigí
-è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csW0 W(B
-%46void"HIndieVisible.Infra.Data.Mappings.GamificationConfig.GamificationConfig()*<
-:
-%453IndieVisible.Infra.Data.Mappings.GamificationConfigîë
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csW W(E1
-%47*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*<
-:
-%453IndieVisible.Infra.Data.Mappings.GamificationConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)˙˜
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csX, X(J@
-%489IndieVisible.Infra.Data.Mappings.GamificationActionConfig"9IndieVisible.Infra.Data.Mappings.GamificationActionConfig§
-°
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csX0 X(H
-%49void"TIndieVisible.Infra.Data.Mappings.GamificationActionConfig.GamificationActionConfig()*B
-@
-%489IndieVisible.Infra.Data.Mappings.GamificationActionConfigöó
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csX X(K1
-%50*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*B
-@
-%489IndieVisible.Infra.Data.Mappings.GamificationActionConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)¯ı
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csY, Y(I?
-%518IndieVisible.Infra.Data.Mappings.GamificationLevelConfig"8IndieVisible.Infra.Data.Mappings.GamificationLevelConfig°
-û
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csY0 Y(G
-%52void"RIndieVisible.Infra.Data.Mappings.GamificationLevelConfig.GamificationLevelConfig()*A
-?
-%518IndieVisible.Infra.Data.Mappings.GamificationLevelConfigôñ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csY Y(J1
-%53*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*A
-?
-%518IndieVisible.Infra.Data.Mappings.GamificationLevelConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)ËÂ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csZ, Z(A7
-%540IndieVisible.Infra.Data.Mappings.UserBadgeConfig"0IndieVisible.Infra.Data.Mappings.UserBadgeConfigâ
-Ü
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csZ0 Z(?
-%55void"BIndieVisible.Infra.Data.Mappings.UserBadgeConfig.UserBadgeConfig()*9
-7
-%540IndieVisible.Infra.Data.Mappings.UserBadgeConfigëé
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.csZ Z(B1
-%56*Microsoft.EntityFrameworkCore.ModelBuilder"áMicrosoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*9
-7
-%540IndieVisible.Infra.Data.Mappings.UserBadgeConfig2\ApplyConfiguration<TEntity>(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<TEntity>)£†
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs] ](.
-%57void"cMicrosoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)*75
-3IndieVisible.Infra.Data.Context.IndieVisibleContext*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder2;OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)Á
-‰
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs_ _(#
-%58void"dIndieVisible.Infra.Data.Context.IndieVisibleContext.Seed(Microsoft.EntityFrameworkCore.ModelBuilder)*75
-3IndieVisible.Infra.Data.Context.IndieVisibleContext*<
-:
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilder*
-1*ï
-1"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContext.cs` `(	
-implicit return::
-modelBuilder*Microsoft.EntityFrameworkCore.ModelBuilderB75
-3IndieVisible.Infra.Data.Context.IndieVisibleContext

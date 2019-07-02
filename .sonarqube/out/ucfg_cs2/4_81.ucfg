@@ -1,18 +1,0 @@
-
-qIndieVisible.Infra.Data.Migrations.userconnection.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190602014151_userconnection.cs  ($"0*»
-0Ω∫
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190602014151_userconnection.cs ($_
-%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""2DropTable(string, string)*
-1*£
-1"ù
-Ö
-{C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190602014151_userconnection.cs (	
-implicit return:M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB53
-1IndieVisible.Infra.Data.Migrations.userconnection

@@ -1,820 +1,0 @@
-
-mIndieVisible.Infra.Data.Migrations.userbadges.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csû  û($"0*ü¸
-0ª∏
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs† °(#_
-%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"SMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.DropTable(string, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""2DropTable(string, string)©¶
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¶ ¶(J
-%1System.Guid"System.GuidÃ
-…
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¶ ¶("
-
-%2void"System.Guid.Guid(string)*
-
-%1System.Guid*
-""ù
-ö
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs®A ®(S
-%3"__id*
-""±Æ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs® ®(T
-%4System.DateTime"System.DateTime¥
-±
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs® ®(#
-
-%5void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%4System.DateTime*2„*2*2*2*2
-*2+*2ì*
-
-%3ª∏
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs£ ®(U_
-%6YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%1System.Guid*
-""*
-
-%4System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)©¶
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs≠ ≠(J
-%7System.Guid"System.GuidÃ
-…
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs≠ ≠("
-
-%8void"System.Guid.Guid(string)*
-
-%7System.Guid*
-""ù
-ö
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csØA Ø(S
-%9"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csØ Ø(T
-%10System.DateTime"System.DateTime∂
-≥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csØ Ø(#
-%11void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%10System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%9Ω∫
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs™ Ø(U`
-%12YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%7System.Guid*
-""*
-
-%10System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¥ ¥(J
-%13System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¥ ¥("
-%14void"System.Guid.Guid(string)*
-
-%13System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs∂A ∂(S
-%15"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs∂ ∂(T
-%16System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs∂ ∂(#
-%17void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%16System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%15æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs± ∂(U`
-%18YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%13System.Guid*
-""*
-
-%16System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csª ª(J
-%19System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csª ª("
-%20void"System.Guid.Guid(string)*
-
-%19System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csΩA Ω(S
-%21"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csΩ Ω(T
-%22System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csΩ Ω(#
-%23void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%22System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%21æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs∏ Ω(U`
-%24YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%19System.Guid*
-""*
-
-%22System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¬ ¬(J
-%25System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¬ ¬("
-%26void"System.Guid.Guid(string)*
-
-%25System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csƒA ƒ(S
-%27"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csƒ ƒ(T
-%28System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csƒ ƒ(#
-%29void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%28System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%27æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csø ƒ(U`
-%30YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%25System.Guid*
-""*
-
-%28System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs… …(J
-%31System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs… …("
-%32void"System.Guid.Guid(string)*
-
-%31System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÀA À(S
-%33"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÀ À(T
-%34System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÀ À(#
-%35void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%34System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%33æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs∆ À(U`
-%36YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%31System.Guid*
-""*
-
-%34System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs– –(J
-%37System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs– –("
-%38void"System.Guid.Guid(string)*
-
-%37System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs“A “(S
-%39"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs“ “(T
-%40System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs“ “(#
-%41void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%40System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%39æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÕ “(U`
-%42YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%37System.Guid*
-""*
-
-%40System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs◊ ◊(J
-%43System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs◊ ◊("
-%44void"System.Guid.Guid(string)*
-
-%43System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csŸA Ÿ(S
-%45"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csŸ Ÿ(T
-%46System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csŸ Ÿ(#
-%47void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%46System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%45æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs‘ Ÿ(U`
-%48YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%43System.Guid*
-""*
-
-%46System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csﬁ ﬁ(J
-%49System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csﬁ ﬁ("
-%50void"System.Guid.Guid(string)*
-
-%49System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs‡A ‡(S
-%51"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs‡ ‡(T
-%52System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs‡ ‡(#
-%53void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%52System.DateTime*2„*2*2*2*2
-*2+*2ñ*
-
-%51æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs€ ‡(U`
-%54YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%49System.Guid*
-""*
-
-%52System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÂ Â(J
-%55System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÂ Â("
-%56void"System.Guid.Guid(string)*
-
-%55System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÁA Á(S
-%57"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÁ Á(T
-%58System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÁ Á(#
-%59void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%58System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%57æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs‚ Á(U`
-%60YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%55System.Guid*
-""*
-
-%58System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÏ Ï(J
-%61System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÏ Ï("
-%62void"System.Guid.Guid(string)*
-
-%61System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÓA Ó(S
-%63"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÓ Ó(T
-%64System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÓ Ó(#
-%65void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%64System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%63æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÈ Ó(U`
-%66YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%61System.Guid*
-""*
-
-%64System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÛ Û(J
-%67System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÛ Û("
-%68void"System.Guid.Guid(string)*
-
-%67System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csıA ı(S
-%69"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csı ı(T
-%70System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csı ı(#
-%71void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%70System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%69æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs ı(U`
-%72YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%67System.Guid*
-""*
-
-%70System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs˙ ˙(J
-%73System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs˙ ˙("
-%74void"System.Guid.Guid(string)*
-
-%73System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¸A ¸(S
-%75"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¸ ¸(T
-%76System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¸ ¸(#
-%77void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%76System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%75æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs˜ ¸(U`
-%78YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%73System.Guid*
-""*
-
-%76System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÅ Å(J
-%79System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÅ Å("
-%80void"System.Guid.Guid(string)*
-
-%79System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÉA É(S
-%81"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÉ É(T
-%82System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÉ É(#
-%83void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%82System.DateTime*2„*2*2*2*2
-*2+*2ó*
-
-%81æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs˛ É(U`
-%84YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%79System.Guid*
-""*
-
-%82System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csà à(J
-%85System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csà à("
-%86void"System.Guid.Guid(string)*
-
-%85System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csäA ä(S
-%87"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csä ä(T
-%88System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csä ä(#
-%89void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%88System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%87æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csÖ ä(U`
-%90YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%85System.Guid*
-""*
-
-%88System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csè è(J
-%91System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csè è("
-%92void"System.Guid.Guid(string)*
-
-%91System.Guid*
-""û
-õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csëA ë(S
-%93"__id*
-""≤Ø
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csë ë(T
-%94System.DateTime"System.DateTime∑
-¥
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csë ë(#
-%95void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%94System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%93æª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cså ë(U`
-%96YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%91System.Guid*
-""*
-
-%94System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)™ß
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csñ ñ(J
-%97System.Guid"System.GuidŒ
-À
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csñ ñ("
-%98void"System.Guid.Guid(string)*
-
-%97System.Guid*
-""§°
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csó ó(>
-%99string[]"string[]º
-π
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csó ó(>
-%100"
-__arraySet*
-
-%99string[]*2 *
-""æ
-ª
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csó ó(>
-%101"
-__arraySet*
-
-%99string[]*2*
-""•¢
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csò ò(m
-%102object[]"object[]ü
-ú
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csòQ ò(c
-%103"__id*
-""≥∞
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csò' ò(d
-%104System.DateTime"System.DateTime∫
-∑
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csò+ ò(3
-%105void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%104System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%103–
-Õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csò% ò(m
-%106"
-__arraySet*
-
-%102object[]*2 *
-
-%104System.DateTimeø
-º
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csò% ò(m
-%107"
-__arraySet*
-
-%102object[]*2*2à§Ã…
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csì ò(na
-%108YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"xMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string[], object[], string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%97System.Guid*
-
-%99string[]*
-
-%102object[]*
-""2>UpdateData(string, string, object, string[], object[], string)´®
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csù ù(J
-%109System.Guid"System.Guid–
-Õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csù ù("
-%110void"System.Guid.Guid(string)*
-
-%109System.Guid*
-""ü
-ú
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csüA ü(S
-%111"__id*
-""≥∞
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csü ü(T
-%112System.DateTime"System.DateTime∫
-∑
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csü ü(#
-%113void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%112System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%111¡æ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csö ü(Ua
-%114YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%109System.Guid*
-""*
-
-%112System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)´®
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs§ §(J
-%115System.Guid"System.Guid–
-Õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs§ §("
-%116void"System.Guid.Guid(string)*
-
-%115System.Guid*
-""ü
-ú
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¶A ¶(S
-%117"__id*
-""≥∞
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¶ ¶(T
-%118System.DateTime"System.DateTime∫
-∑
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs¶ ¶(#
-%119void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%118System.DateTime*2„*2*2*2*2
-*2+*2ò*
-
-%117¡æ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.cs° ¶(Ua
-%120YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%115System.Guid*
-""*
-
-%118System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)*
-1*°
-1"õ
-É
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190523032516_userbadges.csß ß(	
-implicit return:M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB1/
--IndieVisible.Infra.Data.Migrations.userbadges

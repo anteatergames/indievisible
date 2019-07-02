@@ -1,104 +1,0 @@
-
-AIndieVisible.Web.Controllers.ManageController.ShowRecoveryCodes()t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs• •(."4*Æ	
-0ï
-í
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csß/ ß(7?
-%09Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary"0Microsoft.AspNetCore.Mvc.Controller.TempData.get*'%
-#Microsoft.AspNetCore.Mvc.Controllerç
-ä
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csß8 ß(H
-%1"__id*
-""ﬁ
-€
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csß/ ß(I
-%2object"
-__arrayGet*A
-?
-%09Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary*
-
-%1ï
-í
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csß% ß(I
-%3"__id*
-
-%2object¢
-ü
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csß ß(I
-recoveryCodesstring[]"__id*
-
-%3⁄
-◊
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs® ®(%
-
-%4bool""object.operator ==(object, object)*
-"
-object*
-
-recoveryCodesstring[]*
-""*
-1
-2*˘
-1¡æ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs™ ™(H5
-%5/Microsoft.AspNetCore.Mvc.RedirectToActionResult"@Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(string)*+)
-'Microsoft.AspNetCore.Mvc.ControllerBase*
-""2RedirectToAction(string)"Ø
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs™ ™(I7
-5
-%5/Microsoft.AspNetCore.Mvc.RedirectToActionResult*ä
-2π∂
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs≠/ ≠(oa
-%6[IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModel"[IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModel‰
-·
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs≠3 ≠(M
-
-%7void"xIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModel.ShowRecoveryCodesViewModel()*c
-a
-%6[IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModelˆ
-Û
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs≠P ≠(m
-
-%8void"mIndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModel.RecoveryCodes.set*c
-a
-%6[IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModel*
-
-recoveryCodesstring[] 
-«
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs≠' ≠(od
-model[IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModel"__id*c
-a
-%6[IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModelıÚ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÆ Æ()
-%9#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*f
-d
-model[IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.ShowRecoveryCodesViewModel2View(object)"£
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csÆ Æ(+
-)
-%9#Microsoft.AspNetCore.Mvc.ViewResult*ë
-3"ã
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csØ Ø(	
-implicit return*ô
-4é
-ã
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.cs• •(.
-%10"__entrypoint*
-0B1/
--IndieVisible.Web.Controllers.ManageController

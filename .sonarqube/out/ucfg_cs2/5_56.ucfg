@@ -1,45 +1,0 @@
-
-‰IndieVisible.Application.Services.LikeAppService.LikeAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository)u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs ("0*œ
-
-0õ
-ò
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs (S2
-0IndieVisible.Application.Services.LikeAppService"
-_mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapper·
-´
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs ($t2
-0IndieVisible.Application.Services.LikeAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkø
-õ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs (:”2
-0IndieVisible.Application.Services.LikeAppService"^
-_contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*_
-]
-contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepositoryä
-á
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs (4Š2
-0IndieVisible.Application.Services.LikeAppService"T
-_gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository"__id*U
-S
-gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository*
-1*’
-1"Œ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs (	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:]
-contentLikeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository:S
-gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepositoryB42
-0IndieVisible.Application.Services.LikeAppService

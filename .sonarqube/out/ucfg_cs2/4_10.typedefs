@@ -1,4 +1,0 @@
-è
-8IndieVisible.Infra.Data.Mappings.GamificationLevelConfigobject²
-zConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GamificationLevel>)³IndieVisible.Infra.Data.Mappings.GamificationLevelConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.GamificationLevel>)o
-GamificationLevelConfig()RIndieVisible.Infra.Data.Mappings.GamificationLevelConfig.GamificationLevelConfig()

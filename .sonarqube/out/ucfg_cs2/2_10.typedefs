@@ -1,11 +1,0 @@
-Ç
-)IndieVisible.Domain.Models.BrainstormVote&IndieVisible.Domain.Core.Models.EntityobjectN
-BrainstormVote():IndieVisible.Domain.Models.BrainstormVote.BrainstormVote()B
-
-IdeaId.get4IndieVisible.Domain.Models.BrainstormVote.IdeaId.getB
-
-IdeaId.set4IndieVisible.Domain.Models.BrainstormVote.IdeaId.setH
-VoteValue.get7IndieVisible.Domain.Models.BrainstormVote.VoteValue.getH
-VoteValue.set7IndieVisible.Domain.Models.BrainstormVote.VoteValue.set>
-Idea.get2IndieVisible.Domain.Models.BrainstormVote.Idea.get>
-Idea.set2IndieVisible.Domain.Models.BrainstormVote.Idea.set

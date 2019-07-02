@@ -1,173 +1,0 @@
-
-IndieVisible.Web.Controllers.GameController.Save(IndieVisible.Application.ViewModels.Game.GameViewModel, Microsoft.AspNetCore.Http.IFormFile)p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csS S(!"5*
-0*	
-1
-2
-3*˜
-2è
-å
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csW W()
-
-%0void"tIndieVisible.Web.Controllers.GameController.SetAuthorDetails(IndieVisible.Application.ViewModels.Game.GameViewModel)*/-
-+IndieVisible.Web.Controllers.GameController*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModelæ
-ã
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csX X('
-
-%1void"rIndieVisible.Web.Controllers.GameController.ClearImagesUrl(IndieVisible.Application.ViewModels.Game.GameViewModel)*/-
-+IndieVisible.Web.Controllers.GameController*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel±
-®
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csZ Z(9
-%23IndieVisible.Application.Interfaces.IGameAppService"__id*y*w-
-+IndieVisible.Web.Controllers.GameController"F
-_gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceøõ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csZ Z((;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>">IndieVisible.Application.Interfaces.ICrudAppService<T>.Save(T)*;
-9
-%23IndieVisible.Application.Interfaces.IGameAppService*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel2Save(T)þ
-û
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs\ \( )
-%4#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBase¨
-¥
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs\H \(T
-%5string"__id**
-string"
-Emptystring‚
-ÿ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs\[ \(`
-%6System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel°
-­
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs\[ \(k
-%7string"System.Guid.ToString()*
-
-%6System.Guidì
-é
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs\ \(n
-%8string"pMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.Action(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, object)*0".
-,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*+
-)
-%4#Microsoft.AspNetCore.Mvc.IUrlHelper*
-""*
-""*
-""š
-—
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs\ \(n
-urlstring"__id*
-
-%8stringóð
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs^ ^(>@
-%9:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo":IndieVisible.Domain.ValueObjects.OperationResultRedirectVoµ
-²
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs^  ^(9
-%10void"\IndieVisible.Domain.ValueObjects.OperationResultRedirectVo.OperationResultRedirectVo(string)*B
-@
-%9:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo*
-
-urlstringÎË
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs^ ^(?*
-%11#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*B
-@
-%9:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo2Json(object)" 
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs^ ^(@,
-*
-%11#Microsoft.AspNetCore.Mvc.JsonResult*
-4*	
-1
-3
-3*Ä	
-1ÉÆ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csb2 b(<
-%12string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getäá
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csb b(=9
-%132IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVož
-›
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csb  b(1
-%14void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*;
-9
-%132IndieVisible.Domain.ValueObjects.OperationResultVo*
-
-%12stringÇÄ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csb b(>*
-%15#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*;
-9
-%132IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)" 
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csb b(?,
-*
-%15#Microsoft.AspNetCore.Mvc.JsonResult*
-3"‡
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csd d(	
-implicit return*©	
-5þ
-û
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csS S(!
-%16"__entrypoint*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*2
-0
-	thumbnail#Microsoft.AspNetCore.Http.IFormFileŒ
-‰
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csR	 R(
-%17"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModelÊ
-Ç
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csS" S(2<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel"__annotation*
-
-%17€
-ý
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csR	 R(
-%18"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*2
-0
-	thumbnail#Microsoft.AspNetCore.Http.IFormFile¾
-»
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csS4 S(G0
-	thumbnail#Microsoft.AspNetCore.Http.IFormFile"__annotation*
-
-%18*
-0:<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel:0
-	thumbnail#Microsoft.AspNetCore.Http.IFormFileB/-
-+IndieVisible.Web.Controllers.GameController

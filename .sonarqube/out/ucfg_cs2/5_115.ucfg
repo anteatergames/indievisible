@@ -1,72 +1,0 @@
-
-çIndieVisible.Application.Services.UserContentAppService.UserContentAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserContentRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository, IndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository, IndieVisible.Domain.Interfaces.Service.IGamificationDomainService, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService)|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs ($"0*Ê
-0‚
-ÿ
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs% %( Y9
-7IndieVisible.Application.Services.UserContentAppService"
-mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperÄ
-Á
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs& &((z9
-7IndieVisible.Application.Services.UserContentAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkç
-ä
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs' '((‹9
-7IndieVisible.Application.Services.UserContentAppService"N
-
-repository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository"__id*P
-N
-
-repository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository÷
-ô
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs( ((0“9
-7IndieVisible.Application.Services.UserContentAppService"V
-likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository"__id*X
-V
-likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepositoryƒ
-€
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs) )(6™9
-7IndieVisible.Application.Services.UserContentAppService"\
-commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository"__id*^
-\
-commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository‡
-„
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs* *(F›9
-7IndieVisible.Application.Services.UserContentAppService"^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService"__id*`
-^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainServiceÿ
-ü
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs+ +(B—9
-7IndieVisible.Application.Services.UserContentAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*\
-Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService*
-1*™
-1"“
-|
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs, ,(	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:N
-
-repository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository:V
-likeRepositoryDIndieVisible.Domain.Interfaces.Repository.IUserContentLikeRepository:\
-commentRepositoryGIndieVisible.Domain.Interfaces.Repository.IUserContentCommentRepository:^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService:Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainServiceB;9
-7IndieVisible.Application.Services.UserContentAppService

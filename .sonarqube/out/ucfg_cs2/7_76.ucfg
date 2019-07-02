@@ -1,47 +1,0 @@
-
-§IndieVisible.Web.TagHelpers.CustomInputTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext, Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\TagHelpers\CustomInputTagHelper.cs ($"0*‹
-0ý
-ú
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\TagHelpers\CustomInputTagHelper.cs (
-
-%0bool"?IndieVisible.Web.TagHelpers.CustomInputTagHelper.IsDisabled.get*42
-0IndieVisible.Web.TagHelpers.CustomInputTagHelper*
-1
-2*Œ
-1Ç
-Ä
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\TagHelpers\CustomInputTagHelper.cs (!B
-%1<Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttributeList"DMicrosoft.AspNetCore.Razor.TagHelpers.TagHelperOutput.Attributes.get*A
-?
-output5Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput·
-´
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\TagHelpers\CustomInputTagHelper.cs (F
-
-%2void"YMicrosoft.AspNetCore.Razor.TagHelpers.TagHelperAttributeList.SetAttribute(string, object)*D
-B
-%1<Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttributeList*
-""*
-""*
-2*ó
-2èå
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\TagHelpers\CustomInputTagHelper.cs ()
-
-%3void"©Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext, Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)*42
-0IndieVisible.Web.TagHelpers.CustomInputTagHelper*C
-A
-context6Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext*A
-?
-output5Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput2vProcess(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext, Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)*
-3*’
-3"Œ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\TagHelpers\CustomInputTagHelper.cs (	
-implicit return:A
-context6Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext:?
-output5Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutputB42
-0IndieVisible.Web.TagHelpers.CustomInputTagHelper

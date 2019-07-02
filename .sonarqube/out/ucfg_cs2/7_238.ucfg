@@ -1,486 +1,0 @@
-
-°IndieVisible.Web.Controllers.ContentController.NotifyFollowers(System.Guid, IndieVisible.Application.ViewModels.User.ProfileViewModel, System.Guid?, System.Guid)u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs√ √($"0*ﬁ"
-0ÍÁ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs≈5 ≈(W9
-%03System.Collections.Generic.Dictionary<TKey, TValue>"3System.Collections.Generic.Dictionary<TKey, TValue>Ö
-Ç
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs≈9 ≈(U
-
-%1void"@System.Collections.Generic.Dictionary<TKey, TValue>.Dictionary()*;
-9
-%03System.Collections.Generic.Dictionary<TKey, TValue>ˇ
-¸
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs≈) ≈(W@
-	followers3System.Collections.Generic.Dictionary<TKey, TValue>"__id*;
-9
-%03System.Collections.Generic.Dictionary<TKey, TValue>≥
-∞
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs«& «(5;
-%25Microsoft.Extensions.Localization.IStringLocalizer<T>"DIndieVisible.Web.Controllers.Base.BaseController.SharedLocalizer.get*42
-0IndieVisible.Web.Controllers.Base.BaseController—Œ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs«& «(V7
-%31Microsoft.Extensions.Localization.LocalizedString"CMicrosoft.Extensions.Localization.IStringLocalizer.this[string].get*=
-;
-%25Microsoft.Extensions.Localization.IStringLocalizer<T>*
-""2this[string].get◊
-‘
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs« «(V
-notificationTextstring"__id*9
-7
-%31Microsoft.Extensions.Localization.LocalizedStringÉ
-Ä
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs»% »(()
-%4#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBaseÒ
-Ó
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs»% »(]
-%5string"pMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.Action(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, object)*0".
-,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*+
-)
-%4#Microsoft.AspNetCore.Mvc.IUrlHelper*
-""*
-""*
-""´
-®
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs» »(]
-notificationUrlstring"__id*
-
-%5string≠
-™
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs   (*
-%6string"__id**
-string"
-Emptystring§
-°
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs   (*
-gameNamestring"__id*
-
-%6stringº
-π
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÃ Ã(&
-%7System.Guid"__id*'*%
-System.Guid"
-EmptySystem.GuidÆ
-´
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÃ Ã(&
-targetIdSystem.Guid"__id*
-
-%7System.GuidÃ
-…
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csŒG Œ(`?
-%89IndieVisible.Application.Interfaces.IUserFollowAppService"__id*à*Ö0
-.IndieVisible.Web.Controllers.ContentController"Q
-userFollowAppService9IndieVisible.Application.Interfaces.IUserFollowAppServiceçä
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csŒG Œ(x?
-%99IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"VIndieVisible.Application.Interfaces.IUserFollowAppService.GetByFollowedId(System.Guid)*A
-?
-%89IndieVisible.Application.Interfaces.IUserFollowAppService*
-
-userIdSystem.Guid2GetByFollowedId(System.Guid)è
-å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csŒ7 Œ(xJ
-userFollowers9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
-?
-%99IndieVisible.Domain.ValueObjects.OperationResultListVo<T>ï
-í
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs– –(%
-%10bool">IndieVisible.Domain.ValueObjects.OperationResultVo.Success.get*L
-J
-userFollowers9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
-1
-2* 
-1ø
-º
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs“= “(P0
-%11)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*L
-J
-userFollowers9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
-3*
-3*
-4
-2*Ì
-4ú
-ô
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‘" ‘(5
-%12System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*N
-L
-userFollower<IndieVisible.Application.ViewModels.User.UserFollowViewModelè
-å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‘7 ‘(I
-%13"__id*
-""±
-Æ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‘ ‘(J
-%14void"ESystem.Collections.Generic.Dictionary<TKey, TValue>.Add(TKey, TValue)*B
-@
-	followers3System.Collections.Generic.Dictionary<TKey, TValue>*
-
-%12System.Guid*
-
-%13*
-3*÷
-2»
-≈
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÿ ÿ(
-%15bool"System.Nullable<T>.HasValue.get*
-
-gameIdSystem.Nullable<T>*
-5
-6*‡
-5Õ
- 
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs⁄N ⁄(g@
-%169IndieVisible.Application.Interfaces.IGameFollowAppService"__id*à*Ö0
-.IndieVisible.Web.Controllers.ContentController"Q
-gameFollowAppService9IndieVisible.Application.Interfaces.IGameFollowAppServiceÕ
- 
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs⁄t ⁄(Ä
-%17System.Guid"System.Nullable<T>.Value.get*
-
-gameIdSystem.Nullable<T>ÖÇ
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs⁄N ⁄(Å@
-%189IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"RIndieVisible.Application.Interfaces.IGameFollowAppService.GetByGameId(System.Guid)*B
-@
-%169IndieVisible.Application.Interfaces.IGameFollowAppService*
-
-%17System.Guid2GetByGameId(System.Guid)î
-ë
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs⁄; ⁄(ÅM
-gameFollowResult9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*B
-@
-%189IndieVisible.Domain.ValueObjects.OperationResultListVo<T>π
-∂
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‹> ‹(L:
-%193IndieVisible.Application.Interfaces.IGameAppService"__id*{*y0
-.IndieVisible.Web.Controllers.ContentController"E
-gameAppService3IndieVisible.Application.Interfaces.IGameAppServiceÃ
-…
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‹U ‹(a
-%20System.Guid"System.Nullable<T>.Value.get*
-
-gameIdSystem.Nullable<T>ÔÏ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‹> ‹(b<
-%215IndieVisible.Domain.ValueObjects.OperationResultVo<T>"KIndieVisible.Application.Interfaces.ICrudAppService<T>.GetById(System.Guid)*<
-:
-%193IndieVisible.Application.Interfaces.IGameAppService*
-
-%20System.Guid2GetById(System.Guid)Ö
-Ç
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‹1 ‹(bC
-
-gameResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%215IndieVisible.Domain.ValueObjects.OperationResultVo<T>é
-ã
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csﬁ ﬁ(&
-%22bool">IndieVisible.Domain.ValueObjects.OperationResultVo.Success.get*E
-C
-
-gameResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-7
-8*É
-7¡
-æ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‡ ‡(/=
-%236IndieVisible.Application.ViewModels.Game.GameViewModel"?IndieVisible.Domain.ValueObjects.OperationResultVo<T>.Value.get*E
-C
-
-gameResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>å
-â
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‡ ‡(5
-%24string"@IndieVisible.Application.ViewModels.Game.GameViewModel.Title.get*?
-=
-%236IndieVisible.Application.ViewModels.Game.GameViewModel•
-¢
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs‡ ‡(5
-gameNamestring"__id*
-
-%24string*
-8*¶
-8ò
-ï
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs„ „(,
-%25bool">IndieVisible.Domain.ValueObjects.OperationResultVo.Success.get*O
-M
-gameFollowResult9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
-9
-6*Œ
-9¬
-ø
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÂA Â(W0
-%26)System.Collections.Generic.IEnumerable<T>"CIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.Value.get*O
-M
-gameFollowResult9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
-10*
-10*
-11
-6*ÿ
-11ú
-ô
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÁ2 Á(E
-%27System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*N
-L
-gameFollower<IndieVisible.Application.ViewModels.Game.GameFollowViewModel®
-•
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÁ Á(F
-%28bool"ESystem.Collections.Generic.Dictionary<TKey, TValue>.ContainsKey(TKey)*B
-@
-	followers3System.Collections.Generic.Dictionary<TKey, TValue>*
-
-%27System.Guid*
-12
-13*Æ
-12ú
-ô
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÈ& È(9
-%29System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*N
-L
-gameFollower<IndieVisible.Application.ViewModels.Game.GameFollowViewModelè
-å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÈ= È(L
-%30"__id*
-""
-Ì
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÈ È(L
-%31"
-__arraySet*B
-@
-	followers3System.Collections.Generic.Dictionary<TKey, TValue>*
-
-%29System.Guid*
-
-%30*
-10*Ô
-13ú
-ô
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÌ* Ì(=
-%32System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*N
-L
-gameFollower<IndieVisible.Application.ViewModels.Game.GameFollowViewModelè
-å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÌ? Ì(N
-%33"__id*
-""±
-Æ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÌ Ì(O
-%34void"ESystem.Collections.Generic.Dictionary<TKey, TValue>.Add(TKey, TValue)*B
-@
-	followers3System.Collections.Generic.Dictionary<TKey, TValue>*
-
-%32System.Guid*
-
-%33*
-10*	
-6*
-14*
-14*
-15
-16*«
-15≤
-Ø
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csı ı(&0
-%35)IndieVisible.Domain.Core.Enums.FollowType"?System.Collections.Generic.KeyValuePair<TKey, TValue>.Value.get*C
-A
-follower5System.Collections.Generic.KeyValuePair<TKey, TValue>*
-17
-18
-19*Ú
-19”
-–
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˛ ˛(3B
-%36;IndieVisible.Application.Interfaces.INotificationAppService"__id*å*â0
-.IndieVisible.Web.Controllers.ContentController"U
-notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceí
-è
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˛; ˛(G
-%37System.Guid"=System.Collections.Generic.KeyValuePair<TKey, TValue>.Key.get*C
-A
-follower5System.Collections.Generic.KeyValuePair<TKey, TValue>è
-å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˛I ˛(g
-%38"__id*
-""ó
-î
-w
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˛ì ˛(ü
-%39string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*F
-D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModel‰
-·
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˛s ˛(†
-%40string"string.Format(string, object)*
-"
-string*
-
-notificationTextstring*
-
-%39stringÁ‰
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˛ ˛(≤9
-%412IndieVisible.Domain.ValueObjects.OperationResultVo"ùIndieVisible.Application.Interfaces.INotificationAppService.Notify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)*D
-B
-%36;IndieVisible.Application.Interfaces.INotificationAppService*
-
-%37System.Guid*
-
-%38*
-
-targetIdSystem.Guid*
-
-%40string*
-
-notificationUrlstring2aNotify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)*
-14*›
-18”
-–
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˚ ˚(3B
-%42;IndieVisible.Application.Interfaces.INotificationAppService"__id*å*â0
-.IndieVisible.Web.Controllers.ContentController"U
-notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceí
-è
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˚; ˚(G
-%43System.Guid"=System.Collections.Generic.KeyValuePair<TKey, TValue>.Key.get*C
-A
-follower5System.Collections.Generic.KeyValuePair<TKey, TValue>è
-å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˚I ˚(g
-%44"__id*
-""È
-Ê
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˚s ˚(ú
-%45string"string.Format(string, object)*
-"
-string*
-
-notificationTextstring*
-
-gameNamestringÁ‰
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs˚ ˚(Æ9
-%462IndieVisible.Domain.ValueObjects.OperationResultVo"ùIndieVisible.Application.Interfaces.INotificationAppService.Notify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)*D
-B
-%42;IndieVisible.Application.Interfaces.INotificationAppService*
-
-%43System.Guid*
-
-%44*
-
-targetIdSystem.Guid*
-
-%45string*
-
-notificationUrlstring2aNotify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)*
-14*Ú
-17”
-–
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs¯ ¯(3B
-%47;IndieVisible.Application.Interfaces.INotificationAppService"__id*å*â0
-.IndieVisible.Web.Controllers.ContentController"U
-notificationAppService;IndieVisible.Application.Interfaces.INotificationAppServiceí
-è
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs¯; ¯(G
-%48System.Guid"=System.Collections.Generic.KeyValuePair<TKey, TValue>.Key.get*C
-A
-follower5System.Collections.Generic.KeyValuePair<TKey, TValue>è
-å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs¯I ¯(g
-%49"__id*
-""ó
-î
-w
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs¯ì ¯(ü
-%50string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*F
-D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModel‰
-·
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs¯s ¯(†
-%51string"string.Format(string, object)*
-"
-string*
-
-notificationTextstring*
-
-%50stringÁ‰
-v
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.cs¯ ¯(≤9
-%522IndieVisible.Domain.ValueObjects.OperationResultVo"ùIndieVisible.Application.Interfaces.INotificationAppService.Notify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)*D
-B
-%47;IndieVisible.Application.Interfaces.INotificationAppService*
-
-%48System.Guid*
-
-%49*
-
-targetIdSystem.Guid*
-
-%51string*
-
-notificationUrlstring2aNotify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)*
-14*ì
-16"å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ContentController.csÇ Ç(	
-implicit return:
-userIdSystem.Guid:D
-profile9IndieVisible.Application.ViewModels.User.ProfileViewModel:
-gameIdSystem.Nullable<T>:
-	contentIdSystem.GuidB20
-.IndieVisible.Web.Controllers.ContentController

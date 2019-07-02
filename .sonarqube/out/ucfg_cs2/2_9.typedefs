@@ -1,9 +1,0 @@
-Û
-1IndieVisible.Domain.ValueObjects.SelectListItemVoobjectZ
-SelectListItemVo()DIndieVisible.Domain.ValueObjects.SelectListItemVo.SelectListItemVo()H
-	Value.get;IndieVisible.Domain.ValueObjects.SelectListItemVo.Value.getH
-	Value.set;IndieVisible.Domain.ValueObjects.SelectListItemVo.Value.setF
-Text.get:IndieVisible.Domain.ValueObjects.SelectListItemVo.Text.getF
-Text.set:IndieVisible.Domain.ValueObjects.SelectListItemVo.Text.setN
-Selected.get>IndieVisible.Domain.ValueObjects.SelectListItemVo.Selected.getN
-Selected.set>IndieVisible.Domain.ValueObjects.SelectListItemVo.Selected.set

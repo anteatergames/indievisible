@@ -1,49 +1,0 @@
-
-QIndieVisible.Application.ViewModels.User.IndieXpCounter.PercentageToNextLevel.get~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs] ]("0*
-
-0ê
-ç
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs_@ _(G	
-%0int"CIndieVisible.Application.ViewModels.User.IndieXpCounter.LevelXp.get*;9
-7IndieVisible.Application.ViewModels.User.IndieXpCounteró
-î
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs_1 _(H
-%1"__id*
-""î
-ë
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs_K _(V	
-%2int"GIndieVisible.Application.ViewModels.User.IndieXpCounter.NextLevelXp.get*;9
-7IndieVisible.Application.ViewModels.User.IndieXpCounter≈
-¬
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs_& _(W
-%3double"System.Math.Round(double)*"
-System.Math*
-""ü
-ú
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs_! _(W
-%4"__id*
-
-%3double§
-°
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs_ _(W
-
-percentageint"__id*
-
-%4"ï
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csa a("
-
-
-percentageint*õ
-1"ï
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.csb b(
-implicit returnB;9
-7IndieVisible.Application.ViewModels.User.IndieXpCounter

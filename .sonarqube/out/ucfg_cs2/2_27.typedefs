@@ -1,15 +1,0 @@
-Ó
-&IndieVisible.Domain.Models.UserProfile.IndieVisible.Domain.Core.Models.ExternalEntity&IndieVisible.Domain.Core.Models.EntityobjectE
-UserProfile()4IndieVisible.Domain.Models.UserProfile.UserProfile();
-Type.get/IndieVisible.Domain.Models.UserProfile.Type.get;
-Type.set/IndieVisible.Domain.Models.UserProfile.Type.set;
-Name.get/IndieVisible.Domain.Models.UserProfile.Name.get;
-Name.set/IndieVisible.Domain.Models.UserProfile.Name.set=
-	Motto.get0IndieVisible.Domain.Models.UserProfile.Motto.get=
-	Motto.set0IndieVisible.Domain.Models.UserProfile.Motto.set9
-Bio.get.IndieVisible.Domain.Models.UserProfile.Bio.get9
-Bio.set.IndieVisible.Domain.Models.UserProfile.Bio.setG
-StudioName.get5IndieVisible.Domain.Models.UserProfile.StudioName.getG
-StudioName.set5IndieVisible.Domain.Models.UserProfile.StudioName.setC
-Location.get3IndieVisible.Domain.Models.UserProfile.Location.getC
-Location.set3IndieVisible.Domain.Models.UserProfile.Location.set

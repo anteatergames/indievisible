@@ -14,6 +14,5 @@ namespace IndieVisible.Application.ViewModels.User
         public string CoverImageUrl { get; set; }
         public Guid ProfileId { get; set; }
         public string Location { get; internal set; }
-        public DateTime CreateDate { get; internal set; }
     }
 }

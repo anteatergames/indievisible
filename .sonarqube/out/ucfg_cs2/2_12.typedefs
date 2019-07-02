@@ -1,19 +1,0 @@
-½	
-*IndieVisible.Domain.Models.FeaturedContent&IndieVisible.Domain.Core.Models.EntityobjectQ
-FeaturedContent()<IndieVisible.Domain.Models.FeaturedContent.FeaturedContent()C
-
-Active.get5IndieVisible.Domain.Models.FeaturedContent.Active.getC
-
-Active.set5IndieVisible.Domain.Models.FeaturedContent.Active.setQ
-UserContentId.get<IndieVisible.Domain.Models.FeaturedContent.UserContentId.getQ
-UserContentId.set<IndieVisible.Domain.Models.FeaturedContent.UserContentId.setA
-	Title.get4IndieVisible.Domain.Models.FeaturedContent.Title.getA
-	Title.set4IndieVisible.Domain.Models.FeaturedContent.Title.setO
-Introduction.get;IndieVisible.Domain.Models.FeaturedContent.Introduction.getO
-Introduction.set;IndieVisible.Domain.Models.FeaturedContent.Introduction.setI
-StartDate.get8IndieVisible.Domain.Models.FeaturedContent.StartDate.getI
-StartDate.set8IndieVisible.Domain.Models.FeaturedContent.StartDate.setE
-EndDate.get6IndieVisible.Domain.Models.FeaturedContent.EndDate.getE
-EndDate.set6IndieVisible.Domain.Models.FeaturedContent.EndDate.setG
-ImageUrl.get7IndieVisible.Domain.Models.FeaturedContent.ImageUrl.getG
-ImageUrl.set7IndieVisible.Domain.Models.FeaturedContent.ImageUrl.set

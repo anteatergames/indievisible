@@ -1,41 +1,0 @@
-
-YIndieVisible.Infra.Data.Repository.BrainstormVoteRepository.Get(System.Guid, System.Guid)€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs (!"0*Û
-0À
-½
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs! (#9
-%03IndieVisible.Infra.Data.Context.IndieVisibleContext"__id*w*u8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>"9
-Db3IndieVisible.Infra.Data.Context.IndieVisibleContextÀ
-½
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs! (32
-%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"GIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormVotes.get*;
-9
-%03IndieVisible.Infra.Data.Context.IndieVisibleContext¡
-ž
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs! (w/
-%2)IndieVisible.Domain.Models.BrainstormVote"ŽSystem.Linq.Queryable.FirstOrDefault<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
-System.Linq.Queryable*4
-2
-%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
-""ñ
-î
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs (w0
-obj)IndieVisible.Domain.Models.BrainstormVote"__id*1
-/
-%2)IndieVisible.Domain.Models.BrainstormVote"·
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs (2
-0
-obj)IndieVisible.Domain.Models.BrainstormVote*ž
-1"˜
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs (	
-implicit return:
-votingItemIdSystem.Guid:
-userIdSystem.GuidB?=
-;IndieVisible.Infra.Data.Repository.BrainstormVoteRepository

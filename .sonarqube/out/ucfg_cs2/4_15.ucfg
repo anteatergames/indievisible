@@ -1,120 +1,0 @@
-
-TIndieVisible.Infra.Data.Context.IndieVisibleContextFactory.CreateDbContext(string[])
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs# (2"0*ç0
-0Œ‰
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs (LE
-%0?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>"?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>´
-±
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs (J
-
-%1void"YMicrosoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>.DbContextOptionsBuilder()*G
-E
-%0?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>Ÿ
-œ
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs (LJ
-builder?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>"__id*G
-E
-%0?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>üù
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs/ (I=
-%27Microsoft.Extensions.Configuration.ConfigurationBuilder"7Microsoft.Extensions.Configuration.ConfigurationBuilder¡
-ž
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs3 (G
-
-%3void"NMicrosoft.Extensions.Configuration.ConfigurationBuilder.ConfigurationBuilder()*?
-=
-%27Microsoft.Extensions.Configuration.ConfigurationBuilderÖ
-Ó
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs (<
-%4string")System.IO.Directory.GetCurrentDirectory()*"
-System.IO.Directoryè
-å
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs/ (=>
-%58Microsoft.Extensions.Configuration.IConfigurationBuilder"ŒMicrosoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath(Microsoft.Extensions.Configuration.IConfigurationBuilder, string)*B"@
->Microsoft.Extensions.Configuration.FileConfigurationExtensions*?
-=
-%27Microsoft.Extensions.Configuration.ConfigurationBuilder*
-
-%4stringá
-Þ
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs/ (0>
-%68Microsoft.Extensions.Configuration.IConfigurationBuilder"ŒMicrosoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder, string)*B"@
->Microsoft.Extensions.Configuration.JsonConfigurationExtensions*@
->
-%58Microsoft.Extensions.Configuration.IConfigurationBuilder*
-""ã
-à
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs/ (*>
-%78Microsoft.Extensions.Configuration.IConfigurationBuilder"“Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables(Microsoft.Extensions.Configuration.IConfigurationBuilder)*E"C
-AMicrosoft.Extensions.Configuration.EnvironmentVariablesExtensions*@
->
-%68Microsoft.Extensions.Configuration.IConfigurationBuilderÎË
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs/ (;
-%85Microsoft.Extensions.Configuration.IConfigurationRoot"@Microsoft.Extensions.Configuration.IConfigurationBuilder.Build()*@
->
-%78Microsoft.Extensions.Configuration.IConfigurationBuilder2Build()‘
-Ž
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs (F
-configuration5Microsoft.Extensions.Configuration.IConfigurationRoot"__id*=
-;
-%85Microsoft.Extensions.Configuration.IConfigurationRoot°
-­
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs& (\
-%9string"‰Microsoft.Extensions.Configuration.ConfigurationExtensions.GetConnectionString(Microsoft.Extensions.Configuration.IConfiguration, string)*>"<
-:Microsoft.Extensions.Configuration.ConfigurationExtensions*H
-F
-configuration5Microsoft.Extensions.Configuration.IConfigurationRoot*
-""¶
-³
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs (\
-connectionStringstring"__id*
-
-%9string‰
-†
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs (hF
-%10?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>"ÿMicrosoft.EntityFrameworkCore.SqlServerDbContextOptionsExtensions.UseSqlServer<TContext>(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>, string, System.Action<Microsoft.EntityFrameworkCore.Infrastructure.SqlServerDbContextOptionsBuilder>)*E"C
-AMicrosoft.EntityFrameworkCore.SqlServerDbContextOptionsExtensions*L
-J
-builder?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>*
-
-connectionStringstring*
-""íê
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs +  (:?
-%118Microsoft.EntityFrameworkCore.DbContextOptions<TContext>"KMicrosoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>.Options.get*L
-J
-builder?Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<TContext>2Options.getõò
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs   (;:
-%123IndieVisible.Infra.Data.Context.IndieVisibleContext"3IndieVisible.Infra.Data.Context.IndieVisibleContextÁ
-¾
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs   (*
-%13void"¬IndieVisible.Infra.Data.Context.IndieVisibleContext.IndieVisibleContext(Microsoft.EntityFrameworkCore.DbContextOptions<IndieVisible.Infra.Data.Context.IndieVisibleContext>)*<
-:
-%123IndieVisible.Infra.Data.Context.IndieVisibleContext*A
-?
-%118Microsoft.EntityFrameworkCore.DbContextOptions<TContext>"¿
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs   (<<
-:
-%123IndieVisible.Infra.Data.Context.IndieVisibleContext*œ
-1"–
-
-uC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Context\IndieVisibleContextFactory.cs! !(	
-implicit return:
-argsstring[]B><
-:IndieVisible.Infra.Data.Context.IndieVisibleContextFactory

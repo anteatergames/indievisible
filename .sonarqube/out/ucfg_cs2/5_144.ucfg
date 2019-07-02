@@ -1,25 +1,0 @@
-
-xIndieVisible.Application.Services.ProfileAppService.GetByUserId(System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)z
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÔ  Ô(+"0*ƒ
-0»
-¸
-z
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÖ Ö(4?
-%09IndieVisible.Application.ViewModels.User.ProfileViewModel"…IndieVisible.Application.Services.ProfileAppService.GetByUserId(System.Guid, System.Guid, IndieVisible.Domain.Core.Enums.ProfileType)*75
-3IndieVisible.Application.Services.ProfileAppService*
-
-userIdSystem.Guid*
-
-userIdSystem.Guid*
-"""¿
-z
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csÖ Ö(5A
-?
-%09IndieVisible.Application.ViewModels.User.ProfileViewModel*—
-1"‘
-z
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs× ×(	
-implicit return:
-userIdSystem.Guid:2
-type*IndieVisible.Domain.Core.Enums.ProfileTypeB75
-3IndieVisible.Application.Services.ProfileAppService

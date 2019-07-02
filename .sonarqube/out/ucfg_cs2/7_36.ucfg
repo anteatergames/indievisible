@@ -1,56 +1,0 @@
-
-6IndieVisible.Web.ETagGenerator.GetETag(string, byte[])k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs7 7($"0*ô
-
-0Å
-Â
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs9 9(+
-%0System.Text.Encoding"System.Text.Encoding.UTF8.get*"
-System.Text.Encodingæã
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs9 9(9
-%1byte[]"%System.Text.Encoding.GetBytes(string)*
-
-%0System.Text.Encoding*
-
-keystring2GetBytes(string)š
-—
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs9 9(9
-keyBytesbyte[]"__id*
-
-%1byte[]Š
-‡
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs:# :(B
-%2byte[]"6IndieVisible.Web.ETagGenerator.Combine(byte[], byte[])*"" 
-IndieVisible.Web.ETagGenerator*
-
-keyBytesbyte[]*
-
-contentBytesbyte[]Ÿ
-œ
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs: :(B
-combinedBytesbyte[]"__id*
-
-%2byte[]ò
-ï
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs< <(.
-%3string"3IndieVisible.Web.ETagGenerator.GenerateETag(byte[])*"" 
-IndieVisible.Web.ETagGenerator*
-
-combinedBytesbyte[]"}
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs< <(/
-
-%3string*ˆ
-1"‚
-k
-aC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Filters\EtagAttribute.cs= =(	
-implicit return:
-keystring:
-contentBytesbyte[]B"" 
-IndieVisible.Web.ETagGenerator

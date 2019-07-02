@@ -228,9 +228,6 @@
   <data name="Work" xml:space="preserve">
     <value>Работа</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Главная</value>
-  </data>
   <data name="Users" xml:space="preserve">
     <value>Пользователи</value>
   </data>

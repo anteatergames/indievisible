@@ -1,8 +1,0 @@
-Ä
-8IndieVisible.Web.ViewComponents.LatestGamesViewComponent&Microsoft.AspNetCore.Mvc.ViewComponentobject¸
-}LatestGamesViewComponent(IndieVisible.Application.Interfaces.IGameAppService, Microsoft.AspNetCore.Http.IHttpContextAccessor)¶IndieVisible.Web.ViewComponents.LatestGamesViewComponent.LatestGamesViewComponent(IndieVisible.Application.Interfaces.IGameAppService, Microsoft.AspNetCore.Http.IHttpContextAccessor)w
-InvokeAsync(int, System.Guid)VIndieVisible.Web.ViewComponents.LatestGamesViewComponent.InvokeAsync(int, System.Guid)Q
-
-UserId.getCIndieVisible.Web.ViewComponents.LatestGamesViewComponent.UserId.getQ
-
-UserId.setCIndieVisible.Web.ViewComponents.LatestGamesViewComponent.UserId.set

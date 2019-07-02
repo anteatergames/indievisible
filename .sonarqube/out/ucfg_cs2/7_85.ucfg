@@ -1,39 +1,0 @@
-
-¢IndieVisible.Web.Controllers.StorageController.StorageController(Microsoft.AspNetCore.Hosting.IHostingEnvironment, Microsoft.AspNetCore.Http.IHttpContextAccessor)s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs ( "2*…
-0µ
-²
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs ($s0
-.IndieVisible.Web.Controllers.StorageController"?
-_hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironment"__id*@
->
-
-hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironmentÂ
-¿
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs (5y0
-.IndieVisible.Web.Controllers.StorageController"E
-HttpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor"__id*G
-E
-httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor*
-1*
-1"Š
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs (	
-implicit return*¢
-2—
-”
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs ( 
-%0"__entrypoint*@
->
-
-hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironment*G
-E
-httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessor*
-0:>
-
-hostingEnv0Microsoft.AspNetCore.Hosting.IHostingEnvironment:E
-httpContextAccessor.Microsoft.AspNetCore.Http.IHttpContextAccessorB20
-.IndieVisible.Web.Controllers.StorageController

@@ -1,362 +1,0 @@
-
-gIndieVisible.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs- -(%"0*‹í
-0Å
-˛
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs/ 5(A
-%0;Microsoft.Extensions.DependencyInjection.IServiceCollection"µMicrosoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<TOptions>)*O"M
-KMicrosoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""Â
-‚
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs7 7("7
-%11Microsoft.Extensions.Configuration.IConfiguration"*IndieVisible.Web.Startup.Configuration.get*
-IndieVisible.Web.Startupˇ
-¸
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs7 7(K
-%2string"âMicrosoft.Extensions.Configuration.ConfigurationExtensions.GetConnectionString(Microsoft.Extensions.Configuration.IConfiguration, string)*>"<
-:Microsoft.Extensions.Configuration.ConfigurationExtensions*9
-7
-%11Microsoft.Extensions.Configuration.IConfiguration*
-""Ü
-É
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs7 7(K
-csstring"__id*
-
-%2string∆
-√
-^
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs9 9(òA
-%3;Microsoft.Extensions.DependencyInjection.IServiceCollection"·Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext<TContext>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>, Microsoft.Extensions.DependencyInjection.ServiceLifetime, Microsoft.Extensions.DependencyInjection.ServiceLifetime)*W"U
-SMicrosoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""*
-""*
-""∆
-√
-^
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs: :(ÖA
-%4;Microsoft.Extensions.DependencyInjection.IServiceCollection"·Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext<TContext>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>, Microsoft.Extensions.DependencyInjection.ServiceLifetime, Microsoft.Extensions.DependencyInjection.ServiceLifetime)*W"U
-SMicrosoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""*
-""*
-""†
-ù
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs< C(3
-%5-Microsoft.AspNetCore.Identity.IdentityBuilder"·Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentity<TUser, TRole>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Microsoft.AspNetCore.Identity.IdentityOptions>)*P"N
-LMicrosoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""À
-»
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs< D(B3
-%6-Microsoft.AspNetCore.Identity.IdentityBuilder"£Microsoft.Extensions.DependencyInjection.IdentityEntityFrameworkBuilderExtensions.AddEntityFrameworkStores<TContext>(Microsoft.AspNetCore.Identity.IdentityBuilder)*U"S
-QMicrosoft.Extensions.DependencyInjection.IdentityEntityFrameworkBuilderExtensions*5
-3
-%5-Microsoft.AspNetCore.Identity.IdentityBuilderå
-â
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs< E(+3
-%7-Microsoft.AspNetCore.Identity.IdentityBuilder"Microsoft.AspNetCore.Identity.IdentityBuilderExtensions.AddDefaultTokenProviders(Microsoft.AspNetCore.Identity.IdentityBuilder)*;"9
-7Microsoft.AspNetCore.Identity.IdentityBuilderExtensions*5
-3
-%6-Microsoft.AspNetCore.Identity.IdentityBuilderu
-s
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csG' G(X
-%8"__id*
-""˙
-˜
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csG G(Y?
-%99Microsoft.AspNetCore.Authentication.AuthenticationBuilder"©Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection, string)*V"T
-RMicrosoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-
-%8á
-Ñ
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csG M(@
-%109Microsoft.AspNetCore.Authentication.AuthenticationBuilder"÷Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie(Microsoft.AspNetCore.Authentication.AuthenticationBuilder, System.Action<Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions>)*=";
-9Microsoft.Extensions.DependencyInjection.CookieExtensions*A
-?
-%99Microsoft.AspNetCore.Authentication.AuthenticationBuilder*
-""≠
-™
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csG ](@
-%119Microsoft.AspNetCore.Authentication.AuthenticationBuilder"‰Microsoft.Extensions.DependencyInjection.FacebookAuthenticationOptionsExtensions.AddFacebook(Microsoft.AspNetCore.Authentication.AuthenticationBuilder, System.Action<Microsoft.AspNetCore.Authentication.Facebook.FacebookOptions>)*T"R
-PMicrosoft.Extensions.DependencyInjection.FacebookAuthenticationOptionsExtensions*B
-@
-%109Microsoft.AspNetCore.Authentication.AuthenticationBuilder*
-""˘
-ˆ
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csG b(@
-%129Microsoft.AspNetCore.Authentication.AuthenticationBuilder"«Microsoft.Extensions.DependencyInjection.GoogleExtensions.AddGoogle(Microsoft.AspNetCore.Authentication.AuthenticationBuilder, System.Action<Microsoft.AspNetCore.Authentication.Google.GoogleOptions>)*=";
-9Microsoft.Extensions.DependencyInjection.GoogleExtensions*B
-@
-%119Microsoft.AspNetCore.Authentication.AuthenticationBuilder*
-""´
-®
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csG g(@
-%139Microsoft.AspNetCore.Authentication.AuthenticationBuilder"ÔMicrosoft.Extensions.DependencyInjection.MicrosoftAccountExtensions.AddMicrosoftAccount(Microsoft.AspNetCore.Authentication.AuthenticationBuilder, System.Action<Microsoft.AspNetCore.Authentication.MicrosoftAccount.MicrosoftAccountOptions>)*G"E
-CMicrosoft.Extensions.DependencyInjection.MicrosoftAccountExtensions*B
-@
-%129Microsoft.AspNetCore.Authentication.AuthenticationBuilder*
-""Ë
-Â
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csj j()
-%14void"{IndieVisible.Web.Extensions.AutoMapperSetup.AddAutoMapperSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)*/"-
-+IndieVisible.Web.Extensions.AutoMapperSetup*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollectionú
-ô
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csl p(B
-%15;Microsoft.Extensions.DependencyInjection.IServiceCollection"œMicrosoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions.AddSession(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Microsoft.AspNetCore.Builder.SessionOptions>)*O"M
-KMicrosoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""µ
-≤
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csr r(SB
-%16;Microsoft.Extensions.DependencyInjection.IServiceCollection"„Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions.AddLocalization(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Microsoft.Extensions.Localization.LocalizationOptions>)*T"R
-PMicrosoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""“
-œ
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cst t(-B
-%17;Microsoft.Extensions.DependencyInjection.IServiceCollection"ñMicrosoft.AspNetCore.Builder.ResponseCompressionServicesExtensions.AddResponseCompression(Microsoft.Extensions.DependencyInjection.IServiceCollection)*F"D
-BMicrosoft.AspNetCore.Builder.ResponseCompressionServicesExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollectionö
-ó
-]
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csv z(B
-%18;Microsoft.Extensions.DependencyInjection.IServiceCollection"ÕMicrosoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Microsoft.AspNetCore.Routing.RouteOptions>)*O"M
-KMicrosoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""Ç
-ˇ
-^
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs| ê(;
-%194Microsoft.Extensions.DependencyInjection.IMvcBuilder"øMicrosoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Microsoft.AspNetCore.Mvc.MvcOptions>)*K"I
-GMicrosoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""x
-v
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csë! ë(J
-%20"__id*
-""‰
-·
-^
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs| ë(z;
-%214Microsoft.Extensions.DependencyInjection.IMvcBuilder"üMicrosoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions.AddViewLocalization(Microsoft.Extensions.DependencyInjection.IMvcBuilder, Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat, System.Action<Microsoft.Extensions.Localization.LocalizationOptions>)*P"N
-LMicrosoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions*=
-;
-%194Microsoft.Extensions.DependencyInjection.IMvcBuilder*
-
-%20*
-""¬
-ø
-^
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs| ñ(;
-%224Microsoft.Extensions.DependencyInjection.IMvcBuilder"ÉMicrosoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions.AddDataAnnotationsLocalization(Microsoft.Extensions.DependencyInjection.IMvcBuilder, System.Action<Microsoft.AspNetCore.Mvc.DataAnnotations.MvcDataAnnotationsLocalizationOptions>)*S"Q
-OMicrosoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions*=
-;
-%214Microsoft.Extensions.DependencyInjection.IMvcBuilder*
-""x
-v
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csó% ó(E
-%23"__id*
-""ˆ
-Û
-^
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs| ó(F;
-%244Microsoft.Extensions.DependencyInjection.IMvcBuilder"¡Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion(Microsoft.Extensions.DependencyInjection.IMvcBuilder, Microsoft.AspNetCore.Mvc.CompatibilityVersion)*H"F
-DMicrosoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions*=
-;
-%224Microsoft.Extensions.DependencyInjection.IMvcBuilder*
-
-%23Ê
-„
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csô ô(+B
-%25;Microsoft.Extensions.DependencyInjection.IServiceCollection"ûMicrosoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddProgressiveWebApp(Microsoft.Extensions.DependencyInjection.IServiceCollection, string)*H"F
-DMicrosoft.Extensions.DependencyInjection.ServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""≥∞
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csü2 ´()
-%26"System.Collections.Generic.List<T>""System.Collections.Generic.List<T>…
-∆
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csü6 ü(G
-%27void")System.Collections.Generic.List<T>.List()*+
-)
-%26"System.Collections.Generic.List<T>Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs° °(,'
-%28 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs° °(#
-%29void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%28 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¢ ¢()'
-%30 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¢ ¢(#
-%31void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%30 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs£ £(,'
-%32 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs£ £(#
-%33void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%32 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs§ §()'
-%34 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs§ §(#
-%35void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%34 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs• •(,'
-%36 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs• •(#
-%37void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%36 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¶ ¶()'
-%38 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¶ ¶(#
-%39void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%38 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csß ß()'
-%40 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csß ß(#
-%41void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%40 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs® ®()'
-%42 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs® ®(#
-%43void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%42 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs© ©()'
-%44 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs© ©(#
-%45void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%44 System.Globalization.CultureInfo*
-""Ø¨
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs™ ™()'
-%46 System.Globalization.CultureInfo" System.Globalization.CultureInfo⁄
-◊
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs™ ™(#
-%47void"4System.Globalization.CultureInfo.CultureInfo(string)*)
-'
-%46 System.Globalization.CultureInfo*
-""–
-Õ
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csü ´(7
-supportedCultures"System.Collections.Generic.List<T>"__id*+
-)
-%26"System.Collections.Generic.List<T>Ñ
-Å
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs≠ µ(B
-%48;Microsoft.Extensions.DependencyInjection.IServiceCollection"µMicrosoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<TOptions>)*O"M
-KMicrosoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""˜
-Ù
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs∑ ∑(HB
-%49;Microsoft.Extensions.DependencyInjection.IServiceCollection"∞Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddTransient<TService, TImplementation>(Microsoft.Extensions.DependencyInjection.IServiceCollection)*O"M
-KMicrosoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollectionÑ
-Å
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.csπ º(B
-%50;Microsoft.Extensions.DependencyInjection.IServiceCollection"µMicrosoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<TOptions>)*O"M
-KMicrosoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-""¬
-ø
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¡ ¡(&
-%51void"fIndieVisible.Web.Startup.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)*"
-IndieVisible.Web.Startup*I
-G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
-1*{
-1"v
-_
-SC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Startup.cs¬ ¬(	
-implicit return:G
-services;Microsoft.Extensions.DependencyInjection.IServiceCollectionB
-IndieVisible.Web.Startup

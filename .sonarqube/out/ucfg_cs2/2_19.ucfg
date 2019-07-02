@@ -1,75 +1,0 @@
-
-[IndieVisible.Domain.Services.GamificationDomainService.GetGamificationByUserId(System.Guid){
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (3"0*Ñ
-0Ï
-È
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs, (BG
-%0AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository"__id*ö*ó8
-6IndieVisible.Domain.Services.GamificationDomainService"[
-gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepositoryâÜ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs, (V-
-%1'IndieVisible.Domain.Models.Gamification"ZIndieVisible.Domain.Interfaces.Repository.IGamificationRepository.GetByUserId(System.Guid)*I
-G
-%0AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository*
-
-userIdSystem.Guid2GetByUserId(System.Guid)Ù
-Ò
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (V;
-userGamification'IndieVisible.Domain.Models.Gamification"__id*/
--
-%1'IndieVisible.Domain.Models.GamificationÑ
-Å
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs ((
-
-%2bool"ÇIndieVisible.Domain.Core.Models.Entity.operator ==(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
-&IndieVisible.Domain.Core.Models.Entity*=
-;
-userGamification'IndieVisible.Domain.Models.Gamification*
-""*
-1
-2*¿
-
-1·
-ﬁ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs# (B-
-%3'IndieVisible.Domain.Models.Gamification"[IndieVisible.Domain.Services.GamificationDomainService.GenerateNewGamification(System.Guid)*:8
-6IndieVisible.Domain.Services.GamificationDomainService*
-
-userIdSystem.GuidÙ
-Ò
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (B;
-userGamification'IndieVisible.Domain.Models.Gamification"__id*/
--
-%3'IndieVisible.Domain.Models.GamificationÏ
-È
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (+G
-%4AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository"__id*ö*ó8
-6IndieVisible.Domain.Services.GamificationDomainService"[
-gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepositoryÎË
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (A
-
-%5void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*I
-G
-%4AIndieVisible.Domain.Interfaces.Repository.IGamificationRepository*=
-;
-userGamification'IndieVisible.Domain.Models.Gamification2Add(TEntity)*
-2*¬
-2"º
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs! !($=
-;
-userGamification'IndieVisible.Domain.Models.Gamification*ò
-3"í
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs" "(	
-implicit return:
-userIdSystem.GuidB:8
-6IndieVisible.Domain.Services.GamificationDomainService

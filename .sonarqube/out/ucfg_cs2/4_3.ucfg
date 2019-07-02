@@ -1,19 +1,0 @@
-
-ãIndieVisible.Infra.Data.Repository.UserPreferencesRepository.UserPreferencesRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)Å
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.cs (("0*î
-0â
-Ü
-Å
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.csF (U
-
-%0void"vIndieVisible.Infra.Data.Repository.Repository<TEntity>.Repository(IndieVisible.Infra.Data.Context.IndieVisibleContext)*:8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>*@
->
-context3IndieVisible.Infra.Data.Context.IndieVisibleContext*
-1*ü
-1"ô
-Å
-wC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\UserPreferencesRepository.cs (	
-implicit return:>
-context3IndieVisible.Infra.Data.Context.IndieVisibleContextB@>
-<IndieVisible.Infra.Data.Repository.UserPreferencesRepository

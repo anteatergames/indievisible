@@ -1,40 +1,0 @@
-
-˜IndieVisible.Infra.Data.Repository.BrainstormVoteRepository.IndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository.GetByUserId(System.Guid)€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs= (H"0*”
-0À
-½
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs. (09
-%03IndieVisible.Infra.Data.Context.IndieVisibleContext"__id*w*u8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>"9
-Db3IndieVisible.Infra.Data.Context.IndieVisibleContextÀ
-½
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs. (@2
-%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>"GIndieVisible.Infra.Data.Context.IndieVisibleContext.BrainstormVotes.get*;
-9
-%03IndieVisible.Infra.Data.Context.IndieVisibleContextˆ
-…
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs. (_
-%2System.Linq.IQueryable<T>"…System.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
-System.Linq.Queryable*4
-2
-%1,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
-""Ò
-Ï
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs' (_!
-objsSystem.Linq.IQueryable<T>"__id*!
-
-%2System.Linq.IQueryable<T>"¨
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs (#
-!
-objsSystem.Linq.IQueryable<T>*ž
-1"˜
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\BrainstormVoteRepository.cs (	
-implicit return:
-userIdSystem.GuidB?=
-;IndieVisible.Infra.Data.Repository.BrainstormVoteRepository

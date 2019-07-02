@@ -1,5 +1,0 @@
-ê
-*IndieVisible.Web.Services.CookieMgrServiceobjectØ
-@CookieMgrService(Microsoft.AspNetCore.Http.IHttpContextAccessor)kIndieVisible.Web.Services.CookieMgrService.CookieMgrService(Microsoft.AspNetCore.Http.IHttpContextAccessor)E
-Get(string)6IndieVisible.Web.Services.CookieMgrService.Get(string)a
-Set(string, string, int?)DIndieVisible.Web.Services.CookieMgrService.Set(string, string, int?)

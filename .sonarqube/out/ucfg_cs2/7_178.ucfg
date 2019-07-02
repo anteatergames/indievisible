@@ -1,55 +1,0 @@
-
-rIndieVisible.Web.Controllers.GameController.ClearImagesUrl(IndieVisible.Application.ViewModels.Game.GameViewModel)r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.csƒ ƒ(#"0*„
-0Ž
-‹
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs…- …(<
-%0string"GIndieVisible.Application.ViewModels.Game.GameViewModel.ThumbnailUrl.get*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModelŠ
-‡
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs… …(=
-%1string"BIndieVisible.Web.Controllers.GameController.GetUrlLastPart(string)*/"-
-+IndieVisible.Web.Controllers.GameController*
-
-%0stringœ
-™
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs… …(=
-
-%2void"GIndieVisible.Application.ViewModels.Game.GameViewModel.ThumbnailUrl.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-
-%1string
-Œ
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs†. †(>
-%3string"HIndieVisible.Application.ViewModels.Game.GameViewModel.CoverImageUrl.get*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModelŠ
-‡
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs† †(?
-%4string"BIndieVisible.Web.Controllers.GameController.GetUrlLastPart(string)*/"-
-+IndieVisible.Web.Controllers.GameController*
-
-%3string
-š
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs† †(?
-
-%5void"HIndieVisible.Application.ViewModels.Game.GameViewModel.CoverImageUrl.set*>
-<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModel*
-
-%4string*
-1*
-1"‰
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\GameController.cs‡ ‡(	
-implicit return:<
-vm6IndieVisible.Application.ViewModels.Game.GameViewModelB/-
-+IndieVisible.Web.Controllers.GameController

@@ -1,40 +1,0 @@
-
-WIndieVisible.Domain.Services.UserConnectionDomainService.GetByTargetUserId(System.Guid)}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs+ (<"0*„
-0è
-å
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs6 (EI
-%0CIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository"__id*’*:
-8IndieVisible.Domain.Services.UserConnectionDomainService"Q
-
-repositoryCIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository»¸
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs6 (n
-%1System.Linq.IQueryable<T>"|IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Get(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*K
-I
-%0CIndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository*
-""2CGet(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)Ö
-Ó
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs' (n)
-connnectionsSystem.Linq.IQueryable<T>"__id*!
-
-%1System.Linq.IQueryable<T>Î
-Ë
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (((
-%2"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
-System.Linq.Enumerable*+
-)
-connnectionsSystem.Linq.IQueryable<T>"«
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs ()*
-(
-%2"System.Collections.Generic.List<T>*š
-1"”
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserConnectionDomainService.cs (	
-implicit return:
-targetUserIdSystem.GuidB<:
-8IndieVisible.Domain.Services.UserConnectionDomainService

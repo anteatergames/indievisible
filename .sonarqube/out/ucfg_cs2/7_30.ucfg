@@ -1,43 +1,0 @@
-
-IIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController.List()á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs" "(!"2*∏
-0Ò
-Ó
-á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs$B $(JD
-%0>IndieVisible.Application.Interfaces.IFeaturedContentAppService"__id*ï*íD
-BIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController"J
-_service>IndieVisible.Application.Interfaces.IFeaturedContentAppService˘ˆ
-á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs$B $(c/
-%1)System.Collections.Generic.IEnumerable<T>"WIndieVisible.Application.Interfaces.IFeaturedContentAppService.GetContentToBeFeatured()*F
-D
-%0>IndieVisible.Application.Interfaces.IFeaturedContentAppService2GetContentToBeFeatured()˙
-˜
-á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs$: $(c2
-model)System.Collections.Generic.IEnumerable<T>"__id*1
-/
-%1)System.Collections.Generic.IEnumerable<T>ÑÅ
-á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs& &(.0
-%2*Microsoft.AspNetCore.Mvc.PartialViewResult"?Microsoft.AspNetCore.Mvc.Controller.PartialView(string, object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*
-""*4
-2
-model)System.Collections.Generic.IEnumerable<T>2PartialView(string, object)"æ
-á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs& &(/2
-0
-%2*Microsoft.AspNetCore.Mvc.PartialViewResult*•
-1"ü
-á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs' '(	
-implicit return*¨
-2°
-û
-á
-}C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Staff\Controllers\FeaturedContentController.cs" "(!
-%3"__entrypoint*
-0BFD
-BIndieVisible.Web.Areas.Staff.Controllers.FeaturedContentController

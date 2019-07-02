@@ -1,62 +1,0 @@
-
-rIndieVisible.Infra.Data.Migrations.notificationbasic.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs  (""0*ó
-0†ƒ
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs
- (_
-%0YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>"­Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder.CreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-""*
-""2óCreateTable<TColumns>(string, System.Func<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.ColumnsBuilder, TColumns>, string, System.Action<Microsoft.EntityFrameworkCore.Migrations.Operations.Builders.CreateTableBuilder<TColumns>>)®«
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs (J
-%1System.Guid"System.GuidÑ
-Î
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs ("
-
-%2void"System.Guid.Guid(string)*
-
-%1System.Guid*
-""¢
-Ÿ
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs B  (T
-%3"__id*
-""¶³
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs   (U
-%4System.DateTime"System.DateTime¹
-¶
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs   (#
-
-%5void"PSystem.DateTime.DateTime(int, int, int, int, int, int, int, System.DateTimeKind)*
-
-%4System.DateTime*2ã*2*2*2*2*2/*2Î*
-
-%3À½
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs  (V_
-%6YMicrosoft.EntityFrameworkCore.Migrations.Operations.Builders.OperationBuilder<TOperation>"tMicrosoft.EntityFrameworkCore.Migrations.MigrationBuilder.UpdateData(string, string, object, string, object, string)*O
-M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder*
-""*
-""*
-
-%1System.Guid*
-""*
-
-%4System.DateTime*
-""2:UpdateData(string, string, object, string, object, string)*
-1*¦
-1" 
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Migrations\20190421231747_notificationbasic.cs! !(	
-implicit return:M
-migrationBuilder9Microsoft.EntityFrameworkCore.Migrations.MigrationBuilderB86
-4IndieVisible.Infra.Data.Migrations.notificationbasic

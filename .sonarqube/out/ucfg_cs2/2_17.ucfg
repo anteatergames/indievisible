@@ -1,38 +1,0 @@
-
-EIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Add(T)x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs ("0*„
-0˜
-Ù
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs (
-%0TRepository"__id*_*]@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>"
-
-repositoryTRepositoryÅ˛
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs (&
-
-%1void"EIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Add(TEntity)*
-
-%0TRepository*
-
-
-modelT2Add(TEntity)Õ
- 
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs (
-%2System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*
-
-
-modelT"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs (
-
-%2System.Guid*ï
-1"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\Base\BaseDomainService.cs (	
-implicit return:
-
-modelTBB@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>

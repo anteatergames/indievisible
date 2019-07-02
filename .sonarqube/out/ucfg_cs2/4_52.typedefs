@@ -1,4 +1,0 @@
-¦
-?IndieVisible.Infra.Data.Repository.GamificationActionRepository6IndieVisible.Infra.Data.Repository.Repository<TEntity>objectç
-QGamificationActionRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)‘IndieVisible.Infra.Data.Repository.GamificationActionRepository.GamificationActionRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)¸
-:GetByAction(IndieVisible.Domain.Core.Enums.PlatformAction)zIndieVisible.Infra.Data.Repository.GamificationActionRepository.GetByAction(IndieVisible.Domain.Core.Enums.PlatformAction)

@@ -1,25 +1,0 @@
-
-HIndieVisible.Domain.Services.GameFollowDomainService.Remove(System.Guid)y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs. .("0*ª
-0‚
-ﬂ
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs0 0(%E
-%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository"__id*î*ë6
-4IndieVisible.Domain.Services.GameFollowDomainService"W
-gameFollowRepository?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepositoryÀ»
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs0 0(0
-
-%1void"LIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Remove(System.Guid)*G
-E
-%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository*
-
-idSystem.Guid2Remove(System.Guid)*
-1*ñ
-1"ê
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs1 1(	
-implicit return:
-idSystem.GuidB86
-4IndieVisible.Domain.Services.GameFollowDomainService

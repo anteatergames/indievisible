@@ -1,37 +1,0 @@
-
-ÎIndieVisible.Application.Services.UserBadgeAppService.UserBadgeAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService)z
-pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs (""0*Æ
-0þ
-û
-z
-pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs ( W7
-5IndieVisible.Application.Services.UserBadgeAppService"
-mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperÀ
-½
-z
-pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs ((x7
-5IndieVisible.Application.Services.UserBadgeAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork÷
-ô
-z
-pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs (@“7
-5IndieVisible.Application.Services.UserBadgeAppService"X
-userBadgeDomainService>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService"__id*Z
-X
-userBadgeDomainService>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainService*
-1*—
-1"‘
-z
-pC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserBadgeAppService.cs (	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:X
-userBadgeDomainService>IndieVisible.Domain.Interfaces.Service.IUserBadgeDomainServiceB97
-5IndieVisible.Application.Services.UserBadgeAppService

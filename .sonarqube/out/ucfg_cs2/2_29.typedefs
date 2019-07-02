@@ -1,12 +1,0 @@
-ê	
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>object
-BaseDomainService(TRepository)]IndieVisible.Domain.Services.BaseDomainService<T, TRepository>.BaseDomainService(TRepository)O
-Add(T)EIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Add(T)Q
-Count()FIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Count()Á
-?Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)~IndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)½
-=Get(System.Linq.Expressions.Expression<System.Func<T, bool>>)|IndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Get(System.Linq.Expressions.Expression<System.Func<T, bool>>)S
-GetAll()GIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.GetAll()k
-GetById(System.Guid)SIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.GetById(System.Guid)s
-GetByUserId(System.Guid)WIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.GetByUserId(System.Guid)i
-Remove(System.Guid)RIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Remove(System.Guid)U
-	Update(T)HIndieVisible.Domain.Services.BaseDomainService<T, TRepository>.Update(T)

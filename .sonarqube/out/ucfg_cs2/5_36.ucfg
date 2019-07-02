@@ -1,46 +1,0 @@
-
-ŠIndieVisible.Application.Services.FollowAppService.FollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService, IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService)w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs ("0*°
-
-0ø
-õ
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs ( T4
-2IndieVisible.Application.Services.FollowAppService"
-mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperº
-·
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs ((u4
-2IndieVisible.Application.Services.FollowAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkõ
-ò
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs (B’4
-2IndieVisible.Application.Services.FollowAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*\
-Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainServiceõ
-ò
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs (B’4
-2IndieVisible.Application.Services.FollowAppService"Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*\
-Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
-1*”
-1"Ž
-w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs (	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService:Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceB64
-2IndieVisible.Application.Services.FollowAppService

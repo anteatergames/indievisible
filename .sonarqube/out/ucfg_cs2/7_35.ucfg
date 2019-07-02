@@ -1,75 +1,0 @@
-
-¸IndieVisible.Web.Controllers.AccountController.AccountController(Microsoft.AspNetCore.Identity.UserManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, Microsoft.AspNetCore.Identity.SignInManager<IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser>, IndieVisible.Application.Interfaces.IProfileAppService, IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, Microsoft.Extensions.Logging.ILogger<IndieVisible.Web.Controllers.AccountController>, AutoMapper.IMapper)s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs$ $( "2*Á
-0è
-å
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs* *($
-
-%0void"MIndieVisible.Web.Controllers.Base.SecureBaseController.SecureBaseController()*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController∑
-¥
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs, ,(&t0
-.IndieVisible.Web.Controllers.AccountController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*A
-?
-userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>ø
-º
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs- -(*x0
-.IndieVisible.Web.Controllers.AccountController"D
-_signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>"__id*E
-C
-signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>–
-Õ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs. .(2Ä0
-.IndieVisible.Web.Controllers.AccountController"L
-_profileAppService6IndieVisible.Application.Interfaces.IProfileAppService"__id*M
-K
-profileAppService6IndieVisible.Application.Interfaces.IProfileAppService‘
-—
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs/ /(&Ç0
-.IndieVisible.Web.Controllers.AccountController"N
-_emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender"__id*O
-M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender§
-°
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs0 0(c0
-.IndieVisible.Web.Controllers.AccountController"/
-_logger$Microsoft.Extensions.Logging.ILogger"__id*?
-=
-logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*
-1*ê
-1"ä
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs1 1(	
-implicit return*¢
-2ó
-î
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\AccountController.cs$ $( 
-%1"__entrypoint*A
-?
-userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>*E
-C
-signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>*M
-K
-profileAppService6IndieVisible.Application.Interfaces.IProfileAppService*O
-M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender*?
-=
-logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>*
-
-mapperAutoMapper.IMapper*
-0:?
-userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>:C
-signInManager2Microsoft.AspNetCore.Identity.SignInManager<TUser>:K
-profileAppService6IndieVisible.Application.Interfaces.IProfileAppService:M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender:=
-logger3Microsoft.Extensions.Logging.ILogger<TCategoryName>:
-mapperAutoMapper.IMapperB20
-.IndieVisible.Web.Controllers.AccountController

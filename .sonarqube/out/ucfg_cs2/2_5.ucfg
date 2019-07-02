@@ -1,34 +1,0 @@
-
-§IndieVisible.Domain.Services.GamificationDomainService.GamificationDomainService(IndieVisible.Domain.Interfaces.Repository.IGamificationRepository, IndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository, IndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository){
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (("0*∫	
-0ˇ
-¸
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (@ó8
-6IndieVisible.Domain.Services.GamificationDomainService"[
-gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepository"__id*]
-[
-gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepositoryó
-î
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (L£8
-6IndieVisible.Domain.Services.GamificationDomainService"g
-gamificationActionRepositoryGIndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository"__id*i
-g
-gamificationActionRepositoryGIndieVisible.Domain.Interfaces.Repository.IGamificationActionRepositoryì
-ê
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (J°8
-6IndieVisible.Domain.Services.GamificationDomainService"e
-gamificationLevelRepositoryFIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository"__id*g
-e
-gamificationLevelRepositoryFIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository*
-1*ò
-1"í
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GamificationDomainService.cs (	
-implicit return:[
-gamificationRepositoryAIndieVisible.Domain.Interfaces.Repository.IGamificationRepository:g
-gamificationActionRepositoryGIndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository:e
-gamificationLevelRepositoryFIndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepositoryB:8
-6IndieVisible.Domain.Services.GamificationDomainService

@@ -1,21 +1,0 @@
-
-dIndieVisible.Infra.CrossCutting.Identity.Services.EmailSender.SendEmailAsync(string, string, string)‚
-xC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\EmailSender.cs (""0*®
-0û
-ø
-‚
-xC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\EmailSender.cs (%!
-%0System.Threading.Tasks.Task"-System.Threading.Tasks.Task.CompletedTask.get*"
-System.Threading.Tasks.Task"ª
-‚
-xC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\EmailSender.cs (&#
-!
-%0System.Threading.Tasks.Task* 
-1"š
-‚
-xC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Services\EmailSender.cs (	
-implicit return:
-emailstring:
-subjectstring:
-messagestringBA?
-=IndieVisible.Infra.CrossCutting.Identity.Services.EmailSender

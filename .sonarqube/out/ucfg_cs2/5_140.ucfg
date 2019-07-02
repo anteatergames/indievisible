@@ -1,90 +1,0 @@
-
-LIndieVisible.Application.Services.LikeAppService.RemoveGameLike(System.Guid)w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csó" ó(0"0*
-0*	
-1
-2
-3*ı
-2◊
-‘
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csü ü(#C
-%0=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository"__id*ç*ä2
-0IndieVisible.Application.Services.LikeAppService"T
-_gameLikeRepository=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository«ƒ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csü ü(.
-
-%1void"LIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Remove(System.Guid)*E
-C
-%0=IndieVisible.Domain.Interfaces.Repository.IGameLikeRepository*
-
-idSystem.Guid2Remove(System.Guid)±
-Æ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs° °(5
-%2/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*v*t2
-0IndieVisible.Application.Services.LikeAppService">
-_unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkÖÇ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs° °($
-
-%3bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*7
-5
-%2/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()ÍÁ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs£ £(48
-%42IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVoò
-ï
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs£ £(.
-
-%5void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
-8
-%42IndieVisible.Domain.ValueObjects.OperationResultVo*
-""¸
-˘
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs£ £(4<
-result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
-8
-%42IndieVisible.Domain.ValueObjects.OperationResultVo*	
-1
-4
-3*Î
-1œÃ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csß/ ß(9
-%6string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getÍÁ
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csß ß(:8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo¢
-ü
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csß ß(.
-
-%8void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
-8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo*
-
-%6string¸
-˘
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.csß ß(:<
-result2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
-8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo*
-4*ø
-4"π
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs™ ™(>
-<
-result2IndieVisible.Domain.ValueObjects.OperationResultVo*î
-3"é
-w
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\LikeAppService.cs´ ´(	
-implicit return:
-idSystem.GuidB42
-0IndieVisible.Application.Services.LikeAppService

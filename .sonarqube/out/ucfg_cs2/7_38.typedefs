@@ -1,5 +1,0 @@
-…
-IndieVisible.Web.EtagAttributeSystem.AttributeobjectY
-EtagAttribute(params int[]):IndieVisible.Web.EtagAttribute.EtagAttribute(params int[])·
-JOnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)iIndieVisible.Web.EtagAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)³
-HOnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)gIndieVisible.Web.EtagAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)

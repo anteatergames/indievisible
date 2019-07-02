@@ -1,14 +1,0 @@
-í
-
-SIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModelobject~
-RegisterViewModel()gIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.RegisterViewModel()j
-	Email.get]IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.Email.getj
-	Email.set]IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.Email.setp
-Password.get`IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.Password.getp
-Password.set`IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.Password.set~
-ConfirmPassword.getgIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.ConfirmPassword.get~
-ConfirmPassword.setgIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.ConfirmPassword.setp
-UserName.get`IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.UserName.getp
-UserName.set`IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.UserName.setv
-AcceptTerms.getcIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.AcceptTerms.getv
-AcceptTerms.setcIndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels.RegisterViewModel.AcceptTerms.set

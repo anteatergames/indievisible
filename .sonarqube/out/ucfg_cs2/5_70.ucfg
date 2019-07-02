@@ -1,81 +1,0 @@
-
->IndieVisible.Application.Services.UserFollowAppService.Count(){
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs& (+"0*
-0*	
-1
-2
-3*â
-2é
-æ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs# #(3E
-%0?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*™*–8
-6IndieVisible.Application.Services.UserFollowAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService—”
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs# #(;	
-%1int"8IndieVisible.Domain.Interfaces.IDomainService<T>.Count()*G
-E
-%0?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService2Count()¡
-ž
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs# #(;
-countint"__id*
-	
-%1intôñ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs% %(:;
-%25IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>§
-¤
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs% %(3
-
-%3void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
-;
-%25IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-countint†
-ƒ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs% %(:?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%25IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
-1
-4
-3*
-1ÓÐ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs)4 )(>
-%4string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getôñ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs) )(?;
-%55IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>¬
-©
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs) )(3
-
-%6void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
-;
-%55IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%4string†
-ƒ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs) )(??
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%55IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-4*Æ
-4"À
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs, ,(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*˜
-3"’
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs- -(	
-implicit returnB:8
-6IndieVisible.Application.Services.UserFollowAppService

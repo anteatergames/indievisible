@@ -1,130 +1,0 @@
-
-CIndieVisible.Web.Controllers.ManageController.EnableAuthenticator()t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csñ) ñ(<"4*Ò
-0®
-«
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csó) ó(56
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>†
-ƒ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csóC ó(G,
-%1&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBase¬©
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csó) ó(H*
-%2$System.Threading.Tasks.Task<TResult>"eMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserAsync(System.Security.Claims.ClaimsPrincipal)*8
-6
-%00Microsoft.AspNetCore.Identity.UserManager<TUser>*.
-,
-%1&System.Security.Claims.ClaimsPrincipal24GetUserAsync(System.Security.Claims.ClaimsPrincipal)Ð
-Í
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csó ó(HG
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser"__id*
-""ˆ
-…
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csô ô(
-
-%3bool""object.operator ==(object, object)*
-"
-object*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*
-""*
-1
-2*Ù
-1®
-«
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csöO ö([6
-%40Microsoft.AspNetCore.Identity.UserManager<TUser>"__id*u*s/
--IndieVisible.Web.Controllers.ManageController"@
-_userManager0Microsoft.AspNetCore.Identity.UserManager<TUser>†
-ƒ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csöf ö(j,
-%5&System.Security.Claims.ClaimsPrincipal"0Microsoft.AspNetCore.Mvc.ControllerBase.User.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBaseˆ…
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csöO ö(k
-%6string"bMicrosoft.AspNetCore.Identity.UserManager<TUser>.GetUserId(System.Security.Claims.ClaimsPrincipal)*8
-6
-%40Microsoft.AspNetCore.Identity.UserManager<TUser>*.
-,
-%5&System.Security.Claims.ClaimsPrincipal21GetUserId(System.Security.Claims.ClaimsPrincipal)©
-¦
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csö/ ö(o
-%7string"__concat*
-""*
-
-%6string©
-¦
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csö/ ö(o
-%8string"__concat*
-
-%7string*
-""¹¶
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csö ö(p!
-%9System.ApplicationException"System.ApplicationExceptionõ
-ò
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csö ö(.
-%10void"8System.ApplicationException.ApplicationException(string)*#
-!
-%9System.ApplicationException*
-
-%8string*
-3*ž
-2¾»
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csù1 ù(Sd
-%11]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel"]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModelì
-é
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csù5 ù(Q
-%12void"|IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel.EnableAuthenticatorViewModel()*f
-d
-%11]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModelÏ
-Ì
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csù) ù(Sf
-model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel"__id*f
-d
-%11]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModelô
-ñ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csú ú(="
-%13System.Threading.Tasks.Task"ìIndieVisible.Web.Controllers.ManageController.LoadSharedKeyAndQrCodeUriAsync(IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser, IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel)*1/
--IndieVisible.Web.Controllers.ManageController*I
-G
-user?IndieVisible.Infra.CrossCutting.Identity.Models.ApplicationUser*h
-f
-model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModeløõ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csü ü(*
-%14#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*h
-f
-model]IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels.EnableAuthenticatorViewModel2View(object)"¤
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csü ü(,
-*
-%14#Microsoft.AspNetCore.Mvc.ViewResult*‘
-3"‹
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csý ý(	
-implicit return*™
-4Ž
-‹
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csñ) ñ(<
-%15"__entrypoint*
-0B1/
--IndieVisible.Web.Controllers.ManageController

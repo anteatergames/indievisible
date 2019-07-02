@@ -1,31 +1,0 @@
-
-kIndieVisible.Web.Controllers.Base.SecureBaseController.GetCookieValue(IndieVisible.Web.Enums.SessionValues)}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs≈ ≈('"0*õ
-0æ
-ª
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs« «(+1
-%0+IndieVisible.Web.Services.ICookieMgrService"KIndieVisible.Web.Controllers.Base.SecureBaseController.CookieMgrService.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseControllerìê
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs« «(?
-%1string"7IndieVisible.Web.Services.ICookieMgrService.Get(string)*3
-1
-%0+IndieVisible.Web.Services.ICookieMgrService*
-""2Get(string)©
-¶
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs« «(?
-valuestring"__id*
-
-%1string"í
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs… …(
-
-valuestring*ö
-1"î
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\SecureBaseController.cs   (	
-implicit return:+
-key$IndieVisible.Web.Enums.SessionValuesB:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController

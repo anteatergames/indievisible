@@ -1,8 +1,0 @@
-‘
-IndieVisible.Web.Startupobject‘
-:Startup(Microsoft.Extensions.Configuration.IConfiguration)SIndieVisible.Web.Startup.Startup(Microsoft.Extensions.Configuration.IConfiguration)¹
-NConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)gIndieVisible.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)«
-†Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IHostingEnvironment, System.IServiceProvider)ŸIndieVisible.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IHostingEnvironment, System.IServiceProvider)m
-(CreateUserRoles(System.IServiceProvider)AIndieVisible.Web.Startup.CreateUserRoles(System.IServiceProvider)?
-Configuration.get*IndieVisible.Web.Startup.Configuration.get?
-Configuration.set*IndieVisible.Web.Startup.Configuration.set

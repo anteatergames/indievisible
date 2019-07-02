@@ -1,26 +1,0 @@
-
-IndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Data\AspNetIdentityContext.cs  (/"0*Ï
-0ª§
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Data\AspNetIdentityContext.cs ()
-
-%0void"ÎMicrosoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext<TUser, TRole, TKey, TUserClaim, TUserRole, TUserLogin, TRoleClaim, TUserToken>.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)*GE
-CIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext*7
-5
-builder*Microsoft.EntityFrameworkCore.ModelBuilder2;OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)—
-”
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Data\AspNetIdentityContext.cs (
-
-%1void"yIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext.SeedRoles(Microsoft.EntityFrameworkCore.ModelBuilder)*G"E
-CIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext*7
-5
-builder*Microsoft.EntityFrameworkCore.ModelBuilder*
-1*¦
-1" 
-ˆ
-~C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Data\AspNetIdentityContext.cs (	
-implicit return:5
-builder*Microsoft.EntityFrameworkCore.ModelBuilderBGE
-CIndieVisible.Infra.CrossCutting.Identity.Data.AspNetIdentityContext

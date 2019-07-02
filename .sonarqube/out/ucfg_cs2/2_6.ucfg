@@ -1,21 +1,0 @@
-
-çIndieVisible.Domain.Services.UserFollowDomainService.UserFollowDomainService(IndieVisible.Domain.Interfaces.Repository.IUserFollowRepository)y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserFollowDomainService.cs (&"0*â
-0˛
-˚
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserFollowDomainService.csI ([
-
-%0void"]IndieVisible.Domain.Services.BaseDomainService<T, TRepository>.BaseDomainService(TRepository)*B@
->IndieVisible.Domain.Services.BaseDomainService<T, TRepository>*O
-M
-
-repository?IndieVisible.Domain.Interfaces.Repository.IUserFollowRepository*
-1*ñ
-1"ê
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserFollowDomainService.cs (	
-implicit return:M
-
-repository?IndieVisible.Domain.Interfaces.Repository.IUserFollowRepositoryB86
-4IndieVisible.Domain.Services.UserFollowDomainService

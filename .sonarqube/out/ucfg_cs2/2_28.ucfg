@@ -1,30 +1,0 @@
-
-<IndieVisible.Domain.Services.UserBadgeDomainService.GetAll()x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs& (,"0*â
-0›
-⁄
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs6 (ND
-%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository"__id*ë*é5
-3IndieVisible.Domain.Services.UserBadgeDomainService"U
-userBadgeRepository>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository≥∞
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs6 (W
-%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*F
-D
-%0>IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository2GetAll() 
-«
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs. (W"
-modelSystem.Linq.IQueryable<T>"__id*!
-
-%1System.Linq.IQueryable<T>"†
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs ($
-"
-modelSystem.Linq.IQueryable<T>*ï
-1"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\UserBadgeDomainService.cs (	
-implicit returnB75
-3IndieVisible.Domain.Services.UserBadgeDomainService

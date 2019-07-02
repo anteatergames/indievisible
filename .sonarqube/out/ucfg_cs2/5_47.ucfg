@@ -1,37 +1,0 @@
-
-ÑIndieVisible.Application.Services.GameFollowAppService.GameFollowAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService){
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameFollowAppService.cs (#"0*Ð
-0€
-ý
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameFollowAppService.cs ( X8
-6IndieVisible.Application.Services.GameFollowAppService"
-mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapperÂ
-¿
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameFollowAppService.cs ((y8
-6IndieVisible.Application.Services.GameFollowAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorký
-ú
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameFollowAppService.cs (B–8
-6IndieVisible.Application.Services.GameFollowAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService"__id*\
-Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainService*
-1*˜
-1"’
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\GameFollowAppService.cs (	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IGameFollowDomainServiceB:8
-6IndieVisible.Application.Services.GameFollowAppService

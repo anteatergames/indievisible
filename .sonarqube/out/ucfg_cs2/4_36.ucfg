@@ -1,28 +1,0 @@
-
-RIndieVisible.Infra.Data.Repository.GamificationRepository.GetByUserId(System.Guid)~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.cs ('"0*‹
-0²
-¯
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.cs (2
-%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>"__id*s*q8
-6IndieVisible.Infra.Data.Repository.Repository<TEntity>"5
-DbSet,Microsoft.EntityFrameworkCore.DbSet<TEntity>œ
-™
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.cs (@-
-%1'IndieVisible.Domain.Models.Gamification"ŽSystem.Linq.Queryable.FirstOrDefault<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
-System.Linq.Queryable*4
-2
-%0,Microsoft.EntityFrameworkCore.DbSet<TEntity>*
-"""±
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.cs (A/
--
-%1'IndieVisible.Domain.Models.Gamification*›
-1"•
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.Data\Repository\GamificationRepository.cs (	
-implicit return:
-userIdSystem.GuidB=;
-9IndieVisible.Infra.Data.Repository.GamificationRepository

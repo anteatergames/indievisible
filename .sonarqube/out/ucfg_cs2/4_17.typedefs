@@ -1,4 +1,0 @@
-¾
-2IndieVisible.Infra.Data.Mappings.UserContentConfigobject 
-tConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserContent>)§IndieVisible.Infra.Data.Mappings.UserContentConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserContent>)]
-UserContentConfig()FIndieVisible.Infra.Data.Mappings.UserContentConfig.UserContentConfig()

@@ -1,102 +1,0 @@
-
-:IndieVisible.Web.Controllers.HomeController.SetGenreTags()r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs≥2 ≥(>"0*ç
-0≈¬
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csµ; µ(c(
-%0"System.Collections.Generic.List<T>""System.Collections.Generic.List<T>⁄
-◊
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csµ? µ(a
-
-%1void")System.Collections.Generic.List<T>.List()**
-(
-%0"System.Collections.Generic.List<T>⁄
-◊
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csµ/ µ(c/
-	genreDict"System.Collections.Generic.List<T>"__id**
-(
-%0"System.Collections.Generic.List<T>»
-≈
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs∑, ∑(M
-%2System.Array""System.Enum.GetValues(System.Type)*"
-System.Enum*
-""†
-ù
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs∑, ∑(_/
-%3)System.Collections.Generic.IEnumerable<T>"DSystem.Linq.Enumerable.Cast<TResult>(System.Collections.IEnumerable)*"
-System.Linq.Enumerable*
-
-%2System.ArrayÂ
-‚
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs∑# ∑(_3
-genres)System.Collections.Generic.IEnumerable<T>"__id*1
-/
-%3)System.Collections.Generic.IEnumerable<T>Õ
- 
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csπ π((
-%4"System.Collections.Generic.List<T>"WSystem.Linq.Enumerable.ToList<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
-System.Linq.Enumerable*5
-3
-genres)System.Collections.Generic.IEnumerable<T>ı
-Ú
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csπ æ(
-
-%5void"<System.Collections.Generic.List<T>.ForEach(System.Action<T>)**
-(
-%4"System.Collections.Generic.List<T>*
-""õò
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs¿ ¿(#
-%6System.Random"System.Random≤
-Ø
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs¿ ¿(!
-
-%7void"System.Random.Random()*
-
-%6System.Random®
-•
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs¿ ¿(#
-rSystem.Random"__id*
-
-%6System.Random˙
-˜
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs¬. ¬(N.
-%8(System.Linq.IOrderedEnumerable<TElement>"zSystem.Linq.Enumerable.OrderBy<TSource, TKey>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, TKey>)*"
-System.Linq.Enumerable*1
-/
-	genreDict"System.Collections.Generic.List<T>*
-""º
-π
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs¬. ¬(u9
-%93System.Collections.Generic.Dictionary<TKey, TValue>"©System.Linq.Enumerable.ToDictionary<TSource, TKey, TElement>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, TKey>, System.Func<TSource, TElement>)*"
-System.Linq.Enumerable*0
-.
-%8(System.Linq.IOrderedEnumerable<TElement>*
-""*
-""˜
-Ù
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs¬' ¬(u;
-dict3System.Collections.Generic.Dictionary<TKey, TValue>"__id*;
-9
-%93System.Collections.Generic.Dictionary<TKey, TValue>"≥
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csƒ ƒ(=
-;
-dict3System.Collections.Generic.Dictionary<TKey, TValue>*è
-1"â
-r
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.cs≈ ≈(	
-implicit returnB/"-
-+IndieVisible.Web.Controllers.HomeController

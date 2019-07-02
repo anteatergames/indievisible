@@ -1,205 +1,0 @@
-
-WIndieVisible.Application.Services.FollowAppService.UserFollow(System.Guid, System.Guid)w
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.cs|! |(+"0*Õ
-0¿
-Ω
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÄ Ä($
-%0System.Guid"__id*'*%
-System.Guid"
-EmptySystem.Guid¸
-˘
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÄ Ä($
-
-%1bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
-System.Guid*
-
-userIdSystem.Guid*
-
-%0System.Guid*
-1
-2*ô
-1ÏÈ
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÇ Ç(Z8
-%22IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVoú
-ô
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÇ Ç(0
-
-%3void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*:
-8
-%22IndieVisible.Domain.ValueObjects.OperationResultVo*
-""Ä
-˝
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÇ Ç(Z>
-response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
-8
-%22IndieVisible.Domain.ValueObjects.OperationResultVo*
-3*¥	
-2„
-‡
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÜ$ Ü(;E
-%4?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ï*í4
-2IndieVisible.Application.Services.FollowAppService"Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceΩ∫
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÜ$ Ü(D/
-%5)System.Collections.Generic.IEnumerable<T>"9IndieVisible.Domain.Interfaces.IDomainService<T>.GetAll()*G
-E
-%4?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService2GetAll()‘
-—
-z
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÜ$ Ü(É
-
-%6bool"pSystem.Linq.Enumerable.Any<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
-System.Linq.Enumerable*1
-/
-%5)System.Collections.Generic.IEnumerable<T>*
-""©
-¶
-z
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csÜ Ü(É
-alreadyLikedbool"__id*
-
-
-%6bool*
-4
-5*Æ
-4ÏÈ
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csä ä(;8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVoö
-ó
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csä# ä(4
-
-%8void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
-8
-%72IndieVisible.Domain.ValueObjects.OperationResultVo*
-""Ä
-˝
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csä ä(;>
-response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*:
-8
-%72IndieVisible.Domain.ValueObjects.OperationResultVoî
-ë
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csã ã(>
-
-%9void">IndieVisible.Domain.ValueObjects.OperationResultVo.Message.set*@
->
-response2IndieVisible.Domain.ValueObjects.OperationResultVo*
-""*
-3*†!
-5”–
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csè' è(7,
-%10%IndieVisible.Domain.Models.UserFollow"%IndieVisible.Domain.Models.UserFollowÔ
-Ï
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csè+ è(5
-%11void"2IndieVisible.Domain.Models.UserFollow.UserFollow()*.
-,
-%10%IndieVisible.Domain.Models.UserFollow‰
-·
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csè è(7.
-model%IndieVisible.Domain.Models.UserFollow"__id*.
-,
-%10%IndieVisible.Domain.Models.UserFollowî
-ë
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csë ë(5
-%12void"6IndieVisible.Domain.Models.UserFollow.FollowUserId.set*0
-.
-model%IndieVisible.Domain.Models.UserFollow*
-
-followUserIdSystem.Guidâ
-Ü
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csí í()
-%13void"1IndieVisible.Domain.Core.Models.Entity.UserId.set*0
-.
-model%IndieVisible.Domain.Models.UserFollow*
-
-userIdSystem.Guid‰
-·
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csî î(0F
-%14?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ï*í4
-2IndieVisible.Application.Services.FollowAppService"Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceœÃ
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csî î(;
-%15System.Guid"7IndieVisible.Domain.Interfaces.IDomainService<T>.Add(T)*H
-F
-%14?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*0
-.
-model%IndieVisible.Domain.Models.UserFollow2Add(T)µ
-≤
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csñ ñ(6
-%16/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*w*u4
-2IndieVisible.Application.Services.FollowAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkâÜ
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csñ ñ('
-%17bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
-6
-%16/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()‰
-·
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csò# ò(?F
-%18?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ï*í4
-2IndieVisible.Application.Services.FollowAppService"Z
-userFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceèå
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csò# ò(j
-
-%19int"pIndieVisible.Domain.Interfaces.IDomainService<T>.Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)*H
-F
-%18?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
-""2?Count(System.Linq.Expressions.Expression<System.Func<T, bool>>)£
-†
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csò ò(j
-newCountint"__id*
-
-
-%19intÛ
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csö ö(C<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>™
-ß
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csö# ö(9
-%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-newCountintÑ
-Å
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csö ö(C>
-response2IndieVisible.Domain.ValueObjects.OperationResultVo"__id*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-3*√
-3"Ω
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csû û(@
->
-response2IndieVisible.Domain.ValueObjects.OperationResultVo*ñ
-6"ê
-y
-mC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FollowAppService.csü ü(	
-implicit return:
-userIdSystem.Guid:
-followUserIdSystem.GuidB64
-2IndieVisible.Application.Services.FollowAppService

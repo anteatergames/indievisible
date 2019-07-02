@@ -1,9 +1,6 @@
 ﻿var CONTENTDETAILS = (function () {
     "use strict";
 
-    var selectors = {};
-
-
     function init() {
         cacheSelectors();
 

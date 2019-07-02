@@ -1,198 +1,0 @@
-
-ìIndieVisible.Web.Controllers.ProfileController.Save(IndieVisible.Application.ViewModels.User.ProfileViewModel, Microsoft.AspNetCore.Http.IFormFile)s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs> >(!"7*
-0*	
-1
-2
-3*“
-2å
-â
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csB B(
-%0string"AIndieVisible.Application.ViewModels.User.ProfileViewModel.Bio.get*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModelµ
-≤
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csB B(w
-
-%1bool"string.Contains(string)*
-
-%0string*
-""*
-4
-5*‡
-4ç
-ä
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csD D($
-%2string"BIndieVisible.Application.ViewModels.User.ProfileViewModel.Name.get*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel®
-•
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csD D(z
-%3string"__concat*
-
-%2string*
-""ö
-ó
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csD D(z
-
-%4void"AIndieVisible.Application.ViewModels.User.ProfileViewModel.Bio.set*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*
-
-%3string*
-5*â
-5¬
-ø
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csG G("<
-%56IndieVisible.Application.Interfaces.IProfileAppService"__id*É*Ä0
-.IndieVisible.Web.Controllers.ProfileController"L
-_profileAppService6IndieVisible.Application.Interfaces.IProfileAppServiceÅ˛
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csG G(+;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>">IndieVisible.Application.Interfaces.ICrudAppService<T>.Save(T)*>
-<
-%56IndieVisible.Application.Interfaces.IProfileAppService*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel2Save(T)Å
-˛
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csI I( )
-%7#Microsoft.AspNetCore.Mvc.IUrlHelper"/Microsoft.AspNetCore.Mvc.ControllerBase.Url.get*+)
-'Microsoft.AspNetCore.Mvc.ControllerBase´
-®
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csIK I(W
-%8string"__id**
-string"
-Emptystringå
-â
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csI^ I(g
-%9System.Guid"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.get*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel¥
-±
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csI^ I(r
-%10string"System.Guid.ToString()*
-
-%9System.Guid
-Ì
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csI I(u
-%11string"pMicrosoft.AspNetCore.Mvc.UrlHelperExtensions.Action(Microsoft.AspNetCore.Mvc.IUrlHelper, string, string, object)*0".
-,Microsoft.AspNetCore.Mvc.UrlHelperExtensions*+
-)
-%7#Microsoft.AspNetCore.Mvc.IUrlHelper*
-""*
-""*
-""û
-õ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csI I(u
-urlstring"__id*
-
-%11string˜Ù
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csK K(>A
-%12:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo":IndieVisible.Domain.ValueObjects.OperationResultRedirectVoπ
-∂
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csK  K(9
-%13void"\IndieVisible.Domain.ValueObjects.OperationResultRedirectVo.OperationResultRedirectVo(string)*C
-A
-%12:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo*
-
-urlstring“œ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csK K(?*
-%14#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*C
-A
-%12:IndieVisible.Domain.ValueObjects.OperationResultRedirectVo2Json(object)"£
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csK K(@,
-*
-%14#Microsoft.AspNetCore.Mvc.JsonResult*
-6*	
-1
-3
-3*”	
-1Ã…
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csO2 O(<
-%15string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getÁ‰
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csO O(=9
-%162IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo°
-û
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csO  O(1
-%17void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*;
-9
-%162IndieVisible.Domain.ValueObjects.OperationResultVo*
-
-%15string «
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csO O(>*
-%18#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*;
-9
-%162IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"£
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csO O(?,
-*
-%18#Microsoft.AspNetCore.Mvc.JsonResult*ê
-3"ä
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.csQ Q(	
-implicit return*∏	
-7Å
-˛
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs> >(!
-%19"__entrypoint*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel*/
--
-avatar#Microsoft.AspNetCore.Http.IFormFileí
-è
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs=	 =(
-%20"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*A
-?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel–
-Õ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs>" >(5?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel"__annotation*
-
-%20Ä
-˝
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs=	 =(
-%21"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*/
--
-avatar#Microsoft.AspNetCore.Http.IFormFileæ
-ª
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ProfileController.cs>7 >(G-
-avatar#Microsoft.AspNetCore.Http.IFormFile"__annotation*
-
-%21*
-0:?
-vm9IndieVisible.Application.ViewModels.User.ProfileViewModel:-
-avatar#Microsoft.AspNetCore.Http.IFormFileB20
-.IndieVisible.Web.Controllers.ProfileController

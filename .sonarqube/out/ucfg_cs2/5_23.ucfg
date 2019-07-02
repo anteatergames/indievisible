@@ -1,102 +1,0 @@
-
-NIndieVisible.Application.ViewModels.User.ProfileViewModel.HasOtherProfiles.get~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs' (*"0*ú
-0›
-˜
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs!2 !(=
-%0string"IIndieVisible.Application.ViewModels.User.ProfileViewModel.GameJoltUrl.get*=;
-9IndieVisible.Application.ViewModels.User.ProfileViewModelÎ
-Ë
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs! !(>
-
-%1bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-%0string*
-1
-2*õ
-2™
-–
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs"2 "(;
-%2string"GIndieVisible.Application.ViewModels.User.ProfileViewModel.ItchIoUrl.get*=;
-9IndieVisible.Application.ViewModels.User.ProfileViewModelÎ
-Ë
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs" "(<
-
-%3bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-%2string*
-1*
-1*
-3
-4*ö
-4š
-—
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs#2 #(<
-%4string"HIndieVisible.Application.ViewModels.User.ProfileViewModel.IndieDbUrl.get*=;
-9IndieVisible.Application.ViewModels.User.ProfileViewModelÎ
-Ë
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs# #(=
-
-%5bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-%4string*
-3*
-3*
-5
-6*ù
-6
-š
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs$2 $(?
-%6string"KIndieVisible.Application.ViewModels.User.ProfileViewModel.GameDevNetUrl.get*=;
-9IndieVisible.Application.ViewModels.User.ProfileViewModelÎ
-Ë
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs$ $(@
-
-%7bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-%6string*
-5*
-5*
-7
-8*û
-8Ÿ
-œ
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs%2 %(A
-%8string"MIndieVisible.Application.ViewModels.User.ProfileViewModel.UnityConnectUrl.get*=;
-9IndieVisible.Application.ViewModels.User.ProfileViewModelÎ
-Ë
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs% %(B
-
-%9bool"!string.IsNullOrWhiteSpace(string)*
-"
-string*
-
-%8string*
-7*•
-7"
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs! %(C
-	{unknown}*›
-9"•
-~
-tC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\ViewModels\User\ProfileViewModel.cs& &(
-implicit returnB=;
-9IndieVisible.Application.ViewModels.User.ProfileViewModel

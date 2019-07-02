@@ -1,88 +1,0 @@
-
-CIndieVisible.Application.Services.FeaturedContentAppService.Count()€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs(& ((+"0*
-0*	
-1
-2
-3*Ç
-2ò
-ï
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs. .('J
-%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository"__id*—*”=
-;IndieVisible.Application.Services.FeaturedContentAppService"S
-_repositoryDIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepositoryÂ¿
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs. .(0
-%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*L
-J
-%0DIndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository2GetAll()–
-“
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs. .(8	
-%2int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
-System.Linq.Queryable*!
-
-%1System.Linq.IQueryable<T>§
-¤
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs. .(8
-countint"__id*
-	
-%2intú÷
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs0 0(:;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>­
-ª
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs0 0(3
-
-%4void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
-;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-countintŒ
-‰
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs0 0(:?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
-1
-4
-3*¥
-1ÙÖ
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs44 4(>
-%5string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getú÷
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs4 4(?;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>²
-¯
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs4 4(3
-
-%7void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
-;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%5stringŒ
-‰
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs4 4(??
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-4*Ì
-4"Æ
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs7 7(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ž
-3"˜
-€
-vC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\FeaturedContentAppService.cs8 8(	
-implicit returnB?=
-;IndieVisible.Application.Services.FeaturedContentAppService

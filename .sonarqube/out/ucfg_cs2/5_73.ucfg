@@ -1,38 +1,0 @@
-
-MIndieVisible.Application.Services.NotificationAppService.GetById(System.Guid)}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs.@ .(G"0*Ø	
-0¶
-³
-~
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs0{ 0(‡
-%0string"__id**
-string"
-Emptystringÿü
-~
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs0F 0(ˆ?
-%19IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>º
-·
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs0J 0(z
-
-%2void"WIndieVisible.Domain.ValueObjects.OperationResultListVo<T>.OperationResultListVo(string)*A
-?
-%19IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*
-
-%0string‘
-Ž
-~
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs0= 0(ˆC
-result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"__id*A
-?
-%19IndieVisible.Domain.ValueObjects.OperationResultListVo<T>"Æ
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs2 2(E
-C
-result9IndieVisible.Domain.ValueObjects.OperationResultListVo<T>*š
-1"”
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs3 3(	
-implicit return:
-idSystem.GuidB<:
-8IndieVisible.Application.Services.NotificationAppService

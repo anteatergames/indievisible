@@ -1,84 +1,0 @@
-
-öIndieVisible.Application.Services.NotificationAppService.Notify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csé! é('"0*ä
-0¢ü
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csê+ ê(JP
-%0JIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel"JIndieVisible.Application.ViewModels.Notification.NotificationItemViewModelÃ
-…
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csê/ ê(H
-
-%1void"fIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.NotificationItemViewModel()*R
-P
-%0JIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel∞
-≠
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csê& ê(JP
-vmJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel"__id*R
-P
-%0JIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel¡
-æ
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csë ë($
-
-%2void"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.set*R
-P
-vmJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
-
-targetUserIdSystem.GuidÀ
-»
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csí í(
-
-%3void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Text.set*R
-P
-vmJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
-
-textstring…
-∆
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csì ì(
-
-%4void"RIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Url.set*R
-P
-vmJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
-
-urlstring¡
-æ
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csî î(&
-
-%5void"SIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel.Type.set*R
-P
-vmJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModel*
-""ﬂ
-‹
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csñ1 ñ(>;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"âIndieVisible.Application.Services.NotificationAppService.Save(IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel)*<:
-8IndieVisible.Application.Services.NotificationAppService*R
-P
-vmJIndieVisible.Application.ViewModels.Notification.NotificationItemViewModelé
-ã
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csñ$ ñ(>C
-
-saveResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"»
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csò ò(E
-C
-
-saveResult5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ú
-1"ñ
-
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csô ô(	
-implicit return:
-targetUserIdSystem.Guid:C
-notificationType/IndieVisible.Domain.Core.Enums.NotificationType:
-likedIdSystem.Guid:
-textstring:
-urlstringB<:
-8IndieVisible.Application.Services.NotificationAppService

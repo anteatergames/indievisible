@@ -1,69 +1,0 @@
-
-ÌIndieVisible.Application.Services.BrainstormAppService.BrainstormAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository, IndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository, IndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository, IndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepository, IndieVisible.Domain.Interfaces.Service.IGamificationDomainService){
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs (#"0*ò
-0Ä
-˝
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs# #( X8
-6IndieVisible.Application.Services.BrainstormAppService"
-mapperAutoMapper.IMapper"__id*
-
-mapperAutoMapper.IMapper¬
-ø
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs$ $((y8
-6IndieVisible.Application.Services.BrainstormAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*?
-=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorká
-Ñ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs% %(Dõ8
-6IndieVisible.Application.Services.BrainstormAppService"_
-brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository"__id*a
-_
-brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepositoryì
-ê
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs& &(J°8
-6IndieVisible.Application.Services.BrainstormAppService"e
-brainstormSessionRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository"__id*g
-e
-brainstormSessionRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepositoryá
-Ñ
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs' '(Dõ8
-6IndieVisible.Application.Services.BrainstormAppService"_
-brainstormVoteRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository"__id*a
-_
-brainstormVoteRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepositoryì
-ê
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs( ((J°8
-6IndieVisible.Application.Services.BrainstormAppService"e
-brainstormCommentRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepository"__id*g
-e
-brainstormCommentRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepositoryÖ
-Ç
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs) )(Fö8
-6IndieVisible.Application.Services.BrainstormAppService"^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService"__id*`
-^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainService*
-1*ò
-1"í
-{
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\BrainstormAppService.cs* *(	
-implicit return:
-mapperAutoMapper.IMapper:=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWork:e
-brainstormSessionRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormSessionRepository:_
-brainstormIdeaRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormIdeaRepository:_
-brainstormVoteRepositoryCIndieVisible.Domain.Interfaces.Repository.IBrainstormVoteRepository:e
-brainstormCommentRepositoryFIndieVisible.Domain.Interfaces.Repository.IBrainstormCommentRepository:^
-gamificationDomainServiceAIndieVisible.Domain.Interfaces.Service.IGamificationDomainServiceB:8
-6IndieVisible.Application.Services.BrainstormAppService

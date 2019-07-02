@@ -1,63 +1,0 @@
-
-tIndieVisible.Application.Formatters.UrlFormatter.Image(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string)u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (""0*¿
-0ç
-ä
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs$ (<
-%0string"5IndieVisible.Application.Constants.DefaultCdnPath.get*&"$
-"IndieVisible.Application.ConstantsÇ
-Ä
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (=
-
-%1bool"string.StartsWith(string)*
-
-fileNamestring*
-
-%0string*
-1
-2*“
-1"
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs ( 
-
-fileNamestring*½
-2ç
-ä
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs4 (L
-%2string"5IndieVisible.Application.Constants.DefaultCdnPath.get*&"$
-"IndieVisible.Application.Constants¶
-³
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs4 (Y
-%3string"string.TrimEnd(char)*
-
-%2string*
-""Š
-‡
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (l
-%4string"-string.Format(string, object, object, object)*
-"
-string*
-""*
-
-%3string*
-
-userIdSystem.Guid*
-
-fileNamestring"‡
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (m
-
-%4string*’
-3"Œ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Formatters\UrlFormatter.cs (	
-implicit return:
-userIdSystem.Guid:/
-type'IndieVisible.Domain.Core.Enums.BlobType:
-fileNamestringB4"2
-0IndieVisible.Application.Formatters.UrlFormatter

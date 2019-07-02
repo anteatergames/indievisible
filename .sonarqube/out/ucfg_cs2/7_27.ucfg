@@ -1,25 +1,0 @@
-
-|IndieVisible.Web.Views.Manage.ManageNavPages.TwoFactorAuthenticationNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)q
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs (<"0*Š
-0
-þ
-r
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.css (Š
-%0string"HIndieVisible.Web.Views.Manage.ManageNavPages.TwoFactorAuthentication.get*0".
-,IndieVisible.Web.Views.Manage.ManageNavPagesû
-ø
-r
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.csY (‹
-%1string"qIndieVisible.Web.Views.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext, string)*0".
-,IndieVisible.Web.Views.Manage.ManageNavPages*?
-=
-viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContext*
-
-%0string*
-1*
-1"Š
-s
-gC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Views\Manage\ManageNavPages.cs‹ (Œ
-implicit return:=
-viewContext.Microsoft.AspNetCore.Mvc.Rendering.ViewContextB0".
-,IndieVisible.Web.Views.Manage.ManageNavPages

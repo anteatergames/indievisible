@@ -1,231 +1,0 @@
-
-yIndieVisible.Application.Services.UserFollowAppService.Save(IndieVisible.Application.ViewModels.User.UserFollowViewModel)}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csÅ' Å(+"0*
-0*	
-1
-2
-3*Ò
-2Î
-Ë
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csã& ã(BE
-%0?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ô*ñ8
-6IndieVisible.Application.Services.UserFollowAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceú
-ô
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csãK ã(W
-%1System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*K
-I
-	viewModel<IndieVisible.Application.ViewModels.User.UserFollowViewModelÍÁ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csã& ã(X+
-%2%IndieVisible.Domain.Models.UserFollow"EIndieVisible.Domain.Interfaces.IDomainService<T>.GetById(System.Guid)*G
-E
-%0?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*
-
-%1System.Guid2GetById(System.Guid)Í
-Á
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csã ã(X1
-existing%IndieVisible.Domain.Models.UserFollow"__id*-
-+
-%2%IndieVisible.Domain.Models.UserFollow¸
-˘
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cså å($
-
-%3bool"ÇIndieVisible.Domain.Core.Models.Entity.operator !=(IndieVisible.Domain.Core.Models.Entity, IndieVisible.Domain.Core.Models.Entity)**"(
-&IndieVisible.Domain.Core.Models.Entity*3
-1
-existing%IndieVisible.Domain.Models.UserFollow*
-""*
-4
-5*º
-4˛
-˚
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csé é("
-%4AutoMapper.IMapper"__id*Z*X8
-6IndieVisible.Application.Services.UserFollowAppService"
-mapperAutoMapper.IMapper∆√
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csé é(;+
-%5%IndieVisible.Domain.Models.UserFollow"DAutoMapper.IMapper.Map<TSource, TDestination>(TSource, TDestination)*
-
-%4AutoMapper.IMapper*K
-I
-	viewModel<IndieVisible.Application.ViewModels.User.UserFollowViewModel*3
-1
-existing%IndieVisible.Domain.Models.UserFollow21Map<TSource, TDestination>(TSource, TDestination)Á
-‰
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csé é(;.
-model%IndieVisible.Domain.Models.UserFollow"__id*-
-+
-%5%IndieVisible.Domain.Models.UserFollow*
-6*◊
-5˛
-˚
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csí í("
-%6AutoMapper.IMapper"__id*Z*X8
-6IndieVisible.Application.Services.UserFollowAppService"
-mapperAutoMapper.IMapper·ﬁ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csí í(=+
-%7%IndieVisible.Domain.Models.UserFollow",AutoMapper.IMapper.Map<TDestination>(object)*
-
-%6AutoMapper.IMapper*K
-I
-	viewModel<IndieVisible.Application.ViewModels.User.UserFollowViewModel2Map<TDestination>(object)Á
-‰
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csí í(=.
-model%IndieVisible.Domain.Models.UserFollow"__id*-
-+
-%7%IndieVisible.Domain.Models.UserFollow*
-6*Ò
-6ú
-ô
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csï ï( 
-%8System.Guid"8IndieVisible.Application.ViewModels.BaseViewModel.Id.get*K
-I
-	viewModel<IndieVisible.Application.ViewModels.User.UserFollowViewModelƒ
-¡
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csï$ ï(.
-%9System.Guid"__id*'*%
-System.Guid"
-EmptySystem.Guid˝
-˙
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csï ï(.
-%10bool"1System.Guid.operator ==(System.Guid, System.Guid)*"
-System.Guid*
-
-%8System.Guid*
-
-%9System.Guid*
-7
-8*ˆ	
-7Ï
-È
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csó ó(0F
-%11?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ô*ñ8
-6IndieVisible.Application.Services.UserFollowAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService”–
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csó ó(;
-%12System.Guid"7IndieVisible.Domain.Interfaces.IDomainService<T>.Add(T)*H
-F
-%11?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*0
-.
-model%IndieVisible.Domain.Models.UserFollow2Add(T)˜
-Ù
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csò# ò(+
-%13System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*0
-.
-model%IndieVisible.Domain.Models.UserFollow¨
-©
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csò ò(+
-%14void"8IndieVisible.Application.ViewModels.BaseViewModel.Id.set*K
-I
-	viewModel<IndieVisible.Application.ViewModels.User.UserFollowViewModel*
-
-%13System.Guid*
-9*”
-8Ï
-È
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csú ú(0F
-%15?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService"__id*ô*ñ8
-6IndieVisible.Application.Services.UserFollowAppService"Z
-gameFollowDomainService?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainServiceŸ÷
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csú ú(>
-%16System.Guid":IndieVisible.Domain.Interfaces.IDomainService<T>.Update(T)*H
-F
-%15?IndieVisible.Domain.Interfaces.Service.IUserFollowDomainService*0
-.
-model%IndieVisible.Domain.Models.UserFollow2	Update(T)*
-9*ì
-9Ω
-∫
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csü ü(6
-%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork"__id*{*y8
-6IndieVisible.Application.Services.UserFollowAppService"=
-
-unitOfWork/IndieVisible.Domain.Interfaces.Base.IUnitOfWorkçä
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.csü ü(#
-%18bool"8IndieVisible.Domain.Interfaces.Base.IUnitOfWork.Commit()*8
-6
-%17/IndieVisible.Domain.Interfaces.Base.IUnitOfWork2Commit()˜
-Ù
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs°5 °(=
-%19System.Guid"-IndieVisible.Domain.Core.Models.Entity.Id.get*0
-.
-model%IndieVisible.Domain.Models.UserFollow˜Ù
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs° °(><
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
-Æ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs° °(4
-%21void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%19System.Guidâ
-Ü
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs° °(>?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%205IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-1
-10
-3*ú
-1÷”
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs•5 •(?
-%22string"System.Exception.Message.get*
-
-exSystem.Exception2Message.get˜Ù
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs• •(@<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>±
-Æ
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs• •(4
-%24void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*>
-<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%22stringâ
-Ü
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs• •(@?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*>
-<
-%235IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-10*…
-10"¬
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs® ®(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ö
-3"î
-}
-qC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserFollowAppService.cs© ©(	
-implicit return:I
-	viewModel<IndieVisible.Application.ViewModels.User.UserFollowViewModelB:8
-6IndieVisible.Application.Services.UserFollowAppService

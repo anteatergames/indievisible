@@ -1,76 +1,0 @@
-
-=IndieVisible.Web.Controllers.Base.BaseController.GetBaseUrl()u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs (#"0*˛
-0í
-è
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs+ (7+
-%0%Microsoft.AspNetCore.Http.HttpRequest"3Microsoft.AspNetCore.Mvc.ControllerBase.Request.get*42
-0IndieVisible.Web.Controllers.Base.BaseControllerÈ
-Ê
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs+ (>
-%1string"0Microsoft.AspNetCore.Http.HttpRequest.Scheme.get*-
-+
-%0%Microsoft.AspNetCore.Http.HttpRequestí
-è
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.csC (O+
-%2%Microsoft.AspNetCore.Http.HttpRequest"3Microsoft.AspNetCore.Mvc.ControllerBase.Request.get*42
-0IndieVisible.Web.Controllers.Base.BaseControllerÖ
-Ç
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.csC (T*
-%3$Microsoft.AspNetCore.Http.HostString".Microsoft.AspNetCore.Http.HttpRequest.Host.get*-
-+
-%2%Microsoft.AspNetCore.Http.HttpRequestí
-è
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.csV (b+
-%4%Microsoft.AspNetCore.Http.HttpRequest"3Microsoft.AspNetCore.Mvc.ControllerBase.Request.get*42
-0IndieVisible.Web.Controllers.Base.BaseControllerâ
-Ü
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.csV (k*
-%5$Microsoft.AspNetCore.Http.PathString"2Microsoft.AspNetCore.Http.HttpRequest.PathBase.get*-
-+
-%4%Microsoft.AspNetCore.Http.HttpRequest™
-ß
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs( (m
-%6string"__concat*
-
-%1string*
-""–
-Õ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs( (m
-%7string"__concat*
-
-%6string*,
-*
-%3$Microsoft.AspNetCore.Http.HostString–
-Õ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs( (m
-%8string"__concat*
-
-%7string*,
-*
-%5$Microsoft.AspNetCore.Http.PathString‹
-Ÿ
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs (n
-%9string"'System.Net.WebUtility.UrlDecode(string)*"
-System.Net.WebUtility*
-
-%8string"á
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs (o
-
-%9string*í
-1"å
-u
-kC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\Base\BaseController.cs (	
-implicit returnB42
-0IndieVisible.Web.Controllers.Base.BaseController

@@ -1,31 +1,0 @@
- 
-HIndieVisible.Application.ViewModels.Content.UserContentListItemViewModelOIndieVisible.Application.ViewModels.UserGeneratedCommentBaseViewModel<TComment>>IndieVisible.Application.ViewModels.UserGeneratedBaseViewModel1IndieVisible.Application.ViewModels.BaseViewModelobject‰
-UserContentListItemViewModel()gIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.UserContentListItemViewModel()o
-FeaturedImage.getZIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImage.geto
-FeaturedImage.setZIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImage.set_
-	Title.getRIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Title.get_
-	Title.setRIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Title.setm
-Introduction.getYIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Introduction.getm
-Introduction.setYIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Introduction.setc
-Content.getTIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Content.getc
-Content.setTIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Content.sete
-Language.getUIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Language.gete
-Language.setUIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.Language.setg
-LikeCount.getVIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.LikeCount.getg
-LikeCount.setVIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.LikeCount.setm
-CommentCount.getYIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.CommentCount.getm
-CommentCount.setYIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.CommentCount.setu
-CurrentUserLiked.get]IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.CurrentUserLiked.getu
-CurrentUserLiked.set]IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.CurrentUserLiked.seta
-
-GameId.getSIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.GameId.geta
-
-GameId.setSIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.GameId.sete
-GameName.getUIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.GameName.gete
-GameName.setUIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.GameName.setg
-IsArticle.getVIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.IsArticle.getg
-IsArticle.setVIndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.IsArticle.setu
-HasFeaturedImage.get]IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.HasFeaturedImage.getu
-HasFeaturedImage.set]IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.HasFeaturedImage.setw
-FeaturedImageType.get^IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImageType.getw
-FeaturedImageType.set^IndieVisible.Application.ViewModels.Content.UserContentListItemViewModel.FeaturedImageType.set

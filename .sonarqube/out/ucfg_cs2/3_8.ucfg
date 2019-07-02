@@ -1,60 +1,0 @@
-
-²IndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions.SendEmailConfirmationAsync(IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender, string, string)
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs (5"0*ú
-0 
-
-
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs (%+
-%0%System.Text.Encodings.Web.HtmlEncoder"1System.Text.Encodings.Web.HtmlEncoder.Default.get*)"'
-%System.Text.Encodings.Web.HtmlEncoderª§
-
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs (2
-%1string"4System.Text.Encodings.Web.TextEncoder.Encode(string)*-
-+
-%0%System.Text.Encodings.Web.HtmlEncoder*
-
-linkstring2Encode(string)Ü
-Ù
-
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs
- (&
-%2string"¡IndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions.ConfirmationEmailTemplate(string, string, string, string, string, string, string, string)*K"I
-GIndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions*
-""*
-
-%1string*
-""*
-""*
-""*
-""*
-""*
-""¿
-¼
-
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs
- (&
-mailTextstring"__id*
-
-%2stringÉÆ
-
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs (T!
-%3System.Threading.Tasks.Task"eIndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender.SendEmailAsync(string, string, string)*O
-M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender*
-
-emailstring*
-""*
-
-mailTextstring2&SendEmailAsync(string, string, string)"·
-
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs (U#
-!
-%3System.Threading.Tasks.Task*­
-1"§
-
-„C:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Infra.CrossCutting.Identity\Extensions\EmailSenderExtensions.cs (	
-implicit return:M
-emailSender>IndieVisible.Infra.CrossCutting.Identity.Services.IEmailSender:
-emailstring:
-linkstringBK"I
-GIndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions

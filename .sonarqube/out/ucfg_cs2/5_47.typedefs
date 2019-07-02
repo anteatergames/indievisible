@@ -1,15 +1,0 @@
-µ
-8IndieVisible.Application.Services.NotificationAppService0IndieVisible.Application.Services.BaseAppServiceobjectû
-žNotificationAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.INotificationRepository)×IndieVisible.Application.Services.NotificationAppService.NotificationAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.INotificationRepository)K
-Count()@IndieVisible.Application.Services.NotificationAppService.Count()M
-GetAll()AIndieVisible.Application.Services.NotificationAppService.GetAll()e
-GetById(System.Guid)MIndieVisible.Application.Services.NotificationAppService.GetById(System.Guid)w
-GetByUserId(System.Guid, int)VIndieVisible.Application.Services.NotificationAppService.GetByUserId(System.Guid, int)c
-Remove(System.Guid)LIndieVisible.Application.Services.NotificationAppService.Remove(System.Guid)â
-RSave(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)‹IndieVisible.Application.Services.NotificationAppService.Save(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)ç
-”IndieVisible.Application.Interfaces.ICrudAppService<IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel>.GetById(System.Guid)ÍIndieVisible.Application.Services.NotificationAppService.IndieVisible.Application.Interfaces.ICrudAppService<IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel>.GetById(System.Guid)Þ
-PSave(IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel)‰IndieVisible.Application.Services.NotificationAppService.Save(IndieVisible.Application.ViewModels.Notification.NotificationItemViewModel)€
-aNotify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)šIndieVisible.Application.Services.NotificationAppService.Notify(System.Guid, IndieVisible.Domain.Core.Enums.NotificationType, System.Guid, string, string)k
-MarkAsRead(System.Guid)PIndieVisible.Application.Services.NotificationAppService.MarkAsRead(System.Guid)_
-CurrentUserId.getJIndieVisible.Application.Services.NotificationAppService.CurrentUserId.get_
-CurrentUserId.setJIndieVisible.Application.Services.NotificationAppService.CurrentUserId.set

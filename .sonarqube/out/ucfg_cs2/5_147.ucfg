@@ -1,32 +1,0 @@
-
-GIndieVisible.Application.Services.UserContentAppService.CountArticles()~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs’ ’( "0*Œ
-0‚
-ﬂ
-~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs◊ ◊("F
-%0@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository"__id*é*ã9
-7IndieVisible.Application.Services.UserContentAppService"N
-
-repository@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository®•
-
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs◊ ◊(Ä	
-%1int"~IndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.Count(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)*H
-F
-%0@IndieVisible.Domain.Interfaces.Repository.IUserContentRepository*
-""2ECount(System.Linq.Expressions.Expression<System.Func<TEntity, bool>>)•
-¢
-
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs◊ ◊(Ä
-countint"__id*
-	
-%1int"ê
-~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.csŸ Ÿ(
-
-countint*õ
-1"ï
-~
-rC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\UserContentAppService.cs⁄ ⁄(	
-implicit returnB;9
-7IndieVisible.Application.Services.UserContentAppService

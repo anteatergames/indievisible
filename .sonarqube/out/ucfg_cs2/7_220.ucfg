@@ -1,59 +1,0 @@
-
-OIndieVisible.Web.Controllers.ManageController.GenerateQrCodeUri(string, string)t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csã ã(("0*Ï
-0ç
-ä
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csé é(&
-%0"__id*
-""ï
-í
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csè è(*
-%1$System.Text.Encodings.Web.UrlEncoder"__id*h*f/
--IndieVisible.Web.Controllers.ManageController"3
-_urlEncoder$System.Text.Encodings.Web.UrlEncoderÉÄ
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csè è(6
-%2string"4System.Text.Encodings.Web.TextEncoder.Encode(string)*,
-*
-%1$System.Text.Encodings.Web.UrlEncoder*
-""2Encode(string)ï
-í
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csê ê(*
-%3$System.Text.Encodings.Web.UrlEncoder"__id*h*f/
--IndieVisible.Web.Controllers.ManageController"3
-_urlEncoder$System.Text.Encodings.Web.UrlEncoderéã
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csê ê()
-%4string"4System.Text.Encodings.Web.TextEncoder.Encode(string)*,
-*
-%3$System.Text.Encodings.Web.UrlEncoder*
-
-emailstring2Encode(string)Ü
-É
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csç ë(
-%5string"-string.Format(string, object, object, object)*
-"
-string*
-
-%0*
-
-%2string*
-
-%4string*
-
-unformattedKeystring"Ü
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csç ë( 
-
-%5string*ë
-1"ã
-t
-hC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\ManageController.csí í(	
-implicit return:
-emailstring:
-unformattedKeystringB1/
--IndieVisible.Web.Controllers.ManageController

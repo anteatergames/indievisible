@@ -1,283 +1,0 @@
-
-|IndieVisible.Web.Controllers.StorageController.UploadProfileAvatar(Microsoft.AspNetCore.Http.IFormFile, string, System.Guid)s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs` `(0"11*
-0*	
-1
-2
-3*Õ
-2´
-®
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csd" d(.
-%0string"__id**
-string"
-Emptystring¢
-ü
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csd d(.
-imageUrlstring"__id*
-
-%0stringÏ
-È
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csf f(!
-
-%1bool""object.operator !=(object, object)*
-"
-object*.
-,
-image#Microsoft.AspNetCore.Http.IFormFile*
-""*
-4
-5*˛
-4Ì
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csf% f(1
-
-%2long".Microsoft.AspNetCore.Http.IFormFile.Length.get*.
-,
-image#Microsoft.AspNetCore.Http.IFormFile2
-Length.get*
-6
-5*∆
-6Æ´
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csh- h(?
-%3System.IO.MemoryStream"System.IO.MemoryStreamÀ
-»
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csh1 h(=
-
-%4void"%System.IO.MemoryStream.MemoryStream()*
-
-%3System.IO.MemoryStreamº
-π
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csh( h(?
-msSystem.IO.MemoryStream"__id*
-
-%3System.IO.MemoryStream*
-7*é
-7¨©
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csj j((
-
-%5void"<Microsoft.AspNetCore.Http.IFormFile.CopyTo(System.IO.Stream)*.
-,
-image#Microsoft.AspNetCore.Http.IFormFile*
-
-msSystem.IO.MemoryStream2CopyTo(System.IO.Stream)Æ
-´
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csl l()
-
-%6void"TIndieVisible.Web.Controllers.StorageController.OptimizeImage(System.IO.MemoryStream)*2"0
-.IndieVisible.Web.Controllers.StorageController*
-
-msSystem.IO.MemoryStream”–
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csn+ n(7
-%7byte[]" System.IO.MemoryStream.ToArray()*
-
-msSystem.IO.MemoryStream2	ToArray()£
-†
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csn n(7
-	fileBytesbyte[]"__id*
-
-%7byte[]–
-Õ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csp+ p(B
-%8string"dIndieVisible.Web.Controllers.StorageController.GetFileExtension(Microsoft.AspNetCore.Http.IFormFile)*2"0
-.IndieVisible.Web.Controllers.StorageController*.
-,
-image#Microsoft.AspNetCore.Http.IFormFile£
-†
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csp p(B
-	extensionstring"__id*
-
-%8string∂
-≥
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csr* r(>
-%9System.Guid"__concat*
-
-userIdSystem.Guid*
-""ß
-§
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csr r(>
-filenamestring"__id*
-
-%9System.Guidç
-ä
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cst< t(Q
-%10"__id*
-""ï
-í
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cst# t(g
-%11string"àIndieVisible.Web.Controllers.Base.SecureBaseController.UploadImage(System.Guid, IndieVisible.Domain.Core.Enums.BlobType, string, byte[])*20
-.IndieVisible.Web.Controllers.StorageController*
-
-userIdSystem.Guid*
-
-%10*
-
-filenamestring*
-
-	fileBytesbyte[]£
-†
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cst t(g
-imageUrlstring"__id*
-
-%11string*
-5*
-5*
-8
-9*¸
-9ÒÓ
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csz" z((
-%12long".Microsoft.AspNetCore.Http.IFormFile.Length.get*.
-,
-image#Microsoft.AspNetCore.Http.IFormFile2
-Length.get*
-8*‘
-8Œ
-À
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csx }(F
-json><anonymous type: long? size, string oldImage, string imageUrl>"__id*
-""◊‘
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs (!*
-%13#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*H
-F
-json><anonymous type: long? size, string oldImage, string imageUrl>2Json(object)"£
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs (",
-*
-%13#Microsoft.AspNetCore.Mvc.JsonResult*
-10*	
-1
-3
-3*Î
-1ŒÀ
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÖ Ö(&
-%14string"System.Exception.Message.get*
-
-exSystem.Exception2Message.get∞
-≠
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csÉ Ü(&
-json<anonymous type: string error>"__id*
-""π∂
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csà à(!*
-%15#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*(
-&
-json<anonymous type: string error>2Json(object)"•
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csà à(",
-*
-%15#Microsoft.AspNetCore.Mvc.JsonResult*í
-3"å
-u
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.csä ä(	
-implicit return*‹
-11
-Ì
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs` `(0
-%16"__entrypoint*.
-,
-image#Microsoft.AspNetCore.Http.IFormFile*
-
-currentImagestring*
-
-userIdSystem.Guidˇ
-¸
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs^	 ^(
-%17"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*.
-,
-image#Microsoft.AspNetCore.Http.IFormFileˇ
-¸
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs_	 _(
-%18"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*.
-,
-image#Microsoft.AspNetCore.Http.IFormFile∆
-√
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs`1 `(@,
-image#Microsoft.AspNetCore.Http.IFormFile"__annotation*
-
-%17*
-
-%18È
-Ê
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs^	 ^(
-%19"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
-
-currentImagestringÈ
-Ê
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs_	 _(
-%20"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-currentImagestring∞
-≠
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs`B `(U
-currentImagestring"__annotation*
-
-%19*
-
-%20Ë
-Â
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs^	 ^(
-%21"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*
-
-userIdSystem.GuidË
-Â
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs_	 _(
-%22"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.RouteAttribute.RouteAttribute(string)*
-
-userIdSystem.GuidØ
-¨
-s
-iC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\StorageController.cs`W `(b
-userIdSystem.Guid"__annotation*
-
-%21*
-
-%22*
-0:,
-image#Microsoft.AspNetCore.Http.IFormFile:
-currentImagestring:
-userIdSystem.GuidB20
-.IndieVisible.Web.Controllers.StorageController

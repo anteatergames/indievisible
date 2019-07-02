@@ -1,30 +1,0 @@
-
-=IndieVisible.Domain.Services.GameFollowDomainService.GetAll()y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs' (-"0*í
-0‚
-ﬂ
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs7 (PE
-%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository"__id*î*ë6
-4IndieVisible.Domain.Services.GameFollowDomainService"W
-gameFollowRepository?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepositoryµ≤
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs7 (Y
-%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*G
-E
-%0?IndieVisible.Domain.Interfaces.Repository.IGameFollowRepository2GetAll()À
-»
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs/ (Y"
-modelSystem.Linq.IQueryable<T>"__id*!
-
-%1System.Linq.IQueryable<T>"°
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs ($
-"
-modelSystem.Linq.IQueryable<T>*ñ
-1"ê
-y
-oC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Domain\Services\GameFollowDomainService.cs   (	
-implicit returnB86
-4IndieVisible.Domain.Services.GameFollowDomainService

@@ -1,27 +1,0 @@
-™
-&IndieVisible.Domain.Models.UserContent&IndieVisible.Domain.Core.Models.EntityobjectE
-UserContent()4IndieVisible.Domain.Models.UserContent.UserContent()G
-AuthorName.get5IndieVisible.Domain.Models.UserContent.AuthorName.getG
-AuthorName.set5IndieVisible.Domain.Models.UserContent.AuthorName.setM
-AuthorPicture.get8IndieVisible.Domain.Models.UserContent.AuthorPicture.getM
-AuthorPicture.set8IndieVisible.Domain.Models.UserContent.AuthorPicture.setM
-FeaturedImage.get8IndieVisible.Domain.Models.UserContent.FeaturedImage.getM
-FeaturedImage.set8IndieVisible.Domain.Models.UserContent.FeaturedImage.set=
-	Title.get0IndieVisible.Domain.Models.UserContent.Title.get=
-	Title.set0IndieVisible.Domain.Models.UserContent.Title.setK
-Introduction.get7IndieVisible.Domain.Models.UserContent.Introduction.getK
-Introduction.set7IndieVisible.Domain.Models.UserContent.Introduction.setA
-Content.get2IndieVisible.Domain.Models.UserContent.Content.getA
-Content.set2IndieVisible.Domain.Models.UserContent.Content.setC
-Language.get3IndieVisible.Domain.Models.UserContent.Language.getC
-Language.set3IndieVisible.Domain.Models.UserContent.Language.set?
-
-GameId.get1IndieVisible.Domain.Models.UserContent.GameId.get?
-
-GameId.set1IndieVisible.Domain.Models.UserContent.GameId.set;
-Game.get/IndieVisible.Domain.Models.UserContent.Game.get;
-Game.set/IndieVisible.Domain.Models.UserContent.Game.set=
-	Likes.get0IndieVisible.Domain.Models.UserContent.Likes.get=
-	Likes.set0IndieVisible.Domain.Models.UserContent.Likes.setC
-Comments.get3IndieVisible.Domain.Models.UserContent.Comments.getC
-Comments.set3IndieVisible.Domain.Models.UserContent.Comments.set

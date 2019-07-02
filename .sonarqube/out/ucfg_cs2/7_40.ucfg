@@ -1,149 +1,0 @@
-
-’IndieVisible.Web.Areas.Member.Controllers.PreferencesController.Save(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs# #(!"5*
-0*	
-1
-2
-3*÷
-2£
- 
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs' '()
-%0System.Guid"HIndieVisible.Web.Controllers.Base.SecureBaseController.CurrentUserId.get*:8
-6IndieVisible.Web.Controllers.Base.SecureBaseController¿
-¼
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs' '()
-
-%1void"<IndieVisible.Application.ViewModels.BaseViewModel.UserId.set*T
-R
-vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel*
-
-%0System.Guidî
-ë
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs) )(D
-%2>IndieVisible.Application.Interfaces.IUserPreferencesAppService"__id*•*’A
-?IndieVisible.Web.Areas.Member.Controllers.PreferencesController"M
-_appService>IndieVisible.Application.Interfaces.IUserPreferencesAppService®«
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs) )($;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>">IndieVisible.Application.Interfaces.ICrudAppService<T>.Save(T)*F
-D
-%2>IndieVisible.Application.Interfaces.IUserPreferencesAppService*T
-R
-vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel2Save(T)õ
-ò
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs+& +(36
-%40IndieVisible.Domain.Core.Enums.SupportedLanguage"[IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel.UiLanguage.get*T
-R
-vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelŽ
-‹
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs+& +(Y9
-%53IndieVisible.Domain.Core.Attributes.UiInfoAttribute"UIndieVisible.Domain.Core.Extensions.EnumExtensions.GetAttributeOfType<T>(System.Enum)*6"4
-2IndieVisible.Domain.Core.Extensions.EnumExtensions*8
-6
-%40IndieVisible.Domain.Core.Enums.SupportedLanguage–
-“
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs+& +(a
-%6string"?IndieVisible.Domain.Core.Attributes.UiInfoAttribute.Culture.get*;
-9
-%53IndieVisible.Domain.Core.Attributes.UiInfoAttribute»
-¸
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs+ +(a
-selectedCulturestring"__id*
-
-%6stringÍ
-Ê
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs- -(,
-
-%7void"SIndieVisible.Web.Areas.Member.Controllers.PreferencesController.SetLanguage(string)*CA
-?IndieVisible.Web.Areas.Member.Controllers.PreferencesController*
-
-selectedCulturestringøõ
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs0 0(78
-%82IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo¦
-£
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs0  0(1
-
-%9void"JIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(bool)*:
-8
-%82IndieVisible.Domain.ValueObjects.OperationResultVo*
-""ÛØ
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs0 0(8*
-%10#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*:
-8
-%82IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"µ
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs0 0(9,
-*
-%10#Microsoft.AspNetCore.Mvc.JsonResult*
-4*	
-1
-3
-3*­
-
-1ÞÛ
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs42 4(<
-%11string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getùö
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs4 4(=9
-%122IndieVisible.Domain.ValueObjects.OperationResultVo"2IndieVisible.Domain.ValueObjects.OperationResultVo³
-°
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs4  4(1
-%13void"LIndieVisible.Domain.ValueObjects.OperationResultVo.OperationResultVo(string)*;
-9
-%122IndieVisible.Domain.ValueObjects.OperationResultVo*
-
-%11stringÜÙ
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs4 4(>*
-%14#Microsoft.AspNetCore.Mvc.JsonResult"0Microsoft.AspNetCore.Mvc.Controller.Json(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*;
-9
-%122IndieVisible.Domain.ValueObjects.OperationResultVo2Json(object)"µ
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs4 4(?,
-*
-%14#Microsoft.AspNetCore.Mvc.JsonResult*¢
-3"œ
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs6 6(	
-implicit return*²
-5õ
-ò
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs# #(!
-%15"__entrypoint*T
-R
-vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel·
-´
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs"	 "(
-%16"
-__annotate*B@
->Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*T
-R
-vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelõ
-ò
-„
-zC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Areas\Member\Controllers\PreferencesController.cs#" #(=R
-vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel"__annotation*
-
-%16*
-0:R
-vmLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelBCA
-?IndieVisible.Web.Areas.Member.Controllers.PreferencesController

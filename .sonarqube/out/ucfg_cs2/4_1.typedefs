@@ -1,4 +1,0 @@
-è
-8IndieVisible.Infra.Data.Mappings.BrainstormCommentConfigobject²
-zConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.BrainstormComment>)³IndieVisible.Infra.Data.Mappings.BrainstormCommentConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.BrainstormComment>)o
-BrainstormCommentConfig()RIndieVisible.Infra.Data.Mappings.BrainstormCommentConfig.BrainstormCommentConfig()

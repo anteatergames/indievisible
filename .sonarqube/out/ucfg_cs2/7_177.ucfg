@@ -1,36 +1,0 @@
-
-6IndieVisible.Web.Controllers.HomeController.Timeline()p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csK K(%"2*Ê
-0ó
-î
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csM& M(8/
-%0)IndieVisible.Web.Models.TimeLineViewModel">IndieVisible.Web.Controllers.HomeController.GenerateTimeline()*/"-
-+IndieVisible.Web.Controllers.HomeController‚
-ﬂ
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csM M(82
-model)IndieVisible.Web.Models.TimeLineViewModel"__id*1
-/
-%0)IndieVisible.Web.Models.TimeLineViewModeløº
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csO O()
-%1#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
-#Microsoft.AspNetCore.Mvc.Controller*4
-2
-model)IndieVisible.Web.Models.TimeLineViewModel2View(object)"ü
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csO O(+
-)
-%1#Microsoft.AspNetCore.Mvc.ViewResult*ç
-1"á
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csP P(	
-implicit return*î
-2â
-Ü
-p
-fC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Web\Controllers\HomeController.csK K(%
-%2"__entrypoint*
-0B/-
-+IndieVisible.Web.Controllers.HomeController

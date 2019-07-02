@@ -1,38 +1,0 @@
-
-‹IndieVisible.Application.Services.NotificationAppService.Save(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csX' X(+"0*µ	
-0µ
-²
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csZI Z(U
-%0string"__id**
-string"
-Emptystringöó
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csZ- Z(V;
-%15IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>®
-«
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csZ1 Z(H
-
-%2void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
-;
-%15IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%0stringˆ
-…
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.csZ$ Z(V?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%15IndieVisible.Domain.ValueObjects.OperationResultVo<T>"Â
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs\ \(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*š
-1"”
-}
-sC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\NotificationAppService.cs] ](	
-implicit return:Y
-	viewModelLIndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModelB<:
-8IndieVisible.Application.Services.NotificationAppService

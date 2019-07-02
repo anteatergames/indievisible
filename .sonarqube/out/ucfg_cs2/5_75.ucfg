@@ -1,89 +1,0 @@
-
-;IndieVisible.Application.Services.ProfileAppService.Count()x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs5& 5(+"0*
-0*	
-1
-2
-3*Á
-2–
-Õ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs; ;(&B
-%0<IndieVisible.Domain.Interfaces.Repository.IProfileRepository"__id*Ü*É5
-3IndieVisible.Application.Services.ProfileAppService"J
-
-repository<IndieVisible.Domain.Interfaces.Repository.IProfileRepository±Æ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs; ;(/
-%1System.Linq.IQueryable<T>"AIndieVisible.Domain.Interfaces.Base.IRepository<TEntity>.GetAll()*D
-B
-%0<IndieVisible.Domain.Interfaces.Repository.IProfileRepository2GetAll()ç
-ä
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs; ;(7	
-%2int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
-System.Linq.Queryable*!
-
-%1System.Linq.IQueryable<T>û
-õ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs; ;(7
-countint"__id*
-	
-%2intÒÓ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs= =(:;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>§
-°
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs= =(3
-
-%4void"JIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(T)*=
-;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-countintÉ
-Ä
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.cs= =(:?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%35IndieVisible.Domain.ValueObjects.OperationResultVo<T>*	
-1
-4
-3*Å
-1–Õ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csA4 A(>
-%5string"System.Exception.Message.get*
-
-exSystem.Exception2Message.getÒÓ
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csA A(?;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>"5IndieVisible.Domain.ValueObjects.OperationResultVo<T>©
-¶
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csA A(3
-
-%7void"OIndieVisible.Domain.ValueObjects.OperationResultVo<T>.OperationResultVo(string)*=
-;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-
-%5stringÉ
-Ä
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csA A(??
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>"__id*=
-;
-%65IndieVisible.Domain.ValueObjects.OperationResultVo<T>*
-4*√
-4"Ω
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csD D(A
-?
-result5IndieVisible.Domain.ValueObjects.OperationResultVo<T>*ï
-3"è
-x
-nC:\Users\daniel.gomes.ext\Documents\GitHub\indievisible\IndieVisible.Application\Services\ProfileAppService.csE E(	
-implicit returnB75
-3IndieVisible.Application.Services.ProfileAppService

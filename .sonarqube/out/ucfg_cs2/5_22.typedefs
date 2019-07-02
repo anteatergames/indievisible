@@ -1,43 +1,0 @@
-Ú
-6IndieVisible.Application.ViewModels.Game.GameViewModel>IndieVisible.Application.ViewModels.UserGeneratedBaseViewModel1IndieVisible.Application.ViewModels.BaseViewModelobjectY
-GameViewModel()FIndieVisible.Application.ViewModels.Game.GameViewModel.GameViewModel()M
-	Title.get@IndieVisible.Application.ViewModels.Game.GameViewModel.Title.getM
-	Title.set@IndieVisible.Application.ViewModels.Game.GameViewModel.Title.setI
-Url.get>IndieVisible.Application.ViewModels.Game.GameViewModel.Url.getI
-Url.set>IndieVisible.Application.ViewModels.Game.GameViewModel.Url.setM
-	Genre.get@IndieVisible.Application.ViewModels.Game.GameViewModel.Genre.getM
-	Genre.set@IndieVisible.Application.ViewModels.Game.GameViewModel.Genre.setY
-Description.getFIndieVisible.Application.ViewModels.Game.GameViewModel.Description.getY
-Description.setFIndieVisible.Application.ViewModels.Game.GameViewModel.Description.set]
-CoverImageUrl.getHIndieVisible.Application.ViewModels.Game.GameViewModel.CoverImageUrl.get]
-CoverImageUrl.setHIndieVisible.Application.ViewModels.Game.GameViewModel.CoverImageUrl.set[
-ThumbnailUrl.getGIndieVisible.Application.ViewModels.Game.GameViewModel.ThumbnailUrl.get[
-ThumbnailUrl.setGIndieVisible.Application.ViewModels.Game.GameViewModel.ThumbnailUrl.setO
-
-Engine.getAIndieVisible.Application.ViewModels.Game.GameViewModel.Engine.getO
-
-Engine.setAIndieVisible.Application.ViewModels.Game.GameViewModel.Engine.setS
-Language.getCIndieVisible.Application.ViewModels.Game.GameViewModel.Language.getS
-Language.setCIndieVisible.Application.ViewModels.Game.GameViewModel.Language.setW
-WebsiteUrl.getEIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.getW
-WebsiteUrl.setEIndieVisible.Application.ViewModels.Game.GameViewModel.WebsiteUrl.setO
-
-Status.getAIndieVisible.Application.ViewModels.Game.GameViewModel.Status.getO
-
-Status.setAIndieVisible.Application.ViewModels.Game.GameViewModel.Status.setY
-ReleaseDate.getFIndieVisible.Application.ViewModels.Game.GameViewModel.ReleaseDate.getY
-ReleaseDate.setFIndieVisible.Application.ViewModels.Game.GameViewModel.ReleaseDate.setU
-Platforms.getDIndieVisible.Application.ViewModels.Game.GameViewModel.Platforms.getU
-Platforms.setDIndieVisible.Application.ViewModels.Game.GameViewModel.Platforms.setY
-FacebookUrl.getFIndieVisible.Application.ViewModels.Game.GameViewModel.FacebookUrl.getY
-FacebookUrl.setFIndieVisible.Application.ViewModels.Game.GameViewModel.FacebookUrl.setW
-TwitterUrl.getEIndieVisible.Application.ViewModels.Game.GameViewModel.TwitterUrl.getW
-TwitterUrl.setEIndieVisible.Application.ViewModels.Game.GameViewModel.TwitterUrl.set[
-InstagramUrl.getGIndieVisible.Application.ViewModels.Game.GameViewModel.InstagramUrl.get[
-InstagramUrl.setGIndieVisible.Application.ViewModels.Game.GameViewModel.InstagramUrl.set]
-FollowerCount.getHIndieVisible.Application.ViewModels.Game.GameViewModel.FollowerCount.get]
-FollowerCount.setHIndieVisible.Application.ViewModels.Game.GameViewModel.FollowerCount.set[
-CommentCount.getGIndieVisible.Application.ViewModels.Game.GameViewModel.CommentCount.get[
-CommentCount.setGIndieVisible.Application.ViewModels.Game.GameViewModel.CommentCount.setU
-LikeCount.getDIndieVisible.Application.ViewModels.Game.GameViewModel.LikeCount.getU
-LikeCount.setDIndieVisible.Application.ViewModels.Game.GameViewModel.LikeCount.set

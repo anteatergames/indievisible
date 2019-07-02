@@ -1,4 +1,0 @@
-Ò
-<IndieVisible.Infra.Data.Repository.UserPreferencesRepository6IndieVisible.Infra.Data.Repository.Repository<TEntity>objectÞ
-NUserPreferencesRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)‹IndieVisible.Infra.Data.Repository.UserPreferencesRepository.UserPreferencesRepository(IndieVisible.Infra.Data.Context.IndieVisibleContext)q
-GetByUserId(System.Guid)UIndieVisible.Infra.Data.Repository.UserPreferencesRepository.GetByUserId(System.Guid)

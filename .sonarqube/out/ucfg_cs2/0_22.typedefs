@@ -1,15 +1,0 @@
-Ä
-&IndieVisible.Domain.Core.Models.EntityobjectG
-Equals(object)5IndieVisible.Domain.Core.Models.Entity.Equals(object)E
-GetHashCode()4IndieVisible.Domain.Core.Models.Entity.GetHashCode()?
-
-ToString()1IndieVisible.Domain.Core.Models.Entity.ToString();
-Entity()/IndieVisible.Domain.Core.Models.Entity.Entity()7
-Id.get-IndieVisible.Domain.Core.Models.Entity.Id.get7
-Id.set-IndieVisible.Domain.Core.Models.Entity.Id.set?
-
-UserId.get1IndieVisible.Domain.Core.Models.Entity.UserId.get?
-
-UserId.set1IndieVisible.Domain.Core.Models.Entity.UserId.setG
-CreateDate.get5IndieVisible.Domain.Core.Models.Entity.CreateDate.getG
-CreateDate.set5IndieVisible.Domain.Core.Models.Entity.CreateDate.set

@@ -1,4 +1,0 @@
-ª
-.IndieVisible.Infra.Data.Mappings.ProfileConfigobjectœ
-tConfigure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserProfile>)£IndieVisible.Infra.Data.Mappings.ProfileConfig.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IndieVisible.Domain.Models.UserProfile>)Q
-ProfileConfig()>IndieVisible.Infra.Data.Mappings.ProfileConfig.ProfileConfig()

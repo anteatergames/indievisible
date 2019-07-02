@@ -1,11 +1,0 @@
-š
-;IndieVisible.Application.Services.UserPreferencesAppService0IndieVisible.Application.Services.BaseAppServiceobjectŠ
-¤UserPreferencesAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository)àIndieVisible.Application.Services.UserPreferencesAppService.UserPreferencesAppService(AutoMapper.IMapper, IndieVisible.Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository)N
-Count()CIndieVisible.Application.Services.UserPreferencesAppService.Count()P
-GetAll()DIndieVisible.Application.Services.UserPreferencesAppService.GetAll()h
-GetById(System.Guid)PIndieVisible.Application.Services.UserPreferencesAppService.GetById(System.Guid)p
-GetByUserId(System.Guid)TIndieVisible.Application.Services.UserPreferencesAppService.GetByUserId(System.Guid)f
-Remove(System.Guid)OIndieVisible.Application.Services.UserPreferencesAppService.Remove(System.Guid)å
-RSave(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)ŽIndieVisible.Application.Services.UserPreferencesAppService.Save(IndieVisible.Application.ViewModels.UserPreferences.UserPreferencesViewModel)b
-CurrentUserId.getMIndieVisible.Application.Services.UserPreferencesAppService.CurrentUserId.getb
-CurrentUserId.setMIndieVisible.Application.Services.UserPreferencesAppService.CurrentUserId.set
