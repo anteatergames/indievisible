@@ -91,6 +91,9 @@
     <Content Update="Views\Home\Terms.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Manage\Languages.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\Components\Counters\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
