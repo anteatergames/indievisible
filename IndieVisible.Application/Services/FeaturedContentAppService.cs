@@ -168,7 +168,7 @@ namespace IndieVisible.Application.Services
 
                 CarouselViewModel model = new CarouselViewModel();
 
-                model.Items = vms.ToList();
+                model.Items = vms.OrderByDescending(x => x.CreateDate).ToList();
 
                 return model;
             }

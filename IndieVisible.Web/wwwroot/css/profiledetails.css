@@ -54,7 +54,6 @@
     justify-content: center;
     width: 100px;
     height: 100px;
-    /*background-color: #e1a411;*/
     border-radius: 50%;
 }
 
@@ -132,12 +131,10 @@
 
 .user-profile-others {
     position: relative;
-    /*padding: 15px 5px;*/
     margin: 0 0 10px 10px;
     min-width: 100px;
     min-height: 100px;
     vertical-align:middle;
-    /*padding:20px;*/
     color: #666;
     border: 1px solid #ddd;
     background-color: #f4f4f4;

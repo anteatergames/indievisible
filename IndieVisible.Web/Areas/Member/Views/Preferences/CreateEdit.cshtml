@@ -51,22 +51,24 @@
                     <div class="tab-pane pad p-0" id="tabpassword" role="tabpanel">
                         <div class="col-xl-6 col-md-12">
 
-                            <div class="form-group">
-                                <label for="oldPassword">My old password</label>
-                                <input type="password" class="form-control" id="oldPassword" placeholder="Type your old password here">
-                            </div>
-                            <div class="form-group">
-                                <label for="newPassword">My new password</label>
-                                <input type="password" class="form-control" id="newPassword" placeholder="Type it, here!">
-                            </div>
-                            <div class="form-group">
-                                <label for="newPasswordConfirmation">My new password, AGAIN!</label>
-                                <input type="password" class="form-control" id="newPasswordConfirmation" placeholder="Your password, again...">
-                            </div>
+                            <form id="frmChangePassword" asp-area="" asp-controller="account" asp-action="save" method="POST">
+                                <div class="form-group">
+                                    <label for="oldPassword">My old password</label>
+                                    <input type="password" class="form-control" id="oldPassword" placeholder="Type your old password here">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">My new password</label>
+                                    <input type="password" class="form-control" id="newPassword" placeholder="Type it, here!">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPasswordConfirmation">My new password, AGAIN!</label>
+                                    <input type="password" class="form-control" id="newPasswordConfirmation" placeholder="Your password, again...">
+                                </div>
 
-                            <div class="row">
-                                <button type="button" class="btn btn-block btn-danger btn-lg">@SharedLocalizer["Change my password"]</button>
-                            </div>
+                                <div class="row">
+                                    <button type="button" id="btnChangePassword" class="btn btn-block btn-danger btn-lg">@SharedLocalizer["Change my password"]</button>
+                                </div>
+                            </form>
 
                         </div>
                     </div>

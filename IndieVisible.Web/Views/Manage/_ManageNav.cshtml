@@ -4,13 +4,15 @@
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 
-<ul class="nav nav-pills nav-stacked">
-    <li class="@ManageNavPages.IndexNavClass(ViewContext)"><a asp-action="Index">Profile</a></li>
-    <li class="@ManageNavPages.ChangePasswordNavClass(ViewContext)"><a asp-action="ChangePassword">Password</a></li>
-    @if (hasExternalLogins)
-    {
-        <li class="@ManageNavPages.ExternalLoginsNavClass(ViewContext)"><a asp-action="ExternalLogins">External logins</a></li>
-    }
-    <li class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)"><a asp-action="TwoFactorAuthentication">Two-factor authentication</a></li>
-</ul>
+<div class="vtabs customvtab col-xl-12 col-md-12">
+    <ul class="nav nav-tabs tabs-vertical" role="tablist">
+        <li class="nav-item @ManageNavPages.IndexNavClass(ViewContext)"><a asp-action="Index" class="nav-link active show">Profile</a></li>
+        <li class="nav-item @ManageNavPages.ChangePasswordNavClass(ViewContext)"><a asp-action="ChangePassword" class="nav-link">@SharedLocalizer["Password"]</a></li>
+        @if (hasExternalLogins)
+        {
+            <li class="nav-item @ManageNavPages.ExternalLoginsNavClass(ViewContext)"><a asp-action="ExternalLogins" class="nav-link">@SharedLocalizer["External logins"]</a></li>
+        }
+        <li class="nav-item @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)"><a asp-action="TwoFactorAuthentication" class="nav-link" >Two-factor authentication</a></li>
+    </ul>
+</div>
 
