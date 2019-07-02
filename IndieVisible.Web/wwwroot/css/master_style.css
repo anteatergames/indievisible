@@ -1759,7 +1759,7 @@ input[type="color"] {
 
 .box {
     position: relative;
-    border-top: 0;
+    /*border-top: 0;*/
     margin-bottom: 10px;
     width: 100%;
     background: #fff;
@@ -5500,7 +5500,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 /*widget*/
 .box-widget {
-    border: none;
+    /*border: none;*/
     position: relative;
 }
 

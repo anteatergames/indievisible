@@ -50,3 +50,7 @@ select.form-control {
     white-space: pre-wrap;
     padding-right: 35px;
 }
+
+.activityfeed .box-content {
+    border: 2px solid #ebebeb;
+}
