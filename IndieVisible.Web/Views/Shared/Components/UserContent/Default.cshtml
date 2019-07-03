@@ -43,7 +43,7 @@ else
                     }
                     @if (item.HasFeaturedImage)
                     {
-                        <div class="col-12 text-center">
+                        <div class="col-12 text-center featuredimage">
                             <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
                                 @if (item.FeaturedImageType == MediaType.Youtube)
                                 {
@@ -63,7 +63,7 @@ else
 
                     @if (item.IsArticle)
                     {
-                        <div class="p-2">
+                        <div class="p-2 bottomcontent">
                             <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
                                 <div class="row col-12 font-weight-bold text-uppercase">@item.Title</div>
                                 <div class="row col-12">@Html.Raw(item.Introduction)</div>

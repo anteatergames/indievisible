@@ -805,4 +805,8 @@
     <value>O que? Aparentemente este usuário ainda não postou nada!</value>
     <comment>Profile</comment>
   </data>
+  <data name="Phone number" xml:space="preserve">
+    <value>Telefone</value>
+    <comment>Preferences</comment>
+  </data>
 </root>

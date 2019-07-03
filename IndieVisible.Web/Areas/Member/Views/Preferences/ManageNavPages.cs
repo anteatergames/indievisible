@@ -9,6 +9,8 @@ namespace IndieVisible.Web.Views.Manage
 {
     public static class ManageNavPages
     {
+        public static string currentActivePage;
+
         public static string ActivePageKey => "ActivePage";
 
         public static string Index => "Index";
@@ -22,6 +24,7 @@ namespace IndieVisible.Web.Views.Manage
         public static string TwoFactorAuthentication => "TwoFactorAuthentication";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
+
         public static string LanguagesNavClass(ViewContext viewContext) => PageNavClass(viewContext, Languages);
 
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
@@ -36,6 +39,15 @@ namespace IndieVisible.Web.Views.Manage
             return string.Equals(activePage, page, StringComparison.OrdinalIgnoreCase) ? "active" : null;
         }
 
-        public static void AddActivePage(this ViewDataDictionary viewData, string activePage) => viewData[ActivePageKey] = activePage;
+        public static void AddActivePage(this ViewDataDictionary viewData, string activePage)
+        {
+            viewData[ActivePageKey] = activePage;
+            currentActivePage = activePage;
+        }
+
+        public static string CheckActivePageClass(string activePage)
+        {
+            return currentActivePage.Equals(activePage) ? "active" : string.Empty;
+        }
     }
 }

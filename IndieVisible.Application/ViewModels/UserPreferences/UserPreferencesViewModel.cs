@@ -16,5 +16,7 @@ namespace IndieVisible.Application.ViewModels.UserPreferences
 
         [Display(Name = "Content Language")]
         public List<SupportedLanguage> Languages { get; set; }
+
+        public string StatusMessage { get; set; }
     }
 }

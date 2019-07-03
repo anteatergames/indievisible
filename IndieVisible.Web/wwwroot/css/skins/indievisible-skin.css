@@ -195,9 +195,9 @@
         height: 30px;
     }
 
-        .gamebox-description .price-tag span.badge {
-            padding: 5px;
-        }
+    .gamebox-description .price-tag span.badge {
+        padding: 5px;
+    }
 
 .release-platforms {
     margin-top: 10px;
@@ -236,6 +236,7 @@
     }
 
 .user-profile-xp {
+    border-radius: 0;
     border-top: 1px solid #ccc;
     padding-top: 10px;
 }

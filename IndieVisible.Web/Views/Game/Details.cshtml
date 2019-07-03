@@ -71,7 +71,7 @@
             </div>
             @if (SignInManager.IsSignedIn(User))
             {
-                <div class="col-12 col-lg-6 offset-lg-3 mb-10">
+                <div class="col-12 col-lg-6 offset-lg-3 mb-2">
                     <div class="row text-right mt-4 mb-3">
                         <div class="col-6">
                             <button type="button" id="btn-game-follow" class="btn btn-lg btn-block btn-default @(Model.CurrentUserFollowing ? "bg-blue follow-following" : string.Empty)" data-id="@Model.Id">
@@ -147,7 +147,7 @@
 
                         <div class="tab-content p-1">
                             <div class="tab-pane active activityfeed" id="tabactivity">
-                                <div class="tabtoolbar mt-10 mb-10">
+                                <div class="tabtoolbar mt-2 mb-2">
                                     @if (Model.Permissions.CanPostActivity)
                                     {
                                         <a asp-area="" asp-controller="content" asp-action="add" asp-route-gameId="@Model.Id" class="btn btn-success">Add Content</a>

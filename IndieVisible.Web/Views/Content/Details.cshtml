@@ -6,8 +6,8 @@
     ViewData["OgImage"] = Model.FeaturedImage;
 }
 
-<div class="box">
-    <div class="col-12 p-10">
+<div class="box p-0">
+    <div class="col-12 p-2">
         <h1 data-language="@Model.Language">
             @Model.Title
             @if (Model.Permissions.CanEdit)
@@ -18,7 +18,7 @@
     </div>
     @if (Model.HasFeaturedImage)
     {
-        <div class="box-body text-center">
+        <div class="box-body p-0 text-center">
             @if (Model.FeaturedMediaType == MediaType.Youtube)
             {
                 <div class="videoWrapper"><oembed>@Model.FeaturedImage</oembed></div>
@@ -53,7 +53,7 @@
                 <div class="col-12 col-md-6 text-right">
                     <div>
                         <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.GameId">
-                            <span class="username mr-10">@Model.GameTitle</span>
+                            <span class="mr-2">@Model.GameTitle</span>
                             <img src="@Model.GameThumbnail" height="50" class="float-right" alt="Game Thumbnail" />
                         </a>
                     </div>

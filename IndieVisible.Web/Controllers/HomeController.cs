@@ -283,9 +283,11 @@ namespace IndieVisible.Web.Controllers
                 Color = "success",
                 Title = "July 2019",
                 Subtitle = "This or that?",
-                Description = "Get opinions from your fellow devs!",
+                Description = "Polls, preferences and more!",
                 Items = {
-                    "Basic Polls",
+                    "Basic Polls - Get opinions from your fellow devs!",
+                    "Better preferences - Now you can change your email, set your phone and more!",
+                    "Two Factor Authentication - Be more safe with this security feature"
                 }
             });
 

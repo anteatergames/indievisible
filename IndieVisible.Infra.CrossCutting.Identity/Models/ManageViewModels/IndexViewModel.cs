@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels
 {
     public class IndexViewModel
     {
-        public string Username { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
 
