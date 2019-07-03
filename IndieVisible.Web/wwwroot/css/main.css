@@ -62,6 +62,12 @@ select.form-control {
 .activityfeed .box-content .bottomcontent {
     border-left: 2px solid #ebebeb;
     border-right: 2px solid #ebebeb;
+    border-radius: 0;
+}
+
+.activityfeed .box-content .box-comments {
+    border-left: 2px solid #ebebeb;
+    border-right: 2px solid #ebebeb;
     border-bottom: 2px solid #ebebeb;
     border-top-left-radius: 0;
     border-top-right-radius: 0;

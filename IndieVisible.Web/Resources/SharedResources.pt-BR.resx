@@ -255,7 +255,7 @@
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Nome de usuário</value>
-    <comment>Login and Register Pages</comment>
+    <comment>Login and Register</comment>
   </data>
   <data name="Vote" xml:space="preserve">
     <value>Votar</value>
@@ -567,11 +567,11 @@
   </data>
   <data name="UI Language" xml:space="preserve">
     <value>Idioma da interface</value>
-    <comment>Preferences Page</comment>
+    <comment>Preferences</comment>
   </data>
   <data name="Unlink" xml:space="preserve">
     <value>Desassociar</value>
-    <comment>Preferences Page</comment>
+    <comment>Preferences</comment>
   </data>
   <data name="Casual" xml:space="preserve">
     <value>Casual</value>
@@ -807,6 +807,10 @@
   </data>
   <data name="Phone number" xml:space="preserve">
     <value>Telefone</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Manage your preferences" xml:space="preserve">
+    <value>Gerencie suas preferências</value>
     <comment>Preferences</comment>
   </data>
 </root>

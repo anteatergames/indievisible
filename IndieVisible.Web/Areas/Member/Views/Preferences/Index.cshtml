@@ -1,6 +1,6 @@
 ﻿@model IndexViewModel
 @{
-    ViewData["SubTitle"] = "Profile";
+    ViewData["SubTitle"] = SharedLocalizer["Profile"];
     ViewData.AddActivePage(ManageNavPages.Index);
 }
 
@@ -19,7 +19,7 @@
                 {
                     <div class="input-group">
                         <input asp-for="Email" class="form-control" />
-                        <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-ok text-success"></span></span>
+                        <span class="input-group-addon" aria-hidden="true"><span class="fas fa-check-circle text-success" style="line-height: 38px;font-size: 29px;margin-left: 5px;"></span></span>
                     </div>
                 }
                 else
