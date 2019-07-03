@@ -583,7 +583,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("IndieVisible.Web"),
+                _urlEncoder.Encode("IndieVisible"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }
