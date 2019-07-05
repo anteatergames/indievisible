@@ -9,7 +9,7 @@ namespace IndieVisible.Web.Views.Manage
 {
     public static class ManageNavPages
     {
-        public static string currentActivePage;
+        private static string currentActivePage;
 
         public static string ActivePageKey => "ActivePage";
 

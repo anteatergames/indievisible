@@ -181,16 +181,16 @@
     <value>Ou</value>
     <comment>Login and Register Pages</comment>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Senha</value>
-    <comment>Login and Register Pages</comment>
+  <data name="password" xml:space="preserve">
+    <value>senha</value>
+    <comment>Generic</comment>
   </data>
   <data name="Portfolio" xml:space="preserve">
     <value>Portifólio</value>
     <comment>Menu</comment>
   </data>
-  <data name="Profile" xml:space="preserve">
-    <value>Perfil</value>
+  <data name="profile" xml:space="preserve">
+    <value>perfil</value>
     <comment>Menu</comment>
   </data>
   <data name="Project Management" xml:space="preserve">
@@ -461,8 +461,8 @@
     <value>Gênero</value>
     <comment>Generic</comment>
   </data>
-  <data name="Language" xml:space="preserve">
-    <value>Idioma</value>
+  <data name="language" xml:space="preserve">
+    <value>idioma</value>
     <comment>Generic</comment>
   </data>
   <data name="Main Language" xml:space="preserve">
@@ -811,6 +811,78 @@
   </data>
   <data name="Manage your preferences" xml:space="preserve">
     <value>Gerencie suas preferências</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Account association" xml:space="preserve">
+    <value>Associação de conta</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Associate your {0} account" xml:space="preserve">
+    <value>Associe sua conta {0}</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Confirm new password" xml:space="preserve">
+    <value>Confirmação de nova senha</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="external logins" xml:space="preserve">
+    <value>contas externas</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="languages" xml:space="preserve">
+    <value>idiomas</value>
+    <comment>General</comment>
+  </data>
+  <data name="Link Acounts" xml:space="preserve">
+    <value>Associar contas</value>
+    <comment>Register</comment>
+  </data>
+  <data name="New password" xml:space="preserve">
+    <value>Nova senha</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Set password" xml:space="preserve">
+    <value>Definir senha</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Set your password" xml:space="preserve">
+    <value>Defina sua senha</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="The external login was removed." xml:space="preserve">
+    <value>A conta externa foi removida.</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="You do not have a password set here with us but don't worry, you can set one now to be able to log in without an external provider." xml:space="preserve">
+    <value>Você não possui uma senha definida aqui com a gente. Mas não se preocupe, você pode criar uma agora pra logar sem um provedor externo.</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Add another service to log in." xml:space="preserve">
+    <value>Adicione um novo provedor de conta.</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Log in using your {0} account" xml:space="preserve">
+    <value>Faça login usando sua conta {0}</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Manage your external logins" xml:space="preserve">
+    <value>Gerencie suas contas externas</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Registered Logins" xml:space="preserve">
+    <value>Contas Registradas</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Remove this {0} login from your account" xml:space="preserve">
+    <value>Remova o login com {0} da sua conta</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Send verification email" xml:space="preserve">
+    <value>Enviar email de confirmação</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="two-factor authentication" xml:space="preserve">
+    <value>autenticação em dois passos</value>
     <comment>Preferences</comment>
   </data>
 </root>

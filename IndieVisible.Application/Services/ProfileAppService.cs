@@ -11,6 +11,7 @@ using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using UserProfile = IndieVisible.Domain.Models.UserProfile;
 
 namespace IndieVisible.Application.Services
@@ -295,11 +296,15 @@ namespace IndieVisible.Application.Services
         public ProfileViewModel GenerateNewOne(ProfileType type)
         {
             ProfileViewModel profile = new ProfileViewModel();
-            Random r = new Random((int)DateTime.Now.Ticks);
+
+            var randomGenerator = RandomNumberGenerator.Create();
+            byte[] data = new byte[4];
+            randomGenerator.GetBytes(data);
+            var randomNumber = BitConverter.ToInt32(data);
 
             profile.Type = ProfileType.Personal;
 
-            profile.Name = "NPC " + r.Next(42, 9000).ToString();
+            profile.Name = String.Format("NPC {0}", Math.Abs(randomNumber));
             profile.Motto = "It is dangerous out there, take this...";
 
             profile.Bio = profile.Name + " is a game developer willing to rock the game development world with funny games.";
