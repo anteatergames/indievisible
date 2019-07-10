@@ -156,8 +156,8 @@
                     image: img
                 } : null;
             }).get();
-
-            if (!postImagesDropZone) {
+            
+            if (!postImagesDropZone || postImagesDropZone.getQueuedFiles().length === 0) {
                 var images = selectors.postImages.val();
                 var json = { text: text, images: images, pollOptions: options };
 
