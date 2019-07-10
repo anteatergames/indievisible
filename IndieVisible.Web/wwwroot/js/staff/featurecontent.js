@@ -4,8 +4,6 @@
     var selectors = {};
 
     function init() {
-        console.log('init');
-
         cacheSelectors();
 
         bindAll();

@@ -3,7 +3,6 @@
     var selectors = {};
 
     function init() {
-        console.log('polls init');
         setSelectors();
 
         bindAll();

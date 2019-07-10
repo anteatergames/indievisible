@@ -14,8 +14,6 @@
     var croppedGameCoverImage = false;
 
     function init() {
-        console.log('init');
-
         cacheSelectors();
 
         bindAll();
