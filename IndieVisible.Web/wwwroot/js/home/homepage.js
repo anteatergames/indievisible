@@ -7,12 +7,12 @@
 
     var postImagesDropZone = null;
 
-    var defaultCommentBoxHeight = 0;
+    var minheight = 160;
+    var defaultCommentBoxHeight = minheight;
     var defaultTxtPostContentHeight = 0;
     var selectors = {};
 
     function init() {
-        console.log('homepage init');
         setSelectors();
 
         bindAll();
@@ -23,7 +23,7 @@
 
         loadActivityFeed();
 
-        defaultCommentBoxHeight = Math.ceil(selectors.commentBox.outerHeight());
+        //defaultCommentBoxHeight = Math.ceil(selectors.commentBox.outerHeight());
 
         defaultTxtPostContentHeight = Math.ceil(selectors.txtPostContent.height());
 
@@ -94,6 +94,11 @@
 
             if (divPostImagesActive) {
                 hideImageAdd();
+
+                if (postImagesDropZone) {
+                    postImagesDropZone.destroy();
+                    postImagesDropZone = null;
+                }
             }
             else {
                 divPostImagesActive = true;
@@ -131,9 +136,7 @@
     }
 
     function bindSendSimpleContent() {
-        console.log('bindSendSimpleContent');
         $('.content').on('click', '#btnSendSimpleContent', function (e) {
-            console.log('sendpostclick');
 
             var btn = $(this);
             var txtArea = btn.closest('.simplecontentpostarea').find('.posttextarea');
@@ -153,8 +156,6 @@
                     image: img
                 } : null;
             }).get();
-
-            console.log(options);
 
             if (!postImagesDropZone) {
                 var images = selectors.postImages.val();
@@ -215,7 +216,10 @@
         postModalActive = true;
         $('#modalPost').addClass('modal');
         $('#modalPost').modal('show');
+        $('.commentmodal').css('min-height', '160px');
         $('.commentmodal .modal').css('padding-right', '');
+        $('.commentmodal .modal-header').removeClass('hidden-sm-up');
+        $('.commentmodal .modal-footer').removeClass('hidden-sm-up');
         $('.commentmodal .modal-header .close').show();
         $('.modal-backdrop').css('height', window.innerHeight + 'px');
         $('.modal-backdrop').css('top', window.pageYOffset + 'px');
@@ -228,6 +232,7 @@
 
         var h = Math.floor(selectors.txtPostContent.height());
         var txtPostContentHeight = h === defaultTxtPostContentHeight ? 0 : h - defaultTxtPostContentHeight;
+
 
         var height = defaultCommentBoxHeight + txtPostContentHeight;
 
@@ -257,6 +262,12 @@
         $('#modalPost').css('display', '');
         $('#modalPost').removeClass('modal');
         $('.commentmodal .modal-header .close').hide();
+
+        $('.commentmodal .modal-header').addClass('hidden-sm-up');
+        $('.commentmodal .modal-footer').addClass('hidden-sm-up');
+
+        $('.commentmodal').css('height', 'auto');
+        $('.commentmodal').css('min-height', 'auto');
     }
 
     function hideImageAdd() {

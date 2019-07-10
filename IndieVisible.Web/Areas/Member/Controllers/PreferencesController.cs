@@ -128,7 +128,8 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         {
             UserPreferencesViewModel vm = this.userPreferencesAppService.GetByUserId(CurrentUserId);
             vm.StatusMessage = StatusMessage;
-            return View(vm);
+
+            return await Task.Run(() => View(vm));
         }
 
         [HttpPost]
@@ -154,7 +155,10 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             }
             catch (Exception ex)
             {
-                throw new CustomApplicationException($"Unable to save your preferences.");
+                var msg = $"Unable to save your preferences.";
+                this._logger.Log(LogLevel.Error, ex, msg);
+
+                throw new CustomApplicationException(msg);
             }
         }
 

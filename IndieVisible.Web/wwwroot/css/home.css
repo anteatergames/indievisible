@@ -6,7 +6,7 @@
 .commentmodal {
     position: relative;
     width: 100%;
-    min-height: 160px;
+    /*min-height: 160px;*/
 }
 
     .commentmodal .modal-header, .commentmodal .modal-body, .commentmodal .modal-footer {
