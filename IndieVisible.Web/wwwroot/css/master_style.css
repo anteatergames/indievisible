@@ -4922,8 +4922,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .btn[class*=bg-]:hover {
-    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+    /*-webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);*/
 }
 
 .btn-app {
@@ -5457,7 +5457,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 /*modal*/
 
 .modal-content {
-    border-radius: 0;
+    /*border-radius: 0;*/
     -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .125);
     box-shadow: 0 2px 3px rgba(0, 0, 0, .125);
     border: 0;
@@ -6908,7 +6908,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .img-sm + .img-push, .user-block.user-block-sm .comment, .user-block.user-block-sm .description, .user-block.user-block-sm .username {
-    margin-left: 40px;
+    margin-left: 45px;
 }
 
 .user-block .username {
@@ -6929,8 +6929,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .box-comments .box-comment img, .img-sm, .user-block.user-block-sm img {
-    width: 30px !important;
-    height: 30px !important;
+    width: 38px !important;
+    height: 38px !important;
 }
 
 @media print {

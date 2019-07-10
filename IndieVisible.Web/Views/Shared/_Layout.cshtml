@@ -43,9 +43,6 @@
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
 
-    <!--Flattr (https://flattr.com)-->
-    <meta name="flattr:id" content="7079kn">
-
     <link rel="alternate" href="https://www.indievisible.net/?culture=pt-BR" hreflang="pt-br" />
     <link rel="alternate" href="https://www.indievisible.net/?culture=en" hreflang="en" />
     <link rel="alternate" href="https://www.indievisible.net/?culture=ru" hreflang="ru" />
@@ -117,29 +114,18 @@
 
 </head>
 <body class="hold-transition skin-indievisible sidebar-mini">
-    <!-- Site wrapper -->
     <div class="wrapper">
-
         <header class="main-header">
-            <!-- Logo -->
-            @*<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>*@
             <a asp-area="" asp-controller="home" asp-action="index" class="logo hidden-sm-down">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><img src="~/images/logominimal.png" alt="INDIEVISIBLE"></span>
-                <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><img src="~/images/logo30h.png" alt="INDIEVISIBLE"></span>
             </a>
-            <!-- Header Navbar-->
             <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
                 <a href="#" data-drawer-open class="btn-open sidebar-toggle" role="button">
                     <i class="fas fa-bars" aria-hidden="true"></i>
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <a asp-area="" asp-controller="home" asp-action="index" class="hidden-md-up">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-                    @*<span class="logo-mini"><img src="/images/minimal.png" alt=""></span>*@
-                    <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg"><img src="~/images/logo30h.png" alt="INDIEVISIBLE"></span>
                 </a>
                 <div class="navbar-custom-menu">
@@ -147,15 +133,6 @@
 
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            @*@await Html.PartialAsync("_MessagesPartial")*@
-
-                            <li id="notificationsMenu" class="dropdown notifications-menu">
-                                @*@await Html.PartialAsync("_NotificationsPartial")*@
-                            </li>
-
-                            @*@await Html.PartialAsync("_TasksPartial")*@
-
-                            <!-- Control Sidebar Toggle Button -->
                             <li>
                                 <a aria-label="@SharedLocalizer["Open Sidebar"]" href="#" data-toggle="control-sidebar"><i class="fa fa-asterisk" aria-hidden="true"></i></a>
                             </li>
@@ -166,12 +143,9 @@
         </header>
 
         <drawer-menu class="menu">
-            <!-- Left side column. contains the sidebar -->
             <aside class="main-sidebar">
-                <!-- sidebar -->
                 <section class="sidebar">
                     <h6 class="hidden-xl-down">&nbsp;</h6>
-                    <!-- Sidebar user panel -->
                     <div class="user-panel">
                         @await Html.PartialAsync("_UserPanelPartial")
                     </div>
@@ -180,13 +154,8 @@
             </aside>
         </drawer-menu>
 
-        <!-- =============================================== -->
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper container">
 
-            @*@await Html.PartialAsync("_PageHeaderPartial")*@
-
-            <!-- Main content -->
             <section class="content">
 
                 <div class="row mt-0 mt-md-10 no-gutters px-0 px-lg-10">
@@ -194,9 +163,8 @@
                 </div>
 
             </section>
-            <!-- /.content -->
+
         </div>
-        <!-- /.content-wrapper -->
 
         <footer class="main-footer">
             <div class="pull-right d-none d-sm-inline-block">
@@ -206,10 +174,8 @@
 
         @await Html.PartialAsync("_ControlSidebarPartial")
 
-        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div>
-    <!-- ./wrapper -->
 
 
     <environment include="Development">

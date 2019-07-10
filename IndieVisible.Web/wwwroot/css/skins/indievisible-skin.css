@@ -303,7 +303,12 @@
     padding-top: 100%;
 }
 
-.box-content .btn[class*=bg-]:hover, .box-content .btn[class*=bg-]:focus, .btn-interaction-comment-send:hover, .btn-interaction-comment-send:focus {
+.box-content .btn[class*=bg-]:hover,
+.box-content .btn[class*=bg-]:focus,
+.btn-interaction-comment-send:hover,
+.btn-interaction-comment-send:focus,
+.comment-send-button:hover,
+.comment-send-button:focus {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     background-color: transparent !important;
