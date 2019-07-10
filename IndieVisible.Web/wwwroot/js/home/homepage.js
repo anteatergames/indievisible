@@ -80,7 +80,9 @@
             if (postModalActive === true) {
                 hidePostModal();
             }
-            resizePostBox();
+            else {
+                resizePostBox();
+            }
             POLLS.Methods.ClearOptions();
         });
     }
