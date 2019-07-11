@@ -133,6 +133,8 @@
 
                         @if (SignInManager.IsSignedIn(User))
                         {
+                            <li id="notificationsMenu" class="dropdown notifications-menu">
+                            </li>
                             <li>
                                 <a aria-label="@SharedLocalizer["Open Sidebar"]" href="#" data-toggle="control-sidebar"><i class="fa fa-asterisk" aria-hidden="true"></i></a>
                             </li>
