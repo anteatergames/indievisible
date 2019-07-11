@@ -57,7 +57,8 @@
   {
     "outputFileName": "wwwroot/css/profiledetails.min.css",
     "inputFiles": [
-      "wwwroot/css/profiledetails.css"
+      "wwwroot/css/profiledetails.css",
+      "wwwroot/css/progress.css"
     ]
   },
   {

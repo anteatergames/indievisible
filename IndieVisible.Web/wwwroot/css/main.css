@@ -72,3 +72,12 @@ select.form-control {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.box-comments .box-comment img, .img-lg, .img-md, .img-sm, .user-block.user-block-sm img {
+    float: left;
+}
+
+.box-comments .box-comment img, .img-sm, .user-block.user-block-sm img {
+    width: 38px !important;
+    height: 38px !important;
+}

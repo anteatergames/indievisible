@@ -1,0 +1,160 @@
+﻿.progress {
+    margin-bottom: 20px;
+}
+
+    .progress, .progress .progress-bar, .progress-sm, .progress-sm .progress-bar, .progress-xs, .progress-xs .progress-bar, .progress-xxs, .progress-xxs .progress-bar, .progress.sm, .progress.sm .progress-bar, .progress.xs, .progress.xs .progress-bar, .progress.xxs, .progress.xxs .progress-bar, .progress > .progress-bar, .progress > .progress-bar .progress-bar {
+        border-radius: 1px;
+    }
+
+        .progress, .progress > .progress-bar {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+            .progress-sm, .progress.sm {
+                height: 10px;
+            }
+
+            .progress-xs, .progress.xs {
+                height: 7px;
+            }
+
+            .progress-xxs, .progress.xxs {
+                height: 3px;
+            }
+
+            .progress.vertical {
+                position: relative;
+                width: 30px;
+                height: 200px;
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+                .progress.vertical > .progress-bar {
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                }
+
+                .progress.vertical.progress-sm, .progress.vertical.sm {
+                    width: 20px;
+                }
+
+                .progress.vertical.progress-xs, .progress.vertical.xs {
+                    width: 10px;
+                }
+
+                .progress.vertical.progress-xxs, .progress.vertical.xxs {
+                    width: 3px;
+                }
+
+.progress-group .progress-text {
+    font-weight: 600;
+}
+
+.progress-group .progress-number {
+    float: right;
+}
+
+.table tr > td .progress {
+    margin: 0;
+}
+
+.progress-bar-light-blue, .progress-bar-primary {
+    background-color: #45aef1;
+}
+
+.progress-striped .progress-bar-light-blue, .progress-striped .progress-bar-primary {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+.progress-striped .progress-bar-aqua, .progress-striped .progress-bar-green, .progress-striped .progress-bar-info, .progress-striped .progress-bar-success {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+.progress-bar-green, .progress-bar-success {
+    background-color: #22af47;
+}
+
+.progress-striped .progress-bar-green, .progress-striped .progress-bar-success {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+.progress-bar-aqua, .progress-bar-info {
+    background-color: #0092ee;
+}
+
+.progress-striped .progress-bar-aqua, .progress-striped .progress-bar-info {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+.progress-striped .progress-bar-danger, .progress-striped .progress-bar-red, .progress-striped .progress-bar-warning, .progress-striped .progress-bar-yellow {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+.progress-bar-warning, .progress-bar-yellow {
+    background-color: #ffbf36;
+}
+
+.progress-striped .progress-bar-warning, .progress-striped .progress-bar-yellow {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+.progress-bar-danger, .progress-bar-red {
+    background-color: #f83f37;
+}
+
+.progress-striped .progress-bar-danger, .progress-striped .progress-bar-red {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+.progress-bar-blue, .progress-bar-default {
+    background-color: #45aef1;
+}
+
+.progress-striped .progress-bar-blue, .progress-striped .progress-bar-default {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+
+
+
+.table tr td .progress {
+    margin-top: 5px;
+}
+
+
+
+
+.info-box .progress {
+    background: rgba(0, 0, 0, .2);
+    margin: 5px -10px 5px 0;
+    height: 2px;
+}
+
+    .info-box .progress, .info-box .progress .progress-bar {
+        border-radius: 0;
+    }
+
+
+
+
+.info-box-text, .progress-description {
+    display: block;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+}
+
+.progress-description {
+    margin: 0;
+}

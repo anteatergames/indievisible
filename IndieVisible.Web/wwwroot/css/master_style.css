@@ -8,7 +8,6 @@
 1. Body, layout
 2. Header
 3. Sidebar
-4. Form-element and progress bar
 5. Box
 6. User card
 7. tab
@@ -23,7 +22,6 @@
 19. modal
 20. widget
 22. mailbox
-24. login-box
 25. social btn
 26. color Skin
 
@@ -390,52 +388,8 @@ a {
             font-weight: 300;
         }
 
-    .content-header > .breadcrumb, .content-header > .container > .breadcrumb {
-        float: right;
-        background: 0 0;
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 12px;
-        padding: 7px 5px;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        border-radius: 2px;
-    }
-
-    .content-header > .container > .breadcrumb {
-        position: relative;
-        top: 0;
-    }
-
-        .content-header > .breadcrumb > li > a, .content-header > .container > .breadcrumb > li > a {
-            color: #444;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-            .content-header > .breadcrumb > li > a > .fa, .content-header > .breadcrumb > li > a > .glyphicon, .content-header > .breadcrumb > li > a > .ion, .content-header > .container > .breadcrumb > li > a > .fa, .content-header > .container > .breadcrumb > li > a > .glyphicon, .content-header > .container > .breadcrumb > li > a > .ion {
-                margin-right: 5px;
-            }
-
-        .content-header > .breadcrumb > li + li:before, .content-header > .container > .breadcrumb > li + li:before {
-            content: '>\00a0'
-        }
 
 @media (max-width:991px) {
-    .content-header > .breadcrumb, .content-header > .container > .breadcrumb {
-        position: relative;
-        margin-top: 5px;
-        top: 0;
-        right: 0;
-        float: none;
-        background: #d2d6de;
-        padding-left: 10px;
-    }
-
-        .content-header > .breadcrumb li:before, .content-header > .container > .breadcrumb li:before {
-            color: #97a0b3;
-        }
 
     .navbar-custom-menu .navbar-nav > li {
         float: left;
@@ -830,7 +784,7 @@ a {
         margin-top: 3px;
     }
 
-        .control-sidebar-menu .menu-info > .control-sidebar-subheading, .control-sidebar-menu .progress {
+        .control-sidebar-menu .menu-info > .control-sidebar-subheading {
             margin: 0;
         }
 
@@ -1173,11 +1127,6 @@ a {
         padding: 0;
         margin: 0 0 10px;
         color: #666;
-    }
-
-    .navbar-nav > .tasks-menu > .dropdown-menu > li .menu > li > a > .progress {
-        padding: 0;
-        margin: 0;
     }
 
 .navbar-nav > .user-menu > .dropdown-menu {
@@ -1526,14 +1475,6 @@ input[type="color"] {
     }
 }
 
-.progress {
-    margin-bottom: 20px;
-}
-
-    .progress, .progress .progress-bar, .progress-sm, .progress-sm .progress-bar, .progress-xs, .progress-xs .progress-bar, .progress-xxs, .progress-xxs .progress-bar, .progress.sm, .progress.sm .progress-bar, .progress.xs, .progress.xs .progress-bar, .progress.xxs, .progress.xxs .progress-bar, .progress > .progress-bar, .progress > .progress-bar .progress-bar {
-        border-radius: 1px;
-    }
-
 .icheck > label {
     padding-left: 0;
 }
@@ -1548,123 +1489,6 @@ input[type="color"] {
 
 .form-group-sm .form-control + .form-control-feedback.fa, .input-group-sm + .form-control-feedback.fa, .input-sm + .form-control-feedback.fa {
     line-height: 30px;
-}
-
-.progress, .progress > .progress-bar {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-    .progress-sm, .progress.sm {
-        height: 10px;
-    }
-
-    .progress-xs, .progress.xs {
-        height: 7px;
-    }
-
-    .progress-xxs, .progress.xxs {
-        height: 3px;
-    }
-
-    .progress.vertical {
-        position: relative;
-        width: 30px;
-        height: 200px;
-        display: inline-block;
-        margin-right: 10px;
-    }
-
-        .progress.vertical > .progress-bar {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-        }
-
-        .progress.vertical.progress-sm, .progress.vertical.sm {
-            width: 20px;
-        }
-
-        .progress.vertical.progress-xs, .progress.vertical.xs {
-            width: 10px;
-        }
-
-        .progress.vertical.progress-xxs, .progress.vertical.xxs {
-            width: 3px;
-        }
-
-.progress-group .progress-text {
-    font-weight: 600;
-}
-
-.progress-group .progress-number {
-    float: right;
-}
-
-.table tr > td .progress {
-    margin: 0;
-}
-
-.progress-bar-light-blue, .progress-bar-primary {
-    background-color: #45aef1;
-}
-
-.progress-striped .progress-bar-light-blue, .progress-striped .progress-bar-primary {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-}
-
-.progress-striped .progress-bar-aqua, .progress-striped .progress-bar-green, .progress-striped .progress-bar-info, .progress-striped .progress-bar-success {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-}
-
-.progress-bar-green, .progress-bar-success {
-    background-color: #22af47;
-}
-
-.progress-striped .progress-bar-green, .progress-striped .progress-bar-success {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-}
-
-.progress-bar-aqua, .progress-bar-info {
-    background-color: #0092ee;
-}
-
-.progress-striped .progress-bar-aqua, .progress-striped .progress-bar-info {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-}
-
-.progress-striped .progress-bar-danger, .progress-striped .progress-bar-red, .progress-striped .progress-bar-warning, .progress-striped .progress-bar-yellow {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-}
-
-.progress-bar-warning, .progress-bar-yellow {
-    background-color: #ffbf36;
-}
-
-.progress-striped .progress-bar-warning, .progress-striped .progress-bar-yellow {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-}
-
-.progress-bar-danger, .progress-bar-red {
-    background-color: #f83f37;
-}
-
-.progress-striped .progress-bar-danger, .progress-striped .progress-bar-red {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-}
-
-.progress-bar-blue, .progress-bar-default {
-    background-color: #45aef1;
-}
-
-.progress-striped .progress-bar-blue, .progress-striped .progress-bar-default {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
 }
 /*box*/
 .small-box {
@@ -2391,11 +2215,6 @@ ul .panel-actions {
     .panel-actions .panel-action:active {
         color: #616161;
     }
-
-.panel-actions .progress {
-    width: 100px;
-    margin: 0;
-}
 
 .panel-actions .pagination {
     margin: 0;
@@ -3300,10 +3119,6 @@ ul.panel-actions {
         right: 15px;
     }
 
-    .panel-actions .progress {
-        min-width: 80px;
-    }
-
     .panel-actions .show-on-hover {
         display: none;
     }
@@ -3541,179 +3356,6 @@ ul.panel-actions {
         vertical-align: top;
     }
 
-.avatar-bordered {
-    border: 4px solid rgba(255, 255, 255, 0.25);
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-}
-
-.avatar-square {
-    border-radius: 0;
-}
-
-.avatar-sm {
-    width: 29px;
-    height: 29px;
-    line-height: 29px;
-    font-size: 0.75rem;
-}
-
-.avatar-lg {
-    width: 48px;
-    height: 48px;
-    line-height: 48px;
-    font-size: 1.125rem;
-}
-
-.avatar-xl {
-    width: 64px;
-    height: 64px;
-    line-height: 64px;
-    font-size: 1.25rem;
-}
-
-.avatar-xxl {
-    width: 96px;
-    height: 96px;
-    line-height: 96px;
-    font-size: 1.375rem;
-}
-
-.avatar-xxxl {
-    width: 128px;
-    height: 128px;
-    line-height: 128px;
-    font-size: 1.5rem;
-}
-
-.avatar-pill {
-    width: auto;
-    border-radius: 18px;
-    color: #788394;
-    text-transform: none;
-    letter-spacing: 0;
-    background-color: #f9fafb;
-    font-size: 0.875rem;
-    display: -webkit-inline-box;
-    display: inline-flex;
-    -webkit-box-align: center;
-    align-items: center;
-}
-
-    .avatar-pill:hover, .avatar-pill:focus {
-        color: #788394;
-        background-color: #f5f6f7;
-    }
-
-    .avatar-pill img {
-        width: 36px;
-    }
-
-    .avatar-pill span {
-        padding-right: 18px;
-        padding-left: 8px;
-    }
-
-    .avatar-pill .close {
-        padding-left: 0;
-        padding-right: 8px;
-        font-size: 19px;
-        line-height: inherit;
-    }
-
-    .avatar-pill.avatar-sm {
-        border-radius: 14.5px;
-        font-size: 0.8125rem;
-    }
-
-        .avatar-pill.avatar-sm img {
-            width: 29px;
-        }
-
-        .avatar-pill.avatar-sm span {
-            padding-right: 14.5px;
-        }
-
-        .avatar-pill.avatar-sm .close {
-            padding-right: 6px;
-            font-size: 18px;
-        }
-
-    .avatar-pill.avatar-lg {
-        border-radius: 24px;
-        font-size: 0.9375rem;
-    }
-
-        .avatar-pill.avatar-lg img {
-            width: 48px;
-        }
-
-        .avatar-pill.avatar-lg span {
-            padding-right: 24px;
-        }
-
-        .avatar-pill.avatar-lg .close {
-            padding-right: 10px;
-            font-size: 20px;
-        }
-
-    .avatar-pill.avatar-xl {
-        border-radius: 32px;
-        font-size: 1rem;
-    }
-
-        .avatar-pill.avatar-xl img {
-            width: 64px;
-        }
-
-        .avatar-pill.avatar-xl span {
-            padding-right: 32px;
-            padding-left: 12px;
-        }
-
-        .avatar-pill.avatar-xl .close {
-            padding-right: 12px;
-            font-size: 22px;
-        }
-
-    .avatar-pill.avatar-xxl {
-        border-radius: 48px;
-        font-size: 1.125rem;
-    }
-
-        .avatar-pill.avatar-xxl img {
-            width: 96px;
-        }
-
-        .avatar-pill.avatar-xxl span {
-            padding-right: 48px;
-            padding-left: 12px;
-        }
-
-        .avatar-pill.avatar-xxl .close {
-            padding-right: 16px;
-            font-size: 24px;
-        }
-
-    .avatar-pill.avatar-xxxl {
-        border-radius: 64px;
-        font-size: 1.25rem;
-    }
-
-        .avatar-pill.avatar-xxxl img {
-            width: 128px;
-        }
-
-        .avatar-pill.avatar-xxxl span {
-            padding-right: 64px;
-            padding-left: 12px;
-        }
-
-        .avatar-pill.avatar-xxxl .close {
-            padding-right: 20px;
-            font-size: 24px;
-        }
-
 .avatar[class*='status-']::after {
     content: '';
     position: absolute;
@@ -3948,20 +3590,6 @@ ul.flexbox {
         content: '%';
         margin-left: 0.1em;
         font-size: .8em;
-    }
-
-.easypie {
-    position: relative;
-    display: inline-block;
-    width: 110px;
-    height: 110px;
-    text-align: center;
-}
-
-    .easypie canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
 /*---media---*/
@@ -4225,32 +3853,6 @@ ul.flexbox {
     flex-direction: column;
 }
 
-.media-meta-day {
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-bottom: 0;
-    color: #929daf;
-    opacity: .8;
-    font-weight: 300;
-}
-
-    .media-meta-day::before, .media-meta-day::after {
-        content: '';
-        -webkit-box-flex: 1;
-        flex: 1 1 0%;
-        border-top: 1px solid #ebebeb;
-    }
-
-    .media-meta-day::before {
-        margin-right: 16px;
-    }
-
-    .media-meta-day::after {
-        margin-left: 16px;
-    }
-
 @media (max-width: 767px) {
     .media-doc {
         -webkit-box-orient: vertical;
@@ -4345,42 +3947,6 @@ ul.flexbox {
 .media-list-footer {
     border-top: 1px solid #ebebeb;
     background-color: #fcfdfe;
-}
-
-.media-grid {
-    display: -webkit-box;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-}
-
-    .media-grid::after {
-        content: '';
-        -webkit-box-flex: 1;
-        flex: auto;
-    }
-
-    .media-grid.row {
-        margin-left: -15px;
-        margin-right: -15px;
-    }
-
-        .media-grid.row .media {
-            margin-bottom: 15px;
-        }
-
-    .media-grid > .media {
-        margin-right: 15px;
-        margin-bottom: 15px;
-        width: 200px;
-    }
-
-.media-grid-bordered .media {
-    border: 1px solid #ebebeb;
-}
-
-.media-grid-hover .media:hover {
-    background-color: #f9fafb;
 }
 
 @-webkit-keyframes h-shake {
@@ -4553,7 +4119,7 @@ ul.flexbox {
 }
 
 .control-radio .control_indicator {
-    border-radius: undefined;
+    border-radius: initial;
 }
 
 .control input:focus ~ .control_indicator, .control:hover input ~ .control_indicator {
@@ -4636,16 +4202,6 @@ ul.flexbox {
         font-size: 14px;
     }
 
-    .info-box .progress {
-        background: rgba(0, 0, 0, .2);
-        margin: 5px -10px 5px 0;
-        height: 2px;
-    }
-
-        .info-box .progress, .info-box .progress .progress-bar {
-            border-radius: 0;
-        }
-
 .info-box-icon {
     float: left;
     height: 50px;
@@ -4672,19 +4228,6 @@ ul.flexbox {
 .info-box-number {
     font-weight: 300;
     font-size: 21px;
-}
-
-.info-box-text, .progress-description {
-    display: block;
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 400;
-}
-
-.progress-description {
-    margin: 0;
 }
 
 .btn-circle, .btn-rounded {
@@ -5300,10 +4843,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     border-bottom: 2px solid #f4f4f4;
 }
 
-.table tr td .progress {
-    margin-top: 5px;
-}
-
 .table th, .table thead th {
     font-weight: 500;
 }
@@ -5504,7 +5043,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     position: relative;
 }
 
-.error-page > .error-content, .login-box .fog-pwd, .mailbox-attachment-icon, .mailbox-attachment-info, .mailbox-attachment-size {
+.error-page > .error-content, .mailbox-attachment-icon, .mailbox-attachment-info, .mailbox-attachment-size {
     display: block;
 }
 
@@ -5614,65 +5153,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
         }
 
 
-/*login-box*/
-.login-box-body, .profile-user-img, .register-box-body {
-    box-shadow: 0 2px 2px 0 rgba(169, 169, 169, .14), 0 3px 1px -2px rgba(169, 169, 169, .2), 0 1px 5px 0 rgba(169, 169, 169, .12);
-}
-
-.login-logo, .register-logo {
-    font-size: 35px;
-    text-align: center;
-    margin-bottom: 25px;
-    font-weight: 300;
-}
-
-    .login-logo a, .register-logo a {
-        color: #fff;
-    }
-
-.login-page, .register-page, .login-register-page {
-    background: url(../images/login-register.jpg) center center no-repeat #d2d6de;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-}
-
-.login-box {
-    width: 360px;
-    margin: 7% auto;
-}
-
-.register-box {
-    width: 360px;
-    margin: 5% auto;
-}
-
-.login-box .fog-pwd {
-    position: relative;
-    margin-bottom: 10px;
-}
-
-    .login-box .fog-pwd i {
-        position: relative;
-        padding-right: 15px;
-    }
-
 .has-feedback {
     position: relative;
-}
-
-.register-page .form-control-feedback, .login-page .form-control-feedback {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    display: block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    pointer-events: none;
 }
 
 /*lable floting*/
@@ -5736,43 +5218,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     .form-group.issue .help-block ul li {
         list-style: none;
     }
-
-
-@media (max-width:768px) {
-    .login-box, .register-box {
-        width: 90%;
-        margin-top: 20px;
-    }
-
-    .login-page, .register-page {
-        position: relative;
-        background-size: inherit;
-    }
-}
-
-.login-box-body, .register-box-body {
-    background: rgba(255, 255, 255, .9);
-    padding: 20px 20px 10px;
-    border-top: 0;
-    color: #666;
-    border-radius: 0px;
-    box-shadow: 0 2px 2px 0 rgba(169, 169, 169, .14), 0 3px 1px -2px rgba(169, 169, 169, .2), 0 1px 5px 0 rgba(169, 169, 169, .12);
-}
-
-    .login-box-body .form-control-feedback, .register-box-body .form-control-feedback {
-        color: #777;
-        line-height: 35px;
-    }
-
-.login-box-msg, .register-box-msg {
-    margin: 0;
-    text-align: center;
-    padding: 0 20px 20px;
-}
-
-.social-auth-links {
-    margin: 10px 0;
-}
 
 .error-body {
     width: 100%;
@@ -6924,14 +6369,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     font-size: 14px;
 }
 
-.box-comments .box-comment img, .img-lg, .img-md, .img-sm, .user-block.user-block-sm img {
-    float: left;
-}
-
-.box-comments .box-comment img, .img-sm, .user-block.user-block-sm img {
-    width: 38px !important;
-    height: 38px !important;
-}
 
 @media print {
     .content-header, .left-side, .main-header, .main-sidebar, .no-print {

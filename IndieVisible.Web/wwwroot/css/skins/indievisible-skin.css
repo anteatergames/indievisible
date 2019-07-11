@@ -176,6 +176,11 @@
     display: block;
 }
 
+    .gamebox-description .img-sm {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
     .gamebox-description .gamebox-description-number, .gamebox-description .gamebox-description-text {
         margin-left: 10px;
     }
