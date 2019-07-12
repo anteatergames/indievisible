@@ -72,13 +72,13 @@
             $(allOptions).each(function (index, element) {
                 var li = $(this);
                 li.removeClass('voted').addClass('notvoted');
-                var percBack = li.children('span.perc-back');
-                var percNumber = li.children('span.perc-number');
-                var input = li.find('input');
+                var percBack2 = li.children('span.perc-back');
+                var percNumber2 = li.children('span.perc-number');
+                var input2 = li.find('input');
 
-                percBack.css('width', '0');
-                percNumber.text('0.00%');
-                input.prop("checked", false);
+                percBack2.css('width', '0');
+                percNumber2.text('0.00%');
+                input2.prop("checked", false);
             });
 
             var votedLi = $(pollOptionCtrl).parent('li');

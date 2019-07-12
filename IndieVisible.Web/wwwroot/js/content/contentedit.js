@@ -78,9 +78,9 @@
 
         input.addEventListener('change', function (e) {
             var files = e.target.files;
-            var done = function (url) {
+            var done = function (url2) {
                 input.value = '';
-                image.src = url;
+                image.src = url2;
                 selectors.modalCrop.modal('show');
             };
             var reader;
@@ -94,7 +94,7 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function (e2) {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);

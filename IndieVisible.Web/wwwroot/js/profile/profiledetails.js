@@ -89,7 +89,6 @@
 
     function bindTabs() {
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            var tabOrigin = e.relatedTarget.getAttribute('href');
             var tabDestination = e.target.getAttribute('href');
 
             if (tabDestination === '#' + selectors.tabActivity.prop('id')) {

@@ -62,8 +62,8 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e) {
-                        console.log(e.target.result);
+                    reader.onload = function (e2) {
+                        console.log(e2.target.result);
                         console.log(reader.result);
                         done(reader.result);
                     };
@@ -157,7 +157,7 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function (e2) {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);

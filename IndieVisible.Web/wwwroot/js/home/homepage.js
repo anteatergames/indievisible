@@ -178,9 +178,9 @@
                 });
 
                 postImagesDropZone.on("queuecomplete", function (file) {
-                    var images = selectors.postImages.val();
-                    var json = { text: text, images: images, pollOptions: options };
-                    sendSimpleContent(json).done(function (response) {
+                    var images2 = selectors.postImages.val();
+                    var json2 = { text: text, images: images2, pollOptions: options };
+                    sendSimpleContent(json2).done(function (response) {
                         sendSimpleContentCallback(response, txtArea);
 
                         if (postImagesDropZone) {

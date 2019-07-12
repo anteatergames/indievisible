@@ -469,6 +469,9 @@ a {
     }
 
 @media (max-width:767px) {
+    .sidebar-collapse .sidebar-footer {
+        display: block;
+    }
 }
 
 @media (min-width:768px) {

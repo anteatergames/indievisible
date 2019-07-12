@@ -66,7 +66,7 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function (e2) {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);
@@ -161,7 +161,7 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function (e2) {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);
