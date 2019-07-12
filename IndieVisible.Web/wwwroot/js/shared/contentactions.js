@@ -138,7 +138,7 @@
             clone.find('.comment-content').html(text);
 
             var currentContentCommentBox = txtArea.closest('.box-comments').find('.box-commentsection');
-            currentContentCommentBox.append(clone.removeClass('hidden-xl-down'));
+            currentContentCommentBox.append(clone.removeClass('d-none'));
         }
     }
 

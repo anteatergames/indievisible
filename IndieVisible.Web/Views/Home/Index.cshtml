@@ -4,9 +4,9 @@
 
 <h1 class="sr-only">INDIEVISIBLE - Home</h1>
 
-<div class="col-xl-2 hidden-md-down">
+<div class="col-xl-2 d-none d-lg-block">
     <div class="row">
-        <div class="col-12 hidden-lg-down">
+        <div class="col-12 d-none d-xl-block">
             <div class="flex-square clickable rectangle bg-purple">
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="about">
@@ -21,7 +21,7 @@
         <div class="col-12">
             <div id="divCounters"></div>
         </div>
-        <div class="col-12 hidden-lg-down">
+        <div class="col-12 d-none d-xl-block">
             <div class="flex-square clickable rectangle bg-primary">
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="timeline">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 hidden-lg-down">
+        <div class="col-12 d-none d-xl-block">
             <div class="flex-square clickable rectangle bg-patreon">
                 <div class="flex-square-inner">
                     <a href="https://www.patreon.com/indievisible" target="_blank">
@@ -58,7 +58,7 @@
                     <div class="" tabindex="-1" role="dialog" id="modalPost">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header hidden-sm-up">
+                                <div class="modal-header d-none">
                                     <h5 class="modal-title">@SharedLocalizer["create post"]</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -76,7 +76,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="modal-footer hidden-sm-up">
+                                <div class="modal-footer d-none">
                                     <div>
                                         <button type="button" id="btnPostAddImage" class="btn btn-default btn-vertical-align"><i class="far fa-images" aria-hidden="true"></i> <span>@SharedLocalizer["image"]</span></button>
                                         <button type="button" id="btnPostAddPoll" class="btn btn-default btn-vertical-align"><i class="fas fa-poll" aria-hidden="true"></i> <span>@SharedLocalizer["poll"]</span></button>
@@ -137,7 +137,7 @@
             <div id="divLatestGames"></div>
         </div>
 
-        <div class="col-12 hidden-xl-up">
+        <div class="col-12 d-xl-none">
             <div class="flex-square clickable rectangle bg-purple">
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="about">
@@ -150,7 +150,7 @@
             </div>
         </div>
 
-        <div class="col-12 hidden-xl-up">
+        <div class="col-12 d-xl-none">
             <div class="flex-square clickable rectangle bg-primary">
                 <div class="flex-square-inner">
                     <a asp-area="" asp-controller="home" asp-action="timeline">
@@ -162,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 hidden-xl-up">
+        <div class="col-12 d-xl-none">
             <div class="flex-square clickable rectangle bg-patreon">
                 <div class="flex-square-inner">
                     <a href="https://www.patreon.com/indievisible" target="_blank">
@@ -211,7 +211,7 @@
         {
         "@@context": "http://schema.org",
         "@@type": "WebSite",
-        "name": "INDIEVISIBLE - The Indie Game Developers Community",
+        "name": "@ConstantHelper.DefaultTitle",
         "alternateName": "IndieVisible",
         "url": "@(ViewBag.BaseUrl)",
         "sameAs" : ["https://www.facebook.com/indievisiblenet/"],

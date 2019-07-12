@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    var title = string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()) ? ConstantHelper.DefaultTitle : ViewData["Title"] + " - " + ConstantHelper.DefaultTitle;
 }
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
         <link rel="canonical" href="@ViewData["CanonicalUrl"]" />
     }
 
-    <title>@ViewData["Title"] - INDIEVISIBLE - The Indie Game Developers Community</title>
+    <title>@title</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css">

@@ -20,7 +20,7 @@ else
         {
             <div class="box box-default box-game">
                 <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
-                    <img class="card-img-top img-responsive lazyload" data-src="@game.ThumbnailUrl" src="~/images/placeholders/gameplaceholder.jpg" alt="@game.Title">
+                    <img class="card-img-top img-fluid lazyload" data-src="@game.ThumbnailUrl" src="~/images/placeholders/gameplaceholder.jpg" alt="@game.Title">
                 </a>
                 <div class="box-body">
                     <div class="gamebox-description">

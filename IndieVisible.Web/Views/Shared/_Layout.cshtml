@@ -6,7 +6,7 @@
 @inject IOptions<ConfigOptions> ConfigOptions
 
 @{
-    var title = string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()) ? "INDIEVISIBLE - The Indie Game Developers Community" : ViewData["Title"] + " - INDIEVISIBLE - The Indie GameDev Community";
+    var title = string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()) ? ConstantHelper.DefaultTitle : ViewData["Title"] + " - " + ConstantHelper.DefaultTitle;
     string userId = UserManager.GetUserId(User);
 }
 
@@ -30,8 +30,8 @@
     <meta property="og:type" content="website" />
     <meta property="fb:app_id" content="@ConfigOptions.Value.FacebookAppId" />
 
-    <meta property="og:title" content="@(ViewData["Title"] ?? "INDIEVISIBLE - The independent developers community")">
-    <meta property="og:description" content="@(ViewData["Description"] ?? "The independent developers community. Nothing can divide us! (by zero?)")">
+    <meta property="og:title" content="@title">
+    <meta property="og:description" content="@(ViewData["Description"] ?? ConstantHelper.DefaultDescription)">
     <meta property="og:url" content="@(ViewData["Url"] ?? "https://www.indievisible.net")">
     <meta property="og:image" content="@(ViewData["OgImage"] ?? "https://www.indievisible.net/images/og/img_facebook600x315.png")">
     <meta property="og:image:width" content="@(ViewData["OgImageWidth"] ?? 600)">
@@ -116,7 +116,7 @@
 <body class="hold-transition skin-indievisible sidebar-mini">
     <div class="wrapper">
         <header class="main-header">
-            <a asp-area="" asp-controller="home" asp-action="index" class="logo hidden-sm-down">
+            <a asp-area="" asp-controller="home" asp-action="index" class="logo d-none d-md-block">
                 <span class="logo-mini"><img src="~/images/logominimal.png" alt="INDIEVISIBLE"></span>
                 <span class="logo-lg"><img src="~/images/logo30h.png" alt="INDIEVISIBLE"></span>
             </a>
@@ -125,7 +125,7 @@
                     <i class="fas fa-bars" aria-hidden="true"></i>
                     <span class="sr-only">Toggle navigation</span>
                 </a>
-                <a asp-area="" asp-controller="home" asp-action="index" class="hidden-md-up">
+                <a asp-area="" asp-controller="home" asp-action="index" class="d-md-none">
                     <span class="logo-lg"><img src="~/images/logo30h.png" alt="INDIEVISIBLE"></span>
                 </a>
                 <div class="navbar-custom-menu">
@@ -147,7 +147,7 @@
         <drawer-menu class="menu">
             <aside class="main-sidebar">
                 <section class="sidebar">
-                    <h6 class="hidden-xl-down">&nbsp;</h6>
+                    <h6 class="d-none">&nbsp;</h6>
                     <div class="user-panel">
                         @await Html.PartialAsync("_UserPanelPartial")
                     </div>

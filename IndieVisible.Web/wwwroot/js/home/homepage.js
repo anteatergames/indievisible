@@ -220,8 +220,8 @@
         $('#modalPost').modal('show');
         $('.commentmodal').css('min-height', '160px');
         $('.commentmodal .modal').css('padding-right', '');
-        $('.commentmodal .modal-header').removeClass('hidden-sm-up');
-        $('.commentmodal .modal-footer').removeClass('hidden-sm-up');
+        $('.commentmodal .modal-header').removeClass('d-none');
+        $('.commentmodal .modal-footer').removeClass('d-none');
         $('.commentmodal .modal-header .close').show();
         $('.modal-backdrop').css('height', window.innerHeight + 'px');
         $('.modal-backdrop').css('top', window.pageYOffset + 'px');
@@ -265,8 +265,8 @@
         $('#modalPost').removeClass('modal');
         $('.commentmodal .modal-header .close').hide();
 
-        $('.commentmodal .modal-header').addClass('hidden-sm-up');
-        $('.commentmodal .modal-footer').addClass('hidden-sm-up');
+        $('.commentmodal .modal-header').addClass('d-none');
+        $('.commentmodal .modal-footer').addClass('d-none');
 
         $('.commentmodal').css('height', 'auto');
         $('.commentmodal').css('min-height', 'auto');
