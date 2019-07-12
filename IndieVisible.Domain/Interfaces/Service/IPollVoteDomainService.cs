@@ -14,6 +14,6 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         IEnumerable<PollVote> Get(Guid userId, Guid pollId);
 
-        bool CheckUserVoted(Guid currentUserId, Guid pollOptionId);
+        bool CheckUserVoted(Guid userId, Guid pollOptionId);
     }
 }

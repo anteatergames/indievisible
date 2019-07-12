@@ -243,7 +243,7 @@ namespace IndieVisible.Application.Services
                 Options = options
             };
 
-            Guid pollId = pollDomainService.Add(newPoll);
+            pollDomainService.Add(newPoll);
         }
 
         public int CountArticles()

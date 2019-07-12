@@ -64,7 +64,7 @@ namespace IndieVisible.Web.Controllers
             {
                 string storageBasePath = string.Empty;
 
-                storageBasePath = FormatBasePath(type, userId, baseUrl, storageBasePath);
+                storageBasePath = FormatBasePath(type, userId, baseUrl);
 
                 string url = storageBasePath + name;
 
@@ -436,13 +436,10 @@ namespace IndieVisible.Web.Controllers
             return split;
         }
 
-        private string GetAbsoluteBaseUri()
+        private static string FormatBasePath(BlobType type, Guid userId, string baseUrl)
         {
-            return "https://" + HttpContextAccessor.HttpContext.Request.Host.ToString();
-        }
+            string storageBasePath = string.Empty;
 
-        private static string FormatBasePath(BlobType type, Guid userId, string baseUrl, string storageBasePath)
-        {
             switch (type)
             {
                 case BlobType.ProfileImage:

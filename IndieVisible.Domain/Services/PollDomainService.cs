@@ -14,9 +14,9 @@ namespace IndieVisible.Domain.Services
         {
         }
 
-        public Poll GetByUserContentId(Guid userContetId)
+        public Poll GetByUserContentId(Guid id)
         {
-            var obj = this.repository.Get(x => x.UserContentId == userContetId).FirstOrDefault();
+            var obj = this.repository.Get(x => x.UserContentId == id).FirstOrDefault();
 
             return obj;
         }

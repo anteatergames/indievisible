@@ -19,12 +19,10 @@ namespace IndieVisible.Web.Controllers
     public class HomeController : SecureBaseController
     {
         private readonly IFeaturedContentAppService _service;
-        private readonly IHostingEnvironment hostingEnv;
 
-        public HomeController(IFeaturedContentAppService service, IHostingEnvironment hostingEnv) : base()
+        public HomeController(IFeaturedContentAppService service) : base()
         {
             _service = service;
-            this.hostingEnv = hostingEnv;
         }
 
         public IActionResult Index()

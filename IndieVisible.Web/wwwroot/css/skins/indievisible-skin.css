@@ -18,17 +18,13 @@
         }
 
     .skin-indievisible .main-header .navbar .sidebar-toggle {
-        color: #242a33;
+        color: white;
     }
 
         .skin-indievisible .main-header .navbar .sidebar-toggle:hover {
             color: white;
             background-color: transparent;
         }
-
-    .skin-indievisible .main-header .navbar .sidebar-toggle {
-        color: white;
-    }
 
 @media (max-width: 767px) {
     .skin-indievisible .main-header .navbar .dropdown-menu li.divider {
