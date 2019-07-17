@@ -6,6 +6,7 @@
     var selectors = {};
 
     function init() {
+
         cacheSelectors();
 
         bindAll();
@@ -13,6 +14,8 @@
         setGlobalAjax();
 
         loadNotifications();
+
+        $(".wrapper").niceScroll(".content-wrapper");
     }
 
     function cacheSelectors() {
