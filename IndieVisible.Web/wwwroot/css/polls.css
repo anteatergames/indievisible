@@ -18,6 +18,7 @@ ul.poll {
         padding: 5px;
         height: 35px;
         z-index: 3;
+        border-radius:5px;
     }
 
         ul.poll li .perc-back {
