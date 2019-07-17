@@ -15,7 +15,7 @@
 
         loadNotifications();
 
-        $(".wrapper").niceScroll();
+        //$(".wrapper").niceScroll();
     }
 
     function cacheSelectors() {
