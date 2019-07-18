@@ -148,6 +148,9 @@
                 return false;
             }
 
+            var languageSelect = selectors.commentBox.find('#postlanguage');
+            var language = languageSelect.val()
+
             var pollOptions = document.getElementsByClassName("polloptioninput");
 
             var options = $(pollOptions).map(function () {
@@ -161,7 +164,7 @@
             
             if (!postImagesDropZone || postImagesDropZone.getQueuedFiles().length === 0) {
                 var images = selectors.postImages.val();
-                var json = { text: text, images: images, pollOptions: options };
+                var json = { text: text, images: images, pollOptions: options, language: language };
 
                 sendSimpleContent(json).done(function (response) {
                     sendSimpleContentCallback(response, txtArea);

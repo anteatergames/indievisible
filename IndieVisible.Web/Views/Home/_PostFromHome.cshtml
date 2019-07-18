@@ -33,7 +33,7 @@
                                     <button type="button" id="btnPostAddImage" class="btn btn-default btn-vertical-align" data-toggle="tooltip" data-placement="top" title="@SharedLocalizer["image"]"><i class="far fa-fw fa-images" aria-hidden="true"></i></button>
                                     <button type="button" id="btnPostAddPoll" class="btn btn-default btn-vertical-align mx-1" data-toggle="tooltip" data-placement="top" title="@SharedLocalizer["poll"]"><i class="fas fa-fw fa-poll" aria-hidden="true"></i></button>
 
-                                    <select asp-for="DefaultLanguage" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control w-auto"></select>
+                                    <select asp-for="DefaultLanguage" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" id="postlanguage" class="form-control w-auto"></select>
                                 </div>
                                 <div id="divPostImages" class="dropzone">
                                     <div class="dz-message needsclick">

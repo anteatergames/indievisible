@@ -267,6 +267,8 @@ namespace IndieVisible.Web.Controllers
 
                     await SetStaffRoles(user);
 
+                    this.SetPreferences(user);
+
                     _logger.LogInformation("User created a new account with password.");
 
                     string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -404,6 +406,8 @@ namespace IndieVisible.Web.Controllers
                 if (result.Succeeded)
                 {
                     await SetStaffRoles(user);
+
+                    this.SetPreferences(user);
 
                     Guid userGuid = new Guid(user.Id);
                     ProfileViewModel profile = _profileAppService.GetByUserId(userGuid, ProfileType.Personal);

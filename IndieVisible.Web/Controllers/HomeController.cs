@@ -301,7 +301,8 @@ namespace IndieVisible.Web.Controllers
                 Items = {
                     "Basic Polls - Get opinions from your fellow devs!",
                     "Better preferences - Now you can change your email, set your phone and more!",
-                    "Two Factor Authentication - Be more safe with this security feature"
+                    "Two Factor Authentication - Be more safe with this security feature",
+                    "Content post language selection"
                 }
             });
 
