@@ -50,78 +50,10 @@
 
 <div class=" col-lg-8 col-xl-7 pr-lg-2 pl-xl-2 pr-xl-2">
     @await Html.PartialAsync("_Carousel", ViewBag.Carousel as CarouselViewModel)
+
     @if (User.Identity.IsAuthenticated)
     {
-        <div class="box p-0 mb-2">
-            <div class="box-body p-0">
-                <div class="commentmodal">
-                    <div class="" tabindex="-1" role="dialog" id="modalPost">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header d-none">
-                                    <h5 class="modal-title">@SharedLocalizer["create post"]</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="#" method="post">
-                                        <input type="hidden" id="txtPostImages" />
-                                        <img class="img-fluid rounded-circle img-sm" src="@ViewBag.ProfileImage" alt="Alt Text">
-                                        <div class="img-push simplecontentpostarea">
-                                            <textarea id="txtPostContent" aria-label="@SharedLocalizer["Comment"]" class="form-control posttextarea input-sm postbox" rows="1" placeholder="@SharedLocalizer["What is on your mind?"]"></textarea>
-                                            <div class="float-right comment-send-button">
-                                                <button type="button" role="button" aria-label="@SharedLocalizer["Post Content"]" id="btnSendSimpleContent" class="btn bg-transparent"><i class="fa fa-2x fa-paper-plane" aria-hidden="true"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer d-none">
-                                    <div>
-                                        <button type="button" id="btnPostAddImage" class="btn btn-default btn-vertical-align"><i class="far fa-images" aria-hidden="true"></i> <span>@SharedLocalizer["image"]</span></button>
-                                        <button type="button" id="btnPostAddPoll" class="btn btn-default btn-vertical-align"><i class="fas fa-poll" aria-hidden="true"></i> <span>@SharedLocalizer["poll"]</span></button>
-                                        <div id="divPostImages" class="dropzone">
-                                            <div class="dz-message needsclick">
-                                                @SharedLocalizer["Drop files here or click to upload."]<br>
-                                                <span class="note needsclick">
-                                                    (@SharedLocalizer["only image files"])
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div id="divPostPoll">
-                                            <div class="input-group mt-2 polloption">
-                                                <input type="text" class="form-control polloptioninput" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer[" add option..."]">
-                                                <div class="input-group-append">
-                                                    <button class="input-group-text btn-image-add">
-                                                        @*<i class="fas fa-circle" aria-hidden="true"></i>*@
-                                                        &nbsp;
-                                                    </button>
-                                                </div>
-                                                <button class="btn btn-lg bg-transparent btn-option-remove invisible"><i class="fas fa-times" aria-hidden="true"></i></button>
-                                            </div>
-                                            <div class="input-group mt-2 polloption">
-                                                <input type="text" class="form-control polloptioninput" placeholder="@SharedLocalizer["add option..."]" aria-label="@SharedLocalizer["add option..."]">
-                                                <div class="input-group-append">
-                                                    <button class="input-group-text btn-image-add">
-                                                        @*<i class="fas fa-image" aria-hidden="true"></i>*@
-                                                        &nbsp;
-                                                    </button>
-                                                </div>
-                                                <button class="btn btn-lg bg-transparent btn-option-remove invisible"><i class="fas fa-times" aria-hidden="true"></i></button>
-                                            </div>
-                                            <div class="mt-2">
-                                                <button id="btnAddOption" class="btn bg-transparent"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["add option"]</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        @await Html.PartialAsync("_PostFromHome", ViewBag.PostFromHome as PostFromHomeViewModel)
     }
 
     <div class="row">
@@ -181,14 +113,14 @@
     </div>
 </div>
 @section Styles {
-<environment include="Development">
-    <link rel="stylesheet" href="~/css/home.css" />
-    <link rel="stylesheet" href="~/css/polls.css" />
-    <link rel="stylesheet" href="~/lib/dropzone/dropzone.css" />
-</environment>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/home.css" />
+        <link rel="stylesheet" href="~/css/polls.css" />
+        <link rel="stylesheet" href="~/lib/dropzone/dropzone.css" />
+    </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/home.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/lib/dropzone/min/dropzone.min.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/lib/dropzone/min/dropzone.min.css" asp-append-version="true" />
     </environment>
 }
 

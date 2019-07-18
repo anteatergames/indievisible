@@ -4,6 +4,7 @@ using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Enums;
 using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,9 +31,24 @@ namespace IndieVisible.Web.Controllers
             CarouselViewModel featured = _service.GetFeaturedNow();
             ViewBag.Carousel = featured;
 
+            PostFromHomeViewModel postModel = new PostFromHomeViewModel();
+            var lang = this.GetCookieValue(SessionValues.DefaultLanguage);
+            if (lang == null)
+            {
+                postModel.DefaultLanguage = SupportedLanguage.English;
+            }
+            else
+            {
+                var langEnum = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), lang);
+                postModel.DefaultLanguage = langEnum;
+            }
+            ViewBag.PostFromHome = postModel;
+
             Dictionary<string, string> genreDict = SetGenreTags();
 
             ViewData["Genres"] = genreDict;
+
+
 
             return View();
         }

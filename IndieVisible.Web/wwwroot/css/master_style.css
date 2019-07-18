@@ -1390,11 +1390,6 @@ input[type="color"] {
     font-weight: 500;
 }
 
-.form-control {
-    border-radius: 0;
-    box-shadow: none;
-}
-
     .form-control:focus {
         border-color: #45aef1;
         box-shadow: none;

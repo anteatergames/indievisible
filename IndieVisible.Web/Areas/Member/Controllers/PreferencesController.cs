@@ -2,6 +2,7 @@
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Attributes;
+using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
@@ -9,6 +10,7 @@ using IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
 using IndieVisible.Web.Areas.Member.Controllers.Base;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Enums;
 using IndieVisible.Web.Exceptions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -145,6 +147,8 @@ namespace IndieVisible.Web.Areas.Member.Controllers
                 vm.UserId = CurrentUserId;
 
                 this.userPreferencesAppService.Save(vm);
+
+                this.SetPreferences(vm);
 
                 var selectedCulture = vm.UiLanguage.GetAttributeOfType<UiInfoAttribute>().Culture;
 
@@ -557,6 +561,10 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         }
 
         #region Helpers
+        private void SetPreferences(UserPreferencesViewModel preferences)
+        {
+            this.SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
+        }
 
         private void AddErrors(IdentityResult result)
         {

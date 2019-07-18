@@ -34,19 +34,24 @@ namespace IndieVisible.Web.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
+
+        private readonly IUserPreferencesAppService userPreferencesAppService;
+
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IProfileAppService profileAppService,
             IEmailSender emailSender,
             ILogger<AccountController> logger,
-            IMapper mapper) : base()
+            IMapper mapper,
+            IUserPreferencesAppService userPreferencesAppService) : base()
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _profileAppService = profileAppService;
             _emailSender = emailSender;
             _logger = logger;
+            this.userPreferencesAppService = userPreferencesAppService;
         }
 
         [TempData]
@@ -84,6 +89,8 @@ namespace IndieVisible.Web.Controllers
                         this.SetProfileSession(user.Id, user.UserName);
 
                         await SetStaffRoles(user);
+
+                        this.SetPreferences(user);
                     }
 
                     _logger.LogInformation("User logged in.");
@@ -326,6 +333,8 @@ namespace IndieVisible.Web.Controllers
                     this.SetProfileSession(existingUser.Id.ToString(), existingUser.UserName);
 
                     await SetStaffRoles(existingUser);
+
+                    this.SetPreferences(existingUser);
                 }
 
                 return RedirectToLocal(returnUrl);
@@ -566,6 +575,18 @@ namespace IndieVisible.Web.Controllers
             }
 
             return Json(result);
+        }
+
+        private void SetPreferences(ApplicationUser user)
+        {
+            var preferences = this.userPreferencesAppService.GetByUserId(new Guid(user.Id));
+            if (preferences == null)
+            {
+                this.SetCookieValue(SessionValues.DefaultLanguage, SupportedLanguage.English.ToString(), 7);
+            }
+            else {
+                this.SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
+            }
         }
 
         #region Helpers

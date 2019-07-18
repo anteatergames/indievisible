@@ -9,6 +9,7 @@ namespace IndieVisible.Web.Enums
     {
         Username = 1,
         UserProfileImageUrl = 2,
-        FullName = 3
+        FullName = 3,
+        DefaultLanguage = 4
     }
 }
