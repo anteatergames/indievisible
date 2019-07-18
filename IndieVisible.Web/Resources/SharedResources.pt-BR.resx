@@ -885,4 +885,20 @@
     <value>autenticação em dois passos</value>
     <comment>Preferences</comment>
   </data>
+  <data name="Choose the language you are posting now." xml:space="preserve">
+    <value>Escolha o idioma que você está postando agora.</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Click here to send your new post." xml:space="preserve">
+    <value>Clique aqui para enviar sua nova postagem.</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Current password" xml:space="preserve">
+    <value>Senha atual</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="No badges yet." xml:space="preserve">
+    <value>Sem badges ainda.</value>
+    <comment>Profile</comment>
+  </data>
 </root>

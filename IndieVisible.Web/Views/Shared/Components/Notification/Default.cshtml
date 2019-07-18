@@ -5,7 +5,7 @@
     var count = (int)(ViewData["UnreadCount"] ?? 0);
     var newMessages = count > 0;
 
-    var countText = count == 1 ? SharedLocalizer["You have 1 new notification"] : SharedLocalizer[String.Format("You have {0} new notifications", count)];
+    var countText = count == 1 ? SharedLocalizer["You have 1 new notification"] : SharedLocalizer["You have {0} new notifications", count];
 
 }
 

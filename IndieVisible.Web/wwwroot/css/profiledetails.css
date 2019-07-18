@@ -35,9 +35,15 @@
         padding: 20px;
     }
 
-        .box.user-profile .overlay.overlay-none {
-            background: rgba(0, 0, 0, 0);
-        }
+@media (max-width: 575px) {
+    .box.user-profile .overlay, .user-profile .user-profile-header {
+        border-radius: 0;
+    }
+}
+
+.box.user-profile .overlay.overlay-none {
+    background: rgba(0, 0, 0, 0);
+}
 
 .user-profile .box {
     box-shadow: none;
@@ -134,7 +140,7 @@
     margin: 0 0 10px 10px;
     min-width: 100px;
     min-height: 100px;
-    vertical-align:middle;
+    vertical-align: middle;
     color: #666;
     border: 1px solid #ddd;
     background-color: #f4f4f4;
@@ -147,7 +153,7 @@
         margin: 0;
         position: absolute;
         top: 50%;
-        width:100%;
+        width: 100%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
