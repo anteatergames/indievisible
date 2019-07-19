@@ -4,9 +4,10 @@
     ViewData["Title"] = "Registered Users";
 }
 
-<h2>Users (@Model.Count())</h2>
-
 <div class="row mx-1">
+    <div class="col-12 mx-1">
+        <h2>@SharedLocalizer["We have {0} users", Model.Count()]</h2>
+    </div>
     @foreach (var item in Model)
     {
         <div class="col-12 col-sm-6 col-lg-4">
@@ -25,13 +26,17 @@
                         </div>
                         <div class="col-6 border-right">
                             <div class="description-block">
-                                <span class="description-text">Location</span>
+                                <span class="description-text">
+                                    @SharedLocalizer["location"]
+                                </span>
                                 <h5 class="description-header text-truncate">@item.Location</h5>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="description-block">
-                                <span class="description-text">Member since</span>
+                                <span class="description-text">
+                                    @SharedLocalizer["Member since"]
+                                </span>
                                 <h5 class="description-header">@item.CreateDate.ToShortDateString()</h5>
                             </div>
                         </div>

@@ -30,12 +30,6 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        [Route("list")]
-        public IActionResult List()
-        {
             var serviceResult = gamificationAppService.GetAll();
 
             var objs = serviceResult.Value.ToList();

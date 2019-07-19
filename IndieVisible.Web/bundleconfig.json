@@ -89,5 +89,11 @@
       "wwwroot/js/brainstorm/brainstorm.js",
       "wwwroot/js/shared/contentactions.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/ranking.min.css",
+    "inputFiles": [
+      "wwwroot/css/ranking.css"
+    ]
   }
 ]

@@ -645,7 +645,7 @@
     <value>Bio</value>
     <comment>Profile Page</comment>
   </data>
-  <data name="Location" xml:space="preserve">
+  <data name="location" xml:space="preserve">
     <value>Localidade</value>
     <comment>Profile Page</comment>
   </data>
@@ -900,5 +900,17 @@
   <data name="No badges yet." xml:space="preserve">
     <value>Sem badges ainda.</value>
     <comment>Profile</comment>
+  </data>
+  <data name="Member since" xml:space="preserve">
+    <value>Membro desde</value>
+    <comment>User Profile</comment>
+  </data>
+  <data name="Top {0} users" xml:space="preserve">
+    <value>Os melhores {0} usuários</value>
+    <comment>Gamification</comment>
+  </data>
+  <data name="We have {0} users" xml:space="preserve">
+    <value>Temos {0} usuários</value>
+    <comment>User List</comment>
   </data>
 </root>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IndieVisible.Application.ViewModels.Gamification.RankingViewModel>
+
+@{
+    ViewData["Title"] = "Ranking";
+}
+
+<div class="row">
+    <div class="col-12 mx-1">
+        <h2>@SharedLocalizer["Top {0} users", Model.Count()]</h2>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="col-12">
+            <div class="box box-widget widget-ranking">
+                <div class="widget-user-image">
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
+                        <img class="rounded-circle lazyload" data-src="@item.ProfileImageUrl" src="~/images/profileimages/developer.png" alt="User Avatar">
+                    </a>
+                </div>
+                <div class="widget-user-header bg-black" style="background-image: url('@item.CoverImageUrl')">
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="info-box">
+                                <h3 class="info-box-text">@item.Name - @item.CurrentLevelName</h3>
+                                <span class="info-box-icon push-bottom">@item.CurrentLevelNumber</span>
+
+
+                                <div class="info-box-content">
+                                    <span class="info-box-number">@item.XpCurrentLevel</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar bg-black" style="width: @(item.PercentageToNextLevel)%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        @item.XpToNextLevel para o próximo nível
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/ranking.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/ranking.min.css" asp-append-version="true" />
+    </environment>
+}
