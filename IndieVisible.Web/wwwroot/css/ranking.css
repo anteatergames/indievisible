@@ -56,11 +56,11 @@
 
 .info-box-icon {
     float: left;
-    height: 64px;
-    width: 64px;
+    height: 48px;
+    width: 48px;
     text-align: center;
     font-size: 30px;
-    line-height: 64px;
+    line-height: 48px;
     background: rgba(0, 0, 0, .2);
     border-radius: 100%;
 }
@@ -77,4 +77,19 @@
 .info-box .progress {
     background: rgba(0, 0, 0, .2);
     height: 20px;
+}
+
+    .info-box .progress .progress-bar {
+        border-radius:unset;
+    }
+
+
+@media (max-width: 575px) {
+    .info-box .progress-description {
+        margin-left: -70px;
+    }
+
+    .info-box h3 {
+        font-size: 17px;
+    }
 }
