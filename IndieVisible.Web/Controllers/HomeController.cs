@@ -34,7 +34,7 @@ namespace IndieVisible.Web.Controllers
             CarouselViewModel featured = _service.GetFeaturedNow();
             ViewBag.Carousel = featured;
 
-            //this.SetLanguage();
+            this.SetLanguage();
 
             Dictionary<string, string> genreDict = SetGenreTags();
 
