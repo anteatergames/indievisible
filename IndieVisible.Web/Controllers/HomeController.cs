@@ -21,9 +21,12 @@ namespace IndieVisible.Web.Controllers
     {
         private readonly IFeaturedContentAppService _service;
 
-        public HomeController(IFeaturedContentAppService service) : base()
+        private readonly IUserPreferencesAppService userPreferencesAppService;
+
+        public HomeController(IFeaturedContentAppService service, IUserPreferencesAppService userPreferencesAppService) : base()
         {
             _service = service;
+            this.userPreferencesAppService = userPreferencesAppService;
         }
 
         public IActionResult Index()
@@ -31,24 +34,11 @@ namespace IndieVisible.Web.Controllers
             CarouselViewModel featured = _service.GetFeaturedNow();
             ViewBag.Carousel = featured;
 
-            PostFromHomeViewModel postModel = new PostFromHomeViewModel();
-            var lang = this.GetCookieValue(SessionValues.DefaultLanguage);
-            if (lang == null)
-            {
-                postModel.DefaultLanguage = SupportedLanguage.English;
-            }
-            else
-            {
-                var langEnum = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), lang);
-                postModel.DefaultLanguage = langEnum;
-            }
-            ViewBag.PostFromHome = postModel;
+            this.SetLanguage();
 
             Dictionary<string, string> genreDict = SetGenreTags();
 
             ViewData["Genres"] = genreDict;
-
-
 
             return View();
         }
@@ -92,6 +82,36 @@ namespace IndieVisible.Web.Controllers
 
             return View(model);
         }
+
+
+        private void SetLanguage()
+        {
+            PostFromHomeViewModel postModel = new PostFromHomeViewModel();
+            var lang = this.GetCookieValue(SessionValues.DefaultLanguage);
+            if (lang != null)
+            {
+                var langEnum = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), lang);
+                postModel.DefaultLanguage = langEnum;
+            }
+            else
+            {
+                var userPrefs = this.userPreferencesAppService.GetByUserId(this.CurrentUserId);
+
+                if (userPrefs != null)
+                {
+                    this.SetLanguage(userPrefs.UiLanguage);
+
+                    postModel.DefaultLanguage = userPrefs.UiLanguage;
+                }
+                else
+                {
+                    postModel.DefaultLanguage = SupportedLanguage.English;
+                }
+            }
+
+            ViewBag.PostFromHome = postModel;
+        }
+
 
         private static TimeLineViewModel GenerateTimeline()
         {
@@ -302,7 +322,8 @@ namespace IndieVisible.Web.Controllers
                     "Basic Polls - Get opinions from your fellow devs!",
                     "Better preferences - Now you can change your email, set your phone and more!",
                     "Two Factor Authentication - Be more safe with this security feature",
-                    "Content post language selection"
+                    "Content post language selection",
+                    "Ranking Page"
                 }
             });
 

@@ -1,9 +1,5 @@
-﻿using IndieVisible.Domain.Core.Models;
-using IndieVisible.Domain.Models;
-using IndieVisible.Domain.ValueObjects;
+﻿using IndieVisible.Domain.ValueObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace IndieVisible.Application.Interfaces
 {

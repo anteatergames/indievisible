@@ -150,9 +150,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
 
                 this.SetPreferences(vm);
 
-                var selectedCulture = vm.UiLanguage.GetAttributeOfType<UiInfoAttribute>().Culture;
-
-                SetLanguage(selectedCulture);
+                this.SetLanguage(vm.UiLanguage);
 
                 StatusMessage = "Your preferences were updated";
                 return RedirectToAction(nameof(Languages));
@@ -164,15 +162,6 @@ namespace IndieVisible.Web.Areas.Member.Controllers
 
                 throw new CustomApplicationException(msg);
             }
-        }
-
-        public void SetLanguage(string culture)
-        {
-            Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true }
-            );
         }
 
         [HttpPost]

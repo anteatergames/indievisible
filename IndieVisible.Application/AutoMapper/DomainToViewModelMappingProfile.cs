@@ -59,6 +59,7 @@ namespace IndieVisible.Application.AutoMapper
 
             #region Gamification
             CreateMap<UserBadge, UserBadgeViewModel>();
+            CreateMap<Gamification, RankingViewModel>();
             #endregion
 
             #region Interaction

@@ -55,17 +55,18 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Notifications
             services.AddScoped<INotificationAppService, NotificationAppService>();
-            services.AddScoped<IGamificationDomainService, GamificationDomainService>();
-            services.AddScoped<IUserBadgeDomainService, UserBadgeDomainService>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
             #endregion
 
             #region Gamification
             services.AddScoped<IUserBadgeAppService, UserBadgeAppService>();
+            services.AddScoped<IUserBadgeDomainService, UserBadgeDomainService>();
+            services.AddScoped<IUserBadgeRepository, UserBadgeRepository>();
+            services.AddScoped<IGamificationAppService, GamificationAppService>();
+            services.AddScoped<IGamificationDomainService, GamificationDomainService>();
             services.AddScoped<IGamificationRepository, GamificationRepository>();
             services.AddScoped<IGamificationActionRepository, GamificationActionRepository>();
             services.AddScoped<IGamificationLevelRepository, GamificationLevelRepository>();
-            services.AddScoped<IUserBadgeRepository, UserBadgeRepository>();
             #endregion
 
             #region Interactions

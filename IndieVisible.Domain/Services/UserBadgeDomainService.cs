@@ -3,6 +3,7 @@ using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Services
@@ -25,7 +26,7 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserBadge> GetAll()
         {
-            System.Linq.IQueryable<UserBadge> model = this.userBadgeRepository.GetAll();
+            IQueryable<UserBadge> model = this.userBadgeRepository.GetAll();
 
             return model;
         }

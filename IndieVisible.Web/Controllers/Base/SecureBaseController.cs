@@ -3,11 +3,15 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -88,6 +92,18 @@ namespace IndieVisible.Web.Controllers.Base
             }
 
             return profile;
+        }
+
+
+        protected void SetLanguage(SupportedLanguage language)
+        {
+            var culture = language.GetAttributeOfType<UiInfoAttribute>().Culture;
+
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true }
+            );
         }
 
 

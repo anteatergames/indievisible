@@ -2,7 +2,10 @@
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IndieVisible.Domain.Services
 {
@@ -19,7 +22,31 @@ namespace IndieVisible.Domain.Services
             this.gamificationLevelRepository = gamificationLevelRepository;
         }
 
-        public Gamification GetGamificationByUserId(Guid userId)
+        public IEnumerable<RankingVo> Get(int count)
+        {
+            var result = new List<RankingVo>();
+
+            var levels = gamificationLevelRepository.GetAll().ToList();
+
+            IQueryable<Gamification> model = this.gamificationRepository.GetAll().OrderByDescending(x => x.XpTotal).ThenBy(x => x.CreateDate).Take(count);
+
+            var list = model.ToList();
+
+            foreach (var item in list)
+            {
+                var newVo = new RankingVo
+                {
+                    Gamification = item,
+                    Level = levels.FirstOrDefault(x => x.Number == item.CurrentLevelNumber)
+                };
+
+                result.Add(newVo);
+            }
+
+            return result;
+        }
+
+        public Gamification GetByUserId(Guid userId)
         {
             Gamification userGamification = gamificationRepository.GetByUserId(userId);
 
@@ -35,7 +62,7 @@ namespace IndieVisible.Domain.Services
 
         public GamificationLevel GetLevel(int levelNumber)
         {
-            var level = gamificationLevelRepository.GetByNumber(levelNumber);
+            GamificationLevel level = gamificationLevelRepository.GetByNumber(levelNumber);
 
             return level;
         }

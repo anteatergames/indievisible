@@ -236,7 +236,7 @@ namespace IndieVisible.Application.Services
             vm.Counters.Posts = userContentRepository.Count(x => x.UserId == vm.UserId);
             vm.Counters.Comments = userContentCommentRepository.Count(x => x.UserId == vm.UserId);
 
-            Gamification gamification = this.gamificationDomainService.GetGamificationByUserId(userId);
+            Gamification gamification = this.gamificationDomainService.GetByUserId(userId);
 
             unitOfWork.Commit();
 

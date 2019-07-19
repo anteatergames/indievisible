@@ -54,3 +54,10 @@
 .widget-user .box-footer {
     padding-top: 30px !important;
 }
+
+
+@media (max-width: 575px) {
+    div.box, .widget-user {
+        border-radius: 5px !important;
+    }
+}
