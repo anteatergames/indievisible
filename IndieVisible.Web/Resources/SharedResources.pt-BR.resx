@@ -665,9 +665,9 @@
     <value>Estúdio</value>
     <comment>Profile Page</comment>
   </data>
-  <data name="to the next level" xml:space="preserve">
-    <value>para o próximo nível</value>
-    <comment>Profile Page</comment>
+  <data name="{0} to the next level" xml:space="preserve">
+    <value>{0} para o próximo nível</value>
+    <comment>Gamification</comment>
   </data>
   <data name="Content posted on" xml:space="preserve">
     <value>Conteúdo postado em</value>
