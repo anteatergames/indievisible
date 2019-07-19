@@ -33,7 +33,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                IEnumerable<RankingVo> allModels = gamificationDomainService.Get(10);
+                IEnumerable<RankingVo> allModels = gamificationDomainService.Get(20);
 
                 List<RankingViewModel> vms = new List<RankingViewModel>();
 
