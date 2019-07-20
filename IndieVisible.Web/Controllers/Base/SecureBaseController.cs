@@ -99,6 +99,8 @@ namespace IndieVisible.Web.Controllers.Base
         {
             var culture = language.GetAttributeOfType<UiInfoAttribute>().Culture;
 
+            culture = string.IsNullOrWhiteSpace(culture) ? "en-US" : culture;
+
             Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
