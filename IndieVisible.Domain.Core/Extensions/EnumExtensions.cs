@@ -17,13 +17,19 @@ namespace IndieVisible.Domain.Core.Extensions
             Type type = enumVal.GetType();
             MemberInfo[] memInfo = type.GetMember(enumVal.ToString());
 
-            if (memInfo == null)
+            if (memInfo == null || memInfo.Length == 0)
             {
                 return null;
             }
             else {
                 object[] attributes = memInfo[0].GetCustomAttributes(typeof(T), false);
-                return (attributes.Length > 0) ? (T)attributes[0] : null; 
+
+                if (attributes == null || attributes.Length == 0)
+                {
+                    return null;
+                }
+
+                return (T)attributes[0]; 
             }
         }
     }
