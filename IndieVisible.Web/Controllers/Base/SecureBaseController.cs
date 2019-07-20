@@ -97,7 +97,7 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected void SetLanguage(SupportedLanguage language)
         {
-            var culture = language.GetAttributeOfType<UiInfoAttribute>().Culture;
+            var culture = language.GetAttributeOfType<UiInfoAttribute>()?.Culture;
 
             culture = string.IsNullOrWhiteSpace(culture) ? "en-US" : culture;
 
