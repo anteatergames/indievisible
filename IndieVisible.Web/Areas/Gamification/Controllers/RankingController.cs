@@ -8,6 +8,7 @@ using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,8 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
             this.profileAppService = profileAppService;
         }
 
+
+        [Authorize]
         public IActionResult Index()
         {
             var serviceResult = gamificationAppService.GetAll();
