@@ -53,7 +53,14 @@ namespace IndieVisible.Web.Helpers
                     newText = String.Format("({0})", newText);
                 }
 
-                content = content.Replace(toReplace, newText);
+                var templateUrlCkEditor = String.Format("<a href=\"{0}\">{0}</a>", url);
+
+                var isAlreadyUrl = Regex.IsMatch(content, templateUrlCkEditor);
+
+                if (!isAlreadyUrl)
+                {
+                    content = content.Replace(toReplace, newText); 
+                }
             }
 
             return content;
