@@ -265,31 +265,29 @@ namespace IndieVisible.Application.Services
 
         private static void FormatExternalNetworkUrls(ProfileViewModel vm)
         {
-            if (!string.IsNullOrWhiteSpace(vm.ItchIoUrl))
+            if (!string.IsNullOrWhiteSpace(vm.ItchIoUrl) && !vm.ItchIoUrl.EndsWith("itch.io"))
             {
-                vm.ItchIoUrl = vm.ItchIoUrl.ToLower().Replace(" ", "-");
-                if (!vm.ItchIoUrl.EndsWith("itch.io"))
-                {
-                    vm.ItchIoUrl = "https://" + vm.ItchIoUrl + ".itch.io";
-                }
+                vm.ItchIoUrl = UrlFormatter.ItchIo(vm.ItchIoUrl);
             }
 
-            if (!string.IsNullOrWhiteSpace(vm.GameJoltUrl))
+            if (!string.IsNullOrWhiteSpace(vm.GameJoltUrl) && !vm.GameJoltUrl.Contains("gamejolt.com"))
             {
-                vm.GameJoltUrl = vm.GameJoltUrl.ToLower().Replace(" ", "-");
-                if (!vm.GameJoltUrl.EndsWith("itch.io"))
-                {
-                    vm.GameJoltUrl = "https://gamejolt.com/@" + vm.GameJoltUrl;
-                }
+                vm.GameJoltUrl = UrlFormatter.GameJolt(vm.GameJoltUrl);
             }
 
-            if (!string.IsNullOrWhiteSpace(vm.UnityConnectUrl))
+            if (!string.IsNullOrWhiteSpace(vm.UnityConnectUrl) && !vm.UnityConnectUrl.Contains("connect.unity.com"))
             {
-                vm.UnityConnectUrl = vm.UnityConnectUrl.ToLower().Replace(" ", "-");
-                if (!vm.UnityConnectUrl.EndsWith("itch.io"))
-                {
-                    vm.UnityConnectUrl = "https://connect.unity.com/u/" + vm.UnityConnectUrl;
-                }
+                vm.UnityConnectUrl = UrlFormatter.UnityConnect(vm.UnityConnectUrl);
+            }
+
+            if (!string.IsNullOrWhiteSpace(vm.IndieDbUrl) && !vm.IndieDbUrl.Contains("indiedb.com"))
+            {
+                vm.IndieDbUrl = UrlFormatter.IndieDb(vm.IndieDbUrl);
+            }
+
+            if (!string.IsNullOrWhiteSpace(vm.GameDevNetUrl) && !vm.GameDevNetUrl.Contains("gamedev.net"))
+            {
+                vm.GameDevNetUrl = UrlFormatter.GamedevNet(vm.GameDevNetUrl);
             }
         }
 
@@ -297,10 +295,10 @@ namespace IndieVisible.Application.Services
         {
             ProfileViewModel profile = new ProfileViewModel();
 
-            var randomGenerator = RandomNumberGenerator.Create();
+            RandomNumberGenerator randomGenerator = RandomNumberGenerator.Create();
             byte[] data = new byte[4];
             randomGenerator.GetBytes(data);
-            var randomNumber = BitConverter.ToInt32(data);
+            int randomNumber = BitConverter.ToInt32(data);
 
             profile.Type = ProfileType.Personal;
 
