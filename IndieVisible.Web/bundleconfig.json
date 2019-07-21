@@ -58,7 +58,8 @@
     "outputFileName": "wwwroot/css/profiledetails.min.css",
     "inputFiles": [
       "wwwroot/css/profiledetails.css",
-      "wwwroot/css/progress.css"
+      "wwwroot/css/progress.css",
+      "wwwroot/css/polls.css"
     ]
   },
   {
@@ -66,7 +67,9 @@
     "inputFiles": [
       "wwwroot/js/profile/profiledetails.js",
       "wwwroot/js/shared/contentactions.js",
-      "wwwroot/lib/embedo/embedo.js"
+      "wwwroot/lib/embedo/embedo.js",
+      "wwwroot/js/shared/polls.js"
+
     ]
   },
   {

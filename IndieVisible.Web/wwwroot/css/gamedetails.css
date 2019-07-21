@@ -1,4 +1,7 @@
-﻿
+﻿.game-page .avatar-wrapper {
+    background-color: #dedada;
+}
+
 .user-profile .avatar-wrapper {
     display: flex !important;
 }
@@ -17,11 +20,12 @@
 
 .box.widget-game {
     padding: 0;
+    box-shadow: none;
 }
 
 .widget-game .widget-game-header {
     text-align: center;
-    border-radius: 3px 3px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 .widget-game h1 {
@@ -68,7 +72,7 @@
     }
 
 .widget-game .box-footer {
-    padding-top: 30px;
+    /*padding-top: 30px;*/
 }
 
 .widget-game .nav-tabs-custom {
@@ -76,7 +80,7 @@
 }
 
 .widget-game .box {
-    box-shadow: none;
+    /*box-shadow: none;*/
 }
 
 .widget-game-gametitle {

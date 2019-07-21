@@ -27,6 +27,7 @@
 
 .box.user-profile {
     padding: 0;
+    box-shadow: none;
 }
 
     .box.user-profile .overlay {
@@ -35,18 +36,12 @@
         padding: 20px;
     }
 
-@media (max-width: 575px) {
-    .box.user-profile .overlay, .user-profile .user-profile-header {
-        border-radius: 0;
-    }
-}
-
-.box.user-profile .overlay.overlay-none {
-    background: rgba(0, 0, 0, 0);
-}
+        .box.user-profile .overlay.overlay-none {
+            background: rgba(0, 0, 0, 0);
+        }
 
 .user-profile .box {
-    box-shadow: none;
+    /*box-shadow: none;*/
 }
 
 .user-profile .box-footer {
@@ -161,3 +156,20 @@
     .user-profile-others > .other-icon {
         padding: 5px;
     }
+
+
+
+
+@media (max-width: 575px) {
+    .box.user-profile .overlay, .user-profile .user-profile-header {
+        border-radius: 0;
+    }
+
+    .user-profile .user-profile-username {
+        font-size: 2rem;
+    }
+
+    .user-profile .user-profile-desc {
+        font-size: 1rem;
+    }
+}

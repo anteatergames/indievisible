@@ -131,7 +131,7 @@
                 </div>
             }
         }
-        <div class="box-footer">
+        <div class="box-footer px-0">
             <div class="nav-tabs-custom">
                 <nav class="nav nav-pills flex-column flex-sm-row">
                     <a class="flex-sm-fill text-sm-center nav-link active" data-toggle="tab" href="#about">@SharedLocalizer["Profile"]</a>
@@ -144,10 +144,10 @@
                 </nav>
 
                 <div class="tab-content pt-2">
-                    <div class="active tab-pane m-10" id="about">
+                    <div class="active tab-pane px-1" id="about">
                         <div class="row">
                             <div class="col-xl-4 col-lg-5 col-sm-12">
-                                <div class="box box-primary">
+                                <div class="box bg-white">
                                     <div class="box-body box-profile">
                                         <div class="row">
                                             <div class="col-12">
@@ -194,170 +194,172 @@
                                 </div>
                             </div>
                             <div class="col-xl-8 col-lg-7">
-                                <h6>
-                                    @SharedLocalizer["Stats"]
-                                </h6>
-                                <div class="row">
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-green">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Games</h3>
+                                <div>
+                                    <h6>
+                                        @SharedLocalizer["Stats"]
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-green">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Games</h3>
 
-                                                <p>@SharedLocalizer["Games"]</p>
+                                                    <p>@SharedLocalizer["Games"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-gamepad" aria-hidden="true"></i>
+                                                </div>
                                             </div>
-                                            <div class="icon">
-                                                <i class="fa fa-gamepad" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-yellow">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Posts</h3>
+
+                                                    <p>@SharedLocalizer["Posts"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-blue">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Comments</h3>
+
+                                                    <p>@SharedLocalizer["Comments"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-red">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Jams</h3>
+
+                                                    <p>@SharedLocalizer["Jams"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-shapes" aria-hidden="true"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-yellow">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Posts</h3>
-
-                                                <p>@SharedLocalizer["Posts"]</p>
+                                    <div class="row">
+                                        <div class="col-6 col-md-4 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
+                                                <span class="description-text">@SharedLocalizer["followers"]</span>
                                             </div>
-                                            <div class="icon">
-                                                <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-md-4 border-right d-none d-md-block">
+                                            <div class="description-block">
+                                                <h5 class="description-header">@Model.Counters.Following</h5>
+                                                <span class="description-text">@SharedLocalizer["following"]</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="description-block">
+                                                <h5 class="description-header connection-count">@Model.Counters.Connections</h5>
+                                                <span class="description-text">@SharedLocalizer["connections"]</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-blue">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Comments</h3>
 
-                                                <p>@SharedLocalizer["Comments"]</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                    @if (Model.HasOtherProfiles)
+                                    {
+                                        <div class="mt-3">
+                                            <h6>
+                                                @SharedLocalizer["Other Profiles"]
+                                            </h6>
+                                            <div class="row">
+                                                @if (!string.IsNullOrWhiteSpace(Model.GameJoltUrl))
+                                                {
+                                                    <div class="user-profile-others">
+                                                        <div class="centered">
+                                                            <a href="@Model.GameJoltUrl" target="_blank">
+                                                                <div class="other-icon">
+                                                                    <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt" />
+                                                                </div>
+                                                                @Html.DisplayNameFor(x => x.GameJoltUrl)
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                @if (!string.IsNullOrWhiteSpace(Model.ItchIoUrl))
+                                                {
+                                                    <div class="user-profile-others">
+                                                        <div class="centered">
+                                                            <a href="@Model.ItchIoUrl" target="_blank">
+                                                                <div class="other-icon">
+                                                                    <img src="~/images/otherprofiles/itchio32.png" alt="Itch.io" />
+                                                                </div>
+                                                                Itch.io
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                @if (!string.IsNullOrWhiteSpace(Model.IndieDbUrl))
+                                                {
+                                                    <div class="user-profile-others">
+                                                        <div class="centered">
+                                                            <a href="@Model.IndieDbUrl" target="_blank">
+                                                                <div class="other-icon">
+                                                                    <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDb" />
+                                                                </div>
+                                                                @Html.DisplayNameFor(x => x.IndieDbUrl)
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                @if (!string.IsNullOrWhiteSpace(Model.UnityConnectUrl))
+                                                {
+                                                    <div class="user-profile-others">
+                                                        <div class="centered">
+                                                            <a href="@Model.UnityConnectUrl" target="_blank">
+                                                                <div class="other-icon">
+                                                                    <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect" />
+                                                                </div>
+                                                                @Html.DisplayNameFor(x => x.UnityConnectUrl)
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                @if (!string.IsNullOrWhiteSpace(Model.GameDevNetUrl))
+                                                {
+                                                    <div class="user-profile-others">
+                                                        <div class="centered">
+                                                            <a href="@Model.GameDevNetUrl" target="_blank">
+                                                                <div class="other-icon">
+                                                                    <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net" />
+                                                                </div>
+                                                                @Html.DisplayNameFor(x => x.GameDevNetUrl)
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                }
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-red">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Jams</h3>
-
-                                                <p>@SharedLocalizer["Jams"]</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa fa-shapes" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-4 border-right">
-                                        <div class="description-block">
-                                            <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
-                                            <span class="description-text">@SharedLocalizer["followers"]</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 border-right d-none d-md-block">
-                                        <div class="description-block">
-                                            <h5 class="description-header">@Model.Counters.Following</h5>
-                                            <span class="description-text">@SharedLocalizer["following"]</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-4">
-                                        <div class="description-block">
-                                            <h5 class="description-header connection-count">@Model.Counters.Connections</h5>
-                                            <span class="description-text">@SharedLocalizer["connections"]</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @if (Model.HasOtherProfiles)
-                                {
-                                    <div class="mt-3">
-                                        <h6>
-                                            @SharedLocalizer["Other Profiles"]
-                                        </h6>
-                                        <div class="row">
-                                            @if (!string.IsNullOrWhiteSpace(Model.GameJoltUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.GameJoltUrl" target="_blank">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt" />
-                                                            </div>
-                                                            @Html.DisplayNameFor(x => x.GameJoltUrl)
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                            @if (!string.IsNullOrWhiteSpace(Model.ItchIoUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.ItchIoUrl" target="_blank">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/itchio32.png" alt="Itch.io" />
-                                                            </div>
-                                                            Itch.io
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                            @if (!string.IsNullOrWhiteSpace(Model.IndieDbUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.IndieDbUrl" target="_blank">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDb" />
-                                                            </div>
-                                                            @Html.DisplayNameFor(x => x.IndieDbUrl)
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                            @if (!string.IsNullOrWhiteSpace(Model.UnityConnectUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.UnityConnectUrl" target="_blank">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect" />
-                                                            </div>
-                                                            @Html.DisplayNameFor(x => x.UnityConnectUrl)
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                            @if (!string.IsNullOrWhiteSpace(Model.GameDevNetUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.GameDevNetUrl" target="_blank">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net" />
-                                                            </div>
-                                                            @Html.DisplayNameFor(x => x.GameDevNetUrl)
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
-                                        </div>
-                                    </div>
-                                }
 
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane feed" id="tabactivity">
+                    <div class="tab-pane feed px-1" id="tabactivity">
                     </div>
 
-                    <div class="tab-pane feed" id="tabgames">
+                    <div class="tab-pane feed px-1" id="tabgames">
                     </div>
 
-                    <div class="tab-pane" id="tabconnections">
+                    <div class="tab-pane px-1" id="tabconnections">
                     </div>
                 </div>
             </div>
@@ -368,10 +370,11 @@
 
 
 @section Styles {
-<environment include="Development">
-    <link rel="stylesheet" href="~/css/profiledetails.css" />
-    <link rel="stylesheet" href="~/css/progress.css" />
-</environment>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.css" />
+        <link rel="stylesheet" href="~/css/progress.css" />
+        <link rel="stylesheet" href="~/css/polls.css" />
+    </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
     </environment>
@@ -381,6 +384,7 @@
         <script src="~/js/profile/profiledetails.js"></script>
         <script src="~/js/shared/contentactions.js"></script>
         <script src="~/lib/embedo/embedo.js"></script>
+        <script src="~/js/shared/polls.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/js/profile/profiledetails.min.js" asp-append-version="true"></script>

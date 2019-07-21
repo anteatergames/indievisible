@@ -5,7 +5,7 @@
     ViewData["Title"] = SharedLocalizer[operation + " Game"];
 }
 
-<div class="col-12 no-gutters">
+<div class="col-12 bg-white no-gutters">
     <form id="frmGameSave" asp-controller="game" asp-action="save" method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="UserId" />

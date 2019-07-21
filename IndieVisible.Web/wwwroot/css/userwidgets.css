@@ -3,6 +3,7 @@
     min-height: 266px;
     margin-bottom: 20px;
     border: 1px solid #89ad87;
+    background-color: #fff;
 }
 
     .widget-user:hover {
@@ -57,7 +58,7 @@
 
 
 @media (max-width: 575px) {
-    div.box, .widget-user {
+    .widget-user.box {
         border-radius: 5px !important;
     }
 }

@@ -6,7 +6,7 @@
     var userGames = ViewBag.UserGames as List<SelectListItem>;
 }
 
-<div class="col-12 no-gutters">
+<div class="col-12 bg-white no-gutters">
     <form id="frmContentSave" asp-controller="content" asp-action="save" method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="UserId" />

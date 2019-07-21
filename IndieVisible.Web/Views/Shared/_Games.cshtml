@@ -8,7 +8,7 @@
         @foreach (var game in Model)
         {
             <div class="col-md-12 col-lg-4">
-                <div class="box box-default box-game">
+                <div class="box box-game bg-white">
                     <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@game.Id">
                         <img class="card-img-top img-fluid" src="@game.ThumbnailUrl" alt="Card image cap">
                     </a>

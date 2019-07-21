@@ -1563,7 +1563,7 @@ input[type="color"] {
     /*border-top: 0;*/
     margin-bottom: 10px;
     width: 100%;
-    background: #fff;
+    /*background: #fff;*/
     -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
     -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
     box-shadow: 0 0 5px rgba(0, 0, 0, .2);
@@ -1828,7 +1828,7 @@ input[type="color"] {
 
 .box-body {
     padding: 10px;
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 5px 5px;
 }
 
 .no-header .box-body {
@@ -1851,7 +1851,7 @@ input[type="color"] {
 .box-footer {
     border-top: 1px solid #f4f4f4;
     padding: 10px;
-    background-color: #fff;
+    /*background-color: #fff;*/
 }
 
 .customtab li a.nav-link {
@@ -3259,14 +3259,14 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 .nav-tabs-custom {
     margin-bottom: 20px;
-    background: #fff;
+    /*background: #fff;*/
     -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
     border-radius: 3px;
 }
 
     .nav-tabs-custom > .nav-tabs {
         margin: 0;
-        border-bottom-color: #f4f4f4;
+        border-bottom-color: #444;
         border-radius: 0;
     }
 
@@ -3307,13 +3307,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
                 }
 
                     .nav-tabs-custom > .nav-tabs > li > a.active:hover, .nav-tabs-custom > .nav-tabs > li > a.active {
-                        background-color: #fff;
+                        /*background-color: #fff;*/
                         color: #444;
-                    }
-
-                    .nav-tabs-custom > .nav-tabs > li > a.active {
-                        border-left: 1px solid #f4f4f4;
-                        border-right: 1px solid #f4f4f4;
                     }
 
             .nav-tabs-custom > .nav-tabs > li:first-of-type {
@@ -3358,7 +3353,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
             }
 
     .nav-tabs-custom > .tab-content {
-        background: #fff;
+        /*background: #fff;*/
         border-radius: 0;
     }
 

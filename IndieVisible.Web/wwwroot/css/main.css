@@ -12,7 +12,7 @@ button:focus {
         padding-right: 0 !important;
     }
 
-    section.content > div, div.carousel, div.carousel-inner, div.box {
+    section.content > div, div.carousel, div.carousel-inner, #divActivityFeed div.box {
         border-radius: 0px !important;
     }
 
@@ -56,33 +56,26 @@ select.form-control {
 }
 
 .feed .box-content .box-header {
-    border-top: 2px solid #ebebeb;
-    border-left: 2px solid #ebebeb;
-    border-right: 2px solid #ebebeb;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 
 .feed .box-content .bottomcontent {
-    border-left: 2px solid #ebebeb;
-    border-right: 2px solid #ebebeb;
     border-radius: 0;
 }
 
 .feed .box-content .box-comments {
-    border-left: 2px solid #ebebeb;
-    border-right: 2px solid #ebebeb;
-    border-bottom: 2px solid #ebebeb;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
 
 .feed .box-game .box-body {
-    border-left: 2px solid #ebebeb;
-    border-right: 2px solid #ebebeb;
-    border-bottom: 2px solid #ebebeb;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.feed .box-content .box-body {
+    border-radius: 0;
 }
 
 .box-comments .box-comment img, .img-lg, .img-md, .img-sm, .user-block.user-block-sm img {
@@ -95,5 +88,10 @@ select.form-control {
 }
 
 .box-game {
-    padding: 0;
+    padding: 0 !important;
 }
+
+    .box-game .card-img-top {
+        border-top-left-radius: 5px !important;
+        border-top-right-radius: 5px !important;
+    }
