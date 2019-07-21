@@ -40,7 +40,7 @@
 # Navy : #001F3F
 # Teal : #39CCCC
 # Purple : #ab26aa
-# Orange : #ff6028
+# Orange : #89ad87
 # Maroon : #8C1919
 ------------------------------------------------------------------*/
 
@@ -1900,7 +1900,7 @@ input[type="color"] {
 .tabs-vertical li .nav-link.active,
 .tabs-vertical li .nav-link:hover,
 .tabs-vertical li .nav-link.active:focus {
-    background: #ff6028;
+    background: #89ad87;
     border: 0px;
     color: #ffffff;
 }
@@ -1913,9 +1913,9 @@ input[type="color"] {
 .customvtab .tabs-vertical li .nav-link:focus {
     background: #ffffff;
     border: 0px;
-    border-right: 2px solid #ff6028;
+    border-right: 2px solid #89ad87;
     margin-right: -1px;
-    color: #ff6028;
+    color: #89ad87;
 }
 
 .tabcontent-border {
@@ -3063,8 +3063,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 
 .btn-orange {
-    background-color: #ff6028;
-    border-color: #ff6028;
+    background-color: #89ad87;
+    border-color: #89ad87;
     color: #ffffff;
 }
 
@@ -3232,8 +3232,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 
     .nav-pills > li > a.active, .nav-pills > li > a.active:focus, .nav-pills > li > a.active:hover {
-        border-top-color: #ff6028;
-        background-color: #ff6028 !important;
+        border-top-color: #89ad87;
+        background-color: #89ad87 !important;
     }
 
 .flex-column > li > a {
@@ -3247,7 +3247,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
         background: 0 0;
         color: #fff;
         border-top: 0;
-        border-left-color: #ff6028;
+        border-left-color: #89ad87;
     }
 
 .flex-column > li.header {
@@ -3363,7 +3363,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 
     .nav-tabs-custom.tab-primary > .nav-tabs > li a.active {
-        border-top-color: #ff6028;
+        border-top-color: #89ad87;
     }
 
     .nav-tabs-custom.tab-info > .nav-tabs > li a.active {
@@ -3391,13 +3391,13 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 
 .profile-tab li a.nav-link.active, .skin-blue .customtab li a.nav-link.active {
-    border-bottom: 2px solid #ff6028;
+    border-bottom: 2px solid #89ad87;
     color: #fff;
 }
 
 .mailbox-nav .nav-pills > li > a.active, .mailbox-nav .nav-pills > li > a.active:focus, .mailbox-nav .nav-pills > li > a.active:hover, .mailbox-nav .nav-pills > li > a:focus, .mailbox-nav .nav-pills > li > a:hover {
-    background: #ff6028 !important;
-    border-left-color: #ff6028;
+    background: #89ad87 !important;
+    border-left-color: #89ad87;
 }
 
 .left-float {
@@ -3421,8 +3421,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 .pagination li a.current, .pagination li a.current:hover {
     color: #fff;
-    border: 1px solid #ff6028;
-    background-color: #ff6028;
+    border: 1px solid #89ad87;
+    background-color: #89ad87;
 }
 
 .pagination li a {
@@ -3452,8 +3452,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
     .pagination li a:hover {
         color: #fff;
-        border: 1px solid #ff6028;
-        background-color: #ff6028;
+        border: 1px solid #89ad87;
+        background-color: #89ad87;
     }
 
 
@@ -3513,7 +3513,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     .dt-buttons .dt-button {
         padding: 5px 15px;
         border-radius: 0;
-        background: #ff6028;
+        background: #89ad87;
         color: #fff;
         margin-right: 3px;
         display: inline-block;
@@ -4697,7 +4697,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .bg-orange {
-    background-color: #ff6028;
+    background-color: #89ad87;
 }
 
 .bg-fuchsia {
@@ -4831,7 +4831,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .text-orange {
-    color: #ff6028;
+    color: #89ad87;
 }
 
 .text-fuchsia {

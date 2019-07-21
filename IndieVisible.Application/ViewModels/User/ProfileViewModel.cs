@@ -15,16 +15,20 @@ namespace IndieVisible.Application.ViewModels.User
         [Display(Name="Display Name")]
         public string Name { get; set; }
 
+        [Display(Name = "Motto")]
         public string Motto { get; set; }
 
         public string ProfileImageUrl { get; set; }
 
         public string CoverImageUrl { get; set; }
 
+        [Display(Name = "Bio")]
         public string Bio { get; set; }
 
+        [Display(Name = "Studio Name")]
         public string StudioName { get; set; }
 
+        [Display(Name = "location")]
         public string Location { get; set; }
 
         #region ExternalHandles

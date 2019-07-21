@@ -425,8 +425,8 @@
     <value>Adicionar Conteúdo</value>
     <comment>Add Content Page</comment>
   </data>
-  <data name="Basic" xml:space="preserve">
-    <value>Básico</value>
+  <data name="basic" xml:space="preserve">
+    <value>básico</value>
     <comment>Add Game Page</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -912,5 +912,53 @@
   <data name="We have {0} users" xml:space="preserve">
     <value>Temos {0} usuários</value>
     <comment>User List</comment>
+  </data>
+  <data name="Any punchline you like?" xml:space="preserve">
+    <value>Alguma frase de efeito?</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="Change Cover Image" xml:space="preserve">
+    <value>Trocar Image de Capa</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="Display Name" xml:space="preserve">
+    <value>Nome Visível</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Edit my awesomeness" xml:space="preserve">
+    <value>Editar minha muiteza</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="external" xml:space="preserve">
+    <value>externo</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Motto" xml:space="preserve">
+    <value>Lema</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Save my profile" xml:space="preserve">
+    <value>Salvar meu perfil</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="Studio Name" xml:space="preserve">
+    <value>Nome do Estúdio</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Tell us who you are." xml:space="preserve">
+    <value>Fale um pouco sobre você.</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="Type it, here!" xml:space="preserve">
+    <value>Digita aqui!</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="What your is studio is called?" xml:space="preserve">
+    <value>Como seu estúdio é chamado?</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="Where are you from?" xml:space="preserve">
+    <value>De onde você é?</value>
+    <comment>Profile Edit</comment>
   </data>
 </root>
