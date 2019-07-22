@@ -981,4 +981,12 @@
     <value>Você está dando uma sugestão para "{0}"</value>
     <comment>Brainstorm</comment>
   </data>
+  <data name="Privacy Policy" xml:space="preserve">
+    <value>Política de Privacidade</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Terms and Conditions" xml:space="preserve">
+    <value>Termos e Condições</value>
+    <comment>Home</comment>
+  </data>
 </root>

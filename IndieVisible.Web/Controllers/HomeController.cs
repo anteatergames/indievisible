@@ -6,13 +6,12 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 namespace IndieVisible.Web.Controllers
@@ -87,19 +86,23 @@ namespace IndieVisible.Web.Controllers
         private void SetLanguage()
         {
             PostFromHomeViewModel postModel = new PostFromHomeViewModel();
-            var lang = this.GetCookieValue(SessionValues.DefaultLanguage);
+
+            RequestCulture requestLanguage = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture;
+
+            string lang = this.GetCookieValue(SessionValues.DefaultLanguage);
             if (lang != null)
             {
-                var langEnum = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), lang);
+                SupportedLanguage langEnum = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), lang);
                 postModel.DefaultLanguage = langEnum;
             }
             else
             {
-                var userPrefs = this.userPreferencesAppService.GetByUserId(this.CurrentUserId);
+                Application.ViewModels.UserPreferences.UserPreferencesViewModel userPrefs = this.userPreferencesAppService.GetByUserId(this.CurrentUserId);
 
                 if (userPrefs != null)
                 {
                     this.SetLanguage(userPrefs.UiLanguage);
+                    this.SetCookieValue(SessionValues.DefaultLanguage, userPrefs.UiLanguage.ToString(), 7);
 
                     postModel.DefaultLanguage = userPrefs.UiLanguage;
                 }
@@ -109,13 +112,13 @@ namespace IndieVisible.Web.Controllers
                 }
             }
 
-            ViewBag.PostFromHome = postModel;
+            ViewData["requestLanguage"] = requestLanguage.UICulture.Name;
         }
 
 
         private static TimeLineViewModel GenerateTimeline()
         {
-            var startDate = new DateTime(2018, 08, 27);
+            DateTime startDate = new DateTime(2018, 08, 27);
             TimeLineViewModel model = new TimeLineViewModel();
 
             model.Items.Add(new TimeLineItemViewModel

@@ -1,11 +1,19 @@
 ﻿@{
     ViewData["Title"] = null;
+
+    var lang = ViewData["requestLanguage"];
 }
 
 <h1 class="sr-only">INDIEVISIBLE - Home</h1>
 
 <div class="col-xl-2 d-none d-lg-block">
     <div class="row">
+        <div class="col-12">
+            <div class="box bg-white p-2">
+                <span class="btn-block"><a asp-area="" asp-controller="home" asp-action="terms">@SharedLocalizer["Terms and Conditions"]</a></span>
+                <span class="btn-block"><a asp-area="" asp-controller="home" asp-action="privacy">@SharedLocalizer["Privacy Policy"]</a></span>
+            </div>
+        </div>
         <div class="col-12 d-none d-xl-block">
             <div class="flex-square clickable rectangle bg-purple">
                 <div class="flex-square-inner">
@@ -33,18 +41,21 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 d-none d-xl-block">
-            <div class="flex-square clickable rectangle bg-patreon">
-                <div class="flex-square-inner">
-                    <a href="https://www.patreon.com/indievisible" target="_blank">
-                        <div class="flex-square-inner-content text-white">
-                            <div><i class="fab fa-3x fa-patreon" aria-hidden="true"></i></div>
-                            <div>@SharedLocalizer["be a Patron"]</div>
-                        </div>
-                    </a>
+        @if (lang.Equals("pt-BR"))
+        {
+            <div class="col-12 d-none d-xl-block">
+                <div class="flex-square clickable rectangle bg-patreon">
+                    <div class="flex-square-inner">
+                        <a href="https://apoia.se/indievisible" target="_blank">
+                            <div class="flex-square-inner-content text-white">
+                                <div><i class="fas fa-3x fa-dollar-sign" aria-hidden="true"></i></div>
+                                <div>@SharedLocalizer["apoie"]</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>
 
@@ -94,18 +105,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 d-xl-none">
-            <div class="flex-square clickable rectangle bg-patreon">
-                <div class="flex-square-inner">
-                    <a href="https://www.patreon.com/indievisible" target="_blank">
-                        <div class="flex-square-inner-content text-white">
-                            <div><i class="fab fa-3x fa-patreon" aria-hidden="true"></i></div>
-                            <div>@SharedLocalizer["be a Patron"]</div>
-                        </div>
-                    </a>
-                </div>
+        <div class="col-12 xl-none">
+            <div class="box bg-white p-2">
+                <span class="btn-block"><a asp-area="" asp-controller="home" asp-action="terms">@SharedLocalizer["Terms and Conditions"]</a></span>
+                <span class="btn-block"><a asp-area="" asp-controller="home" asp-action="privacy">@SharedLocalizer["Privacy Policy"]</a></span>
             </div>
         </div>
+        @if (lang.Equals("pt-BR"))
+        {
+            <div class="col-12 d-xl-none">
+                <div class="flex-square clickable rectangle bg-patreon">
+                    <div class="flex-square-inner">
+                        <a href="https://apoia.se/indievisible" target="_blank">
+                            <div class="flex-square-inner-content text-white">
+                                <div><i class="fas fa-3x fa-dollar-sign" aria-hidden="true"></i></div>
+                                <div>@SharedLocalizer["apoie"]</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
 
         <div class="col-12 margin-top-30">
             @await Html.PartialAsync("_TagList", ViewData["Genres"])
