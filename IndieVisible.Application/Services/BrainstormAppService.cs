@@ -445,5 +445,49 @@ namespace IndieVisible.Application.Services
 
             return result;
         }
+
+        public OperationResultVo<BrainstormSessionViewModel> GetMainSession()
+        {
+            OperationResultVo<BrainstormSessionViewModel> result;
+
+            try
+            {
+                var allMain = brainstormSessionRepository.Get(x => x.Type == BrainstormSessionType.Main);
+
+                var main = allMain.FirstOrDefault();
+
+                BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(main);
+
+                result = new OperationResultVo<BrainstormSessionViewModel>(vm);
+            }
+            catch (Exception ex)
+            {
+                result = new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
+            }
+
+            return result;
+        }
+
+        public OperationResultVo<BrainstormSessionViewModel> GetSession(Guid sessionId)
+        {
+            OperationResultVo<BrainstormSessionViewModel> result;
+
+            try
+            {
+                var allMain = brainstormSessionRepository.Get(x => x.Id == sessionId);
+
+                var main = allMain.FirstOrDefault();
+
+                BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(main);
+
+                result = new OperationResultVo<BrainstormSessionViewModel>(vm);
+            }
+            catch (Exception ex)
+            {
+                result = new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
+            }
+
+            return result;
+        }
     }
 }

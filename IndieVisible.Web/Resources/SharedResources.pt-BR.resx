@@ -961,4 +961,24 @@
     <value>De onde você é?</value>
     <comment>Profile Edit</comment>
   </data>
+  <data name="New idea for &quot;{0}&quot;" xml:space="preserve">
+    <value>Nova ideia para "{0}"</value>
+    <comment>Brainstorm</comment>
+  </data>
+  <data name="New Suggestion" xml:space="preserve">
+    <value>Nova Sugestão</value>
+    <comment>Control SIdebar</comment>
+  </data>
+  <data name="Speak your mind!" xml:space="preserve">
+    <value>Fala aí!</value>
+    <comment>Brainstorm</comment>
+  </data>
+  <data name="You are creating a new Brainstorm Session" xml:space="preserve">
+    <value>Você está criando uma nova Sessão de Brainstorm</value>
+    <comment>Brainstorm</comment>
+  </data>
+  <data name="You are giving a suggestion for &quot;{0}&quot;" xml:space="preserve">
+    <value>Você está dando uma sugestão para "{0}"</value>
+    <comment>Brainstorm</comment>
+  </data>
 </root>

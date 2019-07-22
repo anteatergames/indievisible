@@ -323,7 +323,8 @@ namespace IndieVisible.Web.Controllers
                     "Better preferences - Now you can change your email, set your phone and more!",
                     "Two Factor Authentication - Be more safe with this security feature",
                     "Content post language selection",
-                    "Ranking Page"
+                    "Ranking Page",
+                    "Post new suggestions right from the sidebar"
                 }
             });
 

@@ -11,8 +11,9 @@
         @SharedLocalizer["idea details"]
     </h1>
     <input type="hidden" asp-for="Id" />
-    <div id="brainstormcontainer" class="mx-0" data-caninteract="@canInteract.ToString().ToLower()">
-        <div class="box box-default  box-content" data-id="@Model.Id">
+    <div id="brainstormcontainer" class="mx-0">
+        <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+        <div class="box bg-white" data-id="@Model.Id">
             <div class="box-header with-border">
                 <div class="float-left pr-2">
                     <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@Model.SessionId" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>

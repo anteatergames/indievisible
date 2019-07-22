@@ -1390,15 +1390,15 @@ input[type="color"] {
     font-weight: 500;
 }
 
-    .form-control:focus {
-        border-color: #45aef1;
-        box-shadow: none;
-    }
+.form-control:focus {
+    border-color: #45aef1;
+    box-shadow: none;
+}
 
-    .form-control:-ms-input-placeholder, .form-control::-moz-placeholder, .form-control::-webkit-input-placeholder {
-        color: #bbb;
-        opacity: 1;
-    }
+.form-control:-ms-input-placeholder, .form-control::-moz-placeholder, .form-control::-webkit-input-placeholder {
+    color: #bbb;
+    opacity: 1;
+}
 
 .form-group.has-success .help-block, .form-group.has-success label {
     color: #22af47;
@@ -2033,66 +2033,66 @@ input[type="color"] {
         vertical-align: top;
     }
 
-.avatar[class*='status-']::after {
-    content: '';
-    position: absolute;
-    right: 0px;
-    bottom: 0;
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    border: 2px solid #fff;
-    background-color: #7460ee;
-}
+    .avatar[class*='status-']::after {
+        content: '';
+        position: absolute;
+        right: 0px;
+        bottom: 0;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        border: 2px solid #fff;
+        background-color: #7460ee;
+    }
 
-.avatar[class*='status-'].avatar-sm::after {
-    right: -2px;
-    width: 9px;
-    height: 9px;
-}
+    .avatar[class*='status-'].avatar-sm::after {
+        right: -2px;
+        width: 9px;
+        height: 9px;
+    }
 
-.avatar[class*='status-'].avatar-lg::after {
-    right: 4px;
-}
+    .avatar[class*='status-'].avatar-lg::after {
+        right: 4px;
+    }
 
-.avatar[class*='status-'].avatar-xl::after {
-    right: 5px;
-    width: 11px;
-    height: 11px;
-}
+    .avatar[class*='status-'].avatar-xl::after {
+        right: 5px;
+        width: 11px;
+        height: 11px;
+    }
 
-.avatar[class*='status-'].avatar-xxl::after {
-    right: 15px;
-    width: 12px;
-    height: 12px;
-}
+    .avatar[class*='status-'].avatar-xxl::after {
+        right: 15px;
+        width: 12px;
+        height: 12px;
+    }
 
-.avatar[class*='status-'].avatar-xxxl::after {
-    right: 25px;
-    width: 16px;
-    height: 16px;
-}
+    .avatar[class*='status-'].avatar-xxxl::after {
+        right: 25px;
+        width: 16px;
+        height: 16px;
+    }
 
-.avatar.status-success::after {
-    background-color: #26c6da;
-}
+    .avatar.status-success::after {
+        background-color: #26c6da;
+    }
 
-.avatar.status-info::after {
-    background-color: #1e88e5;
-}
+    .avatar.status-info::after {
+        background-color: #1e88e5;
+    }
 
-.avatar.status-warning::after {
-    background-color: #ffb22b;
-}
+    .avatar.status-warning::after {
+        background-color: #ffb22b;
+    }
 
-.avatar.status-danger::after {
-    background-color: #fc4b6c;
-}
+    .avatar.status-danger::after {
+        background-color: #fc4b6c;
+    }
 
-.avatar.status-dark::after {
-    background-color: #465161;
-}
+    .avatar.status-dark::after {
+        background-color: #465161;
+    }
 
 [data-provide~="more-avatar"] ~ .avatar {
     display: none;
@@ -2929,11 +2929,11 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .btn {
-    -webkit-box-shadow: none;
+    /*-webkit-box-shadow: none;
     box-shadow: none;
     border: 1px solid transparent;
     cursor: pointer;
-    overflow: hidden;
+    overflow: hidden;*/
     font-size: 0.8rem;
 }
 
@@ -3964,21 +3964,21 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     margin-right: 10px;
 }
 
-.box-profile  div{
+.box-profile div {
     border-radius: 0;
 }
 
-    .box-profile .social-states {
-        font-size: 16px;
+.box-profile .social-states {
+    font-size: 16px;
+}
+
+    .box-profile .social-states a {
+        color: #333;
     }
 
-        .box-profile .social-states a {
-            color: #333;
+        .box-profile .social-states a:hover {
+            color: #0092ee;
         }
-
-            .box-profile .social-states a:hover {
-                color: #0092ee;
-            }
 
 .post {
     border-bottom: 1px solid #d2d6de;

@@ -1,19 +1,20 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace IndieVisible.Application.ViewModels.Brainstorm
 {
     public class BrainstormSessionViewModel : BaseViewModel
     {
         [Required]
+        [Display(Name = "Title")]
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Display(Name = "Type")]
         public BrainstormSessionType Type { get; set; }
 
         public Guid? TargetContextId { get; set; }

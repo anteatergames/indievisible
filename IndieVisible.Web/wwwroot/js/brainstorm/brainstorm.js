@@ -5,23 +5,30 @@
 
     var selectors = {};
 
+    var isAjax = false;
     var canInteract = false;
+    var newIdea = false;
 
     function init() {
         setSelectors();
 
         bindAll();
 
-        loadSession();
+        isAjax = selectors.container.find('#isajax').val();
+        canInteract = selectors.container.find('#caninteract').val();
+        newIdea = window.location.href.indexOf('newidea') > -1;
 
-        canInteract = selectors.container.data('caninteract');
+        if (!newIdea) {
+            loadSession();
+        }
     }
 
     function setSelectors() {
-        selectors.container = $("#brainstormcontainer");
+        selectors.container = $(".content");
         selectors.toolbar = $("#divToolbar");
         selectors.list = $("#divList");
         selectors.btnPostVotingItem = $("#btnPostVotingItem");
+        selectors.form = $("#frmBrainstormIdeaSave");
     }
 
     function bindAll() {
@@ -73,7 +80,7 @@
             var id = item.data('id');
             var vote = btn.data('vote');
             var sameVote = item.data('currentuservote') === vote;
-            
+
             if (canInteract && !sameVote) {
                 var url = rootUrl + "/vote";
 
@@ -113,7 +120,7 @@
 
         selectors.container.html(MAINMODULE.Default.Spinner);
 
-        $.get(rootUrl + "/newidea?sessionId=" + sessionId, function (data) {
+        $.get(rootUrl + "/" + sessionId + "/newidea", function (data) {
             selectors.container.html(data);
 
             selectors.form = $("#frmBrainstormIdeaSave");

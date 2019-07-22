@@ -3,6 +3,7 @@ using IndieVisible.Application.ViewModels.Brainstorm;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -42,12 +43,39 @@ namespace IndieVisible.Web.Controllers
             return View(currentSession);
         }
 
-        public PartialViewResult NewIdea(Guid sessionId)
+        [Route("brainstorm/{sessionId:guid}/newidea")]
+        [Route("brainstorm/newidea")]
+        public IActionResult NewIdea(Guid sessionId)
         {
+            OperationResultVo<BrainstormSessionViewModel> sessionResult;
+
+            if (sessionId == Guid.Empty)
+            {
+                sessionResult = brainstormAppService.GetMainSession();
+            }
+            else
+            {
+                sessionResult = brainstormAppService.GetSession(sessionId);
+            }
+
+            if (sessionResult.Success)
+            {
+                sessionId = sessionResult.Value.Id;
+
+                ViewData["Session"] = sessionResult.Value;
+            }
+
             BrainstormIdeaViewModel vm = new BrainstormIdeaViewModel();
             vm.SessionId = sessionId;
 
-            return PartialView("_CreateEdit", vm);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_CreateEdit", vm);
+            }
+            else
+            {
+                return View("_CreateEdit", vm);
+            }
         }
 
         public PartialViewResult NewSession()

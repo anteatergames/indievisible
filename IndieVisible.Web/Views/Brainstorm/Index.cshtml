@@ -1,12 +1,15 @@
 ﻿@model IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel
 @{
     ViewData["Title"] = SharedLocalizer["Brainstorm"];
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
 
     var sessions = ViewData["Sessions"] as IEnumerable<IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel>;
 }
 
-<div id="brainstormcontainer" data-caninteract="@canInteract.ToString().ToLower()" class="col-12">
+<div id="brainstormcontainer" class="col-12">
+    <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
+    <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
     <input type="hidden" asp-for="Id" />
     <div class="row">
         <div class="col-lg-8">

@@ -2,7 +2,7 @@
 
 @if (!Model.Any())
 {
-    <div class="text-center mt-2 brainstorm-item list-item p-4">
+    <div class="text-center mt-2 brainstorm-item list-item p-4 bg-white">
         <i class="fa-10x fas fa-lightbulb brainstorm-ideaicon" aria-hidden="true"></i>
         <div class="mt-10">
             <h3>@SharedLocalizer["What? We have no Ideas to show! We need some ideas!"]</h3>
@@ -13,7 +13,7 @@ else
 {
     foreach (var item in Model)
     {
-        <div class="col-12 brainstorm-item list-item" data-id="@item.Id" data-currentuservote="@item.CurrentUserVote">
+        <div class="col-12 brainstorm-item list-item bg-white" data-id="@item.Id" data-currentuservote="@item.CurrentUserVote">
             <div class="brainstorm-panel">
                 <div class="col-12 brainstorm-icon">
                     <button type="button" class="brainstorm-button brainstorm-up" data-vote="@(VoteValue.Positive)"><i class="fa fa-arrow-alt-circle-up @(item.CurrentUserVote == VoteValue.Positive ? "text-green": string.Empty)" aria-hidden="true"></i></button>
