@@ -21,9 +21,13 @@ button:focus {
     }
 }
 
-#menufooter, #menufooter a {
-    color: #fff
+#menufooter {
+    color: #aaa
 }
+
+    #menufooter a {
+        color: #fff
+    }
 
 #menufooter {
     padding: 10px;
@@ -31,8 +35,8 @@ button:focus {
     bottom: 0;
     text-align: center;
     width: 100%;
-    border-top:1px solid black;
-    border-radius:0;
+    border-top: 1px solid black;
+    border-radius: 0;
 }
 
 

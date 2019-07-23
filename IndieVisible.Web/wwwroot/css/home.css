@@ -1,6 +1,5 @@
-﻿
-.commentmodal #txtPostContent {
-    line-height: 22px;
+﻿.commentmodal .modal-body {
+    height: 58px;
 }
 
 .commentmodal {
