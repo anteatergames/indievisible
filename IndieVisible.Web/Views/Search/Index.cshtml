@@ -1,0 +1,36 @@
+﻿@{
+    var q = ViewData["term"];
+}
+
+<h1>@SharedLocalizer["Searching for {0}", q]</h1>
+<input type="hidden" id="q" value="@q" />
+
+<div class="col-12">
+    <h2>@SharedLocalizer["Posts"]</h2>
+    <div id="divSearchPosts">
+        posts
+    </div>
+</div>
+
+<div class="col-12">
+    <h2>@SharedLocalizer["Games"]</h2>
+    <div id="divSearchGames">
+        games
+    </div>
+</div>
+
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/search/search.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/search/search.min.js" asp-append-version="true"></script>
+    </environment>
+}
+
+<style>
+    .flex-square .flex-square-inner-content {
+        bottom: auto;
+    }
+</style>

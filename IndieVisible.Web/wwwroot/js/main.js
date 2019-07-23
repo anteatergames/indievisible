@@ -3,6 +3,8 @@
 
     var spinner = '<div class="flex-square rectangle bg-transparent"><div class="flex-square-inner"><div class="flex-square-inner-content text-dark"><i class="fa fa-spinner fa-3x fa-spin"></i></div></div></div>';
 
+    var spinner2 = '<div class="bg-transparent"><div class="flex-square-inner"><div class="flex-square-inner-content text-dark"><i class="fa fa-spinner fa-3x fa-spin"></i></div></div></div>';
+
     var selectors = {};
 
     function init() {
@@ -50,7 +52,8 @@
     return {
         Init: init,
         Default: {
-            Spinner: spinner
+            Spinner: spinner,
+            Spinner2: spinner2
         }
     };
 }());

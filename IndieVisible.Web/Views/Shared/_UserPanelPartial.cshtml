@@ -31,12 +31,12 @@
     <div class="row">
         <!-- search form -->
         <div class="col-12 mt-2">
-            <form action="#" method="get" class="sidebar-form">
+            <form asp-controller="search" asp-action="index" method="get" class="sidebar-form">
                 <div class="input-group">
                     <label for="q" aria-label="@SharedLocalizer["Search"]" class="sr-only"></label>
-                    <input type="text" name="q" aria-label="@SharedLocalizer["Search"]" class="form-control notimplemented" placeholder="@SharedLocalizer["Search"]...">
-                    <span class="input-group-btn notimplemented">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat" aria-label="@SharedLocalizer["Search"]">
+                    <input type="text" name="q" aria-label="@SharedLocalizer["Search"]" class="form-control" placeholder="@SharedLocalizer["Search"]...">
+                    <span class="input-group-btn">
+                        <button type="submit" id="search-btn" class="btn btn-flat" aria-label="@SharedLocalizer["Search"]">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
                     </span>

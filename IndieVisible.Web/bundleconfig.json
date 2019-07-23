@@ -20,12 +20,12 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/home.min.js",
+    "outputFileName": "wwwroot/js/home/home.min.js",
     "inputFiles": [
       "wwwroot/lib/dropzone/dropzone.js",
       "wwwroot/js/shared/contentactions.js",
       "wwwroot/js/shared/polls.js",
-      "wwwroot/js/home/homepage.js"
+      "wwwroot/js/home/home.js"
     ]
   },
   {
@@ -97,6 +97,12 @@
     "outputFileName": "wwwroot/css/ranking.min.css",
     "inputFiles": [
       "wwwroot/css/ranking.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/search/search.min.js",
+    "inputFiles": [
+      "wwwroot/js/search/search.js"
     ]
   }
 ]
