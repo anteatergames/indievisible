@@ -53,15 +53,6 @@
                 <form asp-area="" asp-controller="account" asp-action="logout" method="post" id="frmLogoutSidebarBottom">
                     <a href="#" onclick="document.getElementById('frmLogoutSidebarBottom').submit();" class="btn btn-default bg-transparent" data-toggle="tooltip" title="" data-original-title="Logout"><i class="fa fa-power-off" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Logout"]</a>
                 </form>
-
-                @if (User.IsInRole(Roles.Administrator.ToString()))
-                {
-                    <div class="mt-2">
-                        <a asp-area="staff" asp-controller="superpowers" asp-action="index" class="btn btn-default bg-transparent" data-toggle="tooltip" title="" data-original-title="Log In">
-                            <i class="fa fa-star" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Staff Area"]
-                        </a>
-                    </div>
-                }
             }
             else
             {

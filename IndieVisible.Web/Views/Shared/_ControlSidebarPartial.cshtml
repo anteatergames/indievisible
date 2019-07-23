@@ -4,6 +4,16 @@
 <aside class="control-sidebar control-sidebar-dark">
     @if (SignInManager.IsSignedIn(User))
     {
+
+        @if (User.IsInRole(Roles.Administrator.ToString()))
+        {
+            <div class="col-12 mb-2">
+                <a asp-area="staff" asp-controller="superpowers" asp-action="index" class="btn bg-transparent btn-block btn-outline-danger" data-toggle="tooltip" title="" data-original-title="Log In">
+                    <i class="fa fa-star" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Staff Area"]
+                </a>
+            </div>
+        }
+
         <div class="col-12 mb-2">
             <a asp-area="" asp-controller="brainstorm" asp-action="newidea" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["New Suggestion"]</a>
         </div>
@@ -13,5 +23,6 @@
         <div class="col-12 mb-2">
             <a asp-area="" asp-controller="content" asp-action="add" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["Post Content"]</a>
         </div>
+
     }
 </aside>

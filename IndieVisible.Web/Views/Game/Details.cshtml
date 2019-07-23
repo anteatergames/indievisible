@@ -74,12 +74,12 @@
                 <div class="col-12 col-lg-6 offset-lg-3 mb-2">
                     <div class="row text-right mt-4 mb-3">
                         <div class="col-6">
-                            <button type="button" id="btn-game-follow" class="btn btn-lg btn-block btn-default @(Model.CurrentUserFollowing ? "bg-blue follow-following" : string.Empty)" data-id="@Model.Id">
+                            <button type="button" id="btn-game-follow" class="btn btn-lg btn-block btn-outline-primary @(Model.CurrentUserFollowing ? "bg-blue follow-following" : string.Empty)" data-id="@Model.Id">
                                 <i class="fa fa-eye" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Follow"]
                             </button>
                         </div>
                         <div class="col-6">
-                            <button type="button" id="btn-game-like" class="btn btn-lg btn-block btn-outline-dark @(Model.CurrentUserLiked ? "bg-red like-liked" : string.Empty)" data-id="@Model.Id">
+                            <button type="button" id="btn-game-like" class="btn btn-lg btn-block btn-outline-danger @(Model.CurrentUserLiked ? "bg-red like-liked" : string.Empty)" data-id="@Model.Id">
                                 <i class="fa fa-heart" aria-hidden="true">&nbsp;</i>@SharedLocalizer["I love it"]
                             </button>
                         </div>
