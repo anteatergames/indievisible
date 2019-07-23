@@ -5,6 +5,7 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.Gamification;
+using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Models;
@@ -66,6 +67,11 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<GameFollow, GameFollowViewModel>();
             CreateMap<UserFollow, UserFollowViewModel>();
             CreateMap<UserConnection, UserConnectionViewModel>();
+            #endregion
+
+
+            #region Search
+            CreateMap<UserContentSearchVo, UserContentSearchViewModel>(); 
             #endregion
         }
     }

@@ -989,4 +989,8 @@
     <value>Termos e Condições</value>
     <comment>Home</comment>
   </data>
+  <data name="Searching for &quot;{0}&quot;" xml:space="preserve">
+    <value>Procurando por "{0}"</value>
+    <comment>Search</comment>
+  </data>
 </root>

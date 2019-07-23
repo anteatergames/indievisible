@@ -4,6 +4,7 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Poll;
+using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Repository;
@@ -372,6 +373,30 @@ namespace IndieVisible.Application.Services
         private static string SetFeaturedImage(Guid userId, string featuredImage)
         {
             return string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
+        }
+
+        public OperationResultListVo<UserContentSearchViewModel> Search(Guid currentUserId, string q)
+        {
+            try
+            {
+                IQueryable<UserContent> all = repository.Get(x => x.Content.Contains(q) || x.Introduction.Contains(q));
+
+                IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
+                    .Select(x => new UserContentSearchVo {
+                        ContentId = x.Id,
+                        Title = x.Title,
+                        FeaturedImage = x.FeaturedImage,
+                        Content = string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction
+                    });
+
+                IQueryable<UserContentSearchViewModel> vms = selected.ProjectTo<UserContentSearchViewModel>(mapper.ConfigurationProvider);
+
+                return new OperationResultListVo<UserContentSearchViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultListVo<UserContentSearchViewModel>(ex.Message);
+            }
         }
     }
 }

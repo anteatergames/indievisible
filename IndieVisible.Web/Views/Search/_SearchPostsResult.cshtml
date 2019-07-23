@@ -1,0 +1,12 @@
+﻿@model IEnumerable<IndieVisible.Application.ViewModels.Search.UserContentSearchViewModel>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-12 box bg-white">
+        <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.ContentId"><h2>@item.Title</h2></a>
+        <p>@item.Content</p>
+    </div>
+}
