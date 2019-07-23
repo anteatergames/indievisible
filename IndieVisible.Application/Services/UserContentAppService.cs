@@ -384,7 +384,7 @@ namespace IndieVisible.Application.Services
                 IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
                     .Select(x => new UserContentSearchVo {
                         ContentId = x.Id,
-                        Title = x.Title,
+                        Title = String.IsNullOrWhiteSpace(x.Title) ? "posted from the frontpage" : x.Title,
                         FeaturedImage = x.FeaturedImage,
                         Content = string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction
                     });

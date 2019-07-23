@@ -5,8 +5,8 @@
 
 @foreach (var item in Model)
 {
-    <div class="col-12 box bg-white">
+    <div class="col-12 p-3 box bg-white">
         <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.ContentId"><h2>@item.Title</h2></a>
-        <p>@item.Content</p>
+        <p style="max-height:50px" class="text-truncate">@item.Content</p>
     </div>
 }
