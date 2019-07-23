@@ -6,10 +6,6 @@
     }
 
     function bindAll() {
-        //bindSave();
-    }
-
-    function bindSave() {
     }
 
 

@@ -13,5 +13,7 @@ namespace IndieVisible.Domain.ValueObjects
         public bool CanFollow { get; set; }
 
         public bool CanConnect { get; set; }
+
+        public bool IsAdmin { get; set; }
     }
 }

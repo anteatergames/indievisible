@@ -48,8 +48,6 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
             badges.ToList().ForEach(x =>
             {
                 var uiInfo = x.GetAttributeOfType<UiInfoAttribute>();
-                string displayTitle = uiInfo.Display;
-                string description = uiInfo.Description;
 
                 list.Add(new KeyValuePair<string, UiInfoAttribute>(x.ToString(), uiInfo));
             });

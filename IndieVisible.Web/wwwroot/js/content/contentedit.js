@@ -85,7 +85,6 @@
             };
             var reader;
             var file;
-            var url;
 
             if (files && files.length > 0) {
                 file = files[0];

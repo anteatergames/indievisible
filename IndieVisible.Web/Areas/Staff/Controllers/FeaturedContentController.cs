@@ -12,12 +12,10 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
     [Route("staff/featuredcontent")]
     public class FeaturedContentController : StaffBaseController
     {
-        private readonly IUserContentAppService _contentService;
         private readonly IFeaturedContentAppService _service;
 
-        public FeaturedContentController(IUserContentAppService contentService, IFeaturedContentAppService service)
+        public FeaturedContentController(IFeaturedContentAppService service)
         {
-            _contentService = contentService;
             _service = service;
         }
 

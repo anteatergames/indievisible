@@ -40,12 +40,8 @@
             background: rgba(0, 0, 0, 0);
         }
 
-.user-profile .box {
-    /*box-shadow: none;*/
-}
-
 .user-profile .box-footer {
-    /*padding-top: 10px;*/
+    border: 0;
 }
 
 .badge-wrapper {
@@ -84,18 +80,31 @@
         }
 
 
-
-.nav-pills .nav-link {
-    text-transform: capitalize;
-    border-bottom: 2px solid #d5d5d5;
+.user-profile .nav-pills {
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
-    .nav-pills .nav-link.active {
-        color: #249637;
-        font-weight: bold;
-        background-color: transparent;
-        border-bottom: 2px solid #249637;
+    .user-profile .nav-pills .nav-link {
+        text-transform: capitalize;
     }
+
+        .user-profile .nav-pills .nav-link.active {
+            color: #249637;
+            font-weight: bold;
+            background-color: transparent;
+            border-bottom: 2px solid #249637;
+            border-radius: 0;
+        }
+
+            .user-profile .nav-pills .nav-link.active:first-child {
+                border-bottom-left-radius: 5px;
+            }
+
+            .user-profile .nav-pills .nav-link.active:last-child {
+                border-bottom-right-radius: 5px;
+            }
 
 .profileactions {
     position: absolute;
@@ -123,12 +132,6 @@
     border-color: #00ff21;
     background: rgba(0, 0, 0, 0.5) !important;
 }
-
-
-.user-profile .nav-pills .nav-link {
-    border-radius: 0;
-}
-
 
 .user-profile-others {
     position: relative;
@@ -171,5 +174,8 @@
 
     .user-profile .user-profile-desc {
         font-size: 1rem;
+    }
+    .user-profile .nav-pills, .user-profile .nav-pills .nav-link {
+        border-radius: 0 !important;
     }
 }

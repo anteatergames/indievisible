@@ -152,7 +152,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                OperationResultVo operationResult = brainstormAppService.Vote(this.CurrentUserId, vm.VotingItemId, vm.VoteValue);
+                brainstormAppService.Vote(this.CurrentUserId, vm.VotingItemId, vm.VoteValue);
 
                 string url = Url.Action("Index", "Brainstorm", new { area = string.Empty });
 

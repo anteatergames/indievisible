@@ -14,16 +14,12 @@ namespace IndieVisible.Application.Services
 {
     public class GamificationAppService : IGamificationAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
         private readonly IGamificationDomainService gamificationDomainService;
 
         public Guid CurrentUserId { get; set; }
 
-        public GamificationAppService(IMapper mapper, IUnitOfWork unitOfWork, IGamificationDomainService gamificationDomainService)
+        public GamificationAppService(IGamificationDomainService gamificationDomainService)
         {
-            this.mapper = mapper;
-            this.unitOfWork = unitOfWork;
             this.gamificationDomainService = gamificationDomainService;
         }
 

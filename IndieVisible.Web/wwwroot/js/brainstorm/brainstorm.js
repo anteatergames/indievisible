@@ -4,8 +4,6 @@
     var rootUrl = '/brainstorm';
 
     var selectors = {};
-
-    var isAjax = false;
     var canInteract = false;
     var newIdea = false;
 
@@ -14,7 +12,6 @@
 
         bindAll();
 
-        isAjax = selectors.container.find('#isajax').val();
         canInteract = selectors.container.find('#caninteract').val();
         newIdea = window.location.href.indexOf('newidea') > -1;
 

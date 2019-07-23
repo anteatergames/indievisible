@@ -38,7 +38,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
 
             msg.AddTo(new EmailAddress(email));
 
-            var response = await client.SendEmailAsync(msg);
+            await client.SendEmailAsync(msg);
         }
     }
 }

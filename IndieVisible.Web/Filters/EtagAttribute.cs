@@ -31,8 +31,6 @@ namespace IndieVisible.Web
         {
             if (context.HttpContext.Request.Method == "GET" && _statusCodes.Contains(context.HttpContext.Response.StatusCode))
             {
-                IActionResult test = context.Result;
-                //I just serialize the result to JSON, could do something less costly
                 string content = JsonConvert.SerializeObject(context.Result);
 
                 string etag = ETagGenerator.GetETag(context.HttpContext.Request.Path.ToString(), Encoding.UTF8.GetBytes(content));

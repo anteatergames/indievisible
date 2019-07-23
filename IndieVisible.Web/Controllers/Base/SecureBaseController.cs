@@ -128,12 +128,6 @@ namespace IndieVisible.Web.Controllers.Base
             this.SetCookieValue(CookieRequestCultureProvider.DefaultCookieName
                 , CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture))
                 , 365);
-
-            //Response.Cookies.Append(
-            //    CookieRequestCultureProvider.DefaultCookieName,
-            //    CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-            //    new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true, Secure=true }
-            //);
         }
 
 
@@ -224,7 +218,6 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected string DeleteFeaturedImage(Guid userId, string filename)
         {
-            string type = BlobType.FeaturedImage.ToString().ToLower();
             string result = this.DeleteImage(userId, filename);
 
             return result;
