@@ -33,7 +33,8 @@ namespace IndieVisible.Web.Services
                 option.Expires = DateTime.Now.AddDays(7);
 
             option.IsEssential = true; // TODO GDPR related. Make a parameter and set cookie consent popup
-            
+            option.Secure = true;
+
             _httpContextAccessor.HttpContext.Response.Cookies.Append(key, value, option);
         }
     }

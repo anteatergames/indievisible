@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Home;
+using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
@@ -97,22 +98,29 @@ namespace IndieVisible.Web.Controllers
             }
             else
             {
-                Application.ViewModels.UserPreferences.UserPreferencesViewModel userPrefs = this.userPreferencesAppService.GetByUserId(this.CurrentUserId);
-
-                if (userPrefs != null)
+                if (!User.Identity.IsAuthenticated)
                 {
-                    this.SetLanguage(userPrefs.UiLanguage);
-                    this.SetCookieValue(SessionValues.DefaultLanguage, userPrefs.UiLanguage.ToString(), 7);
-
-                    postModel.DefaultLanguage = userPrefs.UiLanguage;
+                    postModel.DefaultLanguage = base.SetLanguageFromCulture(requestLanguage.UICulture.Name);
                 }
                 else
                 {
-                    postModel.DefaultLanguage = SupportedLanguage.English;
+                    UserPreferencesViewModel userPrefs = this.userPreferencesAppService.GetByUserId(this.CurrentUserId);
+
+                    if (userPrefs != null)
+                    {
+                        this.SetLanguage(userPrefs.UiLanguage);
+                        postModel.DefaultLanguage = userPrefs.UiLanguage;
+
+                    }
+                    else
+                    {
+                        postModel.DefaultLanguage = SupportedLanguage.English;
+                    }
                 }
             }
 
-            ViewData["requestLanguage"] = requestLanguage.UICulture.Name;
+            this.SetCookieValue(SessionValues.DefaultLanguage, postModel.DefaultLanguage.ToString(), 7);
+            ViewData["requestLanguage"] = postModel.DefaultLanguage;
         }
 
 

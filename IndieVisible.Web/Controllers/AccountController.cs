@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -584,9 +585,12 @@ namespace IndieVisible.Web.Controllers
         private void SetPreferences(ApplicationUser user)
         {
             var preferences = this.userPreferencesAppService.GetByUserId(new Guid(user.Id));
-            if (preferences == null)
+            if (preferences == null || preferences.Id == Guid.Empty)
             {
-                this.SetCookieValue(SessionValues.DefaultLanguage, SupportedLanguage.English.ToString(), 7);
+                RequestCulture requestLanguage = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture;
+                var lang = base.SetLanguageFromCulture(requestLanguage.UICulture.Name);
+
+                this.SetCookieValue(SessionValues.DefaultLanguage, lang.ToString(), 7);
             }
             else {
                 this.SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);

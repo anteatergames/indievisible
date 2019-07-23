@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = null;
 
-    var lang = ViewData["requestLanguage"];
+    SupportedLanguage lang = (SupportedLanguage)ViewData["requestLanguage"];
 }
 
 <h1 class="sr-only">INDIEVISIBLE - Home</h1>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        @if (lang.Equals("pt-BR"))
+        @if (lang == SupportedLanguage.Portuguese)
         {
             <div class="col-12 d-none d-xl-block">
                 <div class="flex-square clickable rectangle bg-patreon">
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-        @if (lang.Equals("pt-BR"))
+        @if (lang == SupportedLanguage.Portuguese)
         {
             <div class="col-12 d-xl-none">
                 <div class="flex-square clickable rectangle bg-patreon">

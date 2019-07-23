@@ -94,6 +94,30 @@ namespace IndieVisible.Web.Controllers.Base
             return profile;
         }
 
+        protected SupportedLanguage SetLanguageFromCulture(string languageCode)
+        {
+            switch (languageCode)
+            {
+                case "pt-BR":
+                case "pt":
+                    return SupportedLanguage.Portuguese;
+                case "ru":
+                case "ru-RU":
+                    return SupportedLanguage.Russian;
+                case "de":
+                    return SupportedLanguage.German;
+                case "es":
+                    return SupportedLanguage.Spanish;
+                case "bs":
+                    return SupportedLanguage.Bosnian;
+                case "sr":
+                    return SupportedLanguage.Serbian;
+                case "hr":
+                    return SupportedLanguage.Croatian;
+                default:
+                    return SupportedLanguage.English;
+            }
+        }
 
         protected void SetLanguage(SupportedLanguage language)
         {
@@ -101,11 +125,15 @@ namespace IndieVisible.Web.Controllers.Base
 
             culture = string.IsNullOrWhiteSpace(culture) ? "en-US" : culture;
 
-            Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true }
-            );
+            this.SetCookieValue(CookieRequestCultureProvider.DefaultCookieName
+                , CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture))
+                , 365);
+
+            //Response.Cookies.Append(
+            //    CookieRequestCultureProvider.DefaultCookieName,
+            //    CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+            //    new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true, Secure=true }
+            //);
         }
 
 
@@ -215,6 +243,10 @@ namespace IndieVisible.Web.Controllers.Base
         protected void SetCookieValue(SessionValues key, string value, int? expireTime)
         {
             CookieMgrService.Set(key.ToString(), value, expireTime);
+        }
+        protected void SetCookieValue(string key, string value, int? expireTime)
+        {
+            CookieMgrService.Set(key, value, expireTime);
         }
         #endregion
     }
