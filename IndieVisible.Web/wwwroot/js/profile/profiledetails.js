@@ -89,6 +89,8 @@
 
     function bindTabs() {
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            e.preventDefault();
+
             var tabDestination = e.target.getAttribute('href');
 
             if (tabDestination === '#' + selectors.tabActivity.prop('id')) {
@@ -100,6 +102,7 @@
             else if (tabDestination === '#' + selectors.tabConnections.prop('id')) {
                 loadConnections(selectors.UserId.val());
             }
+            return false;
         });
     }
 

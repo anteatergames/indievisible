@@ -230,8 +230,6 @@ namespace IndieVisible.Application.Services
 
             vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
 
-            FormatExternalNetworkUrls(vm);
-
             vm.Counters.Games = gameRepository.Count(x => x.UserId == vm.UserId);
             vm.Counters.Posts = userContentRepository.Count(x => x.UserId == vm.UserId);
             vm.Counters.Comments = userContentCommentRepository.Count(x => x.UserId == vm.UserId);
@@ -261,34 +259,6 @@ namespace IndieVisible.Application.Services
             vm.ConnectionControl.ConnectionIsPending = this.userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, false, true);
 
             return vm;
-        }
-
-        private static void FormatExternalNetworkUrls(ProfileViewModel vm)
-        {
-            if (!string.IsNullOrWhiteSpace(vm.ItchIoUrl) && !vm.ItchIoUrl.EndsWith("itch.io"))
-            {
-                vm.ItchIoUrl = UrlFormatter.ItchIo(vm.ItchIoUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.GameJoltUrl) && !vm.GameJoltUrl.Contains("gamejolt.com"))
-            {
-                vm.GameJoltUrl = UrlFormatter.GameJolt(vm.GameJoltUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.UnityConnectUrl) && !vm.UnityConnectUrl.Contains("connect.unity.com"))
-            {
-                vm.UnityConnectUrl = UrlFormatter.UnityConnect(vm.UnityConnectUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.IndieDbUrl) && !vm.IndieDbUrl.Contains("indiedb.com"))
-            {
-                vm.IndieDbUrl = UrlFormatter.IndieDb(vm.IndieDbUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.GameDevNetUrl) && !vm.GameDevNetUrl.Contains("gamedev.net"))
-            {
-                vm.GameDevNetUrl = UrlFormatter.GamedevNet(vm.GameDevNetUrl);
-            }
         }
 
         public ProfileViewModel GenerateNewOne(ProfileType type)
