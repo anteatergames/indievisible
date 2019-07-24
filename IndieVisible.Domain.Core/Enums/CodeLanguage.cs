@@ -9,6 +9,7 @@ namespace IndieVisible.Domain.Core.Enums
         Csharp,
         Java,
         Cplusplus,
-        Javascript
+        Javascript,
+        Gml
     }
 }
