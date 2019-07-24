@@ -6,6 +6,7 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
@@ -384,9 +385,10 @@ namespace IndieVisible.Application.Services
                 IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
                     .Select(x => new UserContentSearchVo {
                         ContentId = x.Id,
-                        Title = String.IsNullOrWhiteSpace(x.Title) ? "posted from the frontpage" : x.Title,
+                        Title = x.Title,
                         FeaturedImage = x.FeaturedImage,
-                        Content = string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction
+                        Content = (string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction).GetFirstWords(20),
+                        Language = x.Language
                     });
 
                 IQueryable<UserContentSearchViewModel> vms = selected.ProjectTo<UserContentSearchViewModel>(mapper.ConfigurationProvider);

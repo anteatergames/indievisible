@@ -335,7 +335,8 @@ namespace IndieVisible.Web.Controllers
                     "Two Factor Authentication - Be more safe with this security feature",
                     "Content post language selection",
                     "Ranking Page",
-                    "Post new suggestions right from the sidebar"
+                    "Post new suggestions right from the sidebar",
+                    "Basic search results"
                 }
             });
 

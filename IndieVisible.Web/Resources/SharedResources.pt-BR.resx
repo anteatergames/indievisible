@@ -993,4 +993,24 @@
     <value>Procurando por "{0}"</value>
     <comment>Search</comment>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>Inglês</value>
+    <comment>Language</comment>
+  </data>
+  <data name="Portuguese" xml:space="preserve">
+    <value>Português</value>
+    <comment>Language</comment>
+  </data>
+  <data name="read more" xml:space="preserve">
+    <value>leia mais</value>
+    <comment>Search</comment>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Russo</value>
+    <comment>Language</comment>
+  </data>
+  <data name="quick pot" xml:space="preserve">
+    <value>postagem rápida</value>
+    <comment>Search</comment>
+  </data>
 </root>

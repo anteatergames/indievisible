@@ -7,6 +7,14 @@
 {
     <div class="col-12 p-3 box bg-white">
         <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.ContentId"><h2>@item.Title</h2></a>
-        <p style="max-height:50px" class="text-truncate">@item.Content</p>
+        <p class="text-truncate">@Html.Raw(item.Content) ...</p>
+        <div class="searchresult-item-footer">
+            <span class="badge badge-dark">@SharedLocalizer[item.Language.ToString()]</span>
+            @if (String.IsNullOrEmpty(item.Title))
+            {
+                <span class="badge badge-info">@SharedLocalizer["quick post"]</span>
+            }
+            <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.ContentId" class="btn btn-outline-primary btn-sm float-right">@SharedLocalizer["read more"]</a>
+        </div>
     </div>
 }
