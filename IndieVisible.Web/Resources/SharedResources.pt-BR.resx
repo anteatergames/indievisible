@@ -1013,4 +1013,8 @@
     <value>postagem rápida</value>
     <comment>Search</comment>
   </data>
+  <data name="Ops! No results for your search. Try something else." xml:space="preserve">
+    <value>Ops! Sem resultados para sua busca. Tente outra coisa.</value>
+    <comment>Search</comment>
+  </data>
 </root>
