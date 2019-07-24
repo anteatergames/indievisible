@@ -92,7 +92,7 @@
                     <div class="box bg-white">
                         <div class="box-body box-profile">
                             <div class="row">
-                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="Game Thumbnail"/></div>
+                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="Game Thumbnail" /></div>
                                 <div class="col-12">
                                     <div class="game-info">
                                         <p>
@@ -113,6 +113,7 @@
                                                 @SharedLocalizer["Website"]
                                             </p>
                                             <a href="@Model.WebsiteUrl" target="_blank"><h6 class="margin-bottom text-truncate">@Model.WebsiteUrl</h6></a>
+                                            <div class="text-center"><canvas id="qrCode"></canvas></div>
                                         }
                                         <p>
                                             @SharedLocalizer["Status"]
@@ -189,11 +190,26 @@
     <environment include="Development">
         <script src="~/js/shared/contentactions.js"></script>
         <script src="~/js/game/gamedetails.js"></script>
+        <script src="~/lib/qrious/qrious.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/js/game/gamedetails.min.js" asp-append-version="true" defer></script>
+        <script src="~/lib/qrious/qrious.min.js"></script>
     </environment>
     <script src="~/lib/embedo/embedo.js"></script>
+
+
+    <script type="text/javascript">
+        (function () {
+            var qr = new QRious({
+                element: document.getElementById('qrCode')
+            });
+            qr.set({
+                value: '@Html.Raw(Model.WebsiteUrl)',
+                size: 150
+            });
+        })();
+    </script>
 
     <script type="application/ld+json">
         {

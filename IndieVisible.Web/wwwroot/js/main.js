@@ -17,8 +17,6 @@
 
         loadNotifications();
 
-        //$(".wrapper").niceScroll();
-
         $('[data-toggle="tooltip"]').tooltip();
     }
 

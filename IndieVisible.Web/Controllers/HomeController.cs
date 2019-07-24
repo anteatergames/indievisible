@@ -336,7 +336,8 @@ namespace IndieVisible.Web.Controllers
                     "Content post language selection",
                     "Ranking Page",
                     "Post new suggestions right from the sidebar",
-                    "Basic search results"
+                    "Basic search results",
+                    "QR code generation"
                 }
             });
 

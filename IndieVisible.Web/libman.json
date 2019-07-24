@@ -75,8 +75,8 @@
       "destination": "wwwroot/lib/dropzone"
     },
     {
-      "library": "jquery.nicescroll@3.7.6",
-      "destination": "wwwroot/lib/jquery-nicescroll"
+      "library": "qrious@4.0.2",
+      "destination": "wwwroot/lib/qrious"
     }
   ]
 }
