@@ -14,26 +14,29 @@ namespace IndieVisible.Web.Controllers
 {
     public class ProfileController : SecureBaseController
     {
-        private readonly IProfileAppService _profileAppService;
+        private readonly IProfileAppService profileAppService;
         private readonly INotificationAppService notificationAppService;
+        private readonly IGamificationAppService gamificationAppService;
 
         public ProfileController(IProfileAppService profileAppService
-            , INotificationAppService notificationAppService) : base()
+            , INotificationAppService notificationAppService
+            , IGamificationAppService gamificationAppService) : base()
         {
-            _profileAppService = profileAppService;
+            this.profileAppService = profileAppService;
             this.notificationAppService = notificationAppService;
+            this.gamificationAppService = gamificationAppService;
         }
 
         [HttpGet]
         [Route("profile/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
-            ProfileViewModel vm = _profileAppService.GetByUserId(this.CurrentUserId, id, ProfileType.Personal);
+            ProfileViewModel vm = profileAppService.GetByUserId(this.CurrentUserId, id, ProfileType.Personal);
             if (vm == null)
             {
-                ProfileViewModel profile = _profileAppService.GenerateNewOne(ProfileType.Personal);
+                ProfileViewModel profile = profileAppService.GenerateNewOne(ProfileType.Personal);
                 profile.UserId = id;
-                _profileAppService.Save(profile);
+                profileAppService.Save(profile);
 
                 vm = profile;
             }
@@ -41,6 +44,8 @@ namespace IndieVisible.Web.Controllers
             this.SetImages(vm);
 
             this.FormatExternalNetworkUrls(vm);
+
+            this.gamificationAppService.FillProfileGamificationDetails(this.CurrentUserId, ref vm);
 
             if (this.CurrentUserId != Guid.Empty)
             {
@@ -65,7 +70,7 @@ namespace IndieVisible.Web.Controllers
         [Route("profile/edit/{userId:guid}")]
         public IActionResult Edit(Guid userId)
         {
-            ProfileViewModel vm = _profileAppService.GetByUserId(userId, ProfileType.Personal);
+            ProfileViewModel vm = profileAppService.GetByUserId(userId, ProfileType.Personal);
             this.SetImages(vm);
 
             return View(vm);
@@ -81,7 +86,7 @@ namespace IndieVisible.Web.Controllers
                     vm.Bio = vm.Name + " is a game developer willing to rock the game development world with funny games.";
                 }
 
-                _profileAppService.Save(vm);
+                profileAppService.Save(vm);
 
                 string url = Url.Action("Details", "Profile", new { area = string.Empty, id = vm.UserId.ToString() });
 

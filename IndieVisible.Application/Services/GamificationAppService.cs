@@ -1,14 +1,11 @@
-﻿using AutoMapper;
-using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Gamification;
-using IndieVisible.Domain.Interfaces.Base;
+using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Application.Services
 {
@@ -33,9 +30,10 @@ namespace IndieVisible.Application.Services
 
                 List<RankingViewModel> vms = new List<RankingViewModel>();
 
-                foreach (var item in allModels)
+                foreach (RankingVo item in allModels)
                 {
-                    var vm = new RankingViewModel {
+                    RankingViewModel vm = new RankingViewModel
+                    {
                         UserId = item.Gamification.UserId,
                         CurrentLevelNumber = item.Gamification.CurrentLevelNumber,
                         XpCurrentLevel = item.Gamification.XpCurrentLevel,
@@ -55,6 +53,28 @@ namespace IndieVisible.Application.Services
             }
 
             return result;
+        }
+
+        public OperationResultVo FillProfileGamificationDetails(Guid currentUserId, ref ProfileViewModel vm)
+        {
+            try
+            {
+                Gamification gamification = this.gamificationDomainService.GetByUserId(vm.UserId);
+
+                GamificationLevel currentLevel = this.gamificationDomainService.GetLevel(gamification.CurrentLevelNumber);
+
+                vm.IndieXp.LevelName = currentLevel.Name;
+                vm.IndieXp.Level = gamification.CurrentLevelNumber;
+                vm.IndieXp.LevelXp = gamification.XpCurrentLevel;
+                vm.IndieXp.NextLevelXp = gamification.XpToNextLevel + gamification.XpCurrentLevel;
+
+                return new OperationResultVo(true);
+
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
     }
 }

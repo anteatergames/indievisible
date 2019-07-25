@@ -20,31 +20,25 @@ namespace IndieVisible.Application.Services
     {
         private readonly IMapper mapper;
         private readonly IUnitOfWork unitOfWork;
-        private readonly IProfileRepository repository;
+        private readonly IProfileDomainService profileDomainService;
         private readonly IGameRepository gameRepository;
-        private readonly IUserContentRepository userContentRepository;
-        private readonly IUserContentCommentRepository userContentCommentRepository;
+        private readonly IUserContentDomainService userContentDomainService;
         private readonly IBrainstormCommentRepository brainstormCommentRepository;
-        private readonly IGamificationDomainService gamificationDomainService;
-        private readonly IUserFollowDomainService userFollowDomainService;
         private readonly IUserConnectionDomainService userConnectionDomainService;
 
-        public ProfileAppService(IMapper mapper, IUnitOfWork unitOfWork, IProfileRepository repository, IGameRepository gameRepository, IUserContentRepository userContentRepository
-            , IUserContentCommentRepository userContentCommentRepository
+        public ProfileAppService(IMapper mapper, IUnitOfWork unitOfWork
+            , IProfileDomainService profileDomainService
+            , IGameRepository gameRepository
+            , IUserContentDomainService userContentDomainService
             , IBrainstormCommentRepository brainstormCommentRepositor
-            , IGamificationDomainService gamificationDomainService
-            , IUserFollowDomainService userFollowDomainService
             , IUserConnectionDomainService userConnectionDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
-            this.repository = repository;
+            this.profileDomainService = profileDomainService;
             this.gameRepository = gameRepository;
-            this.userContentRepository = userContentRepository;
-            this.userContentCommentRepository = userContentCommentRepository;
+            this.userContentDomainService = userContentDomainService;
             this.brainstormCommentRepository = brainstormCommentRepositor;
-            this.gamificationDomainService = gamificationDomainService;
-            this.userFollowDomainService = userFollowDomainService;
             this.userConnectionDomainService = userConnectionDomainService;
         }
 
@@ -55,7 +49,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                int count = repository.GetAll().Count();
+                int count = profileDomainService.GetAll().Count();
 
                 result = new OperationResultVo<int>(count);
             }
@@ -73,7 +67,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                IQueryable<UserProfile> allModels = repository.GetAll();
+                var allModels = profileDomainService.GetAll();
 
                 IEnumerable<ProfileViewModel> vms = mapper.Map<IEnumerable<UserProfile>, IEnumerable<ProfileViewModel>>(allModels);
 
@@ -93,7 +87,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                UserProfile model = repository.GetById(id);
+                UserProfile model = profileDomainService.GetById(id);
 
                 ProfileViewModel vm = mapper.Map<ProfileViewModel>(model);
 
@@ -115,7 +109,7 @@ namespace IndieVisible.Application.Services
             {
                 // validate before
 
-                repository.Remove(id);
+                profileDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
@@ -139,7 +133,7 @@ namespace IndieVisible.Application.Services
 
                 viewModel.GameJoltUrl = viewModel.GameJoltUrl?.TrimStart('@');
 
-                UserProfile existing = repository.GetById(viewModel.Id);
+                UserProfile existing = profileDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -156,14 +150,15 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    repository.Add(model);
+                    profileDomainService.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    repository.Update(model);
+                    profileDomainService.Update(model);
                 }
 
+                #region Update Name
                 IQueryable<Game> games = gameRepository.GetAll().Where(x => x.UserId == viewModel.UserId);
 
                 foreach (Game g in games)
@@ -171,26 +166,27 @@ namespace IndieVisible.Application.Services
                     g.DeveloperName = viewModel.Name;
                 }
 
-                IQueryable<UserContent> posts = userContentRepository.GetAll().Where(x => x.UserId == viewModel.UserId);
+                IEnumerable<UserContent> posts = userContentDomainService.Get(x => x.UserId == viewModel.UserId);
 
                 foreach (UserContent p in posts)
                 {
                     p.AuthorName = viewModel.Name;
                 }
 
-                IQueryable<UserContentComment> comments = userContentCommentRepository.GetAll().Where(x => x.UserId == viewModel.UserId);
+                IEnumerable<UserContentComment> comments = userContentDomainService.GetAllComments(x => x.UserId == viewModel.UserId);
 
                 foreach (UserContentComment c in comments)
                 {
                     c.AuthorName = viewModel.Name;
                 }
 
-                IQueryable<BrainstormComment> brainstormComments = brainstormCommentRepository.GetAll().Where(x => x.UserId == viewModel.UserId);
+                IEnumerable<BrainstormComment> brainstormComments = brainstormCommentRepository.GetAll().Where(x => x.UserId == viewModel.UserId);
 
                 foreach (BrainstormComment bc in brainstormComments)
                 {
                     bc.AuthorName = viewModel.Name;
                 }
+                #endregion
 
                 unitOfWork.Commit();
 
@@ -214,7 +210,7 @@ namespace IndieVisible.Application.Services
         {
             ProfileViewModel vm = new ProfileViewModel();
 
-            IEnumerable<UserProfile> profiles = repository.GetByUserId(userId);
+            IEnumerable<UserProfile> profiles = profileDomainService.GetByUserId(userId);
             UserProfile model = profiles.FirstOrDefault(x => x.Type == type);
 
             if (profiles.Any() && model != null)
@@ -231,29 +227,21 @@ namespace IndieVisible.Application.Services
             vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
 
             vm.Counters.Games = gameRepository.Count(x => x.UserId == vm.UserId);
-            vm.Counters.Posts = userContentRepository.Count(x => x.UserId == vm.UserId);
-            vm.Counters.Comments = userContentCommentRepository.Count(x => x.UserId == vm.UserId);
-
-            Gamification gamification = this.gamificationDomainService.GetByUserId(userId);
-
-            unitOfWork.Commit();
+            vm.Counters.Posts = userContentDomainService.Count(x => x.UserId == vm.UserId);
+            vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 
 
-            GamificationLevel currentLevel = this.gamificationDomainService.GetLevel(gamification.CurrentLevelNumber);
-
-            vm.IndieXp.LevelName = currentLevel.Name;
-            vm.IndieXp.Level = gamification.CurrentLevelNumber;
-            vm.IndieXp.LevelXp = gamification.XpCurrentLevel;
-            vm.IndieXp.NextLevelXp = gamification.XpToNextLevel + gamification.XpCurrentLevel;
-
-            vm.Counters.Followers = this.userFollowDomainService.Count(x => x.FollowUserId == vm.UserId);
-            vm.Counters.Following = this.userFollowDomainService.Count(x => x.UserId == currentUserId);
+            vm.Counters.Followers = this.profileDomainService.CountFollow(x => x.FollowUserId == vm.UserId);
+            vm.Counters.Following = this.profileDomainService.CountFollow(x => x.UserId == currentUserId);
             int connectionsToUser = this.userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
             int connectionsFromUser = this.userConnectionDomainService.Count(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
 
             vm.Counters.Connections = connectionsToUser + connectionsFromUser;
 
-            vm.CurrentUserFollowing = this.userFollowDomainService.Get(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
+
+            //unitOfWork.Commit();
+
+            vm.CurrentUserFollowing = this.profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
             vm.ConnectionControl.CurrentUserConnected = this.userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
             vm.ConnectionControl.CurrentUserWantsToFollowMe = this.userConnectionDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
             vm.ConnectionControl.ConnectionIsPending = this.userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, false, true);

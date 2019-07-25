@@ -27,11 +27,13 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Profile
             services.AddScoped<IProfileAppService, ProfileAppService>();
+            services.AddScoped<IProfileDomainService, ProfileDomainService>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
             #endregion
 
             #region Content
             services.AddScoped<IUserContentAppService, UserContentAppService>();
+            services.AddScoped<IUserContentDomainService, UserContentDomainService>();
             services.AddScoped<IUserContentRepository, UserContentRepository>();
             #endregion
 
@@ -91,7 +93,6 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IUserConnectionDomainService, UserConnectionDomainService>();
             services.AddScoped<IUserConnectionRepository, UserConnectionRepository>();
             #endregion
-
 
             #region Poll
             services.AddScoped<IPollAppService, PollAppService>();
