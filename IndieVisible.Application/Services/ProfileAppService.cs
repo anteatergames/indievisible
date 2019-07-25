@@ -238,9 +238,6 @@ namespace IndieVisible.Application.Services
 
             vm.Counters.Connections = connectionsToUser + connectionsFromUser;
 
-
-            //unitOfWork.Commit();
-
             vm.CurrentUserFollowing = this.profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
             vm.ConnectionControl.CurrentUserConnected = this.userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
             vm.ConnectionControl.CurrentUserWantsToFollowMe = this.userConnectionDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
