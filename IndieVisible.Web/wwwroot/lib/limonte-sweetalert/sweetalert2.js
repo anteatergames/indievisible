@@ -1,5 +1,5 @@
 /*!
-* sweetalert2 v7.29.2
+* sweetalert2 v7.33.1
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -257,8 +257,8 @@ var warnOnce = function warnOnce(message) {
 var callIfFunction = function callIfFunction(arg) {
   return typeof arg === 'function' ? arg() : arg;
 };
-var isThenable = function isThenable(arg) {
-  return arg && _typeof(arg) === 'object' && typeof arg.then === 'function';
+var isPromise = function isPromise(arg) {
+  return arg && Promise.resolve(arg) === arg;
 };
 
 var DismissReason = Object.freeze({
@@ -384,6 +384,11 @@ var hide = function hide(elem) {
 
 var isVisible = function isVisible(elem) {
   return elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+};
+var contains = function contains(haystack, needle) {
+  if (typeof haystack.contains === 'function') {
+    return haystack.contains(needle);
+  }
 };
 
 var getContainer = function getContainer() {
@@ -557,9 +562,12 @@ var init = function init(params) {
 var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
   if (!param) {
     return hide(target);
-  }
+  } // DOM element
 
-  if (_typeof(param) === 'object') {
+
+  if (param instanceof HTMLElement) {
+    target.appendChild(param); // JQuery element(s)
+  } else if (_typeof(param) === 'object') {
     target.innerHTML = '';
 
     if (0 in param) {
@@ -877,7 +885,7 @@ var undoIEfix = function undoIEfix() {
 var setAriaHidden = function setAriaHidden() {
   var bodyChildren = toArray(document.body.children);
   bodyChildren.forEach(function (el) {
-    if (el === getContainer() || el.contains(getContainer())) {
+    if (el === getContainer() || contains(el, getContainer())) {
       return;
     }
 
@@ -1070,6 +1078,7 @@ var defaultParams = {
   type: null,
   toast: false,
   customClass: '',
+  customContainerClass: '',
   target: 'body',
   backdrop: true,
   animation: true,
@@ -1358,12 +1367,54 @@ var showLoading = function showLoading() {
 };
 
 /**
- * If `timer` parameter is set, returns number os milliseconds of timer remained.
- * Otherwise, returns null.
+ * If `timer` parameter is set, returns number of milliseconds of timer remained.
+ * Otherwise, returns undefined.
  */
 
 var getTimerLeft = function getTimerLeft() {
   return globalState.timeout && globalState.timeout.getTimerLeft();
+};
+/**
+ * Stop timer. Returns number of milliseconds of timer remained.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var stopTimer = function stopTimer() {
+  return globalState.timeout && globalState.timeout.stop();
+};
+/**
+ * Resume timer. Returns number of milliseconds of timer remained.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var resumeTimer = function resumeTimer() {
+  return globalState.timeout && globalState.timeout.start();
+};
+/**
+ * Resume timer. Returns number of milliseconds of timer remained.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var toggleTimer = function toggleTimer() {
+  var timer = globalState.timeout;
+  return timer && (timer.running ? timer.stop() : timer.start());
+};
+/**
+ * Increase timer. Returns number of milliseconds of an updated timer.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var increaseTimer = function increaseTimer(n) {
+  return globalState.timeout && globalState.timeout.increase(n);
+};
+/**
+ * Check if timer is running. Returns true if timer is running
+ * or false if timer is paused or stopped.
+ * If `timer` parameter isn't set, returns undefined
+ */
+
+var isTimerRunning = function isTimerRunning() {
+  return globalState.timeout && globalState.timeout.isRunning();
 };
 
 
@@ -1403,7 +1454,12 @@ var staticMethods = Object.freeze({
 	deleteQueueStep: deleteQueueStep,
 	showLoading: showLoading,
 	enableLoading: showLoading,
-	getTimerLeft: getTimerLeft
+	getTimerLeft: getTimerLeft,
+	stopTimer: stopTimer,
+	resumeTimer: resumeTimer,
+	toggleTimer: toggleTimer,
+	increaseTimer: increaseTimer,
+	isTimerRunning: isTimerRunning
 });
 
 // https://github.com/Riim/symbol-polyfill/blob/master/index.js
@@ -1647,28 +1703,58 @@ function hideProgressSteps() {
 var Timer = function Timer(callback, delay) {
   _classCallCheck(this, Timer);
 
-  var id, started, running;
-  var remaining = delay;
+  var id,
+      started,
+      remaining = delay;
+  this.running = false;
 
   this.start = function () {
-    running = true;
-    started = new Date();
-    id = setTimeout(callback, remaining);
+    if (!this.running) {
+      this.running = true;
+      started = new Date();
+      id = setTimeout(callback, remaining);
+    }
+
+    return remaining;
   };
 
   this.stop = function () {
-    running = false;
-    clearTimeout(id);
-    remaining -= new Date() - started;
+    if (this.running) {
+      this.running = false;
+      clearTimeout(id);
+      remaining -= new Date() - started;
+    }
+
+    return remaining;
+  };
+
+  this.increase = function (n) {
+    var running = this.running;
+
+    if (running) {
+      this.stop();
+    }
+
+    remaining += n;
+
+    if (running) {
+      this.start();
+    }
+
+    return remaining;
   };
 
   this.getTimerLeft = function () {
-    if (running) {
+    if (this.running) {
       this.stop();
       this.start();
     }
 
     return remaining;
+  };
+
+  this.isRunning = function () {
+    return this.running;
   };
 
   this.start();
@@ -1809,6 +1895,10 @@ function setParameters(params) {
 
   if (params.customClass) {
     addClass(popup, params.customClass);
+  }
+
+  if (params.customContainerClass) {
+    addClass(container, params.customContainerClass);
   } // Progress steps
 
 
@@ -2357,8 +2447,8 @@ function _main(userParams) {
 
           if (typeof innerParams.inputValue === 'string' || typeof innerParams.inputValue === 'number') {
             input.value = innerParams.inputValue;
-          } else {
-            warn("Unexpected type of inputValue! Expected \"string\" or \"number\", got \"".concat(_typeof(innerParams.inputValue), "\""));
+          } else if (!isPromise(innerParams.inputValue)) {
+            warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(_typeof(innerParams.inputValue), "\""));
           }
 
           setInputPlaceholder(input);
@@ -2500,7 +2590,7 @@ function _main(userParams) {
         return populateInputOptions(formatInputOptions(inputOptions));
       };
 
-      if (isThenable(innerParams.inputOptions)) {
+      if (isPromise(innerParams.inputOptions)) {
         constructor.showLoading();
         innerParams.inputOptions.then(function (inputOptions) {
           _this.hideLoading();
@@ -2512,7 +2602,7 @@ function _main(userParams) {
       } else {
         error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof(innerParams.inputOptions)));
       }
-    } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(innerParams.input) !== -1 && isThenable(innerParams.inputValue)) {
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(innerParams.input) !== -1 && isPromise(innerParams.inputValue)) {
       constructor.showLoading();
       hide(input);
       innerParams.inputValue.then(function (inputValue) {
@@ -2592,16 +2682,12 @@ function SweetAlert() {
     error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
   }
 
+  currentInstance = this;
+
   for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
     args[_key] = arguments[_key];
   }
 
-  if (args.length === 0) {
-    error('At least 1 argument is expected!');
-    return false;
-  }
-
-  currentInstance = this;
   var outerParams = Object.freeze(this.constructor.argsToParams(args));
   Object.defineProperties(this, {
     params: {
@@ -2659,4 +2745,4 @@ Swal.default = Swal;
 return Swal;
 
 })));
-if (typeof window !== 'undefined' && window.Sweetalert2){  window.Sweetalert2.version = '7.29.2';  window.swal = window.sweetAlert = window.Swal = window.SweetAlert = window.Sweetalert2}
+if (typeof window !== 'undefined' && window.Sweetalert2){  window.Sweetalert2.version = '7.33.1';  window.swal = window.sweetAlert = window.Swal = window.SweetAlert = window.Sweetalert2}

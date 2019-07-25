@@ -1,3 +1,13 @@
+(function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+		define( ["jquery", "../jquery.validate"], factory );
+	} else if (typeof module === "object" && module.exports) {
+		module.exports = factory( require( "jquery" ) );
+	} else {
+		factory( jQuery );
+	}
+}(function( $ ) {
+
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: FR (French; français)
@@ -43,9 +53,11 @@ $.extend( $.validator.messages, {
 	creditcardtypes: "Veuillez fournir un numéro de carte de crédit valide.",
 	ipv4: "Veuillez fournir une adresse IP v4 valide.",
 	ipv6: "Veuillez fournir une adresse IP v6 valide.",
-	require_from_group: "Veuillez fournir au moins {0} de ces champs.",
+	require_from_group: $.validator.format( "Veuillez fournir au moins {0} de ces champs." ),
 	nifES: "Veuillez fournir un numéro NIF valide.",
 	nieES: "Veuillez fournir un numéro NIE valide.",
 	cifES: "Veuillez fournir un numéro CIF valide.",
 	postalCodeCA: "Veuillez fournir un code postal valide."
 } );
+return $;
+}));

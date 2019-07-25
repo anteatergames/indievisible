@@ -13,8 +13,7 @@
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
-  line-height: 1;
-  }
+  line-height: 1; }
 
 .fa-lg {
   font-size: 1.33333em;
@@ -31,8 +30,7 @@
   font-size: 1em; }
 
 .fa-2x {
-  font-size: 2em;
-  }
+  font-size: 2em; }
 
 .fa-3x {
   font-size: 3em; }
@@ -4328,5 +4326,4 @@ readers do not read off random characters that represent icons */
 .fa,
 .fas {
   font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  }
+  font-weight: 900; }

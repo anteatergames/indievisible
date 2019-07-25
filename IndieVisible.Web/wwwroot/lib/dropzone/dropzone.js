@@ -2864,7 +2864,7 @@ var Dropzone = function (_Emitter) {
 
 Dropzone.initClass();
 
-Dropzone.version = "5.5.0";
+Dropzone.version = "5.5.1";
 
 // This is a map of options for your different dropzones. Add configurations
 // to this object for your different dropzone elemens.

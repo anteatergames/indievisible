@@ -1,3 +1,13 @@
+(function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+		define( ["jquery", "../jquery.validate"], factory );
+	} else if (typeof module === "object" && module.exports) {
+		module.exports = factory( require( "jquery" ) );
+	} else {
+		factory( jQuery );
+	}
+}(function( $ ) {
+
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: SR (Serbian - Latin alphabet; srpski jezik - latinica)
@@ -19,5 +29,8 @@ $.extend( $.validator.messages, {
 	rangelength: $.validator.format( "Unesite vrednost dugačku između {0} i {1} karaktera." ),
 	range: $.validator.format( "Unesite vrednost između {0} i {1}." ),
 	max: $.validator.format( "Unesite vrednost manju ili jednaku {0}." ),
-	min: $.validator.format( "Unesite vrednost veću ili jednaku {0}." )
+	min: $.validator.format( "Unesite vrednost veću ili jednaku {0}." ),
+	step: $.validator.format( "Unesite vrednost koja je umnožak broja {0}." )
 } );
+return $;
+}));
