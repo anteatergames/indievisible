@@ -120,7 +120,8 @@ namespace IndieVisible.Web.Controllers
             }
 
             this.SetCookieValue(SessionValues.DefaultLanguage, postModel.DefaultLanguage.ToString(), 7);
-            ViewData["requestLanguage"] = postModel.DefaultLanguage;
+
+            ViewBag.PostFromHome = postModel;
         }
 
 
