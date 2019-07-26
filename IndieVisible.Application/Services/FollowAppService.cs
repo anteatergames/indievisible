@@ -154,12 +154,9 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    OperationResultVo result = this.RemoveProfileFollow(existingLike.Id); // TODO move to domain service
+                    this.userFollowDomainService.Remove(existingLike.Id);
 
-                    if (result.Success)
-                    {
-                        unitOfWork.Commit();
-                    }
+                    unitOfWork.Commit();
 
                     int newCount = this.userFollowDomainService.GetAll().Count(x => x.FollowUserId == followUserId);
 
@@ -168,26 +165,6 @@ namespace IndieVisible.Application.Services
             }
 
             return response;
-        }
-
-        private OperationResultVo RemoveProfileFollow(Guid id)
-        {
-            OperationResultVo result;
-
-            try
-            {
-                this.userFollowDomainService.Remove(id);
-
-                unitOfWork.Commit();
-
-                result = new OperationResultVo(true);
-            }
-            catch (Exception ex)
-            {
-                result = new OperationResultVo(ex.Message);
-            }
-
-            return result;
         }
         #endregion
     }

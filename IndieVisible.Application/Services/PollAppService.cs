@@ -15,21 +15,19 @@ namespace IndieVisible.Application.Services
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IPollDomainService pollDomainService;
-        private readonly IPollOptionDomainService pollOptionDomainService;
         private readonly IPollVoteDomainService pollVoteDomainService;
 
         public PollAppService(IUnitOfWork unitOfWork
-            , IPollDomainService pollDomainService, IPollOptionDomainService pollOptionDomainService, IPollVoteDomainService pollVoteDomainService)
+            , IPollDomainService pollDomainService, IPollVoteDomainService pollVoteDomainService)
         {
             this.unitOfWork = unitOfWork;
             this.pollDomainService = pollDomainService;
-            this.pollOptionDomainService = pollOptionDomainService;
             this.pollVoteDomainService = pollVoteDomainService;
         }
 
         public OperationResultVo PollVote(Guid userId, Guid pollOptionId)
         {
-            PollOption pollOption = pollOptionDomainService.GetById(pollOptionId);
+            PollOption pollOption = pollDomainService.GetOptionById(pollOptionId);
 
             if (pollOption == null)
             {

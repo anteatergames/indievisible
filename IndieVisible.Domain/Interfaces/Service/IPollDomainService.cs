@@ -9,5 +9,9 @@ namespace IndieVisible.Domain.Interfaces.Service
     public interface IPollDomainService : IDomainService<Poll>
     {
         Poll GetByUserContentId(Guid id);
+
+        IEnumerable<PollOption> GetOptionsByPollId(Guid pollId);
+
+        PollOption GetOptionById(Guid id);
     }
 }

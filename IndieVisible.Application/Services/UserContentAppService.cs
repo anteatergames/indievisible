@@ -23,30 +23,25 @@ namespace IndieVisible.Application.Services
     {
         private readonly IMapper mapper;
         private readonly IUnitOfWork unitOfWork;
-        private readonly IUserContentRepository repository;
+        private readonly IUserContentDomainService userContentDomainService;
         private readonly IUserContentLikeRepository likeRepository;
-        private readonly IUserContentCommentRepository commentRepository;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
-        private readonly IPollOptionDomainService pollOptionDomainService;
         private readonly IPollVoteDomainService pollVoteDomainService;
 
         public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
-            , IUserContentRepository repository
-            , IUserContentLikeRepository likeRepository, IUserContentCommentRepository commentRepository
+            , IUserContentDomainService userContentDomainService
+            , IUserContentLikeRepository likeRepository
             , IGamificationDomainService gamificationDomainService
             , IPollDomainService pollDomainService
-            , IPollOptionDomainService pollOptionDomainService
             , IPollVoteDomainService pollVoteDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
-            this.repository = repository;
+            this.userContentDomainService = userContentDomainService;
             this.likeRepository = likeRepository;
-            this.commentRepository = commentRepository;
             this.gamificationDomainService = gamificationDomainService;
             this.pollDomainService = pollDomainService;
-            this.pollOptionDomainService = pollOptionDomainService;
             this.pollVoteDomainService = pollVoteDomainService;
         }
 
@@ -56,7 +51,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                int count = repository.GetAll().Count();
+                int count = userContentDomainService.GetAll().Count();
 
                 result = new OperationResultVo<int>(count);
             }
@@ -74,7 +69,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                IQueryable<UserContent> allModels = repository.GetAll();
+                var allModels = userContentDomainService.GetAll();
 
                 IEnumerable<UserContentViewModel> vms = mapper.Map<IEnumerable<UserContent>, IEnumerable<UserContentViewModel>>(allModels);
 
@@ -94,7 +89,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                UserContent model = repository.GetById(id);
+                UserContent model = userContentDomainService.GetById(id);
 
                 UserContentViewModel vm = mapper.Map<UserContentViewModel>(model);
 
@@ -138,7 +133,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                repository.Remove(id);
+                userContentDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
@@ -160,7 +155,7 @@ namespace IndieVisible.Application.Services
             {
                 UserContent model;
 
-                UserContent latest = repository.GetAll().OrderBy(x => x.CreateDate).Last();
+                UserContent latest = userContentDomainService.GetAll().OrderBy(x => x.CreateDate).Last();
                 bool sameContent = latest.Content.Trim().ToLower().Replace(" ", string.Empty).Equals(viewModel.Content.Trim().ToLower().Replace(" ", string.Empty));
                 bool sameId = latest.Id == viewModel.Id;
 
@@ -181,7 +176,7 @@ namespace IndieVisible.Application.Services
                     return v;
                 });
 
-                UserContent existing = repository.GetById(viewModel.Id);
+                UserContent existing = userContentDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -197,7 +192,7 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    repository.Add(model);
+                    userContentDomainService.Add(model);
                     viewModel.Id = model.Id;
 
 
@@ -208,7 +203,7 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    repository.Update(model);
+                    userContentDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
@@ -250,16 +245,14 @@ namespace IndieVisible.Application.Services
 
         public int CountArticles()
         {
-            int count = repository.Count(x => !string.IsNullOrWhiteSpace(x.Title) && !string.IsNullOrWhiteSpace(x.Introduction));
+            int count = userContentDomainService.Count(x => !string.IsNullOrWhiteSpace(x.Title) && !string.IsNullOrWhiteSpace(x.Introduction));
 
             return count;
         }
 
         public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid? gameId, Guid? userId, List<SupportedLanguage> languages)
         {
-            IQueryable<UserContent> allModels = repository.GetAll();
-
-            allModels = FilterActivityFeed(gameId, userId, languages, allModels);
+            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(gameId, userId, languages);
 
             IOrderedQueryable<UserContent> orderedList = allModels
                 .OrderByDescending(x => x.CreateDate);
@@ -286,7 +279,7 @@ namespace IndieVisible.Application.Services
 
                 item.LikeCount = likeRepository.GetAll().Count(x => x.ContentId == item.Id);
 
-                item.CommentCount = commentRepository.GetAll().Count(x => x.UserContentId == item.Id);
+                item.CommentCount = userContentDomainService.CountComments(x => x.UserContentId == item.Id);
 
                 LoadAuthenticatedData(currentUserId, item);
 
@@ -306,7 +299,7 @@ namespace IndieVisible.Application.Services
             if (poll != null)
             {
                 pollVm = new PollViewModel();
-                IEnumerable<PollOption> options = pollOptionDomainService.GetByPollId(poll.Id);
+                IEnumerable<PollOption> options = pollDomainService.GetOptionsByPollId(poll.Id);
 
                 int totalVotes = pollVoteDomainService.Count(x => x.PollId == poll.Id);
                 pollVm.TotalVotes = totalVotes;
@@ -336,7 +329,7 @@ namespace IndieVisible.Application.Services
             {
                 item.CurrentUserLiked = likeRepository.GetAll().Any(x => x.ContentId == item.Id && x.UserId == currentUserId);
 
-                IOrderedQueryable<UserContentComment> comments = commentRepository.GetAll().Where(x => x.UserContentId == item.Id).OrderBy(x => x.CreateDate);
+                var comments = userContentDomainService.GetComments(x => x.UserContentId == item.Id).OrderBy(x => x.CreateDate);
 
                 IQueryable<UserContentCommentViewModel> commentsVm = comments.ProjectTo<UserContentCommentViewModel>(mapper.ConfigurationProvider);
 
@@ -351,26 +344,6 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        private static IQueryable<UserContent> FilterActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, IQueryable<UserContent> allModels)
-        {
-            if (userId.HasValue && userId != Guid.Empty)
-            {
-                allModels = allModels.Where(x => x.UserId != Guid.Empty && x.UserId == userId);
-            }
-
-            if (gameId.HasValue && gameId != Guid.Empty)
-            {
-                allModels = allModels.Where(x => x.GameId != Guid.Empty && x.GameId == gameId);
-            }
-
-            if (languages != null && languages.Any())
-            {
-                allModels = allModels.Where(x => x.Language == 0 || languages.Contains(x.Language));
-            }
-
-            return allModels;
-        }
-
         private static string SetFeaturedImage(Guid userId, string featuredImage)
         {
             return string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
@@ -380,7 +353,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<UserContent> all = repository.Get(x => x.Content.Contains(q) || x.Introduction.Contains(q));
+                IQueryable<UserContent> all = userContentDomainService.Get(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
 
                 IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
                     .Select(x => new UserContentSearchVo {

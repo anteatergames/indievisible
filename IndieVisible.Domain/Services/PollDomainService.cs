@@ -10,13 +10,30 @@ namespace IndieVisible.Domain.Services
 {
     public class PollDomainService : BaseDomainService<Poll, IPollRepository>, IPollDomainService
     {
-        public PollDomainService(IPollRepository repository) : base(repository)
+        private readonly IPollOptionRepository pollOptionRepository;
+
+        public PollDomainService(IPollRepository repository, IPollOptionRepository pollOptionRepository) : base(repository)
         {
+            this.pollOptionRepository = pollOptionRepository;
         }
 
         public Poll GetByUserContentId(Guid id)
         {
             var obj = this.repository.Get(x => x.UserContentId == id).FirstOrDefault();
+
+            return obj;
+        }
+
+        public IEnumerable<PollOption> GetOptionsByPollId(Guid pollId)
+        {
+            var objs = pollOptionRepository.Get(x => x.PollId == pollId);
+
+            return objs.ToList();
+        }
+
+        public PollOption GetOptionById(Guid id)
+        {
+            var obj = pollOptionRepository.GetById(id);
 
             return obj;
         }
