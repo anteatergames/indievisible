@@ -14,8 +14,7 @@ namespace IndieVisible.Infra.Data.Repository
 
         public override IQueryable<UserContent> GetAll()
         {
-            Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<UserContent, System.Collections.Generic.ICollection<UserContentLike>> data = Db.UserContents
-                .Include(x => x.Likes); // TODO Doesn't work. Fix this
+            DbSet<UserContent> data = Db.UserContents;
 
             return data;
         }

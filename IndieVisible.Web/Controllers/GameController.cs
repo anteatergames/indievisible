@@ -37,8 +37,11 @@ namespace IndieVisible.Web.Controllers
             this.SetImages(vm);
 
             ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
-            bool userIsAdmin = user == null ? false : await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
-            vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
+            bool userIsAdmin = await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
+
+            bool isAdmin = user != null && userIsAdmin;
+
+            vm.Permissions.CanEdit = vm.UserId == CurrentUserId || isAdmin;
             vm.Permissions.CanPostActivity = vm.UserId == CurrentUserId;
 
             this.notificationAppService.MarkAsRead(notificationclicked);

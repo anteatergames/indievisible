@@ -7,19 +7,24 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
     {
         public static Task SendEmailConfirmationAsync(this IEmailSender emailSender, string email, string link)
         {
-            string mailText = ConfirmationEmailTemplate("Confirm your email"
-                , HtmlEncoder.Default.Encode(link)
-                , "Confirm your email"
-                , "Hi there,"
-                , "You just registered yourself at INDIEVISIBLE community. Now you need to confirm your email."
-                , "After confirmation you will be able to enjoy interacting with other fellow game developers."
-                , "And welcome to YOUR community."
-                , "by Anteater Games");
+            var request = new EmailSendRequest
+            {
+                Title = "Confirm your email",
+                ActionUrl = HtmlEncoder.Default.Encode(link),
+                ActionText = "Confirm your email",
+                Greeting = "Hi there,",
+                TextBeforeAction = "You just registered yourself at INDIEVISIBLE community. Now you need to confirm your email.",
+                TextAfterAction = "After confirmation you will be able to enjoy interacting with other fellow game developers.",
+                ByeText = "And welcome to YOUR community.",
+                FooterText = "by Anteater Games"
+            };
+
+            string mailText = ConfirmationEmailTemplate(request);
 
             return emailSender.SendEmailAsync(email, "Confirm your email", mailText);
         }
 
-        public static string ConfirmationEmailTemplate(string title, string actionUrl, string actionText, string greeting, string textBeforeAction, string textAfterAction, string byeText, string footerText)
+        public static string ConfirmationEmailTemplate(EmailSendRequest request)
         {
             string template = @"<!doctype html>
 <html>
@@ -185,18 +190,30 @@ table[class=body] .article {
 
 
 
-            template = template.Replace("#title", title);
-            template = template.Replace("#greeting", greeting);
-            template = template.Replace("#beforeActionText", textBeforeAction);
-            template = template.Replace("#actionUrl", actionUrl);
-            template = template.Replace("#actionText", actionText);
-            template = template.Replace("#textAfterAction", textAfterAction);
-            template = template.Replace("#byeText", byeText);
-            template = template.Replace("#footerText", footerText);
+            template = template.Replace("#title", request.Title);
+            template = template.Replace("#greeting", request.Greeting);
+            template = template.Replace("#beforeActionText", request.TextBeforeAction);
+            template = template.Replace("#actionUrl", request.ActionUrl);
+            template = template.Replace("#actionText", request.ActionText);
+            template = template.Replace("#textAfterAction", request.TextAfterAction);
+            template = template.Replace("#byeText", request.ByeText);
+            template = template.Replace("#footerText", request.FooterText);
 
 
 
             return template;
+        }
+
+        public class EmailSendRequest
+        {
+            public string Title { get; set; }
+            public string ActionUrl { get; set; }
+            public string ActionText { get; set; }
+            public string Greeting { get; set; }
+            public string TextBeforeAction { get; set; }
+            public string TextAfterAction { get; set; }
+            public string ByeText { get; set; }
+            public string FooterText { get; set; }
         }
     }
 }

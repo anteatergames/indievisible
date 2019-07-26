@@ -131,7 +131,7 @@ namespace IndieVisible.Web.Controllers
                 throw new CustomApplicationException($"Unable to load two-factor authentication user.");
             }
 
-            LoginWith2faViewModel model = new LoginWith2faViewModel { RememberMe = rememberMe };
+            LoginWithTwoFactorViewModel model = new LoginWithTwoFactorViewModel { RememberMe = rememberMe };
             ViewData["ReturnUrl"] = returnUrl;
 
             return View(model);
@@ -140,7 +140,7 @@ namespace IndieVisible.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LoginWith2fa(LoginWith2faViewModel model, bool rememberMe, string returnUrl = null)
+        public async Task<IActionResult> LoginWith2fa(LoginWithTwoFactorViewModel model, bool rememberMe, string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {
