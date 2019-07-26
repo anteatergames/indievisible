@@ -81,12 +81,10 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    OperationResultVo result = this.RemoveGameFollow(existingLike.Id); // TODO move to domain service
 
-                    if (result.Success)
-                    {
-                        unitOfWork.Commit();
-                    }
+                    this.gameFollowDomainService.Remove(existingLike.Id);
+
+                    unitOfWork.Commit();
 
                     int newCount = this.gameFollowDomainService.Count(x => x.GameId == gameId);
 
@@ -95,28 +93,6 @@ namespace IndieVisible.Application.Services
             }
 
             return response;
-        }
-
-        private OperationResultVo RemoveGameFollow(Guid id)
-        {
-            OperationResultVo result;
-
-            try
-            {
-                // validate before
-
-                this.gameFollowDomainService.Remove(id);
-
-                unitOfWork.Commit();
-
-                result = new OperationResultVo(true);
-            }
-            catch (Exception ex)
-            {
-                result = new OperationResultVo(ex.Message);
-            }
-
-            return result;
         }
         #endregion
 

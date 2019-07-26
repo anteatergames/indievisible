@@ -1312,23 +1312,22 @@ a {
     min-height: 38px;
     display: initial;
     -webkit-background-clip: padding-box;
-    background-color: transparent;
+    background-color: #fff;
     background-position: center bottom, center calc(100% - 1px);
     background-repeat: no-repeat;
     background-size: 0 2px, 100% 1px;
-    padding: 0;
-    -webkit-transition: background 0s ease-out 0s;
+    padding: 0 5px 0 5px;
+    /*-webkit-transition: background 0s ease-out 0s;
     -o-transition: background 0s ease-out 0s;
-    transition: background 0s ease-out 0s;
+    transition: background 0s ease-out 0s;*/
 }
 
-    .form-element .form-control, .form-element .form-control:focus {
+/*.form-element .form-control, .form-element .form-control:focus{
         background-image: -webkit-gradient(linear, left top, left bottom, from(#45aef1), to(#45aef1)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
         background-image: -webkit-linear-gradient(#45aef1, #45aef1), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
         background-image: -o-linear-gradient(#45aef1, #45aef1), -o-linear-gradient(#d9d9d9, #d9d9d9);
         background-image: linear-gradient(#45aef1, #45aef1), linear-gradient(#d9d9d9, #d9d9d9);
         border: 0;
-        border-radius: 0;
         -webkit-box-shadow: none;
         box-shadow: none;
         float: none;
@@ -1340,7 +1339,20 @@ a {
             -webkit-transition-duration: .3s;
             -o-transition-duration: .3s;
             transition-duration: .3s;
-        }
+        }*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid green;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
 
 @-webkit-keyframes ripple {
     0% {
@@ -1386,9 +1398,13 @@ input[type="color"] {
     height: 42px;
 }
 
-.form-group label {
-    font-weight: 500;
+.form-group.has-feedback {
+    height: 50px;
 }
+
+    .form-group label {
+        font-weight: 500;
+    }
 
 .form-control:focus {
     border-color: #45aef1;
