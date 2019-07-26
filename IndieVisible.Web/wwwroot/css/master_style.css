@@ -4588,25 +4588,12 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     margin: 10px;
 }
 
-.margin-bottom {
-    margin-bottom: 20px;
-}
-
 .margin-bottom-none {
     margin-bottom: 0;
 }
 
-.margin-r-5 {
-    margin-right: 5px;
-}
-
 .inline {
     display: inline;
-}
-
-.res-tb-block {
-    display: block;
-    overflow: auto;
 }
 
 .description-block {
@@ -4805,122 +4792,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     color: #22af47;
 }
 
-.text-gray {
-    color: #d2d6de;
-}
-
-.text-navy {
-    color: #001f3f;
-}
-
-.text-teal {
-    color: #39cccc;
-}
-
-.text-olive {
-    color: #7dab2e;
-}
-
-.text-lime {
-    color: #01ff70;
-}
-
 .text-orange {
     color: #89ad87;
-}
-
-.text-fuchsia {
-    color: #f012be;
-}
-
-.text-purple {
-    color: #ab26aa;
-}
-
-.text-maroon {
-    color: #8C1919;
-}
-
-.text-black, .text-inverse {
-    color: #000;
-}
-
-.link-muted {
-    color: #7a869d;
-}
-
-    .link-muted:focus, .link-muted:hover {
-        color: #606c84;
-    }
-
-.link-black {
-    color: #666;
-}
-
-    .link-black:focus, .link-black:hover {
-        color: #999;
-    }
-
-.hide {
-    display: none;
-}
-
-.no-border {
-    border: 0;
-}
-
-.no-radius {
-    border-radius: 0;
-}
-
-.no-padding {
-    padding: 0;
-}
-
-.no-margin {
-    margin: 0;
-}
-
-.no-shadow {
-    box-shadow: none;
-}
-
-.margin-top-0 {
-    margin-top: 0;
-}
-
-.margin-top-10 {
-    margin-top: 10px;
-}
-
-.margin-top-20 {
-    margin-top: 20px;
-}
-
-.margin-top-30 {
-    margin-top: 30px;
-}
-
-.margin-top-40 {
-    margin-top: 40px;
-}
-
-.contacts-list, .list-unstyled, .mailbox-attachments, .users-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.list-group-unbordered > .list-group-item {
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.flat {
-    border-radius: 0 !important;
 }
 
 .text-sm {
@@ -4929,33 +4802,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 .description-block .description-icon {
     font-size: 16px;
-}
-
-.no-pad-top {
-    padding-top: 0;
-}
-
-.position-static {
-    position: static !important;
-}
-
-.list-header {
-    font-size: 15px;
-    padding: 10px 4px;
-    color: #666;
-}
-
-.list-link > a {
-    padding: 4px;
-    color: #777;
-}
-
-    .list-link > a:hover {
-        color: #222;
-    }
-
-.font-light {
-    font-weight: 300;
 }
 
 .user-block:after, .user-block:before {
@@ -5022,9 +4868,4 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 .notimplemented {
     color: #686868 !important;
-}
-
-
-.mailbox-controls.with-border, .mailbox-read-info {
-    border-bottom: 1px solid #f4f4f4;
 }
