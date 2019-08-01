@@ -8,13 +8,15 @@
 
 <div class="box p-0 bg-white">
     <div class="col-12 p-2">
-        <h1 data-language="@Model.Language">
+        <h1 data-language="@Model.Language" class="float-left @(!Model.IsComplex ? "sr-only" : string.Empty)">
             @Model.Title
-            @if (Model.Permissions.CanEdit)
-            {
-                <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn  btn-default bg-transparent"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
-            }
         </h1>
+        @if (Model.Permissions.CanEdit)
+        {
+        <span class="float-right">
+            <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-default bg-transparent"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+        </span>
+        }
     </div>
     @if (Model.HasFeaturedImage)
     {

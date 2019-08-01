@@ -39,7 +39,7 @@ namespace IndieVisible.Application.ViewModels.Content
         public bool HasFeaturedImage { get; set; }
         public MediaType FeaturedMediaType { get; set; }
 
-        public bool IsComplex { get { return !string.IsNullOrWhiteSpace(this.Title) && !string.IsNullOrWhiteSpace(this.FeaturedImage); } }
+        public bool IsComplex { get { return this.HasFeaturedImage; } }
         
         public bool HasPoll { get { return this.Poll != null && this.Poll.PollOptions.Any(); } }
 
