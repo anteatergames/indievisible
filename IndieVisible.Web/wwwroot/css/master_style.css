@@ -4738,3 +4738,8 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 .notimplemented {
     color: #686868 !important;
 }
+
+
+.lh-10 {
+    line-height:10px;
+}
