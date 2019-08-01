@@ -205,7 +205,7 @@
     color: #242a33;
 }
 
-.user-profile .box-footer, .game-page .box-footer {
+.user-profile > .box-footer, .game-page > .box-footer {
     padding-top: 0px;
 }
 
