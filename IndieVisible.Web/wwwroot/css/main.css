@@ -21,22 +21,6 @@ button:focus {
     }
 }
 
-#menufooter {
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
-    border-top: 1px solid black;
-    border-radius: 0;
-    color: #aaa
-}
-
-    #menufooter a {
-        color: #fff
-    }
-
-
 
 .form-control {
     /*-webkit-box-sizing: border-box;

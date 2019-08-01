@@ -37,3 +37,21 @@
     max-height: 0;
     -webkit-transition: all 1s ease-out;
 }
+
+
+
+
+#menufooter {
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid black;
+    border-radius: 0;
+    color: #aaa
+}
+
+    #menufooter a {
+        color: #fff
+    }

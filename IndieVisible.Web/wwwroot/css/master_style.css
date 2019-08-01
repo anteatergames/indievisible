@@ -828,54 +828,6 @@ a {
             color: #b8c7ce;
         }
 
-.control-sidebar-light {
-    color: #5e5e5e;
-}
-
-    .control-sidebar-light, .control-sidebar-light + .control-sidebar-bg {
-        background: #f9fafc;
-        border-left: 1px solid #d2d6de;
-    }
-
-        .control-sidebar-light .nav-tabs.control-sidebar-tabs {
-            border-bottom: #d2d6de;
-        }
-
-            .control-sidebar-light .nav-tabs.control-sidebar-tabs > li > a {
-                background: #e8ecf4;
-                color: #444;
-            }
-
-                .control-sidebar-light .nav-tabs.control-sidebar-tabs > li > a, .control-sidebar-light .nav-tabs.control-sidebar-tabs > li > a:focus, .control-sidebar-light .nav-tabs.control-sidebar-tabs > li > a:hover {
-                    border-left-color: #d2d6de;
-                    border-bottom-color: #d2d6de;
-                }
-
-                    .control-sidebar-light .nav-tabs.control-sidebar-tabs > li > a:active, .control-sidebar-light .nav-tabs.control-sidebar-tabs > li > a:focus, .control-sidebar-light .nav-tabs.control-sidebar-tabs > li > a:hover {
-                        background: #eff1f7;
-                    }
-
-            .control-sidebar-light .nav-tabs.control-sidebar-tabs > li.active > a, .control-sidebar-light .nav-tabs.control-sidebar-tabs > li.active > a:active, .control-sidebar-light .nav-tabs.control-sidebar-tabs > li.active > a:focus, .control-sidebar-light .nav-tabs.control-sidebar-tabs > li.active > a:hover {
-                background: #f9fafc;
-                color: #111;
-            }
-
-        .control-sidebar-light .control-sidebar-heading, .control-sidebar-light .control-sidebar-subheading {
-            color: #111;
-        }
-
-        .control-sidebar-light .control-sidebar-menu {
-            margin-left: -14px;
-        }
-
-            .control-sidebar-light .control-sidebar-menu > li > a:hover {
-                background: #f4f4f5;
-            }
-
-            .control-sidebar-light .control-sidebar-menu > li > a .menu-info > p {
-                color: #5e5e5e;
-            }
-
 .navbar-custom-menu .navbar-nav {
     -ms-flex-direction: row;
     flex-direction: row;
@@ -1452,10 +1404,6 @@ input[type="color"] {
         display: -ms-grid;
         display: grid;
     }
-}
-
-.icheck > label {
-    padding-left: 0;
 }
 
 .form-control-feedback.fa {
@@ -2540,85 +2488,6 @@ ul.flexbox {
         .media-doc .media-body {
             margin: 30px 0;
         }
-}
-
-.media-list > .media:not(.media-list-header):not(.media-list-footer),
-.media-list .media-list-body > .media {
-    margin-bottom: 0;
-}
-
-.media-listul {
-    padding-left: 0;
-}
-
-.media-list .media .sortable-dot {
-    margin: 0;
-    margin-left: -5px;
-    opacity: 0;
-    border-radius: 2px;
-    -webkit-transition: .5s;
-    transition: .5s;
-}
-
-.media-list .media:hover .sortable-dot {
-    opacity: .6;
-}
-
-.media-list[data-provide~="selectable"] .media:not(.media-list-header):not(.media-list-footer) {
-    cursor: pointer;
-}
-
-.media-list-hover > .media:not(.media-list-header):not(.media-list-footer):hover,
-.media-list-hover .media-list-body > .media:hover {
-    background-color: #f9fafb;
-}
-
-.media-list-divided > .media:not(.media-list-header):not(.media-list-footer),
-.media-list-divided .media-list-body > .media {
-    border-bottom: 1px solid rgba(97, 106, 120, 0.07);
-}
-
-    .media-list-divided > .media:not(.media-list-header):not(.media-list-footer):last-child,
-    .media-list-divided .media-list-body > .media:last-child {
-        border-bottom: none;
-    }
-
-.media-list-bordered {
-    border: 1px solid #f1f2f3;
-}
-
-.media-list-striped .media:not(.media-list-header):not(.media-list-footer):nth-child(even) {
-    background-color: #f9fafb;
-}
-
-.media-list-xs .media {
-    padding: 10px 16px;
-}
-
-.media-list-sm .media {
-    padding: 12px 16px;
-}
-
-.media-list-lg .media {
-    padding: 20px 16px;
-}
-
-.media-list-xl .media {
-    padding: 24px 20px;
-}
-
-.media-list-xxl .media {
-    padding: 32px 24px;
-}
-
-.media-list-header {
-    border-bottom: 1px solid #ebebeb;
-    background-color: #fcfdfe;
-}
-
-.media-list-footer {
-    border-top: 1px solid #ebebeb;
-    background-color: #fcfdfe;
 }
 
 @-webkit-keyframes h-shake {
