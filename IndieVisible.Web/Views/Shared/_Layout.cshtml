@@ -1,6 +1,7 @@
 ﻿@inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Http.Features
 
 
 @inject IOptions<ConfigOptions> ConfigOptions
@@ -8,6 +9,9 @@
 @{
     var title = string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()) ? ConstantHelper.DefaultTitle : ViewData["Title"] + " - " + ConstantHelper.DefaultTitle;
     string userId = UserManager.GetUserId(User);
+
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showCookieBanner = !consentFeature?.CanTrack ?? false;
 }
 
 <!DOCTYPE html>
@@ -103,6 +107,10 @@
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
+    @if (showCookieBanner)
+    {
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    }
 </head>
 <body class="hold-transition skin-indievisible sidebar-mini">
     <div class="wrapper">
@@ -221,8 +229,8 @@
 
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.min.js" defer></script>
         <!--[if lt IE 11]>
-        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <![endif]-->
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
         <script src="~/lib/lazysizes/lazysizes.min.js" async defer></script>
 
         <script src="~/js/site.min.js" asp-append-version="true" defer></script>
@@ -256,8 +264,10 @@
 
     @RenderSection("Scripts", required: false)
 
-
-    <partial name="_CookieConsentPartial" />
+    @if (showCookieBanner)
+    {
+        <partial name="_CookieConsentPartial" model="consentFeature" />
+    }
 
 </body>
 </html>

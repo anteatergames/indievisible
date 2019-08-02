@@ -609,8 +609,8 @@
     <value>Você gosta de cookies?</value>
     <comment>Cookie Consent</comment>
   </data>
-  <data name="Learn More" xml:space="preserve">
-    <value>Leia Mais</value>
+  <data name="Learn more" xml:space="preserve">
+    <value>Leia mais</value>
     <comment>Cookie Consent</comment>
   </data>
   <data name="We use cookies to ensure you get the best experience on our website." xml:space="preserve">
@@ -1016,5 +1016,9 @@
   <data name="Ops! No results for your search. Try something else." xml:space="preserve">
     <value>Ops! Sem resultados para sua busca. Tente outra coisa.</value>
     <comment>Search</comment>
+  </data>
+  <data name="Ok, we use cookies, right? Don't worry, it is just to improve your experience here." xml:space="preserve">
+    <value>Ok, nós usamos cookies, tá bom? Não se preocupe, é só pra melhorar sua experiência por aqui.</value>
+    <comment>GDPR</comment>
   </data>
 </root>
