@@ -1656,10 +1656,6 @@ input[type="color"] {
             box-shadow: none;
         }
 
-        .box.box-solid[class*=bg] > .box-header {
-            color: #fff;
-        }
-
     .box .box-group > .box {
         margin-bottom: 5px;
     }
@@ -1978,47 +1974,6 @@ input[type="color"] {
         vertical-align: top;
     }
 
-    .avatar[class*='status-']::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 100%;
-        border: 2px solid #fff;
-        background-color: #7460ee;
-    }
-
-    .avatar[class*='status-'].avatar-sm::after {
-        right: -2px;
-        width: 9px;
-        height: 9px;
-    }
-
-    .avatar[class*='status-'].avatar-lg::after {
-        right: 4px;
-    }
-
-    .avatar[class*='status-'].avatar-xl::after {
-        right: 5px;
-        width: 11px;
-        height: 11px;
-    }
-
-    .avatar[class*='status-'].avatar-xxl::after {
-        right: 15px;
-        width: 12px;
-        height: 12px;
-    }
-
-    .avatar[class*='status-'].avatar-xxxl::after {
-        right: 25px;
-        width: 16px;
-        height: 16px;
-    }
-
     .avatar.status-success::after {
         background-color: #26c6da;
     }
@@ -2038,10 +1993,6 @@ input[type="color"] {
     .avatar.status-dark::after {
         background-color: #465161;
     }
-
-[data-provide~="more-avatar"] ~ .avatar {
-    display: none;
-}
 
 /*---Statistic widgets---*/
 .flexbox {
@@ -2253,10 +2204,6 @@ ul.flexbox {
     .media.items-center {
         -webkit-box-align: center;
         align-items: center;
-    }
-
-    .media[data-provide~="checkable"], .media[data-provide~="selectable"] {
-        cursor: pointer;
     }
 
     .media .media {
@@ -2994,11 +2941,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 .btn-link {
     -webkit-box-shadow: none;
     box-shadow: none;
-}
-
-.btn[class*=bg-]:hover {
-    /*-webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, .2);*/
 }
 
 .btn-app {
@@ -4628,11 +4570,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 .bg-maroon-active {
     background-color: #7e1616;
-}
-
-[class^=bg-].disabled {
-    opacity: .65;
-    filter: alpha(opacity=65);
 }
 
 .text-danger, .text-red {
