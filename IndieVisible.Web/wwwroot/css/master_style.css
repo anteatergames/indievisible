@@ -53,7 +53,7 @@ Body :		Poppins, sans-serif;
 /*Body, layout*/
 .wrapper, body, html {
     height: 100%;
-    padding-right: 0px !important;
+    padding-right: 0 !important;
 }
 
 .wrapper, body {
@@ -160,7 +160,7 @@ div {
         position: relative;
         bottom: 0;
         width: 100%;
-        margin-top: 0px !important;
+        margin-top: 0 !important;
     }
 
     .content-wrapper {
@@ -186,7 +186,7 @@ div {
 
     .main-footer {
         position: relative;
-        margin-top: 0px !important;
+        margin-top: 0 !important;
     }
 
     .sidebar-open .content-wrapper, .sidebar-open .main-footer {
@@ -227,8 +227,8 @@ a {
     position: fixed;
     max-height: 100px;
     z-index: 1030;
-    left: 0px;
-    right: 0px;
+    left: 0;
+    right: 0;
 }
 
     .main-header .navbar {
@@ -359,7 +359,7 @@ a {
 }
 
     .content-header > h1, .content-header > .container > h1 {
-        margin: 0 0 0px;
+        margin: 0 0 0;
         font-size: 30px;
     }
 
@@ -525,7 +525,7 @@ a {
 
 .sidebar-collapse .user-panel .image > img {
     max-width: 50px;
-    margin: 0 0px;
+    margin: 0 0;
 }
 
 .user-panel .info {
@@ -639,7 +639,7 @@ a {
 
 .sidebar-form {
     float: left;
-    margin: 0px 0px 10px;
+    margin: 0 0 10px;
     width: 100%;
 }
 
@@ -842,7 +842,7 @@ a {
 }
 
     .navbar-custom-menu .navbar-nav li > a.dropdown-toggle, .navbar-custom-menu .navbar-nav > li:last-child > a, .navbar-custom-menu .navbar-nav > li > div {
-        padding: 0px 15px;
+        padding: 0 15px;
         vertical-align: middle;
         line-height: 50px;
         display: block;
@@ -1100,7 +1100,7 @@ a {
                 z-index: 5;
                 color: #666;
                 font-size: 17px;
-                margin-top: 0px;
+                margin-top: 0;
                 text-align: left;
                 padding-left: 100px;
             }
@@ -1116,7 +1116,7 @@ a {
         }
 
         .navbar-nav > .user-menu > .dropdown-menu > .user-body {
-            padding: 0px;
+            padding: 0;
             border-bottom: 1px solid #f4f4f4;
             border-top: 1px solid #ddd;
         }
@@ -1156,14 +1156,14 @@ a {
 .navbar-nav > .user-menu .user-image {
     width: 30px;
     height: 30px;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 @media (max-width:767px) {
     .navbar-nav > .user-menu .user-image {
         float: none;
         margin-right: 0;
-        margin-top: 0px;
+        margin-top: 0;
         line-height: 10px;
     }
 }
@@ -1281,7 +1281,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     border: 1px solid green;
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -1417,6 +1417,7 @@ input[type="color"] {
     margin-bottom: 20px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
 }
 
     .small-box > .inner {
@@ -1798,7 +1799,7 @@ input[type="color"] {
 }
 
 .customtab li a.nav-link {
-    border: 0px;
+    border: 0;
     padding: 10px 20px;
     color: #67757c;
 }
@@ -1810,7 +1811,7 @@ input[type="color"] {
 
     .vtabs .tabs-vertical {
         width: 150px;
-        border-bottom: 0px;
+        border-bottom: 0;
         border-right: 1px solid rgba(120, 130, 140, 0.13);
         display: table-cell;
         vertical-align: top;
@@ -1819,7 +1820,7 @@ input[type="color"] {
         .vtabs .tabs-vertical li .nav-link {
             color: #263238;
             margin-bottom: 10px;
-            border: 0px;
+            border: 0;
             border-radius: 4px 0 0 4px;
         }
 
@@ -1844,7 +1845,7 @@ input[type="color"] {
 .tabs-vertical li .nav-link:hover,
 .tabs-vertical li .nav-link.active:focus {
     background: #89ad87;
-    border: 0px;
+    border: 0;
     color: #ffffff;
 }
 
@@ -1855,7 +1856,7 @@ input[type="color"] {
 .customvtab .tabs-vertical li .nav-link:hover,
 .customvtab .tabs-vertical li .nav-link:focus {
     background: #ffffff;
-    border: 0px;
+    border: 0;
     border-right: 2px solid #89ad87;
     margin-right: -1px;
     color: #89ad87;
@@ -1863,7 +1864,7 @@ input[type="color"] {
 
 .tabcontent-border {
     border: 1px solid #ddd;
-    border-top: 0px;
+    border-top: 0;
 }
 
 @media (max-width: 767px) {
@@ -1979,7 +1980,7 @@ input[type="color"] {
     .avatar[class*='status-']::after {
         content: '';
         position: absolute;
-        right: 0px;
+        right: 0;
         bottom: 0;
         display: inline-block;
         width: 10px;
@@ -2141,7 +2142,7 @@ ul.flexbox {
 .card-title {
     line-height: 1.5;
     margin-bottom: 0;
-    padding: 0px;
+    padding: 0;
 }
 
 .card-subtitle {
@@ -3020,7 +3021,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 
 .alert {
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .btn-app > .fa, .btn-app > .glyphicon, .btn-app > .ion {
@@ -3693,7 +3694,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .form-group.error .help-block ul {
-    padding: 0px;
+    padding: 0;
     color: #f83f37;
 }
 
@@ -3702,7 +3703,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 
 .form-group.issue .help-block ul {
-    padding: 0px;
+    padding: 0;
     color: #ffbf36;
 }
 
