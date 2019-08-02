@@ -2012,7 +2012,7 @@ input[type="color"] {
 
 .flex-justified > *, .flex-grow-all > *, .flex-cols-wide > *, .flex-col-wide, .flex-grow {
     -webkit-box-flex: 1;
-    flex: 1 1 0%;
+    flex: 1 1 0;
 }
 
 .flexbox > * {
@@ -2216,7 +2216,7 @@ ul.flexbox {
 
     .media .title {
         -webkit-box-flex: 1;
-        flex: 1 1 0%;
+        flex: 1 1 0;
     }
 
     .media .avatar {
@@ -2420,23 +2420,6 @@ ul.flexbox {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
-}
-
-@media (max-width: 767px) {
-    .media-doc {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        flex-direction: column;
-    }
-
-        .media-doc > * {
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        .media-doc .media-body {
-            margin: 30px 0;
-        }
 }
 
 @-webkit-keyframes h-shake {
