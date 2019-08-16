@@ -36,10 +36,15 @@ namespace IndieVisible.Web.Controllers
             GameViewModel vm = serviceResult.Value;
             this.SetImages(vm);
 
-            ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
-            bool userIsAdmin = await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
+            bool isAdmin = false;
 
-            bool isAdmin = user != null && userIsAdmin;
+            if (!this.CurrentUserId.Equals(Guid.Empty))
+            {
+                ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
+                bool userIsAdmin = await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
+
+                isAdmin = user != null && userIsAdmin; 
+            }
 
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || isAdmin;
             vm.Permissions.CanPostActivity = vm.UserId == CurrentUserId;
