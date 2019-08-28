@@ -14,7 +14,6 @@ using System.Net;
 namespace IndieVisible.Web.Controllers
 {
     [Route("storage")]
-    [Route("azurestorage")] // TODO temp, remove after adjusting the database
     public class StorageController : SecureBaseController
     {
         private readonly IHostingEnvironment _hostingEnv;

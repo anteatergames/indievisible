@@ -383,9 +383,7 @@ namespace IndieVisible.Web.Controllers
                 genreDict.Add(new KeyValuePair<string, string>(x.ToString(), uiClass));
             });
 
-            Random r = new Random();
-
-            Dictionary<string, string> dict = genreDict.OrderBy(x => r.Next()).ToDictionary(x => x.Key, x => x.Value);
+            Dictionary<string, string> dict = genreDict.ToDictionary(x => x.Key, x => x.Value);
 
             return dict;
         }

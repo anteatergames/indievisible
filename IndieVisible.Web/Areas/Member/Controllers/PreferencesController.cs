@@ -340,7 +340,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            StatusMessage = "The external login was added.";
+            StatusMessage = SharedLocalizer["The external login was added."];
             return RedirectToAction(nameof(ExternalLogins));
         }
 
@@ -361,7 +361,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            StatusMessage = "The external login was removed.";
+            StatusMessage = SharedLocalizer["The external login was removed."];
             return RedirectToAction(nameof(ExternalLogins));
         }
 

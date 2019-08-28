@@ -3,12 +3,18 @@
     ViewData["SubTitle"] = SharedLocalizer["Manage your external logins"];
     ViewData.AddActivePage(ManageNavPages.ExternalLogins);
 }
-
-@Html.Partial("_StatusMessage", Model.StatusMessage)
+<partial name="_StatusMessage" model="Model.StatusMessage" />
 @if (Model.CurrentLogins?.Count > 0)
 {
     <h4>@SharedLocalizer["Registered Logins"]</h4>
     <table class="table">
+        <caption class="sr-only">@SharedLocalizer["Registered Logins"]</caption>
+        <thead>
+            <tr>
+                <th>@SharedLocalizer["Provider"]</th>
+                <th>@SharedLocalizer["Action"]</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach (var login in Model.CurrentLogins)
             {
@@ -25,8 +31,8 @@
                                 </div>
                             </form>
                         }
-                                    else
-                                    {
+                        else
+                        {
                             @: &nbsp;
                         }
                     </td>

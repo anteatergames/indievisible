@@ -1021,4 +1021,12 @@
     <value>Ok, nós usamos cookies, tá bom? Não se preocupe, é só pra melhorar sua experiência por aqui.</value>
     <comment>GDPR</comment>
   </data>
+  <data name="The external login was added." xml:space="preserve">
+    <value>A conta eterna foi adicionada.</value>
+    <comment>Preferences</comment>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>Provedor</value>
+    <comment>Preferences</comment>
+  </data>
 </root>

@@ -32,7 +32,7 @@ namespace IndieVisible.Application.Services
             var imageExtensions = new string[] { "jpg", "png", "gif", "tiff", "webp", "svg", "jfif", "jpeg", "bmp" };
             var videoExtensions = new string[] { "mp4", "avi", "mpeg", "vob", "webm", "mpg", "m4v", "wmv", "asf", "mov", "mpe", "3gp" };
 
-            var extension = featuredImage?.Split('.').Last();
+            var extension = featuredImage.Split('.').Last();
 
 
             if (imageExtensions.Contains(extension.ToLower()))

@@ -27,7 +27,9 @@
             }
             else if (Model.FeaturedMediaType == MediaType.Video)
             {
-                <video src="@Model.FeaturedImage" width="500" height="281" controls></video>
+                <video src="@Model.FeaturedImage" width="500" height="281" controls>
+                    <track kind="captions" src="~/default.vtt" srclang="en">
+                </video>
             }
             else
             {

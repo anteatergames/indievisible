@@ -210,6 +210,7 @@ namespace IndieVisible.Web
 
             FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
+            provider.Mappings[".vtt"] = "text/vtt";
 
             app.UseStaticFiles(new StaticFileOptions()
             {
