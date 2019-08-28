@@ -155,13 +155,18 @@ namespace IndieVisible.Application.Services
             {
                 UserContent model;
 
-                UserContent latest = userContentDomainService.GetAll().OrderBy(x => x.CreateDate).Last();
-                bool sameContent = latest.Content.Trim().ToLower().Replace(" ", string.Empty).Equals(viewModel.Content.Trim().ToLower().Replace(" ", string.Empty));
-                bool sameId = latest.Id == viewModel.Id;
+                var all = userContentDomainService.GetAll();
 
-                if (sameContent && !sameId)
+                if (all.Any())
                 {
-                    return new OperationResultVo<Guid>("Calm down! You cannot post the same content twice in a row.");
+                    UserContent latest = all.OrderBy(x => x.CreateDate).Last();
+                    bool sameContent = latest.Content.Trim().ToLower().Replace(" ", string.Empty).Equals(viewModel.Content.Trim().ToLower().Replace(" ", string.Empty));
+                    bool sameId = latest.Id == viewModel.Id;
+
+                    if (sameContent && !sameId)
+                    {
+                        return new OperationResultVo<Guid>("Calm down! You cannot post the same content twice in a row.");
+                    }
                 }
 
                 string youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";

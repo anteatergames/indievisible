@@ -9,7 +9,6 @@ namespace IndieVisible.Application.ViewModels.Content
 {
     public class UserContentViewModel : UserGeneratedBaseViewModel
     {
-
         [Display(Name = "Featured Image")]
         public string FeaturedImage { get; set; }
         [Display(Name = "Images")]

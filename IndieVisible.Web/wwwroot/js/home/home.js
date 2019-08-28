@@ -7,7 +7,7 @@
 
     var postImagesDropZone = null;
 
-    var minheight = 160;
+    var minheight = 147;
     var defaultCommentBoxHeight = minheight;
     var defaultTxtPostContentHeight = 0;
     var selectors = {};
@@ -40,6 +40,7 @@
         selectors.commentBox = $('.commentmodal');
         selectors.commentModal = $('.commentmodal .modal');
         selectors.postImages = $('#txtPostImages');
+        selectors.commentModalBody = undefined;
     }
 
     function bindAll() {
@@ -70,20 +71,11 @@
         $('.content').on('click', '.posttextarea', function (e) {
             if (postModalActive === false) {
                 showPostModal();
+                selectors.commentModalBody = $('.commentmodal .modal .modal-body');
             }
             $(this).focus();
             resizePostBox();
             selectors.commentModal.animate({ scrollTop: 0 }, "fast");
-        });
-
-        $('#modalPost').on('hidden.bs.modal', function (e) {
-            if (postModalActive === true) {
-                hidePostModal();
-            }
-            else {
-                resizePostBox();
-            }
-            POLLS.Methods.ClearOptions();
         });
     }
 
@@ -161,13 +153,15 @@
                     image: img
                 } : null;
             }).get();
-            
+
             if (!postImagesDropZone || postImagesDropZone.getQueuedFiles().length === 0) {
                 var images = selectors.postImages.val();
                 var json = { text: text, images: images, pollOptions: options, language: language };
 
                 sendSimpleContent(json).done(function (response) {
-                    sendSimpleContentCallback(response, txtArea);
+                    if (response.success) {
+                        sendSimpleContentCallback(response, txtArea);
+                    }
                 });
             }
             else {
@@ -200,9 +194,19 @@
     }
 
     function bindPostModalHide() {
-        $('#modalPost').on('hide.bs.modal', function (e) {
+        $('#modalPost').on('hidden.bs.modal', function (e) {
             hideImageAdd();
             hidePollAdd();
+
+            if (postModalActive === true) {
+                selectors.txtPostContent.val('');
+
+                hidePostModal();
+            }
+            else {
+                resizePostBox();
+            }
+            POLLS.Methods.ClearOptions();
         });
     }
 
@@ -221,8 +225,8 @@
         postModalActive = true;
         $('#modalPost').addClass('modal');
         $('#modalPost').modal('show');
-        $('.commentmodal').css('min-height', '160px');
-        $('.commentmodal .modal').css('padding-right', '');
+        selectors.commentBox.css('min-height', minheight + 'px');
+        selectors.commentModal.css('padding-right', '');
         $('.commentmodal .modal-header').removeClass('d-none');
         $('.commentmodal .modal-footer').removeClass('d-none');
         $('.commentmodal .modal-header .close').show();
@@ -231,7 +235,6 @@
     }
 
     function resizePostBox() {
-
         var divPostImagesHeight = selectors.divPostImages.outerHeight();
         var divPostPollHeight = selectors.divPostPoll.outerHeight();
 
@@ -255,6 +258,8 @@
 
         height += extra;
 
+        selectors.commentModalBody.height(selectors.txtPostContent.height());
+
         selectors.commentModal.height(height);
 
         selectors.commentBox.height(height);
@@ -271,8 +276,12 @@
         $('.commentmodal .modal-header').addClass('d-none');
         $('.commentmodal .modal-footer').addClass('d-none');
 
-        $('.commentmodal').css('height', 'auto');
-        $('.commentmodal').css('min-height', 'auto');
+        $('.commentmodal').css('height', '');
+        $('.commentmodal').css('min-height', '');
+
+        selectors.commentModalBody.height('38px');
+
+        resizeTextArea(selectors.txtPostContent[0]);
     }
 
     function hideImageAdd() {
@@ -299,9 +308,9 @@
             });
     }
     function sendSimpleContentCallback(response, txtArea) {
-
         hidePostModal();
         hideImageAdd();
+
         if (postImagesDropZone) {
             postImagesDropZone.removeAllFiles();
         }
@@ -372,11 +381,15 @@
 
     function autosize(el) {
         setTimeout(function () {
-            el.style.cssText = 'height:auto;';
-            el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
+            resizeTextArea(el);
 
             resizePostBox();
         }, 0);
+    }
+
+    function resizeTextArea(el) {
+        el.style.cssText = 'height:auto;';
+        el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
     }
 
     return {
