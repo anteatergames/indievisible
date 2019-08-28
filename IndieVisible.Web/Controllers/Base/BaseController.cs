@@ -9,6 +9,7 @@ using System.Net;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels;
 using System;
+using IndieVisible.Domain.ValueObjects;
 
 namespace IndieVisible.Web.Controllers.Base
 {
@@ -37,6 +38,21 @@ namespace IndieVisible.Web.Controllers.Base
         protected void SetSessionValue(SessionValues key, string value)
         {
             HttpContext.Session.SetString(key.ToString(), value);
+        }
+
+        private void TranslateResponse(OperationResultVo response)
+        {
+            if (response != null && !String.IsNullOrWhiteSpace(response.Message))
+            {
+                response.Message = SharedLocalizer[response.Message];
+            }
+        }
+
+        protected JsonResult Json(OperationResultVo data)
+        {
+            TranslateResponse(data);
+
+            return base.Json(data);
         }
     }
 }

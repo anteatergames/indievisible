@@ -1029,4 +1029,8 @@
     <value>Provedor</value>
     <comment>Preferences</comment>
   </data>
+  <data name="Calm down! You cannot post the same content twice in a row." xml:space="preserve">
+    <value>Calma aê! Você não pode postar a mesma coisa duas vezes seguidas.</value>
+    <comment>Post</comment>
+  </data>
 </root>

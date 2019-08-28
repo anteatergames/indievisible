@@ -141,7 +141,7 @@
             }
 
             var languageSelect = selectors.commentBox.find('#postlanguage');
-            var language = languageSelect.val()
+            var language = languageSelect.val();
 
             var pollOptions = document.getElementsByClassName("polloptioninput");
 

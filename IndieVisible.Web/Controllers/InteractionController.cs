@@ -222,8 +222,6 @@ namespace IndieVisible.Web.Controllers
 
             this.notificationAppService.Notify(userId, NotificationType.ConnectionRequest, userId, text, url);
 
-            TranslateResponse(response);
-
             return Json(response);
         }
 
@@ -232,8 +230,6 @@ namespace IndieVisible.Web.Controllers
         public IActionResult DisconnectUser(Guid userId)
         {
             OperationResultVo response = userConnectionAppService.Disconnect(this.CurrentUserId, userId);
-
-            TranslateResponse(response);
 
             return Json(response);
         }
@@ -245,8 +241,6 @@ namespace IndieVisible.Web.Controllers
         {
             OperationResultVo response = userConnectionAppService.Allow(this.CurrentUserId, userId);
 
-            TranslateResponse(response);
-
             return Json(response);
         }
 
@@ -256,8 +250,6 @@ namespace IndieVisible.Web.Controllers
         public IActionResult DenyUser(Guid userId)
         {
             OperationResultVo response = userConnectionAppService.Deny(this.CurrentUserId, userId);
-
-            TranslateResponse(response);
 
             return Json(response);
         }
@@ -272,7 +264,7 @@ namespace IndieVisible.Web.Controllers
             OperationResultVo response = pollAppService.PollVote(this.CurrentUserId, pollOptionId);
 
             return Json(response);
-        } 
+        }
         #endregion
 
 
@@ -288,14 +280,6 @@ namespace IndieVisible.Web.Controllers
             }
 
             viewModel.UserId = CurrentUserId;
-        }
-
-        private void TranslateResponse(OperationResultVo response)
-        {
-            if (response != null && !String.IsNullOrWhiteSpace(response.Message))
-            {
-                response.Message = SharedLocalizer[response.Message];
-            }
         }
         #endregion
     }
