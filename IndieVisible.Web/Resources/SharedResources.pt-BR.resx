@@ -797,12 +797,12 @@
     <value>Este usuário não possui conexões, ainda.</value>
     <comment>Profile</comment>
   </data>
-  <data name="This user has no games, yet." xml:space="preserve">
-    <value>Este usuário não possui jogos, ainda.</value>
+  <data name="Nothing to see here, yet." xml:space="preserve">
+    <value>Nada pra ver aqui, ainda.</value>
     <comment>Profile</comment>
   </data>
-  <data name="What? Apparently this user has not yet posted anything!" xml:space="preserve">
-    <value>O que? Aparentemente este usuário ainda não postou nada!</value>
+  <data name="What? Apparently there is no content here yet!" xml:space="preserve">
+    <value>O que? Aparentemente ainda não tem nada aqui!</value>
     <comment>Profile</comment>
   </data>
   <data name="Phone number" xml:space="preserve">
@@ -1028,5 +1028,9 @@
   <data name="Provider" xml:space="preserve">
     <value>Provedor</value>
     <comment>Preferences</comment>
+  </data>
+  <data name="Calm down! You cannot post the same content twice in a row." xml:space="preserve">
+    <value>Calma aê! Você não pode postar a mesma coisa duas vezes seguidas.</value>
+    <comment>Post</comment>
   </data>
 </root>

@@ -131,7 +131,13 @@
                                             <p>
                                                 @SharedLocalizer["Platforms"]
                                             </p>
-                                            <h6 class="margin-bottom">@String.Join("|", Model.Platforms)</h6>
+
+                                            <div class="release-platforms">
+                                                @foreach (var platform in Model.Platforms)
+                                                {
+                                                    <i class="fab fa-2x fa-@platform.ToString().ToLower()" aria-hidden="true" title="@platform"></i>
+                                                }
+                                            </div>
                                         }
                                     </div>
                                 </div>

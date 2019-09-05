@@ -69,7 +69,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                var allModels = userContentDomainService.GetAll();
+                IEnumerable<UserContent> allModels = userContentDomainService.GetAll();
 
                 IEnumerable<UserContentViewModel> vms = mapper.Map<IEnumerable<UserContent>, IEnumerable<UserContentViewModel>>(allModels);
 
@@ -155,11 +155,9 @@ namespace IndieVisible.Application.Services
             {
                 UserContent model;
 
-                UserContent latest = userContentDomainService.GetAll().OrderBy(x => x.CreateDate).Last();
-                bool sameContent = latest.Content.Trim().ToLower().Replace(" ", string.Empty).Equals(viewModel.Content.Trim().ToLower().Replace(" ", string.Empty));
-                bool sameId = latest.Id == viewModel.Id;
+                bool isSpam = CheckSpam(viewModel.Id, viewModel.Content);
 
-                if (sameContent && !sameId)
+                if (isSpam)
                 {
                     return new OperationResultVo<Guid>("Calm down! You cannot post the same content twice in a row.");
                 }
@@ -216,6 +214,24 @@ namespace IndieVisible.Application.Services
             }
 
             return result;
+        }
+
+        private bool CheckSpam(Guid id, string content)
+        {
+            IEnumerable<UserContent> all = userContentDomainService.GetAll();
+
+            if (all.Any())
+            {
+                UserContent latest = all.OrderBy(x => x.CreateDate).Last();
+                bool sameContent = latest.Content.Trim().ToLower().Replace(" ", string.Empty).Equals(content.Trim().ToLower().Replace(" ", string.Empty));
+                bool sameId = latest.Id == id;
+
+                return sameContent && !sameId;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void CreatePoll(UserContentViewModel contentVm)
@@ -329,7 +345,7 @@ namespace IndieVisible.Application.Services
             {
                 item.CurrentUserLiked = likeRepository.GetAll().Any(x => x.ContentId == item.Id && x.UserId == currentUserId);
 
-                var comments = userContentDomainService.GetComments(x => x.UserContentId == item.Id).OrderBy(x => x.CreateDate);
+                IOrderedQueryable<UserContentComment> comments = userContentDomainService.GetComments(x => x.UserContentId == item.Id).OrderBy(x => x.CreateDate);
 
                 IQueryable<UserContentCommentViewModel> commentsVm = comments.ProjectTo<UserContentCommentViewModel>(mapper.ConfigurationProvider);
 
@@ -356,7 +372,8 @@ namespace IndieVisible.Application.Services
                 IQueryable<UserContent> all = userContentDomainService.Get(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
 
                 IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
-                    .Select(x => new UserContentSearchVo {
+                    .Select(x => new UserContentSearchVo
+                    {
                         ContentId = x.Id,
                         Title = x.Title,
                         FeaturedImage = x.FeaturedImage,
