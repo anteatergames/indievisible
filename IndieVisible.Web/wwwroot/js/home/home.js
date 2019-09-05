@@ -50,6 +50,7 @@
         bindPostTextArea();
         bindBtnPostAddPollBtn();
         bindPostModalHide();
+        bindMorePosts();
     }
 
     function bindPostTextArea() {
@@ -207,6 +208,14 @@
                 resizePostBox();
             }
             POLLS.Methods.ClearOptions();
+        });
+    }
+
+
+    function bindMorePosts() {
+        $('body').on('click', '#btnMorePosts', function () {
+            var btn = $(this);
+            loadActivityFeed();
         });
     }
 

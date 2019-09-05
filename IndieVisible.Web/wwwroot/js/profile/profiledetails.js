@@ -16,6 +16,7 @@
     function cacheSelectors() {
         selectors.content = $('.content');
         selectors.tabActivity = $("#tabactivity");
+        selectors.divActivityFeed = $("#tabactivity #divActivityFeed");
         selectors.tabGames = $("#tabgames");
         selectors.tabConnections = $("#tabconnections");
         selectors.Id = $('#Id');
@@ -29,6 +30,7 @@
         bindAllowConnectionBtn();
         bindDenyConnectionBtn();
         bindTabs();
+        bindMorePosts();
     }
 
     function bindFollowBtn() {
@@ -107,11 +109,18 @@
     }
 
 
+    function bindMorePosts() {
+        $('body').on('click', '#btnMorePosts', function () {
+            loadActivityFeed(selectors.Id.val());
+        });
+    }
+
+
     function loadActivityFeed(userId) {
-        selectors.tabActivity.html(MAINMODULE.Default.Spinner);
+        selectors.divActivityFeed.html(MAINMODULE.Default.Spinner);
 
         $.get("/content/feed?userId=" + userId, function (data) {
-            selectors.tabActivity.html(data);
+            selectors.divActivityFeed.html(data);
         });
     }
 
@@ -148,7 +157,7 @@
     function followCallback(response, counterSelector, btn) {
         if (response.success === true) {
             $(counterSelector).text(response.value);
-            
+
             btn.addClass('btn-follow-following');
         }
         else {
@@ -162,7 +171,7 @@
     function unfollowCallback(response, counterSelector, btn) {
         if (response.success === true) {
             $(counterSelector).text(response.value);
-            
+
             btn.removeClass('btn-follow-following');
         }
         else {
@@ -193,7 +202,7 @@
     function disconnectCallback(response, counterSelector, btn) {
         if (response.success === true) {
             $(counterSelector).text(response.value);
-            
+
             btn.removeClass('btn-connect-connected');
             btn.text(btn.data('textConnect'));
         }
@@ -212,7 +221,7 @@
             $(counterSelector).text(response.value);
 
             $('.connectionalertbox').hide();
-            
+
             btnConnect.addClass('btn-connect-connected');
             btnConnect.removeClass('disabled');
             btnConnect.text(btnConnect.data('textConnected'));

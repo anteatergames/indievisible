@@ -176,9 +176,9 @@
                 </div>
             </div>
         }
-    </div>
 
-    <div class="col-12 mb-2">
-        <button type="button" id="btnMorePosts" class="btn btn-lg btn-default btn-block">@SharedLocalizer["More Posts"]</button>
-    </div>
-}
+        <div class="col-12 mb-2">
+            <button type="button" id="btnMorePosts" class="btn btn-lg btn-default btn-block" data-oldestid="@ViewData["OldestPostGuid"]" data-oldestdate="@ViewData["OldestPostDate"]">@SharedLocalizer["More Posts"]</button>
+        </div>
+    }
+</div>

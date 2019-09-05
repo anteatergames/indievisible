@@ -46,6 +46,10 @@ namespace IndieVisible.Web.ViewComponents
             {
                 item.Content = ContentHelper.FormatContentToShow(item.Content);
             }
+            var oldest = model.OrderByDescending(x => x.CreateDate).Last();
+
+            ViewData["OldestPostGuid"] = oldest.Id;
+            ViewData["OldestPostDate"] = oldest.CreateDate;
 
             ViewData["UserId"] = userId;
 

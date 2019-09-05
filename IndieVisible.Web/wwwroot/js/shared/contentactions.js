@@ -1,6 +1,8 @@
 ﻿var CONTENTACTIONS = (function () {
     "use strict";
 
+    var selectors = {};
+
     function init() {
         cacheSelectors();
 
@@ -91,13 +93,6 @@
             }, function (response) { });
         });
     }
-
-    function bindMorePosts() {
-        $('body').on('click', '#btnMorePosts', function () {
-            console.log('btnMorePosts');
-        });
-    }
-
 
 
     function like(targetId) {
