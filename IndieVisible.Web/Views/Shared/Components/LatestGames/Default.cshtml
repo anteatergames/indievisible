@@ -15,7 +15,7 @@
 }
 else
 {
-    <div class="@(userFiltered ? "offset-lg-2 col-lg-8 px-0" : string.Empty)">
+    <div class="feed @(userFiltered ? "offset-lg-2 col-lg-8 px-0" : string.Empty)">
         @foreach (var game in Model)
         {
             <div class="box box-game bg-white">

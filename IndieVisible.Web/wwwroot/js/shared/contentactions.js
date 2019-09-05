@@ -34,8 +34,8 @@
     }
 
     function bindCommentBtn() {
-        $('.content').on('click', '.btn-interaction-comment', function (e) {            
-            $(this).closest('.box-content').find('textarea.commentbox').val('').focus();            
+        $('.content').on('click', '.btn-interaction-comment', function (e) {
+            $(this).closest('.box-content').find('textarea.commentbox').val('').focus();
         });
     }
 
@@ -92,10 +92,16 @@
         });
     }
 
+    function bindMorePosts() {
+        $('body').on('click', '#btnMorePosts', function () {
+            console.log('btnMorePosts');
+        });
+    }
+
 
 
     function like(targetId) {
-        return $.post("/interact/content/like", { targetId: targetId});
+        return $.post("/interact/content/like", { targetId: targetId });
     }
     function likeCallback(response, likeCount, btn) {
         if (response.success === true) {
@@ -107,7 +113,7 @@
     }
 
     function unlike(targetId) {
-        return $.post("/interact/content/unlike", { targetId: targetId});
+        return $.post("/interact/content/unlike", { targetId: targetId });
     }
     function unlikeCallback(response, likeCount, btn) {
         if (response.success === true) {
@@ -148,7 +154,7 @@
             el.style.cssText = 'height:auto;';
             // for box-sizing other than "content-box" use:
             // el.style.cssText = '-moz-box-sizing:content-box';
-            el.style.cssText = 'height:' + (el.scrollHeight+2) + 'px';
+            el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
         }, 0);
     }
 
