@@ -13,7 +13,7 @@
     var selectors = {};
 
     function init() {
-        setSelectors();
+        cacheSelectors();
 
         bindAll();
 
@@ -21,16 +21,18 @@
 
         loadLatestGames();
 
-        loadActivityFeed();
-
         //defaultCommentBoxHeight = Math.ceil(selectors.commentBox.outerHeight());
 
         defaultTxtPostContentHeight = Math.ceil(selectors.txtPostContent.height());
 
         POLLS.Events.PostAddOption = resizePostBox;
+
+        ACTIVITYFEED.Init(selectors.divActivityFeed, FEEDTYPE.HOME);
+
+        ACTIVITYFEED.Methods.LoadActivityFeed(loadOembeds);
     }
 
-    function setSelectors() {
+    function cacheSelectors() {
         selectors.divCounters = $("#divCounters");
         selectors.divLatestGames = $("#divLatestGames");
         selectors.divActivityFeed = $("#divActivityFeed");
@@ -50,7 +52,6 @@
         bindPostTextArea();
         bindBtnPostAddPollBtn();
         bindPostModalHide();
-        bindMorePosts();
     }
 
     function bindPostTextArea() {
@@ -211,14 +212,6 @@
         });
     }
 
-
-    function bindMorePosts() {
-        $('body').on('click', '#btnMorePosts', function () {
-            var btn = $(this);
-            loadActivityFeed();
-        });
-    }
-
     function instantiateDropZone() {
         postImagesDropZone = new Dropzone("div#divPostImages", {
             url: '/storage/uploadcontentimage',
@@ -327,7 +320,7 @@
         if (response.success === true) {
             txtArea.val('');
             CONTENTACTIONS.AutosizeTextArea(txtArea[0]);
-            loadActivityFeed();
+            ACTIVITYFEED.Methods.LoadActivityFeed(null, null, loadOembeds);
             if (postImagesDropZone) {
                 postImagesDropZone.disable();
             }
@@ -346,15 +339,6 @@
         selectors.divLatestGames.html(MAINMODULE.Default.Spinner);
 
         $.get("/game/latest", function (data) { selectors.divLatestGames.html(data); });
-    }
-
-    function loadActivityFeed() {
-        selectors.divActivityFeed.html(MAINMODULE.Default.Spinner);
-
-        $.get("/content/feed", function (data) {
-            selectors.divActivityFeed.html(data);
-            loadOembeds();
-        });
     }
 
     function loadOembeds() {

@@ -1,0 +1,160 @@
+﻿@model List<UserContentListItemViewModel>
+
+@{
+    Layout = null;
+    var myFullName = CookieMgrService.Get(SessionValues.FullName.ToString());
+}
+
+@foreach (var item in Model)
+{
+    <div class="box box-widget box-content p-0 bg-white" data-id="@item.Id">
+        <div class="box-header with-border">
+            <div class="user-block">
+                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
+                    <img class="rounded-circle lazyload" data-src="@item.AuthorPicture" src="~/images/profileimages/developer.png" alt="This is @item.AuthorName">
+                </a>
+                <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">@item.AuthorName</a></span>
+
+                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="contenturl">
+                    <span class="description">@item.CreateDate.ToString()</span>
+                </a>
+            </div>
+        </div>
+        <div class="box-body no-gutters p-0 @(item.HasFeaturedImage ? "hasimage": "noimage")">
+            @if (!item.IsArticle)
+            {
+                <div class="col-12 p-2">
+                    @Html.Raw(item.Content)
+                </div>
+            }
+            @if (item.HasFeaturedImage)
+            {
+                <div class="col-12 text-center featuredimage">
+                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
+                        @if (item.FeaturedImageType == MediaType.Youtube)
+                        {
+                            <div class="videoWrapper"><oembed>@item.FeaturedImage</oembed></div>
+                        }
+                        else if (item.FeaturedImageType == MediaType.Video)
+                        {
+                            <video src="@item.FeaturedImage" width="500" height="281" controls>
+                                <track kind="captions" src="@Url.Content("~/default.vtt")" srclang="en">
+                            </video>
+                        }
+                        else
+                        {
+                            <img data-src="@item.FeaturedImage" src="~/images/placeholders/featuredimage.gif" class="img-fluid lazyload" style="width:100%" alt="@item.Title" />
+                        }
+                    </a>
+                </div>
+            }
+
+            @if (item.IsArticle)
+            {
+                <div class="p-2 bottomcontent">
+                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
+                        <div class="row col-12 font-weight-bold text-uppercase">@item.Title</div>
+                        <div class="row col-12">@Html.Raw(item.Introduction)</div>
+                    </a>
+                </div>
+            }
+
+            @if (item.HasPoll)
+            {
+                <div class="poll-wrapper">
+                    @{
+                        var pollName = String.Format("poll_{0}", item.Id);
+                        <ul class="poll @(User.Identity.IsAuthenticated ? "canvote" : " cannotvote")" id="@pollName">
+                            @for (int i = 0; i < item.Poll.PollOptions.Count; i++)
+                            {
+                                var option = item.Poll.PollOptions.ElementAt(i);
+                                var optionName = String.Format("poll_{0}_{1}", item.Id, option.Id);
+                                <li class="@(option.CurrentUserVoted ? "voted" : "notvoted") ">
+                                    <span class="perc-back" style="width: @(option.VotePercentageText)%"></span>
+                                    <input type="radio" class="poll-option" name="@pollName" id="@optionName" value="@option.Id">
+                                    <label for="@optionName">
+                                        <span>@option.Text</span>
+                                    </label>
+                                    <span class="perc-number">@(option.VotePercentageText)%</span>
+                                </li>
+                            }
+                        </ul>
+                        <div class="col-12 px-3 text-right">
+                            <span class="poll-vote-count">@item.Poll.TotalVotes</span>
+                            &nbsp;@SharedLocalizer["votes"]
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        <div class="box-footer box-comments">
+            <div class="text-lowercase lh-10 align-middle">
+                <span class="badge badge-dark lh-10">@SharedLocalizer[item.Language.ToString()]</span>
+                <span class="text-muted float-right lh-10"><span class="like-count lh-10">@item.LikeCount</span> @SharedLocalizer["Likes"] - <span class="comment-count lh-10">@item.CommentCount</span> @SharedLocalizer["Comments"]</span>
+            </div>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="row no-gutters bb-1">
+                    <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-like @(item.CurrentUserLiked ? "text-blue like-liked" : string.Empty)" data-id="@item.Id">
+                        <i class="fa fa-thumbs-up" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Like"]
+                    </button>
+                    <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-comment">
+                        <i class="fa fa-comment" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Comment"]
+                    </button>
+                    <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-share">
+                        <i class="fa fa-share" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Share"]
+                    </button>
+                </div>
+                <div class="box-commentsection mt-10">
+                    <div class="box-comment-template d-none">
+                        <img class="rounded img-sm rounded-circle" src="#" alt="User Image">
+
+                        <div class="comment-text">
+                            <span class="username">
+                                <span class="comment-authorname">#</span>
+                                <span class="text-muted pull-right comment-date">#</span>
+                            </span>
+                            <div class="comment-content">
+                                #
+                            </div>
+                        </div>
+                    </div>
+                    @foreach (var comment in item.Comments)
+                    {
+                        <div class="box-comment">
+                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@comment.UserId">
+                                <img class="rounded img-sm rounded-circle lazyload" data-src="@comment.AuthorPicture" alt="User Image">
+                            </a>
+
+                            <div class="comment-text">
+                                <span class="username">
+                                    <span class="comment-authorname"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@comment.UserId">@comment.AuthorName</a></span>
+                                    <span class="text-muted pull-right comment-date">@comment.CreateDate.ToString()</span>
+                                </span>
+                                <div class="comment-content">
+                                    @Html.Raw(comment.Text)
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+
+                <div class="align-middle pt-10 interaction-commentbox" data-fullname="@myFullName">
+                    <form action="#" method="post">
+                        <img class="img-fluid rounded-circle img-sm" src="@ViewBag.ProfileImage" alt="Alt Text">
+                        <div class="img-push">
+                            <label aria-label="Comment_@item.Id" style="width:100%">
+                                <textarea data-userContentId="@item.Id" data-userContentType="@item.UserContentType" aria-label="@SharedLocalizer["Comment"]" class="form-control commenttextarea input-sm commentbox" rows="1" placeholder="@SharedLocalizer["Press CTRL+ENTER to send"]"></textarea>
+                                <span class="float-right comment-send-button">
+                                    <button type="button" role="button" aria-label="@SharedLocalizer["Post Comment"]" class="btn bg-transparent btn-interaction-comment-send"><i class="fa fa-2x fa-comment" aria-hidden="true"></i></button>
+                                </span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+}

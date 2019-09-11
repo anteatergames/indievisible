@@ -8,11 +8,13 @@
 
         bindAll();
 
-        loadActivityFeed(selectors.Id.val());
+        ACTIVITYFEED.Init(selectors.divActivityFeed, FEEDTYPE.GAME, selectors.Id.val());
+        ACTIVITYFEED.Methods.LoadActivityFeed();
     }
 
     function setSelectors() {
-        selectors.tabActivity = $("#tabactivitycontent");
+        selectors.tabActivity = $("#tabactivity");
+        selectors.divActivityFeed = $("#tabactivity #divActivityFeed");
         selectors.Id = $('#Id');
     }
 
@@ -51,16 +53,6 @@
             }
         });
     }
-
-    function loadActivityFeed(gameId) {
-        selectors.tabActivity.html(MAINMODULE.Default.Spinner);
-
-        $.get("/content/feed?gameId=" + gameId, function (data) {
-            selectors.tabActivity.html(data);
-        });
-    }
-
-
 
     function like(likedId) {
         return $.post("/interact/game/like", { likedId: likedId });

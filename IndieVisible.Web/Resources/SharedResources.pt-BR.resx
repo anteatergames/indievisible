@@ -1033,4 +1033,8 @@
     <value>Calma aê! Você não pode postar a mesma coisa duas vezes seguidas.</value>
     <comment>Post</comment>
   </data>
+  <data name="What? Apparently you found the bottom!" xml:space="preserve">
+    <value>Eita! Aparentemente você achou o fundo!</value>
+    <comment>Feed</comment>
+  </data>
 </root>

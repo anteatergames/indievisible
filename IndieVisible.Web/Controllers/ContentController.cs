@@ -184,9 +184,9 @@ namespace IndieVisible.Web.Controllers
             return Json(result);
         }
 
-        public IActionResult Feed(Guid? gameId, Guid? userId)
+        public IActionResult Feed(Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate)
         {
-            var component = ViewComponent("UserContent", new { count = 10, gameId, userId });
+            var component = ViewComponent("Feed", new { count = 10, gameId, userId, oldestId, oldestDate });
 
             return component;
         }

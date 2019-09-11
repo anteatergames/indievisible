@@ -25,6 +25,7 @@
       "wwwroot/lib/dropzone/dropzone.js",
       "wwwroot/js/shared/contentactions.js",
       "wwwroot/js/shared/polls.js",
+      "wwwroot/js/shared/activityfeed.js",
       "wwwroot/js/home/home.js"
     ]
   },
@@ -38,6 +39,7 @@
     "outputFileName": "wwwroot/js/game/gamedetails.min.js",
     "inputFiles": [
       "wwwroot/js/shared/contentactions.js",
+      "wwwroot/js/shared/activityfeed.js",
       "wwwroot/js/game/gamedetails.js"
     ]
   },
@@ -65,10 +67,11 @@
   {
     "outputFileName": "wwwroot/js/profile/profiledetails.min.js",
     "inputFiles": [
-      "wwwroot/js/profile/profiledetails.js",
       "wwwroot/js/shared/contentactions.js",
       "wwwroot/lib/embedo/embedo.js",
-      "wwwroot/js/shared/polls.js"
+      "wwwroot/js/shared/polls.js",
+      "wwwroot/js/shared/activityfeed.js",
+      "wwwroot/js/profile/profiledetails.js"
 
     ]
   },

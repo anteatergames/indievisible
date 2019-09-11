@@ -27,7 +27,7 @@ namespace IndieVisible.Domain.Services
             return count;
         }
 
-        public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages)
+        public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate)
         {
             var allModels = this.repository.GetAll();
 
@@ -44,6 +44,11 @@ namespace IndieVisible.Domain.Services
             if (languages != null && languages.Any())
             {
                 allModels = allModels.Where(x => x.Language == 0 || languages.Contains(x.Language));
+            }
+
+            if (oldestDate.HasValue)
+            {
+                allModels = allModels.Where(x => x.CreateDate <= oldestDate && x.Id != oldestId);
             }
 
             return allModels;

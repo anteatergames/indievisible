@@ -9,10 +9,11 @@
     ViewData["Title"] = Model.Name;
     ViewData["Description"] = Model.Bio;
     string currentUserId = UserManager.GetUserId(User);
-    var urlUserId = ViewContext.RouteData.Values["id"];
+    var userId = Guid.Parse(ViewContext.RouteData.Values["id"].ToString());
 
     var canFollowAndConnect = currentUserId != null ? !currentUserId.Equals(Model.UserId.ToString()) : false;
 }
+
 <div class="col-12">
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="UserId" />
@@ -67,7 +68,7 @@
             {
                 <div class="user-profile-cover-topright">
                     <div class="btn-group">
-                        <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@urlUserId" class="btn btn-default bg-transparent">
+                        <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@userId" class="btn btn-default bg-transparent">
                             <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                             @SharedLocalizer["Edit Profile"]
                         </a>
@@ -354,7 +355,7 @@
                         </div>
                     </div>
                     <div class="tab-pane feed" id="tabactivity">
-                        <div id="divActivityFeed"></div>
+                        <div id="divActivityFeed" class="offset-lg-2 col-lg-8 px-0 pr-lg-2 pl-lg-2"></div>
                     </div>
 
                     <div class="tab-pane feed1" id="tabgames">
@@ -382,10 +383,11 @@
 }
 @section Scripts {
     <environment include="Development">
-        <script src="~/js/profile/profiledetails.js"></script>
         <script src="~/js/shared/contentactions.js"></script>
         <script src="~/lib/embedo/embedo.js"></script>
         <script src="~/js/shared/polls.js"></script>
+        <script src="~/js/shared/activityfeed.js"></script>
+        <script src="~/js/profile/profiledetails.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/js/profile/profiledetails.min.js" asp-append-version="true"></script>

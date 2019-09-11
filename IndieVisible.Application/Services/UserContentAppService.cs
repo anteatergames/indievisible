@@ -266,9 +266,9 @@ namespace IndieVisible.Application.Services
             return count;
         }
 
-        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid? gameId, Guid? userId, List<SupportedLanguage> languages)
+        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate)
         {
-            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(gameId, userId, languages);
+            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(gameId, userId, languages, oldestId, oldestDate);
 
             IOrderedQueryable<UserContent> orderedList = allModels
                 .OrderByDescending(x => x.CreateDate);

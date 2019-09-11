@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Web.ViewComponents
 {
-    public class UserContentViewComponent : ViewComponent
+    public class FeedViewComponent : ViewComponent
     {
         private readonly IUserPreferencesAppService _userPreferencesAppService;
 
@@ -21,7 +21,7 @@ namespace IndieVisible.Web.ViewComponents
 
         private readonly IUserContentAppService _userContentAppService;
 
-        public UserContentViewComponent(IHttpContextAccessor httpContextAccessor, IUserContentAppService userContentAppService, IUserPreferencesAppService userPreferencesAppService)
+        public FeedViewComponent(IHttpContextAccessor httpContextAccessor, IUserContentAppService userContentAppService, IUserPreferencesAppService userPreferencesAppService)
         {
             _userContentAppService = userContentAppService;
             _userPreferencesAppService = userPreferencesAppService;
@@ -34,22 +34,28 @@ namespace IndieVisible.Web.ViewComponents
             }
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int count, Guid? gameId, Guid? userId)
+        public async Task<IViewComponentResult> InvokeAsync(int count, Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate)
         {
             UserPreferencesViewModel preferences = _userPreferencesAppService.GetByUserId(UserId);
 
             List<SupportedLanguage> languages = preferences.Languages;
 
-            List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(UserId, count, gameId, userId, languages).ToList();
+            List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(UserId, count, gameId, userId, languages, oldestId, oldestDate).ToList();
 
             foreach (var item in model)
             {
                 item.Content = ContentHelper.FormatContentToShow(item.Content);
             }
-            var oldest = model.OrderByDescending(x => x.CreateDate).Last();
 
-            ViewData["OldestPostGuid"] = oldest.Id;
-            ViewData["OldestPostDate"] = oldest.CreateDate;
+            if (model.Any())
+            {
+                var oldest = model.OrderByDescending(x => x.CreateDate).Last();
+
+                ViewData["OldestPostGuid"] = oldest.Id;
+                ViewData["OldestPostDate"] = oldest.CreateDate.ToString("o");
+            }
+
+            ViewData["IsMorePosts"] = oldestId.HasValue;
 
             ViewData["UserId"] = userId;
 

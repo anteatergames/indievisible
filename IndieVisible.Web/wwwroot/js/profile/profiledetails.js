@@ -8,9 +8,11 @@
 
         bindAll();
 
-        //loadActivityFeed(selectors.Id.val());
-        //loadGameList(selectors.Id.val());
         loadBadges(selectors.Id.val());
+
+
+
+        ACTIVITYFEED.Init(selectors.divActivityFeed, FEEDTYPE.USER, selectors.Id.val());
     }
 
     function cacheSelectors() {
@@ -30,7 +32,6 @@
         bindAllowConnectionBtn();
         bindDenyConnectionBtn();
         bindTabs();
-        bindMorePosts();
     }
 
     function bindFollowBtn() {
@@ -96,7 +97,7 @@
             var tabDestination = e.target.getAttribute('href');
 
             if (tabDestination === '#' + selectors.tabActivity.prop('id')) {
-                loadActivityFeed(selectors.Id.val());
+                ACTIVITYFEED.Methods.LoadActivityFeed();
             }
             else if (tabDestination === '#' + selectors.tabGames.prop('id')) {
                 loadGameList(selectors.Id.val());
@@ -105,22 +106,6 @@
                 loadConnections(selectors.UserId.val());
             }
             return false;
-        });
-    }
-
-
-    function bindMorePosts() {
-        $('body').on('click', '#btnMorePosts', function () {
-            loadActivityFeed(selectors.Id.val());
-        });
-    }
-
-
-    function loadActivityFeed(userId) {
-        selectors.divActivityFeed.html(MAINMODULE.Default.Spinner);
-
-        $.get("/content/feed?userId=" + userId, function (data) {
-            selectors.divActivityFeed.html(data);
         });
     }
 

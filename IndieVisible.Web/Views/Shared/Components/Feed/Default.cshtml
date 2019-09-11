@@ -1,0 +1,37 @@
+﻿@model List<UserContentListItemViewModel>
+
+@{
+    Layout = null;
+
+    var morePosts = (bool)ViewData["IsMorePosts"];
+}
+
+
+@if (!Model.Any())
+{
+    <div class="box box-widget box-content p-0 bg-white">
+        <div class="box-body">
+            <div class="text-center mt-2 p-5">
+                <i class="fa-10x fas fa-exclamation-triangle" aria-hidden="true"></i>
+                <div class="mt-3">
+                    @if (morePosts)
+                    {
+                        <h3>@SharedLocalizer["What? Apparently you found the bottom!"]</h3>
+                    }
+                    else
+                    {
+                        <h3>@SharedLocalizer["What? Apparently there is no content here yet!"]</h3>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <partial name="_Feed.cshtml" model="Model" />
+
+    <div class="col-12 mb-2">
+        <button type="button" id="btnMorePosts" class="btn btn-lg btn-default btn-block" data-oldestid="@ViewData["OldestPostGuid"]" data-oldestdate="@ViewData["OldestPostDate"]">@SharedLocalizer["More Posts"]</button>
+    </div>
+}
