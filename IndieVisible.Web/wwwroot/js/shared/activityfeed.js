@@ -65,7 +65,7 @@ var ACTIVITYFEED = (function () {
 
             if (oldestDate !== undefined && oldestGuid !== undefined) {
                 selectors.divActivityFeed.find('.spinner').remove();
-                $(selectorText.btnMorePosts).remove();
+                $(selectorText.btnMorePosts).parent().remove();
                 selectors.divActivityFeed.append(response);
             }
             else {
