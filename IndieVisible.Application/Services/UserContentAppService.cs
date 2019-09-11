@@ -183,7 +183,7 @@ namespace IndieVisible.Application.Services
                 {
                     model = mapper.Map<UserContent>(viewModel);
 
-                    PlatformAction action = viewModel.IsComplex || viewModel.Poll.PollOptions.Any() ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
+                    PlatformAction action = viewModel.IsComplex || (viewModel.HasPoll && viewModel.Poll.PollOptions.Any()) ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
 
                     this.gamificationDomainService.ProcessAction(viewModel.UserId, action);
                 }

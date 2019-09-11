@@ -139,7 +139,6 @@ namespace IndieVisible.Web.Controllers
 
                 if (!result.Success)
                 {
-
                     return Json(result);
                 }
                 else
