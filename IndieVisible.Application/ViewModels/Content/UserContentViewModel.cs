@@ -24,7 +24,7 @@ namespace IndieVisible.Application.ViewModels.Content
         public string Introduction { get; set; }
 
         [Display(Name = "Content")]
-        [Required(ErrorMessage = "The Content is required")]
+        //[Required(ErrorMessage = "The Content is required")]
         public string Content { get; set; }
 
         [Display(Name = "Language")]

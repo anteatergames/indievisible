@@ -14,11 +14,7 @@
 
         bindAll();
 
-
-
-        $.validator.setDefaults({
-            ignore: ":hidden:not(.wysiwygeditor)"
-        });
+        $('#frmContentSave').validate().settings.ignore = ":hidden:not(.wysiwygeditor), .ck-editor__editable";
     }
 
     function cacheSelectors() {
@@ -63,8 +59,6 @@
             })
             .then(newEditor => {
                 window.editor = newEditor;
-
-                //window.editor.setData(document.querySelector('.wysiwygeditor').value);
             })
             .catch(error => {
                 console.error(error);
