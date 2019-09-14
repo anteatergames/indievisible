@@ -8,6 +8,8 @@ namespace IndieVisible.Domain.ValueObjects
     {
         public bool CanEdit { get; set; }
 
+        public bool CanDelete { get; set; }
+
         public bool CanPostActivity { get; set; }
 
         public bool CanFollow { get; set; }

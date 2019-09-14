@@ -8,6 +8,8 @@
     //    timer: 3000
     //});
 
+    // https://sweetalert2.github.io
+
     function init() {
         cacheSelectors();
 
@@ -34,51 +36,68 @@
             hideAfter: 3500,
             stack: 6
         });
-
-        //toast({
-        //    type: 'warning',
-        //    title: text
-        //});
     }
 
     function showSuccessMessage(msg, callback) {
-        // https://sweetalert2.github.io
         swal({
             title: "Good job!",
             text: msg,
             type: "success"
-        })
-            .then(
-                function () {
-                    if (callback) {
-                        callback();
-                    }
+        }).then(
+            function () {
+                if (callback) {
+                    callback();
                 }
-            );
+            }
+        );
     }
 
     function showWarningMessage(msg, callback) {
-        // https://sweetalert2.github.io
         swal({
             title: "Attention!",
             text: msg,
             type: "warning"
-        })
-            .then(
-                function () {
-                    if (callback) {
-                        callback();
+        }).then(
+            function () {
+                if (callback) {
+                    callback();
+                }
+            }
+        );
+    }
+
+    function showConfirmMessage(msg, callbackYes, callbackCancel) {
+        swal({
+            title: "Are you sure?",
+            text: msg,
+            type: "question",
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(
+            function (result) {
+                if (result.value) {
+                    console.log('yes');
+                    if (callbackYes) {
+                        callbackYes();
                     }
                 }
-            );
+                else {
+                    console.log('no');
+                    if (callbackCancel) {
+                        callbackCancel();
+                    }
+                }
+            }
+        );
     }
 
     return {
         Init: init,
         ShowSuccessMessage: showSuccessMessage,
         ShowWarningMessage: showWarningMessage,
-        Alert: {
-            Show: showAlert,
+        ShowConfirmMessage: showConfirmMessage,
+        Toastr: {
             ShowWarning: showWarningAlert
         }
     };

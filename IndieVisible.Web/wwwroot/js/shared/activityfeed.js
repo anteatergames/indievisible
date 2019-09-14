@@ -2,7 +2,7 @@
     HOME: 1,
     USER: 2,
     GAME: 3
-}
+};
 
 var ACTIVITYFEED = (function () {
     "use strict";
@@ -22,6 +22,8 @@ var ACTIVITYFEED = (function () {
 
         selectors.divActivityFeed = divActivityFeed;
         selectorText.btnMorePosts = '#btnMorePosts';
+        selectorText.btnDeletePost = '.btnDeletePost';
+
 
         bindAll();
     }
@@ -29,6 +31,7 @@ var ACTIVITYFEED = (function () {
 
     function bindAll() {
         bindMorePosts();
+        bindDeletePost();
     }
 
     function bindMorePosts() {
@@ -41,12 +44,42 @@ var ACTIVITYFEED = (function () {
         });
     }
 
+    function bindDeletePost() {
+        $('body').on('click', selectorText.btnDeletePost, function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            var id = btn.data('id');
+            var msg = btn.data('confirmationmessage');
+
+            ALERTSYSTEM.ShowConfirmMessage(msg, function () {
+                $.ajax({
+                    url: '/content/' + id,
+                    type: 'DELETE'
+                }).done(function (response) {
+                    if (response.success) {
+                        var elementToDelete = btn.closest('.box-content');
+                        elementToDelete.remove();
+
+                        if (response.message) {
+                            ALERTSYSTEM.ShowSuccessMessage(response.message);
+                        }
+                    }
+                    else {
+                        ALERTSYSTEM.ShowWarningMessage(response.message);
+                    }
+                });
+            });
+
+            return false;
+        });
+    }
+
 
     function loadActivityFeed(callback) {
         selectors.divActivityFeed.append(MAINMODULE.Default.Spinner);
 
         var url = "/content/feed?load=1";
-        
+
         if (feedId && feedType === FEEDTYPE.USER) {
             url += '&userId=' + feedId;
         }

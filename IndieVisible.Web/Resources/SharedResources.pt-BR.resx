@@ -1037,4 +1037,16 @@
     <value>Eita! Aparentemente você achou o fundo!</value>
     <comment>Feed</comment>
   </data>
+  <data name="Are you sure you want to delete this post?" xml:space="preserve">
+    <value>Você tem certeza que deseja excluir esta postagem?</value>
+    <comment>Activity Feed</comment>
+  </data>
+  <data name="Content deleted successfully!" xml:space="preserve">
+    <value>Conteúdo excluído com sucesso!</value>
+    <comment>Activity Feed</comment>
+  </data>
+  <data name="Oops! The content was not deleted!" xml:space="preserve">
+    <value>Opa! O conteúdo não foi excluído!</value>
+    <comment>Activity Feed</comment>
+  </data>
 </root>

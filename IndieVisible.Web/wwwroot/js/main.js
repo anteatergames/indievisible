@@ -36,7 +36,7 @@
         $("body").on("click", ".notimplemented", function (e) {
             e.preventDefault();
 
-            ALERTSYSTEM.Alert.ShowWarning('KEEP CALM AND READ THIS', 'The feature you clicked is not implemented yet.');
+            ALERTSYSTEM.ShowWarningMessage('KEEP CALM AND READ THIS', 'The feature you clicked is not implemented yet.');
 
             return false;
         });

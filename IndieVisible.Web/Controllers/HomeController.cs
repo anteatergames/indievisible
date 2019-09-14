@@ -342,6 +342,29 @@ namespace IndieVisible.Web.Controllers
                 }
             });
 
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2019, 08, 01),
+                Icon = "fas fa-question",
+                Color = "primary",
+                Title = "August 2019",
+                Subtitle = "...",
+                Description = "Nothing to see here, move along!"
+            });
+
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2019, 09, 01),
+                Icon = "fas fa-trash-alt",
+                Color = "danger",
+                Title = "September 2019",
+                Subtitle = "You got the power!",
+                Description = "Must have features!",
+                Items = {
+                    "You can now delete your own posts"
+                }
+            });
+
             // Future
             model.Items.Add(new TimeLineItemViewModel
             {

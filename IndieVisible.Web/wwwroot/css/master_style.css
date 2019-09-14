@@ -52,7 +52,6 @@ Body :		Poppins, sans-serif;
 
 /*Body, layout*/
 .wrapper, body, html {
-    height: 100%;
     padding-right: 0 !important;
 }
 
@@ -1746,6 +1745,10 @@ input[type="color"] {
 
     .box-header > .box-tools [data-toggle=tooltip], .control {
         position: relative;
+    }
+
+    .box-header > .box-tools .dropdown-menu {
+        transform: translate3d(-138px, 31px, 0px) !important;
     }
 
     .box-header > .box-tools .dropdown-menu > li > a {

@@ -83,6 +83,7 @@ namespace IndieVisible.Web.Controllers
             bool userIsAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
 
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
+            vm.Permissions.CanDelete = vm.UserId == CurrentUserId || userIsAdmin;
 
             this.notificationAppService.MarkAsRead(notificationclicked);
 
@@ -155,6 +156,23 @@ namespace IndieVisible.Web.Controllers
             {
                 return Json(new OperationResultVo(ex.Message));
             }
+        }
+
+        [HttpDelete("/content/{id:guid}")]
+        public IActionResult Delete(Guid id)
+        {
+            OperationResultVo result = service.Remove(id);
+
+            if (result.Success)
+            {
+                result.Message = SharedLocalizer["Content deleted successfully!"];
+            }
+            else
+            {
+                result.Message = SharedLocalizer["Oops! The content was not deleted!"];
+            }
+
+            return Json(result);
         }
 
         [HttpPost]
