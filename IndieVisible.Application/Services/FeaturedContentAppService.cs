@@ -159,12 +159,12 @@ namespace IndieVisible.Application.Services
 
         public CarouselViewModel GetFeaturedNow()
         {
-            IQueryable<FeaturedContent> allModels = _repository.GetAll()
+            var allModels = _repository.GetAll()
                 .Where(x => x.StartDate.Date <= DateTime.Today && (x.EndDate.Date == DateTime.MinValue || x.EndDate.Date > DateTime.Today));
 
             if (allModels.Any())
             {
-                IEnumerable<FeaturedContentViewModel> vms = _mapper.Map<IEnumerable<FeaturedContent>, IEnumerable<FeaturedContentViewModel>>(allModels);
+                IEnumerable<FeaturedContentViewModel> vms = allModels.ProjectTo<FeaturedContentViewModel>(_mapper.ConfigurationProvider);
 
                 CarouselViewModel model = new CarouselViewModel();
 

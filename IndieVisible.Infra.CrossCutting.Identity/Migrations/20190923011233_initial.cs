@@ -153,6 +153,17 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "f3cbbd26-21fd-4290-9729-358151859e6a", "e06e09b7-a3d7-414c-9828-5d7279512f70", "Administrator", "ADMINISTRATOR" },
+                    { "184ce39e-9fd4-4d86-8b33-db1d8dc89e0e", "8755d99a-0826-442f-8f38-bea023566270", "Curator", "CURATOR" },
+                    { "af24a276-0bba-4483-b797-c2c7e72743ef", "7805e300-f4a5-4ede-82e5-daa0e6a45b90", "Editor", "EDITOR" },
+                    { "372fa677-ab52-40ee-bf55-0e737450d531", "64f95f96-3a52-458b-b9bf-4c88de8fb750", "Member", "MEMBER" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",

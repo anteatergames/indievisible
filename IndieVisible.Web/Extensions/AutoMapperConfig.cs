@@ -14,7 +14,7 @@ namespace IndieVisible.Web.Extensions
                 throw new ArgumentNullException(nameof(services));
             }
 
-            services.AddAutoMapper();
+            services.AddAutoMapper(typeof(ViewModelToDomainMappingProfile));
 
             // Registering Mappings automatically only works if the 
             // Automapper Profile classes are in ASP.NET project

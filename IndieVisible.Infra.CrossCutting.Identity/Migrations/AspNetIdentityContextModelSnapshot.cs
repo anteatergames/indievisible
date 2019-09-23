@@ -15,7 +15,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -92,6 +92,13 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new { Id = "f3cbbd26-21fd-4290-9729-358151859e6a", ConcurrencyStamp = "e06e09b7-a3d7-414c-9828-5d7279512f70", Name = "Administrator", NormalizedName = "ADMINISTRATOR" },
+                        new { Id = "184ce39e-9fd4-4d86-8b33-db1d8dc89e0e", ConcurrencyStamp = "8755d99a-0826-442f-8f38-bea023566270", Name = "Curator", NormalizedName = "CURATOR" },
+                        new { Id = "af24a276-0bba-4483-b797-c2c7e72743ef", ConcurrencyStamp = "7805e300-f4a5-4ede-82e5-daa0e6a45b90", Name = "Editor", NormalizedName = "EDITOR" },
+                        new { Id = "372fa677-ab52-40ee-bf55-0e737450d531", ConcurrencyStamp = "64f95f96-3a52-458b-b9bf-4c88de8fb750", Name = "Member", NormalizedName = "MEMBER" }
+                    );
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

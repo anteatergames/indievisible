@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -13,30 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20181128135854_utf8.cs" />
-    <Compile Remove="Migrations\20181203183431_userpreferences.cs" />
-    <Compile Remove="Migrations\20190329020551_votingcontext.cs" />
-    <Compile Remove="Migrations\20190329020728_votingcontext.cs" />
-    <Compile Remove="Migrations\20190329021032_votingcontext.cs" />
-    <Compile Remove="Migrations\20190509005121_gamification01.cs" />
-    <Compile Remove="Migrations\20190509010504_gamification01.cs" />
-    <Compile Remove="Migrations\20190523030844_userbadges.cs" />
-    <Compile Remove="Migrations\20190523031239_userbadges.cs" />
-    <Compile Remove="Migrations\20190622235525_pollbasic.cs" />
-    <Compile Remove="Migrations\20190629021033_pollvotes.cs" />
-    <Compile Remove="Migrations\20190629021345_pollvotes.cs" />
-    <Compile Remove="Migrations\20190629021532_pollvotes.cs" />
-    <Compile Remove="Migrations\20190629022442_pollvotes.cs" />
-    <Compile Remove="Migrations\20190629022739_pollvotes.cs" />
-    <Compile Remove="Migrations\20190629022857_pollvotes.cs" />
-    <Compile Remove="Migrations\20190629023028_pollvotes.cs" />
-    <Compile Remove="Migrations\20190629023901_pollvotes.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="[2.1.8,2.2)" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="[2.1.8,2.2)" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="[2.1.8,2.2)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.11" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="[2.1.1,2.2)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="[2.1.1,2.2)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="[2.1.1,2.2)" />

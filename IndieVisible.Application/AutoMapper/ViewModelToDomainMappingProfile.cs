@@ -19,7 +19,7 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<FeaturedContentViewModel, Domain.Models.FeaturedContent>();
 
             CreateMap<UserPreferencesViewModel, Domain.Models.UserPreferences>()
-                .ForMember(dest => dest.ContentLanguages, opt => opt.ResolveUsing<UserLanguagesToDomainResolver>());
+                .ForMember(dest => dest.ContentLanguages, opt => opt.MapFrom<UserLanguagesToDomainResolver>());
             
             CreateMap<NotificationItemViewModel, Domain.Models.Notification>();
             #endregion
@@ -27,7 +27,7 @@ namespace IndieVisible.Application.AutoMapper
             #region Game
             CreateMap<GameViewModel, Domain.Models.Game>()
                     .ForMember(dest => dest.DeveloperName, opt => opt.MapFrom(src => src.AuthorName))
-                    .ForMember(dest => dest.Platforms, opt => opt.ResolveUsing<GamePlatformToDomainResolver>());
+                    .ForMember(dest => dest.Platforms, opt => opt.MapFrom<GamePlatformToDomainResolver>());
             #endregion
 
             #region Profile

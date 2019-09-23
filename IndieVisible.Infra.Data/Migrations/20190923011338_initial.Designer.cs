@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndieVisible.Infra.Data.Migrations
 {
     [DbContext(typeof(IndieVisibleContext))]
-    [Migration("20190602014151_userconnection")]
-    partial class userconnection
+    [Migration("20190923011338_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -393,6 +393,94 @@ namespace IndieVisible.Infra.Data.Migrations
                     b.ToTable("Notifications");
                 });
 
+            modelBuilder.Entity("IndieVisible.Domain.Models.Poll", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
+
+                    b.Property<DateTime?>("CloseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<bool>("MultipleChoice")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(256);
+
+                    b.Property<Guid?>("UserContentId");
+
+                    b.Property<Guid>("UserId");
+
+                    b.Property<bool>("UsersCanAddOptions")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserContentId");
+
+                    b.ToTable("Polls");
+                });
+
+            modelBuilder.Entity("IndieVisible.Domain.Models.PollOption", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("Image")
+                        .HasMaxLength(256);
+
+                    b.Property<int>("Index")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0);
+
+                    b.Property<Guid>("PollId");
+
+                    b.Property<string>("Text");
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PollId");
+
+                    b.ToTable("PollOptions");
+                });
+
+            modelBuilder.Entity("IndieVisible.Domain.Models.PollVote", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<Guid>("PollId");
+
+                    b.Property<Guid>("PollOptionId");
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PollOptionId");
+
+                    b.ToTable("PollVotes");
+                });
+
             modelBuilder.Entity("IndieVisible.Domain.Models.UserBadge", b =>
                 {
                     b.Property<Guid>("Id")
@@ -625,6 +713,29 @@ namespace IndieVisible.Infra.Data.Migrations
                     b.HasOne("IndieVisible.Domain.Models.BrainstormIdea", "Idea")
                         .WithMany("Votes")
                         .HasForeignKey("IdeaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("IndieVisible.Domain.Models.Poll", b =>
+                {
+                    b.HasOne("IndieVisible.Domain.Models.UserContent", "UserContent")
+                        .WithMany("Polls")
+                        .HasForeignKey("UserContentId");
+                });
+
+            modelBuilder.Entity("IndieVisible.Domain.Models.PollOption", b =>
+                {
+                    b.HasOne("IndieVisible.Domain.Models.Poll", "Poll")
+                        .WithMany("Options")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("IndieVisible.Domain.Models.PollVote", b =>
+                {
+                    b.HasOne("IndieVisible.Domain.Models.PollOption")
+                        .WithMany("Votes")
+                        .HasForeignKey("PollOptionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
