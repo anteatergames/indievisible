@@ -15,7 +15,7 @@
                 </a>
                 <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">@item.AuthorName</a></span>
 
-                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="contenturl">
+                <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="contenturl">
                     <span class="description">@item.CreateDate.ToString()</span>
                 </a>
             </div>

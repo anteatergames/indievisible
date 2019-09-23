@@ -82,14 +82,15 @@
 
 
     function bindShare() {
-        $('body').on('click', '.btn-interaction-share', function () {
+        $('body').on('click', '.btn-interaction-share', function (e) {
+            e.preventDefault();
             var urlElement = $(this).closest('.box').find('.contenturl');
 
             var url = urlElement.prop('href');
 
             FB.ui({
                 method: 'share',
-                href: url,
+                href: url
             }, function (response) { });
         });
     }

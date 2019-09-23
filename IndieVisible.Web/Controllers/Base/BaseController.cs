@@ -10,6 +10,7 @@ using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels;
 using System;
 using IndieVisible.Domain.ValueObjects;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace IndieVisible.Web.Controllers.Base
 {
@@ -23,9 +24,21 @@ namespace IndieVisible.Web.Controllers.Base
         {
         }
 
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            base.OnActionExecuting(context);
+
+            ViewBag.BaseUrl = this.GetBaseUrl();
+        }
+
         protected string GetBaseUrl()
         {
-            return WebUtility.UrlDecode($"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}");
+            var hostUrl = WebUtility.UrlDecode($"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}");
+
+            ViewData["protocol"] = this.Request.IsHttps ? "https" : "http";
+            ViewData["host"] = this.Request.Host;
+
+            return hostUrl;
         }
 
 

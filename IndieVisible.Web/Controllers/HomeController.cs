@@ -361,7 +361,8 @@ namespace IndieVisible.Web.Controllers
                 Subtitle = "You got the power!",
                 Description = "Must have features!",
                 Items = {
-                    "You can now delete your own posts"
+                    "You can now delete your own posts",
+                    "Share your game!"
                 }
             });
 

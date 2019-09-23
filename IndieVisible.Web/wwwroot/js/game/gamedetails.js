@@ -21,6 +21,7 @@
     function bindAll() {
         bindLikeBtn();
         bindFollowBtn();
+        bindShareBtn();
     }
 
 
@@ -51,6 +52,18 @@
             else {
                 follow(followdId).done(function (response) { followCallback(response, followCount, btn); });
             }
+        });
+    }
+
+    function bindShareBtn() {
+        $('.content').on('click', '#btn-game-share', function (e) {
+            e.preventDefault();
+            var url = $(this).prop('href');
+
+            FB.ui({
+                method: 'share',
+                href: url
+            }, function (response) { });
         });
     }
 

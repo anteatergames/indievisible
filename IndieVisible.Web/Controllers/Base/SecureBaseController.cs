@@ -61,8 +61,6 @@ namespace IndieVisible.Web.Controllers.Base
                 ViewBag.Username = username ?? Constants.DefaultUsername;
                 ViewBag.ProfileImage = UrlFormatter.ProfileImage(CurrentUserId);
             }
-
-            ViewBag.BaseUrl = base.GetBaseUrl();
         }
 
         protected string GetAvatar()

@@ -71,17 +71,25 @@
             </div>
             @if (SignInManager.IsSignedIn(User))
             {
-                <div class="col-12 col-lg-6 offset-lg-3 mb-2">
+                <div class="col-12 col-lg-8 offset-lg-2 mb-2">
                     <div class="row text-right mt-4 mb-3">
-                        <div class="col-6">
+                        <div class="col-4">
                             <button type="button" id="btn-game-follow" class="btn btn-lg btn-block btn-outline-primary @(Model.CurrentUserFollowing ? "bg-blue follow-following" : string.Empty)" data-id="@Model.Id">
-                                <i class="fa fa-eye" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Follow"]
+                                <i class="fa fa-eye" aria-hidden="true">&nbsp;</i>
+                                <span class="d-none d-md-inline">@SharedLocalizer["Follow"]</span>
                             </button>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <button type="button" id="btn-game-like" class="btn btn-lg btn-block btn-outline-danger @(Model.CurrentUserLiked ? "bg-red like-liked" : string.Empty)" data-id="@Model.Id">
-                                <i class="fa fa-heart" aria-hidden="true">&nbsp;</i>@SharedLocalizer["I love it"]
+                                <i class="fa fa-heart" aria-hidden="true">&nbsp;</i>
+                                <span class="d-none d-md-inline">@SharedLocalizer["I love it"]</span>
                             </button>
+                        </div>
+                        <div class="col-4">
+                            <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id" id="btn-game-share" class="btn btn-lg btn-block btn-default">
+                                <i class="fa fa-share" aria-hidden="true">&nbsp;</i>
+                                <span class="d-none d-md-inline">@SharedLocalizer["Share"]</span>
+                            </a>
                         </div>
                     </div>
                 </div>
