@@ -28,11 +28,9 @@ namespace IndieVisible.Application.Services
         #region Game Follow
         public OperationResultVo GameFollow(Guid userId, Guid gameId)
         {
-            OperationResultVo response;
-
             if (userId == Guid.Empty)
             {
-                response = new OperationResultVo("You must be logged in to follow a game");
+                return new OperationResultVo("You must be logged in to follow a game");
             }
             else
             {
@@ -40,8 +38,7 @@ namespace IndieVisible.Application.Services
 
                 if (alreadyLiked)
                 {
-                    response = new OperationResultVo(false);
-                    response.Message = "Game already followed";
+                    return new OperationResultVo(false, "Game already followed");
                 }
                 else
                 {
@@ -56,30 +53,24 @@ namespace IndieVisible.Application.Services
 
                     int newCount = this.gameFollowDomainService.Count(x => x.GameId == gameId);
 
-                    response = new OperationResultVo<int>(newCount);
+                    return new OperationResultVo<int>(newCount);
                 }
             }
-
-            return response;
         }
 
         public OperationResultVo GameUnfollow(Guid userId, Guid gameId)
         {
-            OperationResultVo response;
-
             if (userId == Guid.Empty)
             {
-                response = new OperationResultVo("You must be logged in to unfollow a game");
+                return new OperationResultVo("You must be logged in to unfollow a game");
             }
             else
             {
-
                 GameFollow existingLike = this.gameFollowDomainService.GetAll().FirstOrDefault(x => x.GameId == gameId && x.UserId == userId);
 
                 if (existingLike == null)
                 {
-                    response = new OperationResultVo(false);
-                    response.Message = "You are not following this game.";
+                    return new OperationResultVo(false, "You are not following this game.");
                 }
                 else
                 {
@@ -90,11 +81,9 @@ namespace IndieVisible.Application.Services
 
                     int newCount = this.gameFollowDomainService.Count(x => x.GameId == gameId);
 
-                    response = new OperationResultVo<int>(newCount);
+                    return new OperationResultVo<int>(newCount);
                 }
             }
-
-            return response;
         }
         #endregion
 

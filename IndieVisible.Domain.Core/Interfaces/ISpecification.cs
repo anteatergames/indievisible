@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IndieVisible.Domain.Core.Interfaces
 {
-    public interface ISpecification<T>
+    public interface ISpecification<in T>
     {
         bool IsSatisfiedBy(T item);
 

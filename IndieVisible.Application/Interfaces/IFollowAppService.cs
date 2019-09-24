@@ -10,13 +10,13 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IFollowAppService
     {
-        OperationResultVo GameFollow(Guid userId, Guid gameId);
+        OperationResultVo GameFollow(Guid currentUserId, Guid gameId);
 
-        OperationResultVo GameUnfollow(Guid userId, Guid gameId);
+        OperationResultVo GameUnfollow(Guid currentUserId, Guid gameId);
 
 
-        OperationResultVo UserFollow(Guid userId, Guid followUserId);
+        OperationResultVo UserFollow(Guid currentUserId, Guid followUserId);
 
-        OperationResultVo UserUnfollow(Guid userId, Guid followUserId);
+        OperationResultVo UserUnfollow(Guid currentUserId, Guid followUserId);
     }
 }
