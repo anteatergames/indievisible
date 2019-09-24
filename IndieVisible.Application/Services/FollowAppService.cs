@@ -26,15 +26,15 @@ namespace IndieVisible.Application.Services
         }
 
         #region Game Follow
-        public OperationResultVo GameFollow(Guid userId, Guid gameId)
+        public OperationResultVo GameFollow(Guid currentUserId, Guid gameId)
         {
-            if (userId == Guid.Empty)
+            if (currentUserId == Guid.Empty)
             {
                 return new OperationResultVo("You must be logged in to follow a game");
             }
             else
             {
-                bool alreadyLiked = gameFollowDomainService.GetAll().Any(x => x.GameId == gameId && x.UserId == userId);
+                bool alreadyLiked = gameFollowDomainService.GetAll().Any(x => x.GameId == gameId && x.UserId == currentUserId);
 
                 if (alreadyLiked)
                 {
@@ -45,7 +45,7 @@ namespace IndieVisible.Application.Services
                     GameFollow model = new GameFollow();
 
                     model.GameId = gameId;
-                    model.UserId = userId;
+                    model.UserId = currentUserId;
 
                     this.gameFollowDomainService.Add(model);
 
@@ -58,15 +58,15 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo GameUnfollow(Guid userId, Guid gameId)
+        public OperationResultVo GameUnfollow(Guid currentUserId, Guid gameId)
         {
-            if (userId == Guid.Empty)
+            if (currentUserId == Guid.Empty)
             {
                 return new OperationResultVo("You must be logged in to unfollow a game");
             }
             else
             {
-                GameFollow existingLike = this.gameFollowDomainService.GetAll().FirstOrDefault(x => x.GameId == gameId && x.UserId == userId);
+                GameFollow existingLike = this.gameFollowDomainService.GetAll().FirstOrDefault(x => x.GameId == gameId && x.UserId == currentUserId);
 
                 if (existingLike == null)
                 {
