@@ -2,7 +2,6 @@
 using IndieVisible.Domain.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Domain.Models
 {
@@ -12,14 +11,14 @@ namespace IndieVisible.Domain.Models
 
         public string AuthorPicture { get; set; }
 
-        public string FeaturedImage{ get; set; }
+        public string FeaturedImage { get; set; }
 
         public string Title { get; set; }
 
         public string Introduction { get; set; }
 
         public string Content { get; set; }
-        
+
         public SupportedLanguage Language { get; set; }
 
         public Guid? GameId { get; set; }

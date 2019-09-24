@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace IndieVisible.Domain.ValueObjects
 {
@@ -9,12 +7,12 @@ namespace IndieVisible.Domain.ValueObjects
         public bool Success { get; set; }
 
         public string Message { get; set; }
-        
+
         public OperationResultVo(bool success)
         {
             this.Success = success;
         }
-        
+
         public OperationResultVo(bool success, string message) : this(success)
         {
             this.Message = message;
@@ -67,7 +65,7 @@ namespace IndieVisible.Domain.ValueObjects
         {
         }
     }
-    
+
 
     public class OperationResultListVo<T> : OperationResultVo
     {

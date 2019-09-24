@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IndieVisible.Domain.ValueObjects
+﻿namespace IndieVisible.Domain.ValueObjects
 {
     public class PermissionsVo
     {

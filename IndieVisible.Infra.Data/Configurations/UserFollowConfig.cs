@@ -1,7 +1,6 @@
 ﻿using IndieVisible.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace IndieVisible.Infra.Data.Mappings
 {

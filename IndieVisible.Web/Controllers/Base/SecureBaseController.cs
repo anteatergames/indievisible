@@ -9,7 +9,6 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Filters;

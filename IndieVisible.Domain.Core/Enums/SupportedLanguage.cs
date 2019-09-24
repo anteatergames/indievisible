@@ -1,13 +1,10 @@
 ﻿using IndieVisible.Domain.Core.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Domain.Core.Enums
 {
     public enum SupportedLanguage
     {
-        [UiInfo(Culture="en-US")]
+        [UiInfo(Culture = "en-US")]
         English = 1,
         [UiInfo(Culture = "pt-BR")]
         Portuguese = 2,

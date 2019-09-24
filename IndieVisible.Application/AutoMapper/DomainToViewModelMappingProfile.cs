@@ -10,7 +10,6 @@ using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using System.Linq;
 
 namespace IndieVisible.Application.AutoMapper
 {
@@ -73,7 +72,7 @@ namespace IndieVisible.Application.AutoMapper
 
 
             #region Search
-            CreateMap<UserContentSearchVo, UserContentSearchViewModel>(); 
+            CreateMap<UserContentSearchVo, UserContentSearchViewModel>();
             #endregion
         }
     }

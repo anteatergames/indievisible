@@ -26,7 +26,7 @@ namespace IndieVisible.Web.Middlewares.CanonicalUrl
         /// </summary>
         public bool TrailingSlash { get; set; }
 
-        public CanonicalUrlMiddlewareOptions(){}
+        public CanonicalUrlMiddlewareOptions() { }
 
     }
 }

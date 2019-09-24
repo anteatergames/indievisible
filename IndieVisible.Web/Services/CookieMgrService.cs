@@ -1,9 +1,5 @@
-﻿using IndieVisible.Application.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Web;
 
 namespace IndieVisible.Web.Services
 {

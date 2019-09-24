@@ -1,10 +1,6 @@
-﻿using IndieVisible.Application.ViewModels.Game;
-using IndieVisible.Application.ViewModels.Gamification;
-using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Models;
+﻿using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Domain.ValueObjects;
 using System;
-using System.Collections.Generic;
 
 namespace IndieVisible.Application.Interfaces
 {

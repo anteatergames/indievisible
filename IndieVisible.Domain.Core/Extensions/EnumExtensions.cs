@@ -21,7 +21,8 @@ namespace IndieVisible.Domain.Core.Extensions
             {
                 return null;
             }
-            else {
+            else
+            {
                 object[] attributes = memInfo[0].GetCustomAttributes(typeof(T), false);
 
                 if (attributes == null || attributes.Length == 0)
@@ -29,7 +30,7 @@ namespace IndieVisible.Domain.Core.Extensions
                     return null;
                 }
 
-                return (T)attributes[0]; 
+                return (T)attributes[0];
             }
         }
     }

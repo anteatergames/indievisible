@@ -20,10 +20,10 @@ namespace IndieVisible.Application.AutoMapper
 
             CreateMap<UserPreferencesViewModel, Domain.Models.UserPreferences>()
                 .ForMember(dest => dest.ContentLanguages, opt => opt.MapFrom<UserLanguagesToDomainResolver>());
-            
+
             CreateMap<NotificationItemViewModel, Domain.Models.Notification>();
             #endregion
-            
+
             #region Game
             CreateMap<GameViewModel, Domain.Models.Game>()
                     .ForMember(dest => dest.DeveloperName, opt => opt.MapFrom(src => src.AuthorName))
@@ -49,7 +49,7 @@ namespace IndieVisible.Application.AutoMapper
             #endregion
 
             #region Gamification
-            CreateMap<UserBadgeViewModel, Domain.Models.UserBadge>(); 
+            CreateMap<UserBadgeViewModel, Domain.Models.UserBadge>();
             #endregion
 
             #region Interactions
@@ -57,7 +57,7 @@ namespace IndieVisible.Application.AutoMapper
 
             CreateMap<UserFollowViewModel, Domain.Models.UserFollow>();
 
-            CreateMap<UserConnectionViewModel, Domain.Models.UserConnection>(); 
+            CreateMap<UserConnectionViewModel, Domain.Models.UserConnection>();
             #endregion
         }
     }

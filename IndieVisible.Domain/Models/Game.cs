@@ -2,7 +2,6 @@
 using IndieVisible.Domain.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Domain.Models
 {
@@ -35,7 +34,7 @@ namespace IndieVisible.Domain.Models
         public GameStatus Status { get; set; }
 
         public DateTime? ReleaseDate { get; set; }
-        
+
         public string Platforms { get; set; }
 
         public virtual ICollection<UserContent> UserContents { get; set; }

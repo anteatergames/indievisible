@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Domain.Core.Enums;
 
 namespace IndieVisible.Application.ViewModels.Notification
 {

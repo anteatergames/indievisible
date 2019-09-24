@@ -59,7 +59,7 @@ namespace IndieVisible.Web.Helpers
 
                 if (!isAlreadyUrl)
                 {
-                    content = content.Replace(toReplace, newText); 
+                    content = content.Replace(toReplace, newText);
                 }
             }
 

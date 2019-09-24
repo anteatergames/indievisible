@@ -592,7 +592,8 @@ namespace IndieVisible.Web.Controllers
 
                 this.SetCookieValue(SessionValues.DefaultLanguage, lang.ToString(), 7);
             }
-            else {
+            else
+            {
                 this.SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
             }
         }

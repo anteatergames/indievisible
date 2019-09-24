@@ -5,7 +5,6 @@ using IndieVisible.Infra.CrossCutting.IoC;
 using IndieVisible.Infra.Data.Context;
 using IndieVisible.Web.Extensions;
 using IndieVisible.Web.Middlewares;
-using IndieVisible.Web.Middlewares.CanonicalUrl;
 using IndieVisible.Web.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OAuth;

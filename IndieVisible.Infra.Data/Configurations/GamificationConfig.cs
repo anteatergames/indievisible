@@ -1,9 +1,6 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Models;
+﻿using IndieVisible.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IndieVisible.Infra.Data.Mappings
 {

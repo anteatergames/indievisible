@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace IndieVisible.Domain.Core.Models
 {
@@ -13,7 +11,7 @@ namespace IndieVisible.Domain.Core.Models
 
         [Column(Order = 1)]
         public Guid UserId { get; set; }
-        
+
         public DateTime CreateDate { get; set; }
 
         public override bool Equals(object obj)

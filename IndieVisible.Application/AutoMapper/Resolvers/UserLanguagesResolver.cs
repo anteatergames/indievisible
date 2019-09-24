@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;

@@ -43,7 +43,7 @@ namespace IndieVisible.Web.Controllers
                 ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
                 bool userIsAdmin = await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
 
-                isAdmin = user != null && userIsAdmin; 
+                isAdmin = user != null && userIsAdmin;
             }
 
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || isAdmin;

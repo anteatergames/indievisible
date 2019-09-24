@@ -1,7 +1,4 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace IndieVisible.Application.ViewModels.Content
 {

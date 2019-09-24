@@ -1,9 +1,4 @@
-﻿using IndieVisible.Domain.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IndieVisible.Domain.Core.Models
+﻿namespace IndieVisible.Domain.Core.Models
 {
     public abstract class ExternalEntity : Entity
     {

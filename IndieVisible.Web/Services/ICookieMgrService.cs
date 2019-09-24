@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IndieVisible.Web.Services
+﻿namespace IndieVisible.Web.Services
 {
     public interface ICookieMgrService
     {

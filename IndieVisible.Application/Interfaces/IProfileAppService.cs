@@ -1,8 +1,6 @@
 ﻿using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Models;
 using System;
-using System.Collections.Generic;
 
 namespace IndieVisible.Application.Interfaces
 {

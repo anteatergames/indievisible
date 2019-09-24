@@ -1,8 +1,4 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Service
 {

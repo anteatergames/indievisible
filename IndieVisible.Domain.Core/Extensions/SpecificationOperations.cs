@@ -1,7 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Domain.Core.Extensions
 {

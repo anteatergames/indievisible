@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IndieVisible.Domain.Core.Interfaces
+﻿namespace IndieVisible.Domain.Core.Interfaces
 {
     public interface ISpecification<in T>
     {

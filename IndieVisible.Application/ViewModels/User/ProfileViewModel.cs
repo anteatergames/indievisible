@@ -5,14 +5,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels.User
 {
-    public class ProfileViewModel: BaseViewModel
+    public class ProfileViewModel : BaseViewModel
     {
         public ProfileType Type { get; set; }
 
         public string UserName { get; set; }
 
         [Required]
-        [Display(Name="Display Name")]
+        [Display(Name = "Display Name")]
         public string Name { get; set; }
 
         [Display(Name = "Motto")]
@@ -32,7 +32,9 @@ namespace IndieVisible.Application.ViewModels.User
         public string Location { get; set; }
 
         #region ExternalHandles
-        public bool HasOtherProfiles { get
+        public bool HasOtherProfiles
+        {
+            get
             {
                 return !string.IsNullOrWhiteSpace(GameJoltUrl)
                     || !string.IsNullOrWhiteSpace(ItchIoUrl)
@@ -41,7 +43,7 @@ namespace IndieVisible.Application.ViewModels.User
                     || !string.IsNullOrWhiteSpace(UnityConnectUrl);
             }
         }
-        [Display(Name="Game Jolt")]
+        [Display(Name = "Game Jolt")]
         public string GameJoltUrl { get; set; }
 
         [Display(Name = "Itch.IO")]
@@ -54,7 +56,7 @@ namespace IndieVisible.Application.ViewModels.User
         public string GameDevNetUrl { get; set; }
 
         [Display(Name = "Unity Connect")]
-        public string UnityConnectUrl { get; set; } 
+        public string UnityConnectUrl { get; set; }
         #endregion
 
 

@@ -1,11 +1,6 @@
-﻿using IndieVisible.Application;
-using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Home;
-using IndieVisible.Infra.CrossCutting.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.ViewComponents
@@ -31,14 +26,14 @@ namespace IndieVisible.Web.ViewComponents
 
             if (gamesCount.Success)
             {
-                model.GamesCount = gamesCount.Value; 
+                model.GamesCount = gamesCount.Value;
             }
 
             var usersCount = _profileAppService.Count();
 
             if (usersCount.Success)
             {
-                model.UsersCount = usersCount.Value; 
+                model.UsersCount = usersCount.Value;
             }
 
             model.ArticlesCount = _contentService.CountArticles();

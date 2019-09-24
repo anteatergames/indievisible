@@ -1,9 +1,9 @@
-﻿using IndieVisible.Application.ViewModels.Home;
+﻿using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Game;
+using IndieVisible.Application.ViewModels.Home;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using System.Collections.Generic;
-using IndieVisible.Application.ViewModels.FeaturedContent;
 
 namespace IndieVisible.Application
 {

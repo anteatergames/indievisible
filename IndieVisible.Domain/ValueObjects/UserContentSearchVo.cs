@@ -1,5 +1,5 @@
-﻿using System;
-using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Domain.Core.Enums;
+using System;
 
 namespace IndieVisible.Domain.ValueObjects
 {
