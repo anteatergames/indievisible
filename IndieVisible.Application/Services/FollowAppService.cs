@@ -1,7 +1,9 @@
 ﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Linq;
@@ -97,74 +99,64 @@ namespace IndieVisible.Application.Services
         #endregion
 
         #region Profile Follow
-        public OperationResultVo UserFollow(Guid userId, Guid followUserId)
+        public OperationResultVo UserFollow(Guid currentUserId, Guid followUserId)
         {
-            OperationResultVo response;
+            UserFollow model = new UserFollow();
+            model.FollowUserId = followUserId;
+            model.UserId = currentUserId;
 
-            if (userId == Guid.Empty)
+            var spec = new IdsNotEmptySpecification()
+                .And(new UserNotTheSameSpecification(currentUserId));
+
+            if (!spec.IsSatisfiedBy(model))
             {
-                response = new OperationResultVo("You must be logged in to follow a user");
+                return new OperationResultVo(false, spec.ErrorMessage);
+            }
+
+            bool alreadyFollowing = userFollowDomainService.GetAll().Any(x => x.UserId == currentUserId && x.FollowUserId == followUserId);
+
+            if (alreadyFollowing)
+            {
+                return new OperationResultVo(false, "User already followed");
             }
             else
             {
-                bool alreadyLiked = userFollowDomainService.GetAll().Any(x => x.UserId == userId && x.FollowUserId == followUserId);
+                this.userFollowDomainService.Add(model);
 
-                if (alreadyLiked)
-                {
-                    response = new OperationResultVo(false);
-                    response.Message = "User already followed";
-                }
-                else
-                {
-                    UserFollow model = new UserFollow();
+                unitOfWork.Commit();
 
-                    model.FollowUserId = followUserId;
-                    model.UserId = userId;
+                int newCount = this.userFollowDomainService.Count(x => x.FollowUserId == followUserId);
 
-                    this.userFollowDomainService.Add(model);
+                return new OperationResultVo<int>(newCount);
 
-                    unitOfWork.Commit();
-
-                    int newCount = this.userFollowDomainService.Count(x => x.FollowUserId == followUserId);
-
-                    response = new OperationResultVo<int>(newCount);
-                }
             }
-
-            return response;
         }
 
-        public OperationResultVo UserUnfollow(Guid userId, Guid followUserId)
+        public OperationResultVo UserUnfollow(Guid currentUserId, Guid followUserId)
         {
-            OperationResultVo response;
-
-            if (userId == Guid.Empty)
+            if (currentUserId == Guid.Empty)
             {
-                response = new OperationResultVo("You must be logged in to unfollow a user.");
+                return new OperationResultVo("You must be logged in to unfollow a user.");
             }
             else
             {
+                UserFollow existingFollow = this.userFollowDomainService.GetAll().FirstOrDefault(x => x.UserId == currentUserId && x.FollowUserId == followUserId);
 
-                UserFollow existingLike = this.userFollowDomainService.GetAll().FirstOrDefault(x => x.UserId == userId && x.FollowUserId == followUserId);
-
-                if (existingLike == null)
+                if (existingFollow == null)
                 {
-                    response = new OperationResultVo(false);
-                    response.Message = "You are not following this user.";
+                    return new OperationResultVo(false, "You are not following this user.");
                 }
                 else
                 {
-                    this.userFollowDomainService.Remove(existingLike.Id);
+                    this.userFollowDomainService.Remove(existingFollow.Id);
 
                     unitOfWork.Commit();
 
                     int newCount = this.userFollowDomainService.GetAll().Count(x => x.FollowUserId == followUserId);
 
-                    response = new OperationResultVo<int>(newCount);
+                    return new OperationResultVo<int>(newCount);
                 }
             }
-
-            return response;
         }
         #endregion
     }
