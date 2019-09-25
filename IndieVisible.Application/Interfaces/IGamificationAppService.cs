@@ -10,5 +10,7 @@ namespace IndieVisible.Application.Interfaces
         OperationResultListVo<RankingViewModel> GetAll();
 
         OperationResultVo FillProfileGamificationDetails(Guid currentUserId, ref ProfileViewModel vm);
+
+        OperationResultListVo<GamificationLevelViewModel> GetAllLevels();
     }
 }

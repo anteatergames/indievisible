@@ -21,6 +21,14 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
             this.profileAppService = profileAppService;
         }
 
+        [Route("help")]
+        public IActionResult Help()
+        {
+            var objs = this.gamificationAppService.GetAllLevels();
+
+            return View(objs.Value);
+        }
+
 
         [Authorize]
         public IActionResult Index()

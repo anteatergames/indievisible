@@ -1,0 +1,48 @@
+﻿@model IEnumerable<IndieVisible.Application.ViewModels.Gamification.GamificationLevelViewModel>
+@{
+    ViewData["Title"] = SharedLocalizer["Ranks"];
+    ViewData["Description"] = SharedLocalizer["The ranks you can reach while enjoying INDIEVISIBLE features."];
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("help", "ranking", new { area = "gamification" });
+    ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogranking.png";
+    ViewData["OgImageWidth"] = 1200;
+    ViewData["OgImageHeight"] = 630;
+}
+
+<style>
+    .ranking-number-big {
+        float: left;
+        height: 128px;
+        width: 128px;
+        text-align: center;
+        font-size: 63px;
+        line-height: 128px;
+        background: rgba(0, 0, 0, .2);
+        border-radius: 100%;
+    }
+</style>
+
+<div class="col-12">
+    <h1 class="sr-only">@ViewData["Title"]</h1>
+
+    <div class="p-3">
+        <h2 class="display-4">@SharedLocalizer["Climb the ranks!"]</h2>
+        <p>@SharedLocalizer["rank txt"]</p>
+    </div>
+
+    @foreach (var rank in Model)
+    {
+        <div class="row align-items-center">
+            <div class="text-center">
+                <span class="ranking-number-big push-bottom">@rank.Number</span>
+            </div>
+            <div class="">
+                <div class="p-2">
+                    <h3 class="display-4">"@SharedLocalizer[rank.Name]"</h3>
+                    <p>Max @SharedLocalizer[rank.XpToAchieve.ToString()] XP</p>
+                </div>
+            </div>
+        </div>
+        <hr />
+    }
+
+</div>

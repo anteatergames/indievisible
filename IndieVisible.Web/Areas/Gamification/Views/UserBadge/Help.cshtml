@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = SharedLocalizer["Badges"];
     ViewData["Description"] = SharedLocalizer["The badges you can earn while you enjoy INDIEVISIBLE features."];
-    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("index", "userbadge", new { area = "gamification" });
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("help", "userbadge", new { area = "gamification" });
     ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogbadges.png";
     ViewData["OgImageWidth"] = 1200;
     ViewData["OgImageHeight"] = 630;

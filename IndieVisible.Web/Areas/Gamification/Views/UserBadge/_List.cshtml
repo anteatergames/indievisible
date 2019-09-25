@@ -11,9 +11,7 @@ else
     foreach (var badge in Model)
     {
         <div class="badge-wrapper">
-            <a asp-area="gamification" asp-controller="userbadge" asp-action="index">
-                <img class="badge-icon" src="~/images/badges/@(badge.Badge.ToString()).png" alt="@(badge.Badge.ToString()) Badge" data-toggle="tooltip" title="@badge.Badge" data-placement="bottom" />
-            </a>
+            <img class="badge-icon" src="~/images/badges/@(badge.Badge.ToString()).png" alt="@(badge.Badge.ToString()) Badge" data-toggle="tooltip" title="@badge.Badge" data-placement="bottom" />
         </div>
     }
 }

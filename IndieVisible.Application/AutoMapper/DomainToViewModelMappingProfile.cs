@@ -62,6 +62,7 @@ namespace IndieVisible.Application.AutoMapper
             #region Gamification
             CreateMap<UserBadge, UserBadgeViewModel>();
             CreateMap<Gamification, RankingViewModel>();
+            CreateMap<GamificationLevel, GamificationLevelViewModel>();            
             #endregion
 
             #region Interaction
@@ -69,7 +70,6 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<UserFollow, UserFollowViewModel>();
             CreateMap<UserConnection, UserConnectionViewModel>();
             #endregion
-
 
             #region Search
             CreateMap<UserContentSearchVo, UserContentSearchViewModel>();

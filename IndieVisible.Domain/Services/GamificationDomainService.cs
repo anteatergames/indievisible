@@ -46,6 +46,13 @@ namespace IndieVisible.Domain.Services
             return result;
         }
 
+        public IQueryable<GamificationLevel> GetAllLevels()
+        {
+            var levels = gamificationLevelRepository.GetAll();
+
+            return levels;
+        }
+
         public Gamification GetByUserId(Guid userId)
         {
             Gamification userGamification = gamificationRepository.GetByUserId(userId);

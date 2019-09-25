@@ -23,7 +23,8 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
             this.userBadgeAppService = userBadgeAppService;
         }
 
-        public IActionResult Index()
+        [Route("help")]
+        public IActionResult Help()
         {
             Dictionary<string, UiInfoAttribute> badges = SetBadgeList();
 
@@ -33,7 +34,7 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
         }
 
         [Route("list/{id}")]
-        public IActionResult List(Guid id)
+        public IActionResult ListByUser(Guid id)
         {
             OperationResultListVo<UserBadgeViewModel> badges = userBadgeAppService.GetByUser(id);
 

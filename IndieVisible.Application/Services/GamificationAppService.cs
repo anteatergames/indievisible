@@ -1,4 +1,6 @@
-﻿using IndieVisible.Application.Interfaces;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Interfaces.Service;
@@ -6,17 +8,20 @@ using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IndieVisible.Application.Services
 {
     public class GamificationAppService : IGamificationAppService
     {
+        private readonly IMapper mapper;
         private readonly IGamificationDomainService gamificationDomainService;
 
         public Guid CurrentUserId { get; set; }
 
-        public GamificationAppService(IGamificationDomainService gamificationDomainService)
+        public GamificationAppService(IMapper mapper, IGamificationDomainService gamificationDomainService)
         {
+            this.mapper = mapper;
             this.gamificationDomainService = gamificationDomainService;
         }
 
@@ -75,6 +80,15 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo(ex.Message);
             }
+        }
+
+        public OperationResultListVo<GamificationLevelViewModel> GetAllLevels()
+        {
+            IQueryable<GamificationLevel> levels = gamificationDomainService.GetAllLevels().OrderBy(x => x.Number);
+
+            var vms = levels.ProjectTo<GamificationLevelViewModel>(this.mapper.ConfigurationProvider);
+
+            return new OperationResultListVo<GamificationLevelViewModel>(vms);
         }
     }
 }
