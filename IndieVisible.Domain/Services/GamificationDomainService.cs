@@ -75,11 +75,13 @@ namespace IndieVisible.Domain.Services
 
             if (userGamification == null)
             {
+                GamificationLevel newLevel = this.gamificationLevelRepository.GetByNumber(1);
+
                 userGamification = GenerateNewGamification(userId);
 
                 userGamification.XpCurrentLevel += actionToProcess.ScoreValue;
                 userGamification.XpTotal += actionToProcess.ScoreValue;
-                userGamification.XpToNextLevel = actionToProcess.ScoreValue;
+                userGamification.XpToNextLevel = (newLevel.XpToAchieve - actionToProcess.ScoreValue);
 
                 this.gamificationRepository.Add(userGamification);
             }
@@ -91,13 +93,14 @@ namespace IndieVisible.Domain.Services
 
                 if (userGamification.XpToNextLevel <= 0)
                 {
+                    GamificationLevel currentLevel = this.gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber);
                     GamificationLevel newLevel = this.gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber + 1);
 
                     if (newLevel != null)
                     {
-                        userGamification.CurrentLevelNumber++;
-                        userGamification.XpCurrentLevel = 0;
-                        userGamification.XpToNextLevel = newLevel.XpToAchieve;
+                        userGamification.CurrentLevelNumber = newLevel.Number;
+                        userGamification.XpCurrentLevel = (userGamification.XpCurrentLevel - currentLevel.XpToAchieve);
+                        userGamification.XpToNextLevel = (newLevel.XpToAchieve - userGamification.XpCurrentLevel);
                     }
                 }
 
