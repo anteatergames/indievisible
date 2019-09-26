@@ -8,38 +8,75 @@
     ViewData["OgImageHeight"] = 630;
 }
 
-<style>
-    .ranking-number-big {
-        float: left;
-        height: 128px;
-        width: 128px;
-        text-align: center;
-        font-size: 63px;
-        line-height: 128px;
-        background: rgba(0, 0, 0, .2);
-        border-radius: 100%;
-    }
-</style>
+@section Styles {
+    <style>
+        .ranking-number-big {
+            border-radius: 50%;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            text-align: center;
+            font-size: 32px;
+            line-height: 64px;
+            background: rgba(0, 0, 0, .2);
+            border: 1px solid rgba(0, 0, 0, .2);
+        }
+
+            .ranking-number-big a {
+                display: block;
+                float: left;
+                width: 100%;
+                padding-top: 50%;
+                padding-bottom: 50%;
+                line-height: 1em;
+                margin-top: -0.5em;
+                text-align: center;
+                color: #e2eaf3;
+                text-decoration: none;
+            }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        function get_random_color() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.round(Math.random() * 15)];
+            }
+            return color;
+        }
+
+        $(function () {
+            $(".ranking-number-big").each(function () {
+                var hue = 'rgb(' + (Math.floor((256 - 199) * Math.random()) + 200) + ',' + (Math.floor((256 - 199) * Math.random()) + 200) + ',' + (Math.floor((256 - 199) * Math.random()) + 200) + ')';
+
+                $(this).css("background-color", hue);
+            });
+        });
+    </script>
+}
 
 <div class="col-12">
     <h1 class="sr-only">@ViewData["Title"]</h1>
 
     <div class="p-3">
         <h2 class="display-4">@SharedLocalizer["Climb the ranks!"]</h2>
-        <p>@SharedLocalizer["rank txt"]</p>
+        <p>@SharedLocalizer["You can earn XP fro executing some actions and level up to the top ranks!"]</p>
     </div>
 
     @foreach (var rank in Model)
     {
-        <div class="row align-items-center">
-            <div class="text-center">
-                <span class="ranking-number-big push-bottom">@rank.Number</span>
-            </div>
-            <div class="">
-                <div class="p-2">
-                    <h3 class="display-4">"@SharedLocalizer[rank.Name]"</h3>
-                    <p>Max @SharedLocalizer[rank.XpToAchieve.ToString()] XP</p>
+        <div class="row col-12">
+            <div class="col-3 col-md-2 col-lg-1">
+                <div class="ranking-number-big">
+                    <a>@rank.Number</a>
                 </div>
+            </div>
+            <div class="col-9 col-md-10 col-lg-11 p-x-2">
+                <h3 class="display-5">"@SharedLocalizer[rank.Name]"</h3>
+                <p>Max @SharedLocalizer[rank.XpToAchieve.ToString()] XP</p>
             </div>
         </div>
         <hr />

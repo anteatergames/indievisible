@@ -362,7 +362,8 @@ namespace IndieVisible.Web.Controllers
                 Description = "Must have features!",
                 Items = {
                     "You can now delete your own posts",
-                    "Share your game!"
+                    "Share your game!",
+                    "Rank Levels page"
                 }
             });
 
