@@ -63,3 +63,20 @@
 .template {
     visibility: hidden;
 }
+
+
+@media (max-width:575px) {
+    #divToolbar button, #divListTeams, #divListTeams div, #teamsidebar div {
+        border-radius: 0;
+    }
+
+    #divMembers .team-member img.avatar {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 10px;
+    }
+
+    #divMembers .team-member {
+        margin: 10px 0 0 0;
+    }
+}
