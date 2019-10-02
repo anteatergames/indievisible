@@ -601,9 +601,9 @@
     <value>Writer tool</value>
     <comment>Menu</comment>
   </data>
-  <data name="Accept" xml:space="preserve">
-    <value>Aceitar</value>
-    <comment>Cookie Consent</comment>
+  <data name="accept" xml:space="preserve">
+    <value>aceitar</value>
+    <comment>Generic</comment>
   </data>
   <data name="Do you like cookies?" xml:space="preserve">
     <value>Você gosta de cookies?</value>
@@ -1048,5 +1048,93 @@
   <data name="Oops! The content was not deleted!" xml:space="preserve">
     <value>Opa! O conteúdo não foi excluído!</value>
     <comment>Activity Feed</comment>
+  </data>
+  <data name="What? We have no Teams here! Hurry up, create one!" xml:space="preserve">
+    <value>O que? Não tem nenhuma equipe aqui ainda. Corre, cria um!</value>
+    <comment>Team</comment>
+  </data>
+  <data name="accepted" xml:space="preserve">
+    <value>aceito</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Invite your friends!" xml:space="preserve">
+    <value>Convide seus amigos!</value>
+    <comment>Team</comment>
+  </data>
+  <data name="invited" xml:space="preserve">
+    <value>convidado</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="my teams" xml:space="preserve">
+    <value>minhas equipes</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="new team" xml:space="preserve">
+    <value>nova equipe</value>
+    <comment>Team</comment>
+  </data>
+  <data name="rejected" xml:space="preserve">
+    <value>rejeitado</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Teams" xml:space="preserve">
+    <value>Equipes</value>
+    <comment>Team</comment>
+  </data>
+  <data name="You are creating a new Team" xml:space="preserve">
+    <value>Você está criando uma nova equipe</value>
+    <comment>Team</comment>
+  </data>
+  <data name="{0} has invited you to join a team!" xml:space="preserve">
+    <value>{0} convidou você para participar de uma equipe!</value>
+    <comment>Team</comment>
+  </data>
+  <data name="reject" xml:space="preserve">
+    <value>rejeitar</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Team Leader" xml:space="preserve">
+    <value>Líder</value>
+    <comment>Team</comment>
+  </data>
+  <data name="{0} members" xml:space="preserve">
+    <value>{0} membros</value>
+    <comment>Team</comment>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>excluir</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Are you sure you want to delete this team?" xml:space="preserve">
+    <value>Tem certeza que quer excluir esta equipe?</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Yes, delete it!" xml:space="preserve">
+    <value>Sim, exclui aí!</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Tem certeza?</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Type here your quote." xml:space="preserve">
+    <value>Digite aqui sua frase de efeito.</value>
+    <comment>Team</comment>
+  </data>
+  <data name="You are not on a team! C'mon, make some friends!" xml:space="preserve">
+    <value>Você não está em uma equipe! Vamos lá, faça alguns amigos!</value>
+    <comment>Team</comment>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>editar</value>
+    <comment>Generic</comment>
   </data>
 </root>

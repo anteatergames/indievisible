@@ -15,7 +15,7 @@ namespace IndieVisible.Web.ViewComponents
     {
         private readonly INotificationAppService _notificationAppService;
 
-        public Guid UserId { get; set; }
+        public Guid CurrentUserId { get; set; }
 
         public NotificationViewComponent(IHttpContextAccessor httpContextAccessor, INotificationAppService notificationAppService)
         {
@@ -25,7 +25,7 @@ namespace IndieVisible.Web.ViewComponents
 
             if (!string.IsNullOrWhiteSpace(id))
             {
-                UserId = new Guid(id);
+                CurrentUserId = new Guid(id);
             }
         }
 
@@ -36,8 +36,8 @@ namespace IndieVisible.Web.ViewComponents
                 qtd = 10;
             }
 
-            _notificationAppService.CurrentUserId = this.UserId;
-            OperationResultListVo<NotificationItemViewModel> result = _notificationAppService.GetByUserId(this.UserId, qtd);
+            _notificationAppService.CurrentUserId = this.CurrentUserId;
+            OperationResultListVo<NotificationItemViewModel> result = _notificationAppService.GetByUserId(this.CurrentUserId, qtd);
 
             System.Collections.Generic.List<NotificationItemViewModel> model = result.Value.ToList();
 

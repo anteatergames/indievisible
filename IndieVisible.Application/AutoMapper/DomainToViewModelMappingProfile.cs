@@ -6,6 +6,7 @@ using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.Search;
+using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Models;
@@ -62,7 +63,7 @@ namespace IndieVisible.Application.AutoMapper
             #region Gamification
             CreateMap<UserBadge, UserBadgeViewModel>();
             CreateMap<Gamification, RankingViewModel>();
-            CreateMap<GamificationLevel, GamificationLevelViewModel>();            
+            CreateMap<GamificationLevel, GamificationLevelViewModel>();
             #endregion
 
             #region Interaction
@@ -73,6 +74,14 @@ namespace IndieVisible.Application.AutoMapper
 
             #region Search
             CreateMap<UserContentSearchVo, UserContentSearchViewModel>();
+            #endregion
+
+            #region Team
+            CreateMap<Team, TeamViewModel>();
+            CreateMap<TeamMember, TeamMemberViewModel>()
+                    .ForMember(dest => dest.Works, opt => opt.MapFrom<TeamWorkFromDomainResolver>());
+
+            CreateMap<UserProfile, ProfileSearchViewModel>();
             #endregion
         }
     }

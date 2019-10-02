@@ -57,6 +57,7 @@ namespace IndieVisible.Web.Controllers.Base
                     SetSessionValue(SessionValues.Username, username);
                 }
 
+                ViewBag.CurrentUserId = CurrentUserId;
                 ViewBag.Username = username ?? Constants.DefaultUsername;
                 ViewBag.ProfileImage = UrlFormatter.ProfileImage(CurrentUserId);
             }

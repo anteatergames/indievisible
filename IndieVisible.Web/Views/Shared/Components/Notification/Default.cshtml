@@ -24,7 +24,7 @@
             {
                 <li class="@(notification.IsRead ? String.Empty : "text-bold")">
                     <a href="@notification.Url">
-                        <i class="@notification.Icon @notification.IconColor" aria-hidden="true"></i>  @notification.Text
+                        <i class="@notification.Icon @notification.IconColor" aria-hidden="true" title="@notification.Text"></i>  @notification.Text
                     </a>
                 </li>
 

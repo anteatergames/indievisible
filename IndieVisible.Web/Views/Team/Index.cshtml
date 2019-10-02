@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = SharedLocalizer["Teams"];
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+@section ComponentStyles {
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
+        <link rel="stylesheet" href="~/css/teamup.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/teamup.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/lib/select2/js/select2.full.min.js"></script>
+        <script src="~/js/team/teamup.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/team/teamup.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<div id="teamcontainer" class="col-12">
+    <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
+    <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="text-capitalize">@ViewData["Title"]</h2>
+            <div id="divToolbar" class="no-gutters text-right">
+                <div class="col-12">
+                    @if (canInteract)
+                    {
+                        <div class="col-6 offset-md-6 d-none d-md-block d-lg-none p-0">
+                            <button class="btn-team-new btn btn-lg btn-primary btn-block text-capitalize"><i class="fas fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["new team"]</button>
+                        </div>
+                        <button class="btn-team-new btn btn-lg btn-primary d-md-none btn-block text-capitalize"><i class="fas fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["new team"]</button>
+                    }
+                </div>
+            </div>
+            <div id="divListTeams"></div>
+        </div>
+        <div id="teamsidebar" class="col-lg-4 no-gutters">
+            <div class="col-12">
+                @if (canInteract)
+                {
+                    <button class="btn-team-new btn btn-lg btn-primary d-none d-lg-block btn-block text-capitalize"><i class="fas fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["new team"]</button>
+                }
+            </div>
+            <div class="box bg-white team-box team-list mt-2">
+                <h3 class="text-capitalize">@SharedLocalizer["my teams"]</h3>
+                <div id="divListMyTeams"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

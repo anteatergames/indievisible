@@ -66,14 +66,15 @@
         );
     }
 
-    function showConfirmMessage(msg, callbackYes, callbackCancel) {
+    function showConfirmMessage(title, msg, confirmButtonText, cancelButtonText, callbackYes, callbackCancel) {
         swal({
-            title: "Are you sure?",
+            title: title,
             text: msg,
             type: "question",
             showCancelButton: true,
             confirmButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: confirmButtonText,
+            cancelButtonText: cancelButtonText
         }).then(
             function (result) {
                 if (result.value) {

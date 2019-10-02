@@ -5,6 +5,7 @@ using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Extensions;
+using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -87,6 +88,37 @@ namespace IndieVisible.Web.Controllers
         {
             vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.TargetUserId);
             vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.TargetUserId, vm.ProfileId);
+        }
+
+
+        public IActionResult Search(string term)
+        {
+            var vm = new Select2SearchResultViewModel();
+
+            var serviceResult = profileAppService.Search(term);
+
+            if (serviceResult.Success)
+            {
+                var searchResults = ((OperationResultListVo<ProfileSearchViewModel>)serviceResult).Value;
+
+                foreach (var item in searchResults)
+                {
+                    var s2obj = new Select2SearchResultItemViewModel
+                    {
+                        Id = item.UserId.ToString(),
+                        Text = item.Name
+                    };
+
+                    vm.Results.Add(s2obj);
+                }
+
+                return Json(vm);
+            }
+            else
+            {
+                return Json(serviceResult);
+            }
+
         }
     }
 }

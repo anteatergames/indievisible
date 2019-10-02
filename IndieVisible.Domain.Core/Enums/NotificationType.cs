@@ -11,6 +11,7 @@
         AchivementEarned = 7,
         LevelUp = 8,
         ArticleAboutYourGame = 9,
-        ContentPosted = 10
+        ContentPosted = 10,
+        TeamInvitation = 11
     }
 }

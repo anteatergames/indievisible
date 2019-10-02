@@ -913,7 +913,7 @@ a {
 }
 
 .navbar-nav > .messages-menu > .dropdown-menu, .navbar-nav > .notifications-menu > .dropdown-menu, .navbar-nav > .tasks-menu > .dropdown-menu {
-    width: 280px;
+    width: 355px;
     padding: 0;
     margin: 0;
     top: 100%

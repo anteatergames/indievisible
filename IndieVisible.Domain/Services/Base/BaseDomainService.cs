@@ -38,14 +38,14 @@ namespace IndieVisible.Domain.Services
             return count;
         }
 
-        public IEnumerable<T> Get(Expression<Func<T, bool>> where)
+        public IEnumerable<T> Search(Expression<Func<T, bool>> where)
         {
             var objs = this.repository.Get(where);
 
             return objs.ToList();
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             var objs = this.repository.GetAll();
 
@@ -76,6 +76,11 @@ namespace IndieVisible.Domain.Services
             this.repository.Update(model);
 
             return model.Id;
+        }
+
+        IQueryable<T> IDomainService<T>.Search(Expression<Func<T, bool>> where)
+        {
+            return this.repository.Get(where);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Interfaces
@@ -9,7 +10,7 @@ namespace IndieVisible.Domain.Interfaces
         int Count();
         IEnumerable<T> GetAll();
         int Count(Expression<Func<T, bool>> where);
-        IEnumerable<T> Get(Expression<Func<T, bool>> where);
+        IQueryable<T> Search(Expression<Func<T, bool>> where);
         T GetById(Guid id);
         IEnumerable<T> GetByUserId(Guid userId);
         Guid Add(T model);

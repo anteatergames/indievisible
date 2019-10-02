@@ -13,6 +13,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190927013626_teams.cs" />
+    <Compile Remove="Migrations\20190927013626_teams.Designer.cs" />
+    <Compile Remove="Migrations\20190927014005_teams.cs" />
+    <Compile Remove="Migrations\20190927014005_teams.Designer.cs" />
+    <Compile Remove="Migrations\20190929015143_teamup.cs" />
+    <Compile Remove="Migrations\20190929015143_teamup.Designer.cs" />
+    <Compile Remove="Migrations\20190929220420_teamup.cs" />
+    <Compile Remove="Migrations\20190929220420_teamup.Designer.cs" />
+    <Compile Remove="Migrations\20190929220534_teamup.cs" />
+    <Compile Remove="Migrations\20190929220534_teamup.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.11" />

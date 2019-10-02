@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
@@ -166,7 +167,7 @@ namespace IndieVisible.Application.Services
                     g.DeveloperName = viewModel.Name;
                 }
 
-                IEnumerable<UserContent> posts = userContentDomainService.Get(x => x.UserId == viewModel.UserId);
+                IEnumerable<UserContent> posts = userContentDomainService.Search(x => x.UserId == viewModel.UserId);
 
                 foreach (UserContent p in posts)
                 {
@@ -186,6 +187,8 @@ namespace IndieVisible.Application.Services
                 {
                     bc.AuthorName = viewModel.Name;
                 }
+
+                profileDomainService.UpdateNameOnThePlatform(viewModel.UserId, viewModel.Name);
                 #endregion
 
                 unitOfWork.Commit();
@@ -269,6 +272,22 @@ namespace IndieVisible.Application.Services
             profile.CoverImageUrl = Constants.DefaultGameCoverImage;
 
             return profile;
+        }
+
+        public OperationResultVo Search(string term)
+        {
+            try
+            {
+                var results = profileDomainService.Search(x => x.Name.ToLower().Contains(term.ToLower()));
+
+                var vms = results.ProjectTo<ProfileSearchViewModel>(mapper.ConfigurationProvider);
+
+                return new OperationResultListVo<ProfileSearchViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
         #endregion
     }

@@ -170,7 +170,7 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                IEnumerable<UserFollow> allModels = this.gameFollowDomainService.Get(x => x.FollowUserId == followUserId);
+                IEnumerable<UserFollow> allModels = this.gameFollowDomainService.Search(x => x.FollowUserId == followUserId);
 
                 IEnumerable<UserFollowViewModel> vms = mapper.Map<IEnumerable<UserFollow>, IEnumerable<UserFollowViewModel>>(allModels);
 

@@ -53,6 +53,11 @@ namespace IndieVisible.Infra.Data.Context
         public DbSet<PollVote> PollVotes { get; set; }
         #endregion
 
+        #region Team
+        public DbSet<Team> Team { get; set; }
+        public DbSet<TeamMember> TeamMembers { get; set; }
+        #endregion
+
 
         public IndieVisibleContext()
         {
@@ -88,7 +93,6 @@ namespace IndieVisible.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new BrainstormCommentConfig());
             #endregion
 
-
             #region Gamification
             modelBuilder.ApplyConfiguration(new GamificationConfig());
             modelBuilder.ApplyConfiguration(new GamificationActionConfig());
@@ -102,6 +106,12 @@ namespace IndieVisible.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new PollOptionConfig());
 
             modelBuilder.ApplyConfiguration(new PollVoteConfig());
+            #endregion
+
+            #region Team
+            modelBuilder.ApplyConfiguration(new TeamConfig());
+
+            modelBuilder.ApplyConfiguration(new TeamMemberConfig());
             #endregion
 
             base.OnModelCreating(modelBuilder);

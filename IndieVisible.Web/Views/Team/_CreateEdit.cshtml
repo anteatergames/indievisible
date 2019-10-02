@@ -1,0 +1,132 @@
+﻿@model TeamViewModel
+
+@{
+    ViewData["Title"] = SharedLocalizer["new team"];
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="box bg-white">
+    <form id="frmTeamSave" asp-controller="team" asp-action="save" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="CreateDate" />
+        <div class="box-header with-border">
+            <h3 class="card-title">@SharedLocalizer["You are creating a new Team"]</h3>
+            <h4 class="card-subtitle">
+                @SharedLocalizer["Invite your friends!"]
+            </h4>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body p-md-10">
+            <div class="main-data">
+                <div class="form-group">
+                    <label asp-for="Name" class="col-form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Motto" class="col-form-label"></label>
+                    <input asp-for="Motto" class="form-control" />
+                    <span asp-validation-for="Motto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="col-form-label"></label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <h4>Members</h4>
+            <div id="divMembeManagement">
+                <select id="ddlSearchMembers" class="form-control" data-placeholder="Search for Members" data-ajax-url="@Url.Action("search", "user")" />
+                <div id="divMembers">
+                    @for (int i = 0; i < Model.Members.Count; i++)
+                    {
+                        var member = Model.Members.ElementAt(i);
+
+                    <div class="row team-member">
+                        <input type="hidden" asp-for="Members[i].Id" />
+                        <input type="hidden" asp-for="Members[i].UserId" class="team-member-userid"/>
+                        <input type="hidden" asp-for="Members[i].TeamId" />
+                        <input type="hidden" asp-for="Members[i].Leader" />
+                        <input type="hidden" asp-for="Members[i].Name" class="team-member-name-hidden" />
+                        <input type="hidden" asp-for="Members[i].InvitationStatus" />
+                        <div class="div-avatar">
+                            @if (member.Leader)
+                            {
+                                <h5 class="text-center team-member-isleader">@SharedLocalizer["Team Leader"]</h5>
+                            }
+                            else
+                            {
+                                <span>&nbsp;</span>
+                            }
+                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId">
+                                <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" src="~/images/profileimages/developer.png" alt="@member.Quote">
+                            </a>
+                        </div>
+                        <div class="div-details col">
+                            @if (!string.IsNullOrWhiteSpace(member.Name))
+                            {
+                                <h5 class="text-center team-member-name">@member.Name</h5>
+                            }
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Members[i].Role"></label>
+                                        <input asp-for="Members[i].Role" class="form-control" placeholder="Role" />
+                                        <span asp-validation-for="Members[i].Role" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Members[i].Works"></label>
+                                        <select asp-for="Members[i].Works" asp-items="Html.GetEnumSelectList<TeamWorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                                        <span asp-validation-for="Members[i].Works" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Members[i].Quote"></label>
+                                <input asp-for="Members[i].Quote" class="form-control" placeholder="Quote" />
+                                <span asp-validation-for="Members[i].Quote" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="text-right mt-2">
+                <a asp-area="" asp-controller="team" asp-action="index" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                <button type="button" id="btnSaveTeam" class="btn btn-lg btn-primary"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="row team-member template">
+    <input type="hidden" id="Members_0__Id" name="Members[0].Id" />
+    <input type="hidden" id="Members_0__UserId" name="Members[0].UserId" class="team-member-userid"/>
+    <input type="hidden" id="Members_0__Leader" name="Members[0].Leader" value="False" />
+    <input type="hidden" id="Members_0__Name" name="Members[0].Name" class="team-member-name-hidden" />
+    <input type="hidden" id="Members_0__InvitationStatus" name="Members[0].InvitationStatus" value="@InvitationStatus.Invited" />
+    <div class="div-avatar">
+        <h5 class="text-center team-member-isleader">@SharedLocalizer["Team Leader"]</h5>
+        <span>&nbsp;</span>
+        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="0">
+            <img class="rounded-circle lazyload avatar" data-src="" src="~/images/profileimages/developer.png" alt="Quote">
+        </a>
+    </div>
+    <div class="div-details col">
+        <h5 class="text-center team-member-name">Name</h5>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="Members[0].Role"></label>
+                    <input id="Members_0__Role" name="Members[0].Role" class="form-control" placeholder="Role" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Members[0].Works"></label>
+                    <select id="Members_0__Works" name="Members[0].Works" asp-items="Html.GetEnumSelectList<TeamWorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

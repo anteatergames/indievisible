@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Interfaces.Repository;
+﻿using IndieVisible.Domain.Interfaces;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using System;
@@ -69,7 +70,12 @@ namespace IndieVisible.Domain.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UserBadge> Get(Expression<Func<UserBadge, bool>> where)
+        public IEnumerable<UserBadge> Search(Expression<Func<UserBadge, bool>> where)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable<UserBadge> IDomainService<UserBadge>.Search(Expression<Func<UserBadge, bool>> where)
         {
             throw new NotImplementedException();
         }

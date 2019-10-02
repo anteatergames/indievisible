@@ -349,7 +349,7 @@ namespace IndieVisible.Web.Controllers
                 Color = "primary",
                 Title = "August 2019",
                 Subtitle = "...",
-                Description = "Nothing to see here, move along!"
+                Description = "Nothing to see here, keep scrolling!"
             });
 
             model.Items.Add(new TimeLineItemViewModel
@@ -367,13 +367,26 @@ namespace IndieVisible.Web.Controllers
                 }
             });
 
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2019, 09, 01),
+                Icon = "fas fa-users",
+                Color = "info",
+                Title = "October",
+                Subtitle = "Team up!",
+                Description = "Join forces to make games.",
+                Items = {
+                    "Team Management"
+                }
+            });
+
             // Future
             model.Items.Add(new TimeLineItemViewModel
             {
-                Date = new DateTime(2019, 10, 01),
+                Date = new DateTime(2020, 01, 01),
                 Icon = "fas fa-bug",
                 Color = "danger",
-                Title = "October 2019",
+                Title = "January 2020",
                 Subtitle = "Open Beta",
                 Description = "At this point, we hope to have a consistent beta tester base so we can polish the platform and fix every possible bug tha shows up."
             });
@@ -382,10 +395,10 @@ namespace IndieVisible.Web.Controllers
             model.Items.Add(new TimeLineItemViewModel
             {
                 End = true,
-                Date = new DateTime(2020, 01, 01),
+                Date = new DateTime(2020, 07, 01),
                 Icon = "fas fa-star",
                 Color = "success",
-                Title = "January 2020",
+                Title = "July 2020",
                 Subtitle = "Launch day!",
                 Description = "This is the scheduled launch day. On this day, all the core features must be implented."
             });

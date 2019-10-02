@@ -103,6 +103,13 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IPollVoteRepository, PollVoteRepository>();
             #endregion
 
+            #region Team
+            services.AddScoped<ITeamAppService, TeamAppService>();
+            services.AddScoped<ITeamDomainService, TeamDomainService>();
+            services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
+            services.AddScoped<ITeamRepository, TeamRepository>();
+            #endregion
+
             // Infra - Data
             services.AddScoped<IndieVisibleContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

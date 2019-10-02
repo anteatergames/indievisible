@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Interfaces.Repository;
+﻿using IndieVisible.Domain.Interfaces;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using System;
@@ -76,7 +77,7 @@ namespace IndieVisible.Domain.Services
             return followers.ToList();
         }
 
-        public IEnumerable<GameFollow> Get(Expression<Func<GameFollow, bool>> where)
+        IQueryable<GameFollow> IDomainService<GameFollow>.Search(Expression<Func<GameFollow, bool>> where)
         {
             throw new NotImplementedException();
         }

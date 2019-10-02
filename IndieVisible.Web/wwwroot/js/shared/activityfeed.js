@@ -50,8 +50,11 @@ var ACTIVITYFEED = (function () {
             var btn = $(this);
             var id = btn.data('id');
             var msg = btn.data('confirmationmessage');
+            var confirmationTitle = btn.data('confirmationtitle');
+            var confirmationButtonText = btn.data('confirmationbuttontext');
+            var cancelButtonText = btn.data('cancelbuttontext');
 
-            ALERTSYSTEM.ShowConfirmMessage(msg, function () {
+            ALERTSYSTEM.ShowConfirmMessage(confirmationTitle, msg, confirmationButtonText, cancelButtonText, function () {
                 $.ajax({
                     url: '/content/' + id,
                     type: 'DELETE'

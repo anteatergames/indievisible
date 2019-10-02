@@ -479,6 +479,74 @@ namespace IndieVisible.Infra.Data.Migrations
                     b.ToTable("PollVotes");
                 });
 
+            modelBuilder.Entity("IndieVisible.Domain.Models.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(512);
+
+                    b.Property<string>("LogoUrl")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Motto")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(128);
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Team");
+                });
+
+            modelBuilder.Entity("IndieVisible.Domain.Models.TeamMember", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<int>("InvitationStatus");
+
+                    b.Property<bool>("Leader")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("Quote")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Role")
+                        .HasMaxLength(128);
+
+                    b.Property<Guid>("TeamId");
+
+                    b.Property<Guid>("UserId");
+
+                    b.Property<string>("Work");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TeamMembers");
+                });
+
             modelBuilder.Entity("IndieVisible.Domain.Models.UserBadge", b =>
                 {
                     b.Property<Guid>("Id")
@@ -734,6 +802,14 @@ namespace IndieVisible.Infra.Data.Migrations
                     b.HasOne("IndieVisible.Domain.Models.PollOption")
                         .WithMany("Votes")
                         .HasForeignKey("PollOptionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("IndieVisible.Domain.Models.TeamMember", b =>
+                {
+                    b.HasOne("IndieVisible.Domain.Models.Team", "Team")
+                        .WithMany("Members")
+                        .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

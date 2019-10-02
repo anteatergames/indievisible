@@ -369,7 +369,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<UserContent> all = userContentDomainService.Get(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
+                IQueryable<UserContent> all = userContentDomainService.Search(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
 
                 IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
                     .Select(x => new UserContentSearchVo

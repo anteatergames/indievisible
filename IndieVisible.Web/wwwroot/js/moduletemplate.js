@@ -1,6 +1,8 @@
 ﻿var MODULETEMPLATE = (function () {
     "use strict";
 
+    var selectors = {};
+
     function init() {
         bindAll();
     }

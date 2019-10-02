@@ -107,5 +107,19 @@
     "inputFiles": [
       "wwwroot/js/search/search.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/team/teamup.min.js",
+    "inputFiles": [
+      "wwwroot/js/team/teamup.js",
+      "wwwroot/lib/select2/js/select2.full.min.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/teamup.min.css",
+    "inputFiles": [
+      "wwwroot/css/teamup.css",
+      "wwwroot/lib/select2/css/select2.min.css"
+    ]
   }
 ]

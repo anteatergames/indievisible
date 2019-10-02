@@ -10,11 +10,14 @@ namespace IndieVisible.Domain.Services
     public class ProfileDomainService : BaseDomainService<UserProfile, IProfileRepository>, IProfileDomainService
     {
         private readonly IUserFollowRepository userFollowRepository;
+        private readonly ITeamMemberRepository teamMemberRepository;
 
         public ProfileDomainService(IProfileRepository repository
-            , IUserFollowRepository userFollowRepository) : base(repository)
+            , IUserFollowRepository userFollowRepository
+            , ITeamMemberRepository teamMemberRepository) : base(repository)
         {
             this.userFollowRepository = userFollowRepository;
+            this.teamMemberRepository = teamMemberRepository;
         }
 
         public int CountFollow(Expression<Func<UserFollow, bool>> where)
@@ -29,6 +32,16 @@ namespace IndieVisible.Domain.Services
             var follows = userFollowRepository.Get(where);
 
             return follows;
+        }
+
+        public void UpdateNameOnThePlatform(Guid userId, string newName)
+        {
+            var teamMemberships = teamMemberRepository.Get(x => x.UserId == userId);
+
+            foreach (var item in teamMemberships)
+            {
+                item.Name = newName;
+            }
         }
     }
 }

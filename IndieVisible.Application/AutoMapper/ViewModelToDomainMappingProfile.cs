@@ -1,12 +1,18 @@
-﻿using IndieVisible.Application.AutoMapper.Resolvers;
+﻿using AutoMapper;
+using IndieVisible.Application.AutoMapper.MappingActions;
+using IndieVisible.Application.AutoMapper.Resolvers;
 using IndieVisible.Application.ViewModels.Brainstorm;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.Notification;
+using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Profile = AutoMapper.Profile;
 
 namespace IndieVisible.Application.AutoMapper
@@ -58,6 +64,14 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<UserFollowViewModel, Domain.Models.UserFollow>();
 
             CreateMap<UserConnectionViewModel, Domain.Models.UserConnection>();
+            #endregion
+
+            #region Team
+            CreateMap<TeamViewModel, Domain.Models.Team>()
+                .ForMember(dest => dest.Members, opt => opt.Ignore())
+                .AfterMap<AddOrUpdateTeamMembers>();
+            CreateMap<TeamMemberViewModel, Domain.Models.TeamMember>()
+                    .ForMember(dest => dest.Work, opt => opt.MapFrom<TeamWorkToDomainResolver>());
             #endregion
         }
     }
