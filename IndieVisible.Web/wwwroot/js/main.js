@@ -18,18 +18,24 @@
         loadNotifications();
 
         $('[data-toggle="tooltip"]').tooltip();
+
+        showMessage();
     }
 
     function cacheSelectors() {
         selectors.notificationsMenu = $("#notificationsMenu");
+        selectors.spanMessage = $("#spanMessage");
     }
 
     function bindAll() {
         bindNotImplemented();
     }
 
-    function setGlobalAjax() {
-        $(document).ajaxStart(function () { Pace.restart(); });
+    function showMessage() {
+        var msg = selectors.spanMessage.text();
+        if (msg !== undefined && msg.length > 0) {
+            ALERTSYSTEM.Toastr.ShowWarning("Attention!", msg);
+        }
     }
 
     function bindNotImplemented() {
@@ -40,6 +46,10 @@
 
             return false;
         });
+    }
+
+    function setGlobalAjax() {
+        $(document).ajaxStart(function () { Pace.restart(); });
     }
 
 

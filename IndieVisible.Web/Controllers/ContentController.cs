@@ -47,6 +47,12 @@ namespace IndieVisible.Web.Controllers
             service.CurrentUserId = this.CurrentUserId;
             OperationResultVo<UserContentViewModel> serviceResult = service.GetById(id);
 
+            if (!serviceResult.Success)
+            {
+                TempData["Message"] = SharedLocalizer["Content not found!"].Value;
+                return RedirectToAction("Index", "Home");
+            }
+
             UserContentViewModel vm = serviceResult.Value;
 
             vm.Content = ContentHelper.FormatContentToShow(vm.Content);

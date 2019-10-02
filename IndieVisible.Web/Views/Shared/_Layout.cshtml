@@ -113,6 +113,10 @@
     }
 </head>
 <body class="hold-transition skin-indievisible sidebar-mini">
+    @if (TempData["Message"] != null)
+    {
+        <span id="spanMessage" class="d-none">@TempData["Message"]</span>
+    }
     <div class="wrapper">
         <header class="main-header">
             <a asp-area="" asp-controller="home" asp-action="index" class="logo d-none d-md-block">
@@ -268,6 +272,5 @@
     {
         <partial name="_CookieConsentPartial" model="consentFeature" />
     }
-
 </body>
 </html>

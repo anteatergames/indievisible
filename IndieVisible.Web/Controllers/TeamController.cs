@@ -42,19 +42,6 @@ namespace IndieVisible.Web.Controllers
 
             var model = serviceResult.Value.ToList();
 
-
-            foreach (var team in model)
-            {
-                team.Permissions.CanDelete = team.Members.Any(x => x.UserId == this.CurrentUserId && x.Leader);
-                team.Members = team.Members.OrderByDescending(x => x.Leader).ToList();
-                var index = 0;
-                foreach (var member in team.Members)
-                {
-                    member.Index = index++;
-                    member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
-                }
-            }
-
             return PartialView("_List", model);
         }
 
@@ -73,14 +60,15 @@ namespace IndieVisible.Web.Controllers
         {
             this.notificationAppService.MarkAsRead(notificationclicked);
 
-            OperationResultVo<TeamViewModel> service = (OperationResultVo<TeamViewModel>)teamAppService.GetById(teamId);
+            OperationResultVo<TeamViewModel> serviceResult = (OperationResultVo<TeamViewModel>)teamAppService.GetById(teamId);
 
-            if (!service.Success)
+            if (!serviceResult.Success)
             {
+                TempData["Message"] = SharedLocalizer["Team not found!"].Value;
                 return RedirectToAction("Index");
             }
 
-            var model = service.Value;
+            var model = serviceResult.Value;
 
             foreach (var member in model.Members)
             {

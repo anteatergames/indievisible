@@ -23,18 +23,17 @@
     }
 
     function showWarningAlert(header, text) {
-        showAlert(header, text, 'warning', 'top-right', '#ffbf36');
+        showAlert(text, 'warning');
     }
 
-    function showAlert(header, text, icon, position, bgColor) {
-        $.toast({
-            heading: header,
-            text: text,
-            icon: icon,
-            position: position,
-            loaderBg: bgColor,
-            hideAfter: 3500,
-            stack: 6
+    function showAlert(text, type) {
+        swal({
+            toast: true,
+            position: 'top-end',
+            type: type,
+            showConfirmButton: false,
+            title: text,
+            timer: 3000
         });
     }
 
