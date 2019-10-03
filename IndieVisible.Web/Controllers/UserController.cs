@@ -37,7 +37,6 @@ namespace IndieVisible.Web.Controllers
             return View();
         }
 
-        [Authorize]
         public IActionResult List()
         {
             OperationResultListVo<ProfileViewModel> serviceResult = profileAppService.GetAll(this.CurrentUserId);

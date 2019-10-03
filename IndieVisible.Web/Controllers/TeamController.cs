@@ -40,6 +40,7 @@ namespace IndieVisible.Web.Controllers
             return PartialView("_List", model);
         }
 
+        [AllowAnonymous]
         [Route("list/user/{userId:guid}")]
         public IActionResult ListByUser(Guid userId)
         {
@@ -60,6 +61,7 @@ namespace IndieVisible.Web.Controllers
             return PartialView("_ListMine", model);
         }
 
+        [AllowAnonymous]
         [Route("{teamId:guid}")]
         public IActionResult Details(Guid teamId, Guid notificationclicked)
         {
