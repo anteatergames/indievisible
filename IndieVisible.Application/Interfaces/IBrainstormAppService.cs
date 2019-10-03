@@ -8,8 +8,6 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IBrainstormAppService : ICrudAppService<BrainstormIdeaViewModel>
     {
-        OperationResultListVo<BrainstormIdeaViewModel> GetAll(Guid userId);
-
         OperationResultVo<BrainstormIdeaViewModel> GetById(Guid userId, Guid id);
 
         OperationResultVo Vote(Guid userId, Guid ideaId, VoteValue vote);

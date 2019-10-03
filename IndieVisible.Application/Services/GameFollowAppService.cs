@@ -42,7 +42,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<GameFollowViewModel> GetAll()
+        public OperationResultListVo<GameFollowViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<GameFollowViewModel> result;
 

@@ -53,7 +53,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<FeaturedContentViewModel> GetAll()
+        public OperationResultListVo<FeaturedContentViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<FeaturedContentViewModel> result;
 

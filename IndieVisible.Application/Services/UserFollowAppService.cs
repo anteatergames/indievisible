@@ -42,7 +42,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<UserFollowViewModel> GetAll()
+        public OperationResultListVo<UserFollowViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<UserFollowViewModel> result;
 

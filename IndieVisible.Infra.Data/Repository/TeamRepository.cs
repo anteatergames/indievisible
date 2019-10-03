@@ -15,7 +15,6 @@ namespace IndieVisible.Infra.Data.Repository
 
         public override IQueryable<Team> GetAll()
         {
-            //return DbSet.Where(x => x.Members.Count > 1).Include(x => x.Members);
             return DbSet.Include(x => x.Members);
         }
 

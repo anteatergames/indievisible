@@ -43,7 +43,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<UserBadgeViewModel> GetAll()
+        public OperationResultListVo<UserBadgeViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<UserBadgeViewModel> result;
 

@@ -10,6 +10,7 @@ namespace IndieVisible.Domain.Interfaces.Base
         TEntity GetById(Guid id);
         int Count(Expression<Func<TEntity, bool>> where);
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> where);
+        IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> where, string navigationPropertyToInclude);
         IQueryable<TEntity> GetAll();
         void Update(TEntity obj);
         void Remove(Guid id);

@@ -55,7 +55,7 @@ namespace IndieVisible.Application.Services
         }
 
 
-        public OperationResultListVo<GameViewModel> GetAll()
+        public OperationResultListVo<GameViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<GameViewModel> result;
 

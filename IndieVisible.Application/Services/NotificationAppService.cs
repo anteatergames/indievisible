@@ -33,7 +33,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<NotificationItemViewModel> GetAll()
+        public OperationResultListVo<NotificationItemViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<NotificationItemViewModel> result = new OperationResultListVo<NotificationItemViewModel>(string.Empty);
 

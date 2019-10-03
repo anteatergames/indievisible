@@ -147,8 +147,6 @@
     function bindEditTeam() {
         objs.divListTeams.on('click', selectors.btnEditTeam, function (e) {
             e.preventDefault();
-
-            var btn = $(this);
             var url = $(this).data('url');
 
             if (canInteract) {
@@ -330,7 +328,6 @@
             $(this).find(':input').each(function (index2, element2) {
                 var inputId = $(this).attr('id');
                 var inputName = $(this).attr('name');
-                var inputValue = $(this).val();
 
                 if (inputId !== undefined && inputName !== undefined) {
                     var idProp = inputId.split('__')[1];

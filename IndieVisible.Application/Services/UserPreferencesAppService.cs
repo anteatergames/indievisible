@@ -42,7 +42,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<UserPreferencesViewModel> GetAll()
+        public OperationResultListVo<UserPreferencesViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<UserPreferencesViewModel> result;
 

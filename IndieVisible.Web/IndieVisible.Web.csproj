@@ -133,6 +133,9 @@
     <Content Update="Views\Brainstorm\_Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\_ListNoItems.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Team\_ListMine.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

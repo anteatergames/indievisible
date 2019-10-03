@@ -2,28 +2,43 @@
     "use strict";
 
     var selectors = {};
+    var objs = {};
 
     function init() {
-        cacheSelectors();
+        setSelectors();
+        cacheObjects();
 
         bindAll();
 
-        loadBadges(selectors.Id.val());
+        loadBadges(objs.Id.val());
+
+        loadTeams();
 
 
-
-        ACTIVITYFEED.Init(selectors.divActivityFeed, FEEDTYPE.USER, selectors.Id.val());
+        ACTIVITYFEED.Init(objs.divActivityFeed, FEEDTYPE.USER, objs.Id.val());
+    }
+    function setSelectors() {
+        selectors.content = '.content';
+        selectors.divListUserTeams = '#divListUserTeams';
+        selectors.tabActivity = '#tabactivity';
+        selectors.divActivityFeed = '#tabactivity #divActivityFeed';
+        selectors.tabGames = '#tabgames';
+        selectors.tabConnections = '#tabconnections';
+        selectors.Id = '#Id';
+        selectors.UserId = '#UserId';
+        selectors.divBadges = '#divBadges';
     }
 
-    function cacheSelectors() {
-        selectors.content = $('.content');
-        selectors.tabActivity = $("#tabactivity");
-        selectors.divActivityFeed = $("#tabactivity #divActivityFeed");
-        selectors.tabGames = $("#tabgames");
-        selectors.tabConnections = $("#tabconnections");
-        selectors.Id = $('#Id');
-        selectors.UserId = $('#UserId');
-        selectors.divBadges = $('#divBadges');
+    function cacheObjects() {
+        objs.content = $(selectors.content);
+        objs.divListUserTeams = $(selectors.divListUserTeams);
+        objs.tabActivity = $(selectors.tabActivity);
+        objs.divActivityFeed = $(selectors.divActivityFeed);
+        objs.tabGames = $(selectors.tabGames);
+        objs.tabConnections = $(selectors.tabConnections);
+        objs.Id = $(selectors.Id);
+        objs.UserId = $(selectors.UserId);
+        objs.divBadges = $(selectors.divBadges);
     }
 
     function bindAll() {
@@ -35,7 +50,7 @@
     }
 
     function bindFollowBtn() {
-        selectors.content.on('click', '#btn-profile-follow', function (e) {
+        objs.content.on('click', '#btn-profile-follow', function (e) {
             var btn = $(this);
             var followCount = btn.closest('.user-profile').find('.follow-count');
             var targetId = btn.data('id');
@@ -50,7 +65,7 @@
     }
 
     function bindConnectBtn() {
-        selectors.content.on('click', '#btn-profile-connect', function (e) {
+        objs.content.on('click', '#btn-profile-connect', function (e) {
             var btn = $(this);
             var connectionCount = btn.closest('.user-profile').find('.connection-count');
             var targetId = btn.data('id');
@@ -68,7 +83,7 @@
 
 
     function bindAllowConnectionBtn() {
-        selectors.content.on('click', '#btn-profile-connect-allow', function (e) {
+        objs.content.on('click', '#btn-profile-connect-allow', function (e) {
             var btn = $(this);
             var btnConnect = $('#btn-profile-connect');
             var connectionCount = btn.closest('.user-profile').find('.connection-count');
@@ -80,7 +95,7 @@
 
 
     function bindDenyConnectionBtn() {
-        selectors.content.on('click', '#btn-profile-connect-deny', function (e) {
+        objs.content.on('click', '#btn-profile-connect-deny', function (e) {
             var btn = $(this);
             var btnConnect = $('#btn-profile-connect');
             var connectionCount = btn.closest('.user-profile').find('.connection-count');
@@ -96,14 +111,14 @@
 
             var tabDestination = e.target.getAttribute('href');
 
-            if (tabDestination === '#' + selectors.tabActivity.prop('id')) {
+            if (tabDestination === '#' + objs.tabActivity.prop('id')) {
                 ACTIVITYFEED.Methods.LoadActivityFeed();
             }
-            else if (tabDestination === '#' + selectors.tabGames.prop('id')) {
-                loadGameList(selectors.Id.val());
+            else if (tabDestination === '#' + objs.tabGames.prop('id')) {
+                loadGameList(objs.Id.val());
             }
-            else if (tabDestination === '#' + selectors.tabConnections.prop('id')) {
-                loadConnections(selectors.UserId.val());
+            else if (tabDestination === '#' + objs.tabConnections.prop('id')) {
+                loadConnections(objs.UserId.val());
             }
             return false;
         });
@@ -111,26 +126,26 @@
 
 
     function loadGameList(userId) {
-        selectors.tabGames.html(MAINMODULE.Default.Spinner);
+        objs.tabGames.html(MAINMODULE.Default.Spinner);
 
         $.get("/game/latest?userId=" + userId, function (data) {
-            selectors.tabGames.html(data);
+            objs.tabGames.html(data);
         });
     }
 
     function loadBadges(userId) {
-        selectors.divBadges.html(MAINMODULE.Default.Spinner);
+        objs.divBadges.html(MAINMODULE.Default.Spinner);
 
         $.get("/gamification/userbadge/list/" + userId, function (data) {
-            selectors.divBadges.html(data);
+            objs.divBadges.html(data);
         });
     }
 
     function loadConnections(userId) {
-        selectors.tabConnections.html(MAINMODULE.Default.Spinner);
+        objs.tabConnections.html(MAINMODULE.Default.Spinner);
 
         $.get("/user/connections/" + userId, function (data) {
-            selectors.tabConnections.html(data);
+            objs.tabConnections.html(data);
         });
     }
 
@@ -211,14 +226,12 @@
             btnConnect.removeClass('disabled');
             btnConnect.text(btnConnect.data('textConnected'));
 
-            loadConnections(selectors.UserId.val());
+            loadConnections(objs.UserId.val());
         }
         else {
             ALERTSYSTEM.ShowWarningMessage(response.message);
         }
     }
-
-
 
     function denyConnection(userId) {
         return $.post("/interact/user/denyconnection", { userId: userId });
@@ -235,6 +248,29 @@
         else {
             ALERTSYSTEM.ShowWarningMessage(response.message);
         }
+    }
+
+
+    function loadTeams() {
+        objs.divListUserTeams.html(MAINMODULE.Default.Spinner2);
+        console.log(objs.divListUserTeams);
+        $.get('/team/list/user/' + objs.UserId.val(), function (data) { objs.divListUserTeams.html(data); })
+            .done(function (response) {
+                setPopOvers();
+            });
+    }
+
+    function setPopOvers() {
+        $("[data-toggle='popover']").each(function (index, element) {
+            var data = $(element).data();
+            if (data.target) {
+                var contentElementId = data.target;
+                var contentHtml = $(contentElementId).html();
+                data.content = contentHtml;
+                data.html = true;
+            }
+            $(element).popover(data);
+        });
     }
 
     return {

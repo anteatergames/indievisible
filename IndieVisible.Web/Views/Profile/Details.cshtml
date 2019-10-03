@@ -212,7 +212,7 @@
                                     <h6>
                                         @SharedLocalizer["Stats"]
                                     </h6>
-                                    <div class="row">
+                                    <div class="row status-primary">
                                         <div class="col-xl-3 col-md-6 col-6">
                                             <div class="small-box bg-green">
                                                 <div class="inner">
@@ -262,7 +262,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row status-secondary">
                                         <div class="col-6 col-md-4 border-right">
                                             <div class="description-block">
                                                 <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
@@ -362,6 +362,12 @@
                                             </div>
                                         </div>
                                     }
+                                </div>
+                                <div class="status-teams">
+                                    <h6>
+                                        @SharedLocalizer["Teams"]
+                                    </h6>
+                                    <div id="divListUserTeams"></div>
                                 </div>
 
                             </div>

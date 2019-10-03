@@ -1,16 +1,12 @@
 ﻿@model IEnumerable<TeamViewModel>
 @{
     Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-sad-tear", "You are not on a team! C'mon, make some friends!");
 }
 
 @if (!Model.Any())
 {
-    <div class="text-center mt-2 team-item list-item p-4 bg-white">
-        <i class="fa-10x fas fa-sad-tear" aria-hidden="true"></i>
-        <div class="mt-10">
-            <h3>@SharedLocalizer["You are not on a team! C'mon, make some friends!"]</h3>
-        </div>
-    </div>
+    <partial name="_ListNoItems" model="noItemsModel" />
 }
 else
 {

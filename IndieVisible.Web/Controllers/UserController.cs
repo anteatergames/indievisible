@@ -40,7 +40,7 @@ namespace IndieVisible.Web.Controllers
         [Authorize]
         public IActionResult List()
         {
-            OperationResultListVo<ProfileViewModel> serviceResult = profileAppService.GetAll();
+            OperationResultListVo<ProfileViewModel> serviceResult = profileAppService.GetAll(this.CurrentUserId);
 
             List<ProfileViewModel> profiles = serviceResult.Value.OrderByDescending(x => x.CreateDate).ToList();
 

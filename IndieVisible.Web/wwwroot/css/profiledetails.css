@@ -179,3 +179,13 @@
         border-radius: 0 !important;
     }
 }
+
+.status-secondary .border-right {
+    border-right: 1px solid gray !important;
+    border-radius: 0;
+}
+
+.team-item img.avatar {
+    width: 64px;
+    height: 64px;
+}

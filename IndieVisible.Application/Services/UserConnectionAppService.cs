@@ -48,7 +48,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<UserConnectionViewModel> GetAll()
+        public OperationResultListVo<UserConnectionViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<UserConnectionViewModel> result;
 

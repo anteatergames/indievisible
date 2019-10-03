@@ -3,7 +3,6 @@ using IndieVisible.Application.ViewModels.Team;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace IndieVisible.Application.AutoMapper.MappingActions
 {
@@ -29,7 +28,7 @@ namespace IndieVisible.Application.AutoMapper.MappingActions
                     var destinationMember = destination.Members.FirstOrDefault(x => x.Id == member.Id);
                     if (destinationMember != null)
                     {
-                        destinationMember = context.Mapper.Map(member, destinationMember);
+                        context.Mapper.Map(member, destinationMember);
                     }
                 }
             }

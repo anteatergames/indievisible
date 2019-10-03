@@ -44,7 +44,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<UserContentCommentViewModel> GetAll()
+        public OperationResultListVo<UserContentCommentViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<UserContentCommentViewModel> result;
 

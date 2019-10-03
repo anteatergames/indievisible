@@ -45,7 +45,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<UserLikeViewModel> GetAll()
+        public OperationResultListVo<UserLikeViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<UserLikeViewModel> result;
 

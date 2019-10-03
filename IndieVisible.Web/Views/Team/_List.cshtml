@@ -1,16 +1,12 @@
 ﻿@model IEnumerable<TeamViewModel>
 @{
     Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-users", "What? We have no Teams here! Hurry up, create one!");
 }
 
 @if (!Model.Any())
 {
-    <div class="text-center mt-2 team-item list-item p-4 bg-white">
-        <i class="fa-10x fas fa-users" aria-hidden="true"></i>
-        <div class="mt-10">
-            <h3>@SharedLocalizer["What? We have no Teams here! Hurry up, create one!"]</h3>
-        </div>
-    </div>
+    <partial name="_ListNoItems" model="noItemsModel" />
 }
 else
 {
@@ -21,15 +17,23 @@ else
                 <a asp-area="" asp-controller="team" asp-action="details" asp-route-teamId="@team.Id"><h2>@team.Name</h2></a>
                 <h4>@team.Motto</h4>
                 <div class="box-tools">
-                    @if (team.Permissions.CanDelete)
+                    @if (team.Permissions.CanEdit || team.Permissions.CanDelete)
                     {
                         <div class="btn-group">
                             <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
                             </button>
                             <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                <a class="btnEditTeam dropdown-item" href="#" data-url="@Url.Action("Edit", "Team", new { teamId = team.Id })">@SharedLocalizer["edit"]</a>
-                                <a class="btnDeleteTeam dropdown-item" href="#" data-url="@Url.Action("DeleteTeam", "Team", new { teamId = team.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this team?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+
+                                @if (team.Permissions.CanEdit)
+                                {
+                                    <a class="btnEditTeam dropdown-item" href="#" data-url="@Url.Action("Edit", "Team", new { teamId = team.Id })">@SharedLocalizer["edit"]</a>
+                                }
+
+                                @if (team.Permissions.CanDelete)
+                                {
+                                    <a class="btnDeleteTeam dropdown-item" href="#" data-url="@Url.Action("DeleteTeam", "Team", new { teamId = team.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this team?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                                }
                             </div>
                         </div>
                     }

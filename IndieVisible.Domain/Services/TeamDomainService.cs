@@ -72,7 +72,7 @@ namespace IndieVisible.Domain.Services
 
         public IQueryable<Team> GetTeamsByMemberUserId(Guid userId)
         {
-            var teams = repository.Get(x => x.Members.Any(y => y.UserId == userId));
+            var teams = repository.Get(x => x.Members.Any(y => y.UserId == userId), "Members");
 
             return teams;
         }

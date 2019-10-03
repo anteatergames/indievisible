@@ -49,7 +49,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultListVo<TeamViewModel> GetAll()
+        public OperationResultListVo<TeamViewModel> GetAll(Guid currentUserId)
         {
             OperationResultListVo<TeamViewModel> result;
 
@@ -59,18 +59,7 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
-
-                foreach (var team in vms)
-                {
-                    team.Permissions.CanDelete = team.Members.Any(x => x.UserId == this.CurrentUserId && x.Leader);
-                    team.Members = team.Members.OrderByDescending(x => x.Leader).ToList();
-                    var index = 0;
-                    foreach (var member in team.Members)
-                    {
-                        member.Index = index++;
-                        member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
-                    }
-                }
+                SetUiData(currentUserId, true, vms);
 
                 result = new OperationResultListVo<TeamViewModel>(vms);
             }
@@ -248,11 +237,29 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
+                SetUiData(userId, false, vms);
+
                 return new OperationResultListVo<TeamViewModel>(vms);
             }
             catch (Exception ex)
             {
                 return new OperationResultListVo<TeamViewModel>(ex.Message);
+            }
+        }
+
+        private void SetUiData(Guid userId, bool canInteract, IEnumerable<TeamViewModel> vms)
+        {
+            foreach (var team in vms)
+            {
+                team.Permissions.CanEdit = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
+                team.Permissions.CanDelete = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
+                team.Members = team.Members.OrderByDescending(x => x.Leader).ToList();
+                var index = 0;
+                foreach (var member in team.Members)
+                {
+                    member.Index = index++;
+                    member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
+                }
             }
         }
     }

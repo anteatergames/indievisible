@@ -5,6 +5,7 @@
     var canInteract = User.Identity.IsAuthenticated;
 
     var sessions = ViewData["Sessions"] as IEnumerable<IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel>;
+    var noSessionsModel = new ListNoItemsViewModel("nosessions","fas fa-sad-tear", "We have no sessions to show.");
 }
 
 <div id="brainstormcontainer" class="col-12">
@@ -14,32 +15,35 @@
     <div class="row">
         <div class="col-lg-8">
             <h1><i class="fa fa-brain" aria-hidden="true">&nbsp;</i>@ViewData["Title"]</h1>
-            <h2>@Model.Title</h2>
-            <p>@Model.Description</p>
-
-            @if (!User.Identity.IsAuthenticated)
+            @if (Model != null)
             {
-                <h6>
-                    @SharedLocalizer["You need to be logged in to post suggestion, vote and comment."]
-                    <a asp-area="" asp-controller="account" asp-action="login" data-toggle="tooltip" title="" data-original-title="Log In">@SharedLocalizer["Click here to login."]</a>
-                </h6>
-            }
-            <div id="divToolbar" class="no-gutters text-right">
-                <div class="col-12">
-                    @if (canInteract)
-                    {
-                        <div class="col-6 offset-md-6 d-none d-md-block d-lg-none p-0">
-                            <button class="btn-idea-new btn btn-lg btn-primary btn-block"><i class="far fa-lightbulb" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
-                        </div>
-                        <button class="btn-idea-new btn btn-lg btn-primary d-md-none btn-block"><i class="far fa-lightbulb" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
-                    }
+                <h2>@Model.Title</h2>
+                <p>@Model.Description</p>
+
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <h6>
+                        @SharedLocalizer["You need to be logged in to post suggestion, vote and comment."]
+                        <a asp-area="" asp-controller="account" asp-action="login" data-toggle="tooltip" title="" data-original-title="Log In">@SharedLocalizer["Click here to login."]</a>
+                    </h6>
+                }
+                <div id="divToolbar" class="no-gutters text-right">
+                    <div class="col-12">
+                        @if (canInteract && Model != null)
+                        {
+                            <div class="col-6 offset-md-6 d-none d-md-block d-lg-none p-0">
+                                <button class="btn-idea-new btn btn-lg btn-primary btn-block"><i class="far fa-lightbulb" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
+                            </div>
+                            <button class="btn-idea-new btn btn-lg btn-primary d-md-none btn-block"><i class="far fa-lightbulb" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
+                        }
+                    </div>
                 </div>
-            </div>
+            }
             <div id="divList"></div>
         </div>
         <div id="brainstormsidebar" class="col-lg-4 no-gutters">
             <div class="col-12">
-                @if (canInteract)
+                @if (canInteract && Model != null)
                 {
                     <button class="btn-idea-new btn btn-lg btn-primary d-none d-lg-block btn-block"><i class="far fa-lightbulb" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
                 }
@@ -48,14 +52,21 @@
                 <h3>@SharedLocalizer["Available Sessions"]</h3>
                 <div class="row">
                     <div class="col-12">
-                        <ul>
-                            @foreach (var s in sessions)
-                            {
-                                <li>
-                                    <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@s.Id">@s.Title</a>
-                                </li>
-                            }
-                        </ul>
+                        @if (!sessions.Any())
+                        {
+                            <partial name="_ListNoItems" model="noSessionsModel" />
+                        }
+                        else
+                        {
+                            <ul>
+                                @foreach (var s in sessions)
+                                {
+                                    <li>
+                                        <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@s.Id">@s.Title</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
                     </div>
                     @if (canInteract)
                     {

@@ -38,6 +38,11 @@ namespace IndieVisible.Infra.Data.Repository
             return DbSet.Where(where);
         }
 
+        public IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> where, string navigationPropertyToInclude)
+        {
+            return DbSet.Where(where).Include(navigationPropertyToInclude);
+        }
+
         public virtual IQueryable<TEntity> GetAll()
         {
             return DbSet;

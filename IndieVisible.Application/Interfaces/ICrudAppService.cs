@@ -8,7 +8,7 @@ namespace IndieVisible.Application.Interfaces
         Guid CurrentUserId { get; set; }
 
         OperationResultVo<int> Count();
-        OperationResultListVo<T> GetAll();
+        OperationResultListVo<T> GetAll(Guid currentUserId);
         OperationResultVo<T> GetById(Guid id);
         OperationResultVo<Guid> Save(T viewModel);
         OperationResultVo Remove(Guid id);
