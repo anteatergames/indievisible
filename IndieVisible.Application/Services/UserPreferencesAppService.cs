@@ -62,24 +62,20 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<UserPreferencesViewModel> GetById(Guid id)
+        public OperationResultVo<UserPreferencesViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<UserPreferencesViewModel> result;
-
             try
             {
                 UserPreferences model = _repository.GetById(id);
 
                 UserPreferencesViewModel vm = _mapper.Map<UserPreferencesViewModel>(model);
 
-                result = new OperationResultVo<UserPreferencesViewModel>(vm);
+                return new OperationResultVo<UserPreferencesViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<UserPreferencesViewModel>(ex.Message);
+                return new OperationResultVo<UserPreferencesViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public UserPreferencesViewModel GetByUserId(Guid userId)

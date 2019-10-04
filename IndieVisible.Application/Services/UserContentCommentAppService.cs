@@ -64,24 +64,20 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<UserContentCommentViewModel> GetById(Guid id)
+        public OperationResultVo<UserContentCommentViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<UserContentCommentViewModel> result;
-
             try
             {
                 UserContentComment model = _repository.GetById(id);
 
                 UserContentCommentViewModel vm = _mapper.Map<UserContentCommentViewModel>(model);
 
-                result = new OperationResultVo<UserContentCommentViewModel>(vm);
+                return new OperationResultVo<UserContentCommentViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<UserContentCommentViewModel>(ex.Message);
+                return new OperationResultVo<UserContentCommentViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Remove(Guid id)

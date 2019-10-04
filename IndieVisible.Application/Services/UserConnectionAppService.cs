@@ -68,24 +68,20 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<UserConnectionViewModel> GetById(Guid id)
+        public OperationResultVo<UserConnectionViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<UserConnectionViewModel> result;
-
             try
             {
                 UserConnection model = this.userConnectionDomainService.GetById(id);
 
                 UserConnectionViewModel vm = mapper.Map<UserConnectionViewModel>(model);
 
-                result = new OperationResultVo<UserConnectionViewModel>(vm);
+                return new OperationResultVo<UserConnectionViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<UserConnectionViewModel>(ex.Message);
+                return new OperationResultVo<UserConnectionViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Remove(Guid id)

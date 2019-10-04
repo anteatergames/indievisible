@@ -90,7 +90,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        OperationResultVo<NotificationItemViewModel> ICrudAppService<NotificationItemViewModel>.GetById(Guid id)
+        OperationResultVo<NotificationItemViewModel> ICrudAppService<NotificationItemViewModel>.GetById(Guid currentUserId, Guid id)
         {
             throw new NotImplementedException();
         }

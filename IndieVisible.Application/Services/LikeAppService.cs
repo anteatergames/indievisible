@@ -65,24 +65,20 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<UserLikeViewModel> GetById(Guid id)
+        public OperationResultVo<UserLikeViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<UserLikeViewModel> result;
-
             try
             {
                 UserContentLike model = _contentLikeRepository.GetById(id);
 
                 UserLikeViewModel vm = _mapper.Map<UserLikeViewModel>(model);
 
-                result = new OperationResultVo<UserLikeViewModel>(vm);
+                return new OperationResultVo<UserLikeViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<UserLikeViewModel>(ex.Message);
+                return new OperationResultVo<UserLikeViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Remove(Guid id)

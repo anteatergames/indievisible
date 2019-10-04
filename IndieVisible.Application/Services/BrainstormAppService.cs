@@ -206,7 +206,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<BrainstormIdeaViewModel> GetById(Guid userId, Guid id)
+        public OperationResultVo<BrainstormIdeaViewModel> GetById(Guid currentUserId, Guid id)
         {
             OperationResultVo<BrainstormIdeaViewModel> result;
 
@@ -219,7 +219,7 @@ namespace IndieVisible.Application.Services
                 vm.UserContentType = UserContentType.VotingItem;
                 vm.VoteCount = brainstormVoteRepository.Count(x => x.IdeaId == vm.Id);
                 vm.Score = brainstormVoteRepository.GetAll().Where(x => x.IdeaId == vm.Id).Sum(x => (int)x.VoteValue);
-                vm.CurrentUserVote = brainstormVoteRepository.GetAll().FirstOrDefault(x => x.UserId == userId && x.IdeaId == id)?.VoteValue ?? VoteValue.Neutral;
+                vm.CurrentUserVote = brainstormVoteRepository.GetAll().FirstOrDefault(x => x.UserId == currentUserId && x.IdeaId == id)?.VoteValue ?? VoteValue.Neutral;
 
 
                 vm.CommentCount = brainstormCommentRepository.GetAll().Count(x => x.IdeaId == vm.Id);

@@ -82,7 +82,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<ProfileViewModel> GetById(Guid id)
+        public OperationResultVo<ProfileViewModel> GetById(Guid currentUserId, Guid id)
         {
             OperationResultVo<ProfileViewModel> result;
 

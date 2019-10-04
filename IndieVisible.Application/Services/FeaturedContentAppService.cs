@@ -73,7 +73,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<FeaturedContentViewModel> GetById(Guid id)
+        public OperationResultVo<FeaturedContentViewModel> GetById(Guid currentUserId, Guid id)
         {
             OperationResultVo<FeaturedContentViewModel> result;
 

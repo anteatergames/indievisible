@@ -64,7 +64,7 @@ namespace IndieVisible.Web.Controllers
         {
             notificationAppService.MarkAsRead(notificationclicked);
 
-            OperationResultVo<TeamViewModel> serviceResult = teamAppService.GetById(teamId);
+            OperationResultVo<TeamViewModel> serviceResult = teamAppService.GetById(this.CurrentUserId, teamId);
 
             if (!serviceResult.Success)
             {
@@ -86,7 +86,7 @@ namespace IndieVisible.Web.Controllers
         [Route("edit/{teamId:guid}")]
         public IActionResult Edit(Guid teamId)
         {
-            OperationResultVo<TeamViewModel> service = teamAppService.GetById(teamId);
+            OperationResultVo<TeamViewModel> service = teamAppService.GetById(this.CurrentUserId, teamId);
 
             TeamViewModel model = service.Value;
 
@@ -150,6 +150,15 @@ namespace IndieVisible.Web.Controllers
         public IActionResult DeleteTeam(Guid teamId)
         {
             OperationResultVo serviceResult = teamAppService.Remove(teamId);
+
+            return Json(serviceResult);
+        }
+
+
+        [HttpDelete("{teamId:guid}/{userId:guid}")]
+        public IActionResult RemoveMember(Guid teamId, Guid userId)
+        {
+            OperationResultVo serviceResult = teamAppService.RemoveMember(this.CurrentUserId, teamId, userId);
 
             return Json(serviceResult);
         }

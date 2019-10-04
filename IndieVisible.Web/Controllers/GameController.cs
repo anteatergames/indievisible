@@ -31,7 +31,7 @@ namespace IndieVisible.Web.Controllers
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
             _gameAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(id);
+            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(this.CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
             this.SetImages(vm);
@@ -79,7 +79,7 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Edit(Guid id)
         {
-            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(id);
+            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(this.CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
             this.SetImages(vm);

@@ -57,7 +57,7 @@ namespace IndieVisible.Web.Controllers
             OperationResultVo response = likeAppService.ContentLike(targetId);
 
             notificationAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo<UserContentViewModel> content = userContentAppService.GetById(targetId);
+            OperationResultVo<UserContentViewModel> content = userContentAppService.GetById(this.CurrentUserId, targetId);
 
             ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, this.CurrentUserId, ProfileType.Personal);
 
@@ -117,7 +117,7 @@ namespace IndieVisible.Web.Controllers
             likeAppService.CurrentUserId = this.CurrentUserId;
             OperationResultVo response = likeAppService.GameLike(likedId);
 
-            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(likedId);
+            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(this.CurrentUserId, likedId);
 
             ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, ProfileType.Personal);
 
@@ -151,7 +151,7 @@ namespace IndieVisible.Web.Controllers
         {
             OperationResultVo response = followAppService.GameFollow(this.CurrentUserId, gameId);
 
-            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(gameId);
+            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(this.CurrentUserId, gameId);
 
             ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, ProfileType.Personal);
 

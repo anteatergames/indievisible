@@ -63,24 +63,20 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<UserBadgeViewModel> GetById(Guid id)
+        public OperationResultVo<UserBadgeViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<UserBadgeViewModel> result;
-
             try
             {
                 UserBadge model = userBadgeDomainService.GetById(id);
 
                 UserBadgeViewModel vm = mapper.Map<UserBadgeViewModel>(model);
 
-                result = new OperationResultVo<UserBadgeViewModel>(vm);
+                return new OperationResultVo<UserBadgeViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<UserBadgeViewModel>(ex.Message);
+                return new OperationResultVo<UserBadgeViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserBadgeViewModel> GetByUser(Guid userId)

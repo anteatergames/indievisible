@@ -75,7 +75,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<GameViewModel> GetById(Guid id)
+        public OperationResultVo<GameViewModel> GetById(Guid currentUserId, Guid id)
         {
             OperationResultVo<GameViewModel> result;
 
@@ -90,8 +90,8 @@ namespace IndieVisible.Application.Services
                 vm.LikeCount = gameLikeRepository.Count(x => x.GameId == vm.Id);
                 vm.FollowerCount = gameFollowDomainService.Count(x => x.GameId == vm.Id);
 
-                vm.CurrentUserLiked = gameLikeRepository.GetAll().Any(x => x.GameId == vm.Id && x.UserId == this.CurrentUserId);
-                vm.CurrentUserFollowing = this.gameFollowDomainService.GetAll().Any(x => x.GameId == vm.Id && x.UserId == this.CurrentUserId);
+                vm.CurrentUserLiked = gameLikeRepository.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
+                vm.CurrentUserFollowing = this.gameFollowDomainService.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
 
                 result = new OperationResultVo<GameViewModel>(vm);
             }

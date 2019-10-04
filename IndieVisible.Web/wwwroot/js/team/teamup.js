@@ -35,6 +35,7 @@
         selectors.btnRejectInvitation = '#btnRejectInvitation';
         selectors.btnEditTeam = '.btnEditTeam';
         selectors.btnDeleteTeam = '.btnDeleteTeam';
+        selectors.btnDeleteMember = '.btnDeleteMember';
     }
 
     function cacheObjects() {
@@ -69,6 +70,7 @@
         bindRejectInvitation();
         bindEditTeam();
         bindDeleteTeam();
+        bindDeleteMember();
     }
 
     function bindSelect2() {
@@ -174,6 +176,38 @@
                     if (response.success) {
                         btn.closest(selectors.divteamItem).remove();
                         loadMyTeams();
+
+                        if (response.message) {
+                            ALERTSYSTEM.ShowSuccessMessage(response.message);
+                        }
+                    }
+                    else {
+                        ALERTSYSTEM.ShowWarningMessage(response.message);
+                    }
+                });
+            });
+        });
+    }
+
+    function bindDeleteMember() {
+        objs.container.on('click', selectors.btnDeleteMember, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+            var url = $(this).data('url');
+            var msg = btn.data('confirmationmessage');
+            var confirmationTitle = btn.data('confirmationtitle');
+            var confirmationButtonText = btn.data('confirmationbuttontext');
+            var cancelButtonText = btn.data('cancelbuttontext');
+
+            ALERTSYSTEM.ShowConfirmMessage(confirmationTitle, msg, confirmationButtonText, cancelButtonText, function () {
+                $.ajax({
+                    url: url,
+                    type: 'DELETE'
+                }).done(function (response) {
+                    if (response.success) {
+                        btn.closest(selectors.teamMember).remove();
+                        renameInputs();
 
                         if (response.message) {
                             ALERTSYSTEM.ShowSuccessMessage(response.message);

@@ -83,7 +83,7 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<UserContentViewModel> GetById(Guid id)
+        public OperationResultVo<UserContentViewModel> GetById(Guid currentUserId, Guid id)
         {
             OperationResultVo<UserContentViewModel> result;
 
@@ -114,7 +114,7 @@ namespace IndieVisible.Application.Services
                 }
 
 
-                vm.Poll = SetPoll(this.CurrentUserId, vm.Id);
+                vm.Poll = SetPoll(currentUserId, vm.Id);
 
 
                 result = new OperationResultVo<UserContentViewModel>(vm);

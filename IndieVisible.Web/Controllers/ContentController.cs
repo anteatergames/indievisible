@@ -45,7 +45,7 @@ namespace IndieVisible.Web.Controllers
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
             service.CurrentUserId = this.CurrentUserId;
-            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(id);
+            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(this.CurrentUserId, id);
 
             if (!serviceResult.Success)
             {
@@ -61,7 +61,7 @@ namespace IndieVisible.Web.Controllers
 
             if (vm.GameId.HasValue && vm.GameId.Value != Guid.Empty)
             {
-                OperationResultVo<Application.ViewModels.Game.GameViewModel> gameServiceResult = gameAppService.GetById(vm.GameId.Value);
+                OperationResultVo<Application.ViewModels.Game.GameViewModel> gameServiceResult = gameAppService.GetById(this.CurrentUserId, vm.GameId.Value);
 
                 Application.ViewModels.Game.GameViewModel game = gameServiceResult.Value;
 
@@ -99,7 +99,7 @@ namespace IndieVisible.Web.Controllers
         [Route("content/edit/{id:guid}")]
         public IActionResult Edit(Guid id)
         {
-            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(id);
+            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(this.CurrentUserId, id);
 
             UserContentViewModel vm = serviceResult.Value;
 
@@ -270,7 +270,7 @@ namespace IndieVisible.Web.Controllers
             {
                 OperationResultListVo<GameFollowViewModel> gameFollowResult = this.gameFollowAppService.GetByGameId(gameId.Value);
 
-                OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(gameId.Value);
+                OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(this.CurrentUserId, gameId.Value);
 
                 if (gameResult.Success)
                 {

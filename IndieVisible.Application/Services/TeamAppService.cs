@@ -71,10 +71,8 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<TeamViewModel> GetById(Guid id)
+        public OperationResultVo<TeamViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<TeamViewModel> result;
-
             try
             {
                 Team model = this.teamDomainService.GetById(id);
@@ -86,21 +84,22 @@ namespace IndieVisible.Application.Services
 
                 TeamViewModel vm = mapper.Map<TeamViewModel>(model);
 
+                var currentUserIsLeader = vm.Members.Any(x => x.Leader && x.UserId == currentUserId);
+
                 foreach (var member in vm.Members)
                 {
+                    member.Permissions.CanDelete = currentUserIsLeader && !member.Leader && member.UserId != currentUserId;
                     member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
-                }
+                }       
 
                 vm.Members = vm.Members.OrderByDescending(x => x.Leader).ToList();
 
-                result = new OperationResultVo<TeamViewModel>(vm);
+                return new OperationResultVo<TeamViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<TeamViewModel>(ex.Message);
+                return new OperationResultVo<TeamViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Remove(Guid id)
@@ -244,6 +243,24 @@ namespace IndieVisible.Application.Services
             catch (Exception ex)
             {
                 return new OperationResultListVo<TeamViewModel>(ex.Message);
+            }
+        }
+
+        public OperationResultVo RemoveMember(Guid currentUserId, Guid teamId, Guid userId)
+        {
+            try
+            {
+                // validate before
+
+                this.teamDomainService.Remove(teamId, userId);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
             }
         }
 

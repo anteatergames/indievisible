@@ -1149,4 +1149,8 @@
     <value>A gente não pode mostrar suas equipes se você não está autenticado!</value>
     <comment>Team</comment>
   </data>
+  <data name="Are you sure you want to remove this member from the team?" xml:space="preserve">
+    <value>Tem certeza que quer remover esse membro da sua equipe?</value>
+    <comment>Team</comment>
+  </data>
 </root>

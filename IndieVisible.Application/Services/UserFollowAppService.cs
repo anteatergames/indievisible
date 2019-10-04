@@ -82,24 +82,20 @@ namespace IndieVisible.Application.Services
             return result;
         }
 
-        public OperationResultVo<UserFollowViewModel> GetById(Guid id)
+        public OperationResultVo<UserFollowViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<UserFollowViewModel> result;
-
             try
             {
                 UserFollow model = this.gameFollowDomainService.GetById(id);
 
                 UserFollowViewModel vm = mapper.Map<UserFollowViewModel>(model);
 
-                result = new OperationResultVo<UserFollowViewModel>(vm);
+                return new OperationResultVo<UserFollowViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<UserFollowViewModel>(ex.Message);
+                return new OperationResultVo<UserFollowViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Remove(Guid id)

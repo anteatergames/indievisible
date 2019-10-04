@@ -14,5 +14,6 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo RejectInvite(Guid teamId, Guid currentUserId);
 
         OperationResultVo GetByUserId(Guid userId);
+        OperationResultVo RemoveMember(Guid currentUserId, Guid teamId, Guid userId);
     }
 }

@@ -11,17 +11,14 @@ namespace IndieVisible.Application.AutoMapper.MappingActions
 
         public void Process(TeamViewModel source, Domain.Models.Team destination, ResolutionContext context)
         {
-            if (destination.Members == null)
-            {
-                destination.Members = new List<Domain.Models.TeamMember>();
-            }
+            var destinationMembers = new List<Domain.Models.TeamMember>();
 
             foreach (var member in source.Members)
             {
                 if (member.Id == Guid.Empty)
                 {
                     var newMember = context.Mapper.Map<Domain.Models.TeamMember>(member);
-                    destination.Members.Add(newMember);
+                    destinationMembers.Add(newMember);
                 }
                 else
                 {
@@ -29,9 +26,12 @@ namespace IndieVisible.Application.AutoMapper.MappingActions
                     if (destinationMember != null)
                     {
                         context.Mapper.Map(member, destinationMember);
+                        destinationMembers.Add(destinationMember);
                     }
                 }
             }
+
+            destination.Members = destinationMembers;
         }
     }
 }
