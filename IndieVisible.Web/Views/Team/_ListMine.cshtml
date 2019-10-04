@@ -1,7 +1,18 @@
 ﻿@model IEnumerable<TeamViewModel>
 @{
     Layout = null;
-    var noItemsModel = new ListNoItemsViewModel("fas fa-sad-tear", "You are not on a team! C'mon, make some friends!");
+    var canInteract = User.Identity.IsAuthenticated;
+    ListNoItemsViewModel noItemsModel;
+
+    if (canInteract)
+    {
+        noItemsModel = new ListNoItemsViewModel("fas fa-sad-tear", "You are not on a team! C'mon, make some friends!");
+    }
+    else
+    {
+
+        noItemsModel = new ListNoItemsViewModel("fas fa-sad-tear", "We can't show your teams if you are not logged in!");
+    }
 }
 
 @if (!Model.Any())

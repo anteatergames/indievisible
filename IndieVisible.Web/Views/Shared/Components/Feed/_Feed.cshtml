@@ -103,7 +103,7 @@
         <div class="box-footer box-comments">
             <div class="text-lowercase lh-10 align-middle">
                 <span class="badge badge-dark lh-10">@SharedLocalizer[item.Language.ToString()]</span>
-                <span class="text-muted float-right lh-10"><span class="like-count lh-10">@item.LikeCount</span> @SharedLocalizer["Likes"] - <span class="comment-count lh-10">@item.CommentCount</span> @SharedLocalizer["Comments"]</span>
+                <span class="text-muted float-right lh-10 needlogin" data-msg-id="msgNeedLoginToLikeAndComment"><span class="like-count lh-10">@item.LikeCount</span> @SharedLocalizer["Likes"] - <span class="comment-count lh-10">@item.CommentCount</span> @SharedLocalizer["Comments"]</span>
             </div>
 
             @if (User.Identity.IsAuthenticated)

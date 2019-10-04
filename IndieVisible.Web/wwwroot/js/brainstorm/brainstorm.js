@@ -78,7 +78,7 @@
             var vote = btn.data('vote');
             var sameVote = item.data('currentuservote') === vote;
 
-            if (canInteract && !sameVote) {
+            if (canInteract === 'true' && !sameVote) {
                 var url = rootUrl + "/vote";
 
 

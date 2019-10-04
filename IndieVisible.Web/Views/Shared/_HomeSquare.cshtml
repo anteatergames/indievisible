@@ -1,0 +1,12 @@
+﻿@model HomeSquareViewModel
+
+<div class="flex-square clickable rectangle @(string.IsNullOrWhiteSpace(Model.ColorClass) ? "bg-purple" : Model.ColorClass)">
+    <div class="flex-square-inner">
+        <a asp-area="@Model.Area" asp-controller="@Model.Controller" asp-action="@Model.Action">
+            <div class="flex-square-inner-content text-white">
+                <div><i class="@Model.Icon" aria-hidden="true"></i></div>
+                <div>@SharedLocalizer[Model.Text]</div>
+            </div>
+        </a>
+    </div>
+</div>

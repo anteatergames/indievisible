@@ -121,6 +121,9 @@
     <Content Update="Views\Shared\_ControlSidebarPartial.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\_HomeSquare.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\_SidebarMenuPartial.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

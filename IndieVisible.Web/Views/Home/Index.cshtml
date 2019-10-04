@@ -2,6 +2,9 @@
     ViewData["Title"] = null;
 
     var postModel = ViewBag.PostFromHome as PostFromHomeViewModel;
+    
+    var whatIsThisViewModel = new HomeSquareViewModel("home", "about", "bg-purple", "fas fa-3x fa-question", "What is this");
+    var roadMapViewModel = new HomeSquareViewModel("home", "timeline", "bg-primary", "far fa-3x fa-calendar", "Roadmap");
 }
 
 <h1 class="sr-only">INDIEVISIBLE - Home</h1>
@@ -9,31 +12,13 @@
 <div class="col-xl-2 d-none d-lg-block">
     <div class="row">
         <div class="col-12 d-none d-xl-block">
-            <div class="flex-square clickable rectangle bg-purple">
-                <div class="flex-square-inner">
-                    <a asp-area="" asp-controller="home" asp-action="about">
-                        <div class="flex-square-inner-content text-white">
-                            <div><i class="fa fa-3x fa-question" aria-hidden="true"></i></div>
-                            <div>@SharedLocalizer["What is this"]</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <partial name="_HomeSquare" model="whatIsThisViewModel" />
         </div>
         <div class="col-12">
             <div id="divCounters"></div>
         </div>
         <div class="col-12 d-none d-xl-block">
-            <div class="flex-square clickable rectangle bg-primary">
-                <div class="flex-square-inner">
-                    <a asp-area="" asp-controller="home" asp-action="timeline">
-                        <div class="flex-square-inner-content text-white">
-                            <div><i class="far fa-3x fa-calendar" aria-hidden="true"></i></div>
-                            <div>@SharedLocalizer["Roadmap"]</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <partial name="_HomeSquare" model="roadMapViewModel" />
         </div>
         @if (postModel.DefaultLanguage == SupportedLanguage.Portuguese)
         {
@@ -75,29 +60,11 @@
         </div>
 
         <div class="col-12 d-xl-none">
-            <div class="flex-square clickable rectangle bg-purple">
-                <div class="flex-square-inner">
-                    <a asp-area="" asp-controller="home" asp-action="about">
-                        <div class="flex-square-inner-content text-white">
-                            <div><i class="fa fa-3x fa-question" aria-hidden="true"></i></div>
-                            <div>@SharedLocalizer["What is this"]</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <partial name="_HomeSquare" model="whatIsThisViewModel" />
         </div>
 
         <div class="col-12 d-xl-none">
-            <div class="flex-square clickable rectangle bg-primary">
-                <div class="flex-square-inner">
-                    <a asp-area="" asp-controller="home" asp-action="timeline">
-                        <div class="flex-square-inner-content text-white">
-                            <div><i class="far fa-3x fa-calendar" aria-hidden="true"></i></div>
-                            <div>@SharedLocalizer["Roadmap"]</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <partial name="_HomeSquare" model="roadMapViewModel" />
         </div>
         @if (postModel.DefaultLanguage == SupportedLanguage.Portuguese)
         {

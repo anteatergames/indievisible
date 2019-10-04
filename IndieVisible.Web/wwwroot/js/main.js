@@ -6,14 +6,18 @@
     var spinner2 = '<div class="bg-transparent"><div class="flex-square-inner"><div class="flex-square-inner-content text-dark"><i class="fa fa-spinner fa-3x fa-spin"></i></div></div></div>';
 
     var selectors = {};
+    var objs = {};
+    var translatedMessages = {};
 
     function init() {
-
-        cacheSelectors();
+        setSelectors();
+        cacheObjects();
 
         bindAll();
 
         setGlobalAjax();
+
+        loadTranslatedMessages();
 
         loadNotifications();
 
@@ -22,27 +26,59 @@
         showMessage();
     }
 
-    function cacheSelectors() {
-        selectors.notificationsMenu = $("#notificationsMenu");
-        selectors.spanMessage = $("#spanMessage");
+    function setSelectors() {
+        selectors.notificationsMenu = "#notificationsMenu";
+        selectors.spanMessage = "#spanMessage";
+        selectors.translatedJavascriptMessages = "#translatedJavascriptMessages";
+    }
+
+    function cacheObjects() {
+        objs.notificationsMenu = $(selectors.notificationsMenu);
+        objs.spanMessage = $(selectors.spanMessage);
+        objs.translatedJavascriptMessages = $(selectors.translatedJavascriptMessages);
     }
 
     function bindAll() {
         bindNotImplemented();
+        bindYouNeedToLogIn();
+    }
+
+    function loadTranslatedMessages() {
+        objs.translatedJavascriptMessages.find('.msg').each(function (index, element) {
+            var msgId = $(this).data('msgId');
+            var text = $(this).text();
+
+            translatedMessages[msgId] = text;
+        });
     }
 
     function showMessage() {
-        var msg = selectors.spanMessage.text();
+        var msg = objs.spanMessage.text();
         if (msg !== undefined && msg.length > 0) {
             ALERTSYSTEM.Toastr.ShowWarning("Attention!", msg);
         }
     }
 
     function bindNotImplemented() {
-        $("body").on("click", ".notimplemented", function (e) {
+        $('body').on('click', '.notimplemented', function (e) {
             e.preventDefault();
 
-            ALERTSYSTEM.ShowWarningMessage('KEEP CALM AND READ THIS', 'The feature you clicked is not implemented yet.');
+            var msg = translatedMessages['msgNotImplementedYet'];
+
+            ALERTSYSTEM.Toastr.ShowWarning('KEEP CALM AND READ THIS', msg);
+
+            return false;
+        });
+    }
+
+    function bindYouNeedToLogIn() {
+        $('body').on('click', '.needlogin', function (e) {
+            e.preventDefault();
+            var msgId = $(this).data('msgId');
+
+            var msg = translatedMessages[msgId];
+
+            ALERTSYSTEM.Toastr.ShowWarning('KEEP CALM AND READ THIS', msg);
 
             return false;
         });
@@ -54,7 +90,7 @@
 
 
     function loadNotifications() {
-        $.get("/home/notifications", function (data) { selectors.notificationsMenu.html(data); });
+        $.get("/home/notifications", function (data) { objs.notificationsMenu.html(data); });
     }
 
     return {

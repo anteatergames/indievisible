@@ -1137,4 +1137,16 @@
     <value>editar</value>
     <comment>Generic</comment>
   </data>
+  <data name="You need to be logged in to be able to Like and Comment on posts." xml:space="preserve">
+    <value>Você precisa estar autenticado para poder curtir e comentar nas postagens.</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Keep calm! This is not implemented yet!" xml:space="preserve">
+    <value>Calma aê, isso ainda não tá implementado!</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="We can't show your teams if you are not logged in!" xml:space="preserve">
+    <value>A gente não pode mostrar suas equipes se você não está autenticado!</value>
+    <comment>Team</comment>
+  </data>
 </root>

@@ -26,7 +26,7 @@ namespace IndieVisible.Web.Controllers
         {
             BrainstormSessionViewModel currentSession;
 
-            OperationResultListVo<BrainstormSessionViewModel> sessions = brainstormAppService.GetSessions(this.CurrentUserId);
+            OperationResultListVo<BrainstormSessionViewModel> sessions = brainstormAppService.GetSessions(CurrentUserId);
 
             ViewData["Sessions"] = sessions.Value;
 
@@ -65,8 +65,10 @@ namespace IndieVisible.Web.Controllers
                 ViewData["Session"] = sessionResult.Value;
             }
 
-            BrainstormIdeaViewModel vm = new BrainstormIdeaViewModel();
-            vm.SessionId = sessionId;
+            BrainstormIdeaViewModel vm = new BrainstormIdeaViewModel
+            {
+                SessionId = sessionId
+            };
 
             if (Request.IsAjaxRequest())
             {
@@ -87,11 +89,11 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Details(Guid id)
         {
-            OperationResultVo<BrainstormIdeaViewModel> op = this.brainstormAppService.GetById(this.CurrentUserId, id);
+            OperationResultVo<BrainstormIdeaViewModel> op = brainstormAppService.GetById(CurrentUserId, id);
 
             BrainstormIdeaViewModel vm = op.Value;
 
-            this.SetAuthorDetails(vm);
+            SetAuthorDetails(vm);
 
             return View("_Details", vm);
         }
@@ -100,7 +102,7 @@ namespace IndieVisible.Web.Controllers
         [Route("brainstorm/list")]
         public PartialViewResult List(Guid sessionId)
         {
-            OperationResultListVo<BrainstormIdeaViewModel> serviceResult = brainstormAppService.GetAllBySessionId(this.CurrentUserId, sessionId);
+            OperationResultListVo<BrainstormIdeaViewModel> serviceResult = brainstormAppService.GetAllBySessionId(CurrentUserId, sessionId);
 
             IEnumerable<BrainstormIdeaViewModel> items = serviceResult.Value;
 
@@ -113,7 +115,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                vm.UserId = this.CurrentUserId;
+                vm.UserId = CurrentUserId;
 
                 brainstormAppService.Save(vm);
 
@@ -133,7 +135,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                vm.UserId = this.CurrentUserId;
+                vm.UserId = CurrentUserId;
 
                 brainstormAppService.SaveSession(vm);
 
@@ -152,7 +154,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                brainstormAppService.Vote(this.CurrentUserId, vm.VotingItemId, vm.VoteValue);
+                brainstormAppService.Vote(CurrentUserId, vm.VotingItemId, vm.VoteValue);
 
                 string url = Url.Action("Index", "Brainstorm", new { area = string.Empty });
 

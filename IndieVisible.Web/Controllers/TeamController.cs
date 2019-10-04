@@ -11,7 +11,6 @@ using System.Linq;
 
 namespace IndieVisible.Web.Controllers
 {
-    [Authorize]
     [Route("team")]
     public class TeamController : SecureBaseController
     {
@@ -40,7 +39,6 @@ namespace IndieVisible.Web.Controllers
             return PartialView("_List", model);
         }
 
-        [AllowAnonymous]
         [Route("list/user/{userId:guid}")]
         public IActionResult ListByUser(Guid userId)
         {
@@ -61,7 +59,6 @@ namespace IndieVisible.Web.Controllers
             return PartialView("_ListMine", model);
         }
 
-        [AllowAnonymous]
         [Route("{teamId:guid}")]
         public IActionResult Details(Guid teamId, Guid notificationclicked)
         {
@@ -85,6 +82,7 @@ namespace IndieVisible.Web.Controllers
             return View(model);
         }
 
+        [Authorize]
         [Route("edit/{teamId:guid}")]
         public IActionResult Edit(Guid teamId)
         {
@@ -95,6 +93,7 @@ namespace IndieVisible.Web.Controllers
             return PartialView("_CreateEdit", model);
         }
 
+        [Authorize]
         [Route("new")]
         public IActionResult New()
         {
@@ -103,6 +102,7 @@ namespace IndieVisible.Web.Controllers
             return PartialView("_CreateEdit", service.Value);
         }
 
+        [Authorize]
         [HttpPost("save")]
         public IActionResult Save(TeamViewModel vm)
         {

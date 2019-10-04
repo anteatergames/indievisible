@@ -29,8 +29,6 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
             return View(objs.Value);
         }
 
-
-        [Authorize]
         public IActionResult Index()
         {
             var serviceResult = gamificationAppService.GetAll();
