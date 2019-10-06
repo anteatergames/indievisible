@@ -8,5 +8,6 @@ namespace IndieVisible.Domain.Interfaces.Repository
     public interface IProfileRepository : IRepository<UserProfile>
     {
         IEnumerable<UserProfile> GetByUserId(Guid userId);
+        void UpdateNameOnThePlatform(Guid userId, string newName);
     }
 }

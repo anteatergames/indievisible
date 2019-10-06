@@ -12,7 +12,7 @@ namespace IndieVisible.Web.ViewComponents.Base
     {
         public Guid CurrentUserId { get; set; }
 
-        public BaseViewComponent(IHttpContextAccessor httpContextAccessor)
+        protected BaseViewComponent(IHttpContextAccessor httpContextAccessor)
         {
             string id = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 

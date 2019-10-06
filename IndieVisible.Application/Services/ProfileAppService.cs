@@ -24,14 +24,12 @@ namespace IndieVisible.Application.Services
         private readonly IProfileDomainService profileDomainService;
         private readonly IGameRepository gameRepository;
         private readonly IUserContentDomainService userContentDomainService;
-        private readonly IBrainstormCommentRepository brainstormCommentRepository;
         private readonly IUserConnectionDomainService userConnectionDomainService;
 
         public ProfileAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IProfileDomainService profileDomainService
             , IGameRepository gameRepository
             , IUserContentDomainService userContentDomainService
-            , IBrainstormCommentRepository brainstormCommentRepositor
             , IUserConnectionDomainService userConnectionDomainService)
         {
             this.mapper = mapper;
@@ -39,7 +37,6 @@ namespace IndieVisible.Application.Services
             this.profileDomainService = profileDomainService;
             this.gameRepository = gameRepository;
             this.userContentDomainService = userContentDomainService;
-            this.brainstormCommentRepository = brainstormCommentRepositor;
             this.userConnectionDomainService = userConnectionDomainService;
         }
 
@@ -141,37 +138,7 @@ namespace IndieVisible.Application.Services
                     profileDomainService.Update(model);
                 }
 
-                #region Update Name
-                IQueryable<Game> games = gameRepository.GetAll().Where(x => x.UserId == viewModel.UserId);
-
-                foreach (Game g in games)
-                {
-                    g.DeveloperName = viewModel.Name;
-                }
-
-                IEnumerable<UserContent> posts = userContentDomainService.Search(x => x.UserId == viewModel.UserId);
-
-                foreach (UserContent p in posts)
-                {
-                    p.AuthorName = viewModel.Name;
-                }
-
-                IEnumerable<UserContentComment> comments = userContentDomainService.GetAllComments(x => x.UserId == viewModel.UserId);
-
-                foreach (UserContentComment c in comments)
-                {
-                    c.AuthorName = viewModel.Name;
-                }
-
-                IEnumerable<BrainstormComment> brainstormComments = brainstormCommentRepository.GetAll().Where(x => x.UserId == viewModel.UserId);
-
-                foreach (BrainstormComment bc in brainstormComments)
-                {
-                    bc.AuthorName = viewModel.Name;
-                }
-
                 profileDomainService.UpdateNameOnThePlatform(viewModel.UserId, viewModel.Name);
-                #endregion
 
                 unitOfWork.Commit();
 
