@@ -1,4 +1,7 @@
-﻿using IndieVisible.Domain.ValueObjects;
+﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Enums;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +38,6 @@ namespace IndieVisible.Web.Controllers.Base
 
             return hostUrl;
         }
-
 
         protected string GetSessionValue(SessionValues key)
         {

@@ -30,29 +30,23 @@ namespace IndieVisible.Application.Services
             this.profileDomainService = profileDomainService;
         }
 
-        #region Basic
-        public OperationResultVo<int> Count()
+        #region ICrudAPpService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = this.teamDomainService.Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<TeamViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<TeamViewModel> result;
-
             try
             {
                 IEnumerable<Team> allModels = this.teamDomainService.GetAll();
@@ -61,14 +55,12 @@ namespace IndieVisible.Application.Services
 
                 SetUiData(currentUserId, true, vms);
 
-                result = new OperationResultListVo<TeamViewModel>(vms);
+                return new OperationResultListVo<TeamViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<TeamViewModel>(ex.Message);
+                return new OperationResultListVo<TeamViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<TeamViewModel> GetById(Guid currentUserId, Guid id)
@@ -90,7 +82,7 @@ namespace IndieVisible.Application.Services
                 {
                     member.Permissions.CanDelete = currentUserIsLeader && !member.Leader && member.UserId != currentUserId;
                     member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
-                }       
+                }
 
                 vm.Members = vm.Members.OrderByDescending(x => x.Leader).ToList();
 
@@ -102,32 +94,8 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo<Guid> Save(Guid currentUserId, TeamViewModel viewModel)
         {
-            OperationResultVo result;
-
-            try
-            {
-                // validate before
-
-                this.teamDomainService.Remove(id);
-
-                unitOfWork.Commit();
-
-                result = new OperationResultVo(true);
-            }
-            catch (Exception ex)
-            {
-                result = new OperationResultVo(ex.Message);
-            }
-
-            return result;
-        }
-
-        public OperationResultVo<Guid> Save(TeamViewModel viewModel)
-        {
-            OperationResultVo<Guid> result;
-
             try
             {
                 Team model;
@@ -154,18 +122,35 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
+        }
 
-            return result;
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
+        {
+            try
+            {
+                // validate before
+
+                this.teamDomainService.Remove(id);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
         #endregion
 
 
+        #region ITeamAppService
         public OperationResultVo GenerateNewTeam(Guid currentUserId)
         {
             try
@@ -262,7 +247,8 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo(ex.Message);
             }
-        }
+        } 
+        #endregion
 
         private void SetUiData(Guid userId, bool canInteract, IEnumerable<TeamViewModel> vms)
         {

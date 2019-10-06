@@ -5,12 +5,10 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface ICrudAppService<T>
     {
-        Guid CurrentUserId { get; set; }
-
-        OperationResultVo<int> Count();
+        OperationResultVo<int> Count(Guid currentUserId);
         OperationResultListVo<T> GetAll(Guid currentUserId);
         OperationResultVo<T> GetById(Guid currentUserId, Guid id);
-        OperationResultVo<Guid> Save(T viewModel);
-        OperationResultVo Remove(Guid id);
+        OperationResultVo Remove(Guid currentUserId, Guid id);
+        OperationResultVo<Guid> Save(Guid currentUserId, T viewModel);
     }
 }

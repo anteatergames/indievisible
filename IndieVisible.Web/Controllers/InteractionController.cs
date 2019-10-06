@@ -1,10 +1,12 @@
-﻿using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Formatters;
+using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -14,36 +16,27 @@ namespace IndieVisible.Web.Controllers
     public class InteractionController : SecureBaseController
     {
         private readonly ILikeAppService likeAppService;
-        private readonly IProfileAppService profileAppService;
         private readonly IUserContentAppService userContentAppService;
         private readonly IGameAppService gameAppService;
         private readonly IUserContentCommentAppService userContentCommentAppService;
-        private readonly IBrainstormAppService brainstormAppService;
         private readonly INotificationAppService notificationAppService;
         private readonly IFollowAppService followAppService;
-        private readonly IUserConnectionAppService userConnectionAppService;
         private readonly IPollAppService pollAppService;
 
         public InteractionController(ILikeAppService likeAppService
-            , IProfileAppService profileAppService
             , IUserContentAppService userContentAppService
             , IGameAppService gameAppService
             , IUserContentCommentAppService userContentCommentAppService
-            , IBrainstormAppService brainstormAppService
             , INotificationAppService notificationAppService
             , IFollowAppService followAppService
-            , IUserConnectionAppService userConnectionAppService
             , IPollAppService pollAppService)
         {
             this.likeAppService = likeAppService;
-            this.profileAppService = profileAppService;
             this.userContentAppService = userContentAppService;
             this.gameAppService = gameAppService;
             this.userContentCommentAppService = userContentCommentAppService;
-            this.brainstormAppService = brainstormAppService;
             this.notificationAppService = notificationAppService;
             this.followAppService = followAppService;
-            this.userConnectionAppService = userConnectionAppService;
             this.pollAppService = pollAppService;
         }
 
@@ -53,20 +46,17 @@ namespace IndieVisible.Web.Controllers
         [Route("content/like")]
         public IActionResult LikeContent(Guid targetId)
         {
-            likeAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo response = likeAppService.ContentLike(targetId);
+            OperationResultVo response = likeAppService.ContentLike(CurrentUserId, targetId);
 
-            notificationAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo<UserContentViewModel> content = userContentAppService.GetById(this.CurrentUserId, targetId);
+            OperationResultVo<UserContentViewModel> content = userContentAppService.GetById(CurrentUserId, targetId);
 
-            ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, this.CurrentUserId, ProfileType.Personal);
+            string myName = GetSessionValue(SessionValues.FullName);
 
-            string text = String.Format(SharedLocalizer["{0} liked your post"], myProfile.Name);
+            string text = String.Format(SharedLocalizer["{0} liked your post"], myName);
 
             string url = Url.Action("Details", "Content", new { id = targetId });
 
-            this.notificationAppService.Notify(content.Value.UserId, NotificationType.ContentLike, targetId, text, url);
-
+            notificationAppService.Notify(content.Value.UserId, NotificationType.ContentLike, targetId, text, url);
 
             return Json(response);
         }
@@ -75,8 +65,7 @@ namespace IndieVisible.Web.Controllers
         [Route("content/unlike")]
         public IActionResult UnLikeContent(Guid targetId)
         {
-            likeAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo response = likeAppService.ContentUnlike(targetId);
+            OperationResultVo response = likeAppService.ContentUnlike(CurrentUserId, targetId);
 
             return Json(response);
         }
@@ -88,20 +77,9 @@ namespace IndieVisible.Web.Controllers
         {
             OperationResultVo response;
 
-            this.SetAuthorDetails(vm);
+            SetAuthorDetails(vm);
 
-            switch (vm.UserContentType)
-            {
-                case UserContentType.Post:
-                    response = userContentCommentAppService.Comment(vm);
-                    break;
-                case UserContentType.VotingItem:
-                    response = brainstormAppService.Comment(vm);
-                    break;
-                default:
-                    response = userContentCommentAppService.Comment(vm);
-                    break;
-            }
+            response = userContentCommentAppService.Comment(vm);
 
             return Json(response);
         }
@@ -114,18 +92,17 @@ namespace IndieVisible.Web.Controllers
         [Route("game/like")]
         public IActionResult LikeGame(Guid likedId)
         {
-            likeAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo response = likeAppService.GameLike(likedId);
+            OperationResultVo response = likeAppService.GameLike(CurrentUserId, likedId);
 
-            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(this.CurrentUserId, likedId);
+            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, likedId);
 
-            ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, ProfileType.Personal);
+            var fullName = GetSessionValue(SessionValues.FullName);
 
-            string text = String.Format(SharedLocalizer["{0} loves your game {1}!"], myProfile.Name, gameResult.Value.Title);
+            string text = String.Format(SharedLocalizer["{0} loves your game {1}!"], fullName, gameResult.Value.Title);
 
             string url = Url.Action("Details", "Game", new { id = likedId });
 
-            this.notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
+            notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
 
 
             return Json(response);
@@ -135,8 +112,7 @@ namespace IndieVisible.Web.Controllers
         [Route("game/unlike")]
         public IActionResult UnLikeGame(Guid likedId)
         {
-            likeAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultVo response = likeAppService.GameUnlike(likedId);
+            OperationResultVo response = likeAppService.GameUnlike(CurrentUserId, likedId);
 
             return Json(response);
         }
@@ -149,17 +125,17 @@ namespace IndieVisible.Web.Controllers
         [Route("game/follow")]
         public IActionResult FollowGame(Guid gameId)
         {
-            OperationResultVo response = followAppService.GameFollow(this.CurrentUserId, gameId);
+            OperationResultVo response = followAppService.GameFollow(CurrentUserId, gameId);
 
-            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(this.CurrentUserId, gameId);
+            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, gameId);
 
-            ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, ProfileType.Personal);
+            var fullName = GetSessionValue(SessionValues.FullName);
 
-            string text = String.Format(SharedLocalizer["{0} is following your game {1} now!"], myProfile.Name, gameResult.Value.Title);
+            string text = String.Format(SharedLocalizer["{0} is following your game {1} now!"], fullName, gameResult.Value.Title);
 
-            string url = Url.Action("Details", "Profile", new { id = this.CurrentUserId });
+            string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
 
-            this.notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
+            notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
 
 
             return Json(response);
@@ -169,7 +145,7 @@ namespace IndieVisible.Web.Controllers
         [Route("game/unfollow")]
         public IActionResult UnFollowGame(Guid gameId)
         {
-            OperationResultVo response = followAppService.GameUnfollow(this.CurrentUserId, gameId);
+            OperationResultVo response = followAppService.GameUnfollow(CurrentUserId, gameId);
 
             return Json(response);
         }
@@ -182,15 +158,15 @@ namespace IndieVisible.Web.Controllers
         [Route("user/follow")]
         public IActionResult FollowUser(Guid userId)
         {
-            OperationResultVo response = followAppService.UserFollow(this.CurrentUserId, userId);
+            OperationResultVo response = followAppService.UserFollow(CurrentUserId, userId);
 
-            ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, ProfileType.Personal);
+            var fullName = GetSessionValue(SessionValues.FullName);
 
-            string text = String.Format(SharedLocalizer["{0} is following you now!"], myProfile.Name);
+            string text = String.Format(SharedLocalizer["{0} is following you now!"], fullName);
 
-            string url = Url.Action("Details", "Profile", new { id = this.CurrentUserId });
+            string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
 
-            this.notificationAppService.Notify(userId, NotificationType.ContentLike, userId, text, url);
+            notificationAppService.Notify(userId, NotificationType.ContentLike, userId, text, url);
 
             return Json(response);
         }
@@ -199,57 +175,7 @@ namespace IndieVisible.Web.Controllers
         [Route("user/unfollow")]
         public IActionResult UnFollowUser(Guid userId)
         {
-            OperationResultVo response = followAppService.UserUnfollow(this.CurrentUserId, userId);
-
-            return Json(response);
-        }
-        #endregion
-
-
-
-        #region User Connect/Disconnect
-        [HttpPost]
-        [Route("user/connect")]
-        public IActionResult ConnectToUser(Guid userId)
-        {
-            OperationResultVo response = userConnectionAppService.Connect(this.CurrentUserId, userId);
-
-            ProfileViewModel myProfile = profileAppService.GetByUserId(this.CurrentUserId, ProfileType.Personal);
-
-            string text = String.Format(SharedLocalizer["{0} wants to connect."], myProfile.Name);
-
-            string url = Url.Action("Details", "Profile", new { id = this.CurrentUserId });
-
-            this.notificationAppService.Notify(userId, NotificationType.ConnectionRequest, userId, text, url);
-
-            return Json(response);
-        }
-
-        [HttpPost]
-        [Route("user/disconnect")]
-        public IActionResult DisconnectUser(Guid userId)
-        {
-            OperationResultVo response = userConnectionAppService.Disconnect(this.CurrentUserId, userId);
-
-            return Json(response);
-        }
-
-
-        [HttpPost]
-        [Route("user/allowconnection")]
-        public IActionResult AllowUser(Guid userId)
-        {
-            OperationResultVo response = userConnectionAppService.Allow(this.CurrentUserId, userId);
-
-            return Json(response);
-        }
-
-
-        [HttpPost]
-        [Route("user/denyconnection")]
-        public IActionResult DenyUser(Guid userId)
-        {
-            OperationResultVo response = userConnectionAppService.Deny(this.CurrentUserId, userId);
+            OperationResultVo response = followAppService.UserUnfollow(CurrentUserId, userId);
 
             return Json(response);
         }
@@ -261,7 +187,7 @@ namespace IndieVisible.Web.Controllers
         [Route("poll/vote")]
         public IActionResult PollVote(Guid pollOptionId)
         {
-            OperationResultVo response = pollAppService.PollVote(this.CurrentUserId, pollOptionId);
+            OperationResultVo response = pollAppService.PollVote(CurrentUserId, pollOptionId);
 
             return Json(response);
         }
@@ -271,15 +197,9 @@ namespace IndieVisible.Web.Controllers
         #region Private Methods
         private void SetAuthorDetails(UserContentCommentViewModel viewModel)
         {
-            ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, ProfileType.Personal);
-
-            if (profile != null)
-            {
-                viewModel.AuthorName = profile.Name;
-                viewModel.AuthorPicture = profile.ProfileImageUrl;
-            }
-
             viewModel.UserId = CurrentUserId;
+            viewModel.AuthorName = GetSessionValue(SessionValues.FullName);
+            viewModel.AuthorPicture = UrlFormatter.ProfileImage(CurrentUserId);
         }
         #endregion
     }

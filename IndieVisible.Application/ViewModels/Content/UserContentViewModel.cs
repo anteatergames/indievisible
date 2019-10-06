@@ -16,11 +16,9 @@ namespace IndieVisible.Application.ViewModels.Content
 
         [StringLength(128)]
         [Display(Name = "Title")]
-        [Required(ErrorMessage = "The Title is required")]
         public string Title { get; set; }
 
         [Display(Name = "Introduction")]
-        [Required(ErrorMessage = "The Introduction is required")]
         public string Introduction { get; set; }
 
         [Display(Name = "Content")]

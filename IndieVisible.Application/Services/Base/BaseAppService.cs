@@ -7,8 +7,6 @@ namespace IndieVisible.Application.Services
 {
     public abstract class BaseAppService : IDisposable
     {
-        public Guid CurrentUserId { get; set; }
-
         protected MediaType GetMediaType(string featuredImage)
         {
 

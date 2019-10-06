@@ -30,7 +30,6 @@ namespace IndieVisible.Web.Controllers
         [Route("game/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
-            _gameAppService.CurrentUserId = this.CurrentUserId;
             OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(this.CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
@@ -95,7 +94,7 @@ namespace IndieVisible.Web.Controllers
                 this.SetAuthorDetails(vm);
                 this.ClearImagesUrl(vm);
 
-                _gameAppService.Save(vm);
+                _gameAppService.Save(this.CurrentUserId, vm);
 
                 string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString() });
 

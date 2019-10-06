@@ -26,32 +26,35 @@ namespace IndieVisible.Application.Services
             _notificationRepository = notificationRepository;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result = new OperationResultVo<int>(string.Empty);
-
-            return result;
+            return new OperationResultVo<int>(string.Empty);
         }
 
         public OperationResultListVo<NotificationItemViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<NotificationItemViewModel> result = new OperationResultListVo<NotificationItemViewModel>(string.Empty);
-
-
-            return result;
+            return new OperationResultListVo<NotificationItemViewModel>(string.Empty);
         }
 
         public OperationResultListVo<NotificationItemViewModel> GetById(Guid id)
         {
-            OperationResultListVo<NotificationItemViewModel> result = new OperationResultListVo<NotificationItemViewModel>(string.Empty);
-
-            return result;
+            return new OperationResultListVo<NotificationItemViewModel>(string.Empty);
         }
+
+        public OperationResultVo<Guid> Save(Guid currentUserId, NotificationItemViewModel viewModel)
+        {
+            return new OperationResultVo<Guid>(string.Empty);
+        }
+
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
+        {
+            return new OperationResultVo(string.Empty);
+        }
+        #endregion
 
         public OperationResultListVo<NotificationItemViewModel> GetByUserId(Guid userId, int count)
         {
-            OperationResultListVo<NotificationItemViewModel> result;
-
             List<Notification> notifications = _notificationRepository.Get(x => x.UserId == userId).OrderByDescending(x => x.CreateDate).Take(count).ToList();
 
             List<NotificationItemViewModel> tempList = new List<NotificationItemViewModel>();
@@ -71,23 +74,8 @@ namespace IndieVisible.Application.Services
                 tempList.Add(vm);
             }
 
-            result = new OperationResultListVo<NotificationItemViewModel>(tempList);
+            return new OperationResultListVo<NotificationItemViewModel>(tempList);
 
-            return result;
-        }
-
-        public OperationResultVo Remove(Guid id)
-        {
-            OperationResultVo result = new OperationResultVo(string.Empty);
-
-            return result;
-        }
-
-        public OperationResultVo<Guid> Save(UserPreferencesViewModel viewModel)
-        {
-            OperationResultVo<Guid> result = new OperationResultVo<Guid>(string.Empty);
-
-            return result;
         }
 
         OperationResultVo<NotificationItemViewModel> ICrudAppService<NotificationItemViewModel>.GetById(Guid currentUserId, Guid id)
@@ -97,8 +85,6 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo<Guid> Save(NotificationItemViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 Notification model;
@@ -125,14 +111,12 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Notify(Guid targetUserId, NotificationType notificationType, Guid targetId, string text, string url)
@@ -143,15 +127,11 @@ namespace IndieVisible.Application.Services
             vm.Url = url;
             vm.Type = notificationType;
 
-            OperationResultVo<Guid> saveResult = this.Save(vm);
-
-            return saveResult;
+            return this.Save(vm);
         }
 
         public OperationResultVo MarkAsRead(Guid id)
         {
-            OperationResultVo result = new OperationResultVo(true);
-
             try
             {
                 Notification notification = _notificationRepository.GetById(id);
@@ -163,13 +143,13 @@ namespace IndieVisible.Application.Services
 
                     _unitOfWork.Commit();
                 }
+
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
     }
 }

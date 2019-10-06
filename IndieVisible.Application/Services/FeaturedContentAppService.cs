@@ -35,90 +35,55 @@ namespace IndieVisible.Application.Services
             _commentRepository = commentRepository;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = _repository.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<FeaturedContentViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<FeaturedContentViewModel> result;
-
             try
             {
                 IQueryable<FeaturedContent> allModels = _repository.GetAll();
 
                 IEnumerable<FeaturedContentViewModel> vms = _mapper.Map<IEnumerable<FeaturedContent>, IEnumerable<FeaturedContentViewModel>>(allModels);
 
-                result = new OperationResultListVo<FeaturedContentViewModel>(vms);
+                return new OperationResultListVo<FeaturedContentViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<FeaturedContentViewModel>(ex.Message);
+                return new OperationResultListVo<FeaturedContentViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<FeaturedContentViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<FeaturedContentViewModel> result;
-
             try
             {
                 FeaturedContent model = _repository.GetById(id);
 
                 FeaturedContentViewModel vm = _mapper.Map<FeaturedContentViewModel>(model);
 
-                result = new OperationResultVo<FeaturedContentViewModel>(vm);
+                return new OperationResultVo<FeaturedContentViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<FeaturedContentViewModel>(ex.Message);
+                return new OperationResultVo<FeaturedContentViewModel>(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo<Guid> Save(Guid currentUserId, FeaturedContentViewModel viewModel)
         {
-            OperationResultVo result;
-
-            try
-            {
-                // validate before
-
-                _repository.Remove(id);
-
-                _unitOfWork.Commit();
-
-                result = new OperationResultVo(true);
-            }
-            catch (Exception ex)
-            {
-                result = new OperationResultVo(ex.Message);
-            }
-
-            return result;
-        }
-
-        public OperationResultVo<Guid> Save(FeaturedContentViewModel viewModel)
-        {
-            OperationResultVo<Guid> result;
-
             try
             {
                 FeaturedContent model;
@@ -146,15 +111,32 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
+        } 
 
-            return result;
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
+        {
+            try
+            {
+                // validate before
+
+                _repository.Remove(id);
+
+                _unitOfWork.Commit();
+
+                return new OperationResultVo(true);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
+        #endregion
 
 
         public CarouselViewModel GetFeaturedNow()
@@ -182,8 +164,6 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo<Guid> Add(Guid userId, Guid contentId, string title, string introduction)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 FeaturedContent newFeaturedContent = new FeaturedContent();
@@ -204,14 +184,12 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(newFeaturedContent.Id);
+                return new OperationResultVo<Guid>(newFeaturedContent.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
 
         public IEnumerable<UserContentToBeFeaturedViewModel> GetContentToBeFeatured()
@@ -256,8 +234,6 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo Unfeature(Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 FeaturedContent existing = _repository.GetById(id);
@@ -271,14 +247,12 @@ namespace IndieVisible.Application.Services
                     _unitOfWork.Commit();
                 }
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
     }
 }

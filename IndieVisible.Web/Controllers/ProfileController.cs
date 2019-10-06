@@ -36,7 +36,7 @@ namespace IndieVisible.Web.Controllers
             {
                 ProfileViewModel profile = profileAppService.GenerateNewOne(ProfileType.Personal);
                 profile.UserId = id;
-                profileAppService.Save(profile);
+                profileAppService.Save(this.CurrentUserId, profile);
 
                 vm = profile;
             }
@@ -86,7 +86,7 @@ namespace IndieVisible.Web.Controllers
                     vm.Bio = vm.Name + " is a game developer willing to rock the game development world with funny games.";
                 }
 
-                profileAppService.Save(vm);
+                profileAppService.Save(this.CurrentUserId, vm);
 
                 string url = Url.Action("Details", "Profile", new { area = string.Empty, id = vm.UserId.ToString() });
 

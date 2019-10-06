@@ -43,69 +43,55 @@ namespace IndieVisible.Application.Services
             this.userConnectionDomainService = userConnectionDomainService;
         }
 
-        #region ICrudAppService Implementation
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = profileDomainService.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<ProfileViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<ProfileViewModel> result;
-
             try
             {
                 var allModels = profileDomainService.GetAll();
 
                 IEnumerable<ProfileViewModel> vms = mapper.Map<IEnumerable<UserProfile>, IEnumerable<ProfileViewModel>>(allModels);
 
-                result = new OperationResultListVo<ProfileViewModel>(vms);
+                return new OperationResultListVo<ProfileViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<ProfileViewModel>(ex.Message);
+                return new OperationResultListVo<ProfileViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<ProfileViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<ProfileViewModel> result;
-
             try
             {
                 UserProfile model = profileDomainService.GetById(id);
 
                 ProfileViewModel vm = mapper.Map<ProfileViewModel>(model);
 
-                result = new OperationResultVo<ProfileViewModel>(vm);
+                return new OperationResultVo<ProfileViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<ProfileViewModel>(ex.Message);
+                return new OperationResultVo<ProfileViewModel>(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -114,20 +100,16 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(ProfileViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, ProfileViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserProfile model;
@@ -193,22 +175,21 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
         #endregion
 
-        #region IProfileAppService Implementation
+        #region IProfileAppService
         public ProfileViewModel GetByUserId(Guid userId, ProfileType type)
         {
             return GetByUserId(userId, userId, type);
         }
+
         public ProfileViewModel GetByUserId(Guid currentUserId, Guid userId, ProfileType type)
         {
             ProfileViewModel vm = new ProfileViewModel();

@@ -24,62 +24,35 @@ namespace IndieVisible.Application.Services
             this.gameFollowDomainService = gameFollowDomainService;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = gameFollowDomainService.Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<GameFollowViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<GameFollowViewModel> result;
-
             try
             {
                 IEnumerable<GameFollow> allModels = this.gameFollowDomainService.GetAll();
 
                 IEnumerable<GameFollowViewModel> vms = mapper.Map<IEnumerable<GameFollow>, IEnumerable<GameFollowViewModel>>(allModels);
 
-                result = new OperationResultListVo<GameFollowViewModel>(vms);
+                return new OperationResultListVo<GameFollowViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<GameFollowViewModel>(ex.Message);
+                return new OperationResultListVo<GameFollowViewModel>(ex.Message);
             }
-
-            return result;
-        }
-
-        public OperationResultListVo<GameFollowViewModel> GetByGameId(Guid gameId)
-        {
-            OperationResultListVo<GameFollowViewModel> result;
-
-            try
-            {
-                IEnumerable<GameFollow> allModels = this.gameFollowDomainService.GetByGameId(gameId);
-
-                IEnumerable<GameFollowViewModel> vms = mapper.Map<IEnumerable<GameFollow>, IEnumerable<GameFollowViewModel>>(allModels);
-
-                result = new OperationResultListVo<GameFollowViewModel>(vms);
-            }
-            catch (Exception ex)
-            {
-                result = new OperationResultListVo<GameFollowViewModel>(ex.Message);
-            }
-
-            return result;
         }
 
         public OperationResultVo<GameFollowViewModel> GetById(Guid currentUserId, Guid id)
@@ -98,10 +71,8 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -110,20 +81,16 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(GameFollowViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, GameFollowViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 GameFollow model;
@@ -150,14 +117,29 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
+        } 
+        #endregion
 
-            return result;
+        public OperationResultListVo<GameFollowViewModel> GetByGameId(Guid gameId)
+        {
+            try
+            {
+                IEnumerable<GameFollow> allModels = this.gameFollowDomainService.GetByGameId(gameId);
+
+                IEnumerable<GameFollowViewModel> vms = mapper.Map<IEnumerable<GameFollow>, IEnumerable<GameFollowViewModel>>(allModels);
+
+                return new OperationResultListVo<GameFollowViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultListVo<GameFollowViewModel>(ex.Message);
+            }
         }
     }
 }

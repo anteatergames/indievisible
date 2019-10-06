@@ -31,7 +31,7 @@ namespace IndieVisible.Web.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IProfileAppService _profileAppService;
+        private readonly IProfileAppService profileAppService;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
@@ -49,7 +49,7 @@ namespace IndieVisible.Web.Controllers
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _profileAppService = profileAppService;
+            this.profileAppService = profileAppService;
             _emailSender = emailSender;
             _logger = logger;
             this.userPreferencesAppService = userPreferencesAppService;
@@ -87,11 +87,11 @@ namespace IndieVisible.Web.Controllers
 
                     if (user != null && !string.IsNullOrWhiteSpace(user.UserName))
                     {
-                        this.SetProfileSession(user.Id, user.UserName);
+                        SetProfileOnSession(new Guid(user.Id), user.UserName);
 
                         await SetStaffRoles(user);
 
-                        this.SetPreferences(user);
+                        SetPreferences(user);
                     }
 
                     _logger.LogInformation("User logged in.");
@@ -262,13 +262,13 @@ namespace IndieVisible.Web.Controllers
                 IdentityResult result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    ProfileViewModel profile = _profileAppService.GenerateNewOne(ProfileType.Personal);
+                    ProfileViewModel profile = profileAppService.GenerateNewOne(ProfileType.Personal);
                     profile.UserId = new Guid(user.Id);
-                    _profileAppService.Save(profile);
+                    profileAppService.Save(CurrentUserId, profile);
 
                     await SetStaffRoles(user);
 
-                    this.SetPreferences(user);
+                    SetPreferences(user);
 
                     _logger.LogInformation("User created a new account with password.");
 
@@ -333,11 +333,11 @@ namespace IndieVisible.Web.Controllers
 
                 if (existingUser != null)
                 {
-                    this.SetProfileSession(existingUser.Id.ToString(), existingUser.UserName);
+                    SetProfileOnSession(new Guid(existingUser.Id), existingUser.UserName);
 
                     await SetStaffRoles(existingUser);
 
-                    this.SetPreferences(existingUser);
+                    SetPreferences(existingUser);
                 }
 
                 return RedirectToLocal(returnUrl);
@@ -408,13 +408,13 @@ namespace IndieVisible.Web.Controllers
                 {
                     await SetStaffRoles(user);
 
-                    this.SetPreferences(user);
+                    SetPreferences(user);
 
                     Guid userGuid = new Guid(user.Id);
-                    ProfileViewModel profile = _profileAppService.GetByUserId(userGuid, ProfileType.Personal);
+                    ProfileViewModel profile = profileAppService.GetByUserId(userGuid, ProfileType.Personal);
                     if (profile == null)
                     {
-                        profile = _profileAppService.GenerateNewOne(ProfileType.Personal);
+                        profile = profileAppService.GenerateNewOne(ProfileType.Personal);
                         profile.UserId = userGuid;
                     }
 
@@ -422,9 +422,9 @@ namespace IndieVisible.Web.Controllers
 
                     await SetProfileImage(info, user, profile);
 
-                    _profileAppService.Save(profile);
+                    profileAppService.Save(CurrentUserId, profile);
 
-                    this.SetProfileSession(user.Id, user.UserName);
+                    SetProfileOnSession(new Guid(user.Id), user.UserName);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
@@ -584,17 +584,17 @@ namespace IndieVisible.Web.Controllers
 
         private void SetPreferences(ApplicationUser user)
         {
-            var preferences = this.userPreferencesAppService.GetByUserId(new Guid(user.Id));
+            Application.ViewModels.UserPreferences.UserPreferencesViewModel preferences = userPreferencesAppService.GetByUserId(new Guid(user.Id));
             if (preferences == null || preferences.Id == Guid.Empty)
             {
                 RequestCulture requestLanguage = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture;
-                var lang = base.SetLanguageFromCulture(requestLanguage.UICulture.Name);
+                SupportedLanguage lang = base.SetLanguageFromCulture(requestLanguage.UICulture.Name);
 
-                this.SetCookieValue(SessionValues.DefaultLanguage, lang.ToString(), 7);
+                SetCookieValue(SessionValues.DefaultLanguage, lang.ToString(), 7);
             }
             else
             {
-                this.SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
+                SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
             }
         }
 
@@ -628,19 +628,6 @@ namespace IndieVisible.Web.Controllers
             else
             {
                 return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
-        }
-
-        private void SetProfileSession(string userId, string userName)
-        {
-
-            SetSessionValue(SessionValues.Username, userName);
-
-            Guid userGuid = new Guid(userId);
-            ProfileViewModel profile = _profileAppService.GetByUserId(userGuid, ProfileType.Personal);
-            if (profile != null)
-            {
-                SetSessionValue(SessionValues.FullName, profile.Name);
             }
         }
 

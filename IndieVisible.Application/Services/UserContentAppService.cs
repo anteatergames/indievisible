@@ -27,14 +27,12 @@ namespace IndieVisible.Application.Services
         private readonly IUserContentLikeRepository likeRepository;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
-        private readonly IPollVoteDomainService pollVoteDomainService;
 
         public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IUserContentDomainService userContentDomainService
             , IUserContentLikeRepository likeRepository
             , IGamificationDomainService gamificationDomainService
-            , IPollDomainService pollDomainService
-            , IPollVoteDomainService pollVoteDomainService)
+            , IPollDomainService pollDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
@@ -42,51 +40,41 @@ namespace IndieVisible.Application.Services
             this.likeRepository = likeRepository;
             this.gamificationDomainService = gamificationDomainService;
             this.pollDomainService = pollDomainService;
-            this.pollVoteDomainService = pollVoteDomainService;
+            this.pollDomainService = pollDomainService;
         }
 
-        public OperationResultVo<int> Count()
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = userContentDomainService.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserContentViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<UserContentViewModel> result;
-
             try
             {
                 IEnumerable<UserContent> allModels = userContentDomainService.GetAll();
 
                 IEnumerable<UserContentViewModel> vms = mapper.Map<IEnumerable<UserContent>, IEnumerable<UserContentViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserContentViewModel>(vms);
+                return new OperationResultListVo<UserContentViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserContentViewModel>(ex.Message);
+                return new OperationResultListVo<UserContentViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<UserContentViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<UserContentViewModel> result;
-
             try
             {
                 UserContent model = userContentDomainService.GetById(id);
@@ -117,40 +105,32 @@ namespace IndieVisible.Application.Services
                 vm.Poll = SetPoll(currentUserId, vm.Id);
 
 
-                result = new OperationResultVo<UserContentViewModel>(vm);
+                return new OperationResultVo<UserContentViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<UserContentViewModel>(ex.Message);
+                return new OperationResultVo<UserContentViewModel>(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 userContentDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(UserContentViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, UserContentViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserContent model;
@@ -185,7 +165,7 @@ namespace IndieVisible.Application.Services
 
                     PlatformAction action = viewModel.IsComplex || (viewModel.HasPoll && viewModel.Poll.PollOptions.Any()) ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
 
-                    this.gamificationDomainService.ProcessAction(viewModel.UserId, action);
+                    gamificationDomainService.ProcessAction(viewModel.UserId, action);
                 }
 
                 if (viewModel.Id == Guid.Empty)
@@ -196,7 +176,7 @@ namespace IndieVisible.Application.Services
 
                     if (viewModel.Poll != null && viewModel.Poll.PollOptions != null && viewModel.Poll.PollOptions.Any())
                     {
-                        this.CreatePoll(viewModel);
+                        CreatePoll(viewModel);
                     }
                 }
                 else
@@ -206,14 +186,12 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
 
         private bool CheckSpam(Guid id, string content)
@@ -286,7 +264,7 @@ namespace IndieVisible.Application.Services
 
                 item.HasFeaturedImage = !string.IsNullOrWhiteSpace(item.FeaturedImage) && !item.FeaturedImage.Contains(Constants.DefaultFeaturedImage);
 
-                item.FeaturedImageType = this.GetMediaType(item.FeaturedImage);
+                item.FeaturedImageType = GetMediaType(item.FeaturedImage);
 
                 if (item.FeaturedImageType != MediaType.Youtube)
                 {
@@ -317,7 +295,7 @@ namespace IndieVisible.Application.Services
                 pollVm = new PollViewModel();
                 IEnumerable<PollOption> options = pollDomainService.GetOptionsByPollId(poll.Id);
 
-                int totalVotes = pollVoteDomainService.Count(x => x.PollId == poll.Id);
+                int totalVotes = pollDomainService.CountVotes(x => x.PollId == poll.Id);
                 pollVm.TotalVotes = totalVotes;
 
                 foreach (PollOption o in options)
@@ -328,9 +306,9 @@ namespace IndieVisible.Application.Services
                         Text = o.Text
                     };
 
-                    loadedOption.Votes = pollVoteDomainService.Count(x => x.PollOptionId == o.Id);
+                    loadedOption.Votes = pollDomainService.CountVotes(x => x.PollOptionId == o.Id);
                     loadedOption.VotePercentage = loadedOption.Votes > 0 ? (loadedOption.Votes / (decimal)totalVotes) * 100 : 0;
-                    loadedOption.CurrentUserVoted = pollVoteDomainService.CheckUserVoted(currentUserId, o.Id);
+                    loadedOption.CurrentUserVoted = pollDomainService.CheckUserVoted(currentUserId, o.Id);
 
                     pollVm.PollOptions.Add(loadedOption);
                 }

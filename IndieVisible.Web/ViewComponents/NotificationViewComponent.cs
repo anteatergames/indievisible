@@ -2,31 +2,22 @@
 using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Extensions.ViewModelExtensions;
+using IndieVisible.Web.ViewComponents.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.ViewComponents
 {
-    public class NotificationViewComponent : ViewComponent
+    public class NotificationViewComponent : BaseViewComponent
     {
         private readonly INotificationAppService _notificationAppService;
 
-        public Guid CurrentUserId { get; set; }
 
-        public NotificationViewComponent(IHttpContextAccessor httpContextAccessor, INotificationAppService notificationAppService)
+        public NotificationViewComponent(IHttpContextAccessor httpContextAccessor, INotificationAppService notificationAppService) : base(httpContextAccessor)
         {
             _notificationAppService = notificationAppService;
-
-            string id = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (!string.IsNullOrWhiteSpace(id))
-            {
-                CurrentUserId = new Guid(id);
-            }
         }
 
         public async Task<IViewComponentResult> InvokeAsync(int qtd)
@@ -36,8 +27,7 @@ namespace IndieVisible.Web.ViewComponents
                 qtd = 10;
             }
 
-            _notificationAppService.CurrentUserId = this.CurrentUserId;
-            OperationResultListVo<NotificationItemViewModel> result = _notificationAppService.GetByUserId(this.CurrentUserId, qtd);
+            OperationResultListVo<NotificationItemViewModel> result = _notificationAppService.GetByUserId(CurrentUserId, qtd);
 
             System.Collections.Generic.List<NotificationItemViewModel> model = result.Value.ToList();
 

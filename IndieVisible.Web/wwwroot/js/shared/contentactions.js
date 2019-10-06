@@ -66,6 +66,7 @@
         $('.content').on('click', '.btn-interaction-comment-send', function (e) {
             var btn = $(this);
             var txtArea = btn.closest('.interaction-commentbox').find('.commenttextarea');
+            var url = txtArea.data('url');
 
             var box = txtArea.closest('.box-content');
             var commentCount = box.find('.comment-count');
@@ -74,7 +75,7 @@
             var type = txtArea.data('usercontenttype');
 
             if (text.length > 0) {
-                comment(id, text, type).done(function (response) { commentCallback(response, commentCount, txtArea); });
+                comment(url, id, text, type).done(function (response) { commentCallback(response, commentCount, txtArea); });
             }
 
         });
@@ -120,8 +121,13 @@
         }
     }
 
-    function comment(contentId, text, type) {
-        return $.post("/interact/content/comment", { UserContentId: contentId, Text: text, UserContentType: type });
+    function comment(url, contentId, text, type) {
+
+        if (url === null || url === undefined || url.length === 0) {
+            url = "/interact/content/comment";
+        }
+
+        return $.post(url, { UserContentId: contentId, Text: text, UserContentType: type });
     }
     function commentCallback(response, commentCount, txtArea) {
         if (response.success === true) {

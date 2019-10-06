@@ -8,20 +8,20 @@
         @if (User.IsInRole(Roles.Administrator.ToString()))
         {
             <div class="col-12 mb-2">
-                <a asp-area="staff" asp-controller="superpowers" asp-action="index" class="btn bg-transparent btn-block btn-outline-danger" data-toggle="tooltip" title="" data-original-title="Log In">
+                <a asp-area="staff" asp-controller="superpowers" asp-action="index" class="btn bg-transparent btn-block btn-outline-danger">
                     <i class="fa fa-star" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Staff Area"]
                 </a>
             </div>
         }
 
         <div class="col-12 mb-2">
-            <a asp-area="" asp-controller="brainstorm" asp-action="newidea" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["New Suggestion"]</a>
+            <a asp-area="" asp-controller="brainstorm" asp-action="newidea" class="btn btn-default bg-transparent btn-block" data-toggle="tooltip" data-title="@SharedLocalizer["Suggest new features to the IndieVisible team. Tell us your best ideas!"]">@SharedLocalizer["New Suggestion"]</a>
         </div>
         <div class="col-12 mb-2">
-            <a asp-area="" asp-controller="game" asp-action="add" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["Add Game"]</a>
+            <a asp-area="" asp-controller="game" asp-action="add" class="btn btn-default bg-transparent btn-block" data-toggle="tooltip" data-title="@SharedLocalizer["Add your game to the platform."]">@SharedLocalizer["Add Game"]</a>
         </div>
         <div class="col-12 mb-2">
-            <a asp-area="" asp-controller="content" asp-action="add" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["Post Content"]</a>
+            <a asp-area="" asp-controller="content" asp-action="add" class="btn btn-default bg-transparent btn-block" data-toggle="tooltip" data-title="@SharedLocalizer["Post quality content to the platform."]">@SharedLocalizer["Post Content"]</a>
         </div>
 
     }

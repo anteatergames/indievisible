@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Home;
+using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
@@ -19,19 +20,18 @@ namespace IndieVisible.Web.Controllers
 {
     public class HomeController : SecureBaseController
     {
-        private readonly IFeaturedContentAppService _service;
-
         private readonly IUserPreferencesAppService userPreferencesAppService;
+        private readonly IFeaturedContentAppService featuredContentAppService;
 
-        public HomeController(IFeaturedContentAppService service, IUserPreferencesAppService userPreferencesAppService) : base()
+        public HomeController(IUserPreferencesAppService userPreferencesAppService, IFeaturedContentAppService featuredContentAppService) : base()
         {
-            _service = service;
             this.userPreferencesAppService = userPreferencesAppService;
+            this.featuredContentAppService = featuredContentAppService;
         }
 
         public IActionResult Index()
         {
-            CarouselViewModel featured = _service.GetFeaturedNow();
+            CarouselViewModel featured = featuredContentAppService.GetFeaturedNow();
             ViewBag.Carousel = featured;
 
             this.SetLanguage();
@@ -82,7 +82,6 @@ namespace IndieVisible.Web.Controllers
 
             return View(model);
         }
-
 
         private void SetLanguage()
         {

@@ -29,43 +29,35 @@ namespace IndieVisible.Application.Services
             this.profileAppService = profileAppService;
         }
 
-        #region Basic
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = this.userConnectionDomainService.Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserConnectionViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<UserConnectionViewModel> result;
-
             try
             {
                 IEnumerable<UserConnection> allModels = this.userConnectionDomainService.GetAll();
 
                 IEnumerable<UserConnectionViewModel> vms = mapper.Map<IEnumerable<UserConnection>, IEnumerable<UserConnectionViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserConnectionViewModel>(vms);
+                return new OperationResultListVo<UserConnectionViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserConnectionViewModel>(ex.Message);
+                return new OperationResultListVo<UserConnectionViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<UserConnectionViewModel> GetById(Guid currentUserId, Guid id)
@@ -84,10 +76,8 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -96,20 +86,16 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(UserConnectionViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, UserConnectionViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserConnection model;
@@ -136,41 +122,33 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
         #endregion
 
         public OperationResultListVo<UserConnectionViewModel> GetByTargetUserId(Guid targetUserId)
         {
-            OperationResultListVo<UserConnectionViewModel> result;
-
             try
             {
                 IEnumerable<UserConnection> allModels = this.userConnectionDomainService.GetByTargetUserId(targetUserId, false);
 
                 IEnumerable<UserConnectionViewModel> vms = mapper.Map<IEnumerable<UserConnection>, IEnumerable<UserConnectionViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserConnectionViewModel>(vms);
+                return new OperationResultListVo<UserConnectionViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserConnectionViewModel>(ex.Message);
+                return new OperationResultListVo<UserConnectionViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserConnectionViewModel> GetByUserId(Guid userId)
         {
-            OperationResultListVo<UserConnectionViewModel> result;
-
             try
             {
                 List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
@@ -218,14 +196,12 @@ namespace IndieVisible.Application.Services
                     }
                 }
 
-                result = new OperationResultListVo<UserConnectionViewModel>(newList);
+                return new OperationResultListVo<UserConnectionViewModel>(newList);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserConnectionViewModel>(ex.Message);
+                return new OperationResultListVo<UserConnectionViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Connect(Guid currentUserId, Guid userId)

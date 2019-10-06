@@ -17,8 +17,11 @@ namespace IndieVisible.Application.Interfaces
         OperationResultListVo<BrainstormSessionViewModel> GetSessions(Guid userId);
 
         OperationResultVo<Guid> SaveSession(BrainstormSessionViewModel vm);
+
         OperationResultListVo<BrainstormIdeaViewModel> GetAllBySessionId(Guid userId, Guid sessionId);
+
         OperationResultVo<BrainstormSessionViewModel> GetMainSession();
+
         OperationResultVo<BrainstormSessionViewModel> GetSession(Guid sessionId);
     }
 }

@@ -24,69 +24,42 @@ namespace IndieVisible.Application.Services
             this.gameFollowDomainService = gameFollowDomainService;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = gameFollowDomainService.Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserFollowViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<UserFollowViewModel> result;
-
             try
             {
-                IEnumerable<UserFollow> allModels = this.gameFollowDomainService.GetAll();
+                IEnumerable<UserFollow> allModels = gameFollowDomainService.GetAll();
 
                 IEnumerable<UserFollowViewModel> vms = mapper.Map<IEnumerable<UserFollow>, IEnumerable<UserFollowViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserFollowViewModel>(vms);
+                return new OperationResultListVo<UserFollowViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserFollowViewModel>(ex.Message);
+                return new OperationResultListVo<UserFollowViewModel>(ex.Message);
             }
-
-            return result;
-        }
-
-        public OperationResultListVo<UserFollowViewModel> GetByUserId(Guid userId)
-        {
-            OperationResultListVo<UserFollowViewModel> result;
-
-            try
-            {
-                IEnumerable<UserFollow> allModels = this.gameFollowDomainService.GetByUserId(userId);
-
-                IEnumerable<UserFollowViewModel> vms = mapper.Map<IEnumerable<UserFollow>, IEnumerable<UserFollowViewModel>>(allModels);
-
-                result = new OperationResultListVo<UserFollowViewModel>(vms);
-            }
-            catch (Exception ex)
-            {
-                result = new OperationResultListVo<UserFollowViewModel>(ex.Message);
-            }
-
-            return result;
         }
 
         public OperationResultVo<UserFollowViewModel> GetById(Guid currentUserId, Guid id)
         {
             try
             {
-                UserFollow model = this.gameFollowDomainService.GetById(id);
+                UserFollow model = gameFollowDomainService.GetById(id);
 
                 UserFollowViewModel vm = mapper.Map<UserFollowViewModel>(model);
 
@@ -98,37 +71,31 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
 
-                this.gameFollowDomainService.Remove(id);
+                gameFollowDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(UserFollowViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, UserFollowViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserFollow model;
 
-                UserFollow existing = this.gameFollowDomainService.GetById(viewModel.Id);
+                UserFollow existing = gameFollowDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -140,44 +107,55 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    this.gameFollowDomainService.Add(model);
+                    gameFollowDomainService.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    this.gameFollowDomainService.Update(model);
+                    gameFollowDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
+        } 
+        #endregion
 
-            return result;
+        public OperationResultListVo<UserFollowViewModel> GetByUserId(Guid userId)
+        {
+            try
+            {
+                IEnumerable<UserFollow> allModels = gameFollowDomainService.GetByUserId(userId);
+
+                IEnumerable<UserFollowViewModel> vms = mapper.Map<IEnumerable<UserFollow>, IEnumerable<UserFollowViewModel>>(allModels);
+
+                return new OperationResultListVo<UserFollowViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultListVo<UserFollowViewModel>(ex.Message);
+            }
         }
 
         public OperationResultListVo<UserFollowViewModel> GetByFollowedId(Guid followUserId)
         {
-            OperationResultListVo<UserFollowViewModel> result;
-
             try
             {
-                IEnumerable<UserFollow> allModels = this.gameFollowDomainService.Search(x => x.FollowUserId == followUserId);
+                IEnumerable<UserFollow> allModels = gameFollowDomainService.Search(x => x.FollowUserId == followUserId);
 
                 IEnumerable<UserFollowViewModel> vms = mapper.Map<IEnumerable<UserFollow>, IEnumerable<UserFollowViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserFollowViewModel>(vms);
+                return new OperationResultListVo<UserFollowViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserFollowViewModel>(ex.Message);
+                return new OperationResultListVo<UserFollowViewModel>(ex.Message);
             }
-
-            return result;
         }
     }
 }

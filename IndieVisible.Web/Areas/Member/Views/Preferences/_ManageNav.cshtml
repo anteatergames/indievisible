@@ -7,7 +7,7 @@
 <div class="vtabs customvtab col-xl-12 col-md-12">
     <ul class="nav nav-tabs tabs-vertical text-capitalize" role="tablist">
         <li class="nav-item @ManageNavPages.IndexNavClass(ViewContext)"><a asp-action="Index" class="nav-link show @(ManageNavPages.CheckActivePageClass(ManageNavPages.Index))">@SharedLocalizer["profile"]</a></li>
-        <li class="nav-item @ManageNavPages.LanguagesNavClass(ViewContext)"><a asp-action="Languages" class="nav-link @(ManageNavPages.CheckActivePageClass(ManageNavPages.Languages))">@SharedLocalizer["language"]</a></li>
+        <li class="nav-item @ManageNavPages.LanguagesNavClass(ViewContext)"><a asp-action="Languages" class="nav-link @(ManageNavPages.CheckActivePageClass(ManageNavPages.Languages))">@SharedLocalizer["Language"]</a></li>
         <li class="nav-item @ManageNavPages.ChangePasswordNavClass(ViewContext)"><a asp-action="ChangePassword" class="nav-link @(ManageNavPages.CheckActivePageClass(ManageNavPages.ChangePassword))">@SharedLocalizer["password"]</a></li>
         @if (hasExternalLogins)
         {

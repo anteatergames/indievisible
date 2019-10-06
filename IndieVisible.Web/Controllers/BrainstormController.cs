@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Brainstorm;
+using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
@@ -117,7 +118,7 @@ namespace IndieVisible.Web.Controllers
             {
                 vm.UserId = CurrentUserId;
 
-                brainstormAppService.Save(vm);
+                brainstormAppService.Save(this.CurrentUserId, vm);
 
                 string url = Url.Action("Index", "Brainstorm", new { area = string.Empty, id = vm.SessionId.ToString() });
 
@@ -164,6 +165,21 @@ namespace IndieVisible.Web.Controllers
             {
                 return Json(new OperationResultVo(ex.Message));
             }
+        }
+
+
+
+        [HttpPost]
+        [Route("brainstorm/comment")]
+        public IActionResult Comment(UserContentCommentViewModel vm)
+        {
+            OperationResultVo response;
+
+            SetAuthorDetails(vm);
+
+            response = brainstormAppService.Comment(vm);
+
+            return Json(response);
         }
     }
 }

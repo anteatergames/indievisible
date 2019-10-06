@@ -6,13 +6,13 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface ILikeAppService : ICrudAppService<UserLikeViewModel>
     {
-        OperationResultVo ContentLike(Guid likedId);
+        OperationResultVo ContentLike(Guid currentUserId, Guid likedId);
 
-        OperationResultVo ContentUnlike(Guid likedId);
+        OperationResultVo ContentUnlike(Guid currentUserId, Guid likedId);
 
 
-        OperationResultVo GameLike(Guid gameId);
+        OperationResultVo GameLike(Guid currentUserId, Guid gameId);
 
-        OperationResultVo GameUnlike(Guid likedId);
+        OperationResultVo GameUnlike(Guid currentUserId, Guid likedId);
     }
 }

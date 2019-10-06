@@ -39,28 +39,23 @@ namespace IndieVisible.Application.Services
             this.gamificationDomainService = gamificationDomainService;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = brainstormIdeaRepository.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<BrainstormIdeaViewModel> GetAll()
         {
-            OperationResultListVo<BrainstormIdeaViewModel> result;
-
             try
             {
                 IQueryable<BrainstormIdea> allModels = brainstormIdeaRepository.GetAll();
@@ -69,20 +64,16 @@ namespace IndieVisible.Application.Services
 
                 vms = vms.OrderByDescending(x => x.VoteCount).ThenByDescending(x => x.CreateDate);
 
-                result = new OperationResultListVo<BrainstormIdeaViewModel>(vms);
+                return new OperationResultListVo<BrainstormIdeaViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<BrainstormIdeaViewModel>(ex.Message);
+                return new OperationResultListVo<BrainstormIdeaViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<BrainstormIdeaViewModel> GetById(Guid id)
         {
-            OperationResultVo<BrainstormIdeaViewModel> result;
-
             try
             {
                 BrainstormIdea model = brainstormIdeaRepository.GetById(id);
@@ -93,20 +84,16 @@ namespace IndieVisible.Application.Services
                 vm.VoteCount = brainstormVoteRepository.Count(x => x.IdeaId == vm.Id);
                 vm.Score = brainstormVoteRepository.GetAll().Where(x => x.IdeaId == vm.Id).Sum(x => (int)x.VoteValue);
 
-                result = new OperationResultVo<BrainstormIdeaViewModel>(vm);
+                return new OperationResultVo<BrainstormIdeaViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<BrainstormIdeaViewModel>(ex.Message);
+                return new OperationResultVo<BrainstormIdeaViewModel>(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -115,20 +102,16 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(BrainstormIdeaViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, BrainstormIdeaViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 BrainstormIdea model;
@@ -152,7 +135,7 @@ namespace IndieVisible.Application.Services
                     brainstormIdeaRepository.Add(model);
                     viewModel.Id = model.Id;
 
-                    this.gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.IdeaSuggested);
+                    gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.IdeaSuggested);
                 }
                 else
                 {
@@ -161,26 +144,23 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
+        #endregion
 
 
-        public OperationResultListVo<BrainstormIdeaViewModel> GetAll(Guid userId)
+        public OperationResultListVo<BrainstormIdeaViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<BrainstormIdeaViewModel> result;
-
             try
             {
                 IQueryable<BrainstormIdea> allModels = brainstormIdeaRepository.GetAll();
 
-                IQueryable<BrainstormVote> currentUserVotes = brainstormVoteRepository.GetByUserId(userId);
+                IQueryable<BrainstormVote> currentUserVotes = brainstormVoteRepository.GetByUserId(currentUserId);
 
                 IEnumerable<BrainstormIdeaViewModel> vms = mapper.Map<IEnumerable<BrainstormIdea>, IEnumerable<BrainstormIdeaViewModel>>(allModels);
 
@@ -196,20 +176,16 @@ namespace IndieVisible.Application.Services
 
                 vms = vms.OrderByDescending(x => x.Score).ThenByDescending(x => x.CreateDate);
 
-                result = new OperationResultListVo<BrainstormIdeaViewModel>(vms);
+                return new OperationResultListVo<BrainstormIdeaViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<BrainstormIdeaViewModel>(ex.Message);
+                return new OperationResultListVo<BrainstormIdeaViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<BrainstormIdeaViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<BrainstormIdeaViewModel> result;
-
             try
             {
                 BrainstormIdea model = brainstormIdeaRepository.GetById(id);
@@ -238,21 +214,17 @@ namespace IndieVisible.Application.Services
                     comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? "this is the sound... of silence..." : comment.Text;
                 }
 
-                result = new OperationResultVo<BrainstormIdeaViewModel>(vm);
+                return new OperationResultVo<BrainstormIdeaViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<BrainstormIdeaViewModel>(ex.Message);
+                return new OperationResultVo<BrainstormIdeaViewModel>(ex.Message);
             }
-
-            return result;
         }
 
 
         public OperationResultVo Vote(Guid userId, Guid ideaId, VoteValue vote)
         {
-            OperationResultVo result;
-
             try
             {
                 BrainstormVote model;
@@ -284,20 +256,16 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Comment(UserContentCommentViewModel vm)
         {
-            OperationResultVo result;
-
             try
             {
                 BrainstormComment model = new BrainstormComment
@@ -313,14 +281,12 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
 
 
@@ -332,28 +298,22 @@ namespace IndieVisible.Application.Services
         /// <returns></returns>
         public OperationResultVo<BrainstormSessionViewModel> GetSession(Guid userId, BrainstormSessionType type)
         {
-            OperationResultVo<BrainstormSessionViewModel> result;
-
             try
             {
                 BrainstormSession model = brainstormSessionRepository.GetAll().LastOrDefault(x => x.Type == type);
 
                 BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(model);
 
-                result = new OperationResultVo<BrainstormSessionViewModel>(vm);
+                return new OperationResultVo<BrainstormSessionViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
+                return new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<BrainstormSessionViewModel> GetSessions(Guid userId)
         {
-            OperationResultListVo<BrainstormSessionViewModel> result;
-
             try
             {
                 IQueryable<BrainstormSession> model = brainstormSessionRepository.GetAll();
@@ -362,20 +322,16 @@ namespace IndieVisible.Application.Services
 
                 vms = vms.OrderBy(x => x.Type).ThenBy(x => x.CreateDate);
 
-                result = new OperationResultListVo<BrainstormSessionViewModel>(vms);
+                return new OperationResultListVo<BrainstormSessionViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<BrainstormSessionViewModel>(ex.Message);
+                return new OperationResultListVo<BrainstormSessionViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<Guid> SaveSession(BrainstormSessionViewModel vm)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 BrainstormSession model;
@@ -402,20 +358,16 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<BrainstormIdeaViewModel> GetAllBySessionId(Guid userId, Guid sessionId)
         {
-            OperationResultListVo<BrainstormIdeaViewModel> result;
-
             try
             {
                 IQueryable<BrainstormIdea> allModels = brainstormIdeaRepository.GetAll().Where(x => x.SessionId == sessionId);
@@ -436,58 +388,48 @@ namespace IndieVisible.Application.Services
 
                 vms = vms.OrderByDescending(x => x.Score).ThenByDescending(x => x.CreateDate);
 
-                result = new OperationResultListVo<BrainstormIdeaViewModel>(vms);
+                return new OperationResultListVo<BrainstormIdeaViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<BrainstormIdeaViewModel>(ex.Message);
+                return new OperationResultListVo<BrainstormIdeaViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<BrainstormSessionViewModel> GetMainSession()
         {
-            OperationResultVo<BrainstormSessionViewModel> result;
-
             try
             {
-                var allMain = brainstormSessionRepository.Get(x => x.Type == BrainstormSessionType.Main);
+                IQueryable<BrainstormSession> allMain = brainstormSessionRepository.Get(x => x.Type == BrainstormSessionType.Main);
 
-                var main = allMain.FirstOrDefault();
+                BrainstormSession main = allMain.FirstOrDefault();
 
                 BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(main);
 
-                result = new OperationResultVo<BrainstormSessionViewModel>(vm);
+                return new OperationResultVo<BrainstormSessionViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
+                return new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<BrainstormSessionViewModel> GetSession(Guid sessionId)
         {
-            OperationResultVo<BrainstormSessionViewModel> result;
-
             try
             {
-                var allMain = brainstormSessionRepository.Get(x => x.Id == sessionId);
+                IQueryable<BrainstormSession> allMain = brainstormSessionRepository.Get(x => x.Id == sessionId);
 
-                var main = allMain.FirstOrDefault();
+                BrainstormSession main = allMain.FirstOrDefault();
 
                 BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(main);
 
-                result = new OperationResultVo<BrainstormSessionViewModel>(vm);
+                return new OperationResultVo<BrainstormSessionViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
+                return new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
             }
-
-            return result;
         }
     }
 }

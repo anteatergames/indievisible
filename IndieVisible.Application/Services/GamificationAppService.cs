@@ -27,8 +27,6 @@ namespace IndieVisible.Application.Services
 
         public OperationResultListVo<RankingViewModel> GetAll()
         {
-            OperationResultListVo<RankingViewModel> result;
-
             try
             {
                 IEnumerable<RankingVo> allModels = gamificationDomainService.Get(20);
@@ -50,14 +48,12 @@ namespace IndieVisible.Application.Services
                     vms.Add(vm);
                 }
 
-                result = new OperationResultListVo<RankingViewModel>(vms);
+                return new OperationResultListVo<RankingViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<RankingViewModel>(ex.Message);
+                return new OperationResultListVo<RankingViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo FillProfileGamificationDetails(Guid currentUserId, ref ProfileViewModel vm)

@@ -17,8 +17,6 @@ namespace IndieVisible.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserContentCommentRepository _repository;
 
-        public Guid CurrentUserId { get; set; }
-
         public UserContentCommentAppService(IMapper mapper, IUnitOfWork unitOfWork, IUserContentCommentRepository repository)
         {
             _mapper = mapper;
@@ -26,42 +24,34 @@ namespace IndieVisible.Application.Services
             _repository = repository;
         }
 
-        public OperationResultVo<int> Count()
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = _repository.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserContentCommentViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<UserContentCommentViewModel> result;
-
             try
             {
                 IQueryable<UserContentComment> allModels = _repository.GetAll();
 
                 IEnumerable<UserContentCommentViewModel> vms = _mapper.Map<IEnumerable<UserContentComment>, IEnumerable<UserContentCommentViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserContentCommentViewModel>(vms);
+                return new OperationResultListVo<UserContentCommentViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserContentCommentViewModel>(ex.Message);
+                return new OperationResultListVo<UserContentCommentViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<UserContentCommentViewModel> GetById(Guid currentUserId, Guid id)
@@ -80,10 +70,8 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -92,20 +80,16 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(UserContentCommentViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, UserContentCommentViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserContentComment model;
@@ -132,26 +116,24 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo Comment(UserContentCommentViewModel viewModel)
         {
-            OperationResultVo response;
-
             bool commentAlreadyExists = _repository.GetAll().Any(x => x.UserContentId == viewModel.UserContentId && x.UserId == viewModel.UserId && x.Text.Equals(viewModel.Text));
 
             if (commentAlreadyExists)
             {
-                response = new OperationResultVo(false);
-                response.Message = "Duplicated Comment";
+                return new OperationResultVo(false)
+                {
+                    Message = "Duplicated Comment"
+                };
             }
             else
             {
@@ -163,11 +145,8 @@ namespace IndieVisible.Application.Services
 
                 int newCount = _repository.GetAll().Count(x => x.UserContentId == model.UserContentId && x.UserId == model.UserId);
 
-                response = new OperationResultVo<int>(newCount);
+                return new OperationResultVo<int>(newCount);
             }
-
-
-            return response;
         }
     }
 }

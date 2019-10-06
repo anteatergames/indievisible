@@ -2,11 +2,12 @@
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Enums;
 using IndieVisible.Web.Extensions;
 using IndieVisible.Web.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,15 @@ namespace IndieVisible.Web.Controllers
     {
         private readonly IProfileAppService profileAppService;
         private readonly IUserConnectionAppService userConnectionAppService;
+        private readonly INotificationAppService notificationAppService;
 
-        public UserController(IProfileAppService profileAppService, IUserConnectionAppService userConnectionAppService) : base()
+        public UserController(IProfileAppService profileAppService
+            , IUserConnectionAppService userConnectionAppService
+            , INotificationAppService notificationAppService) : base()
         {
             this.profileAppService = profileAppService;
             this.userConnectionAppService = userConnectionAppService;
+            this.notificationAppService = notificationAppService;
         }
 
         public IActionResult Index()
@@ -39,7 +44,7 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult List()
         {
-            OperationResultListVo<ProfileViewModel> serviceResult = profileAppService.GetAll(this.CurrentUserId);
+            OperationResultListVo<ProfileViewModel> serviceResult = profileAppService.GetAll(CurrentUserId);
 
             List<ProfileViewModel> profiles = serviceResult.Value.OrderByDescending(x => x.CreateDate).ToList();
 
@@ -52,57 +57,20 @@ namespace IndieVisible.Web.Controllers
             return View(profiles);
         }
 
-        [HttpGet]
-        [Route("user/connections/{userId:guid}")]
-
-        public IActionResult Connections(Guid userId)
-        {
-            OperationResultListVo<UserConnectionViewModel> connections = userConnectionAppService.GetByUserId(userId);
-
-            List<UserConnectionViewModel> model;
-
-            if (connections.Success)
-            {
-                model = connections.Value.ToList();
-
-                foreach (UserConnectionViewModel item in model)
-                {
-                    this.SetImages(item);
-                }
-            }
-            else
-            {
-                model = new List<UserConnectionViewModel>();
-            }
-
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView(model);
-            }
-
-            return View(model);
-        }
-
-        private void SetImages(UserConnectionViewModel vm)
-        {
-            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.TargetUserId);
-            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.TargetUserId, vm.ProfileId);
-        }
-
 
         public IActionResult Search(string term)
         {
-            var vm = new Select2SearchResultViewModel();
+            Select2SearchResultViewModel vm = new Select2SearchResultViewModel();
 
-            var serviceResult = profileAppService.Search(term);
+            OperationResultVo serviceResult = profileAppService.Search(term);
 
             if (serviceResult.Success)
             {
-                var searchResults = ((OperationResultListVo<ProfileSearchViewModel>)serviceResult).Value;
+                IEnumerable<ProfileSearchViewModel> searchResults = ((OperationResultListVo<ProfileSearchViewModel>)serviceResult).Value;
 
-                foreach (var item in searchResults)
+                foreach (ProfileSearchViewModel item in searchResults)
                 {
-                    var s2obj = new Select2SearchResultItemViewModel
+                    Select2SearchResultItemViewModel s2obj = new Select2SearchResultItemViewModel
                     {
                         Id = item.UserId.ToString(),
                         Text = item.Name
@@ -118,6 +86,90 @@ namespace IndieVisible.Web.Controllers
                 return Json(serviceResult);
             }
 
+        }
+
+        #region User Connection
+        [HttpGet]
+        [Route("user/connections/{userId:guid}")]
+        public IActionResult Connections(Guid userId)
+        {
+            OperationResultListVo<UserConnectionViewModel> connections = userConnectionAppService.GetByUserId(userId);
+
+            List<UserConnectionViewModel> model;
+
+            if (connections.Success)
+            {
+                model = connections.Value.ToList();
+
+                foreach (UserConnectionViewModel item in model)
+                {
+                    SetImages(item);
+                }
+            }
+            else
+            {
+                model = new List<UserConnectionViewModel>();
+            }
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView(model);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("user/connect")]
+        public IActionResult ConnectToUser(Guid userId)
+        {
+            OperationResultVo response = userConnectionAppService.Connect(CurrentUserId, userId);
+
+            string fullName = GetSessionValue(SessionValues.FullName);
+
+            string text = String.Format(SharedLocalizer["{0} wants to connect."], fullName);
+
+            string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
+
+            notificationAppService.Notify(userId, NotificationType.ConnectionRequest, userId, text, url);
+
+            return Json(response);
+        }
+
+        [HttpPost]
+        [Route("user/disconnect")]
+        public IActionResult DisconnectUser(Guid userId)
+        {
+            OperationResultVo response = userConnectionAppService.Disconnect(CurrentUserId, userId);
+
+            return Json(response);
+        }
+
+
+        [HttpPost]
+        [Route("user/allowconnection")]
+        public IActionResult AllowUser(Guid userId)
+        {
+            OperationResultVo response = userConnectionAppService.Allow(CurrentUserId, userId);
+
+            return Json(response);
+        }
+
+
+        [HttpPost]
+        [Route("user/denyconnection")]
+        public IActionResult DenyUser(Guid userId)
+        {
+            OperationResultVo response = userConnectionAppService.Deny(CurrentUserId, userId);
+
+            return Json(response);
+        }
+        #endregion
+
+        private void SetImages(UserConnectionViewModel vm)
+        {
+            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.TargetUserId);
+            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.TargetUserId, vm.ProfileId);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
         [Route("list/{id}")]
         public IActionResult ListByUser(Guid id)
         {
-            OperationResultListVo<UserBadgeViewModel> badges = userBadgeAppService.GetByUser(id);
+            OperationResultListVo<UserBadgeViewModel> badges = userBadgeAppService.GetByUserId(id);
 
             return View("_List", badges.Value);
         }

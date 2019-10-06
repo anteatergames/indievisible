@@ -113,7 +113,7 @@ namespace IndieVisible.Web.Controllers
 
                 IEnumerable<Guid> oldMembers = vm.Members.Where(x => x.Id != Guid.Empty).Select(x => x.Id);
 
-                teamAppService.Save(vm);
+                teamAppService.Save(this.CurrentUserId, vm);
 
                 Notify(vm, oldMembers);
 
@@ -149,7 +149,7 @@ namespace IndieVisible.Web.Controllers
         [HttpDelete("{teamId:guid}")]
         public IActionResult DeleteTeam(Guid teamId)
         {
-            OperationResultVo serviceResult = teamAppService.Remove(teamId);
+            OperationResultVo serviceResult = teamAppService.Remove(this.CurrentUserId, teamId);
 
             return Json(serviceResult);
         }

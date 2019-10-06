@@ -24,42 +24,35 @@ namespace IndieVisible.Application.Services
             _repository = repository;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = _repository.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserPreferencesViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<UserPreferencesViewModel> result;
-
             try
             {
                 IQueryable<UserPreferences> allModels = _repository.GetAll();
 
                 IEnumerable<UserPreferencesViewModel> vms = _mapper.Map<IEnumerable<UserPreferences>, IEnumerable<UserPreferencesViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserPreferencesViewModel>(vms);
+                return new OperationResultListVo<UserPreferencesViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserPreferencesViewModel>(ex.Message);
+                return new OperationResultListVo<UserPreferencesViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<UserPreferencesViewModel> GetById(Guid currentUserId, Guid id)
@@ -78,25 +71,8 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public UserPreferencesViewModel GetByUserId(Guid userId)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            UserPreferences model = _repository.GetAll().FirstOrDefault(x => x.UserId == userId);
-
-            if (model == null)
-            {
-                model = new UserPreferences();
-                model.UserId = userId;
-            }
-
-            UserPreferencesViewModel vm = _mapper.Map<UserPreferencesViewModel>(model);
-
-            return vm;
-        }
-
-        public OperationResultVo Remove(Guid id)
-        {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -105,20 +81,16 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(UserPreferencesViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, UserPreferencesViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserPreferences model;
@@ -150,14 +122,30 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
+            }
+        } 
+        #endregion
+
+        public UserPreferencesViewModel GetByUserId(Guid userId)
+        {
+            UserPreferences model = _repository.GetAll().FirstOrDefault(x => x.UserId == userId);
+
+            if (model == null)
+            {
+                model = new UserPreferences
+                {
+                    UserId = userId
+                };
             }
 
-            return result;
+            UserPreferencesViewModel vm = _mapper.Map<UserPreferencesViewModel>(model);
+
+            return vm;
         }
     }
 }

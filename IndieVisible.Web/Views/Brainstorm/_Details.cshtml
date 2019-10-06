@@ -110,7 +110,7 @@
                             <img class="img-fluid rounded-circle img-sm" src="@ViewBag.ProfileImage" alt="Alt Text">
                             <div class="img-push">
                                 <label aria-label="Comment_@Model.Id" style="width:100%">
-                                    <textarea data-userContentId="@Model.Id" data-userContentType="@Model.UserContentType" class="form-control commenttextarea input-sm commentbox" rows="1" placeholder="@SharedLocalizer["Press CTRL+ENTER to send your comment"]"></textarea>
+                                    <textarea data-url="@Url.Action("Comment", "Brainstorm")" data-userContentId="@Model.Id" data-userContentType="@Model.UserContentType" class="form-control commenttextarea input-sm commentbox" rows="1" placeholder="@SharedLocalizer["Press CTRL+ENTER to send your comment"]"></textarea>
                                     <span class="float-right comment-send-button">
                                         <button type="button" role="button" aria-label="@SharedLocalizer["Post Comment"]" class="btn bg-transparent btn-interaction-comment-send"><i class="fa fa-2x fa-comment" aria-hidden="true"></i></button>
                                     </span>

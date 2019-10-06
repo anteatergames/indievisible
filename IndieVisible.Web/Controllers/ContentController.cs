@@ -44,7 +44,6 @@ namespace IndieVisible.Web.Controllers
         [Route("content/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
-            service.CurrentUserId = this.CurrentUserId;
             OperationResultVo<UserContentViewModel> serviceResult = service.GetById(this.CurrentUserId, id);
 
             if (!serviceResult.Success)
@@ -142,7 +141,7 @@ namespace IndieVisible.Web.Controllers
             {
                 ProfileViewModel profile = this.SetAuthorDetails(vm);
 
-                OperationResultVo<Guid> result = service.Save(vm);
+                OperationResultVo<Guid> result = service.Save(this.CurrentUserId, vm);
 
                 if (!result.Success)
                 {
@@ -167,7 +166,7 @@ namespace IndieVisible.Web.Controllers
         [HttpDelete("/content/{id:guid}")]
         public IActionResult Delete(Guid id)
         {
-            OperationResultVo result = service.Remove(id);
+            OperationResultVo result = service.Remove(this.CurrentUserId, id);
 
             if (result.Success)
             {
@@ -200,7 +199,7 @@ namespace IndieVisible.Web.Controllers
 
             this.SetContentImages(vm, images);
 
-            OperationResultVo<Guid> result = service.Save(vm);
+            OperationResultVo<Guid> result = service.Save(this.CurrentUserId, vm);
 
             this.NotifyFollowers(this.CurrentUserId, profile, vm.GameId, vm.Id);
 

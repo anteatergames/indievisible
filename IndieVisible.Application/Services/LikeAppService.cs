@@ -27,42 +27,35 @@ namespace IndieVisible.Application.Services
             _gameLikeRepository = gameLikeRepository;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = _contentLikeRepository.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserLikeViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<UserLikeViewModel> result;
-
             try
             {
                 IQueryable<UserContentLike> allModels = _contentLikeRepository.GetAll();
 
                 IEnumerable<UserLikeViewModel> vms = _mapper.Map<IEnumerable<UserContentLike>, IEnumerable<UserLikeViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserLikeViewModel>(vms);
+                return new OperationResultListVo<UserLikeViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserLikeViewModel>(ex.Message);
+                return new OperationResultListVo<UserLikeViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<UserLikeViewModel> GetById(Guid currentUserId, Guid id)
@@ -81,10 +74,8 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Remove(Guid id)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -93,20 +84,16 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(UserLikeViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, UserLikeViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserContentLike model;
@@ -133,125 +120,106 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
+        } 
+        #endregion
 
-            return result;
-        }
-
-        public OperationResultVo ContentLike(Guid likedId)
+        public OperationResultVo ContentLike(Guid currentUserId, Guid likedId)
         {
-            OperationResultVo response;
-
-            bool alreadyLiked = _contentLikeRepository.GetAll().Any(x => x.ContentId == likedId && x.UserId == this.CurrentUserId);
+            bool alreadyLiked = _contentLikeRepository.GetAll().Any(x => x.ContentId == likedId && x.UserId == currentUserId);
 
             if (alreadyLiked)
             {
-                response = new OperationResultVo(false);
-                response.Message = "Content already liked";
+                return new OperationResultVo("Content already liked");
             }
             else
             {
                 UserContentLike model = new UserContentLike();
 
                 model.ContentId = likedId;
-                model.UserId = this.CurrentUserId;
+                model.UserId = currentUserId;
 
                 _contentLikeRepository.Add(model);
 
                 _unitOfWork.Commit();
 
-                int newCount = _contentLikeRepository.GetAll().Count(x => x.ContentId == likedId && x.UserId == this.CurrentUserId);
+                int newCount = _contentLikeRepository.GetAll().Count(x => x.ContentId == likedId && x.UserId == currentUserId);
 
-                response = new OperationResultVo<int>(newCount);
+                return new OperationResultVo<int>(newCount);
             }
-
-            return response;
         }
 
-        public OperationResultVo ContentUnlike(Guid likedId)
+        public OperationResultVo ContentUnlike(Guid currentUserId, Guid likedId)
         {
-            OperationResultVo response;
-
-            UserContentLike existingLike = _contentLikeRepository.GetAll().FirstOrDefault(x => x.ContentId == likedId && x.UserId == this.CurrentUserId);
+            UserContentLike existingLike = _contentLikeRepository.GetAll().FirstOrDefault(x => x.ContentId == likedId && x.UserId == currentUserId);
 
             if (existingLike == null)
             {
-                response = new OperationResultVo(false);
-                response.Message = "Content not liked";
+                return new OperationResultVo("Content not liked");
             }
             else
             {
-                this.Remove(existingLike.Id);
+                this.Remove(currentUserId, existingLike.Id);
 
                 _unitOfWork.Commit();
 
-                int newCount = _contentLikeRepository.GetAll().Count(x => x.ContentId == likedId && x.UserId == this.CurrentUserId);
+                int newCount = _contentLikeRepository.GetAll().Count(x => x.ContentId == likedId && x.UserId == currentUserId);
 
-                response = new OperationResultVo<int>(newCount);
+                return new OperationResultVo<int>(newCount);
             }
-
-            return response;
         }
 
-        public OperationResultVo GameLike(Guid gameId)
+        public OperationResultVo GameLike(Guid currentUserId, Guid gameId)
         {
-            OperationResultVo response;
-
-            if (this.CurrentUserId == Guid.Empty)
+            if (currentUserId == Guid.Empty)
             {
-                response = new OperationResultVo("You must be logged in to like a game");
+                return new OperationResultVo("You must be logged in to like a game");
             }
             else
             {
-                bool alreadyLiked = _gameLikeRepository.GetAll().Any(x => x.GameId == gameId && x.UserId == this.CurrentUserId);
+                bool alreadyLiked = _gameLikeRepository.GetAll().Any(x => x.GameId == gameId && x.UserId == currentUserId);
 
                 if (alreadyLiked)
                 {
-                    response = new OperationResultVo(false);
-                    response.Message = "Game already liked";
+                    return new OperationResultVo("Game already liked");
                 }
                 else
                 {
                     GameLike model = new GameLike();
 
                     model.GameId = gameId;
-                    model.UserId = this.CurrentUserId;
+                    model.UserId = currentUserId;
 
                     _gameLikeRepository.Add(model);
 
                     _unitOfWork.Commit();
 
-                    int newCount = _gameLikeRepository.GetAll().Count(x => x.GameId == gameId && x.UserId == this.CurrentUserId);
+                    int newCount = _gameLikeRepository.GetAll().Count(x => x.GameId == gameId && x.UserId == currentUserId);
 
-                    response = new OperationResultVo<int>(newCount);
+                    return new OperationResultVo<int>(newCount);
                 }
             }
-
-            return response;
         }
 
-        public OperationResultVo GameUnlike(Guid likedId)
+        public OperationResultVo GameUnlike(Guid currentUserId, Guid likedId)
         {
-            OperationResultVo response;
-
-            if (this.CurrentUserId == Guid.Empty)
+            if (currentUserId == Guid.Empty)
             {
-                response = new OperationResultVo("You must be logged in to unlike a game");
+                return new OperationResultVo("You must be logged in to unlike a game");
             }
             else
             {
 
-                GameLike existingLike = _gameLikeRepository.GetAll().FirstOrDefault(x => x.GameId == likedId && x.UserId == this.CurrentUserId);
+                GameLike existingLike = _gameLikeRepository.GetAll().FirstOrDefault(x => x.GameId == likedId && x.UserId == currentUserId);
 
                 if (existingLike == null)
                 {
-                    response = new OperationResultVo(false);
-                    response.Message = "Game not liked";
+                    return new OperationResultVo("Game not liked");
                 }
                 else
                 {
@@ -262,19 +230,15 @@ namespace IndieVisible.Application.Services
                         _unitOfWork.Commit();
                     }
 
-                    int newCount = _gameLikeRepository.GetAll().Count(x => x.GameId == likedId && x.UserId == this.CurrentUserId);
+                    int newCount = _gameLikeRepository.GetAll().Count(x => x.GameId == likedId && x.UserId == currentUserId);
 
-                    response = new OperationResultVo<int>(newCount);
+                    return new OperationResultVo<int>(newCount);
                 }
             }
-
-            return response;
         }
 
         private OperationResultVo RemoveGameLike(Guid id)
         {
-            OperationResultVo result;
-
             try
             {
                 // validate before
@@ -283,14 +247,12 @@ namespace IndieVisible.Application.Services
 
                 _unitOfWork.Commit();
 
-                result = new OperationResultVo(true);
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
     }
 }

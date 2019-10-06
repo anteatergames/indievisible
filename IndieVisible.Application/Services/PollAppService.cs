@@ -15,14 +15,12 @@ namespace IndieVisible.Application.Services
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IPollDomainService pollDomainService;
-        private readonly IPollVoteDomainService pollVoteDomainService;
 
         public PollAppService(IUnitOfWork unitOfWork
-            , IPollDomainService pollDomainService, IPollVoteDomainService pollVoteDomainService)
+            , IPollDomainService pollDomainService)
         {
             this.unitOfWork = unitOfWork;
             this.pollDomainService = pollDomainService;
-            this.pollVoteDomainService = pollVoteDomainService;
         }
 
         public OperationResultVo PollVote(Guid userId, Guid pollOptionId)
@@ -36,7 +34,7 @@ namespace IndieVisible.Application.Services
 
             Poll poll = pollDomainService.GetById(pollOption.PollId);
 
-            List<PollVote> userVotesOnThisPoll = pollVoteDomainService.Get(userId, poll.Id).ToList();
+            List<PollVote> userVotesOnThisPoll = pollDomainService.GetVotes(userId, poll.Id).ToList();
 
             bool alreadyVoted = userVotesOnThisPoll.Any(x => x.PollOptionId == pollOptionId);
 
@@ -74,7 +72,7 @@ namespace IndieVisible.Application.Services
         {
             PollResultsViewModel resultVm = new PollResultsViewModel();
 
-            IEnumerable<PollVote> votes = pollVoteDomainService.GetByPollId(pollId);
+            IEnumerable<PollVote> votes = pollDomainService.GetByPollId(pollId);
 
             IEnumerable<KeyValuePair<Guid, int>> groupedVotes = from v in votes
                                                                 group v by v.PollOptionId into g
@@ -100,7 +98,7 @@ namespace IndieVisible.Application.Services
         {
             vote.PollOptionId = pollOptionId;
 
-            pollVoteDomainService.Update(vote);
+            pollDomainService.UpdateVote(vote);
         }
 
         private void AddVote(Guid userId, PollOption pollOption, Poll poll)
@@ -112,7 +110,7 @@ namespace IndieVisible.Application.Services
                 PollOptionId = pollOption.Id
             };
 
-            pollVoteDomainService.Add(newVote);
+            pollDomainService.AddVote(newVote);
         }
     }
 }

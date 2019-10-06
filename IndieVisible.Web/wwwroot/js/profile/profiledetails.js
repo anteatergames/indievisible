@@ -181,7 +181,7 @@
 
 
     function connect(userId) {
-        return $.post("/interact/user/connect", { userId: userId });
+        return $.post("/user/connect", { userId: userId });
     }
     function connectCallback(response, counterSelector, btn) {
         if (response.success === true) {
@@ -197,7 +197,7 @@
     }
 
     function disconnect(userId) {
-        return $.post("/interact/user/disconnect", { userId: userId });
+        return $.post("/user/disconnect", { userId: userId });
     }
     function disconnectCallback(response, counterSelector, btn) {
         if (response.success === true) {
@@ -214,7 +214,7 @@
 
 
     function allowConnection(userId) {
-        return $.post("/interact/user/allowconnection", { userId: userId });
+        return $.post("/user/allowconnection", { userId: userId });
     }
     function allowConnectionCallback(response, counterSelector, btnConnect) {
         if (response.success === true) {
@@ -234,7 +234,7 @@
     }
 
     function denyConnection(userId) {
-        return $.post("/interact/user/denyconnection", { userId: userId });
+        return $.post("/user/denyconnection", { userId: userId });
     }
     function denyConnectionCallback(response, counterSelector, btnConnect) {
         if (response.success === true) {

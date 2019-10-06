@@ -6,6 +6,6 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IUserBadgeAppService : ICrudAppService<UserBadgeViewModel>
     {
-        OperationResultListVo<UserBadgeViewModel> GetByUser(Guid userId);
+        OperationResultListVo<UserBadgeViewModel> GetByUserId(Guid userId);
     }
 }

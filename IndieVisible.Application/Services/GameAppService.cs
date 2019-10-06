@@ -36,49 +36,40 @@ namespace IndieVisible.Application.Services
             this.gameFollowDomainService = gameFollowDomainService;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = repository.GetAll().Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
 
         public OperationResultListVo<GameViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<GameViewModel> result;
-
             try
             {
                 IQueryable<Game> allModels = repository.GetAll();
 
                 IEnumerable<GameViewModel> vms = mapper.Map<IEnumerable<Game>, IEnumerable<GameViewModel>>(allModels);
 
-                result = new OperationResultListVo<GameViewModel>(vms);
+                return new OperationResultListVo<GameViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<GameViewModel>(ex.Message);
+                return new OperationResultListVo<GameViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<GameViewModel> GetById(Guid currentUserId, Guid id)
         {
-            OperationResultVo<GameViewModel> result;
-
             try
             {
                 Game model = repository.GetById(id);
@@ -93,55 +84,16 @@ namespace IndieVisible.Application.Services
                 vm.CurrentUserLiked = gameLikeRepository.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
                 vm.CurrentUserFollowing = this.gameFollowDomainService.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
 
-                result = new OperationResultVo<GameViewModel>(vm);
+                return new OperationResultVo<GameViewModel>(vm);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<GameViewModel>(ex.Message);
+                return new OperationResultVo<GameViewModel>(ex.Message);
             }
+        } 
 
-            return result;
-        }
-
-        private static void SetWebsiteUrl(GameViewModel vm)
+        public OperationResultVo<Guid> Save(Guid currentUserId, GameViewModel viewModel)
         {
-            if (!string.IsNullOrWhiteSpace(vm.WebsiteUrl))
-            {
-                vm.WebsiteUrl = vm.WebsiteUrl.ToLower();
-
-                if (!vm.WebsiteUrl.StartsWith("http:") && !vm.WebsiteUrl.StartsWith("https:"))
-                {
-                    vm.WebsiteUrl = "http://" + vm.WebsiteUrl;
-                }
-            }
-        }
-
-        public OperationResultVo Remove(Guid id)
-        {
-            OperationResultVo result;
-
-            try
-            {
-                // validate before
-
-                repository.Remove(id);
-
-                unitOfWork.Commit();
-
-                result = new OperationResultVo(true);
-            }
-            catch (Exception ex)
-            {
-                result = new OperationResultVo(ex.Message);
-            }
-
-            return result;
-        }
-
-        public OperationResultVo<Guid> Save(GameViewModel viewModel)
-        {
-            OperationResultVo<Guid> result;
-
             try
             {
                 Game model;
@@ -170,14 +122,44 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
+        }
 
-            return result;
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
+        {
+            try
+            {
+                // validate before
+
+                repository.Remove(id);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+        #endregion
+
+        private static void SetWebsiteUrl(GameViewModel vm)
+        {
+            if (!string.IsNullOrWhiteSpace(vm.WebsiteUrl))
+            {
+                vm.WebsiteUrl = vm.WebsiteUrl.ToLower();
+
+                if (!vm.WebsiteUrl.StartsWith("http:") && !vm.WebsiteUrl.StartsWith("https:"))
+                {
+                    vm.WebsiteUrl = "http://" + vm.WebsiteUrl;
+                }
+            }
         }
 
         public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, GameGenre genre)

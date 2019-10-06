@@ -461,8 +461,8 @@
     <value>Gênero</value>
     <comment>Generic</comment>
   </data>
-  <data name="language" xml:space="preserve">
-    <value>idioma</value>
+  <data name="Language" xml:space="preserve">
+    <value>Idioma</value>
     <comment>Generic</comment>
   </data>
   <data name="Main Language" xml:space="preserve">
@@ -1152,5 +1152,37 @@
   <data name="Are you sure you want to remove this member from the team?" xml:space="preserve">
     <value>Tem certeza que quer remover esse membro da sua equipe?</value>
     <comment>Team</comment>
+  </data>
+  <data name="Featured Image" xml:space="preserve">
+    <value>Imagem de Destaque</value>
+    <comment>Content</comment>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>Introdução</value>
+    <comment>Content</comment>
+  </data>
+  <data name="Related Game" xml:space="preserve">
+    <value>Jogo Relacionado</value>
+    <comment>Content</comment>
+  </data>
+  <data name="The Introduction will be shown on the feed" xml:space="preserve">
+    <value>A introdução será mostrada no feed</value>
+    <comment>Content</comment>
+  </data>
+  <data name="Type a brief introduction to post here" xml:space="preserve">
+    <value>Digite uma introdução curta para sua postagem aqui.</value>
+    <comment>Content</comment>
+  </data>
+  <data name="Add your game to the platform." xml:space="preserve">
+    <value>Adicione seu jogo à plataforma</value>
+    <comment>Sidebar</comment>
+  </data>
+  <data name="Post quality content to the platform." xml:space="preserve">
+    <value>Publique conteúdo de qualidade na plataforma.</value>
+    <comment>Sidebar</comment>
+  </data>
+  <data name="Suggest new features to the IndieVisible team. Tell us your best ideas!" xml:space="preserve">
+    <value>Sugira novos recursos para a equipe IndieVisible. Conte-nos suas melhores ideias!</value>
+    <comment>Sidebar</comment>
   </data>
 </root>

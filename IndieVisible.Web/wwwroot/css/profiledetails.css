@@ -145,6 +145,7 @@
     font-size: 12px;
     overflow: visible;
     text-align: center;
+    display:inline-block;
 }
 
     .user-profile-others div.centered {
@@ -175,6 +176,7 @@
     .user-profile .user-profile-desc {
         font-size: 1rem;
     }
+
     .user-profile .nav-pills, .user-profile .nav-pills .nav-link {
         border-radius: 0 !important;
     }

@@ -33,8 +33,8 @@ namespace IndieVisible.Web.Controllers.Base
         public ICookieMgrService CookieMgrService => _cookieMgrService ?? (_cookieMgrService = HttpContext?.RequestServices.GetService<ICookieMgrService>());
 
 
-        private IProfileAppService _profileAppService;
-        public IProfileAppService ProfileAppService => _profileAppService ?? (_profileAppService = HttpContext?.RequestServices.GetService<IProfileAppService>());
+        private IProfileAppService profileAppService;
+        public IProfileAppService ProfileAppService => profileAppService ?? (profileAppService = HttpContext?.RequestServices.GetService<IProfileAppService>());
 
 
         public Guid CurrentUserId { get; set; }
@@ -45,21 +45,37 @@ namespace IndieVisible.Web.Controllers.Base
 
             if (User != null && User.Identity.IsAuthenticated && ViewBag.Username == null)
             {
-                string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 CurrentUserId = new Guid(userId);
 
-                string username = this.User.FindFirstValue(ClaimTypes.Name);
+                string username = User.FindFirstValue(ClaimTypes.Name);
 
-                string sessionUserName = GetSessionValue(SessionValues.Username);
-
-                if (sessionUserName != null && !sessionUserName.Equals(username))
-                {
-                    SetSessionValue(SessionValues.Username, username);
-                }
+                SetProfileOnSession(CurrentUserId, username);
 
                 ViewBag.CurrentUserId = CurrentUserId;
                 ViewBag.Username = username ?? Constants.DefaultUsername;
                 ViewBag.ProfileImage = UrlFormatter.ProfileImage(CurrentUserId);
+            }
+        }
+
+        protected void SetProfileOnSession(Guid userId, string userName)
+        {
+            string sessionUserName = GetSessionValue(SessionValues.Username);
+
+            if (sessionUserName != null && !sessionUserName.Equals(userName))
+            {
+                SetSessionValue(SessionValues.Username, userName);
+            }
+
+            string sessionFullName = GetSessionValue(SessionValues.FullName);
+
+            if (sessionFullName == null)
+            {
+                ProfileViewModel profile = ProfileAppService.GetByUserId(userId, ProfileType.Personal);
+                if (profile != null)
+                {
+                    SetSessionValue(SessionValues.FullName, profile.Name);
+                }
             }
         }
 
@@ -81,7 +97,7 @@ namespace IndieVisible.Web.Controllers.Base
                 vm.UserId = CurrentUserId;
             }
 
-            ProfileViewModel profile = ProfileAppService.GetByUserId(this.CurrentUserId, vm.UserId, ProfileType.Personal);
+            ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, vm.UserId, ProfileType.Personal);
 
             if (profile != null)
             {
@@ -119,11 +135,11 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected void SetLanguage(SupportedLanguage language)
         {
-            var culture = language.GetAttributeOfType<UiInfoAttribute>()?.Culture;
+            string culture = language.GetAttributeOfType<UiInfoAttribute>()?.Culture;
 
             culture = string.IsNullOrWhiteSpace(culture) ? "en-US" : culture;
 
-            this.SetCookieValue(CookieRequestCultureProvider.DefaultCookieName
+            SetCookieValue(CookieRequestCultureProvider.DefaultCookieName
                 , CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture))
                 , 365);
         }
@@ -181,12 +197,12 @@ namespace IndieVisible.Web.Controllers.Base
         {
             string containerName = container.ToString().ToLower();
 
-            return this.UploadImage(userId, containerName, filename, fileBytes);
+            return UploadImage(userId, containerName, filename, fileBytes);
         }
 
         protected string UploadGameImage(Guid userId, BlobType type, string filename, byte[] fileBytes)
         {
-            string result = this.UploadImage(userId, type.ToString().ToLower(), filename, fileBytes);
+            string result = UploadImage(userId, type.ToString().ToLower(), filename, fileBytes);
 
             return result;
         }
@@ -194,7 +210,7 @@ namespace IndieVisible.Web.Controllers.Base
         protected string UploadContentImage(Guid userId, string filename, byte[] fileBytes)
         {
             string type = BlobType.ContentImage.ToString().ToLower();
-            string result = this.UploadImage(userId, type, filename, fileBytes);
+            string result = UploadImage(userId, type, filename, fileBytes);
 
             return result;
         }
@@ -202,21 +218,21 @@ namespace IndieVisible.Web.Controllers.Base
         protected string UploadFeaturedImage(Guid userId, string filename, byte[] fileBytes)
         {
             string type = BlobType.FeaturedImage.ToString().ToLower();
-            string result = this.UploadImage(userId, type, filename, fileBytes);
+            string result = UploadImage(userId, type, filename, fileBytes);
 
             return result;
         }
 
         protected string DeleteGameImage(Guid userId, BlobType type, string filename)
         {
-            string result = this.DeleteImage(userId, filename);
+            string result = DeleteImage(userId, filename);
 
             return result;
         }
 
         protected string DeleteFeaturedImage(Guid userId, string filename)
         {
-            string result = this.DeleteImage(userId, filename);
+            string result = DeleteImage(userId, filename);
 
             return result;
         }

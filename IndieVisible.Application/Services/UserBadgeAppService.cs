@@ -16,8 +16,6 @@ namespace IndieVisible.Application.Services
         private readonly IUnitOfWork unitOfWork;
         private readonly IUserBadgeDomainService userBadgeDomainService;
 
-        public Guid CurrentUserId { get; set; }
-
         public UserBadgeAppService(IMapper mapper, IUnitOfWork unitOfWork, IUserBadgeDomainService userBadgeDomainService)
         {
             this.mapper = mapper;
@@ -25,42 +23,35 @@ namespace IndieVisible.Application.Services
             this.userBadgeDomainService = userBadgeDomainService;
         }
 
-        public OperationResultVo<int> Count()
+        #region ICrudAppService
+        public OperationResultVo<int> Count(Guid currentUserId)
         {
-            OperationResultVo<int> result;
-
             try
             {
                 int count = userBadgeDomainService.Count();
 
-                result = new OperationResultVo<int>(count);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<int>(ex.Message);
+                return new OperationResultVo<int>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultListVo<UserBadgeViewModel> GetAll(Guid currentUserId)
         {
-            OperationResultListVo<UserBadgeViewModel> result;
-
             try
             {
                 IEnumerable<UserBadge> allModels = userBadgeDomainService.GetAll();
 
                 IEnumerable<UserBadgeViewModel> vms = mapper.Map<IEnumerable<UserBadge>, IEnumerable<UserBadgeViewModel>>(allModels);
 
-                result = new OperationResultListVo<UserBadgeViewModel>(vms);
+                return new OperationResultListVo<UserBadgeViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserBadgeViewModel>(ex.Message);
+                return new OperationResultListVo<UserBadgeViewModel>(ex.Message);
             }
-
-            return result;
         }
 
         public OperationResultVo<UserBadgeViewModel> GetById(Guid currentUserId, Guid id)
@@ -79,30 +70,26 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultListVo<UserBadgeViewModel> GetByUser(Guid userId)
+        public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
-            OperationResultListVo<UserBadgeViewModel> result;
-
             try
             {
-                IEnumerable<UserBadge> allModels = userBadgeDomainService.GetByUserId(userId);
+                // validate before
 
-                IEnumerable<UserBadgeViewModel> vms = mapper.Map<IEnumerable<UserBadge>, IEnumerable<UserBadgeViewModel>>(allModels);
+                userBadgeDomainService.Remove(id);
 
-                result = new OperationResultListVo<UserBadgeViewModel>(vms);
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true);
             }
             catch (Exception ex)
             {
-                result = new OperationResultListVo<UserBadgeViewModel>(ex.Message);
+                return new OperationResultVo(ex.Message);
             }
-
-            return result;
         }
 
-        public OperationResultVo<Guid> Save(UserBadgeViewModel viewModel)
+        public OperationResultVo<Guid> Save(Guid currentUserId, UserBadgeViewModel viewModel)
         {
-            OperationResultVo<Guid> result;
-
             try
             {
                 UserBadge model;
@@ -129,36 +116,29 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                result = new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo<Guid>(ex.Message);
+                return new OperationResultVo<Guid>(ex.Message);
             }
+        } 
+        #endregion
 
-            return result;
-        }
-
-        public OperationResultVo Remove(Guid id)
+        public OperationResultListVo<UserBadgeViewModel> GetByUserId(Guid userId)
         {
-            OperationResultVo result;
-
             try
             {
-                // validate before
+                IEnumerable<UserBadge> allModels = userBadgeDomainService.GetByUserId(userId);
 
-                userBadgeDomainService.Remove(id);
+                IEnumerable<UserBadgeViewModel> vms = mapper.Map<IEnumerable<UserBadge>, IEnumerable<UserBadgeViewModel>>(allModels);
 
-                unitOfWork.Commit();
-
-                result = new OperationResultVo(true);
+                return new OperationResultListVo<UserBadgeViewModel>(vms);
             }
             catch (Exception ex)
             {
-                result = new OperationResultVo(ex.Message);
+                return new OperationResultListVo<UserBadgeViewModel>(ex.Message);
             }
-
-            return result;
         }
     }
 }

@@ -140,7 +140,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             {
                 vm.UserId = CurrentUserId;
 
-                this.userPreferencesAppService.Save(vm);
+                this.userPreferencesAppService.Save(this.CurrentUserId, vm);
 
                 this.SetPreferences(vm);
 
