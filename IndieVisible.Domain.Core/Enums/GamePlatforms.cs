@@ -16,7 +16,7 @@ namespace IndieVisible.Domain.Core.Enums
         NintendoSwitch,
         [UiInfo(Class = "android")]
         Android,
-        [UiInfo(Class = "ios")]
+        [UiInfo(Class = "apple")]
         Ios,
         [UiInfo(Class = "steam")]
         Steam
