@@ -375,7 +375,8 @@ namespace IndieVisible.Web.Controllers
                 Subtitle = "Team up!",
                 Description = "Join forces to make games.",
                 Items = {
-                    "Team Management"
+                    "Team Management",
+                    "Points Earned notification"
                 }
             });
 

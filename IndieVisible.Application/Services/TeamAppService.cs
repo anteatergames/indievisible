@@ -19,15 +19,18 @@ namespace IndieVisible.Application.Services
         private readonly IUnitOfWork unitOfWork;
         private readonly ITeamDomainService teamDomainService;
         private readonly IProfileDomainService profileDomainService;
+        private readonly IGamificationDomainService gamificationDomainService;
 
         public TeamAppService(IMapper mapper, IUnitOfWork unitOfWork
             , ITeamDomainService teamDomainService
-            , IProfileDomainService profileDomainService)
+            , IProfileDomainService profileDomainService
+            , IGamificationDomainService gamificationDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
             this.teamDomainService = teamDomainService;
             this.profileDomainService = profileDomainService;
+            this.gamificationDomainService = gamificationDomainService;
         }
 
         #region ICrudAPpService
@@ -114,6 +117,8 @@ namespace IndieVisible.Application.Services
                 {
                     this.teamDomainService.Add(model);
                     viewModel.Id = model.Id;
+
+                    gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.TeamAdd);
                 }
                 else
                 {
@@ -186,6 +191,8 @@ namespace IndieVisible.Application.Services
             try
             {
                 this.teamDomainService.ChangeInvitationStatus(teamId, currentUserId, InvitationStatus.Accepted, quote);
+
+                gamificationDomainService.ProcessAction(currentUserId, PlatformAction.TeamJoin);
 
                 unitOfWork.Commit();
 

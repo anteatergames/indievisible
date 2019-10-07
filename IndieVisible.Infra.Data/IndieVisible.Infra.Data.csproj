@@ -23,6 +23,8 @@
     <Compile Remove="Migrations\20190929220420_teamup.Designer.cs" />
     <Compile Remove="Migrations\20190929220534_teamup.cs" />
     <Compile Remove="Migrations\20190929220534_teamup.Designer.cs" />
+    <Compile Remove="Migrations\20191007002406_newgamificationactions.cs" />
+    <Compile Remove="Migrations\20191007002406_newgamificationactions.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -24,17 +24,17 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<RankingVo> Get(int count)
         {
-            var result = new List<RankingVo>();
+            List<RankingVo> result = new List<RankingVo>();
 
-            var levels = gamificationLevelRepository.GetAll().ToList();
+            List<GamificationLevel> levels = gamificationLevelRepository.GetAll().ToList();
 
-            IQueryable<Gamification> model = this.gamificationRepository.GetAll().OrderByDescending(x => x.XpTotal).ThenBy(x => x.CreateDate).Take(count);
+            IQueryable<Gamification> model = gamificationRepository.GetAll().OrderByDescending(x => x.XpTotal).ThenBy(x => x.CreateDate).Take(count);
 
-            var list = model.ToList();
+            List<Gamification> list = model.ToList();
 
-            foreach (var item in list)
+            foreach (Gamification item in list)
             {
-                var newVo = new RankingVo
+                RankingVo newVo = new RankingVo
                 {
                     Gamification = item,
                     Level = levels.FirstOrDefault(x => x.Number == item.CurrentLevelNumber)
@@ -48,7 +48,7 @@ namespace IndieVisible.Domain.Services
 
         public IQueryable<GamificationLevel> GetAllLevels()
         {
-            var levels = gamificationLevelRepository.GetAll();
+            IQueryable<GamificationLevel> levels = gamificationLevelRepository.GetAll();
 
             return levels;
         }
@@ -61,7 +61,7 @@ namespace IndieVisible.Domain.Services
             {
                 userGamification = GenerateNewGamification(userId);
 
-                this.gamificationRepository.Add(userGamification);
+                gamificationRepository.Add(userGamification);
             }
 
             return userGamification;
@@ -74,15 +74,15 @@ namespace IndieVisible.Domain.Services
             return level;
         }
 
-        public void ProcessAction(Guid userId, PlatformAction action)
+        public int ProcessAction(Guid userId, PlatformAction action)
         {
-            GamificationAction actionToProcess = this.gamificationActionRepository.GetByAction(action);
+            GamificationAction actionToProcess = gamificationActionRepository.GetByAction(action);
 
-            Gamification userGamification = this.gamificationRepository.GetByUserId(userId);
+            Gamification userGamification = gamificationRepository.GetByUserId(userId);
 
             if (userGamification == null)
             {
-                GamificationLevel newLevel = this.gamificationLevelRepository.GetByNumber(1);
+                GamificationLevel newLevel = gamificationLevelRepository.GetByNumber(1);
 
                 userGamification = GenerateNewGamification(userId);
 
@@ -90,7 +90,7 @@ namespace IndieVisible.Domain.Services
                 userGamification.XpTotal += actionToProcess.ScoreValue;
                 userGamification.XpToNextLevel = (newLevel.XpToAchieve - actionToProcess.ScoreValue);
 
-                this.gamificationRepository.Add(userGamification);
+                gamificationRepository.Add(userGamification);
             }
             else
             {
@@ -100,8 +100,8 @@ namespace IndieVisible.Domain.Services
 
                 if (userGamification.XpToNextLevel <= 0)
                 {
-                    GamificationLevel currentLevel = this.gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber);
-                    GamificationLevel newLevel = this.gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber + 1);
+                    GamificationLevel currentLevel = gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber);
+                    GamificationLevel newLevel = gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber + 1);
 
                     if (newLevel != null)
                     {
@@ -111,14 +111,16 @@ namespace IndieVisible.Domain.Services
                     }
                 }
 
-                this.gamificationRepository.Update(userGamification);
+                gamificationRepository.Update(userGamification);
             }
+
+            return actionToProcess.ScoreValue;
         }
 
         private Gamification GenerateNewGamification(Guid userId)
         {
             Gamification userGamification;
-            GamificationLevel firstLevel = this.gamificationLevelRepository.GetByNumber(1);
+            GamificationLevel firstLevel = gamificationLevelRepository.GetByNumber(1);
 
             userGamification = new Gamification
             {

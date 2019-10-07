@@ -178,14 +178,14 @@ namespace IndieVisible.Infra.Data.Context
                 UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
                 CreateDate = new DateTime(2019, 5, 23, 0, 21, 44, 473, DateTimeKind.Local),
                 Action = PlatformAction.IdeaSuggested,
-                ScoreValue = 10
+                ScoreValue = 20
             }, new GamificationAction
             {
                 Id = new Guid("CCCBD822-5CB7-405C-8539-6BA7E2DED11F"),
                 UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
                 CreateDate = new DateTime(2019, 5, 23, 0, 21, 44, 473, DateTimeKind.Local),
                 Action = PlatformAction.IdeaImplemented,
-                ScoreValue = 30
+                ScoreValue = 50
             }, new GamificationAction
             {
                 Id = new Guid("8B1AEC66-ED4E-4D8B-85F2-FA46EDA341EE"),
@@ -199,7 +199,7 @@ namespace IndieVisible.Infra.Data.Context
                 UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
                 CreateDate = new DateTime(2019, 5, 23, 0, 21, 44, 473, DateTimeKind.Local),
                 Action = PlatformAction.PostFeatured,
-                ScoreValue = 30
+                ScoreValue = 50
             }, new GamificationAction
             {
                 Id = new Guid("0D607BF9-040A-48BC-8925-B423981C7DAF"),
@@ -207,6 +207,41 @@ namespace IndieVisible.Infra.Data.Context
                 CreateDate = new DateTime(2019, 5, 23, 0, 21, 44, 473, DateTimeKind.Local),
                 Action = PlatformAction.GameFeatured,
                 ScoreValue = 30
+            }, new GamificationAction
+            {
+                Id = new Guid("320332AC-52D2-43E9-A4EC-2378271EF50A"),
+                UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
+                CreateDate = new DateTime(2019, 10, 06, 21, 16, 00, 000, DateTimeKind.Local),
+                Action = PlatformAction.PollPost,
+                ScoreValue = 20
+            }, new GamificationAction
+            {
+                Id = new Guid("7295E019-5595-4CC4-8253-F63886DBC7D9"),
+                UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
+                CreateDate = new DateTime(2019, 10, 06, 21, 16, 00, 000, DateTimeKind.Local),
+                Action = PlatformAction.PollVote,
+                ScoreValue = 5
+            }, new GamificationAction
+            {
+                Id = new Guid("F7BF51B6-79CF-4588-856F-93C432501D0B"),
+                UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
+                CreateDate = new DateTime(2019, 10, 06, 21, 16, 00, 000, DateTimeKind.Local),
+                Action = PlatformAction.TeamAdd,
+                ScoreValue = 30
+            }, new GamificationAction
+            {
+                Id = new Guid("1746F01E-E673-447E-B0E6-CEBFCB7CB621"),
+                UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
+                CreateDate = new DateTime(2019, 10, 06, 21, 16, 00, 000, DateTimeKind.Local),
+                Action = PlatformAction.TeamJoin,
+                ScoreValue = 20
+            }, new GamificationAction
+            {
+                Id = new Guid("827C139B-2399-4602-B56C-B3DD611697B6"),
+                UserId = new Guid("0c7e18b2-3682-444d-a62b-30e311e76891"),
+                CreateDate = new DateTime(2019, 10, 06, 21, 16, 00, 000, DateTimeKind.Local),
+                Action = PlatformAction.TeamApply,
+                ScoreValue = 20
             });
         }
         private static void SeedGamificationLevels(ModelBuilder builder)

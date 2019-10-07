@@ -22,8 +22,12 @@
     function bindAll() {
     }
 
-    function showWarningAlert(header, text) {
+    function showWarningAlert(text) {
         showAlert(text, 'warning');
+    }
+
+    function showPointsEarned(text) {
+        showAlert(text, 'info');
     }
 
     function showAlert(text, type) {
@@ -53,8 +57,9 @@
 
     function showWarningMessage(msg, callback) {
         swal({
-            title: "Attention!",
-            text: msg,
+            toast: true,
+            position: 'top-end',
+            title: msg,
             type: "warning"
         }).then(
             function () {
@@ -98,7 +103,8 @@
         ShowWarningMessage: showWarningMessage,
         ShowConfirmMessage: showConfirmMessage,
         Toastr: {
-            ShowWarning: showWarningAlert
+            ShowWarning: showWarningAlert,
+            PointsEarned: showPointsEarned
         }
     };
 }());

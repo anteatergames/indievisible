@@ -10,6 +10,10 @@
         PopularPost = 6,
         PostFeatured = 7,
         GameFeatured = 8,
-        PollPost = 9
+        PollPost = 9,
+        PollVote = 10,
+        TeamAdd = 11,
+        TeamJoin = 12,
+        TeamApply = 13,
     }
 }

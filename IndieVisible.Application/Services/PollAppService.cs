@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Poll;
+using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
@@ -15,16 +16,20 @@ namespace IndieVisible.Application.Services
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IPollDomainService pollDomainService;
+        private readonly IGamificationDomainService gamificationDomainService;
 
         public PollAppService(IUnitOfWork unitOfWork
-            , IPollDomainService pollDomainService)
+            , IPollDomainService pollDomainService
+            , IGamificationDomainService gamificationDomainService)
         {
             this.unitOfWork = unitOfWork;
             this.pollDomainService = pollDomainService;
+            this.gamificationDomainService = gamificationDomainService;
         }
 
         public OperationResultVo PollVote(Guid userId, Guid pollOptionId)
         {
+            int pointsEarned = 0;
             PollOption pollOption = pollDomainService.GetOptionById(pollOptionId);
 
             if (pollOption == null)
@@ -61,11 +66,16 @@ namespace IndieVisible.Application.Services
                 }
             }
 
+            if (!userVotesOnThisPoll.Any())
+            {
+                pointsEarned = gamificationDomainService.ProcessAction(userId, PlatformAction.PollVote);
+            }
+
             unitOfWork.Commit();
 
             PollResultsViewModel resultVm = CalculateNewResult(poll.Id);
 
-            return new OperationResultVo<PollResultsViewModel>(resultVm);
+            return new OperationResultVo<PollResultsViewModel>(resultVm, pointsEarned);
         }
 
         private PollResultsViewModel CalculateNewResult(Guid pollId)
@@ -83,10 +93,12 @@ namespace IndieVisible.Application.Services
 
             foreach (var g in groupedVotes)
             {
-                var newOptionResult = new PollOptionResultsViewModel();
-                newOptionResult.OptionId = g.Key;
-                newOptionResult.VoteCount = g.Value;
-                newOptionResult.Percentage = ((g.Value / (decimal)totalVotes) * 100).ToString("N2", new CultureInfo("en-us"));
+                var newOptionResult = new PollOptionResultsViewModel
+                {
+                    OptionId = g.Key,
+                    VoteCount = g.Value,
+                    Percentage = ((g.Value / (decimal)totalVotes) * 100).ToString("N2", new CultureInfo("en-us"))
+                };
 
                 resultVm.OptionResults.Add(newOptionResult);
             }

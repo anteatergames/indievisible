@@ -8,6 +8,8 @@ namespace IndieVisible.Domain.ValueObjects
 
         public string Message { get; set; }
 
+        public int PointsEarned { get; set; }
+
         public OperationResultVo(bool success)
         {
             this.Success = success;
@@ -60,6 +62,12 @@ namespace IndieVisible.Domain.ValueObjects
         public OperationResultVo(T item) : base(true)
         {
             this.Value = item;
+        }
+
+        public OperationResultVo(T item, int pointsEarned) : base(true)
+        {
+            this.Value = item;
+            this.PointsEarned = pointsEarned;
         }
         public OperationResultVo(string message) : base(message)
         {

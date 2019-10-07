@@ -326,6 +326,8 @@
             }
 
             selectors.postImages.val('');
+
+            MAINMODULE.Common.HandlePointsEarned(response);
         }
     }
 

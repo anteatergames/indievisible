@@ -1185,4 +1185,8 @@
     <value>Sugira novos recursos para a equipe IndieVisible. Conte-nos suas melhores ideias!</value>
     <comment>Sidebar</comment>
   </data>
+  <data name="You earned 0 points. Awesome!" xml:space="preserve">
+    <value>Você ganhou 0 pontos. Demais!</value>
+    <comment>Gamification</comment>
+  </data>
 </root>

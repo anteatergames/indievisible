@@ -60,7 +60,12 @@
     }
 
     function vote(pollOptionId) {
-        return $.post("/interact/poll/vote", { pollOptionId: pollOptionId });
+        return $.post("/interact/poll/vote", { pollOptionId: pollOptionId })
+            .done(function (response) {
+                if (response.success) {
+                    MAINMODULE.Common.HandlePointsEarned(response);
+                }
+            });
     }
     function voteCallback(response, pollOptionCtrl) {
         if (response.success === true) {

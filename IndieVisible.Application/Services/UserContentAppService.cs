@@ -133,9 +133,13 @@ namespace IndieVisible.Application.Services
         {
             try
             {
+                int pointsEarned = 0;
+
                 UserContent model;
 
                 bool isSpam = CheckSpam(viewModel.Id, viewModel.Content);
+
+                bool isNew = viewModel.Id == Guid.Empty;
 
                 if (isSpam)
                 {
@@ -162,21 +166,21 @@ namespace IndieVisible.Application.Services
                 else
                 {
                     model = mapper.Map<UserContent>(viewModel);
-
-                    PlatformAction action = viewModel.IsComplex || (viewModel.HasPoll && viewModel.Poll.PollOptions.Any()) ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
-
-                    gamificationDomainService.ProcessAction(viewModel.UserId, action);
                 }
 
-                if (viewModel.Id == Guid.Empty)
+                if (isNew)
                 {
                     userContentDomainService.Add(model);
                     viewModel.Id = model.Id;
 
+                    PlatformAction action = viewModel.IsComplex ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
+                    pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, action);
 
                     if (viewModel.Poll != null && viewModel.Poll.PollOptions != null && viewModel.Poll.PollOptions.Any())
                     {
                         CreatePoll(viewModel);
+
+                        pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.PollPost);
                     }
                 }
                 else
@@ -186,7 +190,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id, pointsEarned);
             }
             catch (Exception ex)
             {

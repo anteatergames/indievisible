@@ -55,7 +55,7 @@
     function showMessage() {
         var msg = objs.spanMessage.text();
         if (msg !== undefined && msg.length > 0) {
-            ALERTSYSTEM.Toastr.ShowWarning("Attention!", msg);
+            ALERTSYSTEM.Toastr.ShowWarning(msg);
         }
     }
 
@@ -65,7 +65,7 @@
 
             var msg = translatedMessages['msgNotImplementedYet'];
 
-            ALERTSYSTEM.Toastr.ShowWarning('KEEP CALM AND READ THIS', msg);
+            ALERTSYSTEM.Toastr.ShowWarning( msg);
 
             return false;
         });
@@ -78,7 +78,7 @@
 
             var msg = translatedMessages[msgId];
 
-            ALERTSYSTEM.Toastr.ShowWarning('KEEP CALM AND READ THIS', msg);
+            ALERTSYSTEM.Toastr.ShowWarning(msg);
 
             return false;
         });
@@ -93,8 +93,20 @@
         $.get("/home/notifications", function (data) { objs.notificationsMenu.html(data); });
     }
 
+    function handlePointsEarned(response) {
+        if (response.pointsEarned > 0) {
+            var msg = translatedMessages['mgsPointsEarned'];
+            msg = msg.replace('0', response.pointsEarned);
+
+            ALERTSYSTEM.Toastr.PointsEarned(msg);
+        }
+    }
+
     return {
         Init: init,
+        Common: {
+            HandlePointsEarned: handlePointsEarned
+        },
         Default: {
             Spinner: spinner,
             Spinner2: spinner2
