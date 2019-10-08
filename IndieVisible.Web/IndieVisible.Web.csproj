@@ -82,10 +82,10 @@
     <Content Update="Views\Brainstorm\_CreateEditSession.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Home\About.ru.cshtml">
+    <Content Update="Views\Help\About.ru.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Home\About.pt.cshtml">
+    <Content Update="Views\Help\About.pt.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Home\Terms.cshtml">

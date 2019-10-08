@@ -121,5 +121,18 @@
       "wwwroot/css/teamup.css",
       "wwwroot/lib/select2/css/select2.min.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/articles.min.css",
+    "inputFiles": [
+      "wwwroot/css/articles.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/home/articles.min.js",
+    "inputFiles": [
+      "wwwroot/js/home/articles.js",
+      "wwwroot/js/shared/activityfeed.js"
+    ]
   }
 ]

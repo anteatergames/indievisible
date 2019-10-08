@@ -26,9 +26,14 @@ namespace IndieVisible.Domain.Services
             return count;
         }
 
-        public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate)
+        public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
             var allModels = this.repository.GetAll();
+
+            if (articlesOnly.HasValue && articlesOnly.Value)
+            {
+                allModels = allModels.Where(x => !string.IsNullOrWhiteSpace(x.Title) && !string.IsNullOrWhiteSpace(x.Introduction) && !string.IsNullOrWhiteSpace(x.FeaturedImage) && x.Content.Length > 50);
+            }
 
             if (userId.HasValue && userId != Guid.Empty)
             {

@@ -1,7 +1,8 @@
 ﻿var FEEDTYPE = {
     HOME: 1,
     USER: 2,
-    GAME: 3
+    GAME: 3,
+    ARTICLES: 4
 };
 
 var ACTIVITYFEED = (function () {
@@ -89,6 +90,9 @@ var ACTIVITYFEED = (function () {
         if (feedId && feedType === FEEDTYPE.GAME) {
             url += '&gameId=' + feedId;
         }
+        if (feedType === FEEDTYPE.ARTICLES) {
+            url += '&articlesOnly=True';
+        }
 
         if (oldestGuid) {
             url += '&oldestId=' + oldestGuid;
@@ -108,11 +112,45 @@ var ACTIVITYFEED = (function () {
                 selectors.divActivityFeed.html(response);
             }
 
+            loadOembeds();
+
 
             if (callback) {
                 callback();
             }
         });
+    }
+
+    function loadOembeds() {
+        if (typeof Embedo === 'function') {
+            var embedo = new Embedo({
+                youtube: true,
+                facebook: {
+                    appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK
+                    version: 'v3.2',
+                    width: "100%"
+                }
+            });
+
+            var oembeds = $('oembed');
+
+            oembeds.each(function (index, element) {
+                $(element).find('embed').hide();
+
+                var w = $(element).closest('.videoWrapper').width();
+                var h = w * 9 / 16;
+
+                embedo.load(element, element.innerHTML, {
+                    width: w,
+                    height: h,
+                    centerize: true,
+                    strict: false
+                })
+                    .done(function (xpto) {
+                        //$(element).find('embed').addClass('embed-responsive').show();
+                    });
+            });
+        }
     }
 
     return {

@@ -3,6 +3,7 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Game;
+using IndieVisible.Application.ViewModels.Home;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
@@ -180,8 +181,7 @@ namespace IndieVisible.Web.Controllers
             return Json(result);
         }
 
-        [HttpPost]
-        [Route("content/post")]
+        [HttpPost("content/post")]
         public IActionResult SimplePost(string text, string images, IEnumerable<PollOptionViewModel> pollOptions, SupportedLanguage? language)
         {
 
@@ -206,9 +206,9 @@ namespace IndieVisible.Web.Controllers
             return Json(result);
         }
 
-        public IActionResult Feed(Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate)
+        public IActionResult Feed(Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
-            var component = ViewComponent("Feed", new { count = 10, gameId, userId, oldestId, oldestDate });
+            var component = ViewComponent("Feed", new { count = 10, gameId, userId, oldestId, oldestDate, articlesOnly });
 
             return component;
         }

@@ -31,13 +31,13 @@ namespace IndieVisible.Web.ViewComponents
             _userPreferencesAppService = userPreferencesAppService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int count, Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate)
+        public async Task<IViewComponentResult> InvokeAsync(int count, Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
             UserPreferencesViewModel preferences = _userPreferencesAppService.GetByUserId(CurrentUserId);
 
             List<SupportedLanguage> languages = preferences.Languages;
 
-            List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(CurrentUserId, count, gameId, userId, languages, oldestId, oldestDate).ToList();
+            List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(CurrentUserId, count, gameId, userId, languages, oldestId, oldestDate, articlesOnly).ToList();
 
             ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
             bool userIsAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());

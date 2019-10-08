@@ -29,7 +29,7 @@
 
         ACTIVITYFEED.Init(selectors.divActivityFeed, FEEDTYPE.HOME);
 
-        ACTIVITYFEED.Methods.LoadActivityFeed(loadOembeds);
+        ACTIVITYFEED.Methods.LoadActivityFeed();
     }
 
     function cacheSelectors() {
@@ -320,7 +320,7 @@
         if (response.success === true) {
             txtArea.val('');
             CONTENTACTIONS.AutosizeTextArea(txtArea[0]);
-            ACTIVITYFEED.Methods.LoadActivityFeed(null, null, loadOembeds);
+            ACTIVITYFEED.Methods.LoadActivityFeed();
             if (postImagesDropZone) {
                 postImagesDropZone.disable();
             }
@@ -341,36 +341,6 @@
         selectors.divLatestGames.html(MAINMODULE.Default.Spinner);
 
         $.get("/game/latest", function (data) { selectors.divLatestGames.html(data); });
-    }
-
-    function loadOembeds() {
-        var embedo = new Embedo({
-            youtube: true,
-            facebook: {
-                appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK
-                version: 'v3.2',
-                width: "100%"
-            }
-        });
-
-        var oembeds = $('oembed');
-
-        oembeds.each(function (index, element) {
-            $(element).find('embed').hide();
-
-            var w = $(element).closest('.videoWrapper').width();
-            var h = w * 9 / 16;
-
-            embedo.load(element, element.innerHTML, {
-                width: w,
-                height: h,
-                centerize: true,
-                strict: false
-            })
-                .done(function (xpto) {
-                    //$(element).find('embed').addClass('embed-responsive').show();
-                });
-        });
     }
 
 

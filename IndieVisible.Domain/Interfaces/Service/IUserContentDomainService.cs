@@ -11,7 +11,7 @@ namespace IndieVisible.Domain.Interfaces.Service
     {
         int CountComments(Expression<Func<UserContentComment, bool>> where);
         IEnumerable<UserContentComment> GetAllComments(Expression<Func<UserContentComment, bool>> where);
-        IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate);
+        IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly);
         IQueryable<UserContentComment> GetComments(Expression<Func<UserContentComment, bool>> where);
     }
 }

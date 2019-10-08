@@ -15,6 +15,7 @@ using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
 namespace IndieVisible.Application.Services
@@ -243,14 +244,14 @@ namespace IndieVisible.Application.Services
 
         public int CountArticles()
         {
-            int count = userContentDomainService.Count(x => !string.IsNullOrWhiteSpace(x.Title) && !string.IsNullOrWhiteSpace(x.Introduction));
+            int count = userContentDomainService.Count(x => !string.IsNullOrWhiteSpace(x.Title) && !string.IsNullOrWhiteSpace(x.Introduction) && !string.IsNullOrWhiteSpace(x.FeaturedImage) && x.Content.Length > 50);
 
             return count;
         }
 
-        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate)
+        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
-            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(gameId, userId, languages, oldestId, oldestDate);
+            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(gameId, userId, languages, oldestId, oldestDate, articlesOnly);
 
             IOrderedQueryable<UserContent> orderedList = allModels
                 .OrderByDescending(x => x.CreateDate);

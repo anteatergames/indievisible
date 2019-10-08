@@ -3,7 +3,7 @@
 
     var postModel = ViewBag.PostFromHome as PostFromHomeViewModel;
     
-    var whatIsThisViewModel = new HomeSquareViewModel("home", "about", "bg-purple", "fas fa-3x fa-question", "What is this");
+    var whatIsThisViewModel = new HomeSquareViewModel("help", "about", "bg-purple", "fas fa-3x fa-question", "What is this");
     var roadMapViewModel = new HomeSquareViewModel("home", "timeline", "bg-primary", "far fa-3x fa-calendar", "Roadmap");
 }
 
@@ -11,7 +11,7 @@
 
 <div class="col-xl-2 d-none d-lg-block">
     <div class="row">
-        <div class="col-12 d-none d-xl-block">
+        <div class="col-12">
             <partial name="_HomeSquare" model="whatIsThisViewModel" />
         </div>
         <div class="col-12">
