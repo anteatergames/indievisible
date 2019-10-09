@@ -44,6 +44,14 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/js/game/gameedit.min.js",
+    "inputFiles": [
+      "wwwroot/lib/select2/js/select2.full.min.js",
+      "wwwroot/lib/cropperjs/cropper.js",
+      "wwwroot/js/game/gameedit.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/css/contentdetails.min.css",
     "inputFiles": [
       "wwwroot/css/polls.css"
