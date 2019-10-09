@@ -97,22 +97,33 @@
 
                     <div class="tab-pane pad p-0" id="tabtechnical" role="tabpanel" aria-expanded="false">
                         <div class="pad">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label asp-for="Engine"></label>
-                                    <select asp-for="Engine" asp-items="Html.GetEnumSelectList<GameEngine>()" class="form-control">
-                                        <option selected="selected" value="">@SharedLocalizer["Select"]</option>
-                                    </select>
-                                    <span asp-validation-for="Engine" class="text-danger"></span>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Engine"></label>
+                                        <select asp-for="Engine" asp-items="Html.GetEnumSelectList<GameEngine>()" class="form-control">
+                                            <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                                        </select>
+                                        <span asp-validation-for="Engine" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-none" id="divCustomEngineName">
+                                    <div class="form-group">
+                                        <label asp-for="CustomEngineName"></label>
+                                        <input asp-for="CustomEngineName" type="text" class="form-control">
+                                        <span asp-validation-for="CustomEngineName" class="text-danger"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label asp-for="Language"></label>
-                                    <select asp-for="Language" asp-items="Html.GetEnumSelectList<CodeLanguage>()" class="form-control">
-                                        <option selected="selected" value="">Select</option>
-                                    </select>
-                                    <span asp-validation-for="Language" class="text-danger"></span>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="Language"></label>
+                                        <select asp-for="Language" asp-items="Html.GetEnumSelectList<CodeLanguage>()" class="form-control">
+                                            <option selected="selected" value="">Select</option>
+                                        </select>
+                                        <span asp-validation-for="Language" class="text-danger"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

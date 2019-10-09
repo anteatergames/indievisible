@@ -2,7 +2,7 @@
 {
     public enum GameStatus
     {
-        Planed,
+        Planned,
         Concept,
         Released,
         Alpha,

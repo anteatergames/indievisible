@@ -27,6 +27,8 @@ namespace IndieVisible.Domain.Models
 
         public GameEngine Engine { get; set; }
 
+        public string CustomEngineName { get; set; }
+
         public CodeLanguage Language { get; set; }
 
         public string WebsiteUrl { get; set; }

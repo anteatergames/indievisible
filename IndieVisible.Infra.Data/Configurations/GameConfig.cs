@@ -18,6 +18,10 @@ namespace IndieVisible.Infra.Data.Mappings
                 .HasColumnType("nvarchar(128)")
                 .HasMaxLength(128)
                 .IsRequired();
+
+            builder.Property(x => x.CustomEngineName)
+                .HasColumnType("nvarchar(30)")
+                .HasMaxLength(30);
         }
     }
 }

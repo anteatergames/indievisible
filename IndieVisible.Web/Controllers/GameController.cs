@@ -68,10 +68,13 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Add()
         {
-            GameViewModel vm = new GameViewModel();
-            vm.UserId = CurrentUserId;
-            vm.CoverImageUrl = Constants.DefaultGameCoverImage;
-            vm.ThumbnailUrl = Constants.DefaultGameThumbnail;
+            GameViewModel vm = new GameViewModel
+            {
+                Engine = GameEngine.Unity,
+                UserId = CurrentUserId,
+                CoverImageUrl = Constants.DefaultGameCoverImage,
+                ThumbnailUrl = Constants.DefaultGameThumbnail
+            };
 
             return View("CreateEdit", vm);
         }

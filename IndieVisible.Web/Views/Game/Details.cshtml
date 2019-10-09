@@ -110,7 +110,14 @@
                                         <p>
                                             @SharedLocalizer["Engine"]
                                         </p>
-                                        <h6 class="margin-bottom">@Model.Engine</h6>
+                                        @if (Model.Engine == GameEngine.Custom)
+                                        {
+                                            <h6 class="margin-bottom">@Model.Engine @(String.IsNullOrWhiteSpace(Model.CustomEngineName) ? String.Empty : String.Format("({0})", Model.CustomEngineName))</h6>
+                                        }
+                                        else
+                                        {
+                                            <h6 class="margin-bottom">@Model.Engine</h6>
+                                        }
                                         <p>
                                             @SharedLocalizer["Main Language"]
                                         </p>

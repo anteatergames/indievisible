@@ -31,6 +31,10 @@ namespace IndieVisible.Application.ViewModels.Game
         [Display(Name = "Engine")]
         public GameEngine Engine { get; set; }
 
+        [Display(Name = "Custom Engine Name")]
+        [MaxLength(30, ErrorMessage = "Must have maximum 30 characters")]
+        public string CustomEngineName{ get; set; }
+
         [Display(Name = "Main Language")]
         public CodeLanguage Language { get; set; }
 

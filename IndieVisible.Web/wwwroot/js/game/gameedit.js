@@ -2,6 +2,7 @@
     "use strict";
 
     var selectors = {};
+    var objs = {};
 
     var cropperGameThumbnail;
     var canvasGameThumbnail;
@@ -15,6 +16,7 @@
 
     function init() {
         cacheSelectors();
+        cacheObjects();
 
         bindAll();
     }
@@ -26,6 +28,15 @@
         selectors.modalCropGameCoverImage = $('#modalCropGameCoverImage');
         selectors.gameThumbnail = $("#ThumbnailUrl");
         selectors.gameCoverImage = $("#CoverImageUrl");
+        selectors.ddlEngine = '#Engine';
+        selectors.divCustomEngineName = '#divCustomEngineName';
+        selectors.txtCustomEngineName = '#CustomEngineName';
+    }
+
+    function cacheObjects() {
+        objs.ddlEngine = $(selectors.ddlEngine);
+        objs.divCustomEngineName = $(selectors.divCustomEngineName);
+        objs.txtCustomEngineName = $(selectors.txtCustomEngineName);
     }
 
     function bindAll() {
@@ -34,10 +45,30 @@
 
         bindCropGameThumbnail();
         bindCropGameCoverImage();
+        bindEngineChange();
     }
 
     function bindSelect2() {
         $('.select2').select2();
+    }
+
+    function bindEngineChange() {
+        selectors.form.on('change', selectors.ddlEngine, function (e) {
+            var selectedEngine = $(this).val();
+
+            var isAlreadyVisible = objs.divCustomEngineName.is(':visible');
+
+            if (selectedEngine !== '0') {
+                objs.txtCustomEngineName.val('');
+
+                if (isAlreadyVisible) {
+                    objs.divCustomEngineName.hide().addClass('d-none');
+                }
+            }
+            else {
+                objs.divCustomEngineName.show().removeClass('d-none');
+            }
+        });
     }
 
     function bindCropGameThumbnail() {
@@ -318,7 +349,7 @@ $.validator.setDefaults({
         var tabPane = $(element).closest('.tab-pane');
         var tabs = tabPane.parent().parent();
         var tabPaneId = tabPane.prop('id');
-        var tabPending = tabs.find('.nav-link[href$=' + tabPaneId + ']');   
+        var tabPending = tabs.find('.nav-link[href$=' + tabPaneId + ']');
 
         tabPending.addClass('has-error');
 
@@ -336,14 +367,14 @@ $.validator.setDefaults({
         var tabs = tabPane.parent().parent();
         var tabPaneId = tabPane.prop('id');
         var tabPending = tabs.find('.nav-link[href$=' + tabPaneId + ']');
-        
+
         var countError = $(element).closest('.tab-pane').find('.has-error').length;
         if (countError === 0) {
             tabPending.removeClass('has-error');
         }
 
         $(element).closest('.form-group').removeClass('has-error');
-        $(element).removeClass(errorClass).addClass(validClass);        
+        $(element).removeClass(errorClass).addClass(validClass);
         $(element.form).find("label[for=" + element.id + "]").removeClass(errorClass);
     }
 });
