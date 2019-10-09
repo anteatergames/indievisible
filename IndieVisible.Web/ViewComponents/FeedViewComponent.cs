@@ -44,7 +44,16 @@ namespace IndieVisible.Web.ViewComponents
 
             foreach (UserContentListItemViewModel item in model)
             {
-                item.Content = ContentHelper.FormatContentToShow(item.Content);
+                if (item.UserContentType == UserContentType.TeamCreationPost)
+                {
+                    item.Url = item.Content;
+                    var newContent = ContentHelper.FormatUrlContentToShow(item.Content, item.UserContentType);
+                    item.Content = SharedLocalizer[newContent];
+                }
+                else
+                {
+                    item.Content = ContentHelper.FormatContentToShow(item.Content);
+                }
 
                 item.Permissions.CanEdit = !item.HasPoll && (item.UserId == CurrentUserId || userIsAdmin);
 

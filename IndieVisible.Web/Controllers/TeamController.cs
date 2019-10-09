@@ -1,8 +1,10 @@
 ﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,12 +18,15 @@ namespace IndieVisible.Web.Controllers
     {
         private readonly ITeamAppService teamAppService;
         private readonly INotificationAppService notificationAppService;
+        private readonly IUserContentAppService userContentAppService;
 
         public TeamController(ITeamAppService teamAppService
-            , INotificationAppService notificationAppService)
+            , INotificationAppService notificationAppService
+            , IUserContentAppService userContentAppService)
         {
             this.teamAppService = teamAppService;
             this.notificationAppService = notificationAppService;
+            this.userContentAppService = userContentAppService;
         }
 
         public IActionResult Index()
@@ -108,18 +113,35 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-
                 vm.UserId = CurrentUserId;
 
                 IEnumerable<Guid> oldMembers = vm.Members.Where(x => x.Id != Guid.Empty).Select(x => x.Id);
 
-                teamAppService.Save(this.CurrentUserId, vm);
+                var saveResult = teamAppService.Save(this.CurrentUserId, vm);
 
-                Notify(vm, oldMembers);
+                if (saveResult.Success)
+                {
+                    string url = Url.Action("Index", "Team", new { area = string.Empty, id = vm.Id.ToString() });
 
-                string url = Url.Action("Index", "Team", new { area = string.Empty, id = vm.Id.ToString() });
+                    Notify(vm, oldMembers);
 
-                return Json(new OperationResultRedirectVo(url));
+                    var newContent = new UserContentViewModel
+                    {
+                        AuthorName = GetSessionValue(SessionValues.FullName),
+                        UserId = this.CurrentUserId,
+                        UserContentType = UserContentType.TeamCreationPost,
+                        Content = url
+                        
+                    };
+
+                    userContentAppService.Save(this.CurrentUserId, newContent);
+
+                    return Json(new OperationResultRedirectVo(url));
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
             }
             catch (Exception ex)
             {

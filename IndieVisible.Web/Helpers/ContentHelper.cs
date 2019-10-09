@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndieVisible.Domain.Core.Enums;
+using System;
 using System.Text.RegularExpressions;
 
 namespace IndieVisible.Web.Helpers
@@ -64,6 +65,17 @@ namespace IndieVisible.Web.Helpers
             }
 
             return content;
+        }
+
+        internal static string FormatUrlContentToShow(string content, UserContentType type)
+        {
+            switch (type)
+            {
+                case UserContentType.TeamCreationPost:
+                    return "A new team has been created!";
+                default:
+                    return "Check this out!";
+            }
         }
     }
 }

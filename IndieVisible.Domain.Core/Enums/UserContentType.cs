@@ -3,6 +3,7 @@
     public enum UserContentType
     {
         Post = 1,
-        VotingItem = 2
+        VotingItem = 2,
+        TeamCreationPost = 3
     }
 }

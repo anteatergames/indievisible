@@ -34,5 +34,6 @@ namespace IndieVisible.Application.ViewModels.Content
         public bool HasPoll { get { return this.Poll != null && this.Poll.PollOptions.Any(); } }
 
         public PollViewModel Poll { get; set; }
+        public string Url { get; set; }
     }
 }
