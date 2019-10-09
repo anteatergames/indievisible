@@ -271,6 +271,9 @@
     <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
 }
 @section Scripts {
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
     <environment include="Development">
         <script src="~/lib/select2/js/select2.full.min.js"></script>
         <script src="~/lib/cropperjs/cropper.js"></script>
@@ -279,6 +282,4 @@
     <environment exclude="Development">
         <script src="~/js/game/gameedit.min.js" asp-append-version="true"></script>
     </environment>
-
-    @await Html.PartialAsync("_ValidationScriptsPartial")
 }
