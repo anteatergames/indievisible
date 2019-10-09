@@ -19,6 +19,8 @@ namespace IndieVisible.Domain.Core.Enums
         [UiInfo(Class = "apple")]
         Ios,
         [UiInfo(Class = "steam")]
-        Steam
+        Steam,
+        [UiInfo(Class = "html5")]
+        Html5
     }
 }
