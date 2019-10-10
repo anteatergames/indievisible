@@ -48,9 +48,9 @@ namespace IndieVisible.Application.ViewModels.Game
         {
             List<string> platformList = new List<string>();
 
-            if (!string.IsNullOrWhiteSpace(this.Platforms))
+            if (!string.IsNullOrWhiteSpace(Platforms))
             {
-                string[] values = this.Platforms.Split('|');
+                string[] values = Platforms.Split('|');
 
                 values.Where(x => !string.IsNullOrWhiteSpace(x)).ToList().ForEach(x =>
                 {

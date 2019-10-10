@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using IndieVisible.Domain.Interfaces.Repository;
+﻿using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
@@ -20,7 +20,7 @@ namespace IndieVisible.Infra.Data.Repository
 
         public override Team GetById(Guid id)
         {
-            var obj = DbSet.Include(x => x.Members).FirstOrDefault(x => x.Id == id);
+            Team obj = DbSet.Include(x => x.Members).FirstOrDefault(x => x.Id == id);
 
             return obj;
         }

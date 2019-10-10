@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using IndieVisible.Application.AutoMapper.MappingActions;
+﻿using IndieVisible.Application.AutoMapper.MappingActions;
 using IndieVisible.Application.AutoMapper.Resolvers;
 using IndieVisible.Application.ViewModels.Brainstorm;
 using IndieVisible.Application.ViewModels.Content;
@@ -10,9 +9,6 @@ using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Profile = AutoMapper.Profile;
 
 namespace IndieVisible.Application.AutoMapper

@@ -7,7 +7,6 @@ using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
-using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -59,7 +58,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var allModels = profileDomainService.GetAll();
+                IEnumerable<UserProfile> allModels = profileDomainService.GetAll();
 
                 IEnumerable<ProfileViewModel> vms = mapper.Map<IEnumerable<UserProfile>, IEnumerable<ProfileViewModel>>(allModels);
 
@@ -182,17 +181,17 @@ namespace IndieVisible.Application.Services
             vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 
 
-            vm.Counters.Followers = this.profileDomainService.CountFollow(x => x.FollowUserId == vm.UserId);
-            vm.Counters.Following = this.profileDomainService.CountFollow(x => x.UserId == currentUserId);
-            int connectionsToUser = this.userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
-            int connectionsFromUser = this.userConnectionDomainService.Count(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
+            vm.Counters.Followers = profileDomainService.CountFollow(x => x.FollowUserId == vm.UserId);
+            vm.Counters.Following = profileDomainService.CountFollow(x => x.UserId == currentUserId);
+            int connectionsToUser = userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
+            int connectionsFromUser = userConnectionDomainService.Count(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
 
             vm.Counters.Connections = connectionsToUser + connectionsFromUser;
 
-            vm.CurrentUserFollowing = this.profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
-            vm.ConnectionControl.CurrentUserConnected = this.userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
-            vm.ConnectionControl.CurrentUserWantsToFollowMe = this.userConnectionDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
-            vm.ConnectionControl.ConnectionIsPending = this.userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, false, true);
+            vm.CurrentUserFollowing = profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
+            vm.ConnectionControl.CurrentUserConnected = userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
+            vm.ConnectionControl.CurrentUserWantsToFollowMe = userConnectionDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
+            vm.ConnectionControl.ConnectionIsPending = userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, false, true);
 
             return vm;
         }
@@ -226,9 +225,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var results = profileDomainService.Search(x => x.Name.ToLower().Contains(term.ToLower()));
+                IQueryable<UserProfile> results = profileDomainService.Search(x => x.Name.ToLower().Contains(term.ToLower()));
 
-                var vms = results.ProjectTo<ProfileSearchViewModel>(mapper.ConfigurationProvider);
+                IQueryable<ProfileSearchViewModel> vms = results.ProjectTo<ProfileSearchViewModel>(mapper.ConfigurationProvider);
 
                 return new OperationResultListVo<ProfileSearchViewModel>(vms);
             }

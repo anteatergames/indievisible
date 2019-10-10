@@ -328,7 +328,7 @@ namespace IndieVisible.Web.Controllers
                 var json = new
                 {
                     uploaded = true,
-                    url = UrlFormatter.Image(this.CurrentUserId, BlobType.ContentImage, imageUrl)
+                    url = UrlFormatter.Image(CurrentUserId, BlobType.ContentImage, imageUrl)
                 };
 
                 return Json(json);

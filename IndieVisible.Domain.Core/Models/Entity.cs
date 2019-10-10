@@ -16,7 +16,7 @@ namespace IndieVisible.Domain.Core.Models
 
         public override bool Equals(object obj)
         {
-            var compareTo = obj as Entity;
+            Entity compareTo = obj as Entity;
 
             if (ReferenceEquals(this, compareTo)) return true;
             if (ReferenceEquals(null, compareTo)) return false;

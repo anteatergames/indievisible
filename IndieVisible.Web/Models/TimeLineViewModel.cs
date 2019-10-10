@@ -32,7 +32,7 @@ namespace IndieVisible.Web.Models
 
         public List<String> Items { get; set; }
 
-        public bool Future { get { return this.Date > DateTime.Today; } }
+        public bool Future { get { return Date > DateTime.Today; } }
 
         public TimeLineItemViewModel()
         {

@@ -3,7 +3,6 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Game;
-using IndieVisible.Application.ViewModels.Home;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
@@ -45,7 +44,7 @@ namespace IndieVisible.Web.Controllers
         [Route("content/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
-            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(this.CurrentUserId, id);
+            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(CurrentUserId, id);
 
             if (!serviceResult.Success)
             {
@@ -57,11 +56,11 @@ namespace IndieVisible.Web.Controllers
 
             vm.Content = ContentHelper.FormatContentToShow(vm.Content);
 
-            this.SetAuthorDetails(vm);
+            SetAuthorDetails(vm);
 
             if (vm.GameId.HasValue && vm.GameId.Value != Guid.Empty)
             {
-                OperationResultVo<Application.ViewModels.Game.GameViewModel> gameServiceResult = gameAppService.GetById(this.CurrentUserId, vm.GameId.Value);
+                OperationResultVo<Application.ViewModels.Game.GameViewModel> gameServiceResult = gameAppService.GetById(CurrentUserId, vm.GameId.Value);
 
                 Application.ViewModels.Game.GameViewModel game = gameServiceResult.Value;
 
@@ -91,7 +90,7 @@ namespace IndieVisible.Web.Controllers
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
             vm.Permissions.CanDelete = vm.UserId == CurrentUserId || userIsAdmin;
 
-            this.notificationAppService.MarkAsRead(notificationclicked);
+            notificationAppService.MarkAsRead(notificationclicked);
 
             return View(vm);
         }
@@ -99,7 +98,7 @@ namespace IndieVisible.Web.Controllers
         [Route("content/edit/{id:guid}")]
         public IActionResult Edit(Guid id)
         {
-            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(this.CurrentUserId, id);
+            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(CurrentUserId, id);
 
             UserContentViewModel vm = serviceResult.Value;
 
@@ -140,9 +139,9 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                ProfileViewModel profile = this.SetAuthorDetails(vm);
+                ProfileViewModel profile = SetAuthorDetails(vm);
 
-                OperationResultVo<Guid> result = service.Save(this.CurrentUserId, vm);
+                OperationResultVo<Guid> result = service.Save(CurrentUserId, vm);
 
                 if (!result.Success)
                 {
@@ -150,7 +149,7 @@ namespace IndieVisible.Web.Controllers
                 }
                 else
                 {
-                    this.NotifyFollowers(this.CurrentUserId, profile, vm.GameId, vm.Id);
+                    NotifyFollowers(CurrentUserId, profile, vm.GameId, vm.Id);
 
                     string url = Url.Action("Index", "Home", new { area = string.Empty, id = vm.Id });
 
@@ -167,7 +166,7 @@ namespace IndieVisible.Web.Controllers
         [HttpDelete("/content/{id:guid}")]
         public IActionResult Delete(Guid id)
         {
-            OperationResultVo result = service.Remove(this.CurrentUserId, id);
+            OperationResultVo result = service.Remove(CurrentUserId, id);
 
             if (result.Success)
             {
@@ -195,20 +194,20 @@ namespace IndieVisible.Web.Controllers
                 }
             };
 
-            ProfileViewModel profile = this.SetAuthorDetails(vm);
+            ProfileViewModel profile = SetAuthorDetails(vm);
 
-            this.SetContentImages(vm, images);
+            SetContentImages(vm, images);
 
-            OperationResultVo<Guid> result = service.Save(this.CurrentUserId, vm);
+            OperationResultVo<Guid> result = service.Save(CurrentUserId, vm);
 
-            this.NotifyFollowers(this.CurrentUserId, profile, vm.GameId, vm.Id);
+            NotifyFollowers(CurrentUserId, profile, vm.GameId, vm.Id);
 
             return Json(result);
         }
 
         public IActionResult Feed(Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
-            var component = ViewComponent("Feed", new { count = 10, gameId, userId, oldestId, oldestDate, articlesOnly });
+            ViewComponentResult component = ViewComponent("Feed", new { count = 10, gameId, userId, oldestId, oldestDate, articlesOnly });
 
             return component;
         }
@@ -248,7 +247,7 @@ namespace IndieVisible.Web.Controllers
 
             Guid targetId = Guid.Empty;
 
-            OperationResultListVo<UserFollowViewModel> userFollowers = this.userFollowAppService.GetByFollowedId(userId);
+            OperationResultListVo<UserFollowViewModel> userFollowers = userFollowAppService.GetByFollowedId(userId);
 
             if (userFollowers.Success)
             {
@@ -267,9 +266,9 @@ namespace IndieVisible.Web.Controllers
         {
             if (gameId.HasValue)
             {
-                OperationResultListVo<GameFollowViewModel> gameFollowResult = this.gameFollowAppService.GetByGameId(gameId.Value);
+                OperationResultListVo<GameFollowViewModel> gameFollowResult = gameFollowAppService.GetByGameId(gameId.Value);
 
-                OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(this.CurrentUserId, gameId.Value);
+                OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, gameId.Value);
 
                 if (gameResult.Success)
                 {
@@ -302,13 +301,13 @@ namespace IndieVisible.Web.Controllers
                 switch (follower.Value)
                 {
                     case FollowType.Content:
-                        this.notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
+                        notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
                         break;
                     case FollowType.Game:
-                        this.notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, gameName), notificationUrl);
+                        notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, gameName), notificationUrl);
                         break;
                     default:
-                        this.notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
+                        notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
                         break;
                 }
             }

@@ -19,7 +19,7 @@ namespace IndieVisible.Application.ViewModels.Poll
 
         public PollViewModel()
         {
-            this.PollOptions = new List<PollOptionViewModel>();
+            PollOptions = new List<PollOptionViewModel>();
         }
     }
 }

@@ -189,7 +189,7 @@ namespace IndieVisible.Application.Services
             try
             {
                 BrainstormIdea model = brainstormIdeaRepository.GetById(id);
-                var session = brainstormSessionRepository.GetById(model.SessionId);
+                BrainstormSession session = brainstormSessionRepository.GetById(model.SessionId);
 
                 BrainstormIdeaViewModel vm = mapper.Map<BrainstormIdeaViewModel>(model);
 
@@ -439,7 +439,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var idea = brainstormIdeaRepository.GetById(ideaId);
+                BrainstormIdea idea = brainstormIdeaRepository.GetById(ideaId);
 
                 if (idea == null)
                 {

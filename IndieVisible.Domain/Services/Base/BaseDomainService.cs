@@ -19,68 +19,68 @@ namespace IndieVisible.Domain.Services
 
         public Guid Add(T model)
         {
-            this.repository.Add(model);
+            repository.Add(model);
 
             return model.Id;
         }
 
         public int Count()
         {
-            int count = this.repository.Count(x => true);
+            int count = repository.Count(x => true);
 
             return count;
         }
 
         public int Count(Expression<Func<T, bool>> where)
         {
-            var count = this.repository.Count(where);
+            int count = repository.Count(where);
 
             return count;
         }
 
         public IEnumerable<T> Search(Expression<Func<T, bool>> where)
         {
-            var objs = this.repository.Get(where);
+            IQueryable<T> objs = repository.Get(where);
 
             return objs.ToList();
         }
 
         public virtual IEnumerable<T> GetAll()
         {
-            var objs = this.repository.GetAll();
+            IQueryable<T> objs = repository.GetAll();
 
             return objs.ToList();
         }
 
         public T GetById(Guid id)
         {
-            var obj = this.repository.GetById(id);
+            T obj = repository.GetById(id);
 
             return obj;
         }
 
         public IEnumerable<T> GetByUserId(Guid userId)
         {
-            var obj = this.repository.Get(x => x.UserId == userId);
+            IQueryable<T> obj = repository.Get(x => x.UserId == userId);
 
             return obj.ToList();
         }
 
         public void Remove(Guid id)
         {
-            this.repository.Remove(id);
+            repository.Remove(id);
         }
 
         public Guid Update(T model)
         {
-            this.repository.Update(model);
+            repository.Update(model);
 
             return model.Id;
         }
 
         IQueryable<T> IDomainService<T>.Search(Expression<Func<T, bool>> where)
         {
-            return this.repository.Get(where);
+            return repository.Get(where);
         }
     }
 }

@@ -15,6 +15,6 @@ namespace IndieVisible.Domain.Specifications.Follow
 
         public string ErrorMessage => "Can't follow the same user!";
 
-        public bool IsSatisfiedBy(UserFollow item) => item.Id != this.currentUserId;
+        public bool IsSatisfiedBy(UserFollow item) => item.Id != currentUserId;
     }
 }

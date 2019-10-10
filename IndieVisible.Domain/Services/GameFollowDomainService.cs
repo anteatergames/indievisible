@@ -20,21 +20,21 @@ namespace IndieVisible.Domain.Services
 
         public int Count()
         {
-            int count = this.gameFollowRepository.Count(x => true);
+            int count = gameFollowRepository.Count(x => true);
 
             return count;
         }
 
         public IEnumerable<GameFollow> GetAll()
         {
-            System.Linq.IQueryable<GameFollow> model = this.gameFollowRepository.GetAll();
+            IQueryable<GameFollow> model = gameFollowRepository.GetAll();
 
             return model;
         }
 
         public GameFollow GetById(Guid id)
         {
-            GameFollow model = this.gameFollowRepository.GetById(id);
+            GameFollow model = gameFollowRepository.GetById(id);
 
             return model;
         }
@@ -46,33 +46,33 @@ namespace IndieVisible.Domain.Services
 
         public void Remove(Guid id)
         {
-            this.gameFollowRepository.Remove(id);
+            gameFollowRepository.Remove(id);
         }
 
         public Guid Add(GameFollow model)
         {
-            this.gameFollowRepository.Add(model);
+            gameFollowRepository.Add(model);
 
             return model.Id;
         }
 
         public Guid Update(GameFollow model)
         {
-            this.gameFollowRepository.Update(model);
+            gameFollowRepository.Update(model);
 
             return model.Id;
         }
 
         public int Count(Expression<Func<GameFollow, bool>> where)
         {
-            var count = this.gameFollowRepository.Count(where);
+            int count = gameFollowRepository.Count(where);
 
             return count;
         }
 
         public IEnumerable<GameFollow> GetByGameId(Guid gameId)
         {
-            var followers = this.gameFollowRepository.Get(x => x.GameId == gameId);
+            IQueryable<GameFollow> followers = gameFollowRepository.Get(x => x.GameId == gameId);
 
             return followers.ToList();
         }

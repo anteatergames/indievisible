@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Home;
-using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
@@ -34,7 +33,7 @@ namespace IndieVisible.Web.Controllers
             CarouselViewModel featured = featuredContentAppService.GetFeaturedNow();
             ViewBag.Carousel = featured;
 
-            this.SetLanguage();
+            SetLanguage();
 
             Dictionary<string, string> genreDict = SetGenreTags();
 
@@ -89,7 +88,7 @@ namespace IndieVisible.Web.Controllers
 
             RequestCulture requestLanguage = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture;
 
-            string lang = this.GetCookieValue(SessionValues.DefaultLanguage);
+            string lang = GetCookieValue(SessionValues.DefaultLanguage);
             if (lang != null)
             {
                 SupportedLanguage langEnum = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), lang);
@@ -103,11 +102,11 @@ namespace IndieVisible.Web.Controllers
                 }
                 else
                 {
-                    UserPreferencesViewModel userPrefs = this.userPreferencesAppService.GetByUserId(this.CurrentUserId);
+                    UserPreferencesViewModel userPrefs = userPreferencesAppService.GetByUserId(CurrentUserId);
 
                     if (userPrefs != null)
                     {
-                        this.SetLanguage(userPrefs.UiLanguage);
+                        SetLanguage(userPrefs.UiLanguage);
                         postModel.DefaultLanguage = userPrefs.UiLanguage;
 
                     }
@@ -118,7 +117,7 @@ namespace IndieVisible.Web.Controllers
                 }
             }
 
-            this.SetCookieValue(SessionValues.DefaultLanguage, postModel.DefaultLanguage.ToString(), 7);
+            SetCookieValue(SessionValues.DefaultLanguage, postModel.DefaultLanguage.ToString(), 7);
 
             ViewBag.PostFromHome = postModel;
         }

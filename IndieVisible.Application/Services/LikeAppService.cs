@@ -126,7 +126,7 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        } 
+        }
         #endregion
 
         public OperationResultVo ContentLike(Guid currentUserId, Guid likedId)
@@ -164,7 +164,7 @@ namespace IndieVisible.Application.Services
             }
             else
             {
-                this.Remove(currentUserId, existingLike.Id);
+                Remove(currentUserId, existingLike.Id);
 
                 _unitOfWork.Commit();
 
@@ -223,7 +223,7 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    OperationResultVo result = this.RemoveGameLike(existingLike.Id);
+                    OperationResultVo result = RemoveGameLike(existingLike.Id);
 
                     if (result.Success)
                     {

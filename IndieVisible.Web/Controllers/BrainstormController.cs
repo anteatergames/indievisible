@@ -118,7 +118,7 @@ namespace IndieVisible.Web.Controllers
             {
                 vm.UserId = CurrentUserId;
 
-                brainstormAppService.Save(this.CurrentUserId, vm);
+                brainstormAppService.Save(CurrentUserId, vm);
 
                 string url = Url.Action("Index", "Brainstorm", new { area = string.Empty, id = vm.SessionId.ToString() });
 

@@ -37,7 +37,7 @@ namespace IndieVisible.Web.Controllers
         [Route("list")]
         public IActionResult List()
         {
-            OperationResultListVo<TeamViewModel> serviceResult = teamAppService.GetAll(this.CurrentUserId);
+            OperationResultListVo<TeamViewModel> serviceResult = teamAppService.GetAll(CurrentUserId);
 
             List<TeamViewModel> model = serviceResult.Value.ToList();
 
@@ -69,7 +69,7 @@ namespace IndieVisible.Web.Controllers
         {
             notificationAppService.MarkAsRead(notificationclicked);
 
-            OperationResultVo<TeamViewModel> serviceResult = teamAppService.GetById(this.CurrentUserId, teamId);
+            OperationResultVo<TeamViewModel> serviceResult = teamAppService.GetById(CurrentUserId, teamId);
 
             if (!serviceResult.Success)
             {
@@ -91,7 +91,7 @@ namespace IndieVisible.Web.Controllers
         [Route("edit/{teamId:guid}")]
         public IActionResult Edit(Guid teamId)
         {
-            OperationResultVo<TeamViewModel> service = teamAppService.GetById(this.CurrentUserId, teamId);
+            OperationResultVo<TeamViewModel> service = teamAppService.GetById(CurrentUserId, teamId);
 
             TeamViewModel model = service.Value;
 
@@ -117,7 +117,7 @@ namespace IndieVisible.Web.Controllers
 
                 IEnumerable<Guid> oldMembers = vm.Members.Where(x => x.Id != Guid.Empty).Select(x => x.Id);
 
-                var saveResult = teamAppService.Save(this.CurrentUserId, vm);
+                OperationResultVo<Guid> saveResult = teamAppService.Save(CurrentUserId, vm);
 
                 if (saveResult.Success)
                 {
@@ -160,7 +160,7 @@ namespace IndieVisible.Web.Controllers
         [HttpDelete("{teamId:guid}")]
         public IActionResult DeleteTeam(Guid teamId)
         {
-            OperationResultVo serviceResult = teamAppService.Remove(this.CurrentUserId, teamId);
+            OperationResultVo serviceResult = teamAppService.Remove(CurrentUserId, teamId);
 
             return Json(serviceResult);
         }
@@ -169,7 +169,7 @@ namespace IndieVisible.Web.Controllers
         [HttpDelete("{teamId:guid}/{userId:guid}")]
         public IActionResult RemoveMember(Guid teamId, Guid userId)
         {
-            OperationResultVo serviceResult = teamAppService.RemoveMember(this.CurrentUserId, teamId, userId);
+            OperationResultVo serviceResult = teamAppService.RemoveMember(CurrentUserId, teamId, userId);
 
             return Json(serviceResult);
         }
@@ -194,15 +194,15 @@ namespace IndieVisible.Web.Controllers
         {
             if (vm.Members.Count > 1)
             {
-                var newContent = new UserContentViewModel
+                UserContentViewModel newContent = new UserContentViewModel
                 {
                     AuthorName = GetSessionValue(SessionValues.FullName),
-                    UserId = this.CurrentUserId,
+                    UserId = CurrentUserId,
                     UserContentType = UserContentType.TeamCreation,
                     Content = String.Format("{0}|{1}|{2}|{3}", vm.Id, vm.Name, vm.Motto, vm.Members.Count)
                 };
 
-                userContentAppService.Save(this.CurrentUserId, newContent);
+                userContentAppService.Save(CurrentUserId, newContent);
             }
         }
     }

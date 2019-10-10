@@ -51,7 +51,7 @@ namespace IndieVisible.Web
                 options.ConsentCookie.Name = "IndieVisible.Consent";
             });
 
-            var cs = Configuration.GetConnectionString("DefaultConnection");
+            string cs = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<AspNetIdentityContext>(o => o.UseSqlServer(cs, b => b.MigrationsAssembly("IndieVisible.Infra.CrossCutting.Identity")));
             services.AddDbContext<IndieVisibleContext>(o => o.UseSqlServer(cs, b => b.MigrationsAssembly("IndieVisible.Infra.Data")));

@@ -82,7 +82,7 @@ namespace IndieVisible.Application.Services
                 vm.FollowerCount = gameFollowDomainService.Count(x => x.GameId == vm.Id);
 
                 vm.CurrentUserLiked = gameLikeRepository.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
-                vm.CurrentUserFollowing = this.gameFollowDomainService.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
+                vm.CurrentUserFollowing = gameFollowDomainService.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
 
                 return new OperationResultVo<GameViewModel>(vm);
             }
@@ -90,7 +90,7 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<GameViewModel>(ex.Message);
             }
-        } 
+        }
 
         public OperationResultVo<Guid> Save(Guid currentUserId, GameViewModel viewModel)
         {
@@ -113,7 +113,7 @@ namespace IndieVisible.Application.Services
                     repository.Add(model);
                     viewModel.Id = model.Id;
 
-                    this.gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
+                    gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
                 }
                 else
                 {

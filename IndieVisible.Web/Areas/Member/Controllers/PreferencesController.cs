@@ -122,7 +122,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> Languages()
         {
-            UserPreferencesViewModel vm = this.userPreferencesAppService.GetByUserId(CurrentUserId);
+            UserPreferencesViewModel vm = userPreferencesAppService.GetByUserId(CurrentUserId);
             vm.StatusMessage = StatusMessage;
 
             return await Task.Run(() => View(vm));
@@ -140,19 +140,19 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             {
                 vm.UserId = CurrentUserId;
 
-                this.userPreferencesAppService.Save(this.CurrentUserId, vm);
+                userPreferencesAppService.Save(CurrentUserId, vm);
 
-                this.SetPreferences(vm);
+                SetPreferences(vm);
 
-                this.SetLanguage(vm.UiLanguage);
+                SetLanguage(vm.UiLanguage);
 
                 StatusMessage = "Your preferences were updated";
                 return RedirectToAction(nameof(Languages));
             }
             catch (Exception ex)
             {
-                var msg = $"Unable to save your preferences.";
-                this._logger.Log(LogLevel.Error, ex, msg);
+                string msg = $"Unable to save your preferences.";
+                _logger.Log(LogLevel.Error, ex, msg);
 
                 throw new CustomApplicationException(msg);
             }
@@ -546,7 +546,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         #region Helpers
         private void SetPreferences(UserPreferencesViewModel preferences)
         {
-            this.SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
+            SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
         }
 
         private void AddErrors(IdentityResult result)

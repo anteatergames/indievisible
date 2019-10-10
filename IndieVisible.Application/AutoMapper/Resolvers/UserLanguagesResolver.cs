@@ -12,7 +12,7 @@ namespace IndieVisible.Application.AutoMapper.Resolvers
     {
         public string Resolve(UserPreferencesViewModel source, UserPreferences destination, string destMember, ResolutionContext context)
         {
-            var result = string.Empty;
+            string result = string.Empty;
 
             if (source.Languages == null || !source.Languages.Any())
             {
@@ -29,10 +29,10 @@ namespace IndieVisible.Application.AutoMapper.Resolvers
     {
         public List<SupportedLanguage> Resolve(UserPreferences source, UserPreferencesViewModel destination, List<SupportedLanguage> destMember, ResolutionContext context)
         {
-            var platforms = (source.ContentLanguages ?? string.Empty)
+            string[] platforms = (source.ContentLanguages ?? string.Empty)
                 .Split(new Char[] { '|' });
 
-            var platformsConverted = platforms.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), x));
+            IEnumerable<SupportedLanguage> platformsConverted = platforms.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), x));
 
             return platformsConverted.ToList();
         }

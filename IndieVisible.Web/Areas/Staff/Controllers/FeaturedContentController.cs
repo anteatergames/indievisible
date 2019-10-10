@@ -36,7 +36,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         [HttpPost("add")]
         public IActionResult Add(Guid id, string title, string introduction)
         {
-            var operationResult = _service.Add(CurrentUserId, id, title, introduction);
+            OperationResultVo<Guid> operationResult = _service.Add(CurrentUserId, id, title, introduction);
 
             return Json(operationResult);
         }

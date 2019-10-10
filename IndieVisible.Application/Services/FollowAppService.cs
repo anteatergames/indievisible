@@ -47,11 +47,11 @@ namespace IndieVisible.Application.Services
                     model.GameId = gameId;
                     model.UserId = currentUserId;
 
-                    this.gameFollowDomainService.Add(model);
+                    gameFollowDomainService.Add(model);
 
                     unitOfWork.Commit();
 
-                    int newCount = this.gameFollowDomainService.Count(x => x.GameId == gameId);
+                    int newCount = gameFollowDomainService.Count(x => x.GameId == gameId);
 
                     return new OperationResultVo<int>(newCount);
                 }
@@ -66,7 +66,7 @@ namespace IndieVisible.Application.Services
             }
             else
             {
-                GameFollow existingLike = this.gameFollowDomainService.GetAll().FirstOrDefault(x => x.GameId == gameId && x.UserId == currentUserId);
+                GameFollow existingLike = gameFollowDomainService.GetAll().FirstOrDefault(x => x.GameId == gameId && x.UserId == currentUserId);
 
                 if (existingLike == null)
                 {
@@ -75,11 +75,11 @@ namespace IndieVisible.Application.Services
                 else
                 {
 
-                    this.gameFollowDomainService.Remove(existingLike.Id);
+                    gameFollowDomainService.Remove(existingLike.Id);
 
                     unitOfWork.Commit();
 
-                    int newCount = this.gameFollowDomainService.Count(x => x.GameId == gameId);
+                    int newCount = gameFollowDomainService.Count(x => x.GameId == gameId);
 
                     return new OperationResultVo<int>(newCount);
                 }
@@ -94,7 +94,7 @@ namespace IndieVisible.Application.Services
             model.FollowUserId = followUserId;
             model.UserId = currentUserId;
 
-            var spec = new IdsNotEmptySpecification()
+            Domain.Core.Interfaces.ISpecification<UserFollow> spec = new IdsNotEmptySpecification()
                 .And(new UserNotTheSameSpecification(currentUserId));
 
             if (!spec.IsSatisfiedBy(model))
@@ -110,11 +110,11 @@ namespace IndieVisible.Application.Services
             }
             else
             {
-                this.userFollowDomainService.Add(model);
+                userFollowDomainService.Add(model);
 
                 unitOfWork.Commit();
 
-                int newCount = this.userFollowDomainService.Count(x => x.FollowUserId == followUserId);
+                int newCount = userFollowDomainService.Count(x => x.FollowUserId == followUserId);
 
                 return new OperationResultVo<int>(newCount);
 
@@ -129,7 +129,7 @@ namespace IndieVisible.Application.Services
             }
             else
             {
-                UserFollow existingFollow = this.userFollowDomainService.GetAll().FirstOrDefault(x => x.UserId == currentUserId && x.FollowUserId == followUserId);
+                UserFollow existingFollow = userFollowDomainService.GetAll().FirstOrDefault(x => x.UserId == currentUserId && x.FollowUserId == followUserId);
 
                 if (existingFollow == null)
                 {
@@ -137,11 +137,11 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    this.userFollowDomainService.Remove(existingFollow.Id);
+                    userFollowDomainService.Remove(existingFollow.Id);
 
                     unitOfWork.Commit();
 
-                    int newCount = this.userFollowDomainService.GetAll().Count(x => x.FollowUserId == followUserId);
+                    int newCount = userFollowDomainService.GetAll().Count(x => x.FollowUserId == followUserId);
 
                     return new OperationResultVo<int>(newCount);
                 }

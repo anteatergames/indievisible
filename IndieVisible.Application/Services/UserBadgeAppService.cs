@@ -122,7 +122,7 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        } 
+        }
         #endregion
 
         public OperationResultListVo<UserBadgeViewModel> GetByUserId(Guid userId)

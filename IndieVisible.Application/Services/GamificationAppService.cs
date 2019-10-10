@@ -60,9 +60,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Gamification gamification = this.gamificationDomainService.GetByUserId(vm.UserId);
+                Gamification gamification = gamificationDomainService.GetByUserId(vm.UserId);
 
-                GamificationLevel currentLevel = this.gamificationDomainService.GetLevel(gamification.CurrentLevelNumber);
+                GamificationLevel currentLevel = gamificationDomainService.GetLevel(gamification.CurrentLevelNumber);
 
                 vm.IndieXp.LevelName = currentLevel.Name;
                 vm.IndieXp.Level = gamification.CurrentLevelNumber;
@@ -82,7 +82,7 @@ namespace IndieVisible.Application.Services
         {
             IQueryable<GamificationLevel> levels = gamificationDomainService.GetAllLevels().OrderBy(x => x.Number);
 
-            var vms = levels.ProjectTo<GamificationLevelViewModel>(this.mapper.ConfigurationProvider);
+            IQueryable<GamificationLevelViewModel> vms = levels.ProjectTo<GamificationLevelViewModel>(mapper.ConfigurationProvider);
 
             return new OperationResultListVo<GamificationLevelViewModel>(vms);
         }

@@ -13,12 +13,12 @@ namespace IndieVisible.Web.Exceptions
 
         public string ResourceName
         {
-            get { return this.resourceName; }
+            get { return resourceName; }
         }
 
         public IList<string> ValidationErrors
         {
-            get { return this.validationErrors; }
+            get { return validationErrors; }
         }
 
         public CustomApplicationException() : base()
@@ -40,8 +40,8 @@ namespace IndieVisible.Web.Exceptions
 
         protected CustomApplicationException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-            this.resourceName = info.GetString("CustomApplicationException.ResourceName");
-            this.validationErrors = (IList<string>)info.GetValue("CustomApplicationException.ValidationErrors", typeof(IList<string>));
+            resourceName = info.GetString("CustomApplicationException.ResourceName");
+            validationErrors = (IList<string>)info.GetValue("CustomApplicationException.ValidationErrors", typeof(IList<string>));
 
         }
 
@@ -50,8 +50,8 @@ namespace IndieVisible.Web.Exceptions
         {
             base.GetObjectData(info, context);
 
-            info.AddValue("CustomApplicationException.ResourceName", this.ResourceName);
-            info.AddValue("CustomApplicationException.ValidationErrors", this.ValidationErrors, typeof(IList<string>));
+            info.AddValue("CustomApplicationException.ResourceName", ResourceName);
+            info.AddValue("CustomApplicationException.ValidationErrors", ValidationErrors, typeof(IList<string>));
         }
     }
 }

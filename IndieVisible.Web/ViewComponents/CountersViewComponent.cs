@@ -22,16 +22,16 @@ namespace IndieVisible.Web.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var model = new CountersViewModel();
+            CountersViewModel model = new CountersViewModel();
 
-            var gamesCount = _gameAppService.Count(CurrentUserId);
+            Domain.ValueObjects.OperationResultVo<int> gamesCount = _gameAppService.Count(CurrentUserId);
 
             if (gamesCount.Success)
             {
                 model.GamesCount = gamesCount.Value;
             }
 
-            var usersCount = _profileAppService.Count(CurrentUserId);
+            Domain.ValueObjects.OperationResultVo<int> usersCount = _profileAppService.Count(CurrentUserId);
 
             if (usersCount.Success)
             {

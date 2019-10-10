@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace IndieVisible.Web.Helpers
@@ -55,9 +54,9 @@ namespace IndieVisible.Web.Helpers
                     newText = String.Format("({0})", newText);
                 }
 
-                var templateUrlCkEditor = String.Format("<a href=\"{0}\">{0}</a>", url);
+                string templateUrlCkEditor = String.Format("<a href=\"{0}\">{0}</a>", url);
 
-                var isAlreadyUrl = Regex.IsMatch(content, templateUrlCkEditor);
+                bool isAlreadyUrl = Regex.IsMatch(content, templateUrlCkEditor);
 
                 if (!isAlreadyUrl)
                 {

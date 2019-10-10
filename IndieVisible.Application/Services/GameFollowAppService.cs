@@ -43,7 +43,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<GameFollow> allModels = this.gameFollowDomainService.GetAll();
+                IEnumerable<GameFollow> allModels = gameFollowDomainService.GetAll();
 
                 IEnumerable<GameFollowViewModel> vms = mapper.Map<IEnumerable<GameFollow>, IEnumerable<GameFollowViewModel>>(allModels);
 
@@ -59,7 +59,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                GameFollow model = this.gameFollowDomainService.GetById(id);
+                GameFollow model = gameFollowDomainService.GetById(id);
 
                 GameFollowViewModel vm = mapper.Map<GameFollowViewModel>(model);
 
@@ -77,7 +77,7 @@ namespace IndieVisible.Application.Services
             {
                 // validate before
 
-                this.gameFollowDomainService.Remove(id);
+                gameFollowDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
@@ -95,7 +95,7 @@ namespace IndieVisible.Application.Services
             {
                 GameFollow model;
 
-                GameFollow existing = this.gameFollowDomainService.GetById(viewModel.Id);
+                GameFollow existing = gameFollowDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -107,12 +107,12 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    this.gameFollowDomainService.Add(model);
+                    gameFollowDomainService.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    this.gameFollowDomainService.Update(model);
+                    gameFollowDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
@@ -123,14 +123,14 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        } 
+        }
         #endregion
 
         public OperationResultListVo<GameFollowViewModel> GetByGameId(Guid gameId)
         {
             try
             {
-                IEnumerable<GameFollow> allModels = this.gameFollowDomainService.GetByGameId(gameId);
+                IEnumerable<GameFollow> allModels = gameFollowDomainService.GetByGameId(gameId);
 
                 IEnumerable<GameFollowViewModel> vms = mapper.Map<IEnumerable<GameFollow>, IEnumerable<GameFollowViewModel>>(allModels);
 

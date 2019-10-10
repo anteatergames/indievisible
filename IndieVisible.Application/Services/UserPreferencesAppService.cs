@@ -128,7 +128,7 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        } 
+        }
         #endregion
 
         public UserPreferencesViewModel GetByUserId(Guid userId)

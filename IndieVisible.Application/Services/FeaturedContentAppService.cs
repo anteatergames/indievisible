@@ -117,7 +117,7 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        } 
+        }
 
         public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
@@ -141,7 +141,7 @@ namespace IndieVisible.Application.Services
 
         public CarouselViewModel GetFeaturedNow()
         {
-            var allModels = _repository.GetAll()
+            IQueryable<FeaturedContent> allModels = _repository.GetAll()
                 .Where(x => x.StartDate.Date <= DateTime.Today && (x.EndDate.Date == DateTime.MinValue || x.EndDate.Date > DateTime.Today));
 
             if (allModels.Any())

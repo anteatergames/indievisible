@@ -20,47 +20,47 @@ namespace IndieVisible.Domain.Services
 
         public int Count()
         {
-            int count = this.userBadgeRepository.Count(x => true);
+            int count = userBadgeRepository.Count(x => true);
 
             return count;
         }
 
         public IEnumerable<UserBadge> GetAll()
         {
-            IQueryable<UserBadge> model = this.userBadgeRepository.GetAll();
+            IQueryable<UserBadge> model = userBadgeRepository.GetAll();
 
             return model;
         }
 
         public UserBadge GetById(Guid id)
         {
-            UserBadge model = this.userBadgeRepository.GetById(id);
+            UserBadge model = userBadgeRepository.GetById(id);
 
             return model;
         }
 
         public IEnumerable<UserBadge> GetByUserId(Guid userId)
         {
-            IEnumerable<UserBadge> model = this.userBadgeRepository.GetByUserId(userId);
+            IEnumerable<UserBadge> model = userBadgeRepository.GetByUserId(userId);
 
             return model;
         }
 
         public void Remove(Guid id)
         {
-            this.userBadgeRepository.Remove(id);
+            userBadgeRepository.Remove(id);
         }
 
         public Guid Add(UserBadge model)
         {
-            this.userBadgeRepository.Add(model);
+            userBadgeRepository.Add(model);
 
             return model.Id;
         }
 
         public Guid Update(UserBadge model)
         {
-            this.userBadgeRepository.Update(model);
+            userBadgeRepository.Update(model);
 
             return model.Id;
         }

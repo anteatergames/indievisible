@@ -38,7 +38,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = this.teamDomainService.Count();
+                int count = teamDomainService.Count();
 
                 return new OperationResultVo<int>(count);
             }
@@ -52,7 +52,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<Team> allModels = this.teamDomainService.GetAll();
+                IEnumerable<Team> allModels = teamDomainService.GetAll();
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
@@ -70,7 +70,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Team model = this.teamDomainService.GetById(id);
+                Team model = teamDomainService.GetById(id);
 
                 if (model == null)
                 {
@@ -79,9 +79,9 @@ namespace IndieVisible.Application.Services
 
                 TeamViewModel vm = mapper.Map<TeamViewModel>(model);
 
-                var currentUserIsLeader = vm.Members.Any(x => x.Leader && x.UserId == currentUserId);
+                bool currentUserIsLeader = vm.Members.Any(x => x.Leader && x.UserId == currentUserId);
 
-                foreach (var member in vm.Members)
+                foreach (TeamMemberViewModel member in vm.Members)
                 {
                     member.Permissions.CanDelete = currentUserIsLeader && !member.Leader && member.UserId != currentUserId;
                     member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
@@ -103,7 +103,7 @@ namespace IndieVisible.Application.Services
             {
                 Team model;
 
-                Team existing = this.teamDomainService.GetById(viewModel.Id);
+                Team existing = teamDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -115,14 +115,14 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    this.teamDomainService.Add(model);
+                    teamDomainService.Add(model);
                     viewModel.Id = model.Id;
 
                     gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.TeamAdd);
                 }
                 else
                 {
-                    this.teamDomainService.Update(model);
+                    teamDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
@@ -141,7 +141,7 @@ namespace IndieVisible.Application.Services
             {
                 // validate before
 
-                this.teamDomainService.Remove(id);
+                teamDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
@@ -160,13 +160,13 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var myProfile = profileDomainService.GetByUserId(currentUserId).FirstOrDefault();
+                UserProfile myProfile = profileDomainService.GetByUserId(currentUserId).FirstOrDefault();
 
-                var newVm = new TeamViewModel();
+                TeamViewModel newVm = new TeamViewModel();
 
                 newVm.Members = new List<TeamMemberViewModel>();
 
-                var meAsMember = new TeamMemberViewModel
+                TeamMemberViewModel meAsMember = new TeamMemberViewModel
                 {
                     UserId = currentUserId,
                     Leader = true,
@@ -190,7 +190,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                this.teamDomainService.ChangeInvitationStatus(teamId, currentUserId, InvitationStatus.Accepted, quote);
+                teamDomainService.ChangeInvitationStatus(teamId, currentUserId, InvitationStatus.Accepted, quote);
 
                 gamificationDomainService.ProcessAction(currentUserId, PlatformAction.TeamJoin);
 
@@ -208,7 +208,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                this.teamDomainService.Remove(teamId, currentUserId);
+                teamDomainService.Remove(teamId, currentUserId);
 
                 unitOfWork.Commit();
 
@@ -224,7 +224,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<Team> allModels = this.teamDomainService.GetTeamsByMemberUserId(userId);
+                IEnumerable<Team> allModels = teamDomainService.GetTeamsByMemberUserId(userId);
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
@@ -244,7 +244,7 @@ namespace IndieVisible.Application.Services
             {
                 // validate before
 
-                this.teamDomainService.Remove(teamId, userId);
+                teamDomainService.Remove(teamId, userId);
 
                 unitOfWork.Commit();
 
@@ -254,18 +254,18 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo(ex.Message);
             }
-        } 
+        }
         #endregion
 
         private void SetUiData(Guid userId, bool canInteract, IEnumerable<TeamViewModel> vms)
         {
-            foreach (var team in vms)
+            foreach (TeamViewModel team in vms)
             {
                 team.Permissions.CanEdit = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
                 team.Permissions.CanDelete = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
                 team.Members = team.Members.OrderByDescending(x => x.Leader).ToList();
-                var index = 0;
-                foreach (var member in team.Members)
+                int index = 0;
+                foreach (TeamMemberViewModel member in team.Members)
                 {
                     member.Index = index++;
                     member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);

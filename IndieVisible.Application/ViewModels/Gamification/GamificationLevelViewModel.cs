@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IndieVisible.Application.ViewModels.Gamification
+﻿namespace IndieVisible.Application.ViewModels.Gamification
 {
     public class GamificationLevelViewModel
     {

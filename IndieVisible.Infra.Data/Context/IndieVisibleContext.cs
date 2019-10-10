@@ -116,7 +116,7 @@ namespace IndieVisible.Infra.Data.Context
 
             base.OnModelCreating(modelBuilder);
 
-            this.Seed(modelBuilder);
+            Seed(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

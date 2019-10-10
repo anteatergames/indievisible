@@ -34,7 +34,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = this.userConnectionDomainService.Count();
+                int count = userConnectionDomainService.Count();
 
                 return new OperationResultVo<int>(count);
             }
@@ -48,7 +48,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<UserConnection> allModels = this.userConnectionDomainService.GetAll();
+                IEnumerable<UserConnection> allModels = userConnectionDomainService.GetAll();
 
                 IEnumerable<UserConnectionViewModel> vms = mapper.Map<IEnumerable<UserConnection>, IEnumerable<UserConnectionViewModel>>(allModels);
 
@@ -64,7 +64,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                UserConnection model = this.userConnectionDomainService.GetById(id);
+                UserConnection model = userConnectionDomainService.GetById(id);
 
                 UserConnectionViewModel vm = mapper.Map<UserConnectionViewModel>(model);
 
@@ -82,7 +82,7 @@ namespace IndieVisible.Application.Services
             {
                 // validate before
 
-                this.userConnectionDomainService.Remove(id);
+                userConnectionDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
@@ -100,7 +100,7 @@ namespace IndieVisible.Application.Services
             {
                 UserConnection model;
 
-                UserConnection existing = this.userConnectionDomainService.GetById(viewModel.Id);
+                UserConnection existing = userConnectionDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -112,12 +112,12 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    this.userConnectionDomainService.Add(model);
+                    userConnectionDomainService.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    this.userConnectionDomainService.Update(model);
+                    userConnectionDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
@@ -135,7 +135,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<UserConnection> allModels = this.userConnectionDomainService.GetByTargetUserId(targetUserId, false);
+                IEnumerable<UserConnection> allModels = userConnectionDomainService.GetByTargetUserId(targetUserId, false);
 
                 IEnumerable<UserConnectionViewModel> vms = mapper.Map<IEnumerable<UserConnection>, IEnumerable<UserConnectionViewModel>>(allModels);
 
@@ -153,8 +153,8 @@ namespace IndieVisible.Application.Services
             {
                 List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
 
-                IEnumerable<UserConnection> connectionsFromMe = this.userConnectionDomainService.GetByUserId(userId, true);
-                IEnumerable<UserConnection> connectionsToMe = this.userConnectionDomainService.GetByTargetUserId(userId, true);
+                IEnumerable<UserConnection> connectionsFromMe = userConnectionDomainService.GetByUserId(userId, true);
+                IEnumerable<UserConnection> connectionsToMe = userConnectionDomainService.GetByTargetUserId(userId, true);
 
                 foreach (UserConnection item in connectionsFromMe)
                 {
@@ -214,7 +214,7 @@ namespace IndieVisible.Application.Services
                     TargetUserId = userId
                 };
 
-                UserConnection existing = this.userConnectionDomainService.Get(currentUserId, userId);
+                UserConnection existing = userConnectionDomainService.Get(currentUserId, userId);
 
                 if (existing != null)
                 {
@@ -223,12 +223,12 @@ namespace IndieVisible.Application.Services
                 else
                 {
 
-                    this.userConnectionDomainService.Add(model);
+                    userConnectionDomainService.Add(model);
                 }
 
                 unitOfWork.Commit();
 
-                int newCount = this.userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+                int newCount = userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -244,8 +244,8 @@ namespace IndieVisible.Application.Services
             {
                 // validate before
 
-                UserConnection toMe = this.userConnectionDomainService.Get(currentUserId, userId);
-                UserConnection fromMe = this.userConnectionDomainService.Get(userId, currentUserId);
+                UserConnection toMe = userConnectionDomainService.Get(currentUserId, userId);
+                UserConnection fromMe = userConnectionDomainService.Get(userId, currentUserId);
 
                 if (toMe == null && fromMe == null)
                 {
@@ -255,17 +255,17 @@ namespace IndieVisible.Application.Services
                 {
                     if (toMe != null)
                     {
-                        this.userConnectionDomainService.Remove(toMe.Id);
+                        userConnectionDomainService.Remove(toMe.Id);
                     }
                     if (fromMe != null)
                     {
-                        this.userConnectionDomainService.Remove(fromMe.Id);
+                        userConnectionDomainService.Remove(fromMe.Id);
                     }
                 }
 
                 unitOfWork.Commit();
 
-                int newCount = this.userConnectionDomainService.Count(x => x.TargetUserId == userId);
+                int newCount = userConnectionDomainService.Count(x => x.TargetUserId == userId);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -279,7 +279,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                UserConnection existing = this.userConnectionDomainService.Get(userId, currentUserId);
+                UserConnection existing = userConnectionDomainService.Get(userId, currentUserId);
 
                 if (existing == null)
                 {
@@ -289,12 +289,12 @@ namespace IndieVisible.Application.Services
                 {
                     existing.ApprovalDate = DateTime.Now;
 
-                    this.userConnectionDomainService.Update(existing);
+                    userConnectionDomainService.Update(existing);
                 }
 
                 unitOfWork.Commit();
 
-                int newCount = this.userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+                int newCount = userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -308,7 +308,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                UserConnection existing = this.userConnectionDomainService.Get(userId, currentUserId);
+                UserConnection existing = userConnectionDomainService.Get(userId, currentUserId);
 
                 if (existing == null)
                 {
@@ -316,12 +316,12 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    this.userConnectionDomainService.Remove(existing.Id);
+                    userConnectionDomainService.Remove(existing.Id);
                 }
 
                 unitOfWork.Commit();
 
-                int newCount = this.userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+                int newCount = userConnectionDomainService.Count(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
 
                 return new OperationResultVo<int>(newCount);
             }

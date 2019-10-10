@@ -31,23 +31,23 @@ namespace IndieVisible.Web.Controllers
         [Route("profile/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
-            ProfileViewModel vm = profileAppService.GetByUserId(this.CurrentUserId, id, ProfileType.Personal);
+            ProfileViewModel vm = profileAppService.GetByUserId(CurrentUserId, id, ProfileType.Personal);
             if (vm == null)
             {
                 ProfileViewModel profile = profileAppService.GenerateNewOne(ProfileType.Personal);
                 profile.UserId = id;
-                profileAppService.Save(this.CurrentUserId, profile);
+                profileAppService.Save(CurrentUserId, profile);
 
                 vm = profile;
             }
 
-            this.SetImages(vm);
+            SetImages(vm);
 
-            this.FormatExternalNetworkUrls(vm);
+            FormatExternalNetworkUrls(vm);
 
-            this.gamificationAppService.FillProfileGamificationDetails(this.CurrentUserId, ref vm);
+            gamificationAppService.FillProfileGamificationDetails(CurrentUserId, ref vm);
 
-            if (this.CurrentUserId != Guid.Empty)
+            if (CurrentUserId != Guid.Empty)
             {
                 ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
                 bool userIsAdmin = await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
@@ -59,7 +59,7 @@ namespace IndieVisible.Web.Controllers
 
                 if (notificationclicked != Guid.Empty)
                 {
-                    this.notificationAppService.MarkAsRead(notificationclicked);
+                    notificationAppService.MarkAsRead(notificationclicked);
                 }
             }
 
@@ -71,7 +71,7 @@ namespace IndieVisible.Web.Controllers
         public IActionResult Edit(Guid userId)
         {
             ProfileViewModel vm = profileAppService.GetByUserId(userId, ProfileType.Personal);
-            this.SetImages(vm);
+            SetImages(vm);
 
             return View(vm);
         }
@@ -86,7 +86,7 @@ namespace IndieVisible.Web.Controllers
                     vm.Bio = vm.Name + " is a game developer willing to rock the game development world with funny games.";
                 }
 
-                profileAppService.Save(this.CurrentUserId, vm);
+                profileAppService.Save(CurrentUserId, vm);
 
                 string url = Url.Action("Details", "Profile", new { area = string.Empty, id = vm.UserId.ToString() });
 

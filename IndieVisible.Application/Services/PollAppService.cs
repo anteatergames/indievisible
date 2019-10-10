@@ -88,12 +88,12 @@ namespace IndieVisible.Application.Services
                                                                 group v by v.PollOptionId into g
                                                                 select new KeyValuePair<Guid, int>(g.Key, g.Count());
 
-            var totalVotes = groupedVotes.Sum(x => x.Value);
+            int totalVotes = groupedVotes.Sum(x => x.Value);
             resultVm.TotalVotes = totalVotes;
 
-            foreach (var g in groupedVotes)
+            foreach (KeyValuePair<Guid, int> g in groupedVotes)
             {
-                var newOptionResult = new PollOptionResultsViewModel
+                PollOptionResultsViewModel newOptionResult = new PollOptionResultsViewModel
                 {
                     OptionId = g.Key,
                     VoteCount = g.Value,

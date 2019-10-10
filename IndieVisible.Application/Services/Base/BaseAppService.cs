@@ -15,19 +15,19 @@ namespace IndieVisible.Application.Services
                 return MediaType.None;
             }
 
-            var youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";
+            string youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";
 
-            var match = Regex.Match(featuredImage, youtubePattern);
+            Match match = Regex.Match(featuredImage, youtubePattern);
 
             if (match.Success)
             {
                 return MediaType.Youtube;
             }
 
-            var imageExtensions = new string[] { "jpg", "png", "gif", "tiff", "webp", "svg", "jfif", "jpeg", "bmp" };
-            var videoExtensions = new string[] { "mp4", "avi", "mpeg", "vob", "webm", "mpg", "m4v", "wmv", "asf", "mov", "mpe", "3gp" };
+            string[] imageExtensions = new string[] { "jpg", "png", "gif", "tiff", "webp", "svg", "jfif", "jpeg", "bmp" };
+            string[] videoExtensions = new string[] { "mp4", "avi", "mpeg", "vob", "webm", "mpg", "m4v", "wmv", "asf", "mov", "mpe", "3gp" };
 
-            var extension = featuredImage.Split('.').Last();
+            string extension = featuredImage.Split('.').Last();
 
 
             if (imageExtensions.Contains(extension.ToLower()))

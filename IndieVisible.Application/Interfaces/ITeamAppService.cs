@@ -1,7 +1,6 @@
-﻿using System;
-using IndieVisible.Application.ViewModels.Content;
-using IndieVisible.Application.ViewModels.Team;
+﻿using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.ValueObjects;
+using System;
 
 namespace IndieVisible.Application.Interfaces
 {

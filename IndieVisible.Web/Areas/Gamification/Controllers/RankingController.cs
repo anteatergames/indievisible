@@ -2,7 +2,6 @@
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Web.Controllers.Base;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -24,23 +23,23 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
         [Route("help")]
         public IActionResult Help()
         {
-            var objs = this.gamificationAppService.GetAllLevels();
+            Domain.ValueObjects.OperationResultListVo<Application.ViewModels.Gamification.GamificationLevelViewModel> objs = gamificationAppService.GetAllLevels();
 
             return View(objs.Value);
         }
 
         public IActionResult Index()
         {
-            var serviceResult = gamificationAppService.GetAll();
+            Domain.ValueObjects.OperationResultListVo<Application.ViewModels.Gamification.RankingViewModel> serviceResult = gamificationAppService.GetAll();
 
-            var objs = serviceResult.Value.ToList();
+            System.Collections.Generic.List<Application.ViewModels.Gamification.RankingViewModel> objs = serviceResult.Value.ToList();
 
-            foreach (var obj in objs)
+            foreach (Application.ViewModels.Gamification.RankingViewModel obj in objs)
             {
                 obj.ProfileImageUrl = UrlFormatter.ProfileImage(obj.UserId);
                 obj.CoverImageUrl = UrlFormatter.ProfileCoverImage(obj.UserId, obj.Id);
 
-                var profile = this.profileAppService.GetByUserId(obj.UserId, ProfileType.Personal);
+                Application.ViewModels.User.ProfileViewModel profile = profileAppService.GetByUserId(obj.UserId, ProfileType.Personal);
                 if (profile != null)
                 {
                     obj.Name = profile.Name;

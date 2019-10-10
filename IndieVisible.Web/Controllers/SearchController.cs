@@ -25,7 +25,7 @@ namespace IndieVisible.Web.Controllers
         [Route("posts/{q}")]
         public IActionResult SearchPosts(string q)
         {
-            OperationResultListVo<UserContentSearchViewModel> result = userContentAppService.Search(this.CurrentUserId, q);
+            OperationResultListVo<UserContentSearchViewModel> result = userContentAppService.Search(CurrentUserId, q);
 
             return View("_SearchPostsResult", result.Value);
         }

@@ -13,16 +13,16 @@ namespace IndieVisible.Web.Controllers
 
         public RoutesController(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
         {
-            this._actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
+            _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
         }
 
         [HttpGet]
         [HttpPut]
         public IActionResult Index()
         {
-            var items = _actionDescriptorCollectionProvider.ActionDescriptors.Items;
+            IReadOnlyList<Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor> items = _actionDescriptorCollectionProvider.ActionDescriptors.Items;
 
-            var routes = items.Select(x => new RouteInfo
+            List<RouteInfo> routes = items.Select(x => new RouteInfo
             {
                 Action = x.RouteValues["Action"],
                 Controller = x.RouteValues["Controller"],

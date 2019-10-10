@@ -12,7 +12,7 @@ namespace IndieVisible.Application.AutoMapper.Resolvers
     {
         public string Resolve(GameViewModel source, Game destination, string destMember, ResolutionContext context)
         {
-            var result = string.Empty;
+            string result = string.Empty;
 
             if (source.Platforms == null || !source.Platforms.Any())
             {
@@ -29,12 +29,12 @@ namespace IndieVisible.Application.AutoMapper.Resolvers
     {
         public List<GamePlatforms> Resolve(Game source, GameViewModel destination, List<GamePlatforms> destMember, ResolutionContext context)
         {
-            var platforms = (source.Platforms ?? string.Empty)
+            string[] platforms = (source.Platforms ?? string.Empty)
                 .Replace("XboxOne", "Xbox")
                 .Replace("Playstation4", "Playstation")
                 .Split(new Char[] { '|' });
 
-            var platformsConverted = platforms.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => (GamePlatforms)Enum.Parse(typeof(GamePlatforms), x));
+            IEnumerable<GamePlatforms> platformsConverted = platforms.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => (GamePlatforms)Enum.Parse(typeof(GamePlatforms), x));
 
             return platformsConverted.ToList();
         }

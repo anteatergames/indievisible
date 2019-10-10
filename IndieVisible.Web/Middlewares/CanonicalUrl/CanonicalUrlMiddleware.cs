@@ -16,7 +16,7 @@ namespace IndieVisible.Web.Middlewares.CanonicalUrl
 
         public async Task Invoke(HttpContext context)
         {
-            var canonicalUrl = context.Request.Path.ToString();
+            string canonicalUrl = context.Request.Path.ToString();
             if (_options.TrailingSlash)
             {
                 if (canonicalUrl.Length > 1 && !string.Equals(canonicalUrl[canonicalUrl.Length - 1], '/'))
@@ -32,7 +32,7 @@ namespace IndieVisible.Web.Middlewares.CanonicalUrl
                 }
             }
 
-            var queryString = context.Request.QueryString.ToString();
+            string queryString = context.Request.QueryString.ToString();
             if (_options.LowerCaseUrls)
             {
                 //If you want lowercase urls but the querystrings are case sensitive
@@ -46,7 +46,7 @@ namespace IndieVisible.Web.Middlewares.CanonicalUrl
                 }
             }
 
-            var oldPath = context.Request.Path.ToString() + context.Request.QueryString.ToString();
+            string oldPath = context.Request.Path.ToString() + context.Request.QueryString.ToString();
             if (!string.Equals(canonicalUrl, oldPath))
             {
                 context.Response.Redirect(canonicalUrl);

@@ -10,9 +10,9 @@ namespace IndieVisible.Web.Extensions
         {
             List<SelectListItem> finalList = new List<SelectListItem>();
 
-            foreach (var item in items)
+            foreach (SelectListItemVo item in items)
             {
-                var sli = new SelectListItem
+                SelectListItem sli = new SelectListItem
                 {
                     Value = item.Value,
                     Text = item.Text

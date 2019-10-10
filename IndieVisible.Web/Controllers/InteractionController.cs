@@ -2,7 +2,6 @@
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Game;
-using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
@@ -96,7 +95,7 @@ namespace IndieVisible.Web.Controllers
 
             OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, likedId);
 
-            var fullName = GetSessionValue(SessionValues.FullName);
+            string fullName = GetSessionValue(SessionValues.FullName);
 
             string text = String.Format(SharedLocalizer["{0} loves your game {1}!"], fullName, gameResult.Value.Title);
 
@@ -129,7 +128,7 @@ namespace IndieVisible.Web.Controllers
 
             OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, gameId);
 
-            var fullName = GetSessionValue(SessionValues.FullName);
+            string fullName = GetSessionValue(SessionValues.FullName);
 
             string text = String.Format(SharedLocalizer["{0} is following your game {1} now!"], fullName, gameResult.Value.Title);
 
@@ -160,7 +159,7 @@ namespace IndieVisible.Web.Controllers
         {
             OperationResultVo response = followAppService.UserFollow(CurrentUserId, userId);
 
-            var fullName = GetSessionValue(SessionValues.FullName);
+            string fullName = GetSessionValue(SessionValues.FullName);
 
             string text = String.Format(SharedLocalizer["{0} is following you now!"], fullName);
 

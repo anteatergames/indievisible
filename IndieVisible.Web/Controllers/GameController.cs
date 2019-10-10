@@ -30,14 +30,14 @@ namespace IndieVisible.Web.Controllers
         [Route("game/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
-            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(this.CurrentUserId, id);
+            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
-            this.SetImages(vm);
+            SetImages(vm);
 
             bool isAdmin = false;
 
-            if (!this.CurrentUserId.Equals(Guid.Empty))
+            if (!CurrentUserId.Equals(Guid.Empty))
             {
                 ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
                 bool userIsAdmin = await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
@@ -48,7 +48,7 @@ namespace IndieVisible.Web.Controllers
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || isAdmin;
             vm.Permissions.CanPostActivity = vm.UserId == CurrentUserId;
 
-            this.notificationAppService.MarkAsRead(notificationclicked);
+            notificationAppService.MarkAsRead(notificationclicked);
 
             return View(vm);
         }
@@ -81,10 +81,10 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Edit(Guid id)
         {
-            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(this.CurrentUserId, id);
+            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
-            this.SetImages(vm);
+            SetImages(vm);
 
             return View("CreateEdit", vm);
         }
@@ -94,10 +94,10 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                this.SetAuthorDetails(vm);
-                this.ClearImagesUrl(vm);
+                SetAuthorDetails(vm);
+                ClearImagesUrl(vm);
 
-                _gameAppService.Save(this.CurrentUserId, vm);
+                _gameAppService.Save(CurrentUserId, vm);
 
                 string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString() });
 

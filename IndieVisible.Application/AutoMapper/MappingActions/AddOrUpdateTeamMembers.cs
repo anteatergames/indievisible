@@ -1,28 +1,29 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.ViewModels.Team;
+using IndieVisible.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace IndieVisible.Application.AutoMapper.MappingActions
 {
-    public class AddOrUpdateTeamMembers : IMappingAction<TeamViewModel, Domain.Models.Team>
+    public class AddOrUpdateTeamMembers : IMappingAction<TeamViewModel, Team>
     {
 
-        public void Process(TeamViewModel source, Domain.Models.Team destination, ResolutionContext context)
+        public void Process(TeamViewModel source, Team destination, ResolutionContext context)
         {
-            var destinationMembers = new List<Domain.Models.TeamMember>();
+            List<TeamMember> destinationMembers = new List<TeamMember>();
 
-            foreach (var member in source.Members)
+            foreach (TeamMemberViewModel member in source.Members)
             {
                 if (member.Id == Guid.Empty)
                 {
-                    var newMember = context.Mapper.Map<Domain.Models.TeamMember>(member);
+                    TeamMember newMember = context.Mapper.Map<TeamMember>(member);
                     destinationMembers.Add(newMember);
                 }
                 else
                 {
-                    var destinationMember = destination.Members.FirstOrDefault(x => x.Id == member.Id);
+                    TeamMember destinationMember = destination.Members.FirstOrDefault(x => x.Id == member.Id);
                     if (destinationMember != null)
                     {
                         context.Mapper.Map(member, destinationMember);

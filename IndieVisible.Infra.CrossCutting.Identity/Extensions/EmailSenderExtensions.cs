@@ -7,7 +7,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
     {
         public static Task SendEmailConfirmationAsync(this IEmailSender emailSender, string email, string link)
         {
-            var request = new EmailSendRequest
+            EmailSendRequest request = new EmailSendRequest
             {
                 Title = "Confirm your email",
                 ActionUrl = HtmlEncoder.Default.Encode(link),

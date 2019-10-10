@@ -21,14 +21,14 @@ namespace IndieVisible.Domain.Services
 
         public int CountComments(Expression<Func<UserContentComment, bool>> where)
         {
-            var count = contentCommentRepository.Count(where);
+            int count = contentCommentRepository.Count(where);
 
             return count;
         }
 
         public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
-            var allModels = this.repository.GetAll();
+            IQueryable<UserContent> allModels = repository.GetAll();
 
             if (articlesOnly.HasValue && articlesOnly.Value)
             {
@@ -60,14 +60,14 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserContentComment> GetAllComments(Expression<Func<UserContentComment, bool>> where)
         {
-            var comments = contentCommentRepository.Get(where);
+            IQueryable<UserContentComment> comments = contentCommentRepository.Get(where);
 
             return comments;
         }
 
         public IQueryable<UserContentComment> GetComments(Expression<Func<UserContentComment, bool>> where)
         {
-            var count = contentCommentRepository.Get(where);
+            IQueryable<UserContentComment> count = contentCommentRepository.Get(where);
 
             return count;
         }

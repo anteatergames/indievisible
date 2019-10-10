@@ -14,7 +14,7 @@ namespace IndieVisible.Infra.Data.Context
 
         public IndieVisibleContext CreateDbContext(string[] args)
         {
-            var builder = new DbContextOptionsBuilder<IndieVisibleContext>();
+            DbContextOptionsBuilder<IndieVisibleContext> builder = new DbContextOptionsBuilder<IndieVisibleContext>();
 
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())

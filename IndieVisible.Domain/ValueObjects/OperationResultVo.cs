@@ -12,17 +12,17 @@ namespace IndieVisible.Domain.ValueObjects
 
         public OperationResultVo(bool success)
         {
-            this.Success = success;
+            Success = success;
         }
 
         public OperationResultVo(bool success, string message) : this(success)
         {
-            this.Message = message;
+            Message = message;
         }
 
         public OperationResultVo(string message) : this(false)
         {
-            this.Message = message;
+            Message = message;
         }
     }
 
@@ -33,7 +33,7 @@ namespace IndieVisible.Domain.ValueObjects
 
         public OperationResultHtmlVo(string html) : base(true)
         {
-            this.Html = html;
+            Html = html;
         }
         public OperationResultHtmlVo(bool success, string message) : base(success, message)
         {
@@ -47,7 +47,7 @@ namespace IndieVisible.Domain.ValueObjects
 
         public OperationResultRedirectVo(string url) : base(true)
         {
-            this.Url = url;
+            Url = url;
         }
         public OperationResultRedirectVo(bool success, string message) : base(success, message)
         {
@@ -61,13 +61,13 @@ namespace IndieVisible.Domain.ValueObjects
 
         public OperationResultVo(T item) : base(true)
         {
-            this.Value = item;
+            Value = item;
         }
 
         public OperationResultVo(T item, int pointsEarned) : base(true)
         {
-            this.Value = item;
-            this.PointsEarned = pointsEarned;
+            Value = item;
+            PointsEarned = pointsEarned;
         }
         public OperationResultVo(string message) : base(message)
         {
@@ -81,8 +81,8 @@ namespace IndieVisible.Domain.ValueObjects
 
         public OperationResultListVo(IEnumerable<T> items) : base(true)
         {
-            this.Success = true;
-            this.Value = items;
+            Success = true;
+            Value = items;
         }
 
         public OperationResultListVo(string message) : base(message)

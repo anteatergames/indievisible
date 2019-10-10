@@ -1,7 +1,4 @@
-﻿using IndieVisible.Application.Interfaces;
-using IndieVisible.Application.ViewModels.User;
-using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.ValueObjects;
+﻿using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Enums;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,15 +23,15 @@ namespace IndieVisible.Web.Controllers.Base
         {
             base.OnActionExecuting(context);
 
-            ViewBag.BaseUrl = this.GetBaseUrl();
+            ViewBag.BaseUrl = GetBaseUrl();
         }
 
         protected string GetBaseUrl()
         {
-            var hostUrl = WebUtility.UrlDecode($"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}");
+            string hostUrl = WebUtility.UrlDecode($"{Request.Scheme}://{Request.Host}{Request.PathBase}");
 
-            ViewData["protocol"] = this.Request.IsHttps ? "https" : "http";
-            ViewData["host"] = this.Request.Host;
+            ViewData["protocol"] = Request.IsHttps ? "https" : "http";
+            ViewData["host"] = Request.Host;
 
             return hostUrl;
         }

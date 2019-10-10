@@ -32,7 +32,7 @@ namespace IndieVisible.Web.Views.Manage
 
         public static string PageNavClass(ViewContext viewContext, string page)
         {
-            var activePage = viewContext.ViewData["ActivePage"] as string;
+            string activePage = viewContext.ViewData["ActivePage"] as string;
             return string.Equals(activePage, page, StringComparison.OrdinalIgnoreCase) ? "active" : null;
         }
 

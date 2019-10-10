@@ -18,15 +18,15 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
 
         public async Task SendEmailAsync(string email, string subject, string message)
         {
-            var apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+            string apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
             if (string.IsNullOrEmpty(apiKey))
             {
                 apiKey = _configuration.GetSection("SENDGRID_APIKEY").Value;
             }
-            var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("slavebot@indievisible.net", "INDIEVISIBLE Community");
+            SendGridClient client = new SendGridClient(apiKey);
+            EmailAddress from = new EmailAddress("slavebot@indievisible.net", "INDIEVISIBLE Community");
 
-            var msg = new SendGridMessage()
+            SendGridMessage msg = new SendGridMessage()
             {
                 From = from,
                 Subject = subject,

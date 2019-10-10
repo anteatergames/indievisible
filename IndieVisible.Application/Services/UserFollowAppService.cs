@@ -123,7 +123,7 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        } 
+        }
         #endregion
 
         public OperationResultListVo<UserFollowViewModel> GetByUserId(Guid userId)

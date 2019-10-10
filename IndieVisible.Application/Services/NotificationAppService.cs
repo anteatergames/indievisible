@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Notification;
-using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Repository;
@@ -127,7 +126,7 @@ namespace IndieVisible.Application.Services
             vm.Url = url;
             vm.Type = notificationType;
 
-            return this.Save(vm);
+            return Save(vm);
         }
 
         public OperationResultVo MarkAsRead(Guid id)
