@@ -2,6 +2,7 @@
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
@@ -82,6 +83,7 @@ namespace IndieVisible.Web.Controllers
             foreach (TeamMemberViewModel member in model.Members)
             {
                 member.Permissions.IsMe = member.UserId == CurrentUserId;
+                member.WorkDictionary = member.Works.ToDisplayName();
             }
 
             return View(model);

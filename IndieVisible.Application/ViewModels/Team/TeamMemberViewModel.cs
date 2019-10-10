@@ -23,14 +23,8 @@ namespace IndieVisible.Application.ViewModels.Team
 
         public string ProfileImage { get; set; }
 
-        public string WorksText
-        {
-            get
-            {
-                return (Works == null || !Works.Any()) ? string.Empty : String.Join(", ", Works);
-            }
-        }
-
         public int Index { get; set; }
+
+        public Dictionary<string, string> WorkDictionary { get; set; }
     }
 }

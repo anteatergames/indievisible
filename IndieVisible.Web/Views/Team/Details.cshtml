@@ -69,9 +69,9 @@
                             <span>@member.Role</span>
                         </div>
                         <div class="form-group">
-                            @foreach (var workType in member.Works)
+                            @foreach (var workType in member.WorkDictionary)
                             {
-                                <span class="badge badge-primary p-2">@workType.ToString()</span>
+                                <span class="badge badge-primary p-2 mt-2">@SharedLocalizer[workType.Value]</span>
                             }
                         </div>
                         <div class="form-group @(iWasInvited ? "d-none" : string.Empty) quote">

@@ -1193,4 +1193,84 @@
     <value>Uma nova equpe foi criada com {0} integrantes.</value>
     <comment>Team</comment>
   </data>
+  <data name="2D Art" xml:space="preserve">
+    <value>Arte 2D</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="3D Animation" xml:space="preserve">
+    <value>Animação 3D</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="3D Art" xml:space="preserve">
+    <value>Arte 3D</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="3D Modelling" xml:space="preserve">
+    <value>Modelagem 3D</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Animation" xml:space="preserve">
+    <value>Animação</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Art" xml:space="preserve">
+    <value>Arte</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Artificial Intellingence" xml:space="preserve">
+    <value>Inteligência Artificial</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Código</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Concept Art" xml:space="preserve">
+    <value>Arte Conceitual</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Environment Art" xml:space="preserve">
+    <value>Arte de Ambientes</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Game Logic" xml:space="preserve">
+    <value>Lógica de Jogo</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Level Design" xml:space="preserve">
+    <value>Design de Fases</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Marketing" xml:space="preserve">
+    <value>Marketing</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Quality Assurance" xml:space="preserve">
+    <value>Controle de Qualidade</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Rigging" xml:space="preserve">
+    <value>Rigging</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>Som</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Sound FX" xml:space="preserve">
+    <value>Efeitos Sonoros</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Testing" xml:space="preserve">
+    <value>Testes</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Visual FX" xml:space="preserve">
+    <value>Efeitos Visuais</value>
+    <comment>WorkType</comment>
+  </data>
+  <data name="Writing" xml:space="preserve">
+    <value>Roteiro</value>
+    <comment>WorkType</comment>
+  </data>
 </root>

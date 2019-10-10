@@ -14,7 +14,7 @@ namespace IndieVisible.Domain.Core.Enums
         Sound,
         [Display(Name = "Project Management")]
         ProjectManagement,
-        [Display(Name = "ArtConcept")]
+        [Display(Name = "Concept Art")]
         ArtConcept,
         [Display(Name = "2D Art")]
         Art2d,

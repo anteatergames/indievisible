@@ -34,8 +34,7 @@ namespace IndieVisible.Web.Controllers
             ViewBag.Carousel = featured;
 
             SetLanguage();
-
-            Dictionary<string, string> genreDict = SetGenreTags();
+            Dictionary<string, string> genreDict = new GameGenre().ToDictionary();
 
             ViewData["Genres"] = genreDict;
 
@@ -406,25 +405,5 @@ namespace IndieVisible.Web.Controllers
             model.Items = model.Items.OrderBy(x => x.Date).ToList();
             return model;
         }
-
-        #region private methods
-        private static Dictionary<string, string> SetGenreTags()
-        {
-            List<KeyValuePair<string, string>> genreDict = new List<KeyValuePair<string, string>>();
-
-            IEnumerable<GameGenre> genres = Enum.GetValues(typeof(GameGenre)).Cast<GameGenre>();
-
-            genres.ToList().ForEach(x =>
-            {
-                string uiClass = x.GetAttributeOfType<UiInfoAttribute>().Class;
-
-                genreDict.Add(new KeyValuePair<string, string>(x.ToString(), uiClass));
-            });
-
-            Dictionary<string, string> dict = genreDict.ToDictionary(x => x.Key, x => x.Value);
-
-            return dict;
-        }
-        #endregion
     }
 }

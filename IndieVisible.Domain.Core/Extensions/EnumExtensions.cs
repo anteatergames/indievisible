@@ -1,4 +1,8 @@
-﻿using System;
+﻿using IndieVisible.Domain.Core.Attributes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Reflection;
 
 namespace IndieVisible.Domain.Core.Extensions
@@ -32,6 +36,50 @@ namespace IndieVisible.Domain.Core.Extensions
 
                 return (T)attributes[0];
             }
+        }
+
+
+        public static Dictionary<string, string> ToDictionary<TEnum>(this TEnum enumeration) where TEnum : Enum
+        {
+            if (!typeof(TEnum).IsEnum)
+            {
+                throw new ArgumentException("Type must be an enum");
+            }
+
+            List<KeyValuePair<string, string>> dict = new List<KeyValuePair<string, string>>();
+
+            IEnumerable<TEnum> enumValues = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
+
+            enumValues.ToList().ForEach(x =>
+            {
+                string uiClass = x.GetAttributeOfType<UiInfoAttribute>().Class;
+
+                dict.Add(new KeyValuePair<string, string>(x.ToString(), uiClass));
+            });
+
+            Dictionary<string, string> result = dict.ToDictionary(x => x.Key, x => x.Value);
+
+            return result;
+        }
+        public static Dictionary<string, string> ToDisplayName<TEnum>(this IList<TEnum> enumeration) where TEnum : Enum
+        {
+            if (!typeof(TEnum).IsEnum)
+            {
+                throw new ArgumentException("Type must be an enum");
+            }
+
+            List<KeyValuePair<string, string>> dict = new List<KeyValuePair<string, string>>();
+
+            enumeration.ToList().ForEach(x =>
+            {
+                DisplayAttribute display = x.GetAttributeOfType<DisplayAttribute>();
+
+                dict.Add(new KeyValuePair<string, string>(x.ToString(), display.Name));
+            });
+
+            Dictionary<string, string> result = dict.ToDictionary(x => x.Key, x => x.Value);
+
+            return result;
         }
     }
 }
