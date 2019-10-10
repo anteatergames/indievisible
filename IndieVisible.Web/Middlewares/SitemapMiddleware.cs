@@ -32,8 +32,11 @@ namespace IndieVisible.Web.Middlewares
             forbidden.Add("routes", "*");
             forbidden.Add("storage", "*");
             forbidden.Add("user", "*");
+            forbidden.Add("*", "new");
+            forbidden.Add("*", "help");
 
             forbidden.Add("*", "edit");
+            forbidden.Add("*", "delete");
 
             forbidden.Add("account", "lockout");
             forbidden.Add("account", "externallogin");
@@ -61,8 +64,21 @@ namespace IndieVisible.Web.Middlewares
             forbidden.Add("brainstorm", "list");
             forbidden.Add("brainstorm", "newsession");
             forbidden.Add("brainstorm", "newidea");
+            forbidden.Add("brainstorm", "details");
 
             forbidden.Add("userbadge", "list");
+
+            forbidden.Add("help", "index");
+            forbidden.Add("search", "searchposts");
+
+            forbidden.Add("team", "listbyuser");
+            forbidden.Add("team", "acceptinvitation");
+            forbidden.Add("team", "rejectinvitation");
+            forbidden.Add("team", "deleteteam");
+            forbidden.Add("team", "removemember");
+
+            forbidden.Add("userbadge", "listbyuser");
+
         }
 
         public async Task Invoke(HttpContext context)

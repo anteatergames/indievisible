@@ -48,11 +48,6 @@ namespace IndieVisible.Web.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            return View();
-        }
-
         [Route("/termsandconditions")]
         public IActionResult Terms()
         {
