@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace IndieVisible.Web.Helpers
@@ -67,12 +68,12 @@ namespace IndieVisible.Web.Helpers
             return content;
         }
 
-        internal static string FormatUrlContentToShow(string content, UserContentType type)
+        internal static string FormatUrlContentToShow(UserContentType type)
         {
             switch (type)
             {
-                case UserContentType.TeamCreationPost:
-                    return "A new team has been created!";
+                case UserContentType.TeamCreation:
+                    return "<div class=\"row\"><div class=\"col-12 col-md-4 p-2 text-center align-middle\"><i class=\"fas fa-4x fa-users\"></i></div><div class=\"col-12 col-md-8\">{0}. <br> <br> <span class=\"font-weight-bold text-uppercase\">{1}</span> <br> {2}</div></div>";
                 default:
                     return "Check this out!";
             }

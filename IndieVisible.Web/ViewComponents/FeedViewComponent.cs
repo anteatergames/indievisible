@@ -1,4 +1,5 @@
-﻿using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Formatters;
+using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
@@ -13,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IndieVisible.Web.Extensions;
 
 namespace IndieVisible.Web.ViewComponents
 {
@@ -44,11 +46,18 @@ namespace IndieVisible.Web.ViewComponents
 
             foreach (UserContentListItemViewModel item in model)
             {
-                if (item.UserContentType == UserContentType.TeamCreationPost)
+                if (item.UserContentType == UserContentType.TeamCreation)
                 {
-                    item.Url = item.Content;
-                    var newContent = ContentHelper.FormatUrlContentToShow(item.Content, item.UserContentType);
-                    item.Content = SharedLocalizer[newContent];
+                    var teamData = item.Content.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                    var id = teamData[0];
+                    var name = teamData[1];
+                    var motto = teamData[2];
+                    var memberCount = teamData[3];
+
+                    var postTemplate = ContentHelper.FormatUrlContentToShow(item.UserContentType);
+                    var translatedText = SharedLocalizer["A new team has been created with {0} members.", memberCount];
+                    item.Content = String.Format(postTemplate, translatedText, name, motto);
+                    item.Url = Url.Action("Details", "Team", new { teamId = id });
                 }
                 else
                 {

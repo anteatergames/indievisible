@@ -166,7 +166,7 @@ namespace IndieVisible.Application.Services
 
                 foreach (BrainstormIdeaViewModel item in vms)
                 {
-                    item.UserContentType = UserContentType.VotingItem;
+                    item.UserContentType = UserContentType.Idea;
                     item.VoteCount = brainstormVoteRepository.Count(x => x.IdeaId == item.Id);
                     item.Score = brainstormVoteRepository.GetAll().Where(x => x.IdeaId == item.Id).Sum(x => (int)x.VoteValue);
                     item.CurrentUserVote = currentUserVotes.FirstOrDefault(x => x.IdeaId == item.Id)?.VoteValue ?? VoteValue.Neutral;
@@ -192,7 +192,7 @@ namespace IndieVisible.Application.Services
 
                 BrainstormIdeaViewModel vm = mapper.Map<BrainstormIdeaViewModel>(model);
 
-                vm.UserContentType = UserContentType.VotingItem;
+                vm.UserContentType = UserContentType.Idea;
                 vm.VoteCount = brainstormVoteRepository.Count(x => x.IdeaId == vm.Id);
                 vm.Score = brainstormVoteRepository.GetAll().Where(x => x.IdeaId == vm.Id).Sum(x => (int)x.VoteValue);
                 vm.CurrentUserVote = brainstormVoteRepository.GetAll().FirstOrDefault(x => x.UserId == currentUserId && x.IdeaId == id)?.VoteValue ?? VoteValue.Neutral;
@@ -378,7 +378,7 @@ namespace IndieVisible.Application.Services
 
                 foreach (BrainstormIdeaViewModel item in vms)
                 {
-                    item.UserContentType = UserContentType.VotingItem;
+                    item.UserContentType = UserContentType.Idea;
                     item.VoteCount = brainstormVoteRepository.Count(x => x.IdeaId == item.Id);
                     item.Score = brainstormVoteRepository.GetAll().Where(x => x.IdeaId == item.Id).Sum(x => (int)x.VoteValue);
                     item.CurrentUserVote = currentUserVotes.FirstOrDefault(x => x.IdeaId == item.Id)?.VoteValue ?? VoteValue.Neutral;

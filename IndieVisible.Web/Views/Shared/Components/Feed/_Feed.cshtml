@@ -15,9 +15,18 @@
                 </a>
                 <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">@item.AuthorName</a></span>
 
-                <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="contenturl">
-                    <span class="description">@item.CreateDate.ToString()</span>
-                </a>
+                @if (!String.IsNullOrWhiteSpace(item.Url))
+                {
+                    <a href="@item.Url" class="contenturl">
+                        <span class="description">@item.CreateDate.ToString()</span>
+                    </a>
+                }
+                else
+                {
+                    <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="contenturl">
+                        <span class="description">@item.CreateDate.ToString()</span>
+                    </a>
+                }
             </div>
             <div class="box-tools">
                 @if (item.Permissions.CanDelete || item.Permissions.CanEdit)
@@ -43,10 +52,24 @@
         <div class="box-body no-gutters p-0 @(item.HasFeaturedImage ? "hasimage": "noimage")">
             @if (!item.IsArticle)
             {
-                <div class="col-12 p-2">
-                    @Html.Raw(item.Content)
-                </div>
+
+
+                @if (!String.IsNullOrWhiteSpace(item.Url))
+                {
+                    <div class="p-2 bottomcontent">
+                        <a href="@item.Url">
+                            @Html.Raw(item.Content)
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-12 p-2">
+                        @Html.Raw(item.Content)
+                    </div>
+                }
             }
+
             @if (item.HasFeaturedImage)
             {
                 <div class="col-12 text-center featuredimage">

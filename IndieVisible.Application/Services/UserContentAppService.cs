@@ -82,8 +82,6 @@ namespace IndieVisible.Application.Services
 
                 UserContentViewModel vm = mapper.Map<UserContentViewModel>(model);
 
-                vm.UserContentType = UserContentType.Post;
-
                 bool isYoutube = false;
 
                 if (!string.IsNullOrWhiteSpace(vm.FeaturedImage))
@@ -281,8 +279,6 @@ namespace IndieVisible.Application.Services
                 item.CommentCount = userContentDomainService.CountComments(x => x.UserContentId == item.Id);
 
                 LoadAuthenticatedData(currentUserId, item);
-
-                item.UserContentType = UserContentType.Post;
 
                 item.Poll = SetPoll(currentUserId, item.Id);
             }

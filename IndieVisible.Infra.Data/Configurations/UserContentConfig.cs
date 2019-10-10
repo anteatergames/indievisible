@@ -22,6 +22,10 @@ namespace IndieVisible.Infra.Data.Mappings
             builder.Property(c => c.Content)
                 .IsRequired();
 
+            builder.Property(x => x.UserContentType)
+                .HasDefaultValue(UserContentType.Post)
+                .IsRequired();
+
             builder.Property(x => x.Language)
                 .HasDefaultValue(SupportedLanguage.English);
 

@@ -1189,4 +1189,8 @@
     <value>Você ganhou 0 pontos. Demais!</value>
     <comment>Gamification</comment>
   </data>
+  <data name="A new team has been created with {0} members." xml:space="preserve">
+    <value>Uma nova equpe foi criada com {0} integrantes.</value>
+    <comment>Team</comment>
+  </data>
 </root>

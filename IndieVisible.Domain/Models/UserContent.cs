@@ -19,6 +19,8 @@ namespace IndieVisible.Domain.Models
 
         public string Content { get; set; }
 
+        public UserContentType UserContentType { get; set; }
+
         public SupportedLanguage Language { get; set; }
 
         public Guid? GameId { get; set; }

@@ -124,17 +124,7 @@ namespace IndieVisible.Web.Controllers
                     string url = Url.Action("Index", "Team", new { area = string.Empty, id = vm.Id.ToString() });
 
                     Notify(vm, oldMembers);
-
-                    var newContent = new UserContentViewModel
-                    {
-                        AuthorName = GetSessionValue(SessionValues.FullName),
-                        UserId = this.CurrentUserId,
-                        UserContentType = UserContentType.TeamCreationPost,
-                        Content = url
-                        
-                    };
-
-                    userContentAppService.Save(this.CurrentUserId, newContent);
+                    GenerateTeamPost(vm);
 
                     return Json(new OperationResultRedirectVo(url));
                 }
@@ -148,7 +138,6 @@ namespace IndieVisible.Web.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
-
 
         [Route("{teamId:guid}/invitation/accept")]
         public IActionResult AcceptInvitation(Guid teamId, string quote)
@@ -198,6 +187,22 @@ namespace IndieVisible.Web.Controllers
                 {
                     notificationAppService.Notify(member.UserId, NotificationType.TeamInvitation, vm.Id, String.Format(notificationText, meAsMember?.Name), notificationUrl);
                 }
+            }
+        }
+
+        private void GenerateTeamPost(TeamViewModel vm)
+        {
+            if (vm.Members.Count > 1)
+            {
+                var newContent = new UserContentViewModel
+                {
+                    AuthorName = GetSessionValue(SessionValues.FullName),
+                    UserId = this.CurrentUserId,
+                    UserContentType = UserContentType.TeamCreation,
+                    Content = String.Format("{0}|{1}|{2}|{3}", vm.Id, vm.Name, vm.Motto, vm.Members.Count)
+                };
+
+                userContentAppService.Save(this.CurrentUserId, newContent);
             }
         }
     }
