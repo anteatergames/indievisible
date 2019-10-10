@@ -26,5 +26,7 @@ namespace IndieVisible.Application.ViewModels.Brainstorm
         public int Score { get; internal set; }
 
         public VoteValue CurrentUserVote { get; set; }
+
+        public BrainstormIdeaStatus Status { get; set; }
     }
 }

@@ -381,7 +381,8 @@ namespace IndieVisible.Web.Controllers
                 Description = "Join forces to make games.",
                 Items = {
                     "Team Management",
-                    "Points Earned notification"
+                    "Points Earned notification",
+                    "Brainstorm Ideas status control"
                 }
             });
 

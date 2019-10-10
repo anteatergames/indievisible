@@ -4,28 +4,40 @@
     var rootUrl = '/brainstorm';
 
     var selectors = {};
+    var objs = {};
     var canInteract = false;
     var newIdea = false;
+    var details = false;
 
     function init() {
         setSelectors();
+        cacheObjects();
 
         bindAll();
 
-        canInteract = selectors.container.find('#caninteract').val();
+        canInteract = objs.container.find('#caninteract').val();
         newIdea = window.location.href.indexOf('newidea') > -1;
+        details = window.location.href.indexOf('details') > -1;
 
         if (!newIdea) {
             loadSession();
         }
+
+        objs.ddlStatus.removeClass('invisible').show();
     }
 
     function setSelectors() {
-        selectors.container = $(".content");
+        selectors.container = '.content';
         selectors.toolbar = $("#divToolbar");
         selectors.list = $("#divList");
         selectors.btnPostVotingItem = $("#btnPostVotingItem");
         selectors.form = $("#frmBrainstormIdeaSave");
+        selectors.ddlStatus = '#ddlStatus';
+    }
+
+    function cacheObjects() {
+        objs.container = $(selectors.container);
+        objs.ddlStatus = $(selectors.ddlStatus);
     }
 
     function bindAll() {
@@ -34,10 +46,35 @@
         bindBtnSaveIdea();
         bindBtnSaveSession();
         bindBtnVote();
+        bindStatusChange();
+    }
+
+    function bindStatusChange() {
+        objs.container.on('change', selectors.ddlStatus, function (e) {
+            var selectedStatus = $(this).val();
+            var url = $(this).data('url');
+            var ideaId = $(this).data('id');
+
+            var data = {
+                selectedStatus: selectedStatus,
+                ideaId: ideaId
+            };
+
+            $.post(url, data).done(function (response) {
+                if (response.success === true) {
+                    ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
+                        window.location = response.url;
+                    });
+                }
+                else {
+                    ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+                }
+            });
+        });
     }
 
     function bindBtnNewIdea() {
-        selectors.container.on('click', '.btn-idea-new', function () {
+        objs.container.on('click', '.btn-idea-new', function () {
             if (canInteract) {
                 loadNewForm();
             }
@@ -45,7 +82,7 @@
     }
 
     function bindBtnNewSession() {
-        selectors.container.on('click', '.btn-session-new', function () {
+        objs.container.on('click', '.btn-session-new', function () {
             if (canInteract) {
                 loadNewSessionForm();
             }
@@ -53,7 +90,7 @@
     }
 
     function bindBtnSaveIdea() {
-        selectors.container.on('click', '#btnPostBrainstormIdea', function () {
+        objs.container.on('click', '#btnPostBrainstormIdea', function () {
             var valid = selectors.form.valid();
             if (valid && canInteract) {
                 submitForm();
@@ -62,7 +99,7 @@
     }
 
     function bindBtnSaveSession() {
-        selectors.container.on('click', '#btnPostBrainstormSession', function () {
+        objs.container.on('click', '#btnPostBrainstormSession', function () {
             var valid = selectors.form.valid();
             if (valid && canInteract) {
                 submitForm();
@@ -71,7 +108,7 @@
     }
 
     function bindBtnVote() {
-        selectors.container.on('click', '.brainstorm-button', function () {
+        objs.container.on('click', '.brainstorm-button', function () {
             var btn = $(this);
             var item = btn.closest('.brainstorm-item');
             var id = item.data('id');
@@ -115,10 +152,10 @@
     function loadNewForm() {
         var sessionId = $('#brainstormcontainer #Id').val();
 
-        selectors.container.html(MAINMODULE.Default.Spinner);
+        objs.container.html(MAINMODULE.Default.Spinner);
 
         $.get(rootUrl + "/" + sessionId + "/newidea", function (data) {
-            selectors.container.html(data);
+            objs.container.html(data);
 
             selectors.form = $("#frmBrainstormIdeaSave");
 
@@ -127,10 +164,10 @@
     }
 
     function loadNewSessionForm() {
-        selectors.container.html(MAINMODULE.Default.Spinner);
+        objs.container.html(MAINMODULE.Default.Spinner);
 
         $.get(rootUrl + "/newsession", function (data) {
-            selectors.container.html(data);
+            objs.container.html(data);
 
             selectors.form = $("#frmBrainstormSessionSave");
 

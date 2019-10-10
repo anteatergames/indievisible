@@ -3,8 +3,8 @@
 }
 
 .brainstorm-sessionlist ul {
-    padding:0px;
-    list-style:none;
+    padding: 0px;
+    list-style: none;
 }
 
 .noitems .noitems-icon {
@@ -79,11 +79,35 @@
     }
 
 
-    #brainstormsidebar .brainstorm-box {
-        margin-top: 10px;
-        border: 1px solid gray;
-        min-height: 50px;
-        background-color: white;
-        padding: 5px;
-        border-radius: 0.25rem;
+#brainstormsidebar .brainstorm-box {
+    margin-top: 10px;
+    border: 1px solid gray;
+    min-height: 50px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 0.25rem;
+}
+
+.badge-status {
+    color: white;
+}
+
+    .badge-status.badge-proposed {
+        background-color: #9488AD;
+    }
+
+    .badge-status.badge-inanalysis {
+        background-color: #BFA200;
+    }
+
+    .badge-status.badge-accepted {
+        background-color: #4582FC;
+    }
+
+    .badge-status.badge-rejected {
+        background-color: #FB5012;
+    }
+
+    .badge-status.badge-implemented {
+        background-color: #03CF99;
     }

@@ -169,8 +169,7 @@ namespace IndieVisible.Web.Controllers
 
 
 
-        [HttpPost]
-        [Route("brainstorm/comment")]
+        [HttpPost("brainstorm/comment")]
         public IActionResult Comment(UserContentCommentViewModel vm)
         {
             OperationResultVo response;
@@ -180,6 +179,23 @@ namespace IndieVisible.Web.Controllers
             response = brainstormAppService.Comment(vm);
 
             return Json(response);
+        }
+
+        [HttpPost("brainstorm/changestatus/{ideaId:guid}")]
+        public IActionResult ChangeStatus(Guid ideaId, BrainstormIdeaStatus selectedStatus)
+        {
+            try
+            {
+                brainstormAppService.ChangeStatus(CurrentUserId, ideaId, selectedStatus);
+
+                string url = Url.Action("Index", "Brainstorm", new { area = string.Empty });
+
+                return Json(new OperationResultRedirectVo(url));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
         }
     }
 }

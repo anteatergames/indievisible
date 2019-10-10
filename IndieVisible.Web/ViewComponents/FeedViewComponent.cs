@@ -48,16 +48,7 @@ namespace IndieVisible.Web.ViewComponents
             {
                 if (item.UserContentType == UserContentType.TeamCreation)
                 {
-                    var teamData = item.Content.Split('|', StringSplitOptions.RemoveEmptyEntries);
-                    var id = teamData[0];
-                    var name = teamData[1];
-                    var motto = teamData[2];
-                    var memberCount = teamData[3];
-
-                    var postTemplate = ContentHelper.FormatUrlContentToShow(item.UserContentType);
-                    var translatedText = SharedLocalizer["A new team has been created with {0} members.", memberCount];
-                    item.Content = String.Format(postTemplate, translatedText, name, motto);
-                    item.Url = Url.Action("Details", "Team", new { teamId = id });
+                    FormatTeamCreationPost(item);
                 }
                 else
                 {
@@ -82,6 +73,20 @@ namespace IndieVisible.Web.ViewComponents
             ViewData["UserId"] = userId;
 
             return await Task.Run(() => View(model));
+        }
+
+        private void FormatTeamCreationPost(UserContentListItemViewModel item)
+        {
+            var teamData = item.Content.Split('|', StringSplitOptions.RemoveEmptyEntries);
+            var id = teamData[0];
+            var name = teamData[1];
+            var motto = teamData[2];
+            var memberCount = teamData[3];
+
+            var postTemplate = ContentHelper.FormatUrlContentToShow(item.UserContentType);
+            var translatedText = SharedLocalizer["A new team has been created with {0} members.", memberCount];
+            item.Content = String.Format(postTemplate, translatedText, name, motto);
+            item.Url = Url.Action("Details", "Team", new { teamId = id });
         }
     }
 }

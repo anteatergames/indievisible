@@ -82,6 +82,9 @@
     <Content Update="Views\Brainstorm\_CreateEditSession.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Brainstorm\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Help\About.ru.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

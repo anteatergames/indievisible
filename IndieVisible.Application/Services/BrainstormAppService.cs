@@ -189,6 +189,7 @@ namespace IndieVisible.Application.Services
             try
             {
                 BrainstormIdea model = brainstormIdeaRepository.GetById(id);
+                var session = brainstormSessionRepository.GetById(model.SessionId);
 
                 BrainstormIdeaViewModel vm = mapper.Map<BrainstormIdeaViewModel>(model);
 
@@ -213,6 +214,8 @@ namespace IndieVisible.Application.Services
                     comment.AuthorPicture = UrlFormatter.ProfileImage(comment.UserId);
                     comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? "this is the sound... of silence..." : comment.Text;
                 }
+
+                vm.Permissions.CanEdit = currentUserId == session.UserId;
 
                 return new OperationResultVo<BrainstormIdeaViewModel>(vm);
             }
@@ -429,6 +432,32 @@ namespace IndieVisible.Application.Services
             catch (Exception ex)
             {
                 return new OperationResultVo<BrainstormSessionViewModel>(ex.Message);
+            }
+        }
+
+        public OperationResultVo ChangeStatus(Guid currentUserId, Guid ideaId, BrainstormIdeaStatus selectedStatus)
+        {
+            try
+            {
+                var idea = brainstormIdeaRepository.GetById(ideaId);
+
+                if (idea == null)
+                {
+                    return new OperationResultVo("Idea not found!");
+                }
+
+                idea.Status = selectedStatus;
+
+                brainstormIdeaRepository.Update(idea);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true);
+
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
             }
         }
     }

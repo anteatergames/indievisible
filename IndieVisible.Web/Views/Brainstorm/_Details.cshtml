@@ -44,6 +44,13 @@
                         <div class="col-12">
                             <p>@Model.Description</p>
                         </div>
+
+                        @if (User.Identity.IsAuthenticated && Model.Permissions.CanEdit)
+                        {
+                            <div class="col-12 py-2">
+                                <select id="ddlStatus" asp-for="Status" asp-items="Html.GetEnumSelectList<BrainstormIdeaStatus>()" data-url="@Url.Action("ChangeStatus", "Brainstorm", new { ideaId = Model.Id })" class="form-control" data-placeholder="@SharedLocalizer["Set the current status"]" tabindex="-1" aria-hidden="true"></select>
+                            </div>
+                        }
                     </div>
                     <div class="author-details">
                         <div class="col-12">
@@ -125,7 +132,7 @@
 </div>
 
 
-@section Styles {
+@section ComponentStyles {
     <environment include="Development">
         <link rel="stylesheet" href="~/css/brainstorm.css">
     </environment>

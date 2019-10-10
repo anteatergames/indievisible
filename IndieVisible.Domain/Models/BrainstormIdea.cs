@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Core.Models;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Models;
 using System;
 using System.Collections.Generic;
 
@@ -11,6 +12,8 @@ namespace IndieVisible.Domain.Models
         public string Description { get; set; }
 
         public Guid SessionId { get; set; }
+
+        public BrainstormIdeaStatus Status { get; set; }
 
         public virtual BrainstormSession Session { get; set; }
 
