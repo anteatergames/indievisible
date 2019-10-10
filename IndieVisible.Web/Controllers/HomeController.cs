@@ -1,7 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Home;
 using IndieVisible.Application.ViewModels.UserPreferences;
-using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Web.Controllers.Base;

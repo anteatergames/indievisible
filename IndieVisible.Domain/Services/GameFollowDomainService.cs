@@ -25,6 +25,13 @@ namespace IndieVisible.Domain.Services
             return count;
         }
 
+        public int Count(Expression<Func<GameFollow, bool>> where)
+        {
+            int count = gameFollowRepository.Count(where);
+
+            return count;
+        }
+
         public IEnumerable<GameFollow> GetAll()
         {
             IQueryable<GameFollow> model = gameFollowRepository.GetAll();
@@ -61,13 +68,6 @@ namespace IndieVisible.Domain.Services
             gameFollowRepository.Update(model);
 
             return model.Id;
-        }
-
-        public int Count(Expression<Func<GameFollow, bool>> where)
-        {
-            int count = gameFollowRepository.Count(where);
-
-            return count;
         }
 
         public IEnumerable<GameFollow> GetByGameId(Guid gameId)

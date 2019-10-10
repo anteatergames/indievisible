@@ -1,7 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.Team
 {
