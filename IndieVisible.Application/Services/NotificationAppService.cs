@@ -43,7 +43,38 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo<Guid> Save(Guid currentUserId, NotificationItemViewModel viewModel)
         {
-            return new OperationResultVo<Guid>(string.Empty);
+            try
+            {
+                Notification model;
+
+                Notification existing = _notificationRepository.GetById(viewModel.Id);
+                if (existing != null)
+                {
+                    model = _mapper.Map(viewModel, existing);
+                }
+                else
+                {
+                    model = _mapper.Map<Notification>(viewModel);
+                }
+
+                if (viewModel.Id == Guid.Empty)
+                {
+                    _notificationRepository.Add(model);
+                    viewModel.Id = model.Id;
+                }
+                else
+                {
+                    _notificationRepository.Update(model);
+                }
+
+                _unitOfWork.Commit();
+
+                return new OperationResultVo<Guid>(model.Id);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo<Guid>(ex.Message);
+            }
         }
 
         public OperationResultVo Remove(Guid currentUserId, Guid id)
@@ -82,43 +113,7 @@ namespace IndieVisible.Application.Services
             throw new NotImplementedException();
         }
 
-        public OperationResultVo<Guid> Save(NotificationItemViewModel viewModel)
-        {
-            try
-            {
-                Notification model;
-
-                Notification existing = _notificationRepository.GetById(viewModel.Id);
-                if (existing != null)
-                {
-                    model = _mapper.Map(viewModel, existing);
-                }
-                else
-                {
-                    model = _mapper.Map<Notification>(viewModel);
-                }
-
-                if (viewModel.Id == Guid.Empty)
-                {
-                    _notificationRepository.Add(model);
-                    viewModel.Id = model.Id;
-                }
-                else
-                {
-                    _notificationRepository.Update(model);
-                }
-
-                _unitOfWork.Commit();
-
-                return new OperationResultVo<Guid>(model.Id);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResultVo<Guid>(ex.Message);
-            }
-        }
-
-        public OperationResultVo Notify(Guid targetUserId, NotificationType notificationType, Guid targetId, string text, string url)
+        public OperationResultVo Notify(Guid currentUserId, Guid targetUserId, NotificationType notificationType, Guid targetId, string text, string url)
         {
             NotificationItemViewModel vm = new NotificationItemViewModel();
             vm.UserId = targetUserId;
@@ -126,7 +121,7 @@ namespace IndieVisible.Application.Services
             vm.Url = url;
             vm.Type = notificationType;
 
-            return Save(vm);
+            return Save(currentUserId, vm);
         }
 
         public OperationResultVo MarkAsRead(Guid id)

@@ -12,6 +12,8 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo Comment(UserContentCommentViewModel vm);
 
+        OperationResultVo<BrainstormSessionViewModel> GetSession(Guid sessionId);
+
         OperationResultVo<BrainstormSessionViewModel> GetSession(Guid userId, BrainstormSessionType type);
 
         OperationResultListVo<BrainstormSessionViewModel> GetSessions(Guid userId);
@@ -21,8 +23,6 @@ namespace IndieVisible.Application.Interfaces
         OperationResultListVo<BrainstormIdeaViewModel> GetAllBySessionId(Guid userId, Guid sessionId);
 
         OperationResultVo<BrainstormSessionViewModel> GetMainSession();
-
-        OperationResultVo<BrainstormSessionViewModel> GetSession(Guid sessionId);
         OperationResultVo ChangeStatus(Guid currentUserId, Guid ideaId, BrainstormIdeaStatus selectedStatus);
     }
 }

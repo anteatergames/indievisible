@@ -185,7 +185,7 @@ namespace IndieVisible.Web.Controllers
             {
                 if (!oldMembers.Contains(member.Id))
                 {
-                    notificationAppService.Notify(member.UserId, NotificationType.TeamInvitation, vm.Id, String.Format(notificationText, meAsMember?.Name), notificationUrl);
+                    notificationAppService.Notify(CurrentUserId, member.UserId, NotificationType.TeamInvitation, vm.Id, String.Format(notificationText, meAsMember?.Name), notificationUrl);
                 }
             }
         }

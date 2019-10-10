@@ -131,7 +131,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
 
-            notificationAppService.Notify(userId, NotificationType.ConnectionRequest, userId, text, url);
+            notificationAppService.Notify(CurrentUserId, userId, NotificationType.ConnectionRequest, userId, text, url);
 
             return Json(response);
         }

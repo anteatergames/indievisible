@@ -301,13 +301,13 @@ namespace IndieVisible.Web.Controllers
                 switch (follower.Value)
                 {
                     case FollowType.Content:
-                        notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
+                        notificationAppService.Notify(CurrentUserId, follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
                         break;
                     case FollowType.Game:
-                        notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, gameName), notificationUrl);
+                        notificationAppService.Notify(CurrentUserId, follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, gameName), notificationUrl);
                         break;
                     default:
-                        notificationAppService.Notify(follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
+                        notificationAppService.Notify(CurrentUserId, follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
                         break;
                 }
             }

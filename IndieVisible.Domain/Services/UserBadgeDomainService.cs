@@ -25,6 +25,11 @@ namespace IndieVisible.Domain.Services
             return count;
         }
 
+        public int Count(Expression<Func<UserBadge, bool>> where)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<UserBadge> GetAll()
         {
             IQueryable<UserBadge> model = userBadgeRepository.GetAll();
@@ -63,11 +68,6 @@ namespace IndieVisible.Domain.Services
             userBadgeRepository.Update(model);
 
             return model.Id;
-        }
-
-        public int Count(Expression<Func<UserBadge, bool>> where)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<UserBadge> Search(Expression<Func<UserBadge, bool>> where)

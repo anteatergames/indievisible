@@ -55,7 +55,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Content", new { id = targetId });
 
-            notificationAppService.Notify(content.Value.UserId, NotificationType.ContentLike, targetId, text, url);
+            notificationAppService.Notify(CurrentUserId, content.Value.UserId, NotificationType.ContentLike, targetId, text, url);
 
             return Json(response);
         }
@@ -101,7 +101,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Game", new { id = likedId });
 
-            notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
+            notificationAppService.Notify(CurrentUserId, gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
 
 
             return Json(response);
@@ -134,7 +134,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
 
-            notificationAppService.Notify(gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
+            notificationAppService.Notify(CurrentUserId, gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
 
 
             return Json(response);
@@ -165,7 +165,7 @@ namespace IndieVisible.Web.Controllers
 
             string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
 
-            notificationAppService.Notify(userId, NotificationType.ContentLike, userId, text, url);
+            notificationAppService.Notify(CurrentUserId, userId, NotificationType.ContentLike, userId, text, url);
 
             return Json(response);
         }
