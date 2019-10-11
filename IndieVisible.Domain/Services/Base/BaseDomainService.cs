@@ -61,7 +61,7 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<T> GetByUserId(Guid userId)
         {
-            IQueryable<T> obj = repository.Get(x => x.UserId == userId);
+            IQueryable<T> obj = repository.GetByUserId(userId);
 
             return obj.ToList();
         }

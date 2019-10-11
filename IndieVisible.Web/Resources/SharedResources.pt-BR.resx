@@ -1273,4 +1273,12 @@
     <value>Roteiro</value>
     <comment>WorkType</comment>
   </data>
+  <data name="Type your {0} handler here." xml:space="preserve">
+    <value>Digite seu usuário {0} aqui.</value>
+    <comment>Profile Edit</comment>
+  </data>
+  <data name="clear" xml:space="preserve">
+    <value>limpar</value>
+    <comment>Generic</comment>
+  </data>
 </root>

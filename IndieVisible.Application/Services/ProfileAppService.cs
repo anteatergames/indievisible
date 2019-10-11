@@ -112,6 +112,8 @@ namespace IndieVisible.Application.Services
 
                 viewModel.GameJoltUrl = viewModel.GameJoltUrl?.TrimStart('@');
 
+                viewModel.ExternalLinks.RemoveAll(x => String.IsNullOrWhiteSpace(x.Value));
+
                 UserProfile existing = profileDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {

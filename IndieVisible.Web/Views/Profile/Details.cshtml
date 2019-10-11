@@ -29,37 +29,53 @@
                 <h2 class="user-profile-desc">@Model.Motto</h2>
 
                 <div class="user-social-acount">
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Website))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Website))
                     {
-                        <button class="btn btn-circle btn-social-icon bg-fuchsia"><i class="fa fa-link" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Website).Value" target="_blank" class="btn btn-circle btn-social-icon bg-fuchsia">
+                            <i class="fa fa-link" aria-hidden="true"></i>
+                        </a>
                     }
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Facebook))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Facebook))
                     {
-                        <button class="btn btn-circle btn-social-icon btn-facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Facebook).Value" target="_blank" class="btn btn-circle btn-social-icon btn-facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
                     }
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Twitter))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Twitter))
                     {
-                        <button class="btn btn-circle btn-social-icon btn-twitter"><i class="fab fa-twitter" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Twitter).Value" target="_blank" class="btn btn-circle btn-social-icon btn-twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
                     }
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Instagram))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Instagram))
                     {
-                        <button class="btn btn-circle btn-social-icon btn-instagram"><i class="fab fa-instagram" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Instagram).Value" target="_blank" class="btn btn-circle btn-social-icon btn-instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
                     }
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.GooglePlus))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Youtube))
                     {
-                        <button class="btn btn-circle btn-social-icon btn-google"><i class="fab fa-google-plus-g" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Youtube).Value" target="_blank" class="btn btn-circle btn-social-icon bg-red">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
                     }
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Youtube))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.XboxLive))
                     {
-                        <button class="btn btn-circle btn-social-icon bg-red"><i class="fab fa-youtube" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.XboxLive).Value" target="_blank" class="btn btn-circle btn-social-icon bg-green-active">
+                            <i class="fab fa-xbox" aria-hidden="true"></i>
+                        </a>
                     }
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.XboxLive))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Psn))
                     {
-                        <button class="btn btn-circle btn-social-icon bg-green-active"><i class="fab fa-xbox" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Psn).Value" target="_blank" class="btn btn-circle btn-social-icon bg-black-active">
+                            <i class="fab fa-playstation" aria-hidden="true"></i>
+                        </a>
                     }
-                    @if (Model.ExternalLinks.ContainsKey(ExternalLinks.Steam))
+                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Steam))
                     {
-                        <button class="btn btn-circle btn-social-icon bg-black"><i class="fab fa-steam" aria-hidden="true"></i></button>
+                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Steam).Value" target="_blank" class="btn btn-circle btn-social-icon bg-black">
+                            <i class="fab fa-steam" aria-hidden="true"></i>
+                        </a>
                     }
                 </div>
             </div>
@@ -283,71 +299,19 @@
                                 {
                                     <div class="row mt-3 text-center">
                                         <div class="col-12">
-                                            @if (!string.IsNullOrWhiteSpace(Model.GameJoltUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.GameJoltUrl" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayNameFor(x => x.GameJoltUrl)">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/gamejolt32.png" alt="Game Jolt" />
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
 
-                                            @if (!string.IsNullOrWhiteSpace(Model.ItchIoUrl))
+                                            @foreach (var externalLink in Model.ExternalLinks.Where(x => x.Type == ExternalLinkType.GameDev))
                                             {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.ItchIoUrl" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayNameFor(x => x.ItchIoUrl)">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/itchio32.png" alt="Itch.io" />
-                                                            </div>
-                                                            
-                                                        </a>
-                                                    </div>
+                                            <div class="user-profile-others">
+                                                <div class="centered">
+                                                    <a href="@externalLink.Value" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayNameFor(x => x.GameJoltUrl)">
+                                                        <div class="other-icon">
+                                                            <img src="@String.Format("/images/otherprofiles/{0}32.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                            }
-
-                                            @if (!string.IsNullOrWhiteSpace(Model.IndieDbUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.IndieDbUrl" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayNameFor(x => x.IndieDbUrl)">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/indiedb32.png" alt="IndieDb" />
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                            @if (!string.IsNullOrWhiteSpace(Model.UnityConnectUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.UnityConnectUrl" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayNameFor(x => x.UnityConnectUrl)">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/unity32.png" alt="Unity Connect" />
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                            @if (!string.IsNullOrWhiteSpace(Model.GameDevNetUrl))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@Model.GameDevNetUrl" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayNameFor(x => x.GameDevNetUrl)">
-                                                            <div class="other-icon">
-                                                                <img src="~/images/otherprofiles/gamedevnet32.png" alt="Gamedev.net" />
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            }
+                                            </div>
+                                            }                                            
                                         </div>
                                     </div>
                                 }

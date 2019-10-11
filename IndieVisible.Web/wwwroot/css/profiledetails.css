@@ -65,6 +65,7 @@
 
 
 .user-profile-header .user-social-acount {
+    border-radius: 0;
     border-top: 1px solid white;
     margin-top: 10px;
     padding-top: 10px;
@@ -145,7 +146,7 @@
     font-size: 12px;
     overflow: visible;
     text-align: center;
-    display:inline-block;
+    display: inline-block;
 }
 
     .user-profile-others div.centered {

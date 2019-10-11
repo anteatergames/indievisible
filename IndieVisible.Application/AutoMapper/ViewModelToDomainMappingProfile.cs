@@ -33,7 +33,11 @@ namespace IndieVisible.Application.AutoMapper
             #endregion
 
             #region Profile
-            CreateMap<ProfileViewModel, Domain.Models.UserProfile>();
+            CreateMap<ProfileViewModel, Domain.Models.UserProfile>()
+                .ForMember(dest => dest.ExternalLinks, opt => opt.Ignore())
+                .AfterMap<AddOrUpdateExternalLinks>();
+
+            CreateMap<UserProfileExternalLinkViewModel, Domain.Models.UserProfileExternalLink>();
             #endregion
 
             #region Content

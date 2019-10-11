@@ -5,6 +5,7 @@ namespace IndieVisible.Application.Formatters
 {
     public static class UrlFormatter
     {
+        #region Internal
         public static string ProfileImage(Guid userId)
         {
             return String.Format("{0}/{1}/{2}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId);
@@ -25,7 +26,8 @@ namespace IndieVisible.Application.Formatters
             {
                 return String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath.TrimEnd('/'), userId, fileName);
             }
-        }
+        } 
+        #endregion
 
         #region ExternalUrls
         private static string ExternalUrlCommon(string handler)
@@ -34,7 +36,7 @@ namespace IndieVisible.Application.Formatters
             return handler;
         }
 
-
+        #region Old
         public static string ItchIo(string handler)
         {
             handler = ExternalUrlCommon(handler);
@@ -63,6 +65,58 @@ namespace IndieVisible.Application.Formatters
         {
             handler = ExternalUrlCommon(handler);
             return String.Format("https://www.gamedev.net/profile/{0}", handler);
+        }
+        #endregion
+
+        public static string Website(string handler)
+        {
+            handler = handler.Trim('/');
+            if (!handler.StartsWith("http"))
+            {
+                handler = String.Format("http://{0}", handler);
+            }
+            return handler;
+        }
+
+        public static string Facebook(string handler)
+        {
+            handler = ExternalUrlCommon(handler);
+            return String.Format("https://www.facebook.com/{0}", handler);
+        }
+
+        public static string Twitter(string handler)
+        {
+            handler = ExternalUrlCommon(handler);
+            return String.Format("https://twitter.com/{0}", handler);
+        }
+
+        public static string Instagram(string handler)
+        {
+            handler = ExternalUrlCommon(handler);
+            return String.Format("https://www.instagram.com/{0}", handler);
+        }
+
+        public static string Youtube(string handler)
+        {
+            return String.Format("https://www.youtube.com/channel/{0}", handler);
+        }
+
+        public static string XboxLive(string handler)
+        {
+            handler = ExternalUrlCommon(handler);
+            return String.Format("https://account.xbox.com/en-us/profile?gamertag={0}", handler);
+        }
+
+        public static string Psn(string handler)
+        {
+            handler = ExternalUrlCommon(handler);
+            return String.Format("https://my.playstation.com/profile/{0}", handler);
+        }
+
+        public static string Steam(string handler)
+        {
+            handler = ExternalUrlCommon(handler);
+            return String.Format("https://steamcommunity.com/id/{0}", handler);
         }
         #endregion
     }

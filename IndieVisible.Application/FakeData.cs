@@ -130,9 +130,6 @@ namespace IndieVisible.Application
             profile.IndieXp.LevelXp = 500;
             profile.IndieXp.NextLevelXp = 1500;
 
-            profile.ExternalLinks.Add(ExternalLinks.Website, "http://www.indievisible.net");
-            profile.ExternalLinks.Add(ExternalLinks.Facebook, "http://www.facebook.com");
-
             return profile;
         }
     }

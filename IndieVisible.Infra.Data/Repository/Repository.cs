@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Interfaces.Base;
+﻿using IndieVisible.Domain.Core.Models;
+using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
         protected readonly IndieVisibleContext Db;
         protected readonly DbSet<TEntity> DbSet;
@@ -26,6 +27,11 @@ namespace IndieVisible.Infra.Data.Repository
         public virtual TEntity GetById(Guid id)
         {
             return DbSet.Find(id);
+        }
+
+        public virtual IQueryable<TEntity> GetByUserId(Guid userId)
+        {
+            return DbSet.Where(x => x.UserId == userId);
         }
 
         public int Count(Expression<Func<TEntity, bool>> where)

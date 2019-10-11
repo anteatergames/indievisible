@@ -1,13 +1,16 @@
 ﻿using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Controllers
@@ -45,6 +48,8 @@ namespace IndieVisible.Web.Controllers
 
             FormatExternalNetworkUrls(vm);
 
+            FormatExternaLinks(vm);
+
             gamificationAppService.FillProfileGamificationDetails(CurrentUserId, ref vm);
 
             if (CurrentUserId != Guid.Empty)
@@ -71,6 +76,9 @@ namespace IndieVisible.Web.Controllers
         public IActionResult Edit(Guid userId)
         {
             ProfileViewModel vm = profileAppService.GetByUserId(userId, ProfileType.Personal);
+
+            FormatExternalLinksForEdit(vm);
+
             SetImages(vm);
 
             return View(vm);
@@ -130,6 +138,75 @@ namespace IndieVisible.Web.Controllers
             if (!string.IsNullOrWhiteSpace(vm.GameDevNetUrl) && !vm.GameDevNetUrl.Contains("gamedev.net"))
             {
                 vm.GameDevNetUrl = UrlFormatter.GamedevNet(vm.GameDevNetUrl);
+            }
+        }
+
+        private static void FormatExternalLinksForEdit(ProfileViewModel vm)
+        {
+            foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
+            {
+                var existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
+                var uiInfo = provider.GetAttributeOfType<UiInfoAttribute>();
+
+                if (existingProvider == null)
+                {
+
+                    var placeHolder = new UserProfileExternalLinkViewModel
+                    {
+                        UserProfileId = vm.Id,
+                        UserId = vm.UserId,
+                        Type =  (ExternalLinkType)uiInfo.Type,
+                        Provider = provider,
+                        Display = uiInfo.Display,
+                        UiClass = uiInfo.Class
+                    };
+
+                    vm.ExternalLinks.Add(placeHolder);
+                }
+                else
+                {
+                    existingProvider.Display = uiInfo.Display;
+                    existingProvider.UiClass = uiInfo.Class;
+                }
+            }
+
+            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
+        }
+
+        private void FormatExternaLinks(ProfileViewModel vm)
+        {
+            foreach (var item in vm.ExternalLinks)
+            {
+                switch (item.Provider)
+                {
+                    case ExternalLinkProvider.Website:
+                        item.Value = UrlFormatter.Website(item.Value);
+                        break;
+                    case ExternalLinkProvider.Facebook:
+                        item.Value = UrlFormatter.Facebook(item.Value);
+                        break;
+                    case ExternalLinkProvider.Twitter:
+                        item.Value = UrlFormatter.Twitter(item.Value);
+                        break;
+                    case ExternalLinkProvider.Instagram:
+                        item.Value = UrlFormatter.Instagram(item.Value);
+                        break;
+                    case ExternalLinkProvider.Youtube:
+                        item.Value = UrlFormatter.Youtube(item.Value);
+                        break;
+                    case ExternalLinkProvider.XboxLive:
+                        item.Value = UrlFormatter.XboxLive(item.Value);
+                        break;
+                    case ExternalLinkProvider.Psn:
+                        item.Value = UrlFormatter.Psn(item.Value);
+                        break;
+                    case ExternalLinkProvider.Steam:
+                        item.Value = UrlFormatter.Steam(item.Value);
+                        break;
+                    case ExternalLinkProvider.GameJolt:
+                        item.Value = UrlFormatter.GameJolt(item.Value);
+                        break;
+                }
             }
         }
     }

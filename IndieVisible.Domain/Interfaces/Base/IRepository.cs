@@ -8,6 +8,7 @@ namespace IndieVisible.Domain.Interfaces.Base
     {
         void Add(TEntity obj);
         TEntity GetById(Guid id);
+        IQueryable<TEntity> GetByUserId(Guid userId);
         int Count(Expression<Func<TEntity, bool>> where);
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> where);
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> where, string navigationPropertyToInclude);

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.User
 {
@@ -36,11 +37,7 @@ namespace IndieVisible.Application.ViewModels.User
         {
             get
             {
-                return !string.IsNullOrWhiteSpace(GameJoltUrl)
-                    || !string.IsNullOrWhiteSpace(ItchIoUrl)
-                    || !string.IsNullOrWhiteSpace(IndieDbUrl)
-                    || !string.IsNullOrWhiteSpace(GameDevNetUrl)
-                    || !string.IsNullOrWhiteSpace(UnityConnectUrl);
+                return ExternalLinks.Any(x => x.Type == ExternalLinkType.GameDev);
             }
         }
         [Display(Name = "Game Jolt")]
@@ -65,7 +62,7 @@ namespace IndieVisible.Application.ViewModels.User
 
         public IndieXpCounter IndieXp { get; set; }
 
-        public Dictionary<ExternalLinks, string> ExternalLinks { get; set; }
+        public List<UserProfileExternalLinkViewModel> ExternalLinks { get; set; }
 
         public ConnectionControlViewModel ConnectionControl { get; set; }
 
@@ -73,7 +70,7 @@ namespace IndieVisible.Application.ViewModels.User
         {
             Counters = new UserCounters();
             IndieXp = new IndieXpCounter();
-            ExternalLinks = new Dictionary<ExternalLinks, string>();
+            ExternalLinks = new List<UserProfileExternalLinkViewModel>();
             ConnectionControl = new ConnectionControlViewModel();
         }
     }

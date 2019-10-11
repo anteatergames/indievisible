@@ -374,7 +374,8 @@ namespace IndieVisible.Web.Controllers
                 Items = {
                     "Team Management",
                     "Points Earned notification",
-                    "Brainstorm Ideas status control"
+                    "Brainstorm Ideas status control",
+                    "External Links working"
                 }
             });
 

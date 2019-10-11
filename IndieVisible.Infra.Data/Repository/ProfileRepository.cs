@@ -16,9 +16,14 @@ namespace IndieVisible.Infra.Data.Repository
 
         }
 
-        public IEnumerable<UserProfile> GetByUserId(Guid userId)
+        public override UserProfile GetById(Guid id)
         {
-            return DbSet.Where(x => x.UserId == userId);
+            return DbSet.Where(x => x.Id == id).Include(x => x.ExternalLinks).FirstOrDefault();
+        }
+
+        public override IQueryable<UserProfile> GetByUserId(Guid userId)
+        {
+            return DbSet.Where(x => x.UserId == userId).Include(x => x.ExternalLinks);
         }
 
         public void UpdateNameOnThePlatform(Guid userId, string newName)

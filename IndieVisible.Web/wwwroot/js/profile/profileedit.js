@@ -2,6 +2,7 @@
     "use strict";
 
     var selectors = {};
+    var objs = {};
 
     var cropperAvatar;
     var canvasAvatar;
@@ -14,18 +15,29 @@
     var croppedCoverImage = false;
 
     function init() {
-        cacheSelectors();
+        setSelectors();
+        cacheObjects();
 
         bindAll();
     }
 
-    function cacheSelectors() {
-        selectors.form = $('#frmProfileSave');
-        selectors.UserId = $('#UserId');
-        selectors.modalCropAvatar = $('#modalCropAvatar');
-        selectors.modalCropCoverImage = $('#modalCropCoverImage');
-        selectors.profileImageUrl = $("#ProfileImageUrl");
-        selectors.coverImage = $("#CoverImageUrl");
+    function setSelectors() {
+        selectors.form = '#frmProfileSave';
+        selectors.UserId = '#UserId';
+        selectors.modalCropAvatar = '#modalCropAvatar';
+        selectors.modalCropCoverImage = '#modalCropCoverImage';
+        selectors.profileImageUrl = "#ProfileImageUrl";
+        selectors.coverImage = "#CoverImageUrl";
+        selectors.btnClearExternalLink = '.btnClearExternalLink';
+    }
+
+    function cacheObjects() {
+        objs.form = $(selectors.form);
+        objs.UserId = $(selectors.UserId);
+        objs.modalCropAvatar = $(selectors.modalCropAvatar);
+        objs.modalCropCoverImage = $(selectors.modalCropCoverImage);
+        objs.profileImageUrl = $(selectors.profileImageUrl);
+        objs.coverImage = $(selectors.coverImage);
     }
 
     function bindAll() {
@@ -33,6 +45,14 @@
         bindCropCoverImage();
 
         bindSave();
+
+        bindClearExternalLink();
+    }
+
+    function bindClearExternalLink() {
+        objs.form.on('click', selectors.btnClearExternalLink, function (e) {
+            $(this).closest('.input-group').find('input[type=text]').val('');
+        });
     }
 
     function bindCropAvatar() {
@@ -50,7 +70,7 @@
             var done = function (url) {
                 input.value = '';
                 cropImage.src = url;
-                selectors.modalCropAvatar.modal('show');
+                objs.modalCropAvatar.modal('show');
             };
             var reader;
             var file;
@@ -72,7 +92,7 @@
             }
         });
 
-        selectors.modalCropAvatar.on('shown.bs.modal', function () {
+        objs.modalCropAvatar.on('shown.bs.modal', function () {
             cropperAvatar = new Cropper(cropImage, {
                 aspectRatio: 1 / 1,
                 viewMode: 3,
@@ -91,7 +111,7 @@
                 image.src = canvasAvatar.toDataURL();
             }
 
-            selectors.modalCropAvatar.modal('hide');
+            objs.modalCropAvatar.modal('hide');
         });
     }
 
@@ -99,7 +119,7 @@
         if (cropperAvatar) {
             if (canvasAvatar) {
                 var userId = document.getElementById('UserId').value;
-                var currentImage = selectors.profileImageUrl.val();
+                var currentImage = objs.profileImageUrl.val();
 
                 canvasAvatar.toBlob(function (blob) {
                     var formData = new FormData();
@@ -114,7 +134,7 @@
                         processData: false,
                         contentType: false,
                         success: function (response) {
-                            selectors.profileImageUrl.val(response.imageUrl);
+                            objs.profileImageUrl.val(response.imageUrl);
                             if (callback) {
                                 callback();
 
@@ -145,7 +165,7 @@
             var done = function (url) {
                 input.value = '';
                 cropImage.src = url;
-                selectors.modalCropCoverImage.modal('show');
+                objs.modalCropCoverImage.modal('show');
             };
             var reader;
             var file;
@@ -165,7 +185,7 @@
             }
         });
 
-        selectors.modalCropCoverImage.on('shown.bs.modal', function () {
+        objs.modalCropCoverImage.on('shown.bs.modal', function () {
             cropperCoverImage = new Cropper(cropImage, {
                 aspectRatio: 6 / 1,
                 viewMode: 3,
@@ -184,7 +204,7 @@
                 $(image).css("background-image", "url('" + canvasCoverImage.toDataURL() + "')");
             }
 
-            selectors.modalCropCoverImage.modal('hide');
+            objs.modalCropCoverImage.modal('hide');
         });
     }
 
@@ -193,7 +213,7 @@
             if (canvasCoverImage) {
                 var profileId = document.getElementById('Id').value;
                 var userId = document.getElementById('UserId').value;
-                var currentImage = selectors.coverImage.val();
+                var currentImage = objs.coverImage.val();
 
                 canvasCoverImage.toBlob(function (blob) {
                     var formData = new FormData();
@@ -209,7 +229,7 @@
                         processData: false,
                         contentType: false,
                         success: function (response) {
-                            selectors.coverImage.val(response.imageUrl);
+                            objs.coverImage.val(response.imageUrl);
                             if (callback) {
                                 callback();
 
@@ -238,7 +258,7 @@
             icon.removeClass('fa-save');
             icon.addClass('fa-circle-notch fa-spin');
 
-            var valid = selectors.form.valid();
+            var valid = objs.form.valid();
             if (valid) {
                 var posSaveFunction = function () {
                     icon.removeClass('fa-circle-notch fa-spin');
@@ -272,9 +292,9 @@
     }
 
     function submitForm(callback) {
-        var url = selectors.form.attr('action');
+        var url = objs.form.attr('action');
 
-        var data = selectors.form.serialize();
+        var data = objs.form.serialize();
 
         $.ajax({
             type: "POST",

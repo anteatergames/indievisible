@@ -39,8 +39,9 @@ namespace IndieVisible.Application.AutoMapper
             #region Profile
             CreateMap<UserProfile, ProfileViewModel>()
                     .ForMember(x => x.Counters, opt => opt.Ignore())
-                    .ForMember(x => x.IndieXp, opt => opt.Ignore())
-                    .ForMember(x => x.ExternalLinks, opt => opt.Ignore());
+                    .ForMember(x => x.IndieXp, opt => opt.Ignore());
+
+            CreateMap<UserProfileExternalLink, UserProfileExternalLinkViewModel>();
             #endregion
 
             #region Content

@@ -76,7 +76,7 @@ namespace IndieVisible.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new GameLikeConfig());
             modelBuilder.ApplyConfiguration(new GameFollowConfig());
 
-            modelBuilder.ApplyConfiguration(new ProfileConfig());
+            modelBuilder.ApplyConfiguration(new UserProfileConfig());
             modelBuilder.ApplyConfiguration(new UserFollowConfig());
             modelBuilder.ApplyConfiguration(new UserConnectionConfig());
 
