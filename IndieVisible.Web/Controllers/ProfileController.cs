@@ -206,6 +206,18 @@ namespace IndieVisible.Web.Controllers
                     case ExternalLinkProvider.GameJolt:
                         item.Value = UrlFormatter.GameJolt(item.Value);
                         break;
+                    case ExternalLinkProvider.ItchIo:
+                        item.Value = UrlFormatter.ItchIo(item.Value);
+                        break;
+                    case ExternalLinkProvider.GamedevNet:
+                        item.Value = UrlFormatter.GamedevNet(item.Value);
+                        break;
+                    case ExternalLinkProvider.IndieDb:
+                        item.Value = UrlFormatter.IndieDb(item.Value);
+                        break;
+                    case ExternalLinkProvider.UnityConnect:
+                        item.Value = UrlFormatter.UnityConnect(item.Value);
+                        break;
                 }
             }
         }
