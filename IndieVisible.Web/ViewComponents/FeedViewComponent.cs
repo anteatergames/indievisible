@@ -35,9 +35,19 @@ namespace IndieVisible.Web.ViewComponents
         {
             UserPreferencesViewModel preferences = _userPreferencesAppService.GetByUserId(CurrentUserId);
 
-            List<SupportedLanguage> languages = preferences.Languages;
+            var vm = new ActivityFeedRequestViewModel
+            {
+                CurrentUserId = CurrentUserId,
+                Count = count,
+                GameId = gameId,
+                UserId = userId,
+                Languages = preferences.Languages,
+                OldestId = oldestId,
+                OldestDate = oldestDate,
+                ArticlesOnly = articlesOnly
+            };
 
-            List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(CurrentUserId, count, gameId, userId, languages, oldestId, oldestDate, articlesOnly).ToList();
+            List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(vm).ToList();
 
             ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
             bool userIsAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());

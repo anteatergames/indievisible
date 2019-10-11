@@ -246,14 +246,14 @@ namespace IndieVisible.Application.Services
             return count;
         }
 
-        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(Guid currentUserId, int count, Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
+        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm)
         {
-            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(gameId, userId, languages, oldestId, oldestDate, articlesOnly);
+            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly);
 
             IOrderedQueryable<UserContent> orderedList = allModels
                 .OrderByDescending(x => x.CreateDate);
 
-            IQueryable<UserContent> finalList = orderedList.Take(count);
+            IQueryable<UserContent> finalList = orderedList.Take(vm.Count);
 
             List<UserContentListItemViewModel> viewModels = finalList.ProjectTo<UserContentListItemViewModel>(mapper.ConfigurationProvider).ToList();
 
@@ -277,9 +277,9 @@ namespace IndieVisible.Application.Services
 
                 item.CommentCount = userContentDomainService.CountComments(x => x.UserContentId == item.Id);
 
-                LoadAuthenticatedData(currentUserId, item);
+                LoadAuthenticatedData(vm.CurrentUserId, item);
 
-                item.Poll = SetPoll(currentUserId, item.Id);
+                item.Poll = SetPoll(vm.CurrentUserId, item.Id);
             }
 
             return viewModels;
