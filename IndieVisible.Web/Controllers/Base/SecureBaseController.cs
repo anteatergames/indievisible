@@ -86,7 +86,7 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected void SetAvatar(string profileImageUrl)
         {
-            SetCookieValue(SessionValues.UserProfileImageUrl, profileImageUrl, 7);
+            SetCookieValue(SessionValues.UserProfileImageUrl, profileImageUrl, 7, true);
         }
 
 
@@ -249,11 +249,19 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected void SetCookieValue(SessionValues key, string value, int? expireTime)
         {
-            CookieMgrService.Set(key.ToString(), value, expireTime);
+            SetCookieValue(key, value, expireTime, false);
+        }
+        protected void SetCookieValue(SessionValues key, string value, int? expireTime, bool isEssential)
+        {
+            CookieMgrService.Set(key.ToString(), value, expireTime, isEssential);
         }
         protected void SetCookieValue(string key, string value, int? expireTime)
         {
-            CookieMgrService.Set(key, value, expireTime);
+            SetCookieValue(key, value, expireTime, false);
+        }
+        protected void SetCookieValue(string key, string value, int? expireTime, bool isEssential)
+        {
+            CookieMgrService.Set(key, value, expireTime, isEssential);
         }
         #endregion
     }

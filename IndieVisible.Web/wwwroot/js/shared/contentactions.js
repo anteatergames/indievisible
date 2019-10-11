@@ -142,7 +142,6 @@
             var avatar = commentBox.find('img').attr('src');
             clone.find('img').attr('src', avatar);
             clone.find('.comment-authorname').text(commentBox.data('fullname'));
-            clone.find('.comment-date').html('<i class="fa fa-asterisk"></i>');
             clone.find('.comment-content').html(text);
 
             var currentContentCommentBox = txtArea.closest('.box-comments').find('.box-commentsection');

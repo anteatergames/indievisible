@@ -4,6 +4,6 @@
     {
         string Get(string key);
 
-        void Set(string key, string value, int? expireTime);
+        void Set(string key, string value, int? expireTime, bool isEssential);
     }
 }

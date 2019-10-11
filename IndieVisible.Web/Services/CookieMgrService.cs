@@ -19,7 +19,7 @@ namespace IndieVisible.Web.Services
             return cookieValueFromContext;
         }
 
-        public void Set(string key, string value, int? expireTime)
+        public void Set(string key, string value, int? expireTime, bool isEssential)
         {
             CookieOptions option = new CookieOptions();
 
@@ -28,7 +28,7 @@ namespace IndieVisible.Web.Services
             else
                 option.Expires = DateTime.Now.AddDays(7);
 
-            option.IsEssential = true; // TODO GDPR related. Make a parameter and set cookie consent popup
+            option.IsEssential = isEssential;
             option.Secure = true;
 
             _httpContextAccessor.HttpContext.Response.Cookies.Append(key, value, option);

@@ -1281,4 +1281,8 @@
     <value>limpar</value>
     <comment>Generic</comment>
   </data>
+  <data name="Just now" xml:space="preserve">
+    <value>Agora mesmo</value>
+    <comment>Comment</comment>
+  </data>
 </root>
