@@ -82,7 +82,6 @@ namespace IndieVisible.Web.Controllers
                 vm.Introduction = SharedLocalizer["Content posted on"] + " " + vm.CreateDate.ToShortDateString();
             }
 
-
             ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
 
             bool userIsAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
@@ -155,7 +154,6 @@ namespace IndieVisible.Web.Controllers
 
                     return Json(new OperationResultRedirectVo(url));
                 }
-
             }
             catch (Exception ex)
             {

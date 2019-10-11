@@ -106,7 +106,6 @@ namespace IndieVisible.Web.Controllers
                     {
                         SetLanguage(userPrefs.UiLanguage);
                         postModel.DefaultLanguage = userPrefs.UiLanguage;
-
                     }
                     else
                     {
@@ -119,7 +118,6 @@ namespace IndieVisible.Web.Controllers
 
             ViewBag.PostFromHome = postModel;
         }
-
 
         private static TimeLineViewModel GenerateTimeline()
         {
@@ -389,7 +387,6 @@ namespace IndieVisible.Web.Controllers
                 Subtitle = "Open Beta",
                 Description = "At this point, we hope to have a consistent beta tester base so we can polish the platform and fix every possible bug tha shows up."
             });
-
 
             model.Items.Add(new TimeLineItemViewModel
             {

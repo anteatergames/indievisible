@@ -118,7 +118,6 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Languages()
         {

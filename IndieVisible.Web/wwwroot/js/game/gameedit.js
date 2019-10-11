@@ -53,7 +53,7 @@
     }
 
     function bindEngineChange() {
-        selectors.form.on('change', selectors.ddlEngine, function (e) {
+        selectors.form.on('change', selectors.ddlEngine, function () {
             var selectedEngine = $(this).val();
 
             var isAlreadyVisible = objs.divCustomEngineName.is(':visible');
@@ -97,7 +97,7 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e2) {
+                    reader.onload = function () {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);
@@ -157,7 +157,7 @@
                                 cropperGameThumbnail = null;
                             }
                         },
-                        error: function (response) {
+                        error: function () {
                             document.getElementById('gameThumbnail').src = initialUrlGameThumbnail;
                         }
                     });
@@ -192,7 +192,7 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e2) {
+                    reader.onload = function () {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);
@@ -252,7 +252,7 @@
                                 cropperCoverImage = null;
                             }
                         },
-                        error: function (response) {
+                        error: function () {
                             document.getElementById('gameCoverImage').src = initialUrlGameCoverImage;
                         }
                     });
@@ -320,7 +320,7 @@
                 if (callback) {
                     callback();
                 }
-                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
+                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
                     window.location = response.url;
                 });
             }
@@ -344,7 +344,7 @@ $(function () {
 // must be set outside document.ready
 $.validator.setDefaults({
     ignore: [],
-    highlight: function (element, errorClass, validClass) {
+    highlight: function (element) {
         $(element).closest('.form-group').addClass('has-error');
         var tabPane = $(element).closest('.tab-pane');
         var tabs = tabPane.parent().parent();

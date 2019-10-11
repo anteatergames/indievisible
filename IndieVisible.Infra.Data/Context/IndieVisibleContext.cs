@@ -19,7 +19,6 @@ namespace IndieVisible.Infra.Data.Context
 
         public DbSet<FeaturedContent> FeaturedContents { get; set; }
 
-
         public DbSet<UserProfile> Profiles { get; set; }
         public DbSet<UserFollow> Follows { get; set; }
         public DbSet<UserConnection> Connections { get; set; }
@@ -39,7 +38,6 @@ namespace IndieVisible.Infra.Data.Context
         public DbSet<BrainstormComment> BrainstormComments { get; set; }
         #endregion
 
-
         #region Gamification
         public DbSet<Gamification> Gamifications { get; set; }
         public DbSet<GamificationAction> GamificationActions { get; set; }
@@ -58,10 +56,8 @@ namespace IndieVisible.Infra.Data.Context
         public DbSet<TeamMember> TeamMembers { get; set; }
         #endregion
 
-
         public IndieVisibleContext()
         {
-
         }
 
         public IndieVisibleContext(DbContextOptions<IndieVisibleContext> options) : base(options)
@@ -121,12 +117,10 @@ namespace IndieVisible.Infra.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
             IConfigurationBuilder builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
-
 
             IConfigurationRoot configuration = builder.Build();
 
@@ -135,7 +129,6 @@ namespace IndieVisible.Infra.Data.Context
 
         private void Seed(ModelBuilder builder)
         {
-
             builder.Entity<BrainstormSession>().HasData(new BrainstormSession
             {
                 Id = new Guid("1FEE0E42-7CFB-4438-96F9-4DBEE6019DE9"),

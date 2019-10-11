@@ -24,18 +24,14 @@ namespace IndieVisible.Web.Controllers.Base
         private UserManager<ApplicationUser> _userManager;
         public UserManager<ApplicationUser> UserManager => _userManager ?? (_userManager = HttpContext?.RequestServices.GetService<UserManager<ApplicationUser>>());
 
-
         private IImageStorageService _imageStorageService;
         public IImageStorageService ImageStorageService => _imageStorageService ?? (_imageStorageService = HttpContext?.RequestServices.GetService<IImageStorageService>());
-
 
         private ICookieMgrService _cookieMgrService;
         public ICookieMgrService CookieMgrService => _cookieMgrService ?? (_cookieMgrService = HttpContext?.RequestServices.GetService<ICookieMgrService>());
 
-
         private IProfileAppService profileAppService;
         public IProfileAppService ProfileAppService => profileAppService ?? (profileAppService = HttpContext?.RequestServices.GetService<IProfileAppService>());
-
 
         public Guid CurrentUserId { get; set; }
 
@@ -88,7 +84,6 @@ namespace IndieVisible.Web.Controllers.Base
         {
             SetCookieValue(SessionValues.UserProfileImageUrl, profileImageUrl, 7, true);
         }
-
 
         protected ProfileViewModel SetAuthorDetails(UserGeneratedBaseViewModel vm)
         {
@@ -144,7 +139,6 @@ namespace IndieVisible.Web.Controllers.Base
                 , 365);
         }
 
-
         #region Upload Management
         #region Main Methods
         private string UploadImage(Guid userId, string imageType, string filename, byte[] fileBytes)
@@ -192,7 +186,6 @@ namespace IndieVisible.Web.Controllers.Base
         }
         #endregion
 
-
         protected string UploadImage(Guid userId, BlobType container, string filename, byte[] fileBytes)
         {
             string containerName = container.ToString().ToLower();
@@ -237,7 +230,6 @@ namespace IndieVisible.Web.Controllers.Base
             return result;
         }
         #endregion
-
 
         #region Cookie Management
         protected string GetCookieValue(SessionValues key)

@@ -29,7 +29,6 @@ namespace IndieVisible.Web.Controllers
         [Route("userimage/{type:alpha}/{userId:guid}/{name?}")]
         public IActionResult UserImage(BlobType type, Guid userId, string name)
         {
-
             if (string.IsNullOrWhiteSpace(name))
             {
                 name = userId.ToString();
@@ -39,8 +38,6 @@ namespace IndieVisible.Web.Controllers
             {
                 name = String.Format("{0}_Personal", userId);
             }
-
-
 
             return GetImage(type, userId, name);
         }
@@ -272,7 +269,6 @@ namespace IndieVisible.Web.Controllers
 
                         string filename = DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
 
-
                         imageUrl = base.UploadContentImage(CurrentUserId, filename, fileBytes);
                     }
                 }
@@ -295,6 +291,7 @@ namespace IndieVisible.Web.Controllers
                 return Json(json);
             }
         }
+
         [HttpPost]
         [Route("uploadarticleimage")]
         public IActionResult UploadArticleImage(IFormFile upload)
@@ -320,7 +317,6 @@ namespace IndieVisible.Web.Controllers
 
                         string filename = DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
 
-
                         imageUrl = base.UploadContentImage(CurrentUserId, filename, fileBytes);
                     }
                 }
@@ -343,7 +339,6 @@ namespace IndieVisible.Web.Controllers
                 return Json(json);
             }
         }
-
 
         [HttpPost]
         [Route("uploadfeaturedimage")]

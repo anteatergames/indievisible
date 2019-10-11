@@ -182,7 +182,6 @@ namespace IndieVisible.Application.Services
             vm.Counters.Posts = userContentDomainService.Count(x => x.UserId == vm.UserId);
             vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 
-
             vm.Counters.Followers = profileDomainService.CountFollow(x => x.FollowUserId == vm.UserId);
             vm.Counters.Following = profileDomainService.CountFollow(x => x.UserId == currentUserId);
             int connectionsToUser = userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);

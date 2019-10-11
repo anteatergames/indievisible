@@ -35,7 +35,6 @@ namespace IndieVisible.Web.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
-
         private readonly IUserPreferencesAppService userPreferencesAppService;
 
         public AccountController(
@@ -541,7 +540,6 @@ namespace IndieVisible.Web.Controllers
         {
             return View();
         }
-
 
         [HttpGet]
         public IActionResult AccessDenied()

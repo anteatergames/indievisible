@@ -70,7 +70,7 @@
     }
 
     function bindShowCommentModal() {
-        $('.content').on('click', '.posttextarea', function (e) {
+        $('.content').on('click', '.posttextarea', function () {
             if (postModalActive === false) {
                 showPostModal();
                 selectors.commentModalBody = $('.commentmodal .modal .modal-body');
@@ -196,7 +196,7 @@
     }
 
     function bindPostModalHide() {
-        $('#modalPost').on('hidden.bs.modal', function (e) {
+        $('#modalPost').on('hidden.bs.modal', function () {
             hideImageAdd();
             hidePollAdd();
 

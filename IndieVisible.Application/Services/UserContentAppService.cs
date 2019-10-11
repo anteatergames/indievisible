@@ -99,9 +99,7 @@ namespace IndieVisible.Application.Services
                     vm.FeaturedImage = SetFeaturedImage(vm.UserId, vm.FeaturedImage);
                 }
 
-
                 vm.Poll = SetPoll(currentUserId, vm.Id);
-
 
                 return new OperationResultVo<UserContentViewModel>(vm);
             }

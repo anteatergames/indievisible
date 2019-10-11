@@ -98,7 +98,6 @@ namespace IndieVisible.Application.Services
                 vm.Score = brainstormVoteRepository.GetAll().Where(x => x.IdeaId == vm.Id).Sum(x => (int)x.VoteValue);
                 vm.CurrentUserVote = brainstormVoteRepository.GetAll().FirstOrDefault(x => x.UserId == currentUserId && x.IdeaId == id)?.VoteValue ?? VoteValue.Neutral;
 
-
                 vm.CommentCount = brainstormCommentRepository.GetAll().Count(x => x.IdeaId == vm.Id);
 
                 IOrderedQueryable<BrainstormComment> comments = brainstormCommentRepository.GetAll().Where(x => x.IdeaId == vm.Id).OrderBy(x => x.CreateDate);
@@ -106,7 +105,6 @@ namespace IndieVisible.Application.Services
                 IQueryable<BrainstormCommentViewModel> commentsVm = comments.ProjectTo<BrainstormCommentViewModel>(mapper.ConfigurationProvider);
 
                 vm.Comments = commentsVm.ToList();
-
 
                 foreach (BrainstormCommentViewModel comment in vm.Comments)
                 {
@@ -185,7 +183,6 @@ namespace IndieVisible.Application.Services
             }
         }
         #endregion
-
 
         public OperationResultVo Vote(Guid userId, Guid ideaId, VoteValue vote)
         {
@@ -413,7 +410,6 @@ namespace IndieVisible.Application.Services
                 unitOfWork.Commit();
 
                 return new OperationResultVo(true);
-
             }
             catch (Exception ex)
             {
