@@ -13,7 +13,7 @@ namespace IndieVisible.Infra.Data.Repository
 
         }
 
-        public UserPreferences GetByUserId(Guid id)
+        public new UserPreferences GetByUserId(Guid id)
         {
             return DbSet.FirstOrDefault(x => x.UserId == id);
         }
