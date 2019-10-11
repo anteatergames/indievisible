@@ -12,7 +12,7 @@ namespace IndieVisible.Infra.Data.Repository
         {
         }
 
-        public Gamification GetByUserId(Guid userId)
+        public new Gamification GetByUserId(Guid userId)
         {
             return DbSet.FirstOrDefault(x => x.UserId == userId);
         }
