@@ -57,7 +57,6 @@ namespace IndieVisible.Application.ViewModels.User
         #endregion
 
 
-
         public UserCounters Counters { get; set; }
 
         public IndieXpCounter IndieXp { get; set; }
