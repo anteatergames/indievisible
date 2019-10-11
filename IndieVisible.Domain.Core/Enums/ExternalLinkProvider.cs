@@ -1,5 +1,4 @@
 ﻿using IndieVisible.Domain.Core.Attributes;
-using System;
 
 namespace IndieVisible.Domain.Core.Enums
 {

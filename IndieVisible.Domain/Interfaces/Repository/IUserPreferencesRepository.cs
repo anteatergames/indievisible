@@ -6,6 +6,6 @@ namespace IndieVisible.Domain.Interfaces.Repository
 {
     public interface IUserPreferencesRepository : IRepository<UserPreferences>
     {
-        UserPreferences GetByUserId(Guid id);
+        new UserPreferences GetByUserId(Guid id);
     }
 }

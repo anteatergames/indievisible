@@ -12,10 +12,5 @@ namespace IndieVisible.Infra.Data.Repository
         public UserBadgeRepository(IndieVisibleContext context) : base(context)
         {
         }
-
-        IEnumerable<UserBadge> IUserBadgeRepository.GetByUserId(Guid userId)
-        {
-            return DbSet.Where(x => x.UserId == userId);
-        }
     }
 }

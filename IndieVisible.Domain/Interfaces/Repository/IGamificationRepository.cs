@@ -6,6 +6,6 @@ namespace IndieVisible.Domain.Interfaces.Repository
 {
     public interface IGamificationRepository : IRepository<Gamification>
     {
-        Gamification GetByUserId(Guid userId);
+        new Gamification GetByUserId(Guid userId);
     }
 }

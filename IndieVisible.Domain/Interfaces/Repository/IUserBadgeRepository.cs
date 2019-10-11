@@ -7,6 +7,5 @@ namespace IndieVisible.Domain.Interfaces.Repository
 {
     public interface IUserBadgeRepository : IRepository<UserBadge>
     {
-        IEnumerable<UserBadge> GetByUserId(Guid userId);
     }
 }

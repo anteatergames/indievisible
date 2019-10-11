@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Models;
 using System;

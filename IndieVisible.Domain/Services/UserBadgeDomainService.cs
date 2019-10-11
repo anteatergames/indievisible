@@ -46,9 +46,9 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserBadge> GetByUserId(Guid userId)
         {
-            IEnumerable<UserBadge> model = userBadgeRepository.GetByUserId(userId);
+            IQueryable<UserBadge> model = userBadgeRepository.GetByUserId(userId);
 
-            return model;
+            return model.ToList();
         }
 
         public void Remove(Guid id)

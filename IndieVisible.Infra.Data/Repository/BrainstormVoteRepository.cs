@@ -19,12 +19,5 @@ namespace IndieVisible.Infra.Data.Repository
 
             return obj;
         }
-
-        IQueryable<BrainstormVote> IBrainstormVoteRepository.GetByUserId(Guid userId)
-        {
-            IQueryable<BrainstormVote> objs = Db.BrainstormVotes.Where(x => x.UserId == userId);
-
-            return objs;
-        }
     }
 }

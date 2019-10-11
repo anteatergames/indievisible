@@ -9,6 +9,5 @@ namespace IndieVisible.Domain.Interfaces.Repository
     {
         new IQueryable<BrainstormVote> GetAll();
         BrainstormVote Get(Guid votingItemId, Guid userId);
-        IQueryable<BrainstormVote> GetByUserId(Guid userId);
     }
 }
