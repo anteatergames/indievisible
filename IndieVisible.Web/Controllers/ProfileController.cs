@@ -46,8 +46,6 @@ namespace IndieVisible.Web.Controllers
 
             SetImages(vm);
 
-            FormatExternalNetworkUrls(vm);
-
             FormatExternaLinks(vm);
 
             gamificationAppService.FillProfileGamificationDetails(CurrentUserId, ref vm);
@@ -67,7 +65,6 @@ namespace IndieVisible.Web.Controllers
                     notificationAppService.MarkAsRead(notificationclicked);
                 }
             }
-
 
             return View(vm);
         }
@@ -112,35 +109,6 @@ namespace IndieVisible.Web.Controllers
             vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id);
         }
 
-
-        private void FormatExternalNetworkUrls(ProfileViewModel vm)
-        {
-            if (!string.IsNullOrWhiteSpace(vm.ItchIoUrl) && !vm.ItchIoUrl.EndsWith("itch.io"))
-            {
-                vm.ItchIoUrl = UrlFormatter.ItchIo(vm.ItchIoUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.GameJoltUrl) && !vm.GameJoltUrl.Contains("gamejolt.com"))
-            {
-                vm.GameJoltUrl = UrlFormatter.GameJolt(vm.GameJoltUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.UnityConnectUrl) && !vm.UnityConnectUrl.Contains("connect.unity.com"))
-            {
-                vm.UnityConnectUrl = UrlFormatter.UnityConnect(vm.UnityConnectUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.IndieDbUrl) && !vm.IndieDbUrl.Contains("indiedb.com"))
-            {
-                vm.IndieDbUrl = UrlFormatter.IndieDb(vm.IndieDbUrl);
-            }
-
-            if (!string.IsNullOrWhiteSpace(vm.GameDevNetUrl) && !vm.GameDevNetUrl.Contains("gamedev.net"))
-            {
-                vm.GameDevNetUrl = UrlFormatter.GamedevNet(vm.GameDevNetUrl);
-            }
-        }
-
         private static void FormatExternalLinksForEdit(ProfileViewModel vm)
         {
             foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
@@ -155,7 +123,7 @@ namespace IndieVisible.Web.Controllers
                     {
                         UserProfileId = vm.Id,
                         UserId = vm.UserId,
-                        Type =  (ExternalLinkType)uiInfo.Type,
+                        Type = (ExternalLinkType)uiInfo.Type,
                         Provider = provider,
                         Display = uiInfo.Display,
                         UiClass = uiInfo.Class

@@ -26,7 +26,7 @@ namespace IndieVisible.Application.Formatters
             {
                 return String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath.TrimEnd('/'), userId, fileName);
             }
-        } 
+        }
         #endregion
 
         #region ExternalUrls
@@ -39,32 +39,69 @@ namespace IndieVisible.Application.Formatters
         #region Old
         public static string ItchIo(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://{0}.itch.io", handler);
+
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.EndsWith("itch.io"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://{0}.itch.io", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string GameJolt(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://gamejolt.com/@{0}", handler);
+
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("gamejolt.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://gamejolt.com/@{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string UnityConnect(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://connect.unity.com/u/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("connect.unity.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://connect.unity.com/u/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string IndieDb(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://www.indiedb.com/members/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("indiedb.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.indiedb.com/members/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string GamedevNet(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://www.gamedev.net/profile/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("gamedev.net"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.gamedev.net/profile/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
         #endregion
 
