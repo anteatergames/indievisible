@@ -143,37 +143,80 @@ namespace IndieVisible.Application.Formatters
 
         public static string Facebook(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://www.facebook.com/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("facebook.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.facebook.com/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string Twitter(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://twitter.com/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("twitter.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://twitter.com/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string Instagram(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://www.instagram.com/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("instagram.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.instagram.com/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string Youtube(string handler)
         {
-            return String.Format("https://www.youtube.com/channel/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("youtube.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.youtube.com/channel/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string XboxLiveProfile(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://account.xbox.com/en-us/profile?gamertag={0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("xbox.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://account.xbox.com/en-us/profile?gamertag={0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string PlayStationStoreProfile(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://my.playstation.com/profile/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("playstation.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://my.playstation.com/profile/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
 
         public static string SteamGame(string handler)

@@ -82,6 +82,8 @@ namespace IndieVisible.Web.Controllers
                 ThumbnailUrl = Constants.DefaultGameThumbnail
             };
 
+            FormatExternalLinksForEdit(vm);
+
             return View("CreateEdit", vm);
         }
 

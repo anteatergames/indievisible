@@ -58,5 +58,10 @@ namespace IndieVisible.Application.ViewModels.Game
         public int CommentCount { get; set; }
         public int LikeCount { get; set; }
         #endregion
+
+        public GameViewModel()
+        {
+            ExternalLinks = new List<GameExternalLinkViewModel>();
+        }
     }
 }

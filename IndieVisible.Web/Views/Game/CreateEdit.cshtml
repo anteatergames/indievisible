@@ -2,7 +2,8 @@
 
 @{
     var operation = Model.Id == Guid.Empty ? "Add" : "Edit";
-    ViewData["Title"] = SharedLocalizer[operation + " Game"];
+    var title = SharedLocalizer["{0} Game", operation];
+    ViewData["Title"] = title;
 }
 
 <div class="box bg-white">
