@@ -76,8 +76,6 @@ namespace IndieVisible.Application.Services
 
                 GameViewModel vm = mapper.Map<GameViewModel>(model);
 
-                SetWebsiteUrl(vm);
-
                 vm.LikeCount = gameLikeRepository.Count(x => x.GameId == vm.Id);
                 vm.FollowerCount = gameFollowDomainService.Count(x => x.GameId == vm.Id);
 
@@ -150,19 +148,6 @@ namespace IndieVisible.Application.Services
             }
         }
         #endregion
-
-        private static void SetWebsiteUrl(GameViewModel vm)
-        {
-            if (!string.IsNullOrWhiteSpace(vm.WebsiteUrl))
-            {
-                vm.WebsiteUrl = vm.WebsiteUrl.ToLower();
-
-                if (!vm.WebsiteUrl.StartsWith("http:") && !vm.WebsiteUrl.StartsWith("https:"))
-                {
-                    vm.WebsiteUrl = "http://" + vm.WebsiteUrl;
-                }
-            }
-        }
 
         public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, GameGenre genre)
         {

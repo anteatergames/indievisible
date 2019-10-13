@@ -29,8 +29,6 @@ namespace IndieVisible.Domain.Models
 
         public CodeLanguage Language { get; set; }
 
-        public string WebsiteUrl { get; set; } // TODO migrar e remover
-
         public GameStatus Status { get; set; }
 
         public DateTime? ReleaseDate { get; set; }

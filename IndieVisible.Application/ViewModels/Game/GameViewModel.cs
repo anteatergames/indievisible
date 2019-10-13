@@ -39,9 +39,6 @@ namespace IndieVisible.Application.ViewModels.Game
         [Display(Name = "Main Language")]
         public CodeLanguage Language { get; set; }
 
-        [Display(Name = "Website")]
-        public string WebsiteUrl { get; set; }
-
         [Display(Name = "Status")]
         public GameStatus Status { get; set; }
 

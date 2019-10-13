@@ -1,0 +1,50 @@
+﻿@model GameViewModel
+@{
+    Layout = null;
+}
+
+<div class="game-info bg-white">
+    <p>
+        @SharedLocalizer["Genre"]
+    </p>
+    <h6 class="margin-bottom">@Model.Genre.ToString()</h6>
+    <p>
+        @SharedLocalizer["Engine"]
+    </p>
+    @if (Model.Engine == GameEngine.Custom)
+    {
+        <h6 class="margin-bottom">@Model.Engine @(String.IsNullOrWhiteSpace(Model.CustomEngineName) ? String.Empty : String.Format("({0})", Model.CustomEngineName))</h6>
+    }
+    else
+    {
+        <h6 class="margin-bottom">@Model.Engine</h6>
+    }
+    <p>
+        @SharedLocalizer["Main Language"]
+    </p>
+    <h6 class="margin-bottom">@Model.Language</h6>
+    <p>
+        @SharedLocalizer["Status"]
+    </p>
+    <h6 class="margin-bottom">@Model.Status</h6>
+    @if (Model.ReleaseDate.HasValue)
+    {
+        <p>
+            @SharedLocalizer["Release Date"]
+        </p>
+        <h6 class="margin-bottom">@Model.ReleaseDate.Value.ToShortDateString()</h6>
+    }
+    @if (Model.Platforms.Any())
+    {
+        <p>
+            @SharedLocalizer["Platforms"]
+        </p>
+
+        <div class="release-platforms">
+            @foreach (var platform in Model.Platforms)
+            {
+                <i class="fab fa-2x fa-@(platform.GetAttributeOfType<UiInfoAttribute>().Class)" aria-hidden="true" title="@platform"></i>
+            }
+        </div>
+    }
+</div>

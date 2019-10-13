@@ -13,7 +13,7 @@
 
 <div class="col-12">
     <input type="hidden" asp-for="Id" />
-    <div class="box box-widget widget-game game-page">
+    <div id="gamePage" class="box box-widget widget-game game-page">
         <div class="widget-game-header text-white" style="background: url('@Model.CoverImageUrl') center center; background-size:cover;">
             <div class="overlay dark">
                 <div class="game-top-details">
@@ -111,69 +111,12 @@
                                     }
                                 </div>
                                 <div class="col-12">
-                                    <div class="game-info">
-                                        <p>
-                                            @SharedLocalizer["Genre"]
-                                        </p>
-                                        <h6 class="margin-bottom">@Model.Genre.ToString()</h6>
-                                        <p>
-                                            @SharedLocalizer["Engine"]
-                                        </p>
-                                        @if (Model.Engine == GameEngine.Custom)
-                                        {
-                                            <h6 class="margin-bottom">@Model.Engine @(String.IsNullOrWhiteSpace(Model.CustomEngineName) ? String.Empty : String.Format("({0})", Model.CustomEngineName))</h6>
-                                        }
-                                        else
-                                        {
-                                            <h6 class="margin-bottom">@Model.Engine</h6>
-                                        }
-                                        <p>
-                                            @SharedLocalizer["Main Language"]
-                                        </p>
-                                        <h6 class="margin-bottom">@Model.Language</h6>
-                                        @if (!string.IsNullOrWhiteSpace(Model.WebsiteUrl))
-                                        {
-                                            <p>
-                                                @SharedLocalizer["Website"]
-                                            </p>
-                                            <a href="@Model.WebsiteUrl" target="_blank"><h6 class="margin-bottom text-truncate">@Model.WebsiteUrl</h6></a>
-                                            <div class="text-center"><canvas id="qrCode"></canvas></div>
-                                        }
-                                        <p>
-                                            @SharedLocalizer["Status"]
-                                        </p>
-                                        <h6 class="margin-bottom">@Model.Status</h6>
-                                        @if (Model.ReleaseDate.HasValue)
-                                        {
-                                            <p>
-                                                @SharedLocalizer["Release Date"]
-                                            </p>
-                                            <h6 class="margin-bottom">@Model.ReleaseDate.Value.ToShortDateString()</h6>
-                                        }
-                                        @if (Model.Platforms.Any())
-                                        {
-                                            <p>
-                                                @SharedLocalizer["Platforms"]
-                                            </p>
-
-                                            <div class="release-platforms">
-                                                @foreach (var platform in Model.Platforms)
-                                                {
-                                                    <i class="fab fa-2x fa-@(platform.GetAttributeOfType<UiInfoAttribute>().Class)" aria-hidden="true" title="@platform"></i>
-                                                }
-                                            </div>
-                                        }
-                                    </div>
-
-                                    <div class="col-12 mt-2 game-external-links-stores text-center">
-                                        @foreach (var item in Model.ExternalLinks.Where(x => x.IsStore))
-                                        {
-                                            <div class="mt-2">
-                                                <a href="@item.Value" target="_blank">
-                                                    <img src="@string.Format("/images/stores/{0}.png", item.Provider.ToString())" class="img-fluid" />
-                                                </a>
-                                            </div>
-                                        }
+                                    <partial name="_GameInfoPanel" model="Model" />
+                                    <partial name="_GameStoreBadges" model="Model.ExternalLinks" />
+                                    <div class="col-12">
+                                        <div class="text-center" data-toggle="tooltip" data-placement="bottom" title="@SharedLocalizer["This QR Code leads to this page. Tell people to scan it with their phones."]">
+                                            <canvas class="qrCode"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -217,16 +160,19 @@
                                         </h6>
                                         @Model.Description
                                     </div>
+                                </div>
 
-                                    <div class="col-12 col-md-6 offset-md-3 mt-2 game-external-links-stores text-center d-block d-lg-none">
-                                        @foreach (var item in Model.ExternalLinks.Where(x => x.IsStore))
-                                        {
-                                            <div class="mt-2">
-                                                <a href="@item.Value" target="_blank">
-                                                    <img src="@string.Format("/images/stores/{0}.png", item.Provider.ToString())" class="img-fluid" />
-                                                </a>
-                                            </div>
-                                        }
+                                <div class="col-12 d-block d-lg-none bg-white">
+                                    <partial name="_GameInfoPanel" model="Model" />
+
+                                    <div class="col-12 col-md-6 offset-md-3 mt-2 game-external-links-stores text-center">
+                                        <partial name="_GameStoreBadges" model="Model.ExternalLinks" />
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="text-center" data-toggle="tooltip" data-placement="bottom" title="@SharedLocalizer["This QR Code leads to this page. Tell people to scan it with their phones."]">
+                                            <canvas class="qrCode"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -263,12 +209,14 @@
 
     <script type="text/javascript">
         (function () {
-            var qr = new QRious({
-                element: document.getElementById('qrCode')
-            });
-            qr.set({
-                value: '@Html.Raw(Model.WebsiteUrl)',
-                size: 150
+            $('.qrCode').each(function (index, element){
+                var qr = new QRious({
+                    element: element
+                });
+                qr.set({
+                    value: '@(string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Url.Action("details", "game", new { id = Model.Id,  area = string.Empty })))',
+                    size: 150
+                });
             });
         })();
     </script>
