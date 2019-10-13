@@ -25,21 +25,17 @@
         }
 
 
-    .mainmenu li:hover .submenu {
+    .mainmenu li.active .submenu {
         display: block;
         max-height: 300px;
         transition: all 1s ease-in;
     }
-
 
 .submenu {
     overflow: hidden;
     max-height: 0;
     -webkit-transition: all 1s ease-out;
 }
-
-
-
 
 #menufooter {
     padding: 10px;

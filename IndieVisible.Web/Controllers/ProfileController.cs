@@ -123,7 +123,7 @@ namespace IndieVisible.Web.Controllers
                     {
                         UserProfileId = vm.Id,
                         UserId = vm.UserId,
-                        Type = (ExternalLinkType)uiInfo.Type,
+                        Type = uiInfo.Type,
                         Provider = provider,
                         Display = uiInfo.Display,
                         IconClass = uiInfo.Class,

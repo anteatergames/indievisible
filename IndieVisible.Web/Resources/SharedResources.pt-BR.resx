@@ -1285,4 +1285,8 @@
     <value>Agora mesmo</value>
     <comment>Comment</comment>
   </data>
+  <data name="This QR Code leads to this page. Tell people to scan it with their phones." xml:space="preserve">
+    <value>Esse QR Code aponta pra esta página. Avise a todos para escaneá-lo com seus telefones.</value>
+    <comment>Game Details</comment>
+  </data>
 </root>

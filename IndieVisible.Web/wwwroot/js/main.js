@@ -39,8 +39,20 @@
     }
 
     function bindAll() {
+        bindMenu();
         bindNotImplemented();
         bindYouNeedToLogIn();
+    }
+
+    function bindMenu() {
+        $('body').on('click', '#mainmenu li', function () {
+            var clickedMenu = $(this);
+            var siblings = clickedMenu.siblings();
+
+            siblings.removeClass('active');
+
+            clickedMenu.addClass('active');
+        });
     }
 
     function loadTranslatedMessages() {
