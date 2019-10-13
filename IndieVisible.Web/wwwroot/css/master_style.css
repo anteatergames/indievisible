@@ -3846,7 +3846,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     position: relative;
     text-align: left;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     height: 40px;
     width: 40px;
@@ -3984,7 +3983,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
     .btn-facebook.btn-circle i {
-        top: 5px;
+        top: 6px;
         font-size: 29px;
     }
 
@@ -4249,6 +4248,40 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 
     .btn-vk .badge {
+        color: #587ea3;
+        background-color: #fff;
+    }
+
+.btn-googleplaystore {
+    color: #fff;
+    background-color: #a4c639;
+    border-color: rgba(0, 0, 0, .2);
+}
+
+    .btn-googleplaystore.active, .btn-googleplaystore.focus, .btn-googleplaystore:active, .btn-googleplaystore:focus, .btn-googleplaystore:hover, .show > .dropdown-toggle.btn-googleplaystore {
+        color: #fff;
+        background-color: #A3AA44;
+        border-color: rgba(0, 0, 0, .2);
+    }
+
+    .btn-googleplaystore .badge {
+        color: #587ea3;
+        background-color: #fff;
+    }
+
+.btn-appleappstore {
+    color: #fff;
+    background-color: #333;
+    border-color: rgba(0, 0, 0, .2);
+}
+
+    .btn-appleappstore.active, .btn-appleappstore.focus, .btn-appleappstore:active, .btn-appleappstore:focus, .btn-appleappstore:hover, .show > .dropdown-toggle.btn-appleappstore {
+        color: #fff;
+        background-color: #000;
+        border-color: rgba(0, 0, 0, .2);
+    }
+
+    .btn-appleappstore .badge {
         color: #587ea3;
         background-color: #fff;
     }

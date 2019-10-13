@@ -98,9 +98,18 @@
             <div class="row">
                 <div class="col-xl-4 col-lg-5 d-none d-lg-block">
                     <div class="box bg-white">
-                        <div class="box-body box-profile">
+                        <div class="box-body">
                             <div class="row">
-                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="Game Thumbnail" /></div>
+                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="@SharedLocalizer["Game Thumbnail"]" /></div>
+
+                                <div class="col-12 game-external-links text-center">
+                                    @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.General))
+                                    {
+                                        <a href="@item.Value" target="_blank" class="mt-1 btn btn-circle btn-social-icon @(item.ColorClass)">
+                                            <i class="@item.IconClass" aria-hidden="true"></i>
+                                        </a>
+                                    }
+                                </div>
                                 <div class="col-12">
                                     <div class="game-info">
                                         <p>
@@ -155,12 +164,31 @@
                                             </div>
                                         }
                                     </div>
+
+                                    <div class="col-12 mt-2 game-external-links-stores text-center">
+                                        @foreach (var item in Model.ExternalLinks.Where(x => x.IsStore))
+                                        {
+                                            <div class="mt-2">
+                                                <a href="@item.Value" target="_blank">
+                                                    <img src="@string.Format("/images/stores/{0}.png", item.Provider.ToString())" class="img-fluid" />
+                                                </a>
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-7">
+                    <div class="col-12 mb-2 text-center d-lg-none">
+                        @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.General))
+                        {
+                            <a href="@item.Value" target="_blank" class="mt-1 btn btn-circle btn-social-icon @(item.ColorClass)">
+                                <i class="@item.IconClass" aria-hidden="true"></i>
+                            </a>
+                        }
+                    </div>
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li><a href="#tabactivity" class="active" data-toggle="tab">@SharedLocalizer["Activity"]</a></li>
@@ -188,6 +216,17 @@
                                             @SharedLocalizer["Description"]
                                         </h6>
                                         @Model.Description
+                                    </div>
+
+                                    <div class="col-12 col-md-6 offset-md-3 mt-2 game-external-links-stores text-center d-block d-lg-none">
+                                        @foreach (var item in Model.ExternalLinks.Where(x => x.IsStore))
+                                        {
+                                            <div class="mt-2">
+                                                <a href="@item.Value" target="_blank">
+                                                    <img src="@string.Format("/images/stores/{0}.png", item.Provider.ToString())" class="img-fluid" />
+                                                </a>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                             </div>

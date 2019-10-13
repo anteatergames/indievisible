@@ -30,7 +30,7 @@
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabeyecandy" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-eye" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["Eye Candy"]</span></a> </li>
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabtechnical" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-cube" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["Technical"]</span></a> </li>
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabpresence" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-globe" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["Presence"]</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsocial" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-share-alt" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["Social"]</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabexternallinks" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-share-alt" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["external"]</span></a> </li>
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsettings" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-cog" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["Settings"]</span></a> </li>
                 </ul>
                 <!-- Tab panes -->
@@ -164,43 +164,45 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane pad p-0" id="tabsocial" role="tabpanel" aria-expanded="false">
-                        <div class="pad">
-                            <div class="col-12">
+                    <div class="tab-pane pad p-0" id="tabexternallinks" role="tabpanel" aria-expanded="false">
+                        @for (int i = 0; i < Model.ExternalLinks.Count; i++)
+                        {
+                            var externalLink = Model.ExternalLinks.ElementAt(i);
+
+                            <div class="box p-3 col-12 col-12">
+                                <input type="hidden" asp-for="ExternalLinks[i].Id" />
+                                <input type="hidden" asp-for="ExternalLinks[i].UserId" />
+                                <input type="hidden" asp-for="ExternalLinks[i].GameId" />
+                                <input type="hidden" asp-for="ExternalLinks[i].CreateDate" />
+                                <input type="hidden" asp-for="ExternalLinks[i].Type" />
+                                <input type="hidden" asp-for="ExternalLinks[i].Provider" />
                                 <div class="row">
-                                    <div class="col-xl-6 col-md-12 col-12">
-                                        <div class="info-box bg-blue-active">
-                                            <span class="info-box-icon push-bottom"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
-                                            <div class="info-box-content">
-                                                <span class="info-box-text">Facebook</span>
-                                                <div class="block">
-                                                    &nbsp;
-                                                </div>
-                                                <div class="block">
-                                                    &nbsp;
-                                                </div>
-                                                <input asp-for="FacebookUrl" class="form-control" placeholder="@SharedLocalizer["Type the Facebook address here"]" type="text">
-                                            </div>
-                                        </div>
+                                    <div class="col-12 col-sm-2 text-center">
+                                        @if (externalLink.Type == ExternalLinkType.GameDev)
+                                        {
+                                            <span class="externallink-icon">
+                                                <img src="@String.Format("/images/otherprofiles/{0}32.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="externallink-icon btn-circle btn bg-dark btn-social-icon text-white">
+                                                <i class="@externalLink.IconClass" aria-hidden="true"></i>
+                                            </span>
+                                        }
                                     </div>
-                                    <div class="col-xl-6 col-md-12 col-12">
-                                        <div class="info-box bg-light-blue">
-                                            <span class="info-box-icon push-bottom"><i class="fab fa-twitter" aria-hidden="true"></i></span>
-                                            <div class="info-box-content">
-                                                <span class="info-box-text">Twitter</span>
-                                                <div class="block">
-                                                    &nbsp;
-                                                </div>
-                                                <div class="block">
-                                                    &nbsp;
-                                                </div>
-                                                <input asp-for="TwitterUrl" class="form-control" placeholder="@SharedLocalizer["Type the Twitter address here"]" type="text">
+                                    <div class="col-12 col-sm-10">
+                                        <label>@externalLink.Display</label>
+                                        <div class="input-group">
+                                            <input asp-for="ExternalLinks[i].Value" class="form-control" placeholder="@SharedLocalizer["Type your {0} handler here.", externalLink.Display]" />
+                                            <div class="input-group-append">
+                                                <btn class="btnClearExternalLink btn btn-warning input-group-text">@SharedLocalizer["clear"]</btn>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     </div>
 
                     <div class="tab-pane pad p-0" id="tabsettings" role="tabpanel" aria-expanded="false">

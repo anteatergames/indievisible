@@ -98,6 +98,8 @@ namespace IndieVisible.Application.Services
             {
                 Game model;
 
+                viewModel.ExternalLinks.RemoveAll(x => String.IsNullOrWhiteSpace(x.Value));
+
                 Game existing = repository.GetById(viewModel.Id);
                 if (existing != null)
                 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IndieVisible.Infra.Data.Mappings
+namespace IndieVisible.Infra.Data.Configurations
 {
     public class UserFollowConfig : IEntityTypeConfiguration<UserFollow>
     {

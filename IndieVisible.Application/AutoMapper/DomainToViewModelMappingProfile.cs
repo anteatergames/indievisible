@@ -34,6 +34,8 @@ namespace IndieVisible.Application.AutoMapper
                     .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.DeveloperName))
                     .ForMember(dest => dest.Platforms, opt => opt.MapFrom<GamePlatformFromDomainResolver>());
             CreateMap<Game, GameListItemViewModel>();
+
+            CreateMap<GameExternalLink, GameExternalLinkViewModel>();
             #endregion
 
             #region Profile

@@ -10,6 +10,5 @@ namespace IndieVisible.Domain.Core.Attributes
         public string Culture { get; set; }
         public string Description { get; set; }
         public string Display { get; set; }
-        public object Type { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace IndieVisible.Domain.Models
 {
-    public class UserProfile : ExternalEntity
+    public class UserProfile : Entity
     {
         public ProfileType Type { get; set; }
 

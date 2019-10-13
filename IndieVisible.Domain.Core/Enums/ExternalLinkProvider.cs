@@ -4,31 +4,35 @@ namespace IndieVisible.Domain.Core.Enums
 {
     public enum ExternalLinkProvider
     {
-        [UiInfo(Display = "Website", Class = "fa fa-link", Type = ExternalLinkType.General)]
+        [ExternalLinkInfo(Display = "Website", Class = "fa fa-link", ColorClass = "bg-fuchsia", Type = ExternalLinkType.General, IsStore = false)]
         Website = 1,
-        [UiInfo(Display = "Facebook", Class = "fab fa-facebook-f", Type = ExternalLinkType.General)]
+        [ExternalLinkInfo(Display = "Facebook", Class = "fab fa-facebook-f", ColorClass = "btn-facebook", Type = ExternalLinkType.General, IsStore = false)]
         Facebook = 2,
-        [UiInfo(Display = "Twitter", Class = "fab fa-twitter", Type = ExternalLinkType.General)]
+        [ExternalLinkInfo(Display = "Twitter", Class = "fab fa-twitter", ColorClass = "btn-twitter", Type = ExternalLinkType.General, IsStore = false)]
         Twitter = 3,
-        [UiInfo(Display = "Instagram", Class = "fab fa-instagram", Type = ExternalLinkType.General)]
+        [ExternalLinkInfo(Display = "Instagram", Class = "fab fa-instagram", ColorClass = "btn-instagram", Type = ExternalLinkType.General, IsStore = false)]
         Instagram = 4,
-        [UiInfo(Display = "Youtube", Class = "fab fa-youtube", Type = ExternalLinkType.General)]
+        [ExternalLinkInfo(Display = "Youtube", Class = "fab fa-youtube", ColorClass = "bg-red", Type = ExternalLinkType.General, IsStore = false)]
         Youtube = 5,
-        [UiInfo(Display = "XboxLive", Class = "fab fa-xbox", Type = ExternalLinkType.General)]
+        [ExternalLinkInfo(Display = "Xbox Live", Class = "fab fa-xbox", ColorClass = "bg-green-active", Type = ExternalLinkType.General, IsStore = true)]
         XboxLive = 6,
-        [UiInfo(Display = "Psn", Class = "fab fa-playstation", Type = ExternalLinkType.General)]
-        Psn = 7,
-        [UiInfo(Display = "Steam", Class = "fab fa-steam", Type = ExternalLinkType.General)]
+        [ExternalLinkInfo(Display = "PlayStation Store", Class = "fab fa-playstation", ColorClass = "bg-black-active", Type = ExternalLinkType.General, IsStore = true)]
+        PlaystationStore = 7,
+        [ExternalLinkInfo(Display = "Steam", Class = "fab fa-steam", ColorClass = "bg-black", Type = ExternalLinkType.General, IsStore = true)]
         Steam = 8,
-        [UiInfo(Display = "Game Jolt", Class = "gamejolt", Type = ExternalLinkType.GameDev)]
+        [ExternalLinkInfo(Display = "Game Jolt", Class = "gamejolt", ColorClass = "btn-gamejolt", Type = ExternalLinkType.GameDev, IsStore = true)]
         GameJolt = 9,
-        [UiInfo(Display = "Itch.io", Class = "itchio", Type = ExternalLinkType.GameDev)]
+        [ExternalLinkInfo(Display = "Itch.io", Class = "itchio", ColorClass = "btn-itchio", Type = ExternalLinkType.GameDev, IsStore = true)]
         ItchIo = 10,
-        [UiInfo(Display = "Gamedev.net", Class = "gamedevnet", Type = ExternalLinkType.GameDev)]
+        [ExternalLinkInfo(Display = "Gamedev.net", Class = "gamedevnet", ColorClass = "btn-gamedevnet", Type = ExternalLinkType.GameDev, IsStore = false)]
         GamedevNet = 11,
-        [UiInfo(Display = "IndieDB", Class = "indiedb", Type = ExternalLinkType.GameDev)]
+        [ExternalLinkInfo(Display = "IndieDB", Class = "indiedb", ColorClass = "btn-indiedb", Type = ExternalLinkType.GameDev, IsStore = false)]
         IndieDb = 12,
-        [UiInfo(Display = "Unity Connect", Class = "unityconnect", Type = ExternalLinkType.GameDev)]
-        UnityConnect = 13
+        [ExternalLinkInfo(Display = "Unity Connect", Class = "unityconnect", ColorClass = "btn-unityconnect", Type = ExternalLinkType.GameDev, IsStore = false)]
+        UnityConnect = 13,
+        [ExternalLinkInfo(Display = "Google Play Store", Class = "fab fa-android", ColorClass = "btn-googleplaystore", Type = ExternalLinkType.General, IsStore = true)]
+        GooglePlayStore = 14,
+        [ExternalLinkInfo(Display = "Apple App Store", Class = "fab fa-apple", ColorClass = "btn-appleappstore", Type = ExternalLinkType.General, IsStore = true)]
+        AppleAppStore = 15
     }
 }

@@ -27,6 +27,10 @@
     <Compile Remove="Migrations\20191007002406_newgamificationactions.Designer.cs" />
     <Compile Remove="Migrations\20191009223119_contenttype.cs" />
     <Compile Remove="Migrations\20191009223119_contenttype.Designer.cs" />
+    <Compile Remove="Migrations\20191012164429_oldexternallinksremoval.cs" />
+    <Compile Remove="Migrations\20191012164429_oldexternallinksremoval.Designer.cs" />
+    <Compile Remove="Migrations\20191012172314_gameexternallinks.cs" />
+    <Compile Remove="Migrations\20191012172314_gameexternallinks.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

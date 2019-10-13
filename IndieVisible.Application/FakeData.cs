@@ -112,12 +112,6 @@ namespace IndieVisible.Application
             profile.StudioName = "Awesome Game Studio";
             profile.Location = "Atlantis";
 
-            profile.GameJoltUrl = string.Empty;
-            profile.ItchIoUrl = string.Empty;
-            profile.IndieDbUrl = string.Empty;
-            profile.UnityConnectUrl = string.Empty;
-            profile.GameDevNetUrl = string.Empty;
-
             profile.Counters.Followers = 6000;
             profile.Counters.Following = 654;
             profile.Counters.Connections = 8651;

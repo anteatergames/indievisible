@@ -40,20 +40,6 @@ namespace IndieVisible.Application.ViewModels.User
                 return ExternalLinks.Any(x => x.Type == ExternalLinkType.GameDev);
             }
         }
-        [Display(Name = "Game Jolt")]
-        public string GameJoltUrl { get; set; }
-
-        [Display(Name = "Itch.IO")]
-        public string ItchIoUrl { get; set; }
-
-        [Display(Name = "IndieDB")]
-        public string IndieDbUrl { get; set; }
-
-        [Display(Name = "Gamedev.net")]
-        public string GameDevNetUrl { get; set; }
-
-        [Display(Name = "Unity Connect")]
-        public string UnityConnectUrl { get; set; }
         #endregion
 
 

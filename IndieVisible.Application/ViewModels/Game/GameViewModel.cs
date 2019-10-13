@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -50,14 +51,7 @@ namespace IndieVisible.Application.ViewModels.Game
         [Display(Name = "Platforms")]
         public List<GamePlatforms> Platforms { get; set; }
 
-
-        #region Social
-        public string FacebookUrl { get; set; }
-
-        public string TwitterUrl { get; set; }
-
-        public string InstagramUrl { get; set; }
-        #endregion
+        public List<GameExternalLinkViewModel> ExternalLinks { get; set; }
 
         #region Counters
         public int FollowerCount { get; set; }

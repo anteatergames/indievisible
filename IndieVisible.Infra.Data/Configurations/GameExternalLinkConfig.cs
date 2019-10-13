@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IndieVisible.Infra.Data.Configurations
 {
-    public class GamificationActionConfig : IEntityTypeConfiguration<GamificationAction>
+    public class GameExternalLinkConfig : IEntityTypeConfiguration<GameExternalLink>
     {
-        public void Configure(EntityTypeBuilder<GamificationAction> builder)
+        public void Configure(EntityTypeBuilder<GameExternalLink> builder)
         {
             builder.Property(c => c.Id)
                 .HasColumnName("Id");
@@ -14,10 +14,15 @@ namespace IndieVisible.Infra.Data.Configurations
             builder.Property(x => x.CreateDate)
                 .HasDefaultValueSql("getdate()");
 
-            builder.Property(c => c.Action)
+            builder.Property(x => x.Type)
                 .IsRequired();
 
-            builder.Property(c => c.ScoreValue)
+            builder.Property(x => x.Provider)
+                .IsRequired();
+
+            builder.Property(x => x.Value)
+                .HasColumnType("nvarchar(256)")
+                .HasMaxLength(256)
                 .IsRequired();
         }
     }

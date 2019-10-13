@@ -1,6 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;
-using IndieVisible.Infra.Data.Mappings;
+using IndieVisible.Infra.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -69,10 +69,13 @@ namespace IndieVisible.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new NotificationConfig());
 
             modelBuilder.ApplyConfiguration(new GameConfig());
+            modelBuilder.ApplyConfiguration(new GameExternalLinkConfig());
             modelBuilder.ApplyConfiguration(new GameLikeConfig());
             modelBuilder.ApplyConfiguration(new GameFollowConfig());
 
             modelBuilder.ApplyConfiguration(new UserProfileConfig());
+            modelBuilder.ApplyConfiguration(new UserProfileExternalLinkConfig());
+
             modelBuilder.ApplyConfiguration(new UserFollowConfig());
             modelBuilder.ApplyConfiguration(new UserConnectionConfig());
 

@@ -36,8 +36,8 @@ namespace IndieVisible.Application.Formatters
             return handler;
         }
 
-        #region Old
-        public static string ItchIo(string handler)
+        #region Profiles
+        public static string ItchIoProfile(string handler)
         {
 
             if (!string.IsNullOrWhiteSpace(handler) && !handler.EndsWith("itch.io"))
@@ -51,7 +51,7 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
-        public static string GameJolt(string handler)
+        public static string GameJoltProfile(string handler)
         {
 
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("gamejolt.com"))
@@ -65,7 +65,7 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
-        public static string UnityConnect(string handler)
+        public static string UnityConnectProfile(string handler)
         {
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("connect.unity.com"))
             {
@@ -78,7 +78,7 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
-        public static string IndieDb(string handler)
+        public static string IndieDbPofile(string handler)
         {
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("indiedb.com"))
             {
@@ -91,12 +91,38 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
-        public static string GamedevNet(string handler)
+        public static string GamedevNetProfile(string handler)
         {
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("gamedev.net"))
             {
                 handler = ExternalUrlCommon(handler);
                 return String.Format("https://www.gamedev.net/profile/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string AppleAppStoreProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("apps.apple.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://apps.apple.com/us/developer/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string GooglePlayStoreProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("play.google.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://play.google.com/store/apps/dev?id={0}", handler);
             }
             else
             {
@@ -138,22 +164,128 @@ namespace IndieVisible.Application.Formatters
             return String.Format("https://www.youtube.com/channel/{0}", handler);
         }
 
-        public static string XboxLive(string handler)
+        public static string XboxLiveProfile(string handler)
         {
             handler = ExternalUrlCommon(handler);
             return String.Format("https://account.xbox.com/en-us/profile?gamertag={0}", handler);
         }
 
-        public static string Psn(string handler)
+        public static string PlayStationStoreProfile(string handler)
         {
             handler = ExternalUrlCommon(handler);
             return String.Format("https://my.playstation.com/profile/{0}", handler);
         }
 
-        public static string Steam(string handler)
+        public static string SteamGame(string handler)
         {
-            handler = ExternalUrlCommon(handler);
-            return String.Format("https://steamcommunity.com/id/{0}", handler);
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("store.steampowered.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://store.steampowered.com/app/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string GameJoltGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("gamejolt.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://gamejolt.com/games/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string ItchIoGame(string handler)
+        {
+            return handler;
+        }
+
+        public static string GamedevNetGame(string handler)
+        {
+            return handler;
+        }
+
+        public static string IndieDbGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("indiedb.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.indiedb.com/games/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string UnityConnectGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("connect.unity.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://connect.unity.com/p/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string AppleAppStoreGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("apps.apple.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://apps.apple.com/us/app/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string GooglePlayStoreGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("play.google.com"))
+            {
+                return String.Format("https://play.google.com/store/apps/details?id={0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string XboxLiveGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("xbox.com"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.xbox.com/games/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
+        }
+
+        public static string PlayStationStoreGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("store.playstation.com"))
+            {
+                return String.Format("https://store.playstation.com/en-us/product/{0}", handler);
+            }
+            else
+            {
+                return handler;
+            }
         }
         #endregion
     }

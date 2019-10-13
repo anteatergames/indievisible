@@ -114,7 +114,7 @@ namespace IndieVisible.Web.Controllers
             foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
             {
                 var existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
-                var uiInfo = provider.GetAttributeOfType<UiInfoAttribute>();
+                var uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
 
                 if (existingProvider == null)
                 {
@@ -126,7 +126,8 @@ namespace IndieVisible.Web.Controllers
                         Type = (ExternalLinkType)uiInfo.Type,
                         Provider = provider,
                         Display = uiInfo.Display,
-                        UiClass = uiInfo.Class
+                        IconClass = uiInfo.Class,
+                        IsStore = uiInfo.IsStore
                     };
 
                     vm.ExternalLinks.Add(placeHolder);
@@ -134,7 +135,7 @@ namespace IndieVisible.Web.Controllers
                 else
                 {
                     existingProvider.Display = uiInfo.Display;
-                    existingProvider.UiClass = uiInfo.Class;
+                    existingProvider.IconClass = uiInfo.Class;
                 }
             }
 
@@ -145,6 +146,11 @@ namespace IndieVisible.Web.Controllers
         {
             foreach (var item in vm.ExternalLinks)
             {
+                ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
+                item.Display = uiInfo.Display;
+                item.IconClass = uiInfo.Class;
+                item.ColorClass = uiInfo.ColorClass;
+
                 switch (item.Provider)
                 {
                     case ExternalLinkProvider.Website:
@@ -163,28 +169,34 @@ namespace IndieVisible.Web.Controllers
                         item.Value = UrlFormatter.Youtube(item.Value);
                         break;
                     case ExternalLinkProvider.XboxLive:
-                        item.Value = UrlFormatter.XboxLive(item.Value);
+                        item.Value = UrlFormatter.XboxLiveProfile(item.Value);
                         break;
-                    case ExternalLinkProvider.Psn:
-                        item.Value = UrlFormatter.Psn(item.Value);
+                    case ExternalLinkProvider.PlaystationStore:
+                        item.Value = UrlFormatter.PlayStationStoreProfile(item.Value);
                         break;
                     case ExternalLinkProvider.Steam:
-                        item.Value = UrlFormatter.Steam(item.Value);
+                        item.Value = UrlFormatter.SteamGame(item.Value);
                         break;
                     case ExternalLinkProvider.GameJolt:
-                        item.Value = UrlFormatter.GameJolt(item.Value);
+                        item.Value = UrlFormatter.GameJoltProfile(item.Value);
                         break;
                     case ExternalLinkProvider.ItchIo:
-                        item.Value = UrlFormatter.ItchIo(item.Value);
+                        item.Value = UrlFormatter.ItchIoProfile(item.Value);
                         break;
                     case ExternalLinkProvider.GamedevNet:
-                        item.Value = UrlFormatter.GamedevNet(item.Value);
+                        item.Value = UrlFormatter.GamedevNetProfile(item.Value);
                         break;
                     case ExternalLinkProvider.IndieDb:
-                        item.Value = UrlFormatter.IndieDb(item.Value);
+                        item.Value = UrlFormatter.IndieDbPofile(item.Value);
                         break;
                     case ExternalLinkProvider.UnityConnect:
-                        item.Value = UrlFormatter.UnityConnect(item.Value);
+                        item.Value = UrlFormatter.UnityConnectProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.GooglePlayStore:
+                        item.Value = UrlFormatter.GooglePlayStoreProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.AppleAppStore:
+                        item.Value = UrlFormatter.AppleAppStoreProfile(item.Value);
                         break;
                 }
             }

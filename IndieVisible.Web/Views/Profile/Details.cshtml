@@ -29,52 +29,10 @@
                 <h2 class="user-profile-desc">@Model.Motto</h2>
 
                 <div class="user-social-acount">
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Website))
+                    @foreach (var item in Model.ExternalLinks.Where(x => x.Type == ExternalLinkType.General))
                     {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Website).Value" target="_blank" class="btn btn-circle btn-social-icon bg-fuchsia">
-                            <i class="fa fa-link" aria-hidden="true"></i>
-                        </a>
-                    }
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Facebook))
-                    {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Facebook).Value" target="_blank" class="btn btn-circle btn-social-icon btn-facebook">
-                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                        </a>
-                    }
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Twitter))
-                    {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Twitter).Value" target="_blank" class="btn btn-circle btn-social-icon btn-twitter">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                    }
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Instagram))
-                    {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Instagram).Value" target="_blank" class="btn btn-circle btn-social-icon btn-instagram">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                    }
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Youtube))
-                    {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Youtube).Value" target="_blank" class="btn btn-circle btn-social-icon bg-red">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                        </a>
-                    }
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.XboxLive))
-                    {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.XboxLive).Value" target="_blank" class="btn btn-circle btn-social-icon bg-green-active">
-                            <i class="fab fa-xbox" aria-hidden="true"></i>
-                        </a>
-                    }
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Psn))
-                    {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Psn).Value" target="_blank" class="btn btn-circle btn-social-icon bg-black-active">
-                            <i class="fab fa-playstation" aria-hidden="true"></i>
-                        </a>
-                    }
-                    @if (Model.ExternalLinks.Any(x => x.Provider == ExternalLinkProvider.Steam))
-                    {
-                        <a href="@Model.ExternalLinks.First(x => x.Provider == ExternalLinkProvider.Steam).Value" target="_blank" class="btn btn-circle btn-social-icon bg-black">
-                            <i class="fab fa-steam" aria-hidden="true"></i>
+                        <a href="@item.Value" target="_blank" class="mt-1 btn btn-circle btn-social-icon @(item.ColorClass)">
+                            <i class="@item.IconClass" aria-hidden="true"></i>
                         </a>
                     }
                 </div>

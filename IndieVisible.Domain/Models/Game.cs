@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace IndieVisible.Domain.Models
 {
-    public class Game : ExternalEntity
+    public class Game : Entity
     {
         public Game()
         {
@@ -14,8 +14,6 @@ namespace IndieVisible.Domain.Models
         public string DeveloperName { get; set; }
 
         public string Title { get; set; }
-
-        public string Url { get; set; }
 
         public string Description { get; set; }
 
@@ -31,7 +29,7 @@ namespace IndieVisible.Domain.Models
 
         public CodeLanguage Language { get; set; }
 
-        public string WebsiteUrl { get; set; }
+        public string WebsiteUrl { get; set; } // TODO migrar e remover
 
         public GameStatus Status { get; set; }
 
@@ -41,13 +39,6 @@ namespace IndieVisible.Domain.Models
 
         public virtual ICollection<UserContent> UserContents { get; set; }
 
-
-        #region Social
-        public string FacebookUrl { get; set; }
-
-        public string TwitterUrl { get; set; }
-
-        public string InstagramUrl { get; set; }
-        #endregion
+        public virtual ICollection<GameExternalLink> ExternalLinks { get; set; }
     }
 }

@@ -29,13 +29,17 @@ namespace IndieVisible.Application.AutoMapper
             #region Game
             CreateMap<GameViewModel, Domain.Models.Game>()
                     .ForMember(dest => dest.DeveloperName, opt => opt.MapFrom(src => src.AuthorName))
-                    .ForMember(dest => dest.Platforms, opt => opt.MapFrom<GamePlatformToDomainResolver>());
+                    .ForMember(dest => dest.Platforms, opt => opt.MapFrom<GamePlatformToDomainResolver>())
+                    .ForMember(dest => dest.ExternalLinks, opt => opt.Ignore())
+                    .AfterMap<AddOrUpdateGameExternalLinks>();
+
+            CreateMap<GameExternalLinkViewModel, Domain.Models.GameExternalLink>();
             #endregion
 
             #region Profile
             CreateMap<ProfileViewModel, Domain.Models.UserProfile>()
                 .ForMember(dest => dest.ExternalLinks, opt => opt.Ignore())
-                .AfterMap<AddOrUpdateExternalLinks>();
+                .AfterMap<AddOrUpdateProfileExternalLinks>();
 
             CreateMap<UserProfileExternalLinkViewModel, Domain.Models.UserProfileExternalLink>();
             #endregion

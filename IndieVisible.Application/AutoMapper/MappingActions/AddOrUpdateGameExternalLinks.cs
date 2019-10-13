@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Models;
 using System;
@@ -7,22 +8,22 @@ using System.Linq;
 
 namespace IndieVisible.Application.AutoMapper.MappingActions
 {
-    public class AddOrUpdateExternalLinks : IMappingAction<ProfileViewModel, UserProfile>
+    public class AddOrUpdateGameExternalLinks : IMappingAction<GameViewModel, Game>
     {
-        public void Process(ProfileViewModel source, UserProfile destination, ResolutionContext context)
+        public void Process(GameViewModel source, Game destination, ResolutionContext context)
         {
-            List<UserProfileExternalLink> destinationExternalLinks = new List<UserProfileExternalLink>();
+            List<GameExternalLink> destinationExternalLinks = new List<GameExternalLink>();
 
-            foreach (UserProfileExternalLinkViewModel externalLink in source.ExternalLinks)
+            foreach (GameExternalLinkViewModel externalLink in source.ExternalLinks)
             {
                 if (externalLink.Id == Guid.Empty)
                 {
-                    UserProfileExternalLink newExternalLink = context.Mapper.Map<UserProfileExternalLink>(externalLink);
+                    GameExternalLink newExternalLink = context.Mapper.Map<GameExternalLink>(externalLink);
                     destinationExternalLinks.Add(newExternalLink);
                 }
                 else
                 {
-                    UserProfileExternalLink destinationExternalLink = destination.ExternalLinks.FirstOrDefault(x => x.Id == externalLink.Id);
+                    GameExternalLink destinationExternalLink = destination.ExternalLinks.FirstOrDefault(x => x.Id == externalLink.Id);
                     if (destinationExternalLink != null)
                     {
                         context.Mapper.Map(externalLink, destinationExternalLink);
