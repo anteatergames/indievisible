@@ -628,19 +628,16 @@ a:active, a:focus, a:hover {
         display: block;
         white-space: nowrap;
         border-bottom: 1px solid #f4f4f4;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 10px;
     }
 
         .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a:hover {
             background: #f4f4f4;
             text-decoration: none;
         }
-
-    .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a {
-        color: #333;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: 10px;
-    }
 
         .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa {
             width: 20px;
@@ -3503,24 +3500,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
     .game-page-cover-topright .btn, .user-profile-cover-topright .btn {
-        color: white;
-    }
-
-.carousel-caption {
-    background-color: rgba(0, 0, 0, 0.59);
-    color: white;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    padding-top: 0px;
-    border-radius: 0;
-}
-
-    .carousel-caption p {
-        text-overflow: ellipsis;
-    }
-
-    .carousel-caption a {
         color: white;
     }
 
