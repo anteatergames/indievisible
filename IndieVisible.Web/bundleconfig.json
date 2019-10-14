@@ -7,8 +7,10 @@
     "inputFiles": [
       "wwwroot/css/main.css",
       "wwwroot/css/master_style.css",
+      "wwwroot/css/typography.css",
+      "wwwroot/css/social.css",
       "wwwroot/css/skins/indievisible-skin.css",
-      "wwwroot/css/menu.css",
+      "wwwroot/css/sidebar.css",
       "wwwroot/css/userwidgets.css"
     ]
   },

@@ -1,0 +1,224 @@
+.main-sidebar {
+    background-color: #242a33;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    z-index: 810;
+    -webkit-transition: -webkit-transform .3s ease-in-out, width .3s ease-in-out;
+    -moz-transition: -moz-transform .3s ease-in-out, width .3s ease-in-out;
+    -o-transition: -o-transform .3s ease-in-out, width .3s ease-in-out;
+    transition: transform .3s ease-in-out, width .3s ease-in-out;
+}
+
+    .main-sidebar .sidebar-footer {
+        background: #f2f6f8;
+    }
+
+.sidebar-footer {
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    transition: .2s ease-out;
+    width: 230px;
+    background: #fff;
+    border-top: 1px solid rgba(120, 130, 140, .13);
+}
+
+    .sidebar-footer a {
+        padding: 12px;
+        width: 33.333337%;
+        float: left;
+        text-align: center;
+        font-size: 18px;
+    }
+
+@media (max-width:767px) {
+    .sidebar-collapse .sidebar-footer {
+        display: block;
+    }
+}
+
+@media (min-width:768px) {
+    .sidebar-collapse .main-sidebar {
+        -webkit-transform: translate(-230px, 0);
+        -ms-transform: translate(-230px, 0);
+        -o-transform: translate(-230px, 0);
+        transform: translate(-230px, 0);
+    }
+
+    .sidebar-collapse .sidebar-footer {
+        display: none;
+    }
+}
+
+@media (max-width:767px) {
+    .sidebar-open .main-sidebar {
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.sidebar {
+    padding-bottom: 10px;
+}
+
+.sidebar-form input:focus {
+    border-color: transparent;
+}
+
+
+
+
+.user-panel {
+    position: relative;
+    width: 100%;
+    padding: 10px 0 10px;
+    background-image: url(../images/user-info.jpg);
+}
+
+    .user-panel:after, .user-panel:before {
+        content: " ";
+        display: table;
+    }
+
+    .user-panel .image > img {
+        max-width: 25%;
+        height: auto;
+        margin: 0 10px;
+        border: 2px solid rgba(56, 154, 240, .27);
+    }
+
+.sidebar-collapse .user-panel .image > img {
+    max-width: 50px;
+    margin: 0 0;
+}
+
+.user-panel .info {
+    padding: 5px;
+    line-height: 1;
+    margin: 0 auto;
+    text-align: left;
+    position: absolute;
+    left: 60px;
+}
+
+    .user-panel .info > p {
+        font-weight: 400;
+        margin-bottom: 9px;
+    }
+
+    .user-panel .info > a {
+        text-decoration: none;
+        padding-right: 5px;
+        margin-top: 3px;
+        font-size: 11px;
+    }
+
+
+        .user-panel .info > a > .fa {
+            margin-right: 3px;
+        }
+
+@media (min-width:768px) {
+    .control-sidebar-open .content-wrapper, .control-sidebar-open .main-footer, .control-sidebar-open .right-side {
+        margin-right: 230px;
+    }
+}
+
+.main-sidebar .user-panel, .sidebar-menu, .sidebar-menu > li.header {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar-collapse .sidebar-menu.tree {
+    padding: 0;
+}
+
+.sidebar-menu:hover {
+    overflow: visible;
+}
+
+.sidebar-form {
+    float: left;
+    margin: 0 0 10px;
+    width: 100%;
+}
+
+.sidebar-form, .sidebar-menu > li.header {
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.sidebar-menu li > a {
+    position: relative;
+    font-weight: 400;
+}
+
+.nav-tabs.control-sidebar-tabs > li > a, .sidebar-collapse .sidebar-menu > li.active > a, .sidebar-collapse .sidebar-menu > li.menu-open > a, .sidebar-collapse .sidebar-menu > li:hover > a {
+    border-radius: 0;
+}
+
+.sidebar-menu li > a > .pull-right-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -7px;
+}
+
+.navigation {
+    width: 300px;
+}
+
+.mainmenu, .submenu {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+    .submenu li a {
+        padding-left: 30px;
+    }
+
+    .mainmenu a {
+        display: block;
+        text-decoration: none;
+        padding: 10px;
+        color: white;
+    }
+
+        .mainmenu a:hover {
+            background: #333333;
+            transition: all 1s ease-in;
+        }
+
+
+    .mainmenu li.active .submenu {
+        display: block;
+        max-height: 300px;
+        transition: all 0.5s ease-in;
+    }
+
+.submenu {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transition: all 1s ease-out;
+}
+
+#menufooter {
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid black;
+    border-radius: 0;
+    color: #aaa
+}
+
+    #menufooter a {
+        color: #fff
+    }

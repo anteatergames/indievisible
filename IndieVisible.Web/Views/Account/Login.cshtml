@@ -28,7 +28,7 @@
         }
 
 
-        <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-element" autocomplete="off">
+        <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" autocomplete="off">
             <div class="form-group has-feedback">
                 <input asp-for="UserName" class="form-control" placeholder="@SharedLocalizer["UserName"]">
                 <span class="fas fa-user form-control-feedback"></span>

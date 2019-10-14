@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <form asp-action="ExternalLoginConfirmation" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-element">
+                            <form asp-action="ExternalLoginConfirmation" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
                                 <div class="form-group">
                                     <label asp-for="Username"></label>
                                     <input asp-for="Username" class="form-control" asp-is-readonly="@Model.UserExists" />

@@ -1,3 +1,7 @@
+a {
+    color: #111;
+}
+
 .skin-indievisible .main-header .navbar {
     background-color: #242a33;
 }
@@ -150,207 +154,179 @@
     color: #ffffff
 }
 
-.carousel-caption {
-    background-color: rgba(0, 0, 0, 0.59);
-    color: white;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    padding-top: 0px;
-    border-radius: 0;
-}
-
-    .carousel-caption p {
-        text-overflow: ellipsis;
-    }
-
-    .carousel-caption a {
-        color: white;
-    }
-
-.gamebox-description, .gamebox-description-text {
-    display: block;
-}
-
-    .gamebox-description .img-sm {
-        width: 30px !important;
-        height: 30px !important;
-    }
-
-    .gamebox-description .gamebox-description-number, .gamebox-description .gamebox-description-text {
-        margin-left: 10px;
-    }
-
-    .gamebox-description .gamebox-description-number {
-        font-size: 16px;
-    }
-
-    .gamebox-description .gamebox-description-text {
-        font-size: 21px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-        height: 30px;
-    }
-
-    .gamebox-description .price-tag span.badge {
-        padding: 5px;
-    }
-
-.release-platforms {
-    margin-top: 10px;
-    color: #242a33;
-}
-
-.user-profile > .box-footer, .game-page > .box-footer {
-    padding-top: 0px;
-}
-
-.user-img-front {
-    width: 160px;
-    height: 160px;
-}
-
-.user-profile .avatar-wrapper, .game-page .avatar-wrapper {
-    display: inline-flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-
-.game-page-cover-topright, .user-profile-cover-topright {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-    .game-page-cover-topright .btn, .user-profile-cover-topright .btn {
-        color: white;
-    }
-
-.user-profile-xp {
-    border-radius: 0;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-}
-
-.user-panel .sidebar-full .btn {
-    color: white !important;
-    display: block;
-}
-
-.user-panel .info a {
-    color: white;
-}
-
-.tag {
-    margin-bottom: 5px;
-}
 
 
-.control-sidebar-dark .btn-default {
+.alert-danger, .alert-error, .alert-info, .alert-success, .alert-warning, .bg-aqua, .bg-aqua-active, .bg-black, .bg-black-active, .bg-blue, .bg-blue-active, .bg-fuchsia, .bg-fuchsia-active, .bg-green, .bg-green-active, .bg-light-blue, .bg-light-blue-active, .bg-lime, .bg-lime-active, .bg-maroon, .bg-maroon-active, .bg-navy, .bg-navy-active, .bg-olive, .bg-olive-active, .bg-orange, .bg-orange-active, .bg-purple, .bg-purple-active, .bg-red, .bg-red-active, .bg-teal, .bg-teal-active, .bg-yellow, .bg-yellow-active, .label-danger, .label-info, .label-primary, .label-success, .label-warning, .modal-danger .modal-body, .modal-danger .modal-footer, .modal-danger .modal-header, .modal-info .modal-body, .modal-info .modal-footer, .modal-info .modal-header, .modal-primary .modal-body, .modal-primary .modal-footer, .modal-primary .modal-header, .modal-success .modal-body, .modal-success .modal-footer, .modal-success .modal-header, .modal-warning .modal-body, .modal-warning .modal-footer, .modal-warning .modal-header {
     color: #fff !important;
 }
 
-.flex-square {
-    position: relative;
-    display: block;
-    height: 0;
-    width: 100%;
-    padding-top: 100%;
-    background-position: 50% 50%;
-    background-size: cover;
-    font-size: 20px;
-    text-align: center;
-    overflow: hidden;
-    margin-bottom: 10px;
+/*color Skin*/
+.bg-gray {
+    color: #000;
+    background-color: #d2d6de;
 }
 
-.clickable {
-    cursor: pointer;
+.bg-gray-light {
+    background-color: #f7f7f7;
 }
 
-.flex-square .flex-square-inner-content {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0%;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: 0;
-    text-align: center;
-    text-transform: uppercase;
-    flex-direction: column;
+.bg-black, .bg-inverse {
+    background-color: #111;
 }
 
-.flex-square.rectangle {
-    width: 100%;
-    padding-top: 100%;
+.alert-danger, .alert-error, .bg-danger, .bg-red, .label-danger, .modal-danger .modal-body {
+    background-color: #f83f37 !important;
 }
 
-.box-content .btn[class*=bg-]:hover,
-.box-content .btn[class*=bg-]:focus,
-.btn-interaction-comment-send:hover,
-.btn-interaction-comment-send:focus,
-.comment-send-button:hover,
-.comment-send-button:focus {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    background-color: transparent !important;
+.alert-warning, .bg-warning, .bg-yellow, .label-warning, .modal-warning .modal-body {
+    background-color: #ffbf36 !important;
 }
 
-
-@media (max-width: 767px) {
-    .comment-send-button {
-        margin-top: -38px;
-    }
+.alert-info, .bg-aqua, .bg-info, .label-info, .modal-info .modal-body {
+    background-color: #0092ee !important;
 }
 
-@media (min-width: 768px) {
-    .comment-send-button {
-        margin-top: -38px;
-    }
+.bg-blue {
+    background-color: #45aef1;
 }
 
-
-.control-buttons {
-    margin-bottom: 10px;
+.bg-info, .bg-primary, .bg-success, .bg-danger, .bg-warning {
+    color: #ffffff;
 }
 
-    .control-buttons a {
-        color: white;
-    }
-
-
-video {
-    object-fit: fill;
-    width: 100%;
-    height: 100%;
+.bg-light-blue, .bg-primary, .label-primary, .modal-primary .modal-body {
+    background-color: #45aef1 !important;
 }
 
-.videoWrapper {
-    position: relative;
+.alert-success, .bg-green, .bg-success, .label-success, .modal-success .modal-body {
+    background-color: #22af47 !important;
 }
 
-    .videoWrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+.bg-navy {
+    background-color: #001f3f;
+}
 
+.bg-teal {
+    background-color: #39cccc;
+}
 
-.bg-patreon {
-    background-color: #f96854 !important;
+.bg-olive {
+    background-color: #7dab2e;
+}
+
+.bg-lime {
+    background-color: #01ff70;
+}
+
+.bg-orange {
+    background-color: #89ad87;
+}
+
+.bg-fuchsia {
+    background-color: #f012be;
+}
+
+.bg-purple {
+    background-color: #ab26aa;
+}
+
+.bg-maroon {
+    background-color: #8C1919;
+}
+
+.bg-gray-active {
+    color: #000;
+    background-color: #b5bbc8;
+}
+
+.bg-black-active {
+    background-color: #000;
+}
+
+.bg-red-active, .modal-danger .modal-footer, .modal-danger .modal-header {
+    background-color: #dc2d27;
+}
+
+.bg-yellow-active, .modal-warning .modal-footer, .modal-warning .modal-header {
+    background-color: #e4a827;
+}
+
+.bg-aqua-active, .modal-info .modal-footer, .modal-info .modal-header {
+    background-color: #007ac7;
+}
+
+.bg-blue-active {
+    background-color: #2f88d6;
+}
+
+.bg-light-blue-active, .modal-primary .modal-footer, .modal-primary .modal-header {
+    background-color: #25a4f4;
+}
+
+.bg-green-active, .modal-success .modal-footer, .modal-success .modal-header {
+    background-color: #1a943b;
+}
+
+.bg-navy-active {
+    background-color: #001a35;
+}
+
+.bg-teal-active {
+    background-color: #30bbbb;
+}
+
+.bg-olive-active {
+    background-color: #61881f;
+}
+
+.bg-lime-active {
+    background-color: #00e765;
+}
+
+.bg-orange-active {
+    background-color: #d84d1d;
+}
+
+.bg-fuchsia-active {
+    background-color: #db0ead;
+}
+
+.bg-purple-active {
+    background-color: #7d157d;
+}
+
+.bg-maroon-active {
+    background-color: #7e1616;
+}
+
+.text-danger, .text-red {
+    color: #f83f37;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-warning, .text-yellow {
+    color: #ffbf36;
+}
+
+.text-aqua, .text-info {
+    color: #0092ee;
+}
+
+.text-blue {
+    color: #45aef1;
+}
+
+.text-light-blue {
+    color: #45aef1;
+}
+
+.text-green, .text-success {
+    color: #22af47;
+}
+
+.text-orange {
+    color: #89ad87;
 }

@@ -17,7 +17,7 @@
         <p class="login-box-msg">@SharedLocalizer["Register a new membership"]</p>
         <span asp-validation-for="AcceptTerms" class="text-danger"></span>
 
-        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" class="form-element" id="frmRegister">
+        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" id="frmRegister">
             <div class="form-group has-feedback">
                 <input asp-for="UserName" type="text" class="form-control" placeholder="@SharedLocalizer["UserName"]">
                 <span class="fas fa-user form-control-feedback "></span>
