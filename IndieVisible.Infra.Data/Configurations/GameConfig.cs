@@ -43,7 +43,8 @@ namespace IndieVisible.Infra.Data.Configurations
 
             builder.HasOne(x => x.Team)
                 .WithMany(x => x.Games)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+                .HasForeignKey(x => x.TeamId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
