@@ -40,6 +40,10 @@ namespace IndieVisible.Infra.Data.Configurations
                 .HasMaxLength(30);
 
             builder.HasMany(x => x.ExternalLinks);
+
+            builder.HasOne(x => x.Team)
+                .WithMany(x => x.Games)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

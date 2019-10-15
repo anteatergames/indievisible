@@ -1289,4 +1289,16 @@
     <value>Esse QR Code aponta pra esta página. Avise a todos para escaneá-lo com seus telefones.</value>
     <comment>Game Details</comment>
   </data>
+  <data name="Just myself" xml:space="preserve">
+    <value>Eu sozinho</value>
+    <comment>Game Edit</comment>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Equipe</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="No games here" xml:space="preserve">
+    <value>Nenhum jogo aqui.</value>
+    <comment>Games</comment>
+  </data>
 </root>

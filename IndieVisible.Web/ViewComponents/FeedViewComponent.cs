@@ -85,7 +85,7 @@ namespace IndieVisible.Web.ViewComponents
 
         private void FormatTeamCreationPost(UserContentListItemViewModel item)
         {
-            string[] teamData = item.Content.Split('|', StringSplitOptions.RemoveEmptyEntries);
+            string[] teamData = item.Content.Split('|');
             string id = teamData[0];
             string name = teamData[1];
             string motto = teamData[2];

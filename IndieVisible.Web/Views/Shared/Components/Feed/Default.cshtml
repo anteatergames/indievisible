@@ -4,28 +4,14 @@
     Layout = null;
 
     var morePosts = (bool)ViewData["IsMorePosts"];
+    var noItemsText = morePosts ? SharedLocalizer["What? Apparently you found the bottom!"] : SharedLocalizer["What? Apparently there is no content here yet!"];
+    var noItemsModel = new ListNoItemsViewModel("fas fa-exclamation-triangle", noItemsText);
 }
 
 
 @if (!Model.Any())
 {
-    <div class="box box-widget box-content p-0 bg-white">
-        <div class="box-body">
-            <div class="text-center mt-2 p-5">
-                <i class="fa-10x fas fa-exclamation-triangle" aria-hidden="true"></i>
-                <div class="mt-3">
-                    @if (morePosts)
-                    {
-                        <h3>@SharedLocalizer["What? Apparently you found the bottom!"]</h3>
-                    }
-                    else
-                    {
-                        <h3>@SharedLocalizer["What? Apparently there is no content here yet!"]</h3>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_ListNoItems" model="noItemsModel" />
 }
 else
 {

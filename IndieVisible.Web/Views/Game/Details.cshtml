@@ -153,12 +153,26 @@
                             </div>
 
                             <div class="tab-pane" id="about">
+                                @if (!string.IsNullOrEmpty(Model.Description))
+                                {
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h6>
+                                                @SharedLocalizer["Description"]
+                                            </h6>
+                                            <div class="p-2 box bg-white">
+                                                @Model.Description
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
                                 <div class="row">
                                     <div class="col-12">
                                         <h6>
-                                            @SharedLocalizer["Description"]
+                                            @SharedLocalizer["Team"]
                                         </h6>
-                                        @Model.Description
+                                        <partial name="~/Views/Team/_TeamListItem.cshtml" model="Model.Team" />
                                     </div>
                                 </div>
 
@@ -187,6 +201,7 @@
 @section Styles {
     <environment include="Development">
         <link rel="stylesheet" href="~/css/gamedetails.css" />
+        <link rel="stylesheet" href="~/css/teamup.css">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/gamedetails.min.css" asp-append-version="true" />

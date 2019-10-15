@@ -56,7 +56,11 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
-                SetUiData(currentUserId, true, vms);
+                foreach (var team in vms)
+                {
+                    bool currentUserIsLeader = team.Members.Any(x => x.Leader && x.UserId == currentUserId);
+                    SetUiData(currentUserId, currentUserIsLeader, team);
+                }
 
                 return new OperationResultListVo<TeamViewModel>(vms);
             }
@@ -81,11 +85,7 @@ namespace IndieVisible.Application.Services
 
                 bool currentUserIsLeader = vm.Members.Any(x => x.Leader && x.UserId == currentUserId);
 
-                foreach (TeamMemberViewModel member in vm.Members)
-                {
-                    member.Permissions.CanDelete = currentUserIsLeader && !member.Leader && member.UserId != currentUserId;
-                    member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
-                }
+                SetUiData(currentUserId, false, vm);
 
                 vm.Members = vm.Members.OrderByDescending(x => x.Leader).ToList();
 
@@ -162,9 +162,10 @@ namespace IndieVisible.Application.Services
             {
                 UserProfile myProfile = profileDomainService.GetByUserId(currentUserId).FirstOrDefault();
 
-                TeamViewModel newVm = new TeamViewModel();
-
-                newVm.Members = new List<TeamMemberViewModel>();
+                TeamViewModel newVm = new TeamViewModel
+                {
+                    Members = new List<TeamMemberViewModel>()
+                };
 
                 TeamMemberViewModel meAsMember = new TeamMemberViewModel
                 {
@@ -228,13 +229,34 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
-                SetUiData(userId, false, vms);
+                foreach (var team in vms)
+                {
+                    SetUiData(userId, false, team);
+                }
 
                 return new OperationResultListVo<TeamViewModel>(vms);
             }
             catch (Exception ex)
             {
                 return new OperationResultListVo<TeamViewModel>(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetSelectListByUserId(Guid userId)
+        {
+            try
+            {
+                IQueryable<SelectListItemVo> allModels = teamDomainService.GetTeamsByMemberUserId(userId).Select(x => new SelectListItemVo
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+
+                return new OperationResultListVo<SelectListItemVo>(allModels);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
             }
         }
 
@@ -257,20 +279,15 @@ namespace IndieVisible.Application.Services
         }
         #endregion
 
-        private void SetUiData(Guid userId, bool canInteract, IEnumerable<TeamViewModel> vms)
+        private void SetUiData(Guid userId, bool canInteract, TeamViewModel team)
         {
-            foreach (TeamViewModel team in vms)
-            {
                 team.Permissions.CanEdit = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
                 team.Permissions.CanDelete = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
                 team.Members = team.Members.OrderByDescending(x => x.Leader).ToList();
-                int index = 0;
                 foreach (TeamMemberViewModel member in team.Members)
                 {
-                    member.Index = index++;
                     member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
                 }
-            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IGameAppService : ICrudAppService<GameViewModel>
     {
-        IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, GameGenre genre);
+        IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, Guid? teamId, GameGenre genre);
 
         IEnumerable<SelectListItemVo> GetByUser(Guid userId);
     }

@@ -23,6 +23,7 @@
         selectors.tabActivity = '#tabactivity';
         selectors.divActivityFeed = '#tabactivity #divActivityFeed';
         selectors.tabGames = '#tabgames';
+        selectors.tabGamesContainer = '#tabgamescontainer';
         selectors.tabConnections = '#tabconnections';
         selectors.Id = '#Id';
         selectors.UserId = '#UserId';
@@ -35,6 +36,7 @@
         objs.tabActivity = $(selectors.tabActivity);
         objs.divActivityFeed = $(selectors.divActivityFeed);
         objs.tabGames = $(selectors.tabGames);
+        objs.tabGamesContainer = $(selectors.tabGamesContainer);
         objs.tabConnections = $(selectors.tabConnections);
         objs.Id = $(selectors.Id);
         objs.UserId = $(selectors.UserId);
@@ -126,10 +128,10 @@
 
 
     function loadGameList(userId) {
-        objs.tabGames.html(MAINMODULE.Default.Spinner);
+        objs.tabGamesContainer.html(MAINMODULE.Default.Spinner);
 
         $.get("/game/latest?userId=" + userId, function (data) {
-            objs.tabGames.html(data);
+            objs.tabGamesContainer.html(data);
         });
     }
 

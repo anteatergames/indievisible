@@ -1,19 +1,19 @@
-#teamcontainer .team-item {
+.team-item {
     margin-top: 10px;
     padding: 10px;
 }
 
-    #teamcontainer .team-item .team-members {
+    .team-item .team-members {
         border: 1px solid #ced4da;
         padding: 5px;
     }
 
-    #teamcontainer .team-item img.avatar {
+    .team-item img.avatar {
         width: 64px;
         height: 64px;
     }
 
-#teamcontainer .team-list ul {
+.team-list ul {
     padding: 0px;
     list-style: none;
 }

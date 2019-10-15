@@ -373,7 +373,8 @@ namespace IndieVisible.Web.Controllers
                     "Team Management",
                     "Points Earned notification",
                     "Brainstorm Ideas status control",
-                    "External Links working on profiles and games"
+                    "External Links working on profiles and games",
+                    "Teams can be linked to games"
                 }
             });
 

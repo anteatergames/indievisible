@@ -36,6 +36,8 @@
         selectors.btnEditTeam = '.btnEditTeam';
         selectors.btnDeleteTeam = '.btnDeleteTeam';
         selectors.btnDeleteMember = '.btnDeleteMember';
+        selectors.divGames = '#divGames';
+        selectors.divGamesList = '#divGamesList';
     }
 
     function cacheObjects() {
@@ -43,6 +45,8 @@
         objs.divListTeams = $(selectors.divListTeams);
         objs.divListMyTeams = $(selectors.divListMyTeams);
         objs.divInvitation = $(selectors.divInvitation);
+        objs.divGames = $(selectors.divGames);
+        objs.divGamesList = $(selectors.divGamesList);
 
         if (!isAjax) {
             cacheAjaxObjs();
@@ -61,6 +65,10 @@
 
         loadTeams();
         loadMyTeams();
+
+        if (objs.divGames.length > 0) {
+            loadTeamGames();
+        }
     }
 
     function bindAll() {
@@ -269,6 +277,14 @@
 
             $.validator.unobtrusive.parse(objs.form);
         });
+    }
+
+    function loadTeamGames() {
+        objs.divGamesList.html(MAINMODULE.Default.Spinner2);
+
+        var id = objs.divGames.data('id');
+
+        $.get('/game/byteam/' + id, function (data) { objs.divGamesList.html(data); });
     }
 
     function selectNewMemberCallBack(data) {

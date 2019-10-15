@@ -1,0 +1,45 @@
+﻿@model GameListItemViewModel
+@{
+    Layout = null;
+}
+
+<div class="box box-game bg-white">
+    <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
+        <img class="card-img-top img-fluid" src="@Model.ThumbnailUrl" alt="Card image cap">
+    </a>
+    <div class="box-body">
+        <div class="gamebox-description">
+
+            <div class="row text-truncate">
+                <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
+                    <span class="gamebox-description-text">@Model.Title</span>
+                </a>
+            </div>
+            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                <img class="rounded-circle img-sm" src="@Model.DeveloperImageUrl" alt="@Model.DeveloperName">
+                <div class="gamebox-description-text">
+                    <span class="gamebox-description-number">@Model.DeveloperName</span>
+                </div>
+            </a>
+
+            <div class="price-tag pull-right float-right">
+                <span class="badge badge-secondary">@Model.Price</span>
+            </div>
+
+            <div class="release-platforms">
+                @if (Model.PlatformList.Any())
+                {
+                    foreach (var platform in Model.PlatformList)
+                    {
+                        <i class="fab fa-2x fa-@platform" aria-hidden="true"></i>
+                    }
+                }
+                else
+                {
+                    <i class="far fa-2x fa-calendar" aria-hidden="true"></i>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

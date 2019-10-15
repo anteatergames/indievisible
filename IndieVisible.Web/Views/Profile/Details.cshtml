@@ -260,16 +260,16 @@
 
                                             @foreach (var externalLink in Model.ExternalLinks.Where(x => x.Type == ExternalLinkType.GameDev))
                                             {
-                                            <div class="user-profile-others">
-                                                <div class="centered">
-                                                    <a href="@externalLink.Value" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@externalLink.Provider">
-                                                        <div class="other-icon">
-                                                            <img src="@String.Format("/images/external/{0}64.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
-                                                        </div>
-                                                    </a>
+                                                <div class="user-profile-others">
+                                                    <div class="centered">
+                                                        <a href="@externalLink.Value" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@externalLink.Provider">
+                                                            <div class="other-icon">
+                                                                <img src="@String.Format("/images/external/{0}64.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            }                                            
+                                            }
                                         </div>
                                     </div>
                                 }
@@ -288,6 +288,7 @@
                     </div>
 
                     <div class="tab-pane feed1" id="tabgames">
+                        <div id="tabgamescontainer" class="offset-lg-2 col-lg-8 px-0"></div>
                     </div>
 
                     <div class="tab-pane" id="tabconnections">

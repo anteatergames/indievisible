@@ -22,8 +22,6 @@ namespace IndieVisible.Application.ViewModels.Team
 
         public string ProfileImage { get; set; }
 
-        public int Index { get; set; }
-
         public Dictionary<string, string> WorkDictionary { get; set; }
     }
 }

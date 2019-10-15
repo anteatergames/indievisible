@@ -21,9 +21,7 @@
                 @SharedLocalizer["Fill in with the game information"]
             </h6>
         </div>
-        <!-- /.box-header -->
         <div class="box-body p-0 p-md-10">
-            <!-- Nav tabs -->
             <div class="vtabs customvtab col-12">
                 <ul class="nav nav-tabs tabs-vertical text-capitalize" role="tablist">
                     <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#tabbasic" role="tab" aria-expanded="true" aria-selected="true"><span class="d-sm-none"><i class="fas fa-home" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["basic"]</span> </a> </li>
@@ -34,7 +32,6 @@
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabexternallinks" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-share-alt" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["external"]</span></a> </li>
                     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tabsettings" role="tab" aria-expanded="false" aria-selected="false"><span class="d-sm-none"><i class="fas fa-cog" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["Settings"]</span></a> </li>
                 </ul>
-                <!-- Tab panes -->
                 <div class="tab-content p-0">
                     <div class="tab-pane active show p-0" id="tabbasic" role="tabpanel" aria-expanded="true">
                         <div class="pad">
@@ -45,13 +42,6 @@
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                             </div>
-                            @*<div class="col-md-12">
-                                    <div class="form-group">
-                                        <label asp-for="Url"></label>
-                                        <input asp-for="Url" type="text" class="form-control">
-                                        <span asp-validation-for="Url" class="text-danger"></span>
-                                    </div>
-                                </div>*@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label asp-for="Genre"></label>
@@ -59,6 +49,15 @@
                                         <option selected="selected" value="">Select</option>
                                     </select>
                                     <span asp-validation-for="Genre" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="TeamId"></label>
+                                    <select asp-for="TeamId" asp-items="@(ViewData["MyTeams"] as SelectList)" class="form-control">
+                                        <option selected="selected" value="">@SharedLocalizer["Just myself"]</option>
+                                    </select>
+                                    <span asp-validation-for="TeamId" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
@@ -205,8 +204,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /.box-body -->
-
             <div class="text-right">
                 <button type="button" id="btnGameSave" class="btn btn-info"><i class="fas fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
             </div>

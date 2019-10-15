@@ -12,48 +12,6 @@ else
 {
     @foreach (var team in Model)
     {
-        <div class="box p-0 bg-white col-12 team-item" data-id="@team.Id">
-            <div class="box-header with-border">
-                <a asp-area="" asp-controller="team" asp-action="details" asp-route-teamId="@team.Id"><h2>@team.Name</h2></a>
-                <h4>@team.Motto</h4>
-                <div class="box-tools">
-                    @if (team.Permissions.CanEdit || team.Permissions.CanDelete)
-                    {
-                        <div class="btn-group">
-                            <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
-                            </button>
-                            <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-
-                                @if (team.Permissions.CanEdit)
-                                {
-                                    <a class="btnEditTeam dropdown-item" href="#" data-url="@Url.Action("Edit", "Team", new { teamId = team.Id })">@SharedLocalizer["edit"]</a>
-                                }
-
-                                @if (team.Permissions.CanDelete)
-                                {
-                                    <a class="btnDeleteTeam dropdown-item" href="#" data-url="@Url.Action("DeleteTeam", "Team", new { teamId = team.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this team?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
-                                }
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div class="box-body">
-                <div class="team-members">
-                    <h5>@SharedLocalizer["{0} members", team.Members.Count]</h5>
-                    @foreach (var member in team.Members)
-                    {
-                        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId" data-toggle="popover" data-trigger="hover" data-target="#divPopOver@(member.Id)">
-                            <img class="rounded-circle lazyload team-member avatar" data-src="@member.ProfileImage" style="left: -@(member.Index * 30)px; z-index: @(team.Members.Count - member.Index)" src="~/images/profileimages/developer.png" alt="@member.Quote">
-                        </a>
-                        <div id="divPopOver@(member.Id)" style="display:none">
-                            <h5>@member.Name</h5>
-                            <span>@member.Quote</span>
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
+        <partial name="_TeamListItem" model="team" />
     }
 }

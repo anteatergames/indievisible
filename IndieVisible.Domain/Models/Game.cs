@@ -19,6 +19,8 @@ namespace IndieVisible.Domain.Models
 
         public GameGenre Genre { get; set; }
 
+        public Guid? TeamId { get; set; }
+
         public string CoverImageUrl { get; set; }
 
         public string ThumbnailUrl { get; set; }
@@ -34,6 +36,8 @@ namespace IndieVisible.Domain.Models
         public DateTime? ReleaseDate { get; set; }
 
         public string Platforms { get; set; }
+
+        public virtual Team Team { get; set; }
 
         public virtual ICollection<UserContent> UserContents { get; set; }
 

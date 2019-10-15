@@ -149,7 +149,7 @@ namespace IndieVisible.Application.Services
         }
         #endregion
 
-        public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, GameGenre genre)
+        public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, Guid? teamId, GameGenre genre)
         {
             IQueryable<Game> allModels = repository.GetAll();
 
@@ -161,6 +161,11 @@ namespace IndieVisible.Application.Services
             if (userId != Guid.Empty)
             {
                 allModels = allModels.Where(x => x.UserId == userId);
+            }
+
+            if (teamId.HasValue)
+            {
+                allModels = allModels.Where(x => x.TeamId == teamId);
             }
 
             IOrderedQueryable<Game> ordered = allModels.OrderByDescending(x => x.CreateDate);

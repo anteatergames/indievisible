@@ -10,6 +10,8 @@
 
         ACTIVITYFEED.Init(selectors.divActivityFeed, FEEDTYPE.GAME, selectors.Id.val());
         ACTIVITYFEED.Methods.LoadActivityFeed();
+
+        setPopOvers();
     }
 
     function setSelectors() {
@@ -64,6 +66,19 @@
                 method: 'share',
                 href: url
             }, function (response) { });
+        });
+    }
+
+    function setPopOvers() {
+        $("[data-toggle='popover']").each(function (index, element) {
+            var data = $(element).data();
+            if (data.target) {
+                var contentElementId = data.target;
+                var contentHtml = $(contentElementId).html();
+                data.content = contentHtml;
+                data.html = true;
+            }
+            $(element).popover(data);
         });
     }
 

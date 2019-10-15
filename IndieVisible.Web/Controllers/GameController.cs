@@ -11,6 +11,7 @@ using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,22 +21,27 @@ namespace IndieVisible.Web.Controllers
 {
     public class GameController : SecureBaseController
     {
-        private readonly IGameAppService _gameAppService;
+        private readonly IGameAppService gameAppService;
         private readonly INotificationAppService notificationAppService;
+        private readonly ITeamAppService teamAppService;
 
         public GameController(IGameAppService gameAppService
-            , INotificationAppService notificationAppService) : base()
+            , INotificationAppService notificationAppService
+            , ITeamAppService teamAppService) : base()
         {
-            _gameAppService = gameAppService;
+            this.gameAppService = gameAppService;
             this.notificationAppService = notificationAppService;
+            this.teamAppService = teamAppService;
         }
 
         [Route("game/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
-            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(CurrentUserId, id);
+            OperationResultVo<GameViewModel> serviceResult = gameAppService.GetById(CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
+
+            SetGameTeam(vm);
 
             SetImages(vm);
 
@@ -62,7 +68,7 @@ namespace IndieVisible.Web.Controllers
         [Route("games/{genre:alpha?}")]
         public IActionResult List(GameGenre genre)
         {
-            IEnumerable<GameListItemViewModel> latest = _gameAppService.GetLatest(CurrentUserId, 99, Guid.Empty, genre);
+            IEnumerable<GameListItemViewModel> latest = gameAppService.GetLatest(CurrentUserId, 99, Guid.Empty, null, genre);
 
             ViewBag.Games = latest;
             ViewData["Genre"] = genre;
@@ -84,18 +90,22 @@ namespace IndieVisible.Web.Controllers
 
             FormatExternalLinksForEdit(vm);
 
+            SetMyTeamsSelectList();
+
             return View("CreateEdit", vm);
         }
 
         public IActionResult Edit(Guid id)
         {
-            OperationResultVo<GameViewModel> serviceResult = _gameAppService.GetById(CurrentUserId, id);
+            OperationResultVo<GameViewModel> serviceResult = gameAppService.GetById(CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
 
             FormatExternalLinksForEdit(vm);
 
             SetImages(vm);
+
+            SetMyTeamsSelectList();
 
             return View("CreateEdit", vm);
         }
@@ -108,7 +118,7 @@ namespace IndieVisible.Web.Controllers
                 SetAuthorDetails(vm);
                 ClearImagesUrl(vm);
 
-                _gameAppService.Save(CurrentUserId, vm);
+                gameAppService.Save(CurrentUserId, vm);
 
                 string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString() });
 
@@ -122,7 +132,20 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Latest(int qtd, Guid userId)
         {
+            if (userId != Guid.Empty)
+            {
+                qtd = 10;
+            }
+
             return ViewComponent("LatestGames", new { qtd, userId });
+        }
+
+        [Route("game/byteam/{teamId:guid}")]
+        public IActionResult ByTeam(Guid teamId)
+        {
+            IEnumerable<GameListItemViewModel> games = gameAppService.GetLatest(CurrentUserId, 99, Guid.Empty, teamId, 0);
+
+            return View("_Games", games);
         }
 
         private void SetImages(GameViewModel vm)
@@ -204,7 +227,7 @@ namespace IndieVisible.Web.Controllers
 
         private void FormatExternaLinks(GameViewModel vm)
         {
-            foreach (var item in vm.ExternalLinks)
+            foreach (GameExternalLinkViewModel item in vm.ExternalLinks)
             {
                 ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
                 item.Display = uiInfo.Display;
@@ -259,6 +282,30 @@ namespace IndieVisible.Web.Controllers
                     case ExternalLinkProvider.AppleAppStore:
                         item.Value = UrlFormatter.AppleAppStoreGame(item.Value);
                         break;
+                }
+            }
+        }
+
+        private void SetMyTeamsSelectList()
+        {
+            OperationResultListVo<SelectListItemVo> teamResult = (OperationResultListVo<SelectListItemVo>)teamAppService.GetSelectListByUserId(CurrentUserId);
+
+            if (teamResult.Success)
+            {
+                SelectList selectList = new SelectList(teamResult.Value, "Value", "Text");
+                ViewData["MyTeams"] = selectList;
+            }
+        }
+
+        private void SetGameTeam(GameViewModel vm)
+        {
+            if (vm.Team == null && vm.TeamId.HasValue)
+            {
+                var teamResult = teamAppService.GetById(CurrentUserId, vm.TeamId.Value);
+
+                if (teamResult.Success)
+                {
+                    vm.Team = teamResult.Value;
                 }
             }
         }

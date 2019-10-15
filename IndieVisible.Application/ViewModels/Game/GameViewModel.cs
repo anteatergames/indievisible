@@ -1,4 +1,5 @@
-﻿using IndieVisible.Application.ViewModels.User;
+﻿using IndieVisible.Application.ViewModels.Team;
+using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,9 @@ namespace IndieVisible.Application.ViewModels.Game
 
         [Display(Name = "Genre")]
         public GameGenre Genre { get; set; }
+
+        [Display(Name = "Team")]
+        public Guid? TeamId { get; set; }
 
         [Display(Name = "Description")]
         public string Description { get; set; }
@@ -49,6 +53,8 @@ namespace IndieVisible.Application.ViewModels.Game
         public List<GamePlatforms> Platforms { get; set; }
 
         public List<GameExternalLinkViewModel> ExternalLinks { get; set; }
+
+        public TeamViewModel Team{ get; set; }
 
         #region Counters
         public int FollowerCount { get; set; }
