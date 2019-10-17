@@ -201,7 +201,7 @@ namespace IndieVisible.Web.Controllers
         {
             OperationResultVo serviceResult = teamAppService.AcceptCandidate(CurrentUserId, teamId, userId);
 
-            string url = Url.Action("Details", "Team", new { area = string.Empty, teamId = teamId });
+            string url = Url.Action("Details", "Team", new { area = string.Empty, teamId });
 
             return Json(new OperationResultRedirectVo(serviceResult, url));
         }
@@ -211,7 +211,7 @@ namespace IndieVisible.Web.Controllers
         {
             OperationResultVo serviceResult = teamAppService.RejectCandidate(CurrentUserId, teamId, userId);
 
-            string url = Url.Action("Details", "Team", new { area = string.Empty, teamId = teamId });
+            string url = Url.Action("Details", "Team", new { area = string.Empty, teamId });
 
             return Json(new OperationResultRedirectVo(serviceResult, url));
         }

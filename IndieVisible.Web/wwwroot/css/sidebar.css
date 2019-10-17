@@ -158,7 +158,7 @@
     font-weight: 400;
 }
 
-.nav-tabs.control-sidebar-tabs > li > a, .sidebar-collapse .sidebar-menu > li.active > a, .sidebar-collapse .sidebar-menu > li.menu-open > a, .sidebar-collapse .sidebar-menu > li:hover > a {
+.sidebar-collapse .sidebar-menu > li.active > a, .sidebar-collapse .sidebar-menu > li.menu-open > a, .sidebar-collapse .sidebar-menu > li:hover > a {
     border-radius: 0;
 }
 

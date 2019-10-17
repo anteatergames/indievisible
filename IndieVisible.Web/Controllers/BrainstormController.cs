@@ -110,7 +110,6 @@ namespace IndieVisible.Web.Controllers
             return PartialView("_List", items);
         }
 
-
         [HttpPost]
         public IActionResult Save(BrainstormIdeaViewModel vm)
         {
@@ -129,7 +128,6 @@ namespace IndieVisible.Web.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
-
 
         [HttpPost]
         public IActionResult SaveSession(BrainstormSessionViewModel vm)
@@ -166,8 +164,6 @@ namespace IndieVisible.Web.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
-
-
 
         [HttpPost("brainstorm/comment")]
         public IActionResult Comment(UserContentCommentViewModel vm)

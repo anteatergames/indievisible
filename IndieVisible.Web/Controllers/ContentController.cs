@@ -181,7 +181,6 @@ namespace IndieVisible.Web.Controllers
         [HttpPost("content/post")]
         public IActionResult SimplePost(string text, string images, IEnumerable<PollOptionViewModel> pollOptions, SupportedLanguage? language)
         {
-
             UserContentViewModel vm = new UserContentViewModel
             {
                 Language = language ?? SupportedLanguage.English,

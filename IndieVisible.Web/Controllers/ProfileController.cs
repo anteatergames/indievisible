@@ -39,12 +39,12 @@ namespace IndieVisible.Web.Controllers
             {
                 ProfileViewModel profile = profileAppService.GenerateNewOne(ProfileType.Personal);
 
-                var user = await UserManager.FindByIdAsync(id.ToString());
+                ApplicationUser user = await UserManager.FindByIdAsync(id.ToString());
 
                 if (user != null)
                 {
                     profile.UserId = id;
-                    profileAppService.Save(CurrentUserId, profile); 
+                    profileAppService.Save(CurrentUserId, profile);
                 }
                 else
                 {
@@ -124,13 +124,13 @@ namespace IndieVisible.Web.Controllers
         {
             foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
             {
-                var existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
-                var uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
+                UserProfileExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
+                ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
 
                 if (existingProvider == null)
                 {
 
-                    var placeHolder = new UserProfileExternalLinkViewModel
+                    UserProfileExternalLinkViewModel placeHolder = new UserProfileExternalLinkViewModel
                     {
                         UserProfileId = vm.Id,
                         UserId = vm.UserId,
@@ -155,7 +155,7 @@ namespace IndieVisible.Web.Controllers
 
         private void FormatExternaLinks(ProfileViewModel vm)
         {
-            foreach (var item in vm.ExternalLinks)
+            foreach (UserProfileExternalLinkViewModel item in vm.ExternalLinks)
             {
                 ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
                 item.Display = uiInfo.Display;

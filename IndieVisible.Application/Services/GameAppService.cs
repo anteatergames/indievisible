@@ -92,7 +92,7 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo<Guid> Save(Guid currentUserId, GameViewModel viewModel)
         {
-            var pointsEarned = 0;
+            int pointsEarned = 0;
 
             try
             {
