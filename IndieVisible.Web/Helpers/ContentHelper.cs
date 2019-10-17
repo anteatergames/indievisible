@@ -13,7 +13,7 @@ namespace IndieVisible.Web.Helpers
             //group 5 oembed
             //group 6 abre parenteses
             //group 7 url
-            //group 8 fecha parenteses
+            //group 9 fecha parenteses
             //group 10 oembed ending
             //group 11 figure ending
 
@@ -47,6 +47,12 @@ namespace IndieVisible.Web.Helpers
                 else
                 {
                     newText = string.Format(@"<a href=""{0}"" target=""_blank"" style=""font-weight:500"">{0}</a>", url);
+
+
+                    if (string.IsNullOrWhiteSpace(oembedPrefix))
+                    {
+                        newText = toReplace;
+                    }
                 }
 
                 if (!string.IsNullOrWhiteSpace(openParenthesis) && !string.IsNullOrWhiteSpace(closeParenthesis))
