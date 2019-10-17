@@ -13,6 +13,8 @@ namespace IndieVisible.Domain.Models
 
         public string LogoUrl { get; set; }
 
+        public bool Recruiting { get; set; }
+
         public virtual ICollection<TeamMember> Members { get; set; }
 
         public virtual ICollection<Game> Games { get; set; }

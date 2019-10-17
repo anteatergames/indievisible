@@ -44,6 +44,8 @@ namespace IndieVisible.Web.Controllers
         [Route("content/{id:guid}")]
         public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
         {
+            notificationAppService.MarkAsRead(notificationclicked);
+
             OperationResultVo<UserContentViewModel> serviceResult = service.GetById(CurrentUserId, id);
 
             if (!serviceResult.Success)
@@ -88,8 +90,6 @@ namespace IndieVisible.Web.Controllers
 
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
             vm.Permissions.CanDelete = vm.UserId == CurrentUserId || userIsAdmin;
-
-            notificationAppService.MarkAsRead(notificationclicked);
 
             return View(vm);
         }
@@ -140,17 +140,17 @@ namespace IndieVisible.Web.Controllers
             {
                 ProfileViewModel profile = SetAuthorDetails(vm);
 
-                OperationResultVo<Guid> result = service.Save(CurrentUserId, vm);
+                OperationResultVo<Guid> saveResult = service.Save(CurrentUserId, vm);
 
-                if (!result.Success)
+                if (!saveResult.Success)
                 {
-                    return Json(result);
+                    return Json(saveResult);
                 }
                 else
                 {
                     NotifyFollowers(CurrentUserId, profile, vm.GameId, vm.Id);
 
-                    string url = Url.Action("Index", "Home", new { area = string.Empty, id = vm.Id });
+                    string url = Url.Action("Index", "Home", new { area = string.Empty, id = vm.Id, pointsEarned = saveResult.PointsEarned });
 
                     return Json(new OperationResultRedirectVo(url));
                 }

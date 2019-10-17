@@ -2374,10 +2374,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
         border: none;
     }
 
-.alert {
-    border-radius: 0;
-}
-
 .btn-app > .fa {
     font-size: 20px;
     display: block;

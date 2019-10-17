@@ -23,5 +23,10 @@ namespace IndieVisible.Application.ViewModels.Team
         public string ProfileImage { get; set; }
 
         public Dictionary<string, string> WorkDictionary { get; set; }
+
+        public TeamMemberViewModel()
+        {
+            Works = new List<TeamWorkType>();
+        }
     }
 }

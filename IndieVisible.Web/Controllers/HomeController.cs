@@ -27,7 +27,7 @@ namespace IndieVisible.Web.Controllers
             this.featuredContentAppService = featuredContentAppService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? pointsEarned)
         {
             CarouselViewModel featured = featuredContentAppService.GetFeaturedNow();
             ViewBag.Carousel = featured;
@@ -36,6 +36,8 @@ namespace IndieVisible.Web.Controllers
             Dictionary<string, string> genreDict = new GameGenre().ToDictionary();
 
             ViewData["Genres"] = genreDict;
+
+            SetGamificationMessage(pointsEarned);
 
             return View();
         }
@@ -374,7 +376,8 @@ namespace IndieVisible.Web.Controllers
                     "Points Earned notification",
                     "Brainstorm Ideas status control",
                     "External Links working on profiles and games",
-                    "Teams can be linked to games"
+                    "Teams can be linked to games",
+                    "Recruitin Teams!"
                 }
             });
 

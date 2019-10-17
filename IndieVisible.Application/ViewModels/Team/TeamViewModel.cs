@@ -14,7 +14,13 @@ namespace IndieVisible.Application.ViewModels.Team
 
         public string LogoUrl { get; set; }
 
+        public bool Recruiting { get; set; }
+
+        public bool RecruitingBefore { get; set; }
 
         public List<TeamMemberViewModel> Members { get; set; }
+
+        public TeamMemberViewModel Candidate { get; set; }
+        public bool CurrentUserIsMember { get; set; }
     }
 }

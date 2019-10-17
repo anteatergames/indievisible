@@ -61,5 +61,13 @@ namespace IndieVisible.Web.Controllers.Base
 
             return base.Json(data);
         }
+
+        protected void SetGamificationMessage(int? pointsEarned)
+        {
+            if (pointsEarned.HasValue && pointsEarned.Value > 0)
+            {
+                TempData["Message"] = SharedLocalizer["You earned {0} points. Awesome!", pointsEarned].Value;
+            }
+        }
     }
 }

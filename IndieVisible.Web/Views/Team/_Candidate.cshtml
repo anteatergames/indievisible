@@ -1,0 +1,62 @@
+﻿@model TeamMemberViewModel
+
+@{
+    Layout = null;
+}
+<div  class="alert alert-info m-0 mb-3 m-md-3" role="alert">
+    <h3>@SharedLocalizer["This team is recruiting. Apply now!"]</h3>
+</div>
+
+<div class="row m-0 m-md-3 team-member">
+    <input type="hidden" Id" />
+    <input type="hidden" asp-for="UserId" class="team-member-userid" />
+    <input type="hidden" asp-for="TeamId" />
+    <input type="hidden" asp-for="Leader" />
+    <input type="hidden" asp-for="Name" class="team-member-name-hidden" />
+    <input type="hidden" asp-for="InvitationStatus" />
+    <div class="div-avatar">
+        @if (Model.Leader)
+        {
+            <h5 class="text-center team-member-isleader">@SharedLocalizer["Team Leader"]</h5>
+        }
+        else
+        {
+            <span>&nbsp;</span>
+        }
+        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+            <img class="rounded-circle lazyload avatar" data-src="@Model.ProfileImage" src="~/images/profileimages/developer.png" alt="@Model.Quote">
+        </a>
+    </div>
+    <div class="div-details col">
+        @if (!string.IsNullOrWhiteSpace(Model.Name))
+        {
+            <h5 class="text-center team-member-name">@Model.Name</h5>
+        }
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="Role"></label>
+                    <input asp-for="Role" class="form-control" placeholder="Role" />
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Works"></label>
+                    <select asp-for="Works" asp-items="Html.GetEnumSelectList<TeamWorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                    <span asp-validation-for="Works" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Quote"></label>
+            <input asp-for="Quote" class="form-control" placeholder="Quote" />
+            <span asp-validation-for="Quote" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 offset-0 col-md-6 offset-md-3">
+                <button id="btnCandidateApply" class="btn btn-block btn-success text-uppercase" data-url="@Url.Action("CandidateApply", "Team")">@SharedLocalizer["I want to be a part of this team!"]</button>
+            </div>
+        </div>
+    </div>
+
+</div>

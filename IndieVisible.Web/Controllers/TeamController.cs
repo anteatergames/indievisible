@@ -30,8 +30,10 @@ namespace IndieVisible.Web.Controllers
             this.userContentAppService = userContentAppService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? pointsEarned)
         {
+            SetGamificationMessage(pointsEarned);
+
             return View();
         }
 
@@ -52,6 +54,11 @@ namespace IndieVisible.Web.Controllers
 
             List<TeamViewModel> model = serviceResult.Value.ToList();
 
+            foreach (var team in model)
+            {
+                team.Permissions.CanEdit = team.Permissions.CanDelete = false;
+            }
+
             return PartialView("_List", model);
         }
 
@@ -66,7 +73,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         [Route("{teamId:guid}")]
-        public IActionResult Details(Guid teamId, Guid notificationclicked)
+        public IActionResult Details(Guid teamId, int? pointsEarned, Guid notificationclicked)
         {
             notificationAppService.MarkAsRead(notificationclicked);
 
@@ -80,11 +87,7 @@ namespace IndieVisible.Web.Controllers
 
             TeamViewModel model = serviceResult.Value;
 
-            foreach (TeamMemberViewModel member in model.Members)
-            {
-                member.Permissions.IsMe = member.UserId == CurrentUserId;
-                member.WorkDictionary = member.Works.ToDisplayName();
-            }
+            SetGamificationMessage(pointsEarned);
 
             return View(model);
         }
@@ -96,6 +99,8 @@ namespace IndieVisible.Web.Controllers
             OperationResultVo<TeamViewModel> service = teamAppService.GetById(CurrentUserId, teamId);
 
             TeamViewModel model = service.Value;
+
+            model.RecruitingBefore = model.Recruiting;
 
             return PartialView("_CreateEdit", model);
         }
@@ -115,6 +120,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
+                bool newTeam = vm.Id == Guid.Empty;
                 vm.UserId = CurrentUserId;
 
                 IEnumerable<Guid> oldMembers = vm.Members.Where(x => x.Id != Guid.Empty).Select(x => x.Id);
@@ -123,12 +129,14 @@ namespace IndieVisible.Web.Controllers
 
                 if (saveResult.Success)
                 {
-                    string url = Url.Action("Index", "Team", new { area = string.Empty, id = vm.Id.ToString() });
+                    string url = Url.Action("Index", "Team", new { area = string.Empty, id = vm.Id.ToString(), pointsEarned = saveResult.PointsEarned });
 
                     Notify(vm, oldMembers);
-                    GenerateTeamPost(vm);
 
-                    return Json(new OperationResultRedirectVo(url));
+                    bool recruiting = !vm.RecruitingBefore && vm.Recruiting;
+                    GenerateTeamPost(vm, newTeam, recruiting);
+
+                    return Json(new OperationResultRedirectVo(saveResult, url));
                 }
                 else
                 {
@@ -176,6 +184,38 @@ namespace IndieVisible.Web.Controllers
             return Json(serviceResult);
         }
 
+
+
+        [HttpPost("CandidateApply")]
+        public IActionResult CandidateApply(TeamMemberViewModel vm)
+        {
+            OperationResultVo serviceResult = teamAppService.CandidateApply(CurrentUserId, vm);
+
+            string url = Url.Action("Details", "Team", new { area = string.Empty, teamId = vm.TeamId, pointsEarned = serviceResult.PointsEarned });
+
+            return Json(new OperationResultRedirectVo(serviceResult, url));
+        }
+
+        [HttpPost("AcceptCandidate")]
+        public IActionResult AcceptCandidate(Guid teamId, Guid userId)
+        {
+            OperationResultVo serviceResult = teamAppService.AcceptCandidate(CurrentUserId, teamId, userId);
+
+            string url = Url.Action("Details", "Team", new { area = string.Empty, teamId = teamId });
+
+            return Json(new OperationResultRedirectVo(serviceResult, url));
+        }
+
+        [HttpPost("RejectCandidate")]
+        public IActionResult RejectCandidate(Guid teamId, Guid userId)
+        {
+            OperationResultVo serviceResult = teamAppService.RejectCandidate(CurrentUserId, teamId, userId);
+
+            string url = Url.Action("Details", "Team", new { area = string.Empty, teamId = teamId });
+
+            return Json(new OperationResultRedirectVo(serviceResult, url));
+        }
+
         private void Notify(TeamViewModel vm, IEnumerable<Guid> oldMembers)
         {
             string notificationText = SharedLocalizer["{0} has invited you to join a team!"];
@@ -192,16 +232,16 @@ namespace IndieVisible.Web.Controllers
             }
         }
 
-        private void GenerateTeamPost(TeamViewModel vm)
+        private void GenerateTeamPost(TeamViewModel vm, bool newTeam, bool recruiting)
         {
-            if (vm.Members.Count > 1)
+            if ((newTeam && vm.Members.Count > 1) || recruiting)
             {
                 UserContentViewModel newContent = new UserContentViewModel
                 {
                     AuthorName = GetSessionValue(SessionValues.FullName),
                     UserId = CurrentUserId,
                     UserContentType = UserContentType.TeamCreation,
-                    Content = String.Format("{0}|{1}|{2}|{3}", vm.Id, vm.Name, vm.Motto, vm.Members.Count)
+                    Content = String.Format("{0}|{1}|{2}|{3}|{4}", vm.Id, vm.Name, vm.Motto, vm.Members.Count, recruiting)
                 };
 
                 userContentAppService.Save(CurrentUserId, newContent);

@@ -9,6 +9,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
+        <link rel="stylesheet" href="~/css/switch.css">
         <link rel="stylesheet" href="~/css/teamup.css">
     </environment>
     <environment exclude="Development">
@@ -54,7 +55,7 @@
                     <button class="btn-team-new btn btn-lg btn-primary d-none d-lg-block btn-block text-capitalize"><i class="fas fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["new team"]</button>
                 }
             </div>
-            <div class="box bg-white team-box team-list mt-2">
+            <div class="box bg-white team-box team-list mt-2 p-3">
                 <h3 class="text-capitalize">@SharedLocalizer["my teams"]</h3>
                 <div id="divListMyTeams"></div>
             </div>

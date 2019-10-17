@@ -129,6 +129,7 @@
   {
     "outputFileName": "wwwroot/css/teamup.min.css",
     "inputFiles": [
+      "wwwroot/css/switch.css",
       "wwwroot/css/teamup.css",
       "wwwroot/lib/select2/css/select2.min.css"
     ]

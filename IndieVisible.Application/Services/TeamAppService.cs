@@ -3,6 +3,7 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
@@ -56,10 +57,9 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
-                foreach (var team in vms)
+                foreach (TeamViewModel team in vms)
                 {
-                    bool currentUserIsLeader = team.Members.Any(x => x.Leader && x.UserId == currentUserId);
-                    SetUiData(currentUserId, currentUserIsLeader, team);
+                    SetUiData(currentUserId, team);
                 }
 
                 return new OperationResultListVo<TeamViewModel>(vms);
@@ -83,11 +83,28 @@ namespace IndieVisible.Application.Services
 
                 TeamViewModel vm = mapper.Map<TeamViewModel>(model);
 
-                bool currentUserIsLeader = vm.Members.Any(x => x.Leader && x.UserId == currentUserId);
-
-                SetUiData(currentUserId, false, vm);
-
                 vm.Members = vm.Members.OrderByDescending(x => x.Leader).ToList();
+                foreach (TeamMemberViewModel member in vm.Members)
+                {
+                    member.Permissions.IsMe = member.UserId == currentUserId;
+                    member.WorkDictionary = member.Works.ToDisplayName();
+                }
+
+                vm.CurrentUserIsMember = model.Members.Any(x => x.UserId == currentUserId);
+
+                if (vm.Recruiting)
+                {
+                    UserProfile myProfile = profileDomainService.GetByUserId(currentUserId).FirstOrDefault();
+
+                    vm.Candidate = new TeamMemberViewModel
+                    {
+                        UserId = currentUserId,
+                        InvitationStatus = InvitationStatus.Candidate,
+                        Name = myProfile.Name
+                    };
+                }
+
+                SetUiData(currentUserId, vm);
 
                 return new OperationResultVo<TeamViewModel>(vm);
             }
@@ -99,6 +116,8 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo<Guid> Save(Guid currentUserId, TeamViewModel viewModel)
         {
+            int pointsEarned = 0;
+
             try
             {
                 Team model;
@@ -118,7 +137,7 @@ namespace IndieVisible.Application.Services
                     teamDomainService.Add(model);
                     viewModel.Id = model.Id;
 
-                    gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.TeamAdd);
+                    pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.TeamAdd);
                 }
                 else
                 {
@@ -127,7 +146,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id, pointsEarned);
             }
             catch (Exception ex)
             {
@@ -189,15 +208,17 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo AcceptInvite(Guid teamId, Guid currentUserId, string quote)
         {
+            int pointsEarned = 0;
+
             try
             {
                 teamDomainService.ChangeInvitationStatus(teamId, currentUserId, InvitationStatus.Accepted, quote);
 
-                gamificationDomainService.ProcessAction(currentUserId, PlatformAction.TeamJoin);
+                pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.TeamJoin);
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo(true);
+                return new OperationResultVo(true, pointsEarned);
             }
             catch (Exception ex)
             {
@@ -229,9 +250,9 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
-                foreach (var team in vms)
+                foreach (TeamViewModel team in vms)
                 {
-                    SetUiData(userId, false, team);
+                    SetUiData(userId, team);
                 }
 
                 return new OperationResultListVo<TeamViewModel>(vms);
@@ -277,17 +298,88 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
+
+        public OperationResultVo CandidateApply(Guid currentUserId, TeamMemberViewModel vm)
+        {
+            int pointsEarned = 0;
+
+            try
+            {
+                Team team = teamDomainService.GetById(vm.TeamId);
+
+                if (team == null)
+                {
+                    return new OperationResultVo("Team not found!");
+                }
+
+                TeamMember teamMemberModel = mapper.Map<TeamMember>(vm);
+
+                team.Members.Add(teamMemberModel);
+
+                pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.TeamJoin);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "Application sent! Now just sit and wait the team leader to accept you.", pointsEarned);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo AcceptCandidate(Guid currentUserId, Guid teamId, Guid userId)
+        {
+            try
+            {
+                TeamMember member = teamDomainService.GetMemberByUserId(teamId, userId);
+
+                member.InvitationStatus = InvitationStatus.Accepted;
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "Member accepted!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo RejectCandidate(Guid currentUserId, Guid teamId, Guid userId)
+        {
+            try
+            {
+                teamDomainService.Remove(teamId, userId);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "Member accepted!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
         #endregion
 
-        private void SetUiData(Guid userId, bool canInteract, TeamViewModel team)
+        private void SetUiData(Guid userId, TeamViewModel team)
         {
-                team.Permissions.CanEdit = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
-                team.Permissions.CanDelete = canInteract && team.Members.Any(x => x.UserId == userId && x.Leader);
-                team.Members = team.Members.OrderByDescending(x => x.Leader).ToList();
-                foreach (TeamMemberViewModel member in team.Members)
-                {
-                    member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
-                }
+            bool userIsLeader = team.Members.Any(x => x.Leader && x.UserId == userId);
+
+            team.Permissions.CanEdit = userIsLeader && team.Members.Any(x => x.UserId == userId && x.Leader);
+            team.Permissions.CanDelete = userIsLeader && team.Members.Any(x => x.UserId == userId && x.Leader);
+            team.Members = team.Members.OrderByDescending(x => x.Leader).ToList();
+
+            foreach (TeamMemberViewModel member in team.Members)
+            {
+                member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
+            }
+
+            if (team.Candidate != null)
+            {
+                team.Candidate.ProfileImage = UrlFormatter.ProfileImage(team.Candidate.UserId);
+            }
         }
     }
 }

@@ -35,7 +35,7 @@ namespace IndieVisible.Web.ViewComponents
         {
             UserPreferencesViewModel preferences = _userPreferencesAppService.GetByUserId(CurrentUserId);
 
-            var vm = new ActivityFeedRequestViewModel
+            ActivityFeedRequestViewModel vm = new ActivityFeedRequestViewModel
             {
                 CurrentUserId = CurrentUserId,
                 Count = count,
@@ -90,9 +90,16 @@ namespace IndieVisible.Web.ViewComponents
             string name = teamData[1];
             string motto = teamData[2];
             string memberCount = teamData[3];
+            bool recruiting = teamData.Length > 4 ? bool.Parse(teamData[4] ?? "False") : false;
 
             string postTemplate = ContentHelper.FormatUrlContentToShow(item.UserContentType);
-            Microsoft.Extensions.Localization.LocalizedString translatedText = SharedLocalizer["A new team has been created with {0} members.", memberCount];
+            string translatedText = SharedLocalizer["A new team has been created with {0} members.", memberCount].ToString();
+
+            if (recruiting)
+            {
+                translatedText = SharedLocalizer["A team is recruiting!", memberCount].ToString();
+            }
+
             item.Content = String.Format(postTemplate, translatedText, name, motto);
             item.Url = Url.Action("Details", "Team", new { teamId = id });
         }

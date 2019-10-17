@@ -92,6 +92,8 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo<Guid> Save(Guid currentUserId, GameViewModel viewModel)
         {
+            var pointsEarned = 0;
+
             try
             {
                 Game model;
@@ -113,7 +115,7 @@ namespace IndieVisible.Application.Services
                     repository.Add(model);
                     viewModel.Id = model.Id;
 
-                    gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
+                    pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
                 }
                 else
                 {
@@ -122,7 +124,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo<Guid>(model.Id);
+                return new OperationResultVo<Guid>(model.Id, pointsEarned);
             }
             catch (Exception ex)
             {

@@ -38,8 +38,19 @@ namespace IndieVisible.Web.Controllers
             if (vm == null)
             {
                 ProfileViewModel profile = profileAppService.GenerateNewOne(ProfileType.Personal);
-                profile.UserId = id;
-                profileAppService.Save(CurrentUserId, profile);
+
+                var user = await UserManager.FindByIdAsync(id.ToString());
+
+                if (user != null)
+                {
+                    profile.UserId = id;
+                    profileAppService.Save(CurrentUserId, profile); 
+                }
+                else
+                {
+                    TempData["Message"] = SharedLocalizer["User not found!"].Value;
+                    return RedirectToAction("Index", "Home");
+                }
 
                 vm = profile;
             }

@@ -10,7 +10,7 @@ namespace IndieVisible.Domain.Interfaces.Service
     {
         IEnumerable<TeamMember> GetMembers(Guid teamId);
 
-        TeamMember GetMemberByUserId(Guid userId);
+        TeamMember GetMemberByUserId(Guid teamId, Guid userId);
 
         IQueryable<TeamMember> GetAllMembershipsByUser(Guid userId);
 

@@ -1301,4 +1301,16 @@
     <value>Nenhum jogo aqui.</value>
     <comment>Games</comment>
   </data>
+  <data name="Recruiting" xml:space="preserve">
+    <value>Recrutando</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Team not found!" xml:space="preserve">
+    <value>Equipe não encontrada!</value>
+    <comment>Team</comment>
+  </data>
+  <data name="User not found!" xml:space="preserve">
+    <value>Usuário não encontrado!</value>
+    <comment>Profile</comment>
+  </data>
 </root>

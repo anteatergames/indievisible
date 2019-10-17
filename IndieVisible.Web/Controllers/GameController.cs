@@ -35,8 +35,10 @@ namespace IndieVisible.Web.Controllers
         }
 
         [Route("game/{id:guid}")]
-        public async Task<IActionResult> Details(Guid id, Guid notificationclicked)
+        public async Task<IActionResult> Details(Guid id, int? pointsEarned, Guid notificationclicked)
         {
+            notificationAppService.MarkAsRead(notificationclicked);
+
             OperationResultVo<GameViewModel> serviceResult = gameAppService.GetById(CurrentUserId, id);
 
             GameViewModel vm = serviceResult.Value;
@@ -60,7 +62,7 @@ namespace IndieVisible.Web.Controllers
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || isAdmin;
             vm.Permissions.CanPostActivity = vm.UserId == CurrentUserId;
 
-            notificationAppService.MarkAsRead(notificationclicked);
+            SetGamificationMessage(pointsEarned);
 
             return View(vm);
         }
@@ -118,9 +120,9 @@ namespace IndieVisible.Web.Controllers
                 SetAuthorDetails(vm);
                 ClearImagesUrl(vm);
 
-                gameAppService.Save(CurrentUserId, vm);
+                OperationResultVo<Guid> saveResult = gameAppService.Save(CurrentUserId, vm);
 
-                string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString() });
+                string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString(), pointsEarned = saveResult.PointsEarned });
 
                 return Json(new OperationResultRedirectVo(url));
             }
@@ -301,11 +303,12 @@ namespace IndieVisible.Web.Controllers
         {
             if (vm.Team == null && vm.TeamId.HasValue)
             {
-                var teamResult = teamAppService.GetById(CurrentUserId, vm.TeamId.Value);
+                OperationResultVo<Application.ViewModels.Team.TeamViewModel> teamResult = teamAppService.GetById(CurrentUserId, vm.TeamId.Value);
 
                 if (teamResult.Success)
                 {
                     vm.Team = teamResult.Value;
+                    vm.Team.Permissions.CanEdit = vm.Team.Permissions.CanDelete = false;
                 }
             }
         }

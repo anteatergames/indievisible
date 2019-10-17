@@ -31,9 +31,9 @@ namespace IndieVisible.Domain.Services
             return qry;
         }
 
-        public TeamMember GetMemberByUserId(Guid userId)
+        public TeamMember GetMemberByUserId(Guid teamId, Guid userId)
         {
-            IQueryable<TeamMember> qry = teamMemberRepository.Get(x => x.UserId == userId);
+            IQueryable<TeamMember> qry = teamMemberRepository.Get(x => x.UserId == userId && x.TeamId == teamId);
 
             TeamMember obj = qry.FirstOrDefault();
 

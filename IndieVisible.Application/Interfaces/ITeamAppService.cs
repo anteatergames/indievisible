@@ -17,5 +17,10 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GetSelectListByUserId(Guid userId);
 
         OperationResultVo RemoveMember(Guid currentUserId, Guid teamId, Guid userId);
+
+        OperationResultVo CandidateApply(Guid currentUserId, TeamMemberViewModel vm);
+
+        OperationResultVo AcceptCandidate(Guid currentUserId, Guid teamId, Guid userId);
+        OperationResultVo RejectCandidate(Guid currentUserId, Guid teamId, Guid userId);
     }
 }

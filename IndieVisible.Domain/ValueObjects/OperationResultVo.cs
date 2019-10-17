@@ -24,6 +24,19 @@ namespace IndieVisible.Domain.ValueObjects
         {
             Message = message;
         }
+
+        public OperationResultVo(bool success, int pointsEarned)
+        {
+            Success = success;
+            PointsEarned = pointsEarned;
+        }
+
+        public OperationResultVo(bool success, string message, int pointsEarned)
+        {
+            Success = success;
+            Message = message;
+            PointsEarned = pointsEarned;
+        }
     }
 
 
@@ -51,6 +64,12 @@ namespace IndieVisible.Domain.ValueObjects
         }
         public OperationResultRedirectVo(bool success, string message) : base(success, message)
         {
+        }
+
+        public OperationResultRedirectVo(OperationResultVo serviceResult, string url) : base(serviceResult.Success, serviceResult.Message)
+        {
+            PointsEarned = serviceResult.PointsEarned;
+            Url = url;
         }
     }
 

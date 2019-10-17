@@ -10,11 +10,13 @@
     var objs = {};
     var isAjax = false;
     var canInteract = false;
+    var isList = false;
 
     function setSelectors() {
         selectors.container = '#teamcontainer';
         selectors.isAjax = '#isajax';
         selectors.caninteract = '#caninteract';
+        selectors.Id = '#Id';
         selectors.divListTeams = '#divListTeams';
         selectors.divListMyTeams = '#divListMyTeams';
         selectors.btnTeamNew = '.btn-team-new';
@@ -38,15 +40,21 @@
         selectors.btnDeleteMember = '.btnDeleteMember';
         selectors.divGames = '#divGames';
         selectors.divGamesList = '#divGamesList';
+        selectors.divApplication = '#divApplication';
+        selectors.btnCandidateApply = '#btnCandidateApply';
+        selectors.btnAcceptCandidate = '.btnAcceptCandidate';
+        selectors.btnRejectCandidate = '.btnRejectCandidate';
     }
 
     function cacheObjects() {
         objs.container = $(selectors.container);
+        objs.Id = $(selectors.Id);
         objs.divListTeams = $(selectors.divListTeams);
         objs.divListMyTeams = $(selectors.divListMyTeams);
         objs.divInvitation = $(selectors.divInvitation);
         objs.divGames = $(selectors.divGames);
         objs.divGamesList = $(selectors.divGamesList);
+        objs.divApplication = $(selectors.divApplication);
 
         if (!isAjax) {
             cacheAjaxObjs();
@@ -54,35 +62,57 @@
         }
     }
 
+    function cacheObjectsDetails() {
+        objs.btnAcceptCandidate = $(selectors.btnAcceptCandidate);
+        objs.btnRejectCandidate = $(selectors.btnRejectCandidate);
+    }
+
     function init() {
         setSelectors();
         cacheObjects();
+
+        isList = objs.Id.val() === undefined;
 
         bindAll();
         isAjax = $(selectors.container).find(selectors.isAjax).val();
         canInteract = $(selectors.container).find(selectors.caninteract).val();
         objs.container.find(selectors.caninteract).val();
 
-        loadTeams();
-        loadMyTeams();
 
-        if (objs.divGames.length > 0) {
-            loadTeamGames();
+        if (isList) {
+            loadTeams();
+            loadMyTeams();
         }
+        else {
+            cacheObjectsDetails();
+            if (objs.divGames.length > 0) {
+                loadTeamGames();
+            }
+        }
+
+        bindSelect2();
     }
 
     function bindAll() {
-        bindBtnNew();
         bindBtnSave();
-        bindAcceptInvitation();
-        bindRejectInvitation();
-        bindEditTeam();
-        bindDeleteTeam();
-        bindDeleteMember();
+
+        if (isList) {
+            bindBtnNew();
+            bindEditTeam();
+            bindDeleteTeam();
+        } else {
+            bindAcceptInvitation();
+            bindRejectInvitation();
+            bindDeleteMember();
+            bindCandidateApply();
+            bindAcceptCandidate();
+            bindRejectCandidate();
+        }
     }
 
     function bindSelect2() {
-        $(selectors.divMembers + ' select.select2').each(function (index, element) {
+        $('.members select.select2').each(function (index, element) {
+            console.log(element);
             if ($(this).data('select2') === undefined) {
                 $(this).select2({
                     width: 'element'
@@ -134,6 +164,9 @@
 
             $.post(url, data)
                 .done(function (response) {
+
+                    MAINMODULE.Common.HandlePointsEarned(response);
+
                     var quote = btn.closest(selectors.divDetails).find('.quote');
                     quote.text(myQuote);
                     quote.removeClass('d-none');
@@ -144,6 +177,69 @@
 
     function bindRejectInvitation() {
         objs.divMembers.on('click', selectors.btnRejectInvitation, function () {
+            var btn = $(this);
+            var url = $(this).data('url');
+
+            $.post(url)
+                .done(function (response) {
+                    btn.closest(selectors.teamMember).remove();
+                });
+        });
+    }
+
+
+    function bindCandidateApply() {
+        objs.divApplication.on('click', selectors.btnCandidateApply, function () {
+            var btn = $(this);
+            var url = $(this).data('url');
+
+            var data = objs.divApplication.find(':input').serialize();
+
+            $.post(url, data)
+                .done(function (response) {
+                    if (!response.success) {
+                        ALERTSYSTEM.ShowWarningMessage(response.message);
+                    }
+                    else {
+                        MAINMODULE.Common.HandlePointsEarned(response);
+
+                        if (response.message) {
+                            ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                                if (response.url) {
+                                    window.location = response.url;
+                                }
+                            });
+                        }
+                    }
+                });
+        });
+    }
+
+    function bindAcceptCandidate() {
+        objs.divMembers.on('click', selectors.btnAcceptCandidate, function () {
+            var btn = $(this);
+            var url = $(this).data('url');
+
+            $.post(url)
+                .done(function (response) {
+                    if (!response.success) {
+                        ALERTSYSTEM.ShowWarningMessage(response.message);
+                    }
+                    else {
+                        if (response.message) {
+                            ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                                if (response.url) {
+                                    window.location = response.url;
+                                }
+                            });
+                        }
+                    }
+                });
+        });
+    }
+
+    function bindRejectCandidate() {
+        objs.divMembers.on('click', selectors.btnRejectCandidate, function () {
             var btn = $(this);
             var url = $(this).data('url');
 
@@ -186,7 +282,11 @@
                         loadMyTeams();
 
                         if (response.message) {
-                            ALERTSYSTEM.ShowSuccessMessage(response.message);
+                            ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                                if (response.url) {
+                                    window.location = response.url;
+                                }
+                            });
                         }
                     }
                     else {
@@ -243,7 +343,7 @@
 
         $.get('/team/list/mine', function (data) { objs.divListMyTeams.html(data); })
             .done(function (response) {
-                console.log('my teams loaded');
+                console.info('my teams loaded');
             });
     }
 
@@ -359,10 +459,12 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
+
                 if (callback) {
                     callback();
                 }
-                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
+
+                ALERTSYSTEM.ShowSuccessMessage(response.message, function (isConfirm) {
                     window.location = response.url;
                 });
             }
