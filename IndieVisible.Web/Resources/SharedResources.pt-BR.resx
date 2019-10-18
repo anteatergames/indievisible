@@ -1349,4 +1349,8 @@
     <value>Junte-se a nós!</value>
     <comment>Home Page</comment>
   </data>
+  <data name="timeline" xml:space="preserve">
+    <value>linha do tempo</value>
+    <comment>Generic</comment>
+  </data>
 </root>

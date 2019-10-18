@@ -1,9 +1,10 @@
 ﻿<div id="infobox" class="col-12 p-3 box bg-white" data-margin-top="55">
     <div class="row">
-        <div class="col-6 text-capitalize">
+        <div class="col-6 text-capitalize text-nowrap">
             <h4>@SharedLocalizer["platform"]</h4>
             <ul class="list-unstyled">
                 <li><a asp-area="" asp-controller="help" asp-action="about">@SharedLocalizer["about"]</a></li>
+                <li><a asp-area="" asp-controller="home" asp-action="timeline">@SharedLocalizer["timeline"]</a></li>
                 <li><a href="https://github.com/anteatergames/indievisible" target="_blank">@SharedLocalizer["contribute"]</a></li>
                 <li><a asp-area="" asp-controller="help" asp-action="press">@SharedLocalizer["press"]</a></li>
                 <li><a asp-area="" asp-controller="help" asp-action="partners">@SharedLocalizer["partners"]</a></li>

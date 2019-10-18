@@ -91,12 +91,6 @@
     <Content Update="Views\Game\_GameStoreBadges.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Help\About.ru.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Views\Help\About.pt.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Views\Help\Advertising.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
