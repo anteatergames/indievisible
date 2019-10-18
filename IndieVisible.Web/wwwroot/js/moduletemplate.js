@@ -2,8 +2,20 @@
     "use strict";
 
     var selectors = {};
+    var objs = {};
+
+    function setSelectors() {
+        //selector.test = '#test';
+    }
+
+    function cacheObjs() {
+        //objs.test = $(selector.test);
+    }
 
     function init() {
+        setSelectors();
+        cacheObjs();
+
         bindAll();
     }
 

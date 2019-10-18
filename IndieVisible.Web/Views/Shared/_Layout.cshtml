@@ -181,12 +181,6 @@
 
         </div>
 
-        <footer class="main-footer">
-            <div class="pull-right d-none d-sm-inline-block">
-            </div>Copyright &copy; 2018 <a href="http://www.anteatergames.com/">Anteater Games</a>.
-            @SharedLocalizer["Read our"] <a asp-area="" asp-controller="home" asp-action="terms">@SharedLocalizer["Terms"]</a> @SharedLocalizer["and"] <a asp-area="" asp-controller="home" asp-action="privacy">@SharedLocalizer["Policies"]</a>
-        </footer>
-
         @await Html.PartialAsync("_ControlSidebarPartial")
 
         <div class="control-sidebar-bg"></div>
@@ -196,6 +190,7 @@
     <environment include="Development">
         <script src="~/lib/tinyDrawyer/js/tinyDrawer.js"></script>
         <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/sticky-js/sticky.min.js"></script>
         <script src="~/lib/popper.js/umd/popper.js"></script>
         <script src="~/lib/twitter-bootstrap/js/bootstrap.js" defer></script>
         <script src="~/lib/pace/pace.js"></script>
@@ -207,8 +202,8 @@
 
 
         <!--[if lt IE 11]>
-            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-        <![endif]-->
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <![endif]-->
 
         <script src="~/lib/lazysizes/lazysizes.min.js" defer async></script>
 
@@ -217,12 +212,17 @@
         <script src="~/js/shared/alertsystem.js" defer></script>
     </environment>
     <environment exclude="Development">
-
         <script src="~/lib/tinyDrawyer/js/tinyDrawer.min.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
                 asp-fallback-src="~/lib/jquery/jquery.min.js"
                 asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-js/1.2.0/sticky.min.js"
+                asp-fallback-src="~/lib/sticky-js/sticky.min.js"
+                asp-fallback-test="window.Sticky"
+                integrity="sha384-AfWKmwTvtrWc2vha6YDGILwR5Ae+LKRlZiT1Ff8iZ7LU9g6Wy+RzPe9LXs2PfMEJ"
+                crossorigin="anonymous">
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.0/umd/popper.min.js"
                 asp-fallback-src="~/lib/popper.js/umd/popper.min.js"
@@ -243,8 +243,8 @@
 
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.min.js" defer></script>
         <!--[if lt IE 11]>
-            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-        <![endif]-->
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <![endif]-->
         <script src="~/lib/lazysizes/lazysizes.min.js" async defer></script>
 
         <script src="~/js/site.min.js" asp-append-version="true" defer></script>

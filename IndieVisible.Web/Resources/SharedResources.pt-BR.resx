@@ -637,9 +637,9 @@
     <value>por</value>
     <comment>Game Details Page</comment>
   </data>
-  <data name="About" xml:space="preserve">
-    <value>Sobre</value>
-    <comment>Profile Page</comment>
+  <data name="about" xml:space="preserve">
+    <value>sobre</value>
+    <comment>generic</comment>
   </data>
   <data name="Bio" xml:space="preserve">
     <value>Bio</value>
@@ -1312,5 +1312,41 @@
   <data name="User not found!" xml:space="preserve">
     <value>Usuário não encontrado!</value>
     <comment>Profile</comment>
+  </data>
+  <data name="advertise" xml:space="preserve">
+    <value>anuncie</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="contribute" xml:space="preserve">
+    <value>contribua</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="partners" xml:space="preserve">
+    <value>parceiros</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="press" xml:space="preserve">
+    <value>imprensa</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="advertising" xml:space="preserve">
+    <value>propaganda</value>
+    <comment>Help</comment>
+  </data>
+  <data name="contributing" xml:space="preserve">
+    <value>contribuindo</value>
+    <comment>Help</comment>
+  </data>
+  <data name="interacting" xml:space="preserve">
+    <value>interagindo</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="platform" xml:space="preserve">
+    <value>plataforma</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Join us!" xml:space="preserve">
+    <value>Junte-se a nós!</value>
+    <comment>Home Page</comment>
   </data>
 </root>

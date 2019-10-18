@@ -1,0 +1,46 @@
+﻿<div id="infobox" class="col-12 p-3 box bg-white" data-margin-top="55">
+    <div class="row">
+        <div class="col-6 text-capitalize">
+            <h4>@SharedLocalizer["platform"]</h4>
+            <ul class="list-unstyled">
+                <li><a asp-area="" asp-controller="help" asp-action="about">@SharedLocalizer["about"]</a></li>
+                <li><a href="https://github.com/anteatergames/indievisible" target="_blank">@SharedLocalizer["contribute"]</a></li>
+                <li><a asp-area="" asp-controller="help" asp-action="press">@SharedLocalizer["press"]</a></li>
+                <li><a asp-area="" asp-controller="help" asp-action="partners">@SharedLocalizer["partners"]</a></li>
+                <li><a asp-area="" asp-controller="help" asp-action="advertising">@SharedLocalizer["advertise"]</a></li>
+            </ul>
+        </div>
+        <div class="col-6 text-capitalize border-left">
+            <h4>@SharedLocalizer["interacting"]</h4>
+            <ul class="list-unstyled">
+                <li><a asp-area="" asp-controller="help" asp-action="index">@SharedLocalizer["help"]</a></li>
+                <li><a asp-area="gamification" asp-controller="userbadge" asp-action="help">@SharedLocalizer["badges"]</a></li>
+                <li><a asp-area="gamification" asp-controller="ranking" asp-action="help">@SharedLocalizer["ranks"]</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row p-2 border-top">
+        <div class="col-12">
+            <div class="row">
+                <div class="user-social-acount">
+                    <a href="https://www.facebook.com/indievisiblenet" target="_blank" class="mt-1 btn btn-circle btn-social-icon btn-facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="user-social-acount ml-2">
+                    <a href="https://www.twitter.com/programad" target="_blank" class="mt-1 btn btn-circle btn-social-icon btn-twitter">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-2 border-top">
+        <div class="col-12">
+            <a asp-area="" asp-controller="home" asp-action="terms">@SharedLocalizer["Terms"]</a> | <a asp-area="" asp-controller="home" asp-action="privacy">@SharedLocalizer["Policies"]</a>
+        </div>
+        <div class="col-12 pt-2">
+            Copyright &copy; 2018 <a href="http://www.anteatergames.com/">Anteater Games</a>.
+        </div>
+    </div>
+</div>

@@ -30,6 +30,8 @@
         ACTIVITYFEED.Init(selectors.divActivityFeed, FEEDTYPE.HOME);
 
         ACTIVITYFEED.Methods.LoadActivityFeed();
+
+        setStickyElements();
     }
 
     function cacheSelectors() {
@@ -355,6 +357,13 @@
     function resizeTextArea(el) {
         el.style.cssText = 'height:auto;';
         el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
+    }
+
+    function setStickyElements() {
+        var isLg = window.matchMedia('screen and (min-width: 992px)').matches;
+        if (isLg) {
+            var stickyInfobox = new Sticky('#infobox');
+        }
     }
 
     return {

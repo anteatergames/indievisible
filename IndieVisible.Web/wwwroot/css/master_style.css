@@ -90,7 +90,7 @@ div {
     padding-top: 10px;
 }
 
-.content-wrapper, .main-footer {
+.content-wrapper {
     -webkit-transition: -webkit-transform .3s ease-in-out, margin .3s ease-in-out;
     -moz-transition: -moz-transform .3s ease-in-out, margin .3s ease-in-out;
     -o-transition: -o-transform .3s ease-in-out, margin .3s ease-in-out;
@@ -98,35 +98,7 @@ div {
     z-index: 820;
 }
 
-.main-footer {
-    background: #fff;
-    padding: 15px;
-    color: #444;
-    border-top: 1px solid #d2d6de;
-}
-
-@media (min-width:767px) {
-    .main-footer {
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        margin-top: 0 !important;
-    }
-
-    .content-wrapper {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width:767px) {
-
-    .main-footer {
-        position: relative;
-        margin-top: 0 !important;
-    }
-}
-
-.hold-transition .content-wrapper, .hold-transition .left-side, .hold-transition .main-footer, .hold-transition .main-header .logo, .hold-transition .main-header .navbar, .hold-transition .main-sidebar, .hold-transition .menu-open .fa-angle-left, .hold-transition .right-side {
+.hold-transition .content-wrapper, .hold-transition .left-side, .hold-transition .main-header .logo, .hold-transition .main-header .navbar, .hold-transition .main-sidebar, .hold-transition .menu-open .fa-angle-left, .hold-transition .right-side {
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
@@ -2100,7 +2072,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
         display: none !important;
     }
 
-    .content-wrapper, .main-footer, .right-side {
+    .content-wrapper, .right-side {
         margin-left: 0 !important;
         min-height: 0 !important;
         -webkit-transform: translate(0, 0);

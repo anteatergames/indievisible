@@ -124,7 +124,7 @@
         }
 
 @media (min-width:768px) {
-    .control-sidebar-open .content-wrapper, .control-sidebar-open .main-footer, .control-sidebar-open .right-side {
+    .control-sidebar-open .content-wrapper, .control-sidebar-open .right-side {
         margin-right: 230px;
     }
 }

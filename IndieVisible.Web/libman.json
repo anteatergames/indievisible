@@ -65,6 +65,10 @@
     {
       "library": "qrious@4.0.2",
       "destination": "wwwroot/lib/qrious"
+    },
+    {
+      "library": "sticky-js@1.2.0",
+      "destination": "wwwroot/lib/sticky-js"
     }
   ]
 }

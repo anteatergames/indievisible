@@ -2,23 +2,22 @@
     ViewData["Title"] = null;
 
     var postModel = ViewBag.PostFromHome as PostFromHomeViewModel;
-    
-    var whatIsThisViewModel = new HomeSquareViewModel("help", "about", "bg-purple", "fas fa-3x fa-question", "What is this");
-    var roadMapViewModel = new HomeSquareViewModel("home", "timeline", "bg-primary", "far fa-3x fa-calendar", "Roadmap");
+
+    var joinUsViewModel = new HomeSquareViewModel("account", "register", "bg-purple", "far fa-3x fa-smile", SharedLocalizer["Join us!"]);
 }
 
 <h1 class="sr-only">INDIEVISIBLE - Home</h1>
 
 <div class="col-xl-2 d-none d-lg-block">
     <div class="row">
-        <div class="col-12 d-none d-xl-block">
-            <partial name="_HomeSquare" model="whatIsThisViewModel" />
-        </div>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="col-12 d-none d-xl-block">
+                <partial name="_HomeSquare" model="joinUsViewModel" />
+            </div>
+        }
         <div class="col-12">
             <div id="divCounters"></div>
-        </div>
-        <div class="col-12 d-none d-xl-block">
-            <partial name="_HomeSquare" model="roadMapViewModel" />
         </div>
         @if (postModel.DefaultLanguage == SupportedLanguage.Portuguese)
         {
@@ -58,14 +57,6 @@
         <div class="col-12">
             <div id="divLatestGames"></div>
         </div>
-
-        <div class="col-12 d-xl-none">
-            <partial name="_HomeSquare" model="whatIsThisViewModel" />
-        </div>
-
-        <div class="col-12 d-xl-none">
-            <partial name="_HomeSquare" model="roadMapViewModel" />
-        </div>
         @if (postModel.DefaultLanguage == SupportedLanguage.Portuguese)
         {
             <div class="col-12 d-xl-none">
@@ -83,7 +74,11 @@
         }
 
         <div class="col-12 mt-3">
-            @await Html.PartialAsync("_TagList", ViewData["Genres"])
+            <partial name="_TagList" model="@ViewData["Genres"]" />
+        </div>
+
+        <div class="col-12 mt-3">
+            <partial name="_InfoBox" />
         </div>
     </div>
 </div>

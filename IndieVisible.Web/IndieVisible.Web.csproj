@@ -47,7 +47,7 @@
     <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="7.14.4" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="[2.1.1,2.2)" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="[2.1.9,2.2)" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.76" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
     <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.59" />
@@ -97,6 +97,24 @@
     <Content Update="Views\Help\About.pt.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Help\Advertising.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Help\Contributing.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Help\Partners.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Help\Press.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Help\_HelpLayout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Help\_Navigation.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Home\Terms.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -116,6 +134,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Shared\Components\Feed\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\_InfoBox.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Shared\_HotJarPartial.cshtml">

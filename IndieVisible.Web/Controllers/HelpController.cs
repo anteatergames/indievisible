@@ -15,7 +15,27 @@ namespace IndieVisible.Web.Controllers
             return View();
         }
 
+        public IActionResult Advertising()
+        {
+            return View();
+        }
+
         public IActionResult Articles()
+        {
+            return View();
+        }
+
+        public IActionResult Contributing()
+        {
+            return View();
+        }
+
+        public IActionResult Partners()
+        {
+            return View();
+        }
+
+        public IActionResult Press()
         {
             return View();
         }
