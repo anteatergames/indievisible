@@ -11,9 +11,10 @@ namespace IndieVisible.Application
     {
         public static CarouselViewModel FakeCarousel()
         {
-            CarouselViewModel carousel = new CarouselViewModel();
-
-            carousel.Items = new List<FeaturedContentViewModel>();
+            CarouselViewModel carousel = new CarouselViewModel
+            {
+                Items = new List<FeaturedContentViewModel>()
+            };
 
             FeaturedContentViewModel item1 = new FeaturedContentViewModel
             {
@@ -56,12 +57,13 @@ namespace IndieVisible.Application
 
         public static CountersViewModel FakeCounters()
         {
-            CountersViewModel counters = new CountersViewModel();
-
-            counters.GamesCount = 1658;
-            counters.UsersCount = 2659;
-            counters.ArticlesCount = 981;
-            counters.JamsCount = 42;
+            CountersViewModel counters = new CountersViewModel
+            {
+                GamesCount = 1658,
+                UsersCount = 2659,
+                ArticlesCount = 981,
+                JamsCount = 42
+            };
 
             return counters;
         }
@@ -70,28 +72,34 @@ namespace IndieVisible.Application
         {
             List<GameListItemViewModel> games = new List<GameListItemViewModel>();
 
-            GameListItemViewModel game2 = new GameListItemViewModel();
-            game2.ThumbnailUrl = "/images/games/gameplaceholder.jpg";
-            game2.DeveloperImageUrl = "/images/profileimages/fakedeveloper1.jpg";
-            game2.Title = "Who I See";
-            game2.DeveloperName = "ChillingCircuits";
-            game2.Price = "FREE";
+            GameListItemViewModel game2 = new GameListItemViewModel
+            {
+                ThumbnailUrl = "/images/games/gameplaceholder.jpg",
+                DeveloperImageUrl = "/images/profileimages/fakedeveloper1.jpg",
+                Title = "Who I See",
+                DeveloperName = "ChillingCircuits",
+                Price = "FREE"
+            };
             games.Add(game2);
 
-            GameListItemViewModel game3 = new GameListItemViewModel();
-            game3.ThumbnailUrl = "/images/games/gameplaceholder.jpg";
-            game3.DeveloperImageUrl = "/images/profileimages/fakedeveloper2.jpg";
-            game3.Title = "Black Paradox";
-            game3.DeveloperName = "fantasticostudio";
-            game3.Price = "FREE";
+            GameListItemViewModel game3 = new GameListItemViewModel
+            {
+                ThumbnailUrl = "/images/games/gameplaceholder.jpg",
+                DeveloperImageUrl = "/images/profileimages/fakedeveloper2.jpg",
+                Title = "Black Paradox",
+                DeveloperName = "fantasticostudio",
+                Price = "FREE"
+            };
             games.Add(game3);
 
-            GameListItemViewModel game1 = new GameListItemViewModel();
-            game1.ThumbnailUrl = "/images/games/gameplaceholder.jpg";
-            game1.DeveloperImageUrl = "/images/profileimages/fakedeveloper3.jpg";
-            game1.Title = "SWITCH!";
-            game1.DeveloperName = "NitrogenLive";
-            game1.Price = "FREE";
+            GameListItemViewModel game1 = new GameListItemViewModel
+            {
+                ThumbnailUrl = "/images/games/gameplaceholder.jpg",
+                DeveloperImageUrl = "/images/profileimages/fakedeveloper3.jpg",
+                Title = "SWITCH!",
+                DeveloperName = "NitrogenLive",
+                Price = "FREE"
+            };
             games.Add(game1);
 
             return games;
@@ -99,18 +107,19 @@ namespace IndieVisible.Application
 
         public static ProfileViewModel FakeProfile()
         {
-            ProfileViewModel profile = new ProfileViewModel();
+            ProfileViewModel profile = new ProfileViewModel
+            {
+                Type = ProfileType.Personal,
 
-            profile.Type = ProfileType.Personal;
+                Name = "Jon Doe",
+                Motto = "Code Lover",
+                CoverImageUrl = "/images/wallpapers/gamer.jpg",
 
-            profile.Name = "Jon Doe";
-            profile.Motto = "Code Lover";
-            profile.CoverImageUrl = "/images/wallpapers/gamer.jpg";
+                Bio = "A game developer willing to rock the game development world with funny games.",
 
-            profile.Bio = "A game developer willing to rock the game development world with funny games.";
-
-            profile.StudioName = "Awesome Game Studio";
-            profile.Location = "Atlantis";
+                StudioName = "Awesome Game Studio",
+                Location = "Atlantis"
+            };
 
             profile.Counters.Followers = 6000;
             profile.Counters.Following = 654;

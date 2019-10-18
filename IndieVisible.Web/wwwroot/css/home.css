@@ -34,21 +34,21 @@
                 border: 0px;
             }
 
-    .commentmodal .modal, .modal-backdrop {
+    .commentmodal .modal {
         padding-right: 0 !important;
         position: absolute !important;
         overflow: hidden;
     }
 
-    .commentmodal .btn.btn-vertical-align i {
-        font-size: 20px;
-        vertical-align: middle;
-    }
+.modal-backdrop {
+    top: 0 !important;
+    border-radius:0;
+}
 
-    .commentmodal .btn.btn-vertical-align span {
-        font-size: 15px;
-        vertical-align: middle;
-    }
+.commentmodal .btn.btn-vertical-align i {
+    font-size: 20px;
+    vertical-align: middle;
+}
 
 
 .dropzone {

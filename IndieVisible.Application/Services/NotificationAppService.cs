@@ -115,11 +115,13 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo Notify(Guid currentUserId, Guid targetUserId, NotificationType notificationType, Guid targetId, string text, string url)
         {
-            NotificationItemViewModel vm = new NotificationItemViewModel();
-            vm.UserId = targetUserId;
-            vm.Text = text;
-            vm.Url = url;
-            vm.Type = notificationType;
+            NotificationItemViewModel vm = new NotificationItemViewModel
+            {
+                UserId = targetUserId,
+                Text = text,
+                Url = url,
+                Type = notificationType
+            };
 
             return Save(currentUserId, vm);
         }

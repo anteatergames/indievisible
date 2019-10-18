@@ -1,0 +1,214 @@
+﻿.small-box {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+}
+
+    .small-box > .inner {
+        padding: 10px;
+    }
+
+    .small-box > .small-box-footer {
+        position: relative;
+        text-align: right;
+        padding: 3px 10px;
+        color: #fff;
+        color: rgba(255, 255, 255, .8);
+        display: block;
+        z-index: 10;
+        background: rgba(0, 0, 0, .1);
+        text-decoration: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+        .small-box > .small-box-footer:hover {
+            color: #fff;
+            background: rgba(0, 0, 0, .15);
+        }
+
+    .small-box h3 {
+        font-size: 38px;
+        font-weight: 700;
+        margin: 0 0 10px;
+        white-space: nowrap;
+        padding: 0;
+    }
+
+    .small-box p {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+
+        .small-box p > small {
+            display: block;
+            color: #f9f9f9;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+    .small-box h3, .small-box p {
+        z-index: 5;
+    }
+
+    .small-box .icon {
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        z-index: 0;
+        font-size: 72px;
+        color: rgba(0, 0, 0, .15);
+    }
+
+    .small-box:hover {
+        text-decoration: none;
+        color: #f9f9f9;
+    }
+
+        .small-box:hover .icon {
+            font-size: 78px;
+        }
+
+@media (max-width:767px) {
+    .small-box {
+        text-align: center;
+    }
+
+        .small-box .icon {
+            display: none;
+        }
+
+        .small-box p {
+            font-size: 12px;
+        }
+}
+
+.box {
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    padding: 5px;
+}
+
+    .box.box-default {
+        border-top-color: #d2d6de;
+    }
+
+    .box .flex-column > li {
+        border-bottom: 1px solid #f4f4f4;
+        margin: 0;
+    }
+
+        .box .flex-column > li:last-of-type {
+            border-bottom: none;
+        }
+
+    .box .overlay.dark, .overlay-wrapper .overlay.dark {
+        background: rgba(0, 0, 0, .5);
+    }
+
+.box-body:after, .box-body:before, .box-footer:after, .box-footer:before, .box-header:after, .box-header:before {
+    content: " ";
+    display: table;
+}
+
+.box-header {
+    color: #444;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+
+    .box-header.with-border {
+        border-bottom: 1px solid #f7f7f7;
+    }
+
+.box-header .box-title, .box-header > .fa {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.box-title {
+    font-size: 18px;
+}
+
+.box .box-header .box-subtitle {
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #99abb4;
+}
+
+.box-header > .fa {
+    margin-right: 5px;
+}
+
+.box-header > .box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+    .box-header > .box-tools [data-toggle=tooltip], .control {
+        position: relative;
+    }
+
+    .box-header > .box-tools .dropdown-menu {
+        transform: translate3d(-138px, 31px, 0px) !important;
+    }
+
+        .box-header > .box-tools .dropdown-menu > li > a {
+            color: #444;
+        }
+
+.btn-box-tool {
+    padding: 5px;
+    font-size: 12px;
+    background: 0 0;
+    color: #97a0b3;
+}
+
+    .btn-box-tool:hover, .show .btn-box-tool {
+        color: #606c84;
+    }
+
+    .btn-box-tool.btn:active {
+        box-shadow: none;
+    }
+
+.box-body {
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+}
+
+.no-header .box-body {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.box-body > .table {
+    margin-bottom: 0;
+}
+
+.box-body .box-pane {
+    border-radius: 0 0 0 3px;
+}
+
+.box-body .box-pane-right {
+    border-radius: 0 0 3px;
+}
+
+.box-footer {
+    border-top: 1px solid #f4f4f4;
+    padding: 10px;
+}

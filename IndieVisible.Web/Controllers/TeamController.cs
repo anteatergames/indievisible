@@ -2,7 +2,6 @@
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
@@ -54,7 +53,7 @@ namespace IndieVisible.Web.Controllers
 
             List<TeamViewModel> model = serviceResult.Value.ToList();
 
-            foreach (var team in model)
+            foreach (TeamViewModel team in model)
             {
                 team.Permissions.CanEdit = team.Permissions.CanDelete = false;
             }

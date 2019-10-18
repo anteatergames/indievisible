@@ -42,10 +42,11 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    GameFollow model = new GameFollow();
-
-                    model.GameId = gameId;
-                    model.UserId = currentUserId;
+                    GameFollow model = new GameFollow
+                    {
+                        GameId = gameId,
+                        UserId = currentUserId
+                    };
 
                     gameFollowDomainService.Add(model);
 
@@ -90,9 +91,11 @@ namespace IndieVisible.Application.Services
         #region Profile Follow
         public OperationResultVo UserFollow(Guid currentUserId, Guid followUserId)
         {
-            UserFollow model = new UserFollow();
-            model.FollowUserId = followUserId;
-            model.UserId = currentUserId;
+            UserFollow model = new UserFollow
+            {
+                FollowUserId = followUserId,
+                UserId = currentUserId
+            };
 
             Domain.Core.Interfaces.ISpecification<UserFollow> spec = new IdsNotEmptySpecification()
                 .And(new UserNotTheSameSpecification(currentUserId));

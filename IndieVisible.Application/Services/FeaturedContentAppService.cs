@@ -148,9 +148,10 @@ namespace IndieVisible.Application.Services
             {
                 IEnumerable<FeaturedContentViewModel> vms = allModels.ProjectTo<FeaturedContentViewModel>(_mapper.ConfigurationProvider);
 
-                CarouselViewModel model = new CarouselViewModel();
-
-                model.Items = vms.OrderByDescending(x => x.CreateDate).ToList();
+                CarouselViewModel model = new CarouselViewModel
+                {
+                    Items = vms.OrderByDescending(x => x.CreateDate).ToList()
+                };
 
                 return model;
             }
@@ -166,8 +167,10 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                FeaturedContent newFeaturedContent = new FeaturedContent();
-                newFeaturedContent.UserContentId = contentId;
+                FeaturedContent newFeaturedContent = new FeaturedContent
+                {
+                    UserContentId = contentId
+                };
 
                 UserContent content = _contentRepository.GetById(contentId);
 

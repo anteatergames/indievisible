@@ -34,129 +34,119 @@
                 </ul>
                 <div class="tab-content p-0">
                     <div class="tab-pane active show p-0" id="tabbasic" role="tabpanel" aria-expanded="true">
-                        <div class="pad">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label asp-for="Title"></label>
-                                    <input asp-for="Title" type="text" class="form-control">
-                                    <span asp-validation-for="Title" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label asp-for="Genre"></label>
-                                    <select asp-for="Genre" asp-items="Html.GetEnumSelectList<GameGenre>()" class="form-control">
-                                        <option selected="selected" value="">Select</option>
-                                    </select>
-                                    <span asp-validation-for="Genre" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label asp-for="TeamId"></label>
-                                    <select asp-for="TeamId" asp-items="@(ViewData["MyTeams"] as SelectList)" class="form-control">
-                                        <option selected="selected" value="">@SharedLocalizer["Just myself"]</option>
-                                    </select>
-                                    <span asp-validation-for="TeamId" class="text-danger"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane pad p-0" id="tabdescription" role="tabpanel" aria-expanded="true">
-                        <div class="pad">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label asp-for="Description"></label>
-                                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Type the game description here"></textarea>
-                                <span asp-validation-for="Description" class="text-danger"></span>
+                                <label asp-for="Title"></label>
+                                <input asp-for="Title" type="text" class="form-control">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Genre"></label>
+                                <select asp-for="Genre" asp-items="Html.GetEnumSelectList<GameGenre>()" class="form-control">
+                                    <option selected="selected" value="">Select</option>
+                                </select>
+                                <span asp-validation-for="Genre" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="TeamId"></label>
+                                <select asp-for="TeamId" asp-items="@(ViewData["MyTeams"] as SelectList)" class="form-control">
+                                    <option selected="selected" value="">@SharedLocalizer["Just myself"]</option>
+                                </select>
+                                <span asp-validation-for="TeamId" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="tab-pane pad" id="tabeyecandy" role="tabpanel" aria-expanded="false">
-                        <div class="pad">
-                            <div>
-                                <label asp-for="CoverImageUrl"></label> (1600x266)
-                                <br />
-                                <label class="label" data-toggle="tooltip" title="" data-original-title="Change the game Cover Image">
-                                    <img class="rounded img-fluid" id="imgCoverImage" src="@Model.CoverImageUrl" alt="gamecoverimage">
-                                    <input type="file" class="sr-only" id="gamecoverimage" name="gamecoverimage" accept="image/*">
-                                </label>
-                            </div>
-                            <div>&nbsp;</div>
-                            <div style="max-width:500px;">
-                                <label asp-for="ThumbnailUrl"></label> (500x281)
-                                <br />
-                                <label class="label" data-toggle="tooltip" title="" data-original-title="Change the game Thumbnail">
-                                    <img class="rounded img-fluid" id="imgGameThumbnail" src="@Model.ThumbnailUrl" alt="gamethumbnail">
-                                    <input type="file" class="sr-only" id="gamethumbnail" name="gamethumbnail" accept="image/*">
-                                </label>
-                            </div>
+                    <div class="tab-pane p-2" id="tabdescription" role="tabpanel" aria-expanded="true">
+                        <div class="form-group">
+                            <label asp-for="Description"></label>
+                            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Type the game description here"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                     </div>
 
-                    <div class="tab-pane pad p-0" id="tabtechnical" role="tabpanel" aria-expanded="false">
-                        <div class="pad">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label asp-for="Engine"></label>
-                                        <select asp-for="Engine" asp-items="Html.GetEnumSelectList<GameEngine>()" class="form-control">
-                                            <option selected="selected" value="">@SharedLocalizer["Select"]</option>
-                                        </select>
-                                        <span asp-validation-for="Engine" class="text-danger"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 d-none" id="divCustomEngineName">
-                                    <div class="form-group">
-                                        <label asp-for="CustomEngineName"></label>
-                                        <input asp-for="CustomEngineName" type="text" class="form-control">
-                                        <span asp-validation-for="CustomEngineName" class="text-danger"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label asp-for="Language"></label>
-                                        <select asp-for="Language" asp-items="Html.GetEnumSelectList<CodeLanguage>()" class="form-control">
-                                            <option selected="selected" value="">Select</option>
-                                        </select>
-                                        <span asp-validation-for="Language" class="text-danger"></span>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="tab-pane p-2" id="tabeyecandy" role="tabpanel" aria-expanded="false">
+                        <div>
+                            <label asp-for="CoverImageUrl"></label> (1600x266)
+                            <br />
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="Change the game Cover Image">
+                                <img class="rounded img-fluid" id="imgCoverImage" src="@Model.CoverImageUrl" alt="gamecoverimage">
+                                <input type="file" class="sr-only" id="gamecoverimage" name="gamecoverimage" accept="image/*">
+                            </label>
+                        </div>
+                        <div>&nbsp;</div>
+                        <div style="max-width:500px;">
+                            <label asp-for="ThumbnailUrl"></label> (500x281)
+                            <br />
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="Change the game Thumbnail">
+                                <img class="rounded img-fluid" id="imgGameThumbnail" src="@Model.ThumbnailUrl" alt="gamethumbnail">
+                                <input type="file" class="sr-only" id="gamethumbnail" name="gamethumbnail" accept="image/*">
+                            </label>
                         </div>
                     </div>
 
-                    <div class="tab-pane pad p-0" id="tabpresence" role="tabpanel" aria-expanded="false">
-                        <div class="pad">
-                            <div class="col-md-12">
+                    <div class="tab-pane p-2" id="tabtechnical" role="tabpanel" aria-expanded="false">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label asp-for="Status"></label>
-                                    <select asp-for="Status" asp-items="Html.GetEnumSelectList<GameStatus>()" class="form-control">
+                                    <label asp-for="Engine"></label>
+                                    <select asp-for="Engine" asp-items="Html.GetEnumSelectList<GameEngine>()" class="form-control">
+                                        <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                                    </select>
+                                    <span asp-validation-for="Engine" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-none" id="divCustomEngineName">
+                                <div class="form-group">
+                                    <label asp-for="CustomEngineName"></label>
+                                    <input asp-for="CustomEngineName" type="text" class="form-control">
+                                    <span asp-validation-for="CustomEngineName" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="Language"></label>
+                                    <select asp-for="Language" asp-items="Html.GetEnumSelectList<CodeLanguage>()" class="form-control">
                                         <option selected="selected" value="">Select</option>
                                     </select>
-                                    <span asp-validation-for="Status" class="text-danger"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label asp-for="ReleaseDate"></label>
-                                    <input asp-for="ReleaseDate" type="date" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label asp-for="Platforms"></label>
-                                    <select asp-for="Platforms" asp-items="Html.GetEnumSelectList<GamePlatforms>()" class="form-control select2" multiple="" data-placeholder="Select the Platforms" style="width: 100%;" tabindex="-1" aria-hidden="true"></select>
+                                    <span asp-validation-for="Language" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="tab-pane pad p-0" id="tabexternallinks" role="tabpanel" aria-expanded="false">
+                    <div class="tab-pane p-2" id="tabpresence" role="tabpanel" aria-expanded="false">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Status"></label>
+                                <select asp-for="Status" asp-items="Html.GetEnumSelectList<GameStatus>()" class="form-control">
+                                    <option selected="selected" value="">Select</option>
+                                </select>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label asp-for="ReleaseDate"></label>
+                                <input asp-for="ReleaseDate" type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label asp-for="Platforms"></label>
+                                <select asp-for="Platforms" asp-items="Html.GetEnumSelectList<GamePlatforms>()" class="form-control select2" multiple="" data-placeholder="Select the Platforms" style="width: 100%;" tabindex="-1" aria-hidden="true"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane p-2" id="tabexternallinks" role="tabpanel" aria-expanded="false">
                         @for (int i = 0; i < Model.ExternalLinks.Count; i++)
                         {
                             var externalLink = Model.ExternalLinks.ElementAt(i);
@@ -197,10 +187,8 @@
                         }
                     </div>
 
-                    <div class="tab-pane pad p-0" id="tabsettings" role="tabpanel" aria-expanded="false">
-                        <div class="pad">
-                            Settings tab
-                        </div>
+                    <div class="tab-pane p-2" id="tabsettings" role="tabpanel" aria-expanded="false">
+                        Settings tab
                     </div>
                 </div>
             </div>

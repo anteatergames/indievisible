@@ -211,3 +211,53 @@
     width: 64px;
     height: 64px;
 }
+
+.profile-user-info {
+    padding: 30px 15px;
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+}
+
+    .profile-user-info p {
+        color: #999;
+        font-size: small;
+    }
+
+    .profile-user-info h5 {
+        color: #666;
+        margin-bottom: 25px;
+    }
+
+    .profile-user-info .map-box {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .profile-user-info .user-social-acount .btn {
+        -webkit-box-shadow: 0 2px 2px 0 rgba(169, 169, 169, .14), 0 3px 1px -2px rgba(169, 169, 169, .2), 0 1px 5px 0 rgba(169, 169, 169, .12);
+        box-shadow: 0 2px 2px 0 rgba(169, 169, 169, .14), 0 3px 1px -2px rgba(169, 169, 169, .2), 0 1px 5px 0 rgba(169, 169, 169, .12);
+    }
+
+
+
+.box-profile div {
+    border-radius: 0;
+}
+
+.box-profile .social-states {
+    font-size: 16px;
+}
+
+    .box-profile .social-states a {
+        color: #333;
+    }
+
+        .box-profile .social-states a:hover {
+            color: #0092ee;
+        }
+
+
+.profile-username {
+    font-size: 21px;
+    margin-top: 5px;
+}

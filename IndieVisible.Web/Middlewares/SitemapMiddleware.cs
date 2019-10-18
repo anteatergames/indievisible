@@ -24,60 +24,64 @@ namespace IndieVisible.Web.Middlewares
         {
             _next = next;
             _rootUrl = rootUrl;
-            forbiddenAreas = new List<string>();
-            forbiddenAreas.Add("member");
-            forbiddenAreas.Add("staff");
+            forbiddenAreas = new List<string>
+            {
+                "member",
+                "staff"
+            };
 
-            forbidden = new List<KeyValuePair<string, string>>();
-            forbidden.Add("routes", "*");
-            forbidden.Add("storage", "*");
-            forbidden.Add("user", "*");
-            forbidden.Add("*", "new");
-            forbidden.Add("*", "help");
+            forbidden = new List<KeyValuePair<string, string>>
+            {
+                { "routes", "*" },
+                { "storage", "*" },
+                { "user", "*" },
+                { "*", "new" },
+                { "*", "help" },
 
-            forbidden.Add("*", "edit");
-            forbidden.Add("*", "delete");
+                { "*", "edit" },
+                { "*", "delete" },
 
-            forbidden.Add("account", "lockout");
-            forbidden.Add("account", "externallogin");
-            forbidden.Add("account", "resetpassword");
-            forbidden.Add("account", "forgotpasswordconfirmation");
-            forbidden.Add("account", "resetpasswordconfirmation");
-            forbidden.Add("account", "accessdenied");
+                { "account", "lockout" },
+                { "account", "externallogin" },
+                { "account", "resetpassword" },
+                { "account", "forgotpasswordconfirmation" },
+                { "account", "resetpasswordconfirmation" },
+                { "account", "accessdenied" },
 
-            forbidden.Add("home", "error");
-            forbidden.Add("home", "counters");
-            forbidden.Add("home", "notifications");
+                { "home", "error" },
+                { "home", "counters" },
+                { "home", "notifications" },
 
-            forbidden.Add("user", "listprofiles");
+                { "user", "listprofiles" },
 
-            forbidden.Add("manage", "resetauthenticatorwarning");
-            forbidden.Add("manage", "showrecoverycodes");
-            forbidden.Add("manage", "error");
-            forbidden.Add("manage", "showrecoverycodes");
+                { "manage", "resetauthenticatorwarning" },
+                { "manage", "showrecoverycodes" },
+                { "manage", "error" },
+                { "manage", "showrecoverycodes" },
 
-            forbidden.Add("game", "latest");
-            forbidden.Add("game", "list");
+                { "game", "latest" },
+                { "game", "list" },
 
-            forbidden.Add("content", "feed");
+                { "content", "feed" },
 
-            forbidden.Add("brainstorm", "list");
-            forbidden.Add("brainstorm", "newsession");
-            forbidden.Add("brainstorm", "newidea");
-            forbidden.Add("brainstorm", "details");
+                { "brainstorm", "list" },
+                { "brainstorm", "newsession" },
+                { "brainstorm", "newidea" },
+                { "brainstorm", "details" },
 
-            forbidden.Add("userbadge", "list");
+                { "userbadge", "list" },
 
-            forbidden.Add("help", "index");
-            forbidden.Add("search", "searchposts");
+                { "help", "index" },
+                { "search", "searchposts" },
 
-            forbidden.Add("team", "listbyuser");
-            forbidden.Add("team", "acceptinvitation");
-            forbidden.Add("team", "rejectinvitation");
-            forbidden.Add("team", "deleteteam");
-            forbidden.Add("team", "removemember");
+                { "team", "listbyuser" },
+                { "team", "acceptinvitation" },
+                { "team", "rejectinvitation" },
+                { "team", "deleteteam" },
+                { "team", "removemember" },
 
-            forbidden.Add("userbadge", "listbyuser");
+                { "userbadge", "listbyuser" }
+            };
 
         }
 

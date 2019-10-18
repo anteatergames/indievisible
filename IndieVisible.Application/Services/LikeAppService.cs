@@ -139,10 +139,11 @@ namespace IndieVisible.Application.Services
             }
             else
             {
-                UserContentLike model = new UserContentLike();
-
-                model.ContentId = likedId;
-                model.UserId = currentUserId;
+                UserContentLike model = new UserContentLike
+                {
+                    ContentId = likedId,
+                    UserId = currentUserId
+                };
 
                 _contentLikeRepository.Add(model);
 
@@ -190,10 +191,11 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    GameLike model = new GameLike();
-
-                    model.GameId = gameId;
-                    model.UserId = currentUserId;
+                    GameLike model = new GameLike
+                    {
+                        GameId = gameId,
+                        UserId = currentUserId
+                    };
 
                     _gameLikeRepository.Add(model);
 
