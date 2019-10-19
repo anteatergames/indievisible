@@ -149,11 +149,7 @@ namespace IndieVisible.Application.Formatters
 
         public static string Website(string handler)
         {
-            handler = handler.Trim('/');
-            if (!handler.StartsWith("http"))
-            {
-                handler = String.Format("http://{0}", handler);
-            }
+            handler = CompleteUrlCommon(handler);
             return handler;
         }
 
