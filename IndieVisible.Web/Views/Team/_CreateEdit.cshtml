@@ -12,6 +12,9 @@
         <input type="hidden" asp-for="CreateDate" />
         <input type="hidden" asp-for="RecruitingBefore" />
         <div class="box-header with-border">
+            <div class="float-left mr-3 mb-3">
+                <a asp-area="" asp-controller="team" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            </div>
             <h3 class="card-title">@SharedLocalizer["You are creating a new Team"]</h3>
             <h4 class="card-subtitle">
                 @SharedLocalizer["Invite your friends!"]
@@ -110,7 +113,6 @@
                 </div>
             </div>
             <div class="text-right mt-2">
-                <a asp-area="" asp-controller="team" asp-action="index" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 <button type="button" id="btnSaveTeam" class="btn btn-lg btn-primary"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
             </div>
         </div>

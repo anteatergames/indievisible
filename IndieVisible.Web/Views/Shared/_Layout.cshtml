@@ -141,6 +141,18 @@
                 <a asp-area="" asp-controller="home" asp-action="index" class="d-md-none">
                     <span class="logo-lg"><img src="~/images/logo30h.png" alt="INDIEVISIBLE"></span>
                 </a>
+                <div id="divHeaderSearch" class="col d-none d-md-block">
+                    <form asp-controller="search" asp-action="index" method="get" class="search-form">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="input-group-text" id="btn-search">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <input type="text" name="q" aria-label="@SharedLocalizer["Search"]" class="form-control" placeholder="@SharedLocalizer["Search"]...">
+                        </div>
+                    </form>
+                </div>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
 
@@ -202,8 +214,8 @@
 
 
         <!--[if lt IE 11]>
-        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <![endif]-->
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
 
         <script src="~/lib/lazysizes/lazysizes.min.js" defer async></script>
 
@@ -243,8 +255,8 @@
 
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.min.js" defer></script>
         <!--[if lt IE 11]>
-        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <![endif]-->
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
         <script src="~/lib/lazysizes/lazysizes.min.js" async defer></script>
 
         <script src="~/js/site.min.js" asp-append-version="true" defer></script>

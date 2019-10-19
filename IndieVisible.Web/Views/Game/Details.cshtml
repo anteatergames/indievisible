@@ -105,7 +105,7 @@
                                 <div class="col-12 game-external-links text-center">
                                     @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.General))
                                     {
-                                        <a href="@item.Value" target="_blank" class="mt-1 btn btn-circle btn-social-icon @(item.ColorClass)">
+                                        <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
                                             <i class="@item.IconClass" aria-hidden="true"></i>
                                         </a>
                                     }
@@ -127,7 +127,7 @@
                     <div class="col-12 mb-2 text-center d-lg-none">
                         @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.General))
                         {
-                            <a href="@item.Value" target="_blank" class="mt-1 btn btn-circle btn-social-icon @(item.ColorClass)">
+                            <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
                                 <i class="@item.IconClass" aria-hidden="true"></i>
                             </a>
                         }

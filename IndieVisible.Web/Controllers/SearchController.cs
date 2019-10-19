@@ -22,12 +22,19 @@ namespace IndieVisible.Web.Controllers
             return View();
         }
 
-        [Route("posts/{q}")]
+        [Route("posts/{q?}")]
         public IActionResult SearchPosts(string q)
         {
-            OperationResultListVo<UserContentSearchViewModel> result = userContentAppService.Search(CurrentUserId, q);
+            if (string.IsNullOrWhiteSpace(q))
+            {
+                return View("_SearchPostsResult", new UserContentSearchViewModel());
+            }
+            else
+            {
+                OperationResultListVo<UserContentSearchViewModel> result = userContentAppService.Search(CurrentUserId, q);
+                return View("_SearchPostsResult", result.Value);
+            }
 
-            return View("_SearchPostsResult", result.Value);
         }
     }
 }

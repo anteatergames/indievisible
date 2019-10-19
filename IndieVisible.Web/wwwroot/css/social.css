@@ -181,7 +181,7 @@
     height: 41px;
 }
 
-    .btn-facebook.btn-circle i {
+    .btn-facebook.rounded-circle i {
         top: 6px;
         font-size: 29px;
     }

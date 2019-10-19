@@ -129,6 +129,7 @@ a:active, a:focus, a:hover {
         background-color: transparent;
         background-image: none;
         padding: 13px;
+        padding-bottom:10px;
     }
 
     .main-header .navbar {
@@ -1272,13 +1273,13 @@ ul.flexbox {
 }
 
 .info-box {
-    min-height: 80px;
+    min-height: 70px;
     background: #fff;
     width: 100%;
     box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
     margin-bottom: 10px;
-    padding: 15px;
+    padding: 10px;
 }
 
     .info-box small {
@@ -1321,14 +1322,6 @@ ul.flexbox {
 button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::after {
     display: inline-block;
 }
-
-.btn-circle {
-    border-radius: 100%;
-}
-
-    .btn-circle i {
-        font-size: 1rem;
-    }
 
 .btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn:last-child:not(:first-child), .btn.btn-flat {
     border-radius: 0;

@@ -98,3 +98,8 @@ select.form-control {
 .noitems-icon {
     color: lightgray;
 }
+
+#divHeaderSearch{
+    height: 50px;
+    padding: 7px;
+}

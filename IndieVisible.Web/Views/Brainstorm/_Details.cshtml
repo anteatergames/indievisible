@@ -15,8 +15,8 @@
         <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
         <div class="box bg-white" data-id="@Model.Id">
             <div class="box-header with-border">
-                <div class="float-left pr-2">
-                    <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@Model.SessionId" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                <div class="float-left mr-3 mb-3">
+                    <a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id="@Model.SessionId" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
                 <div class="float-left">
                     <h2 class="card-title">@ViewData["Title"]</h2>

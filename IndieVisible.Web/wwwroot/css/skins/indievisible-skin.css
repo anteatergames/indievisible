@@ -109,8 +109,8 @@ a {
     .skin-indievisible .sidebar-form input[type="text"],
     .skin-indievisible .sidebar-form .btn {
         box-shadow: none;
-        background-color: rgba(0, 0, 0, 0.59);
-        border: 1px solid rgba(0, 0, 0, 0.59);
+        background-color: #242a33;
+        border: 1px solid #242a33;
         height: 35px;
     }
 
@@ -128,11 +128,39 @@ a {
         }
 
     .skin-indievisible .sidebar-form .btn {
-        color: #f7f7f7;
+        color: #898989;
         border-top-left-radius: 0;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
         border-bottom-left-radius: 0;
+    }
+
+.skin-indievisible .search-form input[type="text"], .skin-indievisible .search-form .input-group-text {
+    background-color: #242a33;
+    border: 1px solid #242a33;
+}
+
+.skin-indievisible .search-form input[type="text"],
+.skin-indievisible .search-form .btn {
+    box-shadow: none;
+    height: 35px;
+    border: none;
+    border-radius: 0;
+}
+
+    .skin-indievisible .search-form input[type="text"]:hover {
+        border-bottom: 2px solid gray;
+        margin-top:1px;
+    }
+
+    .skin-indievisible .search-form input[type="text"]:focus {
+        color: #fff;
+    }
+
+    .skin-indievisible .search-form input[type="text"]:focus,
+    .skin-indievisible .search-form input[type="text"]:focus + .input-group-btn .btn {
+        border-bottom: 2px solid #ffbf36;
+        margin-top: 1px;
     }
 
 .skin-indievisible .btn-blue {

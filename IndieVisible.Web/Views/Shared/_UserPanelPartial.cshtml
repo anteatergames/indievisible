@@ -29,8 +29,7 @@
     </div>
 
     <div class="row">
-        <!-- search form -->
-        <div class="col-12 mt-2">
+        <div class="col-12 mt-2 d-block d-md-none">
             <form asp-controller="search" asp-action="index" method="get" class="sidebar-form">
                 <div class="input-group">
                     <label for="q" aria-label="@SharedLocalizer["Search"]" class="sr-only"></label>
@@ -43,7 +42,6 @@
                 </div>
             </form>
         </div>
-        <!-- /.search form -->
     </div>
 
     <div class="row sidebar-full">

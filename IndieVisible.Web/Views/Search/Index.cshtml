@@ -1,16 +1,26 @@
 ﻿@{
-    var q = ViewData["term"];
+    var q = (string)ViewData["term"];
+    var noItemsModel = new ListNoItemsViewModel("fas fa-exclamation-triangle", "You searched nothing! Literally nothing!");
 }
 
-<h1>@SharedLocalizer["Searching for \"{0}\"", q]</h1>
-<input type="hidden" id="q" value="@q" />
-
-<div class="col-12">
-    <h2>@SharedLocalizer["Posts"]</h2>
-    <div id="divSearchPosts">
-        posts
+@if (string.IsNullOrWhiteSpace(q))
+{
+    <div class="col">
+        <partial name="_ListNoItems" model="noItemsModel" />
     </div>
-</div>
+}
+else
+{
+    <h1>@SharedLocalizer["Searching for \"{0}\"", q]</h1>
+    <input type="hidden" id="q" value="@q" />
+
+    <div class="col-12">
+        <h2>@SharedLocalizer["Posts"]</h2>
+        <div id="divSearchPosts">
+            posts
+        </div>
+    </div>
+}
 
 
 @section Scripts {
@@ -26,6 +36,7 @@
     .flex-square .flex-square-inner-content {
         bottom: auto;
     }
+
     .searchresult-item-footer {
         vertical-align: middle;
         line-height: 30px;

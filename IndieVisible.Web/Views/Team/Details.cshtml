@@ -33,6 +33,9 @@
     <input type="hidden" asp-for="UserId" />
     <input type="hidden" asp-for="CreateDate" />
     <div class="box-header with-border">
+        <div class="float-left mr-3 mb-3">
+            <a href="javascript: location.replace(document.referrer);" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        </div>
         <h1>@ViewData["Title"]</h1>
         <h3 class="card-subtitle">
             @Model.Motto
@@ -130,9 +133,6 @@
             </div>
             <div id="divGamesList" class="row">
             </div>
-        </div>
-        <div class="text-right mt-2">
-            <a href="javascript: location.replace(document.referrer);" class="btn btn-lg btn-default btn-circle"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
         </div>
     </div>
 </div>

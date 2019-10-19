@@ -31,7 +31,7 @@
                 <div class="user-social-acount">
                     @foreach (var item in Model.ExternalLinks.Where(x => x.Type == ExternalLinkType.General))
                     {
-                        <a href="@item.Value" target="_blank" class="mt-1 btn btn-circle btn-social-icon @(item.ColorClass)">
+                        <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
                             <i class="@item.IconClass" aria-hidden="true"></i>
                         </a>
                     }
