@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace IndieVisible.Web.Helpers
 {
@@ -19,11 +20,11 @@ namespace IndieVisible.Web.Helpers
 
             string patternUrl = @"(<figure class=""image"">)?(<img(.?)?(data-)?src="")?(<figure class=""media""><oembed url=""|<figure class=""media""><div data-oembed-url=""|<oembed>)?(\()?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))""?(\))?(<\/oembed>|><\/oembed><\/figure>)?(><\/figure>)?(.>)?";
 
-            Regex regexImage = new Regex(patternUrl);
+            Regex theRegex = new Regex(patternUrl);
 
-            MatchCollection matchesImg = regexImage.Matches(content);
+            MatchCollection matchesUrl = theRegex.Matches(content);
 
-            foreach (Match match in matchesImg)
+            foreach (Match match in matchesUrl)
             {
                 string toReplace = match.Groups[0].Value;
                 string imagePrefix = match.Groups[2].Value;
@@ -68,6 +69,28 @@ namespace IndieVisible.Web.Helpers
                 {
                     content = content.Replace(toReplace, newText);
                 }
+            }
+
+            content = FormatHashTagsToShow(content);
+
+            return content;
+        }
+
+        public static string FormatHashTagsToShow(string content)
+        {
+            string patternHashtag = @"(#\w+)";
+
+            Regex regexHashtag = new Regex(patternHashtag);
+
+            MatchCollection matchesHashtag = regexHashtag.Matches(content);
+
+            foreach (Match match in matchesHashtag)
+            {
+                var toReplace = match.Groups[0].Value;
+
+                string formattedLink = String.Format(@"<a href=""/search/?q={0}"" class=""hashtag"">{1}</a>", HttpUtility.UrlEncode(toReplace), toReplace);
+
+                content = content.Replace(toReplace, formattedLink);
             }
 
             return content;

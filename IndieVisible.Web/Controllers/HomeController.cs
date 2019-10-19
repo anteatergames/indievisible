@@ -26,8 +26,9 @@ namespace IndieVisible.Web.Controllers
             this.userPreferencesAppService = userPreferencesAppService;
             this.featuredContentAppService = featuredContentAppService;
         }
-
-        public IActionResult Index(int? pointsEarned)
+        
+        [HttpGet("{handler?}")]
+        public IActionResult Index(string handler, int? pointsEarned)
         {
             CarouselViewModel featured = featuredContentAppService.GetFeaturedNow();
             ViewBag.Carousel = featured;
@@ -377,7 +378,8 @@ namespace IndieVisible.Web.Controllers
                     "Brainstorm Ideas status control",
                     "External Links working on profiles and games",
                     "Teams can be linked to games",
-                    "Recruitin Teams!"
+                    "Recruitin Teams!",
+                    "#hashtagging"
                 }
             });
 

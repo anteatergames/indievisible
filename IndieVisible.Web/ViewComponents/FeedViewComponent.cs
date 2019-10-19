@@ -63,6 +63,11 @@ namespace IndieVisible.Web.ViewComponents
                     item.Content = ContentHelper.FormatContentToShow(item.Content);
                 }
 
+                foreach (var comment in item.Comments)
+                {
+                    comment.Text = ContentHelper.FormatHashTagsToShow(comment.Text);
+                }
+
                 item.Permissions.CanEdit = !item.HasPoll && (item.UserId == CurrentUserId || userIsAdmin);
 
                 item.Permissions.CanDelete = item.UserId == CurrentUserId || userIsAdmin;

@@ -93,13 +93,17 @@ select.form-control {
     .box-game .card-img-top {
         border-top-left-radius: 5px !important;
         border-top-right-radius: 5px !important;
-    }   
+    }
 
 .noitems-icon {
     color: lightgray;
 }
 
-#divHeaderSearch{
+#divHeaderSearch {
     height: 50px;
     padding: 7px;
+}
+
+.hashtag {
+    font-weight: 500;
 }

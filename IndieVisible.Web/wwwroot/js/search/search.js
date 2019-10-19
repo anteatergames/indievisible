@@ -21,7 +21,7 @@
     function searchPosts() {
         selectors.divSearchPosts.html(MAINMODULE.Default.Spinner2);
 
-        $.get("/search/posts/" + selectors.term.val(), function (data) { selectors.divSearchPosts.html(data); });
+        $.get("/search/posts/" + encodeURIComponent(selectors.term.val()), function (data) { selectors.divSearchPosts.html(data); });
     }
 
 
