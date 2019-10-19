@@ -35,6 +35,15 @@ namespace IndieVisible.Application.Formatters
             handler = handler.ToLower().Replace(" ", "-");
             return handler;
         }
+        private static string CompleteUrlCommon(string handler)
+        {
+            handler = handler.Trim('/');
+            if (!handler.StartsWith("http"))
+            {
+                handler = String.Format("http://{0}", handler);
+            }
+            return handler;
+        }
 
         #region Profiles
         public static string ItchIoProfile(string handler)
@@ -47,6 +56,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -61,6 +71,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -74,6 +85,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -87,6 +99,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -100,6 +113,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -113,6 +127,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -126,6 +141,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -150,6 +166,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -163,6 +180,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -176,6 +194,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -189,6 +208,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -202,6 +222,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -215,6 +236,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -228,6 +250,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -241,12 +264,17 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
 
         public static string ItchIoGame(string handler)
         {
+            if (handler.ToLower().Contains("itch.io") && !handler.ToLower().Contains("http"))
+            {
+                handler = "https://" + handler;
+            }
             return handler;
         }
 
@@ -264,6 +292,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -277,6 +306,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -290,6 +320,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -302,6 +333,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -315,6 +347,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
@@ -327,6 +360,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
+                handler = CompleteUrlCommon(handler);
                 return handler;
             }
         }
