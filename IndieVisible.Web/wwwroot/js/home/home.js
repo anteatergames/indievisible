@@ -361,8 +361,14 @@
 
     function setStickyElements() {
         var isLg = window.matchMedia('screen and (min-width: 992px)').matches;
+        var isXl = window.matchMedia('screen and (min-width: 1200px)').matches;
+
         if (isLg) {
-            MAINMODULE.Layout.SetStickyElement('.sticky');
+            MAINMODULE.Layout.SetStickyElement('#infobox');
+        }
+
+        if (isXl) {
+            MAINMODULE.Layout.SetStickyElement('#divCounters');
         }
     }
 
