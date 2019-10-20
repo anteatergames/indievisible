@@ -116,7 +116,7 @@
     }
 
     function setStickyElement(selector) {
-        var minimumOffset = 55;
+        var minimumOffset = 60;
         $(selector).sticky({ topSpacing: minimumOffset });
     }
 
