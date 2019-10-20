@@ -115,8 +115,16 @@
         }
     }
 
+    function setStickyElement(selector) {
+        var minimumOffset = 55;
+        $(selector).sticky({ topSpacing: minimumOffset });
+    }
+
     return {
         Init: init,
+        Layout: {
+            SetStickyElement: setStickyElement
+        },
         Common: {
             HandlePointsEarned: handlePointsEarned
         },

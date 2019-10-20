@@ -362,7 +362,7 @@
     function setStickyElements() {
         var isLg = window.matchMedia('screen and (min-width: 992px)').matches;
         if (isLg) {
-            var stickyInfobox = new Sticky('#infobox');
+            MAINMODULE.Layout.SetStickyElement('.sticky');
         }
     }
 

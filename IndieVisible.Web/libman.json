@@ -67,8 +67,8 @@
       "destination": "wwwroot/lib/qrious"
     },
     {
-      "library": "sticky-js@1.2.0",
-      "destination": "wwwroot/lib/sticky-js"
+      "library": "jquery.sticky@1.0.4",
+      "destination": "wwwroot/lib/jquery.sticky"
     }
   ]
 }
