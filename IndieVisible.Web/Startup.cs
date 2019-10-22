@@ -3,6 +3,7 @@ using IndieVisible.Infra.CrossCutting.Identity.Data;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.IoC;
 using IndieVisible.Infra.Data.Context;
+using IndieVisible.Infra.Data.MongoDb;
 using IndieVisible.Web.Extensions;
 using IndieVisible.Web.Middlewares;
 using IndieVisible.Web.Services;
@@ -55,6 +56,8 @@ namespace IndieVisible.Web
 
             services.AddDbContext<AspNetIdentityContext>(o => o.UseSqlServer(cs, b => b.MigrationsAssembly("IndieVisible.Infra.CrossCutting.Identity")));
             services.AddDbContext<IndieVisibleContext>(o => o.UseSqlServer(cs, b => b.MigrationsAssembly("IndieVisible.Infra.Data")));
+
+            MongoDbPersistence.Configure();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {

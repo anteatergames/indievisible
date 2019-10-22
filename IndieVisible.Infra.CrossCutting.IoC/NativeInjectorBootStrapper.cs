@@ -6,6 +6,10 @@ using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Services;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
 using IndieVisible.Infra.Data.Context;
+using IndieVisible.Infra.Data.MongoDb.Context;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
+using IndieVisible.Infra.Data.MongoDb.Repository;
 using IndieVisible.Infra.Data.Repository;
 using IndieVisible.Infra.Data.UoW;
 using Microsoft.AspNetCore.Http;
@@ -111,12 +115,16 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             // Infra - Data
             services.AddScoped<IndieVisibleContext>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Infra.Data.UoW.UnitOfWork>();
 
             // Infra - Identity Services
             services.AddTransient<IEmailSender, SendGridEmailService>();
 
             services.AddTransient<IImageStorageService, ImageStorageService>();
+
+            services.AddScoped<IMongoContext, MongoContext>();
+            services.AddScoped<Data.MongoDb.Interfaces.IUnitOfWork, Data.MongoDb.UoW.UnitOfWork>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         }
     }
 }

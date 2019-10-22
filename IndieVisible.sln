@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Web", "IndieVisible.Web\IndieVisible.Web.csproj", "{A80747A9-7E4B-4AE0-AF8C-FF715E7A77C4}"
 EndProject
@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Domain.Core", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{9323B416-B90D-4D52-A5EE-4C0A8864C811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieVisible.Tests", "IndieVisible.Tests\IndieVisible.Tests.csproj", "{9378CBE6-2104-4042-95CF-D4D0988D103D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Tests", "IndieVisible.Tests\IndieVisible.Tests.csproj", "{9378CBE6-2104-4042-95CF-D4D0988D103D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieVisible.Infra.Data.MongoDb", "IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj", "{97ADB308-2205-465C-9775-B21587FD5540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{9378CBE6-2104-4042-95CF-D4D0988D103D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9378CBE6-2104-4042-95CF-D4D0988D103D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9378CBE6-2104-4042-95CF-D4D0988D103D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97ADB308-2205-465C-9775-B21587FD5540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97ADB308-2205-465C-9775-B21587FD5540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97ADB308-2205-465C-9775-B21587FD5540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97ADB308-2205-465C-9775-B21587FD5540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{75FAD522-85E7-4446-9C35-5ADC065367D3} = {400C777F-65C4-4EAF-A899-AB4D89C6BA0A}
 		{38AAE75A-8048-46A9-820A-EBAF3C6CBC43} = {E07745D1-3AC5-46D0-B4A5-62DCFF81ED4A}
 		{9378CBE6-2104-4042-95CF-D4D0988D103D} = {9323B416-B90D-4D52-A5EE-4C0A8864C811}
+		{97ADB308-2205-465C-9775-B21587FD5540} = {226F680D-ECFC-4966-8DE5-FB680D76F4C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3E0D829-84B5-4934-AC66-A64246933BB4}

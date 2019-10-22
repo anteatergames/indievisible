@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -16,6 +16,7 @@
     <ProjectReference Include="..\IndieVisible.Application\IndieVisible.Application.csproj" />
     <ProjectReference Include="..\IndieVisible.Domain\IndieVisible.Domain.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.CrossCutting.Identity\IndieVisible.Infra.CrossCutting.Identity.csproj" />
+    <ProjectReference Include="..\IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.Data\IndieVisible.Infra.Data.csproj" />
   </ItemGroup>
 

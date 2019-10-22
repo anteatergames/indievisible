@@ -52,14 +52,14 @@ namespace IndieVisible.Domain.Services
             return objs.ToList();
         }
 
-        public T GetById(Guid id)
+        public virtual T GetById(Guid id)
         {
             T obj = repository.GetById(id);
 
             return obj;
         }
 
-        public IEnumerable<T> GetByUserId(Guid userId)
+        public virtual IEnumerable<T> GetByUserId(Guid userId)
         {
             IQueryable<T> obj = repository.GetByUserId(userId);
 
@@ -71,7 +71,7 @@ namespace IndieVisible.Domain.Services
             repository.Remove(id);
         }
 
-        public Guid Update(T model)
+        public virtual Guid Update(T model)
         {
             repository.Update(model);
 
