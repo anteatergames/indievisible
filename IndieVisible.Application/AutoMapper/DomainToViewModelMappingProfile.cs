@@ -47,8 +47,7 @@ namespace IndieVisible.Application.AutoMapper
             #endregion
 
             #region Content
-            CreateMap<UserContent, UserContentViewModel>();
-            CreateMap<UserContent, UserContentListItemViewModel>()
+            CreateMap<UserContent, UserContentViewModel>()
                 .ForMember(x => x.LikeCount, opt => opt.MapFrom(x => x.Likes.Count));
 
             CreateMap<UserContentComment, UserContentCommentViewModel>();

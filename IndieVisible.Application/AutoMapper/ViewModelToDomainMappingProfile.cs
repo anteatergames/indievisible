@@ -46,7 +46,6 @@ namespace IndieVisible.Application.AutoMapper
 
             #region Content
             CreateMap<UserContentViewModel, Domain.Models.UserContent>();
-            CreateMap<UserContentListItemViewModel, Domain.Models.UserContent>();
 
             CreateMap<UserContentCommentViewModel, Domain.Models.UserContentComment>();
             #endregion

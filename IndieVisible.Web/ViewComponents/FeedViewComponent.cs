@@ -47,12 +47,12 @@ namespace IndieVisible.Web.ViewComponents
                 ArticlesOnly = articlesOnly
             };
 
-            List<UserContentListItemViewModel> model = _userContentAppService.GetActivityFeed(vm).ToList();
+            List<UserContentViewModel> model = _userContentAppService.GetActivityFeed(vm).ToList();
 
             ApplicationUser user = await UserManager.FindByIdAsync(CurrentUserId.ToString());
             bool userIsAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Administrator.ToString());
 
-            foreach (UserContentListItemViewModel item in model)
+            foreach (UserContentViewModel item in model)
             {
                 if (item.UserContentType == UserContentType.TeamCreation)
                 {
@@ -75,7 +75,7 @@ namespace IndieVisible.Web.ViewComponents
 
             if (model.Any())
             {
-                UserContentListItemViewModel oldest = model.OrderByDescending(x => x.CreateDate).Last();
+                UserContentViewModel oldest = model.OrderByDescending(x => x.CreateDate).Last();
 
                 ViewData["OldestPostGuid"] = oldest.Id;
                 ViewData["OldestPostDate"] = oldest.CreateDate.ToString("o");
@@ -88,7 +88,7 @@ namespace IndieVisible.Web.ViewComponents
             return await Task.Run(() => View(model));
         }
 
-        private void FormatTeamCreationPost(UserContentListItemViewModel item)
+        private void FormatTeamCreationPost(UserContentViewModel item)
         {
             string[] teamData = item.Content.Split('|');
             string id = teamData[0];

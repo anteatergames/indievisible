@@ -1,7 +1,5 @@
 ﻿using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using Microsoft.Extensions.Configuration;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -11,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Context
 {
-    public class MongoContext : IMongoContext
+    public sealed class MongoContext : IMongoContext
     {
         private IMongoDatabase Database { get; set; }
         public MongoClient MongoClient { get; set; }

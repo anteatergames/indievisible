@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.Content
 {
-    public class UserContentViewModel : UserGeneratedBaseViewModel
+    public class UserContentViewModel : UserGeneratedCommentBaseViewModel<UserContentCommentViewModel>
     {
         [Display(Name = "Featured Image")]
         public string FeaturedImage { get; set; }
@@ -34,6 +34,7 @@ namespace IndieVisible.Application.ViewModels.Content
         public string GameThumbnail { get; set; }
 
         public bool HasFeaturedImage { get; set; }
+
         public MediaType FeaturedMediaType { get; set; }
 
         public bool IsComplex { get { return HasFeaturedImage; } }
@@ -41,5 +42,14 @@ namespace IndieVisible.Application.ViewModels.Content
         public bool HasPoll { get { return Poll != null && Poll.PollOptions.Any(); } }
 
         public PollViewModel Poll { get; set; }
+        public string Url { get; set; }
+
+        public int LikeCount { get; set; }
+
+        public int CommentCount { get; set; }
+
+        public bool IsArticle { get; set; }
+
+        public MediaType FeaturedImageType { get; set; }
     }
 }

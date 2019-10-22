@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.Search;
@@ -98,6 +99,8 @@ namespace IndieVisible.Application.Services
                 {
                     vm.FeaturedImage = SetFeaturedImage(vm.UserId, vm.FeaturedImage);
                 }
+
+                LoadAuthenticatedData(currentUserId, vm);
 
                 vm.Poll = SetPoll(currentUserId, vm.Id);
 
@@ -244,7 +247,7 @@ namespace IndieVisible.Application.Services
             return count;
         }
 
-        public IEnumerable<UserContentListItemViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm)
+        public IEnumerable<UserContentViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm)
         {
             IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly);
 
@@ -253,9 +256,9 @@ namespace IndieVisible.Application.Services
 
             IQueryable<UserContent> finalList = orderedList.Take(vm.Count);
 
-            List<UserContentListItemViewModel> viewModels = finalList.ProjectTo<UserContentListItemViewModel>(mapper.ConfigurationProvider).ToList();
+            List<UserContentViewModel> viewModels = finalList.ProjectTo<UserContentViewModel>(mapper.ConfigurationProvider).ToList();
 
-            foreach (UserContentListItemViewModel item in viewModels)
+            foreach (UserContentViewModel item in viewModels)
             {
                 item.AuthorName = string.IsNullOrWhiteSpace(item.AuthorName) ? "Unknown soul" : item.AuthorName;
                 item.AuthorPicture = UrlFormatter.ProfileImage(item.UserId);
@@ -281,6 +284,32 @@ namespace IndieVisible.Application.Services
             }
 
             return viewModels;
+        }
+
+        public OperationResultListVo<UserContentSearchViewModel> Search(Guid currentUserId, string q)
+        {
+            try
+            {
+                IQueryable<UserContent> all = userContentDomainService.Search(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
+
+                IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
+                    .Select(x => new UserContentSearchVo
+                    {
+                        ContentId = x.Id,
+                        Title = x.Title,
+                        FeaturedImage = x.FeaturedImage,
+                        Content = (string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction).GetFirstWords(20),
+                        Language = x.Language
+                    });
+
+                IQueryable<UserContentSearchViewModel> vms = selected.ProjectTo<UserContentSearchViewModel>(mapper.ConfigurationProvider);
+
+                return new OperationResultListVo<UserContentSearchViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultListVo<UserContentSearchViewModel>(ex.Message);
+            }
         }
 
         private PollViewModel SetPoll(Guid currentUserId, Guid contentId)
@@ -315,7 +344,7 @@ namespace IndieVisible.Application.Services
             return pollVm;
         }
 
-        private void LoadAuthenticatedData(Guid currentUserId, UserContentListItemViewModel item)
+        private void LoadAuthenticatedData(Guid currentUserId, UserGeneratedCommentBaseViewModel<UserContentCommentViewModel> item)
         {
             if (currentUserId != Guid.Empty)
             {
@@ -339,32 +368,6 @@ namespace IndieVisible.Application.Services
         private static string SetFeaturedImage(Guid userId, string featuredImage)
         {
             return string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
-        }
-
-        public OperationResultListVo<UserContentSearchViewModel> Search(Guid currentUserId, string q)
-        {
-            try
-            {
-                IQueryable<UserContent> all = userContentDomainService.Search(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
-
-                IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
-                    .Select(x => new UserContentSearchVo
-                    {
-                        ContentId = x.Id,
-                        Title = x.Title,
-                        FeaturedImage = x.FeaturedImage,
-                        Content = (string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction).GetFirstWords(20),
-                        Language = x.Language
-                    });
-
-                IQueryable<UserContentSearchViewModel> vms = selected.ProjectTo<UserContentSearchViewModel>(mapper.ConfigurationProvider);
-
-                return new OperationResultListVo<UserContentSearchViewModel>(vms);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResultListVo<UserContentSearchViewModel>(ex.Message);
-            }
         }
     }
 }

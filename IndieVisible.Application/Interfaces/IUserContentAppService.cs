@@ -8,7 +8,7 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IUserContentAppService : ICrudAppService<UserContentViewModel>
     {
-        IEnumerable<UserContentListItemViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm);
+        IEnumerable<UserContentViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm);
 
         int CountArticles();
 
