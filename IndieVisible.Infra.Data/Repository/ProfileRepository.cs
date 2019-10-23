@@ -45,5 +45,10 @@ namespace IndieVisible.Infra.Data.Repository
             string commandBrainstormComments = "update brainstormcomments set AuthorName = @newName where UserId = @userId";
             Db.Database.ExecuteSqlCommand(commandBrainstormComments, paramName, paramUserId);
         }
+
+        public override IQueryable<UserProfile> GetAll()
+        {
+            return DbSet.Include(x => x.ExternalLinks);
+        }
     }
 }

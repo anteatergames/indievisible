@@ -31,7 +31,7 @@ namespace IndieVisible.Web.Controllers
 
             ViewData["Sessions"] = sessions.Value;
 
-            if (id.HasValue)
+            if (id.HasValue && id.Value != Guid.Empty && sessions.Value.Any(x => x.Id == id))
             {
                 currentSession = sessions.Value.FirstOrDefault(x => x.Id == id.Value);
             }

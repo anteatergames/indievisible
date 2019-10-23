@@ -1,0 +1,23 @@
+﻿@model System.Collections.Generic.KeyValuePair<string, long>
+
+
+<div class="col-12">
+    <h2>Migration Result</h2>
+</div>
+
+
+
+<div class="col-12">
+    @if (Model.Value == 0)
+    {
+        <p>@ViewData["ErrorMessage"]</p>
+    }
+    else
+    {
+        <span>@Model.Key migrated:</span> @Model.Value
+    }
+</div>
+
+<div class="col-12">
+    <a class="btn btn-primary" asp-area="Staff" asp-controller="MongoMigration" asp-action="Index">Back</a>
+</div>

@@ -15,6 +15,6 @@ namespace IndieVisible.Domain.Models
 
         public Guid? TargetContextId { get; set; }
 
-        public virtual ICollection<BrainstormIdea> Ideas { get; set; }
+        public virtual List<BrainstormIdea> Ideas { get; set; }
     }
 }

@@ -17,8 +17,8 @@ namespace IndieVisible.Domain.Models
 
         public virtual BrainstormSession Session { get; set; }
 
-        public virtual ICollection<BrainstormComment> Comments { get; set; }
+        public virtual List<BrainstormComment> Comments { get; set; }
 
-        public virtual ICollection<BrainstormVote> Votes { get; set; }
+        public virtual List<BrainstormVote> Votes { get; set; }
     }
 }

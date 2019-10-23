@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
 {
-    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : Entity
+    public abstract class BaseRepository<TEntity> : IRepositorySql<TEntity> where TEntity : Entity
     {
         protected readonly IMongoContext Context;
         protected IMongoCollection<TEntity> DbSet;
@@ -29,6 +29,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
         private void ConfigDbSet()
         {
             DbSet = Context.GetCollection<TEntity>(typeof(TEntity).Name);
+        }
+
+        protected IMongoCollection<Type> GetCollection<Type>()
+        {
+            return Context.GetCollection<Type>(typeof(Type).Name);
         }
 
         public virtual async Task<TEntity> GetById(Guid id)

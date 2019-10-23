@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Services
 {
-    public abstract class BaseDomainMongoService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IndieVisible.Infra.Data.MongoDb.Interfaces.IRepository<T>
+    public abstract class BaseDomainMongoService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IndieVisible.Infra.Data.MongoDb.Interfaces.IRepositorySql<T>
     {
         protected readonly TRepository repository;
 

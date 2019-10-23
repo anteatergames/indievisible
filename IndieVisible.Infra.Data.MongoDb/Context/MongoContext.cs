@@ -24,8 +24,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Context
         {
             _configuration = configuration;
 
-
-            // Every command will be stored and it'll be processed at SaveChanges
             _commands = new List<Func<Task>>();
         }
 
@@ -34,7 +32,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Context
             if (MongoClient != null)
                 return;
 
-            // Configure mongo (You can inject the config, just to simplify)
             MongoClient = new MongoClient(_configuration["MongoSettings:Connection"]);
 
             Database = MongoClient.GetDatabase(_configuration["MongoSettings:DatabaseName"]);

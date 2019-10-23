@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Interfaces
 {
-    public interface IRepository<TEntity> : IDisposable where TEntity : Entity
+    public interface IRepositorySql<TEntity> : IDisposable where TEntity : Entity
     {
         void Add(TEntity obj);
         Task<TEntity> GetById(Guid id);

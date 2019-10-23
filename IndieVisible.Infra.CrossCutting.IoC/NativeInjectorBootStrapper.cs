@@ -27,7 +27,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #region Game
             services.AddScoped<IGameAppService, GameAppService>();
             services.AddScoped<Domain.Interfaces.Repository.IGameRepository, Data.Repository.GameRepository>();
-            services.AddScoped<IndieVisible.Infra.Data.MongoDb.Interfaces.Repository.IGameRepository, IndieVisible.Infra.Data.MongoDb.Repository.GameRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGameRepository, Data.MongoDb.Repository.GameRepository>();
             #endregion
 
             #region Profile
@@ -49,6 +49,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IBrainstormIdeaRepository, BrainstormIdeaRepository>();
             services.AddScoped<IBrainstormVoteRepository, BrainstormVoteRepository>();
             services.AddScoped<IBrainstormCommentRepository, BrainstormCommentRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IBrainstormRepository, Data.MongoDb.Repository.BrainstormRepository>();
             #endregion
 
             #region Featuring

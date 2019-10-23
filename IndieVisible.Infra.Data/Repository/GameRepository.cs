@@ -23,5 +23,10 @@ namespace IndieVisible.Infra.Data.Repository
         {
             return DbSet.Where(x => x.UserId == userId).Include(x => x.ExternalLinks);
         }
+
+        public override IQueryable<Game> GetAll()
+        {
+            return DbSet.Include(x => x.ExternalLinks);
+        }
     }
 }
