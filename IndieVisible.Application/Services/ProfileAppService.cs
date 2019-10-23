@@ -19,20 +19,18 @@ namespace IndieVisible.Application.Services
     public class ProfileAppService : BaseAppService, IProfileAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork;
         private readonly IProfileDomainService profileDomainService;
         private readonly IGameRepository gameRepository;
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IUserConnectionDomainService userConnectionDomainService;
 
-        private readonly IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork _uow;
-
-        public ProfileAppService(IMapper mapper, IUnitOfWork unitOfWork
+        public ProfileAppService(IMapper mapper
+            , IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork
             , IProfileDomainService profileDomainService
             , IGameRepository gameRepository
             , IUserContentDomainService userContentDomainService
-            , IUserConnectionDomainService userConnectionDomainService
-            , IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork _uow)
+            , IUserConnectionDomainService userConnectionDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
@@ -40,7 +38,6 @@ namespace IndieVisible.Application.Services
             this.gameRepository = gameRepository;
             this.userContentDomainService = userContentDomainService;
             this.userConnectionDomainService = userConnectionDomainService;
-            this._uow = _uow;
         }
 
         #region ICrudAppService
@@ -48,7 +45,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = profileDomainService.GetAll().Count();
+                int count = profileDomainService.Count();
 
                 return new OperationResultVo<int>(count);
             }
@@ -144,7 +141,6 @@ namespace IndieVisible.Application.Services
                 profileDomainService.UpdateNameOnThePlatform(viewModel.UserId, viewModel.Name);
 
                 unitOfWork.Commit();
-                _uow.Commit().Wait();
 
                 return new OperationResultVo<Guid>(model.Id);
             }
@@ -166,11 +162,6 @@ namespace IndieVisible.Application.Services
             ProfileViewModel vm = new ProfileViewModel();
 
             IEnumerable<UserProfile> profiles = profileDomainService.GetByUserId(userId);
-
-            if (_uow.HasPendingCommands)
-            {
-                _uow.Commit().Wait();
-            }
 
             UserProfile model = profiles.FirstOrDefault(x => x.Type == type);
 

@@ -26,13 +26,15 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Game
             services.AddScoped<IGameAppService, GameAppService>();
-            services.AddScoped<IGameRepository, GameRepository>();
+            services.AddScoped<Domain.Interfaces.Repository.IGameRepository, Data.Repository.GameRepository>();
+            services.AddScoped<IndieVisible.Infra.Data.MongoDb.Interfaces.Repository.IGameRepository, IndieVisible.Infra.Data.MongoDb.Repository.GameRepository>();
             #endregion
 
             #region Profile
             services.AddScoped<IProfileAppService, ProfileAppService>();
             services.AddScoped<IProfileDomainService, ProfileDomainService>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
             #endregion
 
             #region Content
@@ -124,7 +126,6 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             services.AddScoped<IMongoContext, MongoContext>();
             services.AddScoped<Data.MongoDb.Interfaces.IUnitOfWork, Data.MongoDb.UoW.UnitOfWork>();
-            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         }
     }
 }

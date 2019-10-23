@@ -4,7 +4,6 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
@@ -18,19 +17,26 @@ namespace IndieVisible.Application.Services
     public class GameAppService : BaseAppService, IGameAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork _uow;
         private readonly IGameRepository repository;
         private readonly IGameLikeRepository gameLikeRepository;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IGameFollowDomainService gameFollowDomainService;
 
-        public GameAppService(IMapper mapper, IUnitOfWork unitOfWork, IGameRepository repository, IGameLikeRepository gameLikeRepository
+        private readonly Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo;
+
+        public GameAppService(IMapper mapper
+            , IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork _uow
+            , IGameRepository repository
+            , Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo
+            , IGameLikeRepository gameLikeRepository
             , IGamificationDomainService gamificationDomainService
             , IGameFollowDomainService gameFollowDomainService)
         {
             this.mapper = mapper;
-            this.unitOfWork = unitOfWork;
+            this._uow = _uow;
             this.repository = repository;
+            this.gameRepositoryMongo = gameRepositoryMongo;
             this.gameLikeRepository = gameLikeRepository;
             this.gamificationDomainService = gamificationDomainService;
             this.gameFollowDomainService = gameFollowDomainService;
@@ -41,7 +47,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = repository.GetAll().Count();
+                int count = gameRepositoryMongo.Count().Result;
 
                 return new OperationResultVo<int>(count);
             }
@@ -56,7 +62,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<Game> allModels = repository.GetAll();
+                IEnumerable<Game> allModels = gameRepositoryMongo.GetAll().Result;
 
                 IEnumerable<GameViewModel> vms = mapper.Map<IEnumerable<Game>, IEnumerable<GameViewModel>>(allModels);
 
@@ -72,7 +78,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Game model = repository.GetById(id);
+                Game model = gameRepositoryMongo.GetById(id).Result;
 
                 GameViewModel vm = mapper.Map<GameViewModel>(model);
 
@@ -100,7 +106,7 @@ namespace IndieVisible.Application.Services
 
                 viewModel.ExternalLinks.RemoveAll(x => String.IsNullOrWhiteSpace(x.Value));
 
-                Game existing = repository.GetById(viewModel.Id);
+                Game existing = gameRepositoryMongo.GetById(viewModel.Id).Result;
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -112,17 +118,18 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    repository.Add(model);
-                    viewModel.Id = model.Id;
+                    gameRepositoryMongo.Add(model);
 
                     pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
                 }
                 else
                 {
-                    repository.Update(model);
+                    gameRepositoryMongo.Update(model);
                 }
 
-                unitOfWork.Commit();
+                _uow.Commit();
+                viewModel.Id = model.Id;
+
 
                 return new OperationResultVo<Guid>(model.Id, pointsEarned);
             }
@@ -136,11 +143,8 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                // validate before
-
-                repository.Remove(id);
-
-                unitOfWork.Commit();
+                gameRepositoryMongo.Remove(id);
+                _uow.Commit();
 
                 return new OperationResultVo(true);
             }
@@ -153,7 +157,7 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, Guid? teamId, GameGenre genre)
         {
-            IQueryable<Game> allModels = repository.GetAll();
+            IQueryable<Game> allModels = gameRepositoryMongo.Get();
 
             if (genre != 0)
             {
@@ -187,9 +191,9 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<SelectListItemVo> GetByUser(Guid userId)
         {
-            IQueryable<Game> allModels = repository.GetAll().Where(x => x.UserId == userId);
+            IEnumerable<Game> allModels = gameRepositoryMongo.GetByUserId(userId).Result;
 
-            List<SelectListItemVo> vms = allModels.ProjectTo<SelectListItemVo>(mapper.ConfigurationProvider).ToList();
+            List<SelectListItemVo> vms = mapper.Map<IEnumerable<Game>, IEnumerable<SelectListItemVo>>(allModels).ToList();
 
             return vms;
         }

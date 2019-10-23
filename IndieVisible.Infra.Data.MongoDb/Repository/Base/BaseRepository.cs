@@ -3,6 +3,8 @@ using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +47,20 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
             return data.ToList();
         }
 
+        public virtual async Task<int> Count()
+        {
+            ConfigDbSet();
+            var count = await DbSet.CountDocumentsAsync(Builders<TEntity>.Filter.Empty);
+            return (int)count;
+        }
+
+        public virtual async Task<int> Count<T>(Expression<Func<TEntity, bool>> where)
+        {
+            ConfigDbSet();
+            var count = await DbSet.CountDocumentsAsync(where);
+            return (int)count;
+        }
+
         public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
             ConfigDbSet();
@@ -65,6 +81,22 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
         {
             ConfigDbSet();
             Context.AddCommand(() => DbSet.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", id)));
+        }
+
+        public Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> where)
+        {
+            ConfigDbSet();
+            var result = DbSet.AsQueryable().Where(where);
+
+            return Task.FromResult(result);
+        }
+
+        public IQueryable<TEntity> Get()
+        {
+            ConfigDbSet();
+            var result = DbSet.AsQueryable();
+
+            return result;
         }
 
         public void Dispose()

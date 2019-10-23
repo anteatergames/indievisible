@@ -15,7 +15,7 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserConnection> GetByTargetUserId(Guid targetUserId, bool approvedOnly)
         {
-            IQueryable<UserConnection> connections = repository.Get(x => x.TargetUserId == targetUserId);
+            IQueryable<UserConnection> connections = repositorySql.Get(x => x.TargetUserId == targetUserId);
 
             if (approvedOnly)
             {
@@ -27,7 +27,7 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserConnection> GetByUserId(Guid userId, bool approvedOnly)
         {
-            IQueryable<UserConnection> connections = repository.Get(x => x.UserId == userId);
+            IQueryable<UserConnection> connections = repositorySql.Get(x => x.UserId == userId);
 
             if (approvedOnly)
             {
@@ -39,18 +39,18 @@ namespace IndieVisible.Domain.Services
 
         public UserConnection Get(Guid originalUserId, Guid connectedUserId)
         {
-            UserConnection existingConnection = repository.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId).FirstOrDefault();
+            UserConnection existingConnection = repositorySql.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId).FirstOrDefault();
 
             return existingConnection;
         }
 
         public bool CheckConnection(Guid originalUserId, Guid connectedUserId, bool accepted, bool bothWays)
         {
-            bool exists = repository.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId && x.ApprovalDate.HasValue == accepted).Any();
+            bool exists = repositorySql.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId && x.ApprovalDate.HasValue == accepted).Any();
 
             if (bothWays)
             {
-                bool existsToMe = repository.Get(x => x.UserId == connectedUserId && x.TargetUserId == originalUserId && x.ApprovalDate.HasValue == accepted).Any();
+                bool existsToMe = repositorySql.Get(x => x.UserId == connectedUserId && x.TargetUserId == originalUserId && x.ApprovalDate.HasValue == accepted).Any();
 
                 exists = exists || existsToMe;
             }

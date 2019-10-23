@@ -16,6 +16,7 @@ namespace IndieVisible.Infra.Data.Repository
         public override Game GetById(Guid id)
         {
             return DbSet.Where(x => x.Id == id).Include(x => x.ExternalLinks).FirstOrDefault();
+
         }
 
         public override IQueryable<Game> GetByUserId(Guid userId)

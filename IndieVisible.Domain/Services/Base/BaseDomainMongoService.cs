@@ -8,79 +8,79 @@ using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Services
 {
-    public abstract class BaseDomainService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IRepository<T>
+    public abstract class BaseDomainMongoService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IndieVisible.Infra.Data.MongoDb.Interfaces.IRepository<T>
     {
-        protected readonly TRepository repositorySql;
+        protected readonly TRepository repository;
 
-        protected BaseDomainService(TRepository repository)
+        protected BaseDomainMongoService(TRepository repository)
         {
-            this.repositorySql = repository;
+            this.repository = repository;
         }
 
         public virtual Guid Add(T model)
         {
-            repositorySql.Add(model);
+            repository.Add(model);
 
             return model.Id;
         }
 
         public virtual int Count()
         {
-            int count = repositorySql.Count(x => true);
+            int count = repository.Count().Result;
 
             return count;
         }
 
         public virtual int Count(Expression<Func<T, bool>> where)
         {
-            int count = repositorySql.Count(where);
+            int count = repository.Count<T>(where).Result;
 
             return count;
         }
 
         public virtual IEnumerable<T> Search(Expression<Func<T, bool>> where)
         {
-            IQueryable<T> objs = repositorySql.Get(where);
+            IQueryable<T> objs = repository.Get(where).Result;
 
             return objs.ToList();
         }
 
         public virtual IEnumerable<T> GetAll()
         {
-            IQueryable<T> objs = repositorySql.GetAll();
+            IEnumerable<T> objs = repository.GetAll().Result;
 
             return objs.ToList();
         }
 
         public virtual T GetById(Guid id)
         {
-            T obj = repositorySql.GetById(id);
+            T obj = repository.GetById(id).Result;
 
             return obj;
         }
 
         public virtual IEnumerable<T> GetByUserId(Guid userId)
         {
-            IQueryable<T> obj = repositorySql.GetByUserId(userId);
+            IEnumerable<T> obj = repository.GetByUserId(userId).Result;
 
             return obj.ToList();
         }
 
         public virtual void Remove(Guid id)
         {
-            repositorySql.Remove(id);
+            repository.Remove(id);
         }
 
         public virtual Guid Update(T model)
         {
-            repositorySql.Update(model);
+            repository.Update(model);
 
             return model.Id;
         }
 
         IQueryable<T> IDomainService<T>.Search(Expression<Func<T, bool>> where)
         {
-            return repositorySql.Get(where);
+            return repository.Get(where).Result;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace IndieVisible.Domain.Services
 
         public Poll GetByUserContentId(Guid id)
         {
-            Poll obj = repository.Get(x => x.UserContentId == id).FirstOrDefault();
+            Poll obj = repositorySql.Get(x => x.UserContentId == id).FirstOrDefault();
 
             return obj;
         }

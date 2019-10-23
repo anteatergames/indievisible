@@ -28,7 +28,7 @@ namespace IndieVisible.Domain.Services
 
         public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
-            IQueryable<UserContent> allModels = repository.GetAll();
+            IQueryable<UserContent> allModels = repositorySql.GetAll();
 
             if (articlesOnly.HasValue && articlesOnly.Value)
             {

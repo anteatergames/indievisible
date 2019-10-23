@@ -19,7 +19,7 @@ namespace IndieVisible.Domain.Services
 
         public override IEnumerable<Team> GetAll()
         {
-            IQueryable<Team> qry = repository.GetAll();
+            IQueryable<Team> qry = repositorySql.GetAll();
 
             return qry.OrderByDescending(x => x.CreateDate).ToList();
         }
@@ -72,7 +72,7 @@ namespace IndieVisible.Domain.Services
 
         public IQueryable<Team> GetTeamsByMemberUserId(Guid userId)
         {
-            IQueryable<Team> teams = repository.Get(x => x.Members.Any(y => y.UserId == userId), "Members");
+            IQueryable<Team> teams = repositorySql.Get(x => x.Members.Any(y => y.UserId == userId), "Members");
 
             return teams;
         }

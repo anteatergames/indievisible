@@ -13,6 +13,8 @@ namespace IndieVisible.Infra.Data.MongoDb
         {
             EntityBaseMap.Configure();
             UserProfileMap.Configure();
+            GameMap.Configure();
+            UserProfileExternalLinkMap.Configure();
 
             BsonDefaults.GuidRepresentation = GuidRepresentation.Standard;
 
@@ -20,7 +22,8 @@ namespace IndieVisible.Infra.Data.MongoDb
                 {
                     new IgnoreIfDefaultConvention(true),
                     new IgnoreExtraElementsConvention(true),
-                    new CamelCaseElementNameConvention()
+                    new CamelCaseElementNameConvention(),
+                    new EnumRepresentationConvention(BsonType.String)
                 };
             ConventionRegistry.Register("IndieVisibleConventions", conventionPack, t => true);
         }
