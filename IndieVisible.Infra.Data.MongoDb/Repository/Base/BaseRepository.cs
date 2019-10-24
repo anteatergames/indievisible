@@ -59,7 +59,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
             return (int)count;
         }
 
-        public virtual async Task<int> Count<T>(Expression<Func<TEntity, bool>> where)
+        public virtual async Task<int> Count(Expression<Func<TEntity, bool>> where)
         {
             ConfigDbSet();
             var count = await DbSet.CountDocumentsAsync(where);

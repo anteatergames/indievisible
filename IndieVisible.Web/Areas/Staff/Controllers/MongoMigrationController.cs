@@ -56,6 +56,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 count = profileRepository.Count(x => true);
 
                 var collection = context.GetCollection<UserProfile>(typeof(UserProfile).Name);
+                collection.DeleteMany(Builders<UserProfile>.Filter.Empty);
 
                 var all = profileRepository.GetAll();
 
@@ -84,6 +85,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 count = gameRepository.Count(x => true);
 
                 var collection = context.GetCollection<Game>(typeof(Game).Name);
+                collection.DeleteMany(Builders<Game>.Filter.Empty);
 
                 var all = gameRepository.GetAll();
 

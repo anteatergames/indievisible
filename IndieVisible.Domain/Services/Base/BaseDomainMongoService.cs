@@ -33,7 +33,7 @@ namespace IndieVisible.Domain.Services
 
         public virtual int Count(Expression<Func<T, bool>> where)
         {
-            int count = repository.Count<T>(where).Result;
+            int count = repository.Count(where).Result;
 
             return count;
         }

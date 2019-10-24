@@ -19,25 +19,26 @@ namespace IndieVisible.Application.Services
     public class ProfileAppService : BaseAppService, IProfileAppService
     {
         private readonly IMapper mapper;
-        private readonly IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork;
+        private readonly Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork;
         private readonly IProfileDomainService profileDomainService;
-        private readonly IGameRepository gameRepository;
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IUserConnectionDomainService userConnectionDomainService;
 
+        private readonly Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo;
+
         public ProfileAppService(IMapper mapper
-            , IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork
+            , Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork
             , IProfileDomainService profileDomainService
-            , IGameRepository gameRepository
             , IUserContentDomainService userContentDomainService
-            , IUserConnectionDomainService userConnectionDomainService)
+            , IUserConnectionDomainService userConnectionDomainService
+            , Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
             this.profileDomainService = profileDomainService;
-            this.gameRepository = gameRepository;
             this.userContentDomainService = userContentDomainService;
             this.userConnectionDomainService = userConnectionDomainService;
+            this.gameRepositoryMongo = gameRepositoryMongo;
         }
 
         #region ICrudAppService
@@ -178,7 +179,7 @@ namespace IndieVisible.Application.Services
 
             vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
 
-            vm.Counters.Games = gameRepository.Count(x => x.UserId == vm.UserId);
+            vm.Counters.Games = gameRepositoryMongo.Count(x => x.UserId == vm.UserId).Result;
             vm.Counters.Posts = userContentDomainService.Count(x => x.UserId == vm.UserId);
             vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 

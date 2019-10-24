@@ -13,7 +13,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Interfaces
         Task<TEntity> GetById(Guid id);
         Task<IEnumerable<TEntity>> GetByUserId(Guid id);
         Task<int> Count();
-        Task<int> Count<T>(Expression<Func<TEntity, bool>> where);
+        Task<int> Count(Expression<Func<TEntity, bool>> where);
         IQueryable<TEntity> Get();
         Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> where);
         Task<IEnumerable<TEntity>> GetAll();
