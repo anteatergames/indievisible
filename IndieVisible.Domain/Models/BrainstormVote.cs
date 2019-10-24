@@ -6,6 +6,7 @@ namespace IndieVisible.Domain.Models
 {
     public class BrainstormVote : Entity
     {
+        public Guid SessionId { get; set; }
         public Guid IdeaId { get; set; }
 
         public VoteValue VoteValue { get; set; }

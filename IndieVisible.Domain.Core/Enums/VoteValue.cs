@@ -1,6 +1,6 @@
 ﻿namespace IndieVisible.Domain.Core.Enums
 {
-    public enum VoteValue
+    public enum VoteValue : int
     {
         Neutral = 0,
         Positive = 1,

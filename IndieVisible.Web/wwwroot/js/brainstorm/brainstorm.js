@@ -8,6 +8,7 @@ var BRAINSTORM = (function () {
     var objs = {};
     var canInteract = false;
     var newIdea = false;
+    var details = false;
 
     function init() {
         setSelectors();
@@ -17,8 +18,9 @@ var BRAINSTORM = (function () {
 
         canInteract = objs.container.find('#caninteract').val();
         newIdea = window.location.href.indexOf('newidea') > -1;
+        details = window.location.href.indexOf('details') > -1;
 
-        if (!newIdea) {
+        if (!newIdea && !details) {
             loadSession();
         }
 

@@ -109,38 +109,54 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             long count = 0;
             try
             {
-                count = brainstormSessionRepository.Count(x => true);
+                var collectionSessions = context.GetCollection<BrainstormSession>(typeof(BrainstormSession).Name);
+                var collectionIdeas = context.GetCollection<BrainstormIdea>(typeof(BrainstormIdea).Name);
+                var collectionVotes = context.GetCollection<BrainstormVote>(typeof(BrainstormVote).Name);
+                var collectionComments = context.GetCollection<BrainstormComment>(typeof(BrainstormComment).Name);
 
-                var collection = context.GetCollection<BrainstormSession>(typeof(BrainstormSession).Name);
 
-                var all = brainstormSessionRepository.GetAll();
+                collectionComments.DeleteMany(Builders<BrainstormComment>.Filter.Empty);
+                collectionVotes.DeleteMany(Builders<BrainstormVote>.Filter.Empty);
+                collectionIdeas.DeleteMany(Builders<BrainstormIdea>.Filter.Empty);
+                collectionSessions.DeleteMany(Builders<BrainstormSession>.Filter.Empty);
 
-                foreach (var session in all)
+                var allSessions = brainstormSessionRepository.GetAll().ToList();
+                var firstSession = allSessions.First();
+                foreach (var session in allSessions)
                 {
-                    session.Ideas = brainstormIdeaRepository.Get(x => x.SessionId == session.Id).ToList();
-
-                    foreach (var idea in session.Ideas)
-                    {
-                        idea.Session = null;
-
-                        idea.Votes = brainstormVoteRepository.Get(x => x.IdeaId == idea.Id).ToList();
-
-                        foreach (var vote in idea.Votes)
-                        {
-                            vote.Idea = null;
-                        }
-
-
-                        idea.Comments = brainstormCommentRepository.Get(x => x.IdeaId == idea.Id).ToList();
-
-                        foreach (var comment in idea.Comments)
-                        {
-                            comment.Idea = null;
-                        }
-                    }
+                    session.Ideas = null;
                 }
+                count += allSessions.Count();
+                collectionSessions.InsertMany(allSessions);
 
-                collection.InsertMany(all);
+                var allIdeas = brainstormIdeaRepository.GetAll().ToList();
+                foreach (var idea in allIdeas)
+                {
+                    idea.Session = null;
+                    idea.Votes = null;
+                    idea.Comments = null;
+                }
+                count += allIdeas.Count();
+                collectionIdeas.InsertMany(allIdeas);
+
+                var allVotes = brainstormVoteRepository.GetAll().ToList();
+                foreach (var vote in allVotes)
+                {
+                    vote.Idea = null;
+                    vote.SessionId = firstSession.Id;
+                }
+                count += allVotes.Count();
+                collectionVotes.InsertMany(allVotes);
+
+                var allComments = brainstormCommentRepository.GetAll().ToList();
+                foreach (var comment in allComments)
+                {
+                    comment.Idea = null;
+                    comment.SessionId = firstSession.Id;
+                }
+                count += allComments.Count();
+                collectionComments.InsertMany(allComments);
+
 
                 var model = new KeyValuePair<string, long>("Brainstorm Session", count);
 

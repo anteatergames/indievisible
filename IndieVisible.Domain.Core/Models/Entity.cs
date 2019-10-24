@@ -14,6 +14,11 @@ namespace IndieVisible.Domain.Core.Models
 
         public DateTime CreateDate { get; set; }
 
+        public Entity()
+        {
+            CreateDate = DateTime.Now;
+        }
+
         public override bool Equals(object obj)
         {
             Entity compareTo = obj as Entity;

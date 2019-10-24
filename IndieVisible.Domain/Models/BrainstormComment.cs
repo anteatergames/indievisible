@@ -6,6 +6,7 @@ namespace IndieVisible.Domain.Models
     public class BrainstormComment : Entity
     {
         public Guid? ParentCommentId { get; set; }
+        public Guid SessionId { get; set; }
 
         public Guid IdeaId { get; set; }
 
