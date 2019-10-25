@@ -3,17 +3,26 @@
 }
 
 <div class="row">
-    <h2>@SharedLocalizer["help"]</h2>
+    <h2 class="text-capitalize">@SharedLocalizer["help"]</h2>
 </div>
 <div class="col-12">
     <div class="row">
-        <div class="col-9 p-4 box bg-white">
+        <div class="col-12 col-md-9 p-4 box bg-white help">
             @RenderBody()
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <partial name="_Navigation" />
 
             @RenderSection("SubPageContent", required: false)
         </div>
     </div>
 </div>
+
+
+@section Styles {
+    <style>
+        .help a {
+            font-weight: bold;
+        }
+    </style>
+}
