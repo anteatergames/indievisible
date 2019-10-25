@@ -5,7 +5,7 @@ namespace IndieVisible.Web.Controllers
 {
     public class HelpController : SecureBaseController
     {
-        public IActionResult Index()
+        public IActionResult Start()
         {
             return View();
         }
