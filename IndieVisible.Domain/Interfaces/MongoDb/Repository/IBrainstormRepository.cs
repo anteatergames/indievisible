@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
 {
-    public interface IBrainstormRepository : IRepositorySql<BrainstormSession>
+    public interface IBrainstormRepository : IRepository<BrainstormSession>
     {
         Task<BrainstormIdea> GetIdea(Guid ideaId);
         Task AddIdea(BrainstormIdea model);

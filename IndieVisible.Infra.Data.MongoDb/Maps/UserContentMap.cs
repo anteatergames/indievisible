@@ -1,23 +1,20 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Models;
+﻿using IndieVisible.Domain.Core.Models;
 using IndieVisible.Domain.Models;
-using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {
-    public class UserProfileExternalLinkMap
+    public class UserContentMap
     {
         public static void Configure()
         {
-            BsonClassMap.RegisterClassMap<UserProfileExternalLink>(map =>
+            BsonClassMap.RegisterClassMap<UserContent>(map =>
             {
                 map.AutoMap();
-                map.SetIgnoreExtraElements(true);
+                map.MapMember(x => x.Content).SetIsRequired(true);
             });
         }
     }

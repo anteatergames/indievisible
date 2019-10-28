@@ -14,11 +14,11 @@ namespace IndieVisible.Application.Services
 {
     public class PollAppService : IPollAppService
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkSql unitOfWork;
         private readonly IPollDomainService pollDomainService;
         private readonly IGamificationDomainService gamificationDomainService;
 
-        public PollAppService(IUnitOfWork unitOfWork
+        public PollAppService(IUnitOfWorkSql unitOfWork
             , IPollDomainService pollDomainService
             , IGamificationDomainService gamificationDomainService)
         {

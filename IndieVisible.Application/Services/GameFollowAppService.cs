@@ -13,10 +13,10 @@ namespace IndieVisible.Application.Services
     public class GameFollowAppService : BaseAppService, IGameFollowAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkSql unitOfWork;
         private readonly IGameFollowDomainService gameFollowDomainService;
 
-        public GameFollowAppService(IMapper mapper, IUnitOfWork unitOfWork
+        public GameFollowAppService(IMapper mapper, IUnitOfWorkSql unitOfWork
             , IGameFollowDomainService gameFollowDomainService)
         {
             this.mapper = mapper;

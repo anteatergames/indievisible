@@ -3,7 +3,7 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IGameFollowRepository : IRepository<GameFollow>
+    public interface IGameFollowRepository : IRepositorySql<GameFollow>
     {
     }
 }

@@ -102,7 +102,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                BrainstormSession session = brainstormRepository.Get(x => x.Id == viewModel.SessionId).Result.FirstOrDefault();
+                BrainstormSession session = brainstormRepository.Get(x => x.Id == viewModel.SessionId).FirstOrDefault();
 
                 BrainstormIdea model;
 
@@ -214,7 +214,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<BrainstormSession> allMain = brainstormRepository.Get(x => x.Id == sessionId).Result;
+                IQueryable<BrainstormSession> allMain = brainstormRepository.Get(x => x.Id == sessionId);
 
                 BrainstormSession main = allMain.FirstOrDefault();
 
@@ -340,7 +340,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<BrainstormSession> allMain = brainstormRepository.Get(x => x.Type == BrainstormSessionType.Main).Result;
+                IQueryable<BrainstormSession> allMain = brainstormRepository.Get(x => x.Type == BrainstormSessionType.Main);
 
                 BrainstormSession main = allMain.FirstOrDefault();
 

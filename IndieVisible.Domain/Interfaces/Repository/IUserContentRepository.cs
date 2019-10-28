@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IUserContentRepository : IRepository<UserContent>
+    public interface IUserContentRepository : IRepositorySql<UserContent>
     {
         new IQueryable<UserContent> GetAll();
     }

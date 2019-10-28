@@ -13,10 +13,10 @@ namespace IndieVisible.Application.Services
     public class UserBadgeAppService : IUserBadgeAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkSql unitOfWork;
         private readonly IUserBadgeDomainService userBadgeDomainService;
 
-        public UserBadgeAppService(IMapper mapper, IUnitOfWork unitOfWork, IUserBadgeDomainService userBadgeDomainService)
+        public UserBadgeAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, IUserBadgeDomainService userBadgeDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;

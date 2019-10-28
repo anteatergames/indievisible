@@ -4,7 +4,7 @@ using System;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IUserPreferencesRepository : IRepository<UserPreferences>
+    public interface IUserPreferencesRepository : IRepositorySql<UserPreferences>
     {
         new UserPreferences GetByUserId(Guid id);
     }

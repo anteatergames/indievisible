@@ -7,14 +7,13 @@ using System.Text;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {
-    public class GameMap
+    public class UserPreferencesMap
     {
         public static void Configure()
         {
-            BsonClassMap.RegisterClassMap<Game>(map =>
+            BsonClassMap.RegisterClassMap<UserPreferences>(map =>
             {
                 map.AutoMap();
-                map.MapMember(x => x.Title).SetIsRequired(true);
             });
         }
     }

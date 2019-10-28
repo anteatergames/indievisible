@@ -14,7 +14,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
             BsonClassMap.RegisterClassMap<UserProfile>(map =>
             {
                 map.AutoMap();
-                map.SetIgnoreExtraElements(true);
                 map.MapMember(x => x.Name).SetIsRequired(true);
             });
         }

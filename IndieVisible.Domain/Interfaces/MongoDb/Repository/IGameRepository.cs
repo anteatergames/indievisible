@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
 {
-    public interface IGameRepository : IRepositorySql<Game>
+    public interface IGameRepository : IRepository<Game>
     {
     }
 }

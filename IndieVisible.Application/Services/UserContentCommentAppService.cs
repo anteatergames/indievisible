@@ -14,10 +14,10 @@ namespace IndieVisible.Application.Services
     public class UserContentCommentAppService : IUserContentCommentAppService
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWorkSql _unitOfWork;
         private readonly IUserContentCommentRepository _repository;
 
-        public UserContentCommentAppService(IMapper mapper, IUnitOfWork unitOfWork, IUserContentCommentRepository repository)
+        public UserContentCommentAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, IUserContentCommentRepository repository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

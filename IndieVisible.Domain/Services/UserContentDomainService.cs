@@ -1,34 +1,44 @@
 ﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Repository;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
-    public class UserContentDomainService : BaseDomainService<UserContent, IUserContentRepository>, IUserContentDomainService
+    public class UserContentDomainService : BaseDomainMongoService<UserContent, IUserContentRepository>, IUserContentDomainService
     {
-        private readonly IUserContentCommentRepository contentCommentRepository;
-
-        public UserContentDomainService(IUserContentRepository repository
-            , IUserContentCommentRepository contentCommentRepository) : base(repository)
+        public UserContentDomainService(IUserContentRepository repository) : base(repository)
         {
-            this.contentCommentRepository = contentCommentRepository;
         }
 
         public int CountComments(Expression<Func<UserContentComment, bool>> where)
         {
-            int count = contentCommentRepository.Count(where);
+            var countTask = repository.CountComments(where);
 
-            return count;
+            countTask.Wait();
+
+            return countTask.Result;
         }
 
-        public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
+
+        public int CountCommentsByUserId(Guid userId)
         {
-            IQueryable<UserContent> allModels = repositorySql.GetAll();
+            var countTask = repository.CountComments(x => x.UserId == userId);
+
+            countTask.Wait();
+
+            return countTask.Result;
+        }
+
+        public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly, int count)
+        {
+            var allModels = repository.Get();
 
             if (articlesOnly.HasValue && articlesOnly.Value)
             {
@@ -55,21 +65,19 @@ namespace IndieVisible.Domain.Services
                 allModels = allModels.Where(x => x.CreateDate <= oldestDate && x.Id != oldestId);
             }
 
-            return allModels;
-        }
+            IOrderedQueryable<UserContent> orderedList = allModels
+                .OrderByDescending(x => x.CreateDate);
 
-        public IEnumerable<UserContentComment> GetAllComments(Expression<Func<UserContentComment, bool>> where)
-        {
-            IQueryable<UserContentComment> comments = contentCommentRepository.Get(where);
+            var finalList = orderedList.Take(count);
 
-            return comments;
+            return finalList;
         }
 
         public IQueryable<UserContentComment> GetComments(Expression<Func<UserContentComment, bool>> where)
         {
-            IQueryable<UserContentComment> count = contentCommentRepository.Get(where);
+            var comments = Task.Run(async () => await repository.GetComments(where));//  contentCommentRepository.Get(where);
 
-            return count;
+            return comments.Result;
         }
     }
 }

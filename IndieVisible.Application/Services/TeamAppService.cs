@@ -17,12 +17,12 @@ namespace IndieVisible.Application.Services
     public class TeamAppService : BaseAppService, ITeamAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkSql unitOfWork;
         private readonly ITeamDomainService teamDomainService;
         private readonly IProfileDomainService profileDomainService;
         private readonly IGamificationDomainService gamificationDomainService;
 
-        public TeamAppService(IMapper mapper, IUnitOfWork unitOfWork
+        public TeamAppService(IMapper mapper, IUnitOfWorkSql unitOfWork
             , ITeamDomainService teamDomainService
             , IProfileDomainService profileDomainService
             , IGamificationDomainService gamificationDomainService)

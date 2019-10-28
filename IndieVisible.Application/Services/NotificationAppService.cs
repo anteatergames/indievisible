@@ -15,10 +15,10 @@ namespace IndieVisible.Application.Services
     public class NotificationAppService : BaseAppService, INotificationAppService
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWorkSql _unitOfWork;
         private readonly INotificationRepository _notificationRepository;
 
-        public NotificationAppService(IMapper mapper, IUnitOfWork unitOfWork, INotificationRepository notificationRepository)
+        public NotificationAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, INotificationRepository notificationRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

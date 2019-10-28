@@ -4,10 +4,10 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Base;
-using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +19,19 @@ namespace IndieVisible.Application.Services
     public class ProfileAppService : BaseAppService, IProfileAppService
     {
         private readonly IMapper mapper;
-        private readonly Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IProfileDomainService profileDomainService;
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IUserConnectionDomainService userConnectionDomainService;
 
-        private readonly Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo;
+        private readonly IGameRepository gameRepositoryMongo;
 
         public ProfileAppService(IMapper mapper
-            , Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork
+            , IUnitOfWork unitOfWork
             , IProfileDomainService profileDomainService
             , IUserContentDomainService userContentDomainService
             , IUserConnectionDomainService userConnectionDomainService
-            , Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo)
+            , IGameRepository gameRepositoryMongo)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
@@ -92,8 +92,6 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                // validate before
-
                 profileDomainService.Remove(id);
 
                 unitOfWork.Commit();

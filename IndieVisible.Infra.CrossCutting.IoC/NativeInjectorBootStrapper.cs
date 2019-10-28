@@ -34,13 +34,14 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IProfileAppService, ProfileAppService>();
             services.AddScoped<IProfileDomainService, ProfileDomainService>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
-            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IUserProfileRepository, Data.MongoDb.Repository.UserProfileRepository>();
             #endregion
 
             #region Content
             services.AddScoped<IUserContentAppService, UserContentAppService>();
             services.AddScoped<IUserContentDomainService, UserContentDomainService>();
-            services.AddScoped<IUserContentRepository, UserContentRepository>();
+            services.AddScoped<Domain.Interfaces.Repository.IUserContentRepository, Data.Repository.UserContentRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IUserContentRepository, Data.MongoDb.Repository.UserContentRepository>();
             #endregion
 
             #region Brainstorm
@@ -54,12 +55,14 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Featuring
             services.AddScoped<IFeaturedContentAppService, FeaturedContentAppService>();
-            services.AddScoped<IFeaturedContentRepository, FeaturedContentRepository>();
+            services.AddScoped<Domain.Interfaces.Repository.IFeaturedContentRepository, Data.Repository.FeaturedContentRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IFeaturedContentRepository, Data.MongoDb.Repository.FeaturedContentRepository>();
             #endregion
 
             #region Preferences
             services.AddScoped<IUserPreferencesAppService, UserPreferencesAppService>();
-            services.AddScoped<IUserPreferencesRepository, UserPreferencesRepository>();
+            services.AddScoped<Domain.Interfaces.Repository.IUserPreferencesRepository, Data.Repository.UserPreferencesRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IUserPreferencesRepository, Data.MongoDb.Repository.UserPreferencesRepository>();
             #endregion
 
             #region Notifications
@@ -118,7 +121,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             // Infra - Data
             services.AddScoped<IndieVisibleContext>();
-            services.AddScoped<Domain.Interfaces.Base.IUnitOfWork, IndieVisible.Infra.Data.UoW.UnitOfWork>();
+            services.AddScoped<Domain.Interfaces.Base.IUnitOfWorkSql, IndieVisible.Infra.Data.UoW.UnitOfWork>();
 
             // Infra - Identity Services
             services.AddTransient<IEmailSender, SendGridEmailService>();

@@ -23,13 +23,13 @@ namespace IndieVisible.Application.Services
     public class UserContentAppService : BaseAppService, IUserContentAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkSql unitOfWork;
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IUserContentLikeRepository likeRepository;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
 
-        public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
+        public UserContentAppService(IMapper mapper, IUnitOfWorkSql unitOfWork
             , IUserContentDomainService userContentDomainService
             , IUserContentLikeRepository likeRepository
             , IGamificationDomainService gamificationDomainService
@@ -48,7 +48,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = userContentDomainService.GetAll().Count();
+                int count = userContentDomainService.Count();
 
                 return new OperationResultVo<int>(count);
             }
@@ -242,48 +242,50 @@ namespace IndieVisible.Application.Services
 
         public int CountArticles()
         {
-            int count = userContentDomainService.Count(x => !string.IsNullOrWhiteSpace(x.Title) && !string.IsNullOrWhiteSpace(x.Introduction) && !string.IsNullOrWhiteSpace(x.FeaturedImage) && x.Content.Length > 50);
+            int count = userContentDomainService.Count(x => !string.IsNullOrEmpty(x.Title) && !string.IsNullOrEmpty(x.Introduction) && !string.IsNullOrEmpty(x.FeaturedImage) && x.Content.Length > 50);
 
             return count;
         }
 
         public IEnumerable<UserContentViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm)
         {
-            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly);
+            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly, vm.Count);
 
-            IOrderedQueryable<UserContent> orderedList = allModels
-                .OrderByDescending(x => x.CreateDate);
-
-            IQueryable<UserContent> finalList = orderedList.Take(vm.Count);
-
-            List<UserContentViewModel> viewModels = finalList.ProjectTo<UserContentViewModel>(mapper.ConfigurationProvider).ToList();
-
-            foreach (UserContentViewModel item in viewModels)
+            try
             {
-                item.AuthorName = string.IsNullOrWhiteSpace(item.AuthorName) ? "Unknown soul" : item.AuthorName;
-                item.AuthorPicture = UrlFormatter.ProfileImage(item.UserId);
+                IEnumerable<UserContentViewModel> viewModels = mapper.Map<IEnumerable<UserContent>, IEnumerable<UserContentViewModel>>(allModels);
 
-                item.IsArticle = !string.IsNullOrWhiteSpace(item.Title) && !string.IsNullOrWhiteSpace(item.Introduction);
-
-                item.HasFeaturedImage = !string.IsNullOrWhiteSpace(item.FeaturedImage) && !item.FeaturedImage.Contains(Constants.DefaultFeaturedImage);
-
-                item.FeaturedImageType = GetMediaType(item.FeaturedImage);
-
-                if (item.FeaturedImageType != MediaType.Youtube)
+                foreach (UserContentViewModel item in viewModels)
                 {
-                    item.FeaturedImage = SetFeaturedImage(item.UserId, item.FeaturedImage);
+                    item.AuthorName = string.IsNullOrWhiteSpace(item.AuthorName) ? "Unknown soul" : item.AuthorName;
+                    item.AuthorPicture = UrlFormatter.ProfileImage(item.UserId);
+
+                    item.IsArticle = !string.IsNullOrWhiteSpace(item.Title) && !string.IsNullOrWhiteSpace(item.Introduction);
+
+                    item.HasFeaturedImage = !string.IsNullOrWhiteSpace(item.FeaturedImage) && !item.FeaturedImage.Contains(Constants.DefaultFeaturedImage);
+
+                    item.FeaturedImageType = GetMediaType(item.FeaturedImage);
+
+                    if (item.FeaturedImageType != MediaType.Youtube)
+                    {
+                        item.FeaturedImage = SetFeaturedImage(item.UserId, item.FeaturedImage);
+                    }
+
+                    item.LikeCount = likeRepository.GetAll().Count(x => x.ContentId == item.Id);
+
+                    item.CommentCount = userContentDomainService.CountComments(x => x.UserContentId == item.Id);
+
+                    LoadAuthenticatedData(vm.CurrentUserId, item);
+
+                    item.Poll = SetPoll(vm.CurrentUserId, item.Id);
                 }
 
-                item.LikeCount = likeRepository.GetAll().Count(x => x.ContentId == item.Id);
-
-                item.CommentCount = userContentDomainService.CountComments(x => x.UserContentId == item.Id);
-
-                LoadAuthenticatedData(vm.CurrentUserId, item);
-
-                item.Poll = SetPoll(vm.CurrentUserId, item.Id);
+                return viewModels;
             }
-
-            return viewModels;
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public OperationResultListVo<UserContentSearchViewModel> Search(Guid currentUserId, string q)
@@ -348,14 +350,6 @@ namespace IndieVisible.Application.Services
         {
             if (currentUserId != Guid.Empty)
             {
-                item.CurrentUserLiked = likeRepository.GetAll().Any(x => x.ContentId == item.Id && x.UserId == currentUserId);
-
-                IOrderedQueryable<UserContentComment> comments = userContentDomainService.GetComments(x => x.UserContentId == item.Id).OrderBy(x => x.CreateDate);
-
-                IQueryable<UserContentCommentViewModel> commentsVm = comments.ProjectTo<UserContentCommentViewModel>(mapper.ConfigurationProvider);
-
-                item.Comments = commentsVm.ToList();
-
                 foreach (UserContentCommentViewModel comment in item.Comments)
                 {
                     comment.AuthorName = string.IsNullOrWhiteSpace(comment.AuthorName) ? "Unknown soul" : comment.AuthorName;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
 {
-    public interface IUserProfileRepository : IRepository<UserProfile>
+    public interface IUserPreferencesRepository : IRepository<UserPreferences>
     {
     }
 }

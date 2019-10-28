@@ -12,11 +12,11 @@ namespace IndieVisible.Application.Services
 {
     public class FollowAppService : BaseAppService, IFollowAppService
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkSql unitOfWork;
         private readonly IGameFollowDomainService gameFollowDomainService;
         private readonly IUserFollowDomainService userFollowDomainService;
 
-        public FollowAppService(IUnitOfWork unitOfWork
+        public FollowAppService(IUnitOfWorkSql unitOfWork
             , IGameFollowDomainService gameFollowDomainService
             , IUserFollowDomainService userFollowDomainService)
         {

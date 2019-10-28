@@ -20,6 +20,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
                 map.AddKnownType(typeof(UserProfile));
                 map.AddKnownType(typeof(Game));
                 map.AddKnownType(typeof(UserProfileExternalLink));
+                map.AddKnownType(typeof(UserContent));
             });
         }
     }

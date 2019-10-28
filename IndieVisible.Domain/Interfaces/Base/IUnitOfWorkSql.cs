@@ -2,7 +2,7 @@
 
 namespace IndieVisible.Domain.Interfaces.Base
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWorkSql : IDisposable
     {
         bool Commit();
         void Dispose();

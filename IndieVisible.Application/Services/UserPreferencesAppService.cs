@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.UserPreferences;
-using IndieVisible.Domain.Interfaces.Base;
-using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +13,15 @@ namespace IndieVisible.Application.Services
 {
     public class UserPreferencesAppService : BaseAppService, IUserPreferencesAppService
     {
-        private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IUserPreferencesRepository _repository;
+        private readonly IMapper mapper;
+        private readonly IUnitOfWork uow;
+        private readonly IUserPreferencesRepository userPreferencesRepository;
 
-        public UserPreferencesAppService(IMapper mapper, IUnitOfWork unitOfWork, IUserPreferencesRepository repository)
+        public UserPreferencesAppService(IMapper mapper, IUnitOfWork uow, IUserPreferencesRepository repository)
         {
-            _mapper = mapper;
-            _unitOfWork = unitOfWork;
-            _repository = repository;
+            this.mapper = mapper;
+            this.uow = uow;
+            userPreferencesRepository = repository;
         }
 
         #region ICrudAppService
@@ -29,9 +29,11 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = _repository.GetAll().Count();
+                var count = userPreferencesRepository.Count();
 
-                return new OperationResultVo<int>(count);
+                count.Wait();
+
+                return new OperationResultVo<int>(count.Result);
             }
             catch (Exception ex)
             {
@@ -43,9 +45,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<UserPreferences> allModels = _repository.GetAll();
+                IQueryable<UserPreferences> allModels = userPreferencesRepository.Get();
 
-                IEnumerable<UserPreferencesViewModel> vms = _mapper.Map<IEnumerable<UserPreferences>, IEnumerable<UserPreferencesViewModel>>(allModels);
+                IEnumerable<UserPreferencesViewModel> vms = mapper.Map<IEnumerable<UserPreferences>, IEnumerable<UserPreferencesViewModel>>(allModels);
 
                 return new OperationResultListVo<UserPreferencesViewModel>(vms);
             }
@@ -59,9 +61,11 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                UserPreferences model = _repository.GetById(id);
+                var model = userPreferencesRepository.GetById(id);
 
-                UserPreferencesViewModel vm = _mapper.Map<UserPreferencesViewModel>(model);
+                model.Wait();
+
+                UserPreferencesViewModel vm = mapper.Map<UserPreferencesViewModel>(model);
 
                 return new OperationResultVo<UserPreferencesViewModel>(vm);
             }
@@ -75,11 +79,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                // validate before
+                userPreferencesRepository.Remove(id);
 
-                _repository.Remove(id);
-
-                _unitOfWork.Commit();
+                uow.Commit();
 
                 return new OperationResultVo(true);
             }
@@ -100,27 +102,32 @@ namespace IndieVisible.Application.Services
                     viewModel.Id = Guid.Empty;
                 }
 
-                UserPreferences existing = _repository.GetById(viewModel.Id);
+                var task = userPreferencesRepository.GetById(viewModel.Id);
+
+                task.Wait();
+
+                var existing = task.Result;
+
                 if (existing != null)
                 {
-                    model = _mapper.Map(viewModel, existing);
+                    model = mapper.Map(viewModel, existing);
                 }
                 else
                 {
-                    model = _mapper.Map<UserPreferences>(viewModel);
+                    model = mapper.Map<UserPreferences>(viewModel);
                 }
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    _repository.Add(model);
+                    userPreferencesRepository.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    _repository.Update(model);
+                    userPreferencesRepository.Update(model);
                 }
 
-                _unitOfWork.Commit();
+                uow.Commit();
 
                 return new OperationResultVo<Guid>(model.Id);
             }
@@ -133,7 +140,11 @@ namespace IndieVisible.Application.Services
 
         public UserPreferencesViewModel GetByUserId(Guid userId)
         {
-            UserPreferences model = _repository.GetAll().FirstOrDefault(x => x.UserId == userId);
+            var task = userPreferencesRepository.GetByUserId(userId);
+
+            task.Wait();
+
+            var model = task.Result.FirstOrDefault();
 
             if (model == null)
             {
@@ -143,7 +154,7 @@ namespace IndieVisible.Application.Services
                 };
             }
 
-            UserPreferencesViewModel vm = _mapper.Map<UserPreferencesViewModel>(model);
+            UserPreferencesViewModel vm = mapper.Map<UserPreferencesViewModel>(model);
 
             return vm;
         }

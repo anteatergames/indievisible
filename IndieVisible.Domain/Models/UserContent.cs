@@ -26,10 +26,10 @@ namespace IndieVisible.Domain.Models
         public Guid? GameId { get; set; }
         public virtual Game Game { get; set; }
 
-        public virtual ICollection<UserContentLike> Likes { get; set; }
+        public virtual List<UserContentLike> Likes { get; set; }
 
-        public virtual ICollection<UserContentComment> Comments { get; set; }
+        public virtual List<UserContentComment> Comments { get; set; }
 
-        public virtual ICollection<Poll> Polls { get; set; }
+        public virtual List<Poll> Polls { get; set; }
     }
 }

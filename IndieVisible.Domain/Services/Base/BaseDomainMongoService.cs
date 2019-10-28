@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Services
 {
-    public abstract class BaseDomainMongoService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IndieVisible.Infra.Data.MongoDb.Interfaces.IRepositorySql<T>
+    public abstract class BaseDomainMongoService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IndieVisible.Infra.Data.MongoDb.Interfaces.IRepository<T>
     {
         protected readonly TRepository repository;
 
@@ -26,9 +26,11 @@ namespace IndieVisible.Domain.Services
 
         public virtual int Count()
         {
-            int count = repository.Count().Result;
+            var count = repository.Count();
 
-            return count;
+            count.Wait();
+
+            return count.Result;
         }
 
         public virtual int Count(Expression<Func<T, bool>> where)
@@ -40,9 +42,9 @@ namespace IndieVisible.Domain.Services
 
         public virtual IEnumerable<T> Search(Expression<Func<T, bool>> where)
         {
-            IQueryable<T> objs = repository.Get(where).Result;
+            IEnumerable<T> objs = repository.Get(where);
 
-            return objs.ToList();
+            return objs;
         }
 
         public virtual IEnumerable<T> GetAll()
@@ -80,7 +82,7 @@ namespace IndieVisible.Domain.Services
 
         IQueryable<T> IDomainService<T>.Search(Expression<Func<T, bool>> where)
         {
-            return repository.Get(where).Result;
+            return repository.Get(where);
         }
     }
 }

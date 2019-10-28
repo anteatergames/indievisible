@@ -3,7 +3,7 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IPollRepository : IRepository<Poll>
+    public interface IPollRepository : IRepositorySql<Poll>
     {
     }
 }

@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Services
 {
-    public abstract class BaseDomainService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IRepository<T>
+    public abstract class BaseDomainService<T, TRepository> : IDomainService<T> where T : Entity where TRepository : class, IRepositorySql<T>
     {
         protected readonly TRepository repositorySql;
 

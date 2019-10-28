@@ -4,7 +4,7 @@ using System;
 
 namespace IndieVisible.Infra.Data.UoW
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWorkSql
     {
         private readonly IndieVisibleContext _context;
 

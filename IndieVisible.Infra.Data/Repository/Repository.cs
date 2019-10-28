@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
+    public class Repository<TEntity> : IRepositorySql<TEntity> where TEntity : Entity
     {
         protected readonly IndieVisibleContext Db;
         protected readonly DbSet<TEntity> DbSet;

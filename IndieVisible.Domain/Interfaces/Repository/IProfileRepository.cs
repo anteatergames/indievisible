@@ -4,7 +4,7 @@ using System;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IProfileRepository : IRepository<UserProfile>
+    public interface IProfileRepository : IRepositorySql<UserProfile>
     {
         void UpdateNameOnThePlatform(Guid userId, string newName);
     }

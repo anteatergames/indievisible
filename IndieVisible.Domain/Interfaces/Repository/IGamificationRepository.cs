@@ -4,7 +4,7 @@ using System;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IGamificationRepository : IRepository<Gamification>
+    public interface IGamificationRepository : IRepositorySql<Gamification>
     {
         new Gamification GetByUserId(Guid userId);
     }

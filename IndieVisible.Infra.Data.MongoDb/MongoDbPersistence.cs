@@ -25,7 +25,9 @@ namespace IndieVisible.Infra.Data.MongoDb
             EntityBaseMap.Configure();
             UserProfileMap.Configure();
             GameMap.Configure();
-            UserProfileExternalLinkMap.Configure();
+            UserContentMap.Configure();
+            UserPreferencesMap.Configure();
+            FeaturedContentMap.Configure();
         }
     }
 }

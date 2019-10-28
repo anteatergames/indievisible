@@ -15,11 +15,11 @@ namespace IndieVisible.Application.Services
     public class UserConnectionAppService : BaseAppService, IUserConnectionAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkSql unitOfWork;
         private readonly IUserConnectionDomainService userConnectionDomainService;
         private readonly IProfileAppService profileAppService;
 
-        public UserConnectionAppService(IMapper mapper, IUnitOfWork unitOfWork
+        public UserConnectionAppService(IMapper mapper, IUnitOfWorkSql unitOfWork
             , IUserConnectionDomainService userConnectionDomainService
             , IProfileAppService profileAppService)
         {
