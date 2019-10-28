@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +22,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly IMongoContext context;
         private readonly IProfileRepository profileRepository;
         private readonly IGameRepository gameRepository;
+        private readonly IGameFollowRepository gameFollowRepository;
+        private readonly IGameLikeRepository gameLikeRepository;
         private readonly IBrainstormSessionRepository brainstormSessionRepository;
         private readonly IBrainstormIdeaRepository brainstormIdeaRepository;
         private readonly IBrainstormVoteRepository brainstormVoteRepository;
@@ -32,6 +36,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         public MongoMigrationController(IMongoContext context
             , IProfileRepository profileRepository
             , IGameRepository gameRepository
+            , IGameFollowRepository gameFollowRepository
+            , IGameLikeRepository gameLikeRepository
             , IBrainstormSessionRepository brainstormSessionRepository
             , IBrainstormIdeaRepository brainstormIdeaRepository
             , IBrainstormVoteRepository brainstormVoteRepository
@@ -44,6 +50,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             this.context = context;
             this.profileRepository = profileRepository;
             this.gameRepository = gameRepository;
+            this.gameFollowRepository = gameFollowRepository;
+            this.gameLikeRepository = gameLikeRepository;
             this.brainstormSessionRepository = brainstormSessionRepository;
             this.brainstormIdeaRepository = brainstormIdeaRepository;
             this.brainstormVoteRepository = brainstormVoteRepository;
@@ -130,7 +138,35 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 var collection = context.GetCollection<Game>(typeof(Game).Name);
                 collection.DeleteMany(Builders<Game>.Filter.Empty);
 
-                var all = gameRepository.GetAll();
+                var all = gameRepository.GetAll().ToList();
+                var allFollowers = gameFollowRepository.GetAll().ToList();
+                var allLikes = gameLikeRepository.GetAll().ToList();
+
+
+                foreach (Game game in all)
+                {
+                    game.Followers = new List<GameFollow>();
+                    game.Likes = new List<GameLike>();
+
+                    var followers = allFollowers.Where(x => x.GameId == game.Id).ToList();
+                    var likes = allLikes.Where(x => x.GameId == game.Id).ToList();
+
+                    foreach (var follower in followers)
+                    {
+                        if (!game.Followers.Any(x => x.UserId == follower.UserId))
+                        {
+                            game.Followers.Add(follower);
+                        }
+                    }
+
+                    foreach (var like in likes)
+                    {
+                        if (!game.Likes.Any(x => x.UserId == like.UserId))
+                        {
+                            game.Likes.Add(like);
+                        }
+                    }
+                }
 
                 collection.InsertMany(all);
             }
@@ -251,7 +287,12 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 var collection = context.GetCollection<FeaturedContent>(typeof(FeaturedContent).Name);
                 collection.DeleteMany(Builders<FeaturedContent>.Filter.Empty);
 
-                var all = featuredContentRepository.GetAll();
+                var all = featuredContentRepository.GetAll().ToList();
+
+                foreach (var item in all)
+                {
+                    item.EndDate = item.EndDate == DateTime.MinValue ? null : item.EndDate;
+                }
 
                 collection.InsertMany(all);
             }

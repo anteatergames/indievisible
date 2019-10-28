@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 
@@ -39,8 +40,12 @@ namespace IndieVisible.Domain.Models
 
         public virtual Team Team { get; set; }
 
-        public virtual ICollection<UserContent> UserContents { get; set; }
+        public virtual List<UserContent> UserContents { get; set; }
 
-        public virtual ICollection<GameExternalLink> ExternalLinks { get; set; }
+        public virtual List<GameExternalLink> ExternalLinks { get; set; }
+
+        public virtual List<GameFollow> Followers { get; set; }
+
+        public virtual List<GameLike> Likes { get; set; }
     }
 }

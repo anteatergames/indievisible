@@ -19,6 +19,11 @@ namespace IndieVisible.Infra.Data.MongoDb.UoW
 
         public async Task<bool> Commit()
         {
+            if (!HasPendingCommands)
+            {
+                return false;
+            }
+
             var changeAmount = await _context.SaveChanges();
 
             return changeAmount > 0;

@@ -12,11 +12,11 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
     [Route("staff/featuredcontent")]
     public class FeaturedContentController : StaffBaseController
     {
-        private readonly IFeaturedContentAppService _service;
+        private readonly IFeaturedContentAppService featuredContentAppService;
 
         public FeaturedContentController(IFeaturedContentAppService service)
         {
-            _service = service;
+            featuredContentAppService = service;
         }
 
         public IActionResult Index()
@@ -27,7 +27,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         [Route("list")]
         public IActionResult List()
         {
-            IEnumerable<UserContentToBeFeaturedViewModel> model = _service.GetContentToBeFeatured();
+            IEnumerable<UserContentToBeFeaturedViewModel> model = featuredContentAppService.GetContentToBeFeatured();
 
             return PartialView("_List", model);
         }
@@ -36,7 +36,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         [HttpPost("add")]
         public IActionResult Add(Guid id, string title, string introduction)
         {
-            OperationResultVo<Guid> operationResult = _service.Add(CurrentUserId, id, title, introduction);
+            OperationResultVo<Guid> operationResult = featuredContentAppService.Add(CurrentUserId, id, title, introduction);
 
             return Json(operationResult);
         }
@@ -49,7 +49,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
 
             try
             {
-                operationResult = _service.Unfeature(id);
+                operationResult = featuredContentAppService.Unfeature(id);
             }
             catch (Exception ex)
             {

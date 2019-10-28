@@ -17,26 +17,23 @@ namespace IndieVisible.Application.Services
     public class GameAppService : BaseAppService, IGameAppService
     {
         private readonly IMapper mapper;
-        private readonly IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork _uow;
+        private readonly Infra.Data.MongoDb.Interfaces.IUnitOfWork uow;
         private readonly IGameLikeRepository gameLikeRepository;
         private readonly IGamificationDomainService gamificationDomainService;
-        private readonly IGameFollowDomainService gameFollowDomainService;
 
-        private readonly Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo;
+        private readonly Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepository;
 
         public GameAppService(IMapper mapper
-            , IndieVisible.Infra.Data.MongoDb.Interfaces.IUnitOfWork _uow
+            , Infra.Data.MongoDb.Interfaces.IUnitOfWork uow
             , Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo
             , IGameLikeRepository gameLikeRepository
-            , IGamificationDomainService gamificationDomainService
-            , IGameFollowDomainService gameFollowDomainService)
+            , IGamificationDomainService gamificationDomainService)
         {
             this.mapper = mapper;
-            this._uow = _uow;
-            this.gameRepositoryMongo = gameRepositoryMongo;
+            this.uow = uow;
+            this.gameRepository = gameRepositoryMongo;
             this.gameLikeRepository = gameLikeRepository;
             this.gamificationDomainService = gamificationDomainService;
-            this.gameFollowDomainService = gameFollowDomainService;
         }
 
         #region ICrudAppService
@@ -44,7 +41,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = gameRepositoryMongo.Count().Result;
+                int count = gameRepository.Count().Result;
 
                 return new OperationResultVo<int>(count);
             }
@@ -59,7 +56,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<Game> allModels = gameRepositoryMongo.GetAll().Result;
+                IEnumerable<Game> allModels = gameRepository.GetAll().Result;
 
                 IEnumerable<GameViewModel> vms = mapper.Map<IEnumerable<Game>, IEnumerable<GameViewModel>>(allModels);
 
@@ -75,15 +72,15 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Game model = gameRepositoryMongo.GetById(id).Result;
+                Game model = gameRepository.GetById(id).Result;
 
                 GameViewModel vm = mapper.Map<GameViewModel>(model);
 
-                vm.LikeCount = gameLikeRepository.Count(x => x.GameId == vm.Id);
-                vm.FollowerCount = gameFollowDomainService.Count(x => x.GameId == vm.Id);
+                vm.LikeCount = model.Likes.Count(x => x.GameId == vm.Id);
+                vm.FollowerCount = model.Followers.Count(x => x.GameId == vm.Id);
 
-                vm.CurrentUserLiked = gameLikeRepository.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
-                vm.CurrentUserFollowing = gameFollowDomainService.GetAll().Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
+                vm.CurrentUserLiked = model.Likes.Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
+                vm.CurrentUserFollowing = model.Followers.Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
 
                 return new OperationResultVo<GameViewModel>(vm);
             }
@@ -103,7 +100,7 @@ namespace IndieVisible.Application.Services
 
                 viewModel.ExternalLinks.RemoveAll(x => String.IsNullOrWhiteSpace(x.Value));
 
-                Game existing = gameRepositoryMongo.GetById(viewModel.Id).Result;
+                Game existing = gameRepository.GetById(viewModel.Id).Result;
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -115,16 +112,16 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    gameRepositoryMongo.Add(model);
+                    gameRepository.Add(model);
 
                     pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
                 }
                 else
                 {
-                    gameRepositoryMongo.Update(model);
+                    gameRepository.Update(model);
                 }
 
-                _uow.Commit();
+                uow.Commit();
                 viewModel.Id = model.Id;
 
 
@@ -140,8 +137,8 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                gameRepositoryMongo.Remove(id);
-                _uow.Commit();
+                gameRepository.Remove(id);
+                uow.Commit();
 
                 return new OperationResultVo(true);
             }
@@ -154,7 +151,7 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, Guid? teamId, GameGenre genre)
         {
-            IQueryable<Game> allModels = gameRepositoryMongo.Get();
+            IQueryable<Game> allModels = gameRepository.Get();
 
             if (genre != 0)
             {
@@ -188,11 +185,109 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<SelectListItemVo> GetByUser(Guid userId)
         {
-            IEnumerable<Game> allModels = gameRepositoryMongo.GetByUserId(userId).Result;
+            IEnumerable<Game> allModels = gameRepository.GetByUserId(userId).Result;
 
             List<SelectListItemVo> vms = mapper.Map<IEnumerable<Game>, IEnumerable<SelectListItemVo>>(allModels).ToList();
 
             return vms;
+        }
+
+        public OperationResultVo GameFollow(Guid currentUserId, Guid gameId)
+        {
+            try
+            {
+                if (currentUserId == Guid.Empty)
+                {
+                    return new OperationResultVo("You must be logged in to follow a game");
+                }
+
+                var task = gameRepository.Follow(currentUserId, gameId);
+
+                task.Wait();
+
+                uow.Commit();
+
+                var newCountTask = gameRepository.CountFollowers(gameId);
+
+                newCountTask.Wait();
+
+                return new OperationResultVo<int>(newCountTask.Result);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GameUnfollow(Guid currentUserId, Guid gameId)
+        {
+            try
+            {
+                if (currentUserId == Guid.Empty)
+                {
+                    return new OperationResultVo("You must be logged in to unfollow a game");
+                }
+
+                var task = gameRepository.Unfollow(currentUserId, gameId);
+
+                task.Wait();
+
+                uow.Commit();
+
+                var newCountTask = gameRepository.CountFollowers(gameId);
+
+                newCountTask.Wait();
+
+                return new OperationResultVo<int>(newCountTask.Result);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GameLike(Guid currentUserId, Guid gameId)
+        {
+            try
+            {
+                var task = gameRepository.Like(currentUserId, gameId);
+
+                task.Wait();
+
+                uow.Commit();
+
+                var newCountTask = gameRepository.CountLikes(gameId);
+
+                newCountTask.Wait();
+
+                return new OperationResultVo<int>(newCountTask.Result);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GameUnlike(Guid currentUserId, Guid gameId)
+        {
+            try
+            {
+                var task = gameRepository.Unlike(currentUserId, gameId);
+
+                task.Wait();
+
+                uow.Commit();
+
+                var newCountTask = gameRepository.CountLikes(gameId);
+
+                newCountTask.Wait();
+
+                return new OperationResultVo<int>(newCountTask.Result);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
     }
 }

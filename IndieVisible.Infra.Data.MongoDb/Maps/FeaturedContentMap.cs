@@ -11,7 +11,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
     {
         public static void Configure()
         {
-            BsonClassMap.RegisterClassMap<UserContent>(map =>
+            BsonClassMap.RegisterClassMap<FeaturedContent>(map =>
             {
                 map.AutoMap();
             });

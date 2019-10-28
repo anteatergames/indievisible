@@ -91,7 +91,7 @@ namespace IndieVisible.Web.Controllers
         [Route("game/like")]
         public IActionResult LikeGame(Guid likedId)
         {
-            OperationResultVo response = likeAppService.GameLike(CurrentUserId, likedId);
+            OperationResultVo response = gameAppService.GameLike(CurrentUserId, likedId);
 
             OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, likedId);
 
@@ -111,7 +111,7 @@ namespace IndieVisible.Web.Controllers
         [Route("game/unlike")]
         public IActionResult UnLikeGame(Guid likedId)
         {
-            OperationResultVo response = likeAppService.GameUnlike(CurrentUserId, likedId);
+            OperationResultVo response = gameAppService.GameUnlike(CurrentUserId, likedId);
 
             return Json(response);
         }
@@ -124,7 +124,7 @@ namespace IndieVisible.Web.Controllers
         [Route("game/follow")]
         public IActionResult FollowGame(Guid gameId)
         {
-            OperationResultVo response = followAppService.GameFollow(CurrentUserId, gameId);
+            OperationResultVo response = gameAppService.GameFollow(CurrentUserId, gameId);
 
             OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, gameId);
 
@@ -144,7 +144,7 @@ namespace IndieVisible.Web.Controllers
         [Route("game/unfollow")]
         public IActionResult UnFollowGame(Guid gameId)
         {
-            OperationResultVo response = followAppService.GameUnfollow(CurrentUserId, gameId);
+            OperationResultVo response = gameAppService.GameUnfollow(CurrentUserId, gameId);
 
             return Json(response);
         }

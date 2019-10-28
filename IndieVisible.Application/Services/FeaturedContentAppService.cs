@@ -6,7 +6,6 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Home;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
@@ -148,13 +147,7 @@ namespace IndieVisible.Application.Services
 
         public CarouselViewModel GetFeaturedNow()
         {
-            var featured = featuredContentRepository.Get().ToList();
-            var test = featured.Where(x => x.EndDate == DateTime.MinValue);
-            var allModels0 = featuredContentRepository.Get(x => x.EndDate == DateTime.MinValue).ToList();
-            var allModels1 = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today && (x.EndDate == DateTime.MinValue || x.EndDate > DateTime.Today)).ToList();
-            var allModels2 = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today && x.EndDate == DateTime.MinValue).ToList();
-            var allModels3 = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today &&  x.EndDate > DateTime.Today).ToList();
-            var allModels = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today && (x.EndDate == DateTime.MinValue || x.EndDate > DateTime.Today));
+            var allModels = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today && (!x.EndDate.HasValue || x.EndDate > DateTime.Today));
 
             if (allModels.Any())
             {
@@ -214,12 +207,13 @@ namespace IndieVisible.Application.Services
         public IEnumerable<UserContentToBeFeaturedViewModel> GetContentToBeFeatured()
         {
             IQueryable<UserContent> finalList = contentRepository.Get();
+            var featured = featuredContentRepository.Get().ToList();
 
             List<UserContentToBeFeaturedViewModel> viewModels = finalList.ProjectTo<UserContentToBeFeaturedViewModel>(mapper.ConfigurationProvider).ToList();
 
             foreach (UserContentToBeFeaturedViewModel item in viewModels)
             {
-                FeaturedContent featuredNow = featuredContentRepository.Get(x => x.UserContentId == item.Id && x.StartDate.Date <= DateTime.Today && (x.EndDate.Date == DateTime.MinValue || x.EndDate.Date > DateTime.Today)).FirstOrDefault();
+                FeaturedContent featuredNow = featured.FirstOrDefault(x => x.UserContentId == item.Id && x.StartDate.Date <= DateTime.Today && (!x.EndDate.HasValue || (x.EndDate.HasValue && x.EndDate.Value.Date > DateTime.Today)));
 
                 if (featuredNow != null)
                 {
@@ -264,6 +258,8 @@ namespace IndieVisible.Application.Services
                     existing.EndDate = DateTime.Now;
 
                     existing.Active = false;
+
+                    featuredContentRepository.Update(existing);
 
                     uow.Commit();
                 }
