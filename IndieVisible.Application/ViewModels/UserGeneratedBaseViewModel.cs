@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -23,9 +24,12 @@ namespace IndieVisible.Application.ViewModels
     {
         public List<TComment> Comments { get; set; }
 
+        public List<Guid> Likes { get; set; }
+
         protected UserGeneratedCommentBaseViewModel() : base()
         {
             Comments = new List<TComment>();
+            Likes = new List<Guid>();
         }
     }
 

@@ -11,6 +11,7 @@ using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using System.Linq;
 
 namespace IndieVisible.Application.AutoMapper
 {
@@ -48,6 +49,7 @@ namespace IndieVisible.Application.AutoMapper
 
             #region Content
             CreateMap<UserContent, UserContentViewModel>()
+                .ForMember(x => x.Likes, opt => opt.MapFrom(x => x.Likes.Select(y => y.UserId)))
                 .ForMember(x => x.LikeCount, opt => opt.MapFrom(x => x.Likes.Count));
 
             CreateMap<UserContentComment, UserContentCommentViewModel>();

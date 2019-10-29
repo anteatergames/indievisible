@@ -29,6 +29,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly IBrainstormVoteRepositorySql brainstormVoteRepository;
         private readonly IBrainstormCommentRepositorySql brainstormCommentRepository;
         private readonly IUserContentRepositorySql userContentRepository;
+        private readonly IUserContentLikeRepository userContentLikeRepository;
         private readonly IUserContentCommentRepository contentCommentRepository;
         private readonly IUserPreferencesRepositorySql userPreferencesRepository;
         private readonly IFeaturedContentRepositorySql featuredContentRepository;
@@ -47,6 +48,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             , IBrainstormVoteRepositorySql brainstormVoteRepository
             , IBrainstormCommentRepositorySql brainstormCommentRepository
             , IUserContentRepositorySql userContentRepository
+            , IUserContentLikeRepository userContentLikeRepository
             , IUserContentCommentRepository contentCommentRepository
             , IUserPreferencesRepositorySql userPreferencesRepository
             , IFeaturedContentRepositorySql featuredContentRepository
@@ -65,6 +67,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             this.brainstormVoteRepository = brainstormVoteRepository;
             this.brainstormCommentRepository = brainstormCommentRepository;
             this.userContentRepository = userContentRepository;
+            this.userContentLikeRepository = userContentLikeRepository;
             this.contentCommentRepository = contentCommentRepository;
             this.userPreferencesRepository = userPreferencesRepository;
             this.featuredContentRepository = featuredContentRepository;
@@ -352,6 +355,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 foreach (var item in all)
                 {
                     item.Comments = contentCommentRepository.Get(x => x.UserContentId == item.Id).ToList();
+                    item.Likes = userContentLikeRepository.Get(x => x.ContentId == item.Id).ToList();
                 }
 
 

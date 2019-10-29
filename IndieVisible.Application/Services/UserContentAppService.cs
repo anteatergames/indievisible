@@ -8,7 +8,6 @@ using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
-using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
@@ -26,20 +25,17 @@ namespace IndieVisible.Application.Services
         private readonly IMapper mapper;
         private readonly IUnitOfWork unitOfWork;
         private readonly IUserContentDomainService userContentDomainService;
-        private readonly IUserContentLikeRepository likeRepository;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
 
         public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IUserContentDomainService userContentDomainService
-            , IUserContentLikeRepository likeRepository
             , IGamificationDomainService gamificationDomainService
             , IPollDomainService pollDomainService)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
             this.userContentDomainService = userContentDomainService;
-            this.likeRepository = likeRepository;
             this.gamificationDomainService = gamificationDomainService;
             this.pollDomainService = pollDomainService;
             this.pollDomainService = pollDomainService;
@@ -250,7 +246,7 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<UserContentViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm)
         {
-            IQueryable<UserContent> allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly, vm.Count);
+            var allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly, vm.Count).ToList();
 
             try
             {
@@ -272,13 +268,13 @@ namespace IndieVisible.Application.Services
                         item.FeaturedImage = SetFeaturedImage(item.UserId, item.FeaturedImage);
                     }
 
-                    item.LikeCount = likeRepository.GetAll().Count(x => x.ContentId == item.Id);
+                    item.LikeCount = item.Likes.Count;
 
-                    item.CommentCount = userContentDomainService.CountComments(x => x.UserContentId == item.Id);
-
-                    LoadAuthenticatedData(vm.CurrentUserId, item);
+                    item.CommentCount = item.Comments.Count;
 
                     item.Poll = SetPoll(vm.CurrentUserId, item.Id);
+
+                    LoadAuthenticatedData(vm.CurrentUserId, item);
                 }
 
                 return viewModels;
