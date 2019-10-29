@@ -31,5 +31,10 @@ namespace IndieVisible.Domain.Models
         public virtual List<UserContentComment> Comments { get; set; }
 
         public virtual List<Poll> Polls { get; set; }
+
+        public UserContent() : base()
+        {
+
+        }
     }
 }

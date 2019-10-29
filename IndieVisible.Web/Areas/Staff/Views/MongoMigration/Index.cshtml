@@ -10,6 +10,6 @@
     @for (int i = 0; i < Model.Count; i++)
     {
         var item = Model.ElementAt(i);
-        <a class="btn btn-primary" asp-area="Staff" asp-controller="MongoMigration" asp-action="@item">@(i + 1) - @item</a>
+        <a class="btn btn-primary mt-2" asp-area="Staff" asp-controller="MongoMigration" asp-action="@item">@(i + 1) - @item</a>
     }
 </div>

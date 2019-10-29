@@ -27,11 +27,14 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly IBrainstormSessionRepository brainstormSessionRepository;
         private readonly IBrainstormIdeaRepository brainstormIdeaRepository;
         private readonly IBrainstormVoteRepository brainstormVoteRepository;
-        private readonly IBrainstormCommentRepository brainstormCommentRepository;
+        private readonly IBrainstormCommentRepositorySql brainstormCommentRepository;
         private readonly IUserContentRepository userContentRepository;
         private readonly IUserContentCommentRepository contentCommentRepository;
         private readonly IUserPreferencesRepository userPreferencesRepository;
         private readonly IFeaturedContentRepository featuredContentRepository;
+        private readonly IGamificationActionRepository gamificationActionRepository;
+        private readonly IGamificationLevelRepository gamificationLevelRepository;
+        private readonly IGamificationRepository gamificationRepository;
 
         public MongoMigrationController(IMongoContext context
             , IProfileRepository profileRepository
@@ -41,11 +44,14 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             , IBrainstormSessionRepository brainstormSessionRepository
             , IBrainstormIdeaRepository brainstormIdeaRepository
             , IBrainstormVoteRepository brainstormVoteRepository
-            , IBrainstormCommentRepository brainstormCommentRepository
+            , IBrainstormCommentRepositorySql brainstormCommentRepository
             , IUserContentRepository userContentRepository
             , IUserContentCommentRepository contentCommentRepository
             , IUserPreferencesRepository userPreferencesRepository
-            , IFeaturedContentRepository featuredContentRepository)
+            , IFeaturedContentRepository featuredContentRepository
+            , IGamificationActionRepository gamificationActionRepository
+            , IGamificationLevelRepository gamificationLevelRepository
+            , IGamificationRepository gamificationRepository)
         {
             this.context = context;
             this.profileRepository = profileRepository;
@@ -60,14 +66,20 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             this.contentCommentRepository = contentCommentRepository;
             this.userPreferencesRepository = userPreferencesRepository;
             this.featuredContentRepository = featuredContentRepository;
+            this.gamificationActionRepository = gamificationActionRepository;
+            this.gamificationLevelRepository = gamificationLevelRepository;
+            this.gamificationRepository = gamificationRepository;
         }
 
         public IActionResult Index()
         {
             var model = new List<string>
             {
-                "UserPreferences",
+                "GamificationAction",
+                "GamificationLevel",
                 "UserProfiles",
+                "UserPreferences",
+                "Gamification",
                 "Games",
                 "Brainstorm",
                 "UserContent",
@@ -77,7 +89,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             return View(model);
         }
 
-        [Route("userpreferences")]
+        [Route("UserPreferences")]
         public IActionResult UserPreferences()
         {
             long count = 0;
@@ -302,6 +314,81 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             }
 
             var model = new KeyValuePair<string, long>("FeaturedContent", count);
+
+            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+        }
+
+        [Route("GamificationAction")]
+        public IActionResult GamificationAction()
+        {
+            long count = 0;
+            try
+            {
+                count = gamificationActionRepository.Count(x => true);
+
+                var collection = context.GetCollection<GamificationAction>(typeof(GamificationAction).Name);
+                collection.DeleteMany(Builders<GamificationAction>.Filter.Empty);
+
+                var all = gamificationActionRepository.GetAll();
+
+                collection.InsertMany(all);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            var model = new KeyValuePair<string, long>("GamificationAction", count);
+
+            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+        }
+
+        [Route("GamificationLevel")]
+        public IActionResult GamificationLevel()
+        {
+            long count = 0;
+            try
+            {
+                count = gamificationLevelRepository.Count(x => true);
+
+                var collection = context.GetCollection<GamificationLevel>(typeof(GamificationLevel).Name);
+                collection.DeleteMany(Builders<GamificationLevel>.Filter.Empty);
+
+                var all = gamificationLevelRepository.GetAll();
+
+                collection.InsertMany(all);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            var model = new KeyValuePair<string, long>("GamificationLevel", count);
+
+            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+        }
+
+        [Route("Gamification")]
+        public IActionResult Gamification()
+        {
+            long count = 0;
+            try
+            {
+                count = gamificationRepository.Count(x => true);
+
+                var collection = context.GetCollection<Domain.Models.Gamification>(typeof(Domain.Models.Gamification).Name);
+                collection.DeleteMany(Builders<Domain.Models.Gamification>.Filter.Empty);
+
+                var all = gamificationRepository.GetAll();
+
+                collection.InsertMany(all);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            var model = new KeyValuePair<string, long>(RouteData.Values["action"].ToString(), count);
 
             return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
         }

@@ -17,6 +17,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
                 map.AutoMap();
                 map.SetIsRootClass(true);
                 map.MapIdMember(x => x.Id).SetIdGenerator(GuidGenerator.Instance);
+                map.MapMember(x => x.CreateDate).SetDefaultValue(DateTime.Now);
                 map.AddKnownType(typeof(UserProfile));
                 map.AddKnownType(typeof(Game));
                 map.AddKnownType(typeof(UserProfileExternalLink));

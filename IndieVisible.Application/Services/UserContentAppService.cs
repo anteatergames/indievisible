@@ -13,6 +13,7 @@ using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,13 @@ namespace IndieVisible.Application.Services
     public class UserContentAppService : BaseAppService, IUserContentAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWorkSql unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IUserContentLikeRepository likeRepository;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
 
-        public UserContentAppService(IMapper mapper, IUnitOfWorkSql unitOfWork
+        public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
             , IUserContentDomainService userContentDomainService
             , IUserContentLikeRepository likeRepository
             , IGamificationDomainService gamificationDomainService

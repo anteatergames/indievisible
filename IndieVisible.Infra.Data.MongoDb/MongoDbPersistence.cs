@@ -28,6 +28,9 @@ namespace IndieVisible.Infra.Data.MongoDb
             UserContentMap.Configure();
             UserPreferencesMap.Configure();
             FeaturedContentMap.Configure();
+            GamificationActionMap.Configure();
+            GamificationLevelMap.Configure();
+            GamificationMap.Configure();
         }
     }
 }

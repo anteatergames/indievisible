@@ -49,7 +49,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IBrainstormSessionRepository, BrainstormSessionRepository>();
             services.AddScoped<IBrainstormIdeaRepository, BrainstormIdeaRepository>();
             services.AddScoped<IBrainstormVoteRepository, BrainstormVoteRepository>();
-            services.AddScoped<IBrainstormCommentRepository, BrainstormCommentRepository>();
+            services.AddScoped<IBrainstormCommentRepositorySql, BrainstormCommentRepository>();
             services.AddScoped<Data.MongoDb.Interfaces.Repository.IBrainstormRepository, Data.MongoDb.Repository.BrainstormRepository>();
             #endregion
 
@@ -76,9 +76,12 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IUserBadgeRepository, UserBadgeRepository>();
             services.AddScoped<IGamificationAppService, GamificationAppService>();
             services.AddScoped<IGamificationDomainService, GamificationDomainService>();
-            services.AddScoped<IGamificationRepository, GamificationRepository>();
-            services.AddScoped<IGamificationActionRepository, GamificationActionRepository>();
-            services.AddScoped<IGamificationLevelRepository, GamificationLevelRepository>();
+            services.AddScoped<Domain.Interfaces.Repository.IGamificationRepository, Data.Repository.GamificationRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGamificationRepository, Data.MongoDb.Repository.GamificationRepository>();
+            services.AddScoped<Domain.Interfaces.Repository.IGamificationActionRepository, Data.Repository.GamificationActionRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGamificationActionRepository, Data.MongoDb.Repository.GamificationActionRepository>();
+            services.AddScoped<Domain.Interfaces.Repository.IGamificationLevelRepository, Data.Repository.GamificationLevelRepository>();
+            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGamificationLevelRepository, Data.MongoDb.Repository.GamificationLevelRepository>();
             #endregion
 
             #region Interactions

@@ -1,11 +1,12 @@
 ﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
@@ -26,9 +27,9 @@ namespace IndieVisible.Domain.Services
         {
             List<RankingVo> result = new List<RankingVo>();
 
-            List<GamificationLevel> levels = gamificationLevelRepository.GetAll().ToList();
+            List<GamificationLevel> levels = gamificationLevelRepository.Get().ToList();
 
-            IQueryable<Gamification> model = gamificationRepository.GetAll().OrderByDescending(x => x.XpTotal).ThenBy(x => x.CreateDate).Take(count);
+            IQueryable<Gamification> model = gamificationRepository.Get().OrderByDescending(x => x.XpTotal).ThenBy(x => x.CreateDate).Take(count);
 
             List<Gamification> list = model.ToList();
 
@@ -48,14 +49,18 @@ namespace IndieVisible.Domain.Services
 
         public IQueryable<GamificationLevel> GetAllLevels()
         {
-            IQueryable<GamificationLevel> levels = gamificationLevelRepository.GetAll();
+            IQueryable<GamificationLevel> levels = gamificationLevelRepository.Get();
 
             return levels;
         }
 
         public Gamification GetByUserId(Guid userId)
         {
-            Gamification userGamification = gamificationRepository.GetByUserId(userId);
+            var userGamificationTask = gamificationRepository.GetByUserId(userId);
+
+            userGamificationTask.Wait();
+
+            var userGamification = userGamificationTask.Result.FirstOrDefault();
 
             if (userGamification == null)
             {
@@ -69,20 +74,24 @@ namespace IndieVisible.Domain.Services
 
         public GamificationLevel GetLevel(int levelNumber)
         {
-            GamificationLevel level = gamificationLevelRepository.GetByNumber(levelNumber);
+            var task = Task.Run(async () => await gamificationLevelRepository.GetByNumber(levelNumber));
 
-            return level;
+            return task.Result;
         }
 
         public int ProcessAction(Guid userId, PlatformAction action)
         {
-            GamificationAction actionToProcess = gamificationActionRepository.GetByAction(action);
+            var actionToProcess = Task.Run(async () => await gamificationActionRepository.GetByAction(action)).Result;
 
-            Gamification userGamification = gamificationRepository.GetByUserId(userId);
+            var userGamificationTask = gamificationRepository.GetByUserId(userId);
+
+            userGamificationTask.Wait();
+
+            var userGamification = userGamificationTask.Result.FirstOrDefault();
 
             if (userGamification == null)
             {
-                GamificationLevel newLevel = gamificationLevelRepository.GetByNumber(1);
+                GamificationLevel newLevel = Task.Run(async () => await gamificationLevelRepository.GetByNumber(1)).Result;
 
                 userGamification = GenerateNewGamification(userId);
 
@@ -100,8 +109,8 @@ namespace IndieVisible.Domain.Services
 
                 if (userGamification.XpToNextLevel <= 0)
                 {
-                    GamificationLevel currentLevel = gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber);
-                    GamificationLevel newLevel = gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber + 1);
+                    GamificationLevel currentLevel = Task.Run(async () => await gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber)).Result;
+                    GamificationLevel newLevel = Task.Run(async () => await gamificationLevelRepository.GetByNumber(userGamification.CurrentLevelNumber + 1)).Result;
 
                     if (newLevel != null)
                     {
@@ -120,7 +129,8 @@ namespace IndieVisible.Domain.Services
         private Gamification GenerateNewGamification(Guid userId)
         {
             Gamification userGamification;
-            GamificationLevel firstLevel = gamificationLevelRepository.GetByNumber(1);
+
+            GamificationLevel firstLevel = Task.Run(async () => await gamificationLevelRepository.GetByNumber(1)).Result;
 
             userGamification = new Gamification
             {
