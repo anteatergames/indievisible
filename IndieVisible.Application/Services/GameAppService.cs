@@ -18,7 +18,7 @@ namespace IndieVisible.Application.Services
     {
         private readonly IMapper mapper;
         private readonly Infra.Data.MongoDb.Interfaces.IUnitOfWork uow;
-        private readonly IGameLikeRepository gameLikeRepository;
+        private readonly IGameLikeRepositorySql gameLikeRepository;
         private readonly IGamificationDomainService gamificationDomainService;
 
         private readonly Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepository;
@@ -26,7 +26,7 @@ namespace IndieVisible.Application.Services
         public GameAppService(IMapper mapper
             , Infra.Data.MongoDb.Interfaces.IUnitOfWork uow
             , Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo
-            , IGameLikeRepository gameLikeRepository
+            , IGameLikeRepositorySql gameLikeRepository
             , IGamificationDomainService gamificationDomainService)
         {
             this.mapper = mapper;

@@ -4,7 +4,7 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IGamificationActionRepository : IRepositorySql<GamificationAction>
+    public interface IGamificationActionRepositorySql : IRepositorySql<GamificationAction>
     {
         GamificationAction GetByAction(PlatformAction action);
     }

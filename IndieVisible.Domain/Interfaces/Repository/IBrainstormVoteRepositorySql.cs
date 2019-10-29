@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IBrainstormVoteRepository : IRepositorySql<BrainstormVote>
+    public interface IBrainstormVoteRepositorySql : IRepositorySql<BrainstormVote>
     {
         new IQueryable<BrainstormVote> GetAll();
         BrainstormVote Get(Guid votingItemId, Guid userId);

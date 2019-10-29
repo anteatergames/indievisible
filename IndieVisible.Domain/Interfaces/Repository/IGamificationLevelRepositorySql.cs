@@ -3,7 +3,8 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IGameRepository : IRepositorySql<Game>
+    public interface IGamificationLevelRepositorySql : IRepositorySql<GamificationLevel>
     {
+        GamificationLevel GetByNumber(int levelNumber);
     }
 }

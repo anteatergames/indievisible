@@ -16,9 +16,9 @@ namespace IndieVisible.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWorkSql _unitOfWork;
-        private readonly INotificationRepository _notificationRepository;
+        private readonly INotificationRepositorySql _notificationRepository;
 
-        public NotificationAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, INotificationRepository notificationRepository)
+        public NotificationAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, INotificationRepositorySql notificationRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

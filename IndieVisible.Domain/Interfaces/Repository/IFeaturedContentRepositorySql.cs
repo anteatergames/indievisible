@@ -3,7 +3,7 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IBrainstormSessionRepository : IRepositorySql<BrainstormSession>
+    public interface IFeaturedContentRepositorySql : IRepositorySql<FeaturedContent>
     {
     }
 }

@@ -28,10 +28,18 @@ namespace IndieVisible.Infra.Data.MongoDb.UoW
 
             return changeAmount > 0;
         }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _context.Dispose();
+            }
+        }
 
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

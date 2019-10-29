@@ -4,11 +4,10 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class NotificationRepository : Repository<Notification>, INotificationRepository
+    public class GameFollowRepositorySql : Repository<GameFollow>, IGameFollowRepositorySql
     {
-        public NotificationRepository(IndieVisibleContext context) : base(context)
+        public GameFollowRepositorySql(IndieVisibleContext context) : base(context)
         {
-
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Models;
-using System.Linq;
+using System;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IUserContentRepository : IRepositorySql<UserContent>
+    public interface IGamificationRepositorySql : IRepositorySql<Gamification>
     {
-        new IQueryable<UserContent> GetAll();
+        new Gamification GetByUserId(Guid userId);
     }
 }

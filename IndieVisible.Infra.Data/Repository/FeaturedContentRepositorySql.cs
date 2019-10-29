@@ -4,10 +4,11 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class GameFollowRepository : Repository<GameFollow>, IGameFollowRepository
+    public class FeaturedContentRepositorySql : Repository<FeaturedContent>, IFeaturedContentRepositorySql
     {
-        public GameFollowRepository(IndieVisibleContext context) : base(context)
+        public FeaturedContentRepositorySql(IndieVisibleContext context) : base(context)
         {
+
         }
     }
 }

@@ -4,11 +4,11 @@ using System;
 
 namespace IndieVisible.Infra.Data.UoW
 {
-    public class UnitOfWork : IUnitOfWorkSql
+    public class UnitOfWorkSql : IUnitOfWorkSql
     {
         private readonly IndieVisibleContext _context;
 
-        public UnitOfWork(IndieVisibleContext context)
+        public UnitOfWorkSql(IndieVisibleContext context)
         {
             _context = context;
         }

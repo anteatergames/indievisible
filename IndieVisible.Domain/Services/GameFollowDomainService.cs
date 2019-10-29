@@ -11,9 +11,9 @@ namespace IndieVisible.Domain.Services
 {
     public class GameFollowDomainService : IGameFollowDomainService
     {
-        private readonly IGameFollowRepository gameFollowRepository;
+        private readonly IGameFollowRepositorySql gameFollowRepository;
 
-        public GameFollowDomainService(IGameFollowRepository gameFollowRepository)
+        public GameFollowDomainService(IGameFollowRepositorySql gameFollowRepository)
         {
             this.gameFollowRepository = gameFollowRepository;
         }

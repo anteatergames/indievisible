@@ -4,10 +4,11 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class BrainstormSessionRepository : Repository<BrainstormSession>, IBrainstormSessionRepository
+    public class GameLikeRepositorySql : Repository<GameLike>, IGameLikeRepositorySql
     {
-        public BrainstormSessionRepository(IndieVisibleContext context) : base(context)
+        public GameLikeRepositorySql(IndieVisibleContext context) : base(context)
         {
+
         }
     }
 }

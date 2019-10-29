@@ -4,9 +4,9 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class GameLikeRepository : Repository<GameLike>, IGameLikeRepository
+    public class NotificationRepositorySql : Repository<Notification>, INotificationRepositorySql
     {
-        public GameLikeRepository(IndieVisibleContext context) : base(context)
+        public NotificationRepositorySql(IndieVisibleContext context) : base(context)
         {
 
         }

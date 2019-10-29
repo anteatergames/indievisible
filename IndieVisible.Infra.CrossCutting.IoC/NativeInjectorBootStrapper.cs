@@ -10,6 +10,7 @@ using IndieVisible.Infra.Data.MongoDb.Context;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository;
+using IndieVisible.Infra.Data.MongoDb.UoW;
 using IndieVisible.Infra.Data.Repository;
 using IndieVisible.Infra.Data.UoW;
 using Microsoft.AspNetCore.Http;
@@ -26,47 +27,48 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Game
             services.AddScoped<IGameAppService, GameAppService>();
-            services.AddScoped<Domain.Interfaces.Repository.IGameRepository, Data.Repository.GameRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGameRepository, Data.MongoDb.Repository.GameRepository>();
+            services.AddScoped<IGameRepositorySql, GameRepositorySql>();
+            services.AddScoped<IGameRepository, GameRepository>();
             #endregion
 
             #region Profile
             services.AddScoped<IProfileAppService, ProfileAppService>();
             services.AddScoped<IProfileDomainService, ProfileDomainService>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IUserProfileRepository, Data.MongoDb.Repository.UserProfileRepository>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
             #endregion
 
             #region Content
             services.AddScoped<IUserContentAppService, UserContentAppService>();
             services.AddScoped<IUserContentDomainService, UserContentDomainService>();
-            services.AddScoped<Domain.Interfaces.Repository.IUserContentRepository, Data.Repository.UserContentRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IUserContentRepository, Data.MongoDb.Repository.UserContentRepository>();
+            services.AddScoped<IUserContentRepositorySql, UserContentRepositorySql>();
+            services.AddScoped<IUserContentRepository, UserContentRepository>();
             #endregion
 
             #region Brainstorm
             services.AddScoped<IBrainstormAppService, BrainstormAppService>();
-            services.AddScoped<IBrainstormSessionRepository, BrainstormSessionRepository>();
-            services.AddScoped<IBrainstormIdeaRepository, BrainstormIdeaRepository>();
-            services.AddScoped<IBrainstormVoteRepository, BrainstormVoteRepository>();
+            services.AddScoped<IBrainstormSessionRepositorySql, BrainstormSessionRepositorySql>();
+            services.AddScoped<IBrainstormIdeaRepositorySql, BrainstormIdeaRepositorySql>();
+            services.AddScoped<IBrainstormVoteRepositorySql, BrainstormVoteRepositorySql>();
             services.AddScoped<IBrainstormCommentRepositorySql, BrainstormCommentRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IBrainstormRepository, Data.MongoDb.Repository.BrainstormRepository>();
+            services.AddScoped<IBrainstormRepository, BrainstormRepository>();
             #endregion
 
             #region Featuring
             services.AddScoped<IFeaturedContentAppService, FeaturedContentAppService>();
-            services.AddScoped<Domain.Interfaces.Repository.IFeaturedContentRepository, Data.Repository.FeaturedContentRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IFeaturedContentRepository, Data.MongoDb.Repository.FeaturedContentRepository>();
+            services.AddScoped<IFeaturedContentRepositorySql, FeaturedContentRepositorySql>();
+            services.AddScoped<IFeaturedContentRepository, FeaturedContentRepository>();
             #endregion
 
             #region Preferences
             services.AddScoped<IUserPreferencesAppService, UserPreferencesAppService>();
-            services.AddScoped<Domain.Interfaces.Repository.IUserPreferencesRepository, Data.Repository.UserPreferencesRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IUserPreferencesRepository, Data.MongoDb.Repository.UserPreferencesRepository>();
+            services.AddScoped<IUserPreferencesRepositorySql, UserPreferencesRepositorySql>();
+            services.AddScoped<IUserPreferencesRepository, UserPreferencesRepository>();
             #endregion
 
             #region Notifications
             services.AddScoped<INotificationAppService, NotificationAppService>();
+            services.AddScoped<INotificationRepositorySql, NotificationRepositorySql>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
             #endregion
 
@@ -76,12 +78,12 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IUserBadgeRepository, UserBadgeRepository>();
             services.AddScoped<IGamificationAppService, GamificationAppService>();
             services.AddScoped<IGamificationDomainService, GamificationDomainService>();
-            services.AddScoped<Domain.Interfaces.Repository.IGamificationRepository, Data.Repository.GamificationRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGamificationRepository, Data.MongoDb.Repository.GamificationRepository>();
-            services.AddScoped<Domain.Interfaces.Repository.IGamificationActionRepository, Data.Repository.GamificationActionRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGamificationActionRepository, Data.MongoDb.Repository.GamificationActionRepository>();
-            services.AddScoped<Domain.Interfaces.Repository.IGamificationLevelRepository, Data.Repository.GamificationLevelRepository>();
-            services.AddScoped<Data.MongoDb.Interfaces.Repository.IGamificationLevelRepository, Data.MongoDb.Repository.GamificationLevelRepository>();
+            services.AddScoped<IGamificationRepositorySql, GamificationRepositorySql>();
+            services.AddScoped<IGamificationRepository, GamificationRepository>();
+            services.AddScoped<IGamificationActionRepositorySql, GamificationActionRepositorySql>();
+            services.AddScoped<IGamificationActionRepository, GamificationActionRepository>();
+            services.AddScoped<IGamificationLevelRepositorySql, GamificationLevelRepositorySql>();
+            services.AddScoped<IGamificationLevelRepository, GamificationLevelRepository>();
             #endregion
 
             #region Interactions
@@ -90,13 +92,13 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             services.AddScoped<ILikeAppService, LikeAppService>();
             services.AddScoped<IUserContentLikeRepository, UserContentLikeRepository>();
-            services.AddScoped<IGameLikeRepository, GameLikeRepository>();
+            services.AddScoped<IGameLikeRepositorySql, GameLikeRepositorySql>();
 
             services.AddScoped<IFollowAppService, FollowAppService>();
 
             services.AddScoped<IGameFollowAppService, GameFollowAppService>();
             services.AddScoped<IGameFollowDomainService, GameFollowDomainService>();
-            services.AddScoped<IGameFollowRepository, GameFollowRepository>();
+            services.AddScoped<IGameFollowRepositorySql, GameFollowRepositorySql>();
 
             services.AddScoped<IUserFollowAppService, UserFollowAppService>();
             services.AddScoped<IUserFollowDomainService, UserFollowDomainService>();
@@ -124,7 +126,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             // Infra - Data
             services.AddScoped<IndieVisibleContext>();
-            services.AddScoped<Domain.Interfaces.Base.IUnitOfWorkSql, IndieVisible.Infra.Data.UoW.UnitOfWork>();
+            services.AddScoped<IUnitOfWorkSql, UnitOfWorkSql>();
 
             // Infra - Identity Services
             services.AddTransient<IEmailSender, SendGridEmailService>();
@@ -132,7 +134,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddTransient<IImageStorageService, ImageStorageService>();
 
             services.AddScoped<IMongoContext, MongoContext>();
-            services.AddScoped<Data.MongoDb.Interfaces.IUnitOfWork, Data.MongoDb.UoW.UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

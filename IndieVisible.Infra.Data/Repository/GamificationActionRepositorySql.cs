@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class GamificationActionRepository : Repository<GamificationAction>, IGamificationActionRepository
+    public class GamificationActionRepositorySql : Repository<GamificationAction>, IGamificationActionRepositorySql
     {
-        public GamificationActionRepository(IndieVisibleContext context) : base(context)
+        public GamificationActionRepositorySql(IndieVisibleContext context) : base(context)
         {
         }
 
