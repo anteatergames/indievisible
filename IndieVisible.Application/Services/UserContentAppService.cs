@@ -347,6 +347,8 @@ namespace IndieVisible.Application.Services
         {
             if (currentUserId != Guid.Empty)
             {
+                item.CurrentUserLiked = item.Likes.Any(x => x == currentUserId);
+
                 foreach (UserContentCommentViewModel comment in item.Comments)
                 {
                     comment.AuthorName = string.IsNullOrWhiteSpace(comment.AuthorName) ? "Unknown soul" : comment.AuthorName;
@@ -359,6 +361,101 @@ namespace IndieVisible.Application.Services
         private static string SetFeaturedImage(Guid userId, string featuredImage)
         {
             return string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
+        }
+
+        public OperationResultVo ContentLike(Guid currentUserId, Guid targetId)
+        {
+            try
+            {
+                var likes = userContentDomainService.GetLikes(x => x.ContentId == targetId);
+                bool alreadyLiked = likes.Any(x => x.UserId == currentUserId);
+
+                if (alreadyLiked)
+                {
+                    return new OperationResultVo("Content already liked");
+                }
+                else
+                {
+                    UserContentLike model = new UserContentLike
+                    {
+                        ContentId = targetId,
+                        UserId = currentUserId
+                    };
+
+                    userContentDomainService.AddLike(model);
+
+                    unitOfWork.Commit();
+
+                    int newCount = likes.Count() + 1;
+
+                    return new OperationResultVo<int>(newCount);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo ContentUnlike(Guid currentUserId, Guid targetId)
+        {
+            try
+            {
+                var likes = userContentDomainService.GetLikes(x => x.ContentId == targetId);
+                UserContentLike existingLike = likes.FirstOrDefault(x => x.ContentId == targetId && x.UserId == currentUserId);
+
+                if (existingLike == null)
+                {
+                    return new OperationResultVo("Content not liked");
+                }
+                else
+                {
+                    userContentDomainService.RemoveLike(currentUserId, targetId);
+
+                    unitOfWork.Commit();
+
+                    int newCount = likes.Count() - 1;
+
+                    return new OperationResultVo<int>(newCount);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public OperationResultVo Comment(UserContentCommentViewModel vm)
+        {
+            try
+            {
+                bool commentAlreadyExists = userContentDomainService.CheckIfCommentExists<UserContentComment>(x => x.UserContentId == vm.UserContentId && x.UserId == vm.UserId && x.Text.Equals(vm.Text));
+
+                if (commentAlreadyExists)
+                {
+                    return new OperationResultVo(false)
+                    {
+                        Message = "Duplicated Comment"
+                    };
+                }
+                else
+                {
+                    UserContentComment model = mapper.Map<UserContentComment>(vm);
+
+                    userContentDomainService.Comment(model);
+
+                    unitOfWork.Commit();
+
+                    int newCount = userContentDomainService.CountComments(x => x.UserContentId == model.UserContentId && x.UserId == model.UserId);
+
+                    return new OperationResultVo<int>(newCount);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
     }
 }

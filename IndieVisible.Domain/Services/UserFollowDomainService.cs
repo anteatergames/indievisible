@@ -4,9 +4,9 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Services
 {
-    public class UserFollowDomainService : BaseDomainService<UserFollow, IUserFollowRepository>, IUserFollowDomainService
+    public class UserFollowDomainService : BaseDomainService<UserFollow, IUserFollowRepositorySql>, IUserFollowDomainService
     {
-        public UserFollowDomainService(IUserFollowRepository repository) : base(repository)
+        public UserFollowDomainService(IUserFollowRepositorySql repository) : base(repository)
         {
         }
     }

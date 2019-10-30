@@ -15,6 +15,7 @@ using System.Linq;
 
 namespace IndieVisible.Web.Controllers
 {
+    [Route("user")]
     public class UserController : SecureBaseController
     {
         private readonly IProfileAppService profileAppService;
@@ -37,11 +38,13 @@ namespace IndieVisible.Web.Controllers
             return View(model);
         }
 
+        [Route("edit")]
         public IActionResult Edit()
         {
             return View();
         }
 
+        [Route("list")]
         public IActionResult List()
         {
             OperationResultListVo<ProfileViewModel> serviceResult = profileAppService.GetAll(CurrentUserId);
@@ -56,6 +59,36 @@ namespace IndieVisible.Web.Controllers
 
             return View(profiles);
         }
+
+
+
+        #region User Follow/Unfollow
+        [HttpPost]
+        [Route("follow")]
+        public IActionResult FollowUser(Guid userId)
+        {
+            OperationResultVo response = profileAppService.UserFollow(CurrentUserId, userId);
+
+            string fullName = GetSessionValue(SessionValues.FullName);
+
+            string text = String.Format(SharedLocalizer["{0} is following you now!"], fullName);
+
+            string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
+
+            notificationAppService.Notify(CurrentUserId, userId, NotificationType.ContentLike, userId, text, url);
+
+            return Json(response);
+        }
+
+        [HttpPost]
+        [Route("unfollow")]
+        public IActionResult UnFollowUser(Guid userId)
+        {
+            OperationResultVo response = profileAppService.UserUnfollow(CurrentUserId, userId);
+
+            return Json(response);
+        }
+        #endregion
 
 
         public IActionResult Search(string term)
@@ -90,7 +123,7 @@ namespace IndieVisible.Web.Controllers
 
         #region User Connection
         [HttpGet]
-        [Route("user/connections/{userId:guid}")]
+        [Route("connections/{userId:guid}")]
         public IActionResult Connections(Guid userId)
         {
             OperationResultListVo<UserConnectionViewModel> connections = userConnectionAppService.GetByUserId(userId);
@@ -120,7 +153,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         [HttpPost]
-        [Route("user/connect")]
+        [Route("connect")]
         public IActionResult ConnectToUser(Guid userId)
         {
             OperationResultVo response = userConnectionAppService.Connect(CurrentUserId, userId);
@@ -137,7 +170,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         [HttpPost]
-        [Route("user/disconnect")]
+        [Route("disconnect")]
         public IActionResult DisconnectUser(Guid userId)
         {
             OperationResultVo response = userConnectionAppService.Disconnect(CurrentUserId, userId);
@@ -147,7 +180,7 @@ namespace IndieVisible.Web.Controllers
 
 
         [HttpPost]
-        [Route("user/allowconnection")]
+        [Route("allowconnection")]
         public IActionResult AllowUser(Guid userId)
         {
             OperationResultVo response = userConnectionAppService.Allow(CurrentUserId, userId);
@@ -157,7 +190,7 @@ namespace IndieVisible.Web.Controllers
 
 
         [HttpPost]
-        [Route("user/denyconnection")]
+        [Route("denyconnection")]
         public IActionResult DenyUser(Guid userId)
         {
             OperationResultVo response = userConnectionAppService.Deny(CurrentUserId, userId);

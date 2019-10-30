@@ -17,6 +17,27 @@ namespace IndieVisible.Domain.Services
         {
         }
 
+        public void AddLike(UserContentLike model)
+        {
+            Task.Run(async () => await repository.AddLike(model));
+        }
+
+        public bool CheckIfCommentExists<T>(Expression<Func<UserContentComment, bool>> where)
+        {
+            var task = repository.GetComments(where);
+
+            task.Wait();
+
+            var exists = task.Result.Any();
+
+            return exists;
+        }
+
+        public void Comment(UserContentComment model)
+        {
+            Task.Run(async () => await repository.AddComment(model));
+        }
+
         public int CountComments(Expression<Func<UserContentComment, bool>> where)
         {
             var countTask = repository.CountComments(where);
@@ -35,6 +56,7 @@ namespace IndieVisible.Domain.Services
 
             return countTask.Result;
         }
+
 
         public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly, int count)
         {
@@ -75,9 +97,21 @@ namespace IndieVisible.Domain.Services
 
         public IQueryable<UserContentComment> GetComments(Expression<Func<UserContentComment, bool>> where)
         {
-            var comments = Task.Run(async () => await repository.GetComments(where));//  contentCommentRepository.Get(where);
+            var task = Task.Run(async () => await repository.GetComments(where));
 
-            return comments.Result;
+            return task.Result;
+        }
+
+        public IEnumerable<UserContentLike> GetLikes(Func<UserContentLike, bool> where)
+        {
+            var task = Task.Run(async () => await repository.GetLikes(where));
+
+            return task.Result;
+        }
+
+        public void RemoveLike(Guid currentUserId, Guid userContentId)
+        {
+            Task.Run(async () => await repository.RemoveLike(currentUserId, userContentId));
         }
     }
 }

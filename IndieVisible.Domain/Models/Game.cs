@@ -8,10 +8,6 @@ namespace IndieVisible.Domain.Models
 {
     public class Game : Entity
     {
-        public Game()
-        {
-
-        }
         public string DeveloperName { get; set; }
 
         public string Title { get; set; }

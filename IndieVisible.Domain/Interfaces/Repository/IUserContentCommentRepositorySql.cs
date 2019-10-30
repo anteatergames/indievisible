@@ -3,7 +3,7 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface IUserFollowRepository : IRepositorySql<UserFollow>
+    public interface IUserContentCommentRepositorySql : IRepositorySql<UserContentComment>
     {
     }
 }

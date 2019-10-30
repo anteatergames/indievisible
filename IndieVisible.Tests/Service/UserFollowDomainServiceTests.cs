@@ -13,11 +13,11 @@ namespace IndieVisible.Tests.Service
     {
         private Guid guidValid = new Guid("1E213EA8-3605-4B67-282D-08D6E573BA84");
 
-        private readonly IUserFollowRepository mockRepository;
+        private readonly IUserFollowRepositorySql mockRepository;
 
         public UserFollowDomainServiceTests()
         {
-            mockRepository = Substitute.For<IUserFollowRepository>();
+            mockRepository = Substitute.For<IUserFollowRepositorySql>();
 
             UserFollow fakeUserFollow = new UserFollow
             {

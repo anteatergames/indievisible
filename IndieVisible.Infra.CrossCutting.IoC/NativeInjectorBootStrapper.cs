@@ -34,7 +34,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #region Profile
             services.AddScoped<IProfileAppService, ProfileAppService>();
             services.AddScoped<IProfileDomainService, ProfileDomainService>();
-            services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IProfileRepositorySql, ProfileRepository>();
             services.AddScoped<IUserProfileRepository, UserProfileRepository>();
             #endregion
 
@@ -88,13 +88,11 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Interactions
             services.AddScoped<IUserContentCommentAppService, UserContentCommentAppService>();
-            services.AddScoped<IUserContentCommentRepository, UserContentCommentRepository>();
+            services.AddScoped<IUserContentCommentRepositorySql, UserContentCommentRepository>();
 
             services.AddScoped<ILikeAppService, LikeAppService>();
-            services.AddScoped<IUserContentLikeRepository, UserContentLikeRepository>();
+            services.AddScoped<IUserContentLikeRepositorySql, UserContentLikeRepository>();
             services.AddScoped<IGameLikeRepositorySql, GameLikeRepositorySql>();
-
-            services.AddScoped<IFollowAppService, FollowAppService>();
 
             services.AddScoped<IGameFollowAppService, GameFollowAppService>();
             services.AddScoped<IGameFollowDomainService, GameFollowDomainService>();
@@ -102,7 +100,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             services.AddScoped<IUserFollowAppService, UserFollowAppService>();
             services.AddScoped<IUserFollowDomainService, UserFollowDomainService>();
-            services.AddScoped<IUserFollowRepository, UserFollowRepository>();
+            services.AddScoped<IUserFollowRepositorySql, UserFollowRepository>();
 
             services.AddScoped<IUserConnectionAppService, UserConnectionAppService>();
             services.AddScoped<IUserConnectionDomainService, UserConnectionDomainService>();

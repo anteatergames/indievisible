@@ -4,7 +4,11 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.Core.Interfaces;
 using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Models;
+using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
@@ -24,7 +28,7 @@ namespace IndieVisible.Application.Services
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IUserConnectionDomainService userConnectionDomainService;
 
-        private readonly IGameRepository gameRepositoryMongo;
+        private readonly IGameRepository gameRepository;
 
         public ProfileAppService(IMapper mapper
             , IUnitOfWork unitOfWork
@@ -38,7 +42,7 @@ namespace IndieVisible.Application.Services
             this.profileDomainService = profileDomainService;
             this.userContentDomainService = userContentDomainService;
             this.userConnectionDomainService = userConnectionDomainService;
-            this.gameRepositoryMongo = gameRepositoryMongo;
+            this.gameRepository = gameRepositoryMongo;
         }
 
         #region ICrudAppService
@@ -177,12 +181,12 @@ namespace IndieVisible.Application.Services
 
             vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
 
-            vm.Counters.Games = gameRepositoryMongo.Count(x => x.UserId == vm.UserId).Result;
+            vm.Counters.Games = gameRepository.Count(x => x.UserId == vm.UserId).Result;
             vm.Counters.Posts = userContentDomainService.Count(x => x.UserId == vm.UserId);
             vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 
-            vm.Counters.Followers = profileDomainService.CountFollow(x => x.FollowUserId == vm.UserId);
-            vm.Counters.Following = profileDomainService.CountFollow(x => x.UserId == currentUserId);
+            vm.Counters.Followers = model.Followers.Count;
+            vm.Counters.Following = profileDomainService.CountFollow(x => x.UserId == userId);
             int connectionsToUser = userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
             int connectionsFromUser = userConnectionDomainService.Count(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
 
@@ -230,6 +234,82 @@ namespace IndieVisible.Application.Services
                 IQueryable<ProfileSearchViewModel> vms = results.ProjectTo<ProfileSearchViewModel>(mapper.ConfigurationProvider);
 
                 return new OperationResultListVo<ProfileSearchViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo UserFollow(Guid currentUserId, Guid userId)
+        {
+            try
+            {
+                UserFollow model = new UserFollow
+                {
+                    FollowUserId = userId,
+                    UserId = currentUserId
+                };
+
+                ISpecification<UserFollow> spec = new IdsNotEmptySpecification()
+                    .And(new UserNotTheSameSpecification(currentUserId));
+
+                if (!spec.IsSatisfiedBy(model))
+                {
+                    return new OperationResultVo(false, spec.ErrorMessage);
+                }
+
+                bool alreadyFollowing = profileDomainService.CheckFollowing(currentUserId, userId);
+
+                if (alreadyFollowing)
+                {
+                    return new OperationResultVo(false, "User already followed");
+                }
+                else
+                {
+                    profileDomainService.AddFollow(model);
+
+                    unitOfWork.Commit();
+
+                    int newCount = profileDomainService.CountFollow(x => x.FollowUserId == userId);
+
+                    return new OperationResultVo<int>(newCount);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo UserUnfollow(Guid currentUserId, Guid userId)
+        {
+            try
+            {
+                if (currentUserId == Guid.Empty)
+                {
+                    return new OperationResultVo("You must be logged in to unfollow a user.");
+                }
+                else
+                {
+                    UserFollow existingFollow = profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == userId).FirstOrDefault();
+
+                    if (existingFollow == null)
+                    {
+                        return new OperationResultVo(false, "You are not following this user.");
+                    }
+                    else
+                    {
+                        profileDomainService.RemoveFollow(existingFollow);
+
+                        unitOfWork.Commit();
+
+                        int newCount = profileDomainService.CountFollow(x => x.FollowUserId == userId);
+
+                        return new OperationResultVo<int>(newCount);
+                    }
+                }
             }
             catch (Exception ex)
             {

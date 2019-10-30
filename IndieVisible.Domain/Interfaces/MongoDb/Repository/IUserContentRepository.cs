@@ -12,5 +12,9 @@ namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
     {
         Task<int> CountComments(Expression<Func<UserContentComment, bool>> where);
         Task<IQueryable<UserContentComment>> GetComments(Expression<Func<UserContentComment, bool>> where);
+        Task<IQueryable<UserContentLike>> GetLikes(Func<UserContentLike, bool> where);
+        Task<bool> AddLike(UserContentLike model);
+        Task<bool> RemoveLike(Guid currentUserId, Guid userContentId);
+        Task<bool> AddComment(UserContentComment model);
     }
 }

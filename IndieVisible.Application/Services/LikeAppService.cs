@@ -15,11 +15,11 @@ namespace IndieVisible.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWorkSql _unitOfWork;
-        private readonly IUserContentLikeRepository _contentLikeRepository;
+        private readonly IUserContentLikeRepositorySql _contentLikeRepository;
         private readonly IGameLikeRepositorySql _gameLikeRepository;
 
         public LikeAppService(IMapper mapper, IUnitOfWorkSql unitOfWork
-            , IUserContentLikeRepository contentLikeRepository, IGameLikeRepositorySql gameLikeRepository)
+            , IUserContentLikeRepositorySql contentLikeRepository, IGameLikeRepositorySql gameLikeRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

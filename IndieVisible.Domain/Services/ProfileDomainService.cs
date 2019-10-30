@@ -6,31 +6,52 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
     public class ProfileDomainService : BaseDomainMongoService<UserProfile, IUserProfileRepository>, IProfileDomainService
     {
-        private readonly IUserFollowRepository userFollowRepository;
 
-        public ProfileDomainService(IUserProfileRepository repository
-            , IUserFollowRepository userFollowRepository) : base(repository)
+        public ProfileDomainService(IUserProfileRepository repository) : base(repository)
         {
-            this.userFollowRepository = userFollowRepository;
+        }
+
+        public void AddFollow(UserFollow model)
+        {
+            Task.Run(async () => await repository.AddFollow(model));
+        }
+
+        public bool CheckFollowing(Guid userId, Guid folloWedUserId)
+        {
+            var task = repository.GetFollows(x => x.UserId == userId && x.FollowUserId == folloWedUserId);
+
+            task.Wait();
+
+            var exists = task.Result.Any();
+
+            return exists;
         }
 
         public int CountFollow(Expression<Func<UserFollow, bool>> where)
         {
-            int followCount = userFollowRepository.Count(where);
+            var task = repository.CountFollow(where);
 
-            return followCount;
+            task.Wait();
+
+            return task.Result;
         }
 
         public IEnumerable<UserFollow> GetFollows(Expression<Func<UserFollow, bool>> where)
         {
-            IQueryable<UserFollow> follows = userFollowRepository.Get(where);
+            var task = Task.Run(async () => await repository.GetFollows(where));
 
-            return follows;
+            return task.Result;
+        }
+
+        public void RemoveFollow(UserFollow existingFollow)
+        {
+            Task.Run(async () => await repository.RemoveFollower(existingFollow.UserId, existingFollow.FollowUserId));
         }
 
         public void UpdateNameOnThePlatform(Guid userId, string newName)

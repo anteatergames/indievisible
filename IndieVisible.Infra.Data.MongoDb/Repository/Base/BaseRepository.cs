@@ -34,6 +34,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
 
         public virtual void Add(TEntity obj)
         {
+            if (obj.CreateDate == DateTime.MinValue)
+            {
+                obj.CreateDate = DateTime.Now;
+            }
+
             Context.AddCommand(() => DbSet.InsertOneAsync(obj));
         }
 

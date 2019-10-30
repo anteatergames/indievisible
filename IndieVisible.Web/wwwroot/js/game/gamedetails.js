@@ -83,7 +83,7 @@
     }
 
     function like(likedId) {
-        return $.post("/interact/game/like", { likedId: likedId });
+        return $.post("/game/like", { likedId: likedId });
     }
     function likeCallback(response, likeCount, btn) {
         if (response.success === true) {
@@ -98,7 +98,7 @@
     }
 
     function unlike(likedId) {
-        return $.post("/interact/game/unlike", { likedId: likedId });
+        return $.post("/game/unlike", { likedId: likedId });
     }
     function unlikeCallback(response, likeCount, btn) {
         if (response.success === true) {
@@ -113,7 +113,7 @@
     }
 
     function follow(gameId) {
-        return $.post("/interact/game/follow", { gameId: gameId });
+        return $.post("/game/follow", { gameId: gameId });
     }
     function followCallback(response, followCount, btn) {
         if (response.success === true) {
@@ -128,7 +128,7 @@
     }
 
     function unfollow(gameId) {
-        return $.post("/interact/game/unfollow", { gameId: gameId });
+        return $.post("/game/unfollow", { gameId: gameId });
     }
     function unfollowCallback(response, likeCount, btn) {
         if (response.success === true) {

@@ -13,5 +13,10 @@ namespace IndieVisible.Domain.Interfaces.Service
         int CountCommentsByUserId(Guid userId);
         IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly, int count);
         IQueryable<UserContentComment> GetComments(Expression<Func<UserContentComment, bool>> where);
+        void AddLike(UserContentLike model);
+        IEnumerable<UserContentLike> GetLikes(Func<UserContentLike, bool> where);
+        void RemoveLike(Guid currentUserId, Guid targetId);
+        bool CheckIfCommentExists<T>(Expression<Func<UserContentComment, bool>> where);
+        void Comment(UserContentComment model);
     }
 }

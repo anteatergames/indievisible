@@ -9,6 +9,7 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Enums;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -141,6 +142,68 @@ namespace IndieVisible.Web.Controllers
 
             return ViewComponent("LatestGames", new { qtd, userId });
         }
+
+        #region Game Like/Unlike
+        [HttpPost]
+        [Route("game/like")]
+        public IActionResult LikeGame(Guid likedId)
+        {
+            OperationResultVo response = gameAppService.GameLike(CurrentUserId, likedId);
+
+            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, likedId);
+
+            string fullName = GetSessionValue(SessionValues.FullName);
+
+            string text = String.Format(SharedLocalizer["{0} loves your game {1}!"], fullName, gameResult.Value.Title);
+
+            string url = Url.Action("Details", "Game", new { id = likedId });
+
+            notificationAppService.Notify(CurrentUserId, gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
+
+
+            return Json(response);
+        }
+
+        [HttpPost]
+        [Route("game/unlike")]
+        public IActionResult UnLikeGame(Guid likedId)
+        {
+            OperationResultVo response = gameAppService.GameUnlike(CurrentUserId, likedId);
+
+            return Json(response);
+        }
+        #endregion
+
+        #region Game Follow/Unfollow
+        [HttpPost]
+        [Route("game/follow")]
+        public IActionResult FollowGame(Guid gameId)
+        {
+            OperationResultVo response = gameAppService.GameFollow(CurrentUserId, gameId);
+
+            OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, gameId);
+
+            string fullName = GetSessionValue(SessionValues.FullName);
+
+            string text = String.Format(SharedLocalizer["{0} is following your game {1} now!"], fullName, gameResult.Value.Title);
+
+            string url = Url.Action("Details", "Profile", new { id = CurrentUserId });
+
+            notificationAppService.Notify(CurrentUserId, gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
+
+
+            return Json(response);
+        }
+
+        [HttpPost]
+        [Route("game/unfollow")]
+        public IActionResult UnFollowGame(Guid gameId)
+        {
+            OperationResultVo response = gameAppService.GameUnfollow(CurrentUserId, gameId);
+
+            return Json(response);
+        }
+        #endregion
 
         [Route("game/byteam/{teamId:guid}")]
         public IActionResult ByTeam(Guid teamId)

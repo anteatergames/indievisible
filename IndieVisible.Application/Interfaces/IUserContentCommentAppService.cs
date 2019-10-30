@@ -5,6 +5,6 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IUserContentCommentAppService : ICrudAppService<UserContentCommentViewModel>
     {
-        OperationResultVo Comment(UserContentCommentViewModel viewModel);
+       // OperationResultVo Comment(UserContentCommentViewModel viewModel);
     }
 }

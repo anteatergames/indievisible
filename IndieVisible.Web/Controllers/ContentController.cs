@@ -9,6 +9,7 @@ using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Enums;
 using IndieVisible.Web.Extensions;
 using IndieVisible.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -22,19 +23,19 @@ namespace IndieVisible.Web.Controllers
 {
     public class ContentController : SecureBaseController
     {
-        private readonly IUserContentAppService service;
+        private readonly IUserContentAppService userContentAppService;
         private readonly IGameAppService gameAppService;
         private readonly IGameFollowAppService gameFollowAppService;
         private readonly IUserFollowAppService userFollowAppService;
         private readonly INotificationAppService notificationAppService;
 
-        public ContentController(IUserContentAppService service
+        public ContentController(IUserContentAppService userContentAppService
             , IGameAppService gameAppService
             , IGameFollowAppService gameFollowAppService
             , IUserFollowAppService userFollowAppService
             , INotificationAppService notificationAppService)
         {
-            this.service = service;
+            this.userContentAppService = userContentAppService;
             this.gameAppService = gameAppService;
             this.gameFollowAppService = gameFollowAppService;
             this.userFollowAppService = userFollowAppService;
@@ -46,7 +47,7 @@ namespace IndieVisible.Web.Controllers
         {
             notificationAppService.MarkAsRead(notificationclicked);
 
-            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(CurrentUserId, id);
+            OperationResultVo<UserContentViewModel> serviceResult = userContentAppService.GetById(CurrentUserId, id);
 
             if (!serviceResult.Success)
             {
@@ -97,7 +98,7 @@ namespace IndieVisible.Web.Controllers
         [Route("content/edit/{id:guid}")]
         public IActionResult Edit(Guid id)
         {
-            OperationResultVo<UserContentViewModel> serviceResult = service.GetById(CurrentUserId, id);
+            OperationResultVo<UserContentViewModel> serviceResult = userContentAppService.GetById(CurrentUserId, id);
 
             UserContentViewModel vm = serviceResult.Value;
 
@@ -140,7 +141,7 @@ namespace IndieVisible.Web.Controllers
             {
                 ProfileViewModel profile = SetAuthorDetails(vm);
 
-                OperationResultVo<Guid> saveResult = service.Save(CurrentUserId, vm);
+                OperationResultVo<Guid> saveResult = userContentAppService.Save(CurrentUserId, vm);
 
                 if (!saveResult.Success)
                 {
@@ -164,7 +165,7 @@ namespace IndieVisible.Web.Controllers
         [HttpDelete("/content/{id:guid}")]
         public IActionResult Delete(Guid id)
         {
-            OperationResultVo result = service.Remove(CurrentUserId, id);
+            OperationResultVo result = userContentAppService.Remove(CurrentUserId, id);
 
             if (result.Success)
             {
@@ -195,12 +196,57 @@ namespace IndieVisible.Web.Controllers
 
             SetContentImages(vm, images);
 
-            OperationResultVo<Guid> result = service.Save(CurrentUserId, vm);
+            OperationResultVo<Guid> result = userContentAppService.Save(CurrentUserId, vm);
 
             NotifyFollowers(CurrentUserId, profile, vm.GameId, vm.Id);
 
             return Json(result);
         }
+
+
+        [HttpPost]
+        #region Content interactions
+        [Route("content/like")]
+        public IActionResult LikeContent(Guid targetId)
+        {
+            OperationResultVo response = userContentAppService.ContentLike(CurrentUserId, targetId);
+
+            OperationResultVo<UserContentViewModel> content = userContentAppService.GetById(CurrentUserId, targetId);
+
+            string myName = GetSessionValue(SessionValues.FullName);
+
+            string text = String.Format(SharedLocalizer["{0} liked your post"], myName);
+
+            string url = Url.Action("Details", "Content", new { id = targetId });
+
+            notificationAppService.Notify(CurrentUserId, content.Value.UserId, NotificationType.ContentLike, targetId, text, url);
+
+            return Json(response);
+        }
+
+        [HttpPost]
+        [Route("content/unlike")]
+        public IActionResult UnLikeContent(Guid targetId)
+        {
+            OperationResultVo response = userContentAppService.ContentUnlike(CurrentUserId, targetId);
+
+            return Json(response);
+        }
+
+
+        [HttpPost]
+        [Route("content/comment")]
+        public IActionResult Comment(UserContentCommentViewModel vm)
+        {
+            OperationResultVo response;
+
+            SetAuthorDetails(vm);
+
+            response = userContentAppService.Comment(vm);
+
+            return Json(response);
+        }
+        #endregion
 
         public IActionResult Feed(Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {

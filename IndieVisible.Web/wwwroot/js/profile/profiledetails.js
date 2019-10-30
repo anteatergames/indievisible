@@ -154,7 +154,7 @@
 
 
     function follow(userId) {
-        return $.post("/interact/user/follow", { userId: userId });
+        return $.post("/user/follow", { userId: userId });
     }
     function followCallback(response, counterSelector, btn) {
         if (response.success === true) {
@@ -168,7 +168,7 @@
     }
 
     function unfollow(userId) {
-        return $.post("/interact/user/unfollow", { userId: userId });
+        return $.post("/user/unfollow", { userId: userId });
     }
     function unfollowCallback(response, counterSelector, btn) {
         if (response.success === true) {

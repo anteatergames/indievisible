@@ -12,5 +12,8 @@ namespace IndieVisible.Domain.Interfaces.Service
         IEnumerable<UserFollow> GetFollows(Expression<Func<UserFollow, bool>> where);
 
         void UpdateNameOnThePlatform(Guid userId, string newName);
+        bool CheckFollowing(Guid userId, Guid folloWedUserId);
+        void AddFollow(UserFollow model);
+        void RemoveFollow(UserFollow existingFollow);
     }
 }

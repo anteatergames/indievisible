@@ -15,9 +15,9 @@ namespace IndieVisible.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWorkSql _unitOfWork;
-        private readonly IUserContentCommentRepository _repository;
+        private readonly IUserContentCommentRepositorySql _repository;
 
-        public UserContentCommentAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, IUserContentCommentRepository repository)
+        public UserContentCommentAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, IUserContentCommentRepositorySql repository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -124,29 +124,29 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Comment(UserContentCommentViewModel viewModel)
-        {
-            bool commentAlreadyExists = _repository.GetAll().Any(x => x.UserContentId == viewModel.UserContentId && x.UserId == viewModel.UserId && x.Text.Equals(viewModel.Text));
+        //public OperationResultVo Comment(UserContentCommentViewModel viewModel)
+        //{
+        //    bool commentAlreadyExists = _repository.GetAll().Any(x => x.UserContentId == viewModel.UserContentId && x.UserId == viewModel.UserId && x.Text.Equals(viewModel.Text));
 
-            if (commentAlreadyExists)
-            {
-                return new OperationResultVo(false)
-                {
-                    Message = "Duplicated Comment"
-                };
-            }
-            else
-            {
-                UserContentComment model = _mapper.Map<UserContentComment>(viewModel);
+        //    if (commentAlreadyExists)
+        //    {
+        //        return new OperationResultVo(false)
+        //        {
+        //            Message = "Duplicated Comment"
+        //        };
+        //    }
+        //    else
+        //    {
+        //        UserContentComment model = _mapper.Map<UserContentComment>(viewModel);
 
-                _repository.Add(model);
+        //        _repository.Add(model);
 
-                _unitOfWork.Commit();
+        //        _unitOfWork.Commit();
 
-                int newCount = _repository.GetAll().Count(x => x.UserContentId == model.UserContentId && x.UserId == model.UserId);
+        //        int newCount = _repository.GetAll().Count(x => x.UserContentId == model.UserContentId && x.UserId == model.UserId);
 
-                return new OperationResultVo<int>(newCount);
-            }
-        }
+        //        return new OperationResultVo<int>(newCount);
+        //    }
+        //}
     }
 }

@@ -4,6 +4,7 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
@@ -11,6 +12,7 @@ using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace IndieVisible.Application.Services
 {
@@ -76,11 +78,11 @@ namespace IndieVisible.Application.Services
 
                 GameViewModel vm = mapper.Map<GameViewModel>(model);
 
-                vm.LikeCount = model.Likes.Count(x => x.GameId == vm.Id);
-                vm.FollowerCount = model.Followers.Count(x => x.GameId == vm.Id);
+                vm.LikeCount = model.Likes.SafeCount(x => x.GameId == vm.Id);
+                vm.FollowerCount = model.Followers.SafeCount(x => x.GameId == vm.Id);
 
-                vm.CurrentUserLiked = model.Likes.Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
-                vm.CurrentUserFollowing = model.Followers.Any(x => x.GameId == vm.Id && x.UserId == currentUserId);
+                vm.CurrentUserLiked = model.Likes.SafeAny(x => x.GameId == vm.Id && x.UserId == currentUserId);
+                vm.CurrentUserFollowing =  model.Followers.SafeAny(x => x.GameId == vm.Id && x.UserId == currentUserId);
 
                 return new OperationResultVo<GameViewModel>(vm);
             }

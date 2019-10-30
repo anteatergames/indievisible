@@ -20,6 +20,7 @@ namespace IndieVisible.Application.ViewModels
         protected BaseViewModel()
         {
             Permissions = new PermissionsVo();
+            CreateDate = DateTime.Now;
         }
     }
 }

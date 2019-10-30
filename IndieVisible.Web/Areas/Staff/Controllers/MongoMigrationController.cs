@@ -20,7 +20,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
     public class MongoMigrationController : SecureBaseController
     {
         private readonly IMongoContext context;
-        private readonly IProfileRepository profileRepository;
+        private readonly IProfileRepositorySql profileRepository;
+        private readonly IUserFollowRepositorySql userFollowRepository;
         private readonly IGameRepositorySql gameRepository;
         private readonly IGameFollowRepositorySql gameFollowRepository;
         private readonly IGameLikeRepositorySql gameLikeRepository;
@@ -29,8 +30,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly IBrainstormVoteRepositorySql brainstormVoteRepository;
         private readonly IBrainstormCommentRepositorySql brainstormCommentRepository;
         private readonly IUserContentRepositorySql userContentRepository;
-        private readonly IUserContentLikeRepository userContentLikeRepository;
-        private readonly IUserContentCommentRepository contentCommentRepository;
+        private readonly IUserContentLikeRepositorySql userContentLikeRepository;
+        private readonly IUserContentCommentRepositorySql contentCommentRepository;
         private readonly IUserPreferencesRepositorySql userPreferencesRepository;
         private readonly IFeaturedContentRepositorySql featuredContentRepository;
         private readonly IGamificationActionRepositorySql gamificationActionRepository;
@@ -39,7 +40,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly INotificationRepositorySql notificationRepository;
 
         public MongoMigrationController(IMongoContext context
-            , IProfileRepository profileRepository
+            , IProfileRepositorySql profileRepository
+            , IUserFollowRepositorySql userFollowRepository
             , IGameRepositorySql gameRepository
             , IGameFollowRepositorySql gameFollowRepository
             , IGameLikeRepositorySql gameLikeRepository
@@ -48,8 +50,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             , IBrainstormVoteRepositorySql brainstormVoteRepository
             , IBrainstormCommentRepositorySql brainstormCommentRepository
             , IUserContentRepositorySql userContentRepository
-            , IUserContentLikeRepository userContentLikeRepository
-            , IUserContentCommentRepository contentCommentRepository
+            , IUserContentLikeRepositorySql userContentLikeRepository
+            , IUserContentCommentRepositorySql contentCommentRepository
             , IUserPreferencesRepositorySql userPreferencesRepository
             , IFeaturedContentRepositorySql featuredContentRepository
             , IGamificationActionRepositorySql gamificationActionRepository
@@ -59,6 +61,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         {
             this.context = context;
             this.profileRepository = profileRepository;
+            this.userFollowRepository = userFollowRepository;
             this.gameRepository = gameRepository;
             this.gameFollowRepository = gameFollowRepository;
             this.gameLikeRepository = gameLikeRepository;
@@ -116,9 +119,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("GamificationAction", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("GamificationLevel")]
@@ -141,9 +142,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("GamificationLevel", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("UserProfiles")]
@@ -157,7 +156,14 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 var collection = context.GetCollection<UserProfile>(typeof(UserProfile).Name);
                 collection.DeleteMany(Builders<UserProfile>.Filter.Empty);
 
-                var all = profileRepository.GetAll();
+                var allFollowers = userFollowRepository.GetAll().ToList();
+
+                var all = profileRepository.GetAll().ToList();
+
+                foreach (var item in all)
+                {
+                    item.Followers = allFollowers.Where(x => x.UserId == item.UserId).ToList();
+                }
 
                 collection.InsertMany(all);
             }
@@ -166,9 +172,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("UserProfile", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("UserPreferences")]
@@ -191,9 +195,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("UserPreferences", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("Notification")]
@@ -216,9 +218,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>(RouteData.Values["action"].ToString(), count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("Games")]
@@ -269,9 +269,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("Game", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("Brainstorm")]
@@ -334,9 +332,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("Brainstorm Session", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("UserContent")]
@@ -366,9 +362,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("UserContent", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("FeaturedContent")]
@@ -396,9 +390,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
-            var model = new KeyValuePair<string, long>("FeaturedContent", count);
-
-            return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);
+            return MigrationResult(count);
         }
 
         [Route("Gamification")]
@@ -421,6 +413,11 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
             }
 
+            return MigrationResult(count);
+        }
+
+        private IActionResult MigrationResult(long count)
+        {
             var model = new KeyValuePair<string, long>(RouteData.Values["action"].ToString(), count);
 
             return View("~/Areas/Staff/Views/MongoMigration/MigrationResult.cshtml", model);

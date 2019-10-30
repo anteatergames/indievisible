@@ -98,7 +98,7 @@
 
 
     function like(targetId) {
-        return $.post("/interact/content/like", { targetId: targetId });
+        return $.post("/content/like", { targetId: targetId });
     }
     function likeCallback(response, likeCount, btn) {
         if (response.success === true) {
@@ -110,7 +110,7 @@
     }
 
     function unlike(targetId) {
-        return $.post("/interact/content/unlike", { targetId: targetId });
+        return $.post("/content/unlike", { targetId: targetId });
     }
     function unlikeCallback(response, likeCount, btn) {
         if (response.success === true) {
@@ -124,7 +124,7 @@
     function comment(url, contentId, text, type) {
 
         if (url === null || url === undefined || url.length === 0) {
-            url = "/interact/content/comment";
+            url = "/content/comment";
         }
 
         return $.post(url, { UserContentId: contentId, Text: text, UserContentType: type });

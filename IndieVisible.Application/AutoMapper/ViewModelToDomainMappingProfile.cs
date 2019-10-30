@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.AutoMapper.MappingActions;
 using IndieVisible.Application.AutoMapper.Resolvers;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Brainstorm;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
@@ -9,6 +10,8 @@ using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
+using IndieVisible.Domain.Core.Models;
+using System;
 using Profile = AutoMapper.Profile;
 
 namespace IndieVisible.Application.AutoMapper
@@ -18,6 +21,9 @@ namespace IndieVisible.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             #region General
+            CreateMap<BaseViewModel, Entity>()
+                .ForMember(dest => dest.CreateDate, opt => opt.Condition(x => x.CreateDate != DateTime.MinValue));
+
             CreateMap<FeaturedContentViewModel, Domain.Models.FeaturedContent>();
 
             CreateMap<UserPreferencesViewModel, Domain.Models.UserPreferences>()
