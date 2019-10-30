@@ -27,84 +27,87 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Game
             services.AddScoped<IGameAppService, GameAppService>();
-            services.AddScoped<IGameRepositorySql, GameRepositorySql>();
             services.AddScoped<IGameRepository, GameRepository>();
+
+            services.AddScoped<IGameRepositorySql, GameRepositorySql>();
             #endregion
 
             #region Profile
             services.AddScoped<IProfileAppService, ProfileAppService>();
             services.AddScoped<IProfileDomainService, ProfileDomainService>();
-            services.AddScoped<IProfileRepositorySql, ProfileRepository>();
             services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+
+            services.AddScoped<IProfileRepositorySql, ProfileRepositorySql>();
             #endregion
 
             #region Content
             services.AddScoped<IUserContentAppService, UserContentAppService>();
             services.AddScoped<IUserContentDomainService, UserContentDomainService>();
-            services.AddScoped<IUserContentRepositorySql, UserContentRepositorySql>();
             services.AddScoped<IUserContentRepository, UserContentRepository>();
+
+            services.AddScoped<IUserContentRepositorySql, UserContentRepositorySql>();
             #endregion
 
             #region Brainstorm
             services.AddScoped<IBrainstormAppService, BrainstormAppService>();
+            services.AddScoped<IBrainstormCommentRepositorySql, BrainstormCommentRepository>();
+            services.AddScoped<IBrainstormRepository, BrainstormRepository>();
+
             services.AddScoped<IBrainstormSessionRepositorySql, BrainstormSessionRepositorySql>();
             services.AddScoped<IBrainstormIdeaRepositorySql, BrainstormIdeaRepositorySql>();
             services.AddScoped<IBrainstormVoteRepositorySql, BrainstormVoteRepositorySql>();
-            services.AddScoped<IBrainstormCommentRepositorySql, BrainstormCommentRepository>();
-            services.AddScoped<IBrainstormRepository, BrainstormRepository>();
             #endregion
 
             #region Featuring
             services.AddScoped<IFeaturedContentAppService, FeaturedContentAppService>();
-            services.AddScoped<IFeaturedContentRepositorySql, FeaturedContentRepositorySql>();
             services.AddScoped<IFeaturedContentRepository, FeaturedContentRepository>();
+
+            services.AddScoped<IFeaturedContentRepositorySql, FeaturedContentRepositorySql>();
             #endregion
 
             #region Preferences
             services.AddScoped<IUserPreferencesAppService, UserPreferencesAppService>();
-            services.AddScoped<IUserPreferencesRepositorySql, UserPreferencesRepositorySql>();
             services.AddScoped<IUserPreferencesRepository, UserPreferencesRepository>();
+
+            services.AddScoped<IUserPreferencesRepositorySql, UserPreferencesRepositorySql>();
             #endregion
 
             #region Notifications
             services.AddScoped<INotificationAppService, NotificationAppService>();
-            services.AddScoped<INotificationRepositorySql, NotificationRepositorySql>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
+
+            services.AddScoped<INotificationRepositorySql, NotificationRepositorySql>();
             #endregion
 
             #region Gamification
-            services.AddScoped<IUserBadgeAppService, UserBadgeAppService>();
-            services.AddScoped<IUserBadgeDomainService, UserBadgeDomainService>();
-            services.AddScoped<IUserBadgeRepository, UserBadgeRepository>();
             services.AddScoped<IGamificationAppService, GamificationAppService>();
             services.AddScoped<IGamificationDomainService, GamificationDomainService>();
-            services.AddScoped<IGamificationRepositorySql, GamificationRepositorySql>();
             services.AddScoped<IGamificationRepository, GamificationRepository>();
-            services.AddScoped<IGamificationActionRepositorySql, GamificationActionRepositorySql>();
             services.AddScoped<IGamificationActionRepository, GamificationActionRepository>();
-            services.AddScoped<IGamificationLevelRepositorySql, GamificationLevelRepositorySql>();
             services.AddScoped<IGamificationLevelRepository, GamificationLevelRepository>();
+            services.AddScoped<IUserBadgeRepository, UserBadgeRepository>();
+
+            services.AddScoped<IUserBadgeRepositorySql, UserBadgeRepositorySql>();
+            services.AddScoped<IGamificationRepositorySql, GamificationRepositorySql>();
+            services.AddScoped<IGamificationActionRepositorySql, GamificationActionRepositorySql>();
+            services.AddScoped<IGamificationLevelRepositorySql, GamificationLevelRepositorySql>();
             #endregion
 
             #region Interactions
             services.AddScoped<IUserContentCommentAppService, UserContentCommentAppService>();
-            services.AddScoped<IUserContentCommentRepositorySql, UserContentCommentRepository>();
-
-            services.AddScoped<ILikeAppService, LikeAppService>();
-            services.AddScoped<IUserContentLikeRepositorySql, UserContentLikeRepository>();
-            services.AddScoped<IGameLikeRepositorySql, GameLikeRepositorySql>();
-
-            services.AddScoped<IGameFollowAppService, GameFollowAppService>();
-            services.AddScoped<IGameFollowDomainService, GameFollowDomainService>();
-            services.AddScoped<IGameFollowRepositorySql, GameFollowRepositorySql>();
 
             services.AddScoped<IUserFollowAppService, UserFollowAppService>();
             services.AddScoped<IUserFollowDomainService, UserFollowDomainService>();
-            services.AddScoped<IUserFollowRepositorySql, UserFollowRepository>();
 
             services.AddScoped<IUserConnectionAppService, UserConnectionAppService>();
             services.AddScoped<IUserConnectionDomainService, UserConnectionDomainService>();
             services.AddScoped<IUserConnectionRepository, UserConnectionRepository>();
+
+            services.AddScoped<IUserContentLikeRepositorySql, UserContentLikeRepositorySql>();
+            services.AddScoped<IUserContentCommentRepositorySql, UserContentCommentRepositorySql>();
+            services.AddScoped<IGameLikeRepositorySql, GameLikeRepositorySql>();
+            services.AddScoped<IGameFollowRepositorySql, GameFollowRepositorySql>();
+            services.AddScoped<IUserFollowRepositorySql, UserFollowRepositorySql>();
             #endregion
 
             #region Poll

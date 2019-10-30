@@ -4,9 +4,9 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class UserBadgeRepository : Repository<UserBadge>, IUserBadgeRepository
+    public class UserBadgeRepositorySql : Repository<UserBadge>, IUserBadgeRepositorySql
     {
-        public UserBadgeRepository(IndieVisibleContext context) : base(context)
+        public UserBadgeRepositorySql(IndieVisibleContext context) : base(context)
         {
         }
     }

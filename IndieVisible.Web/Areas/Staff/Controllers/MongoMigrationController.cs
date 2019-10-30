@@ -38,6 +38,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly IGamificationLevelRepositorySql gamificationLevelRepository;
         private readonly IGamificationRepositorySql gamificationRepository;
         private readonly INotificationRepositorySql notificationRepository;
+        private readonly IUserBadgeRepositorySql userBadgeRepository;
 
         public MongoMigrationController(IMongoContext context
             , IProfileRepositorySql profileRepository
@@ -57,7 +58,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             , IGamificationActionRepositorySql gamificationActionRepository
             , IGamificationLevelRepositorySql gamificationLevelRepository
             , IGamificationRepositorySql gamificationRepository
-            , INotificationRepositorySql notificationRepository)
+            , INotificationRepositorySql notificationRepository
+            , IUserBadgeRepositorySql userBadgeRepository)
         {
             this.context = context;
             this.profileRepository = profileRepository;
@@ -78,6 +80,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             this.gamificationLevelRepository = gamificationLevelRepository;
             this.gamificationRepository = gamificationRepository;
             this.notificationRepository = notificationRepository;
+            this.userBadgeRepository = userBadgeRepository;
         }
 
         public IActionResult Index()
@@ -86,6 +89,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             {
                 "GamificationAction",
                 "GamificationLevel",
+                "UserBadges",
                 "UserProfiles",
                 "UserPreferences",
                 "Notification",
@@ -134,6 +138,29 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 collection.DeleteMany(Builders<GamificationLevel>.Filter.Empty);
 
                 var all = gamificationLevelRepository.GetAll();
+
+                collection.InsertMany(all);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            return MigrationResult(count);
+        }
+
+        [Route("UserBadges")]
+        public IActionResult UserBadges()
+        {
+            long count = 0;
+            try
+            {
+                count = userBadgeRepository.Count(x => true);
+
+                var collection = context.GetCollection<UserBadge>(typeof(UserBadge).Name);
+                collection.DeleteMany(Builders<UserBadge>.Filter.Empty);
+
+                var all = userBadgeRepository.GetAll();
 
                 collection.InsertMany(all);
             }

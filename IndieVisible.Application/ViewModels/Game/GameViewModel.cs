@@ -54,6 +54,8 @@ namespace IndieVisible.Application.ViewModels.Game
 
         public List<GameExternalLinkViewModel> ExternalLinks { get; set; }
 
+        public List<GameFollowViewModel> Followers { get; set; }
+
         public TeamViewModel Team { get; set; }
 
         #region Counters

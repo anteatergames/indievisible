@@ -86,5 +86,23 @@ namespace IndieVisible.Application.Services
 
             return new OperationResultListVo<GamificationLevelViewModel>(vms);
         }
+
+
+
+        public OperationResultListVo<UserBadgeViewModel> GetBadgesByUserId(Guid userId)
+        {
+            try
+            {
+                IEnumerable<UserBadge> allModels = gamificationDomainService.GetBadgesByUserId(userId);
+
+                IEnumerable<UserBadgeViewModel> vms = mapper.Map<IEnumerable<UserBadge>, IEnumerable<UserBadgeViewModel>>(allModels);
+
+                return new OperationResultListVo<UserBadgeViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultListVo<UserBadgeViewModel>(ex.Message);
+            }
+        }
     }
 }

@@ -16,11 +16,11 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
     [Route("gamification/userbadge")]
     public class UserBadgeController : SecureBaseController
     {
-        private readonly IUserBadgeAppService userBadgeAppService;
+        private readonly IGamificationAppService gamificationAppService;
 
-        public UserBadgeController(IUserBadgeAppService userBadgeAppService)
+        public UserBadgeController(IGamificationAppService gamificationAppService)
         {
-            this.userBadgeAppService = userBadgeAppService;
+            this.gamificationAppService = gamificationAppService;
         }
 
         [Route("help")]
@@ -36,7 +36,7 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
         [Route("list/{id}")]
         public IActionResult ListByUser(Guid id)
         {
-            OperationResultListVo<UserBadgeViewModel> badges = userBadgeAppService.GetByUserId(id);
+            OperationResultListVo<UserBadgeViewModel> badges = gamificationAppService.GetBadgesByUserId(id);
 
             return View("_List", badges.Value);
         }

@@ -4,9 +4,9 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class UserContentCommentRepository : Repository<UserContentComment>, IUserContentCommentRepositorySql
+    public class UserContentLikeRepositorySql : Repository<UserContentLike>, IUserContentLikeRepositorySql
     {
-        public UserContentCommentRepository(IndieVisibleContext context) : base(context)
+        public UserContentLikeRepositorySql(IndieVisibleContext context) : base(context)
         {
 
         }

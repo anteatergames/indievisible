@@ -4,9 +4,9 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class UserFollowRepository : Repository<UserFollow>, IUserFollowRepositorySql
+    public class UserFollowRepositorySql : Repository<UserFollow>, IUserFollowRepositorySql
     {
-        public UserFollowRepository(IndieVisibleContext context) : base(context)
+        public UserFollowRepositorySql(IndieVisibleContext context) : base(context)
         {
         }
     }

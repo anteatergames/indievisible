@@ -12,5 +12,7 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo FillProfileGamificationDetails(Guid currentUserId, ref ProfileViewModel vm);
 
         OperationResultListVo<GamificationLevelViewModel> GetAllLevels();
+
+        OperationResultListVo<UserBadgeViewModel> GetBadgesByUserId(Guid userId);
     }
 }

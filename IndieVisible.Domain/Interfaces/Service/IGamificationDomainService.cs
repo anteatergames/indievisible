@@ -9,10 +9,21 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface IGamificationDomainService
     {
+        #region Gamification
         IEnumerable<RankingVo> Get(int count);
-        int ProcessAction(Guid userId, PlatformAction action);
-        GamificationLevel GetLevel(int levelNumber);
         Gamification GetByUserId(Guid userId);
-        IQueryable<GamificationLevel> GetAllLevels();
+        #endregion
+
+        #region Levels
+        GamificationLevel GetLevel(int levelNumber);
+        IQueryable<GamificationLevel> GetAllLevels(); 
+        #endregion
+
+        #region UserBadges
+        IEnumerable<UserBadge> GetBadges();
+        UserBadge GetBadgeById(Guid id);
+        IEnumerable<UserBadge> GetBadgesByUserId(Guid userId); 
+        #endregion
+        int ProcessAction(Guid userId, PlatformAction action);
     }
 }

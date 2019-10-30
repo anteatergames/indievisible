@@ -15,14 +15,20 @@ namespace IndieVisible.Domain.Services
         private readonly IGamificationRepository gamificationRepository;
         private readonly IGamificationActionRepository gamificationActionRepository;
         private readonly IGamificationLevelRepository gamificationLevelRepository;
+        private readonly IUserBadgeRepository userBadgeRepository;
 
-        public GamificationDomainService(IGamificationRepository gamificationRepository, IGamificationActionRepository gamificationActionRepository, IGamificationLevelRepository gamificationLevelRepository)
+        public GamificationDomainService(IGamificationRepository gamificationRepository
+            , IGamificationActionRepository gamificationActionRepository
+            , IGamificationLevelRepository gamificationLevelRepository
+            , IUserBadgeRepository userBadgeRepository)
         {
             this.gamificationRepository = gamificationRepository;
             this.gamificationActionRepository = gamificationActionRepository;
             this.gamificationLevelRepository = gamificationLevelRepository;
+            this.userBadgeRepository = userBadgeRepository;
         }
 
+        #region Gamification
         public IEnumerable<RankingVo> Get(int count)
         {
             List<RankingVo> result = new List<RankingVo>();
@@ -47,13 +53,6 @@ namespace IndieVisible.Domain.Services
             return result;
         }
 
-        public IQueryable<GamificationLevel> GetAllLevels()
-        {
-            IQueryable<GamificationLevel> levels = gamificationLevelRepository.Get();
-
-            return levels;
-        }
-
         public Gamification GetByUserId(Guid userId)
         {
             var userGamificationTask = gamificationRepository.GetByUserId(userId);
@@ -71,6 +70,15 @@ namespace IndieVisible.Domain.Services
 
             return userGamification;
         }
+        #endregion
+
+        #region Levels
+        public IQueryable<GamificationLevel> GetAllLevels()
+        {
+            IQueryable<GamificationLevel> levels = gamificationLevelRepository.Get();
+
+            return levels;
+        }
 
         public GamificationLevel GetLevel(int levelNumber)
         {
@@ -78,6 +86,30 @@ namespace IndieVisible.Domain.Services
 
             return task.Result;
         }
+        #endregion
+
+        #region Badges
+        public IEnumerable<UserBadge> GetBadges()
+        {
+            IQueryable<UserBadge> model = userBadgeRepository.Get();
+
+            return model;
+        }
+
+        public UserBadge GetBadgeById(Guid id)
+        {
+            var task = userBadgeRepository.GetById(id);
+            task.Wait();
+            return task.Result;
+        }
+
+        public IEnumerable<UserBadge> GetBadgesByUserId(Guid userId)
+        {
+            var task = userBadgeRepository.GetByUserId(userId);
+            task.Wait();
+            return task.Result;
+        }
+        #endregion
 
         public int ProcessAction(Guid userId, PlatformAction action)
         {

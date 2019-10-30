@@ -25,19 +25,16 @@ namespace IndieVisible.Web.Controllers
     {
         private readonly IUserContentAppService userContentAppService;
         private readonly IGameAppService gameAppService;
-        private readonly IGameFollowAppService gameFollowAppService;
         private readonly IUserFollowAppService userFollowAppService;
         private readonly INotificationAppService notificationAppService;
 
         public ContentController(IUserContentAppService userContentAppService
             , IGameAppService gameAppService
-            , IGameFollowAppService gameFollowAppService
             , IUserFollowAppService userFollowAppService
             , INotificationAppService notificationAppService)
         {
             this.userContentAppService = userContentAppService;
             this.gameAppService = gameAppService;
-            this.gameFollowAppService = gameFollowAppService;
             this.userFollowAppService = userFollowAppService;
             this.notificationAppService = notificationAppService;
         }
@@ -300,35 +297,29 @@ namespace IndieVisible.Web.Controllers
                 }
             }
 
-            gameName = CheckIfIsGamePost(gameId, followers, gameName);
+            gameName = ProcessGamePost(gameId, followers, gameName);
 
             Notify(profile, followers, notificationText, notificationUrl, gameName, targetId);
         }
 
-        private string CheckIfIsGamePost(Guid? gameId, Dictionary<Guid, FollowType> followers, string gameName)
+        private string ProcessGamePost(Guid? gameId, Dictionary<Guid, FollowType> userFollowers, string gameName)
         {
             if (gameId.HasValue)
             {
-                OperationResultListVo<GameFollowViewModel> gameFollowResult = gameFollowAppService.GetByGameId(gameId.Value);
-
                 OperationResultVo<GameViewModel> gameResult = gameAppService.GetById(CurrentUserId, gameId.Value);
 
                 if (gameResult.Success)
                 {
                     gameName = gameResult.Value.Title;
-                }
-
-                if (gameFollowResult.Success)
-                {
-                    foreach (GameFollowViewModel gameFollower in gameFollowResult.Value)
+                    foreach (GameFollowViewModel gameFollower in gameResult.Value.Followers)
                     {
-                        if (followers.ContainsKey(gameFollower.UserId))
+                        if (userFollowers.ContainsKey(gameFollower.UserId))
                         {
-                            followers[gameFollower.UserId] = FollowType.Game;
+                            userFollowers[gameFollower.UserId] = FollowType.Game;
                         }
                         else
                         {
-                            followers.Add(gameFollower.UserId, FollowType.Game);
+                            userFollowers.Add(gameFollower.UserId, FollowType.Game);
                         }
                     }
                 }
