@@ -110,7 +110,7 @@ namespace IndieVisible.Application.Services
         {
             vote.PollOptionId = pollOptionId;
 
-            pollDomainService.UpdateVote(vote);
+            pollDomainService.UpdateVote(Guid.Empty, vote);
         }
 
         private void AddVote(Guid userId, PollOption pollOption, Poll poll)
@@ -122,7 +122,7 @@ namespace IndieVisible.Application.Services
                 PollOptionId = pollOption.Id
             };
 
-            pollDomainService.AddVote(newVote);
+            pollDomainService.AddVote(Guid.Empty, newVote);
         }
     }
 }

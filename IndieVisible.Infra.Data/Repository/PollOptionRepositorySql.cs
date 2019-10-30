@@ -4,9 +4,9 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class PollVoteRepository : Repository<PollVote>, IPollVoteRepository
+    public class PollOptionRepositorySql : Repository<PollOption>, IPollOptionRepositorySql
     {
-        public PollVoteRepository(IndieVisibleContext context) : base(context)
+        public PollOptionRepositorySql(IndieVisibleContext context) : base(context)
         {
         }
     }

@@ -39,6 +39,9 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly IGamificationRepositorySql gamificationRepository;
         private readonly INotificationRepositorySql notificationRepository;
         private readonly IUserBadgeRepositorySql userBadgeRepository;
+        private readonly IPollRepositorySql pollRepository;
+        private readonly IPollOptionRepositorySql pollOptionRepository;
+        private readonly IPollVoteRepositorySql pollVoteRepository;
 
         public MongoMigrationController(IMongoContext context
             , IProfileRepositorySql profileRepository
@@ -59,7 +62,10 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             , IGamificationLevelRepositorySql gamificationLevelRepository
             , IGamificationRepositorySql gamificationRepository
             , INotificationRepositorySql notificationRepository
-            , IUserBadgeRepositorySql userBadgeRepository)
+            , IUserBadgeRepositorySql userBadgeRepository
+            , IPollRepositorySql pollRepository
+            , IPollOptionRepositorySql pollOptionRepository
+            , IPollVoteRepositorySql pollVoteRepository)
         {
             this.context = context;
             this.profileRepository = profileRepository;
@@ -81,6 +87,9 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             this.gamificationRepository = gamificationRepository;
             this.notificationRepository = notificationRepository;
             this.userBadgeRepository = userBadgeRepository;
+            this.pollRepository = pollRepository;
+            this.pollOptionRepository = pollOptionRepository;
+            this.pollVoteRepository = pollVoteRepository;
         }
 
         public IActionResult Index()
@@ -97,6 +106,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 "Games",
                 "Brainstorm",
                 "UserContent",
+                "Polls",
                 "FeaturedContent"
             };
 
@@ -381,6 +391,42 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                     item.Likes = userContentLikeRepository.Get(x => x.ContentId == item.Id).ToList();
                 }
 
+
+                collection.InsertMany(all);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            return MigrationResult(count);
+        }
+
+        [Route("Polls")]
+        public IActionResult Polls()
+        {
+            long count = 0;
+            try
+            {
+                count = pollRepository.Count(x => true);
+
+                var collection = context.GetCollection<Poll>(typeof(Poll).Name);
+                collection.DeleteMany(Builders<Poll>.Filter.Empty);
+
+                var all = pollRepository.GetAll().ToList();
+                var allOptions = pollOptionRepository.GetAll().ToList();
+                var allVotes= pollVoteRepository.GetAll().ToList();
+
+                foreach (var poll in all)
+                {
+                    poll.Options = allOptions.Where(x => x.PollId == poll.Id).ToList();                    
+
+                    foreach (PollOption option in poll.Options)
+                    {
+                        option.Poll = null;
+                        option.Votes = allVotes.Where(x => x.PollOptionId == option.Id).ToList();
+                    }
+                }
 
                 collection.InsertMany(all);
             }

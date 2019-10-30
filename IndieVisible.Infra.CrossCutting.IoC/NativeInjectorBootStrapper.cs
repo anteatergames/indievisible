@@ -114,8 +114,11 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IPollAppService, PollAppService>();
             services.AddScoped<IPollDomainService, PollDomainService>();
             services.AddScoped<IPollRepository, PollRepository>();
-            services.AddScoped<IPollOptionRepository, PollOptionRepository>();
-            services.AddScoped<IPollVoteRepository, PollVoteRepository>();
+
+
+            services.AddScoped<IPollRepositorySql, PollRepositorySql>();
+            services.AddScoped<IPollOptionRepositorySql, PollOptionRepositorySql>();
+            services.AddScoped<IPollVoteRepositorySql, PollVoteRepositorySql>();
             #endregion
 
             #region Team

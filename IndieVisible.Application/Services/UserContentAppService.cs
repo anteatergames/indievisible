@@ -319,22 +319,21 @@ namespace IndieVisible.Application.Services
             if (poll != null)
             {
                 pollVm = new PollViewModel();
-                IEnumerable<PollOption> options = pollDomainService.GetOptionsByPollId(poll.Id);
 
-                int totalVotes = pollDomainService.CountVotes(x => x.PollId == poll.Id);
+                int totalVotes = poll.Options.SelectMany(x => x.Votes).Count();
                 pollVm.TotalVotes = totalVotes;
 
-                foreach (PollOption o in options)
+                foreach (PollOption option in poll.Options)
                 {
                     PollOptionViewModel loadedOption = new PollOptionViewModel
                     {
-                        Id = o.Id,
-                        Text = o.Text
+                        Id = option.Id,
+                        Text = option.Text
                     };
 
-                    loadedOption.Votes = pollDomainService.CountVotes(x => x.PollOptionId == o.Id);
+                    loadedOption.Votes = option.Votes.Count;
                     loadedOption.VotePercentage = loadedOption.Votes > 0 ? (loadedOption.Votes / (decimal)totalVotes) * 100 : 0;
-                    loadedOption.CurrentUserVoted = pollDomainService.CheckUserVoted(currentUserId, o.Id);
+                    loadedOption.CurrentUserVoted = option.Votes.Any(x => x.UserId == currentUserId);
 
                     pollVm.PollOptions.Add(loadedOption);
                 }
