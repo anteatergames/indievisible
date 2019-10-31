@@ -15,6 +15,11 @@ namespace IndieVisible.Domain.Services
         {
         }
 
+        public void RemoveByContentId(Guid userContentId)
+        {
+            repository.RemoveByContentId(userContentId);
+        }
+
         public Poll GetByUserContentId(Guid userContentId)
         {
             Poll obj = repository.Get(x => x.UserContentId == userContentId).FirstOrDefault();

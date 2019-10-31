@@ -22,6 +22,13 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
                 map.AddKnownType(typeof(Game));
                 map.AddKnownType(typeof(UserProfileExternalLink));
                 map.AddKnownType(typeof(UserContent));
+                map.AddKnownType(typeof(Gamification));
+                map.AddKnownType(typeof(GamificationLevel));
+                map.AddKnownType(typeof(GamificationAction));
+                map.AddKnownType(typeof(UserContent));
+                map.AddKnownType(typeof(Poll));
+                map.AddKnownType(typeof(PollOption));
+                map.AddKnownType(typeof(PollVote));
             });
         }
     }

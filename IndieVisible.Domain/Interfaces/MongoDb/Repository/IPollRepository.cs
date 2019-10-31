@@ -13,5 +13,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
         void RemoveVote(Guid userId, Guid optionId);
         int CountVotes(Func<PollVote, bool> where);
         IQueryable<PollVote> GetVotes(Guid pollId);
+        void RemoveByContentId(Guid contentId);
     }
 }

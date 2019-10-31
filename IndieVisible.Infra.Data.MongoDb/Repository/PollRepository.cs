@@ -16,6 +16,21 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         {
         }
 
+        public override void Add(Poll obj)
+        {
+            foreach (var option in obj.Options)
+            {
+                option.Id = Guid.NewGuid();
+            }
+
+            base.Add(obj);
+        }
+
+        public void RemoveByContentId(Guid contentId)
+        {
+            Context.AddCommand(() => DbSet.DeleteOneAsync(Builders<Poll>.Filter.Eq("userContentId", contentId)));
+        }
+
         public void AddVote(Guid pollId, PollVote vote)
         {
             var poll = DbSet.Find(x => x.Id == pollId).FirstOrDefault();

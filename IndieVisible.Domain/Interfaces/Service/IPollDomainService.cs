@@ -16,5 +16,7 @@ namespace IndieVisible.Domain.Interfaces.Service
         void ReplaceVote(Guid userId, Guid pollId, Guid oldOptionId, Guid newOptionId);
 
         IEnumerable<PollVote> GetVotes(Guid pollId);
+        
+        void RemoveByContentId(Guid userContentId);
     }
 }

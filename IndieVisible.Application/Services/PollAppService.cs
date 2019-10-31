@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
@@ -40,7 +41,7 @@ namespace IndieVisible.Application.Services
                 }
 
                 var option = poll.Options.First(x => x.Id == pollOptionId);
-                option.Votes = option.Votes ?? new List<PollVote>();
+                option.Votes = option.Votes.SafeList();
 
                 bool alreadyVoted = option.Votes.Any(x => x.UserId == currentUserId);
 
@@ -49,7 +50,7 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("You already voted on this option.");
                 }
 
-                var userVotesOnThisPoll = poll.Options.SelectMany(x => x.Votes).Where(x => x.UserId == currentUserId);
+                var userVotesOnThisPoll = poll.Options.SelectMany(x => x.Votes.SafeList()).Where(x => x.UserId == currentUserId);
 
                 if (poll.MultipleChoice || !userVotesOnThisPoll.Any())
                 {

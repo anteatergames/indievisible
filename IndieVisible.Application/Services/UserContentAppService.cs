@@ -113,6 +113,8 @@ namespace IndieVisible.Application.Services
         {
             try
             {
+                pollDomainService.RemoveByContentId(id);
+
                 userContentDomainService.Remove(id);
 
                 unitOfWork.Commit();
@@ -166,11 +168,13 @@ namespace IndieVisible.Application.Services
 
                 if (isNew)
                 {
-                    userContentDomainService.Add(model);
-                    viewModel.Id = model.Id;
+                    var guid = userContentDomainService.Add(model);
 
                     PlatformAction action = viewModel.IsComplex ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
                     pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, action);
+
+                    unitOfWork.Commit();
+                    viewModel.Id = model.Id;
 
                     if (viewModel.Poll != null && viewModel.Poll.PollOptions != null && viewModel.Poll.PollOptions.Any())
                     {
@@ -214,7 +218,11 @@ namespace IndieVisible.Application.Services
 
         private void CreatePoll(UserContentViewModel contentVm)
         {
-            List<PollOption> options = new List<PollOption>();
+            Poll newPoll = new Poll
+            {                
+                UserId = contentVm.UserId,
+                UserContentId = contentVm.Id
+            };
 
             foreach (PollOptionViewModel o in contentVm.Poll.PollOptions)
             {
@@ -224,15 +232,9 @@ namespace IndieVisible.Application.Services
                     Text = o.Text
                 };
 
-                options.Add(newOption);
+                newPoll.Options.Add(newOption);
             }
 
-            Poll newPoll = new Poll
-            {
-                UserId = contentVm.UserId,
-                UserContentId = contentVm.Id,
-                Options = options
-            };
 
             pollDomainService.Add(newPoll);
         }

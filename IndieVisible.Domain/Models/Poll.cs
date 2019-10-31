@@ -19,5 +19,10 @@ namespace IndieVisible.Domain.Models
         public virtual UserContent UserContent { get; set; }
 
         public virtual ICollection<PollOption> Options { get; set; }
+
+        public Poll()
+        {
+            Options = new List<PollOption>();
+        }
     }
 }
