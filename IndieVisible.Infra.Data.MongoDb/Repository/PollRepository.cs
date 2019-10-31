@@ -18,44 +18,58 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public void AddVote(Guid pollId, PollVote vote)
         {
-            //var filterPoll = Builders<Poll>.Filter.Eq(x => x.Id, pollId);
-            //var filterOption = Builders<Poll>.Filter.Where(x => x.Options.Any
-            //var add = Builders<Poll>.Update.AddToSet(c => c.Options, model);
+            var poll = DbSet.Find(x => x.Id == pollId).FirstOrDefault();
 
-            //var result = await DbSet.UpdateOneAsync(filterPoll, add);
+            if (poll != null)
+            {
+                var option = poll.Options.FirstOrDefault(x => x.Id == vote.PollOptionId);
 
-            //return result.IsAcknowledged && result.MatchedCount > 0;
-            throw new NotImplementedException();
+                if (option != null)
+                {
+                    option.Votes = option.Votes ?? new List<PollVote>();
+                    option.Votes.Add(vote);
+
+                    DbSet.ReplaceOne(x => x.Id == pollId, poll);
+                }
+            }
+        }
+
+        public void RemoveVote(Guid userId, Guid optionId)
+        {
+            var poll = GetPollByOptionId(optionId);
+
+            if (poll != null)
+            {
+                var option = poll.Options.FirstOrDefault(x => x.Id == optionId);
+
+                if (option != null)
+                {
+                    var vote = option.Votes.FirstOrDefault(x => x.UserId == userId);
+
+                    if (vote != null)
+                    {
+                        option.Votes = option.Votes ?? new List<PollVote>();
+                        option.Votes.Remove(vote);
+
+                        DbSet.ReplaceOne(x => x.Id == poll.Id, poll);
+                    }
+                }
+            }
         }
 
         public int CountVotes(Func<PollVote, bool> where)
         {
-            throw new NotImplementedException();
+            return DbSet.AsQueryable().SelectMany(x => x.Options).SelectMany(x => x.Votes).Count();
         }
 
-        public PollOption GetOptionById(Guid id)
+        public Poll GetPollByOptionId(Guid optionId)
         {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<PollVote> GetVotes(Guid pollId, Func<PollVote, bool> where)
-        {
-            throw new NotImplementedException();
+            return DbSet.AsQueryable().FirstOrDefault(x => x.Options.Any(y => y.Id == optionId));
         }
 
         public IQueryable<PollVote> GetVotes(Guid pollId)
         {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<PollVote> GetVotes(Func<PollVote, bool> where)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateVote(PollVote vote)
-        {
-            throw new NotImplementedException();
+            return DbSet.AsQueryable().Where(x => x.Id == pollId).SelectMany(x => x.Options).SelectMany(x => x.Votes);
         }
     }
 }

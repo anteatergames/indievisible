@@ -320,7 +320,7 @@ namespace IndieVisible.Application.Services
             {
                 pollVm = new PollViewModel();
 
-                int totalVotes = poll.Options.SelectMany(x => x.Votes).Count();
+                int totalVotes = poll.Options.SelectMany(x => x.Votes ?? new List<PollVote>()).Count();
                 pollVm.TotalVotes = totalVotes;
 
                 foreach (PollOption option in poll.Options)
@@ -330,6 +330,7 @@ namespace IndieVisible.Application.Services
                         Id = option.Id,
                         Text = option.Text
                     };
+                    option.Votes = option.Votes ?? new List<PollVote>();
 
                     loadedOption.Votes = option.Votes.Count;
                     loadedOption.VotePercentage = loadedOption.Votes > 0 ? (loadedOption.Votes / (decimal)totalVotes) * 100 : 0;

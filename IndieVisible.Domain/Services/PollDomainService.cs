@@ -15,33 +15,37 @@ namespace IndieVisible.Domain.Services
         {
         }
 
-        public Poll GetByUserContentId(Guid id)
+        public Poll GetByUserContentId(Guid userContentId)
         {
-            Poll obj = repository.Get(x => x.UserContentId == id).FirstOrDefault();
+            Poll obj = repository.Get(x => x.UserContentId == userContentId).FirstOrDefault();
 
             return obj;
         }
 
-        public PollOption GetOptionById(Guid id)
+        public Poll GetPollByOptionId(Guid id)
         {
-            PollOption obj = repository.GetOptionById(id);
+            Poll obj = repository.GetPollByOptionId(id);
 
             return obj;
         }
 
-        public Guid AddVote(Guid pollId, PollVote vote)
+        public void AddVote(Guid userId, Guid pollId, Guid optionId)
         {
-            repository.AddVote(pollId, vote);
+            PollVote newVote = new PollVote
+            {
+                UserId = userId,
+                PollId = pollId,
+                PollOptionId = optionId
+            };
 
-            return vote.Id;
+            repository.AddVote(pollId, newVote);
         }
 
-
-        public Guid UpdateVote(Guid pollId, PollVote vote)
+        public void ReplaceVote(Guid userId, Guid pollId, Guid oldOptionId, Guid newOptionId)
         {
-            repository.UpdateVote(vote);
+            repository.RemoveVote(userId, oldOptionId);
 
-            return vote.Id;
+            this.AddVote(userId, pollId, newOptionId);
         }
 
         public bool CheckUserVoted(Guid userId, Guid pollOptionId)
@@ -51,9 +55,9 @@ namespace IndieVisible.Domain.Services
             return count > 0;
         }
 
-        public IEnumerable<PollVote> GetVotes(Guid userId, Guid pollId)
+        public IEnumerable<PollVote> GetVotes(Guid pollId)
         {
-            IQueryable<PollVote> objs = repository.GetVotes(pollId, x => x.UserId == userId);
+            IQueryable<PollVote> objs = repository.GetVotes(pollId);
 
             return objs.ToList();
         }
@@ -61,13 +65,6 @@ namespace IndieVisible.Domain.Services
         public IEnumerable<PollVote> GetByPollId(Guid pollId)
         {
             IQueryable<PollVote> objs = repository.GetVotes(pollId);
-
-            return objs.ToList();
-        }
-
-        public IEnumerable<PollVote> GetByPollOptionId(Guid pollOptionId)
-        {
-            IQueryable<PollVote> objs = repository.GetVotes(x => x.PollOptionId == pollOptionId);
 
             return objs.ToList();
         }

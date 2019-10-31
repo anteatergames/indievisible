@@ -9,18 +9,12 @@ namespace IndieVisible.Domain.Interfaces.Service
     {
         Poll GetByUserContentId(Guid id);
 
-        PollOption GetOptionById(Guid id);
+        Poll GetPollByOptionId(Guid id);
 
-        Guid AddVote(Guid pollId, PollVote vote);
+        void AddVote(Guid userId, Guid pollId, Guid optionId);
 
-        Guid UpdateVote(Guid pollId, PollVote vote);
+        void ReplaceVote(Guid userId, Guid pollId, Guid oldOptionId, Guid newOptionId);
 
-        IEnumerable<PollVote> GetByPollId(Guid pollId);
-
-        IEnumerable<PollVote> GetByPollOptionId(Guid pollOptionId);
-
-        IEnumerable<PollVote> GetVotes(Guid userId, Guid pollId);
-
-        bool CheckUserVoted(Guid userId, Guid pollOptionId);
+        IEnumerable<PollVote> GetVotes(Guid pollId);
     }
 }
