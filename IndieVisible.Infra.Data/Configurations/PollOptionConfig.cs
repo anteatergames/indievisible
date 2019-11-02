@@ -20,8 +20,6 @@ namespace IndieVisible.Infra.Data.Configurations
 
             builder.Property(x => x.Image)
                 .HasMaxLength(256);
-
-            builder.HasMany(x => x.Votes);
         }
     }
 }

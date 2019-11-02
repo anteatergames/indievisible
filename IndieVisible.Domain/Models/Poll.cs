@@ -20,9 +20,12 @@ namespace IndieVisible.Domain.Models
 
         public virtual ICollection<PollOption> Options { get; set; }
 
+        public List<PollVote> Votes { get; set; }
+
         public Poll()
         {
             Options = new List<PollOption>();
+            Votes = new List<PollVote>();
         }
     }
 }

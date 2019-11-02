@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Interfaces.Repository;
+﻿using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
@@ -31,6 +32,9 @@ namespace IndieVisible.Domain.Services
         {
             Poll obj = repository.GetPollByOptionId(id);
 
+            obj.Options = obj.Options.Safe();
+            obj.Votes = obj.Votes.Safe();
+
             return obj;
         }
 
@@ -43,14 +47,25 @@ namespace IndieVisible.Domain.Services
                 PollOptionId = optionId
             };
 
-            repository.AddVote(pollId, newVote);
+            var task = repository.AddVote(pollId, newVote);
+
+            task.Wait();
         }
 
         public void ReplaceVote(Guid userId, Guid pollId, Guid oldOptionId, Guid newOptionId)
         {
-            repository.RemoveVote(userId, oldOptionId);
+            var vote = repository.GetVote(userId, pollId);
 
-            this.AddVote(userId, pollId, newOptionId);
+            if (vote != null)
+            {
+                vote.PollOptionId = newOptionId;
+            }
+
+            var task = repository.UpdateVote(vote);
+
+            task.Wait();
+
+            var result = task.Result;
         }
 
         public bool CheckUserVoted(Guid userId, Guid pollOptionId)

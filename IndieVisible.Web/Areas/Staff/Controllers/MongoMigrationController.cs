@@ -419,13 +419,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
 
                 foreach (var poll in all)
                 {
-                    poll.Options = allOptions.Where(x => x.PollId == poll.Id).ToList();                    
-
-                    foreach (PollOption option in poll.Options)
-                    {
-                        option.Poll = null;
-                        option.Votes = allVotes.Where(x => x.PollOptionId == option.Id).ToList();
-                    }
+                    poll.Options = allOptions.Where(x => x.PollId == poll.Id).ToList();
+                    poll.Votes = allVotes.Where(x => x.PollId == poll.Id).ToList();
                 }
 
                 collection.InsertMany(all);

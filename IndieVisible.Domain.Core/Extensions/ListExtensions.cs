@@ -5,9 +5,9 @@ using System.Text;
 
 namespace IndieVisible.Domain.Core.Extensions
 {
-    public static class ICollectionExtensions
+    public static class ListExtensions
     {
-        public static ICollection<T> Safe<T>(this ICollection<T> list)
+        public static List<T> Safe<T>(this List<T> list)
         {
             return list ??  new List<T>();
         }

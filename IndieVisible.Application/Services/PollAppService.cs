@@ -41,16 +41,15 @@ namespace IndieVisible.Application.Services
                 }
 
                 var option = poll.Options.First(x => x.Id == pollOptionId);
-                option.Votes = option.Votes.SafeList();
 
-                bool alreadyVoted = option.Votes.Any(x => x.UserId == currentUserId);
+                bool alreadyVoted = poll.Votes.Any(x => x.PollOptionId == pollOptionId && x.UserId == currentUserId);
 
                 if (alreadyVoted)
                 {
                     return new OperationResultVo("You already voted on this option.");
                 }
 
-                var userVotesOnThisPoll = poll.Options.SelectMany(x => x.Votes.SafeList()).Where(x => x.UserId == currentUserId);
+                var userVotesOnThisPoll = poll.Votes.Where(x => x.UserId == currentUserId);
 
                 if (poll.MultipleChoice || !userVotesOnThisPoll.Any())
                 {
@@ -86,14 +85,12 @@ namespace IndieVisible.Application.Services
         {
             PollResultsViewModel resultVm = new PollResultsViewModel();
 
-            IEnumerable<PollVote> votes = pollDomainService.GetVotes(poll.Id);
+            var votes = pollDomainService.GetVotes(poll.Id);
 
             IEnumerable<KeyValuePair<Guid, int>> groupedVotes = from v in votes
                                                                 group v by v.PollOptionId into g
                                                                 select new KeyValuePair<Guid, int>(g.Key, g.Count());
-
-            int totalVotes = groupedVotes.Sum(x => x.Value);
-            resultVm.TotalVotes = totalVotes;
+            resultVm.TotalVotes = votes.Count();
 
             foreach (KeyValuePair<Guid, int> g in groupedVotes)
             {
@@ -101,7 +98,7 @@ namespace IndieVisible.Application.Services
                 {
                     OptionId = g.Key,
                     VoteCount = g.Value,
-                    Percentage = ((g.Value / (decimal)totalVotes) * 100).ToString("N2", new CultureInfo("en-us"))
+                    Percentage = ((g.Value / (decimal)resultVm.TotalVotes) * 100).ToString("N2", new CultureInfo("en-us"))
                 };
 
                 resultVm.OptionResults.Add(newOptionResult);
