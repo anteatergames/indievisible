@@ -18,7 +18,8 @@ namespace IndieVisible.Domain.Models
 
         public string Location { get; set; }
 
-        public virtual ICollection<UserProfileExternalLink> ExternalLinks { get; set; }
-        public virtual ICollection<UserFollow> Followers { get; set; }
+        public List<UserProfileExternalLink> ExternalLinks { get; set; }
+        public List<UserFollow> Followers { get; set; }
+        public List<UserConnection> Connections { get; set; }
     }
 }

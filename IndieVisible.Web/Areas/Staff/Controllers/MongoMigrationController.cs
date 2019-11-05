@@ -21,6 +21,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
     {
         private readonly IMongoContext context;
         private readonly IProfileRepositorySql profileRepository;
+        private readonly IUserConnectionRepositorySql userConnectionRepository;
         private readonly IUserFollowRepositorySql userFollowRepository;
         private readonly IGameRepositorySql gameRepository;
         private readonly IGameFollowRepositorySql gameFollowRepository;
@@ -45,6 +46,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
 
         public MongoMigrationController(IMongoContext context
             , IProfileRepositorySql profileRepository
+            , IUserConnectionRepositorySql userConnectionRepository
             , IUserFollowRepositorySql userFollowRepository
             , IGameRepositorySql gameRepository
             , IGameFollowRepositorySql gameFollowRepository
@@ -69,6 +71,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         {
             this.context = context;
             this.profileRepository = profileRepository;
+            this.userConnectionRepository = userConnectionRepository;
             this.userFollowRepository = userFollowRepository;
             this.gameRepository = gameRepository;
             this.gameFollowRepository = gameFollowRepository;
@@ -193,16 +196,17 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 var collection = context.GetCollection<UserProfile>(typeof(UserProfile).Name);
                 collection.DeleteMany(Builders<UserProfile>.Filter.Empty);
 
+                var allProfiles = profileRepository.GetAll().ToList();
                 var allFollowers = userFollowRepository.GetAll().ToList();
+                var allConnections = userConnectionRepository.GetAll().ToList();
 
-                var all = profileRepository.GetAll().ToList();
-
-                foreach (var item in all)
+                foreach (var item in allProfiles)
                 {
                     item.Followers = allFollowers.Where(x => x.UserId == item.UserId).ToList();
+                    item.Connections = allConnections.Where(x => x.TargetUserId == item.UserId || x.UserId == item.UserId).ToList();
                 }
 
-                collection.InsertMany(all);
+                collection.InsertMany(allProfiles);
             }
             catch (Exception ex)
             {

@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,15 @@ namespace IndieVisible.Domain.Services
         public int CountFollow(Expression<Func<UserFollow, bool>> where)
         {
             var task = repository.CountFollow(where);
+
+            task.Wait();
+
+            return task.Result;
+        }
+
+        public UserProfileEssentialVo GetBasicDataByUserId(Guid targetUserId)
+        {
+            var task = repository.GetBasicDataByUserId(targetUserId);
 
             task.Wait();
 

@@ -6,6 +6,8 @@ namespace IndieVisible.Application.ViewModels.User
     {
         public Guid TargetUserId { get; set; }
 
+        public DateTime? ApprovalDate { get; set; }
+
         public string TargetUserName { get; set; }
 
         public string ProfileImageUrl { get; set; }

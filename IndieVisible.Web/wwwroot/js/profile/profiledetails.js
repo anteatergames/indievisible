@@ -120,7 +120,7 @@
                 loadGameList(objs.Id.val());
             }
             else if (tabDestination === '#' + objs.tabConnections.prop('id')) {
-                loadConnections(objs.UserId.val());
+                //loadConnections(objs.UserId.val());
             }
             return false;
         });

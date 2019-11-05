@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
@@ -16,6 +17,19 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
     {
         public UserProfileRepository(IMongoContext context) : base(context)
         {
+        }
+        public async Task<UserProfileEssentialVo> GetBasicDataByUserId(Guid targetUserId)
+        {
+            var profile = await DbSet.Find(x => x.UserId == targetUserId).Project(x => new UserProfileEssentialVo
+            {
+                Id = x.Id,
+                UserId = targetUserId,
+                Name = x.Name,
+                Location = x.Location,
+                CreateDate = x.CreateDate
+            }).FirstOrDefaultAsync();
+
+            return profile;
         }
 
         public async Task<bool> AddFollow(UserFollow model)

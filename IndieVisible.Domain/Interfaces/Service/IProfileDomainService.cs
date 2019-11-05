@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -15,5 +16,6 @@ namespace IndieVisible.Domain.Interfaces.Service
         bool CheckFollowing(Guid userId, Guid folloWedUserId);
         void AddFollow(UserFollow model);
         void RemoveFollow(UserFollow existingFollow);
+        UserProfileEssentialVo GetBasicDataByUserId(Guid targetUserId);
     }
 }

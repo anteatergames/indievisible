@@ -122,36 +122,6 @@ namespace IndieVisible.Web.Controllers
         }
 
         #region User Connection
-        [HttpGet]
-        [Route("connections/{userId:guid}")]
-        public IActionResult Connections(Guid userId)
-        {
-            OperationResultListVo<UserConnectionViewModel> connections = userConnectionAppService.GetByUserId(userId);
-
-            List<UserConnectionViewModel> model;
-
-            if (connections.Success)
-            {
-                model = connections.Value.ToList();
-
-                foreach (UserConnectionViewModel item in model)
-                {
-                    SetImages(item);
-                }
-            }
-            else
-            {
-                model = new List<UserConnectionViewModel>();
-            }
-
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView(model);
-            }
-
-            return View(model);
-        }
-
         [HttpPost]
         [Route("connect")]
         public IActionResult ConnectToUser(Guid userId)

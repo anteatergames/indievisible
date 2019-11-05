@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace IndieVisible.Domain.Services
 {
-    public class UserConnectionDomainService : BaseDomainService<UserConnection, IUserConnectionRepository>, IUserConnectionDomainService
+    public class UserConnectionDomainService : BaseDomainService<UserConnection, IUserConnectionRepositorySql>, IUserConnectionDomainService
     {
-        public UserConnectionDomainService(IUserConnectionRepository repository) : base(repository)
+        public UserConnectionDomainService(IUserConnectionRepositorySql repository) : base(repository)
         {
         }
 

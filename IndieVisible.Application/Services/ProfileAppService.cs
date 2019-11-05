@@ -42,7 +42,7 @@ namespace IndieVisible.Application.Services
             this.profileDomainService = profileDomainService;
             this.userContentDomainService = userContentDomainService;
             this.userConnectionDomainService = userConnectionDomainService;
-            this.gameRepository = gameRepositoryMongo;
+            gameRepository = gameRepositoryMongo;
         }
 
         #region ICrudAppService
@@ -197,8 +197,11 @@ namespace IndieVisible.Application.Services
             vm.ConnectionControl.CurrentUserWantsToFollowMe = userConnectionDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
             vm.ConnectionControl.ConnectionIsPending = userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, false, true);
 
+            vm.Connections = FormatConnections(vm);
+
             return vm;
         }
+        #endregion
 
         public ProfileViewModel GenerateNewOne(ProfileType type)
         {
@@ -316,6 +319,55 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
-        #endregion
+
+
+        private List<UserConnectionViewModel> FormatConnections(ProfileViewModel vm)
+        {
+            List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
+
+            IEnumerable<UserConnectionViewModel> connectionsFromMe = vm.Connections.Where(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue).ToList();
+            IEnumerable<UserConnectionViewModel> connectionsToMe = vm.Connections.Where(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue).ToList();
+
+            foreach (UserConnectionViewModel item in connectionsFromMe)
+            {
+                if (!newList.Any(x => x.UserId == item.TargetUserId))
+                {
+                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.TargetUserId);
+
+                    item.TargetUserId = item.TargetUserId;
+                    item.UserId = vm.UserId;
+                    item.TargetUserName = profile.Name;
+                    item.Location = profile.Location;
+                    item.CreateDate = profile.CreateDate;
+
+                    item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
+                    item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, item.Id);
+
+                    newList.Add(item);
+                }
+            }
+
+            foreach (var item in connectionsToMe)
+            {
+                if (!newList.Any(x => x.UserId == item.UserId))
+                {
+                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.TargetUserId);
+
+                    item.TargetUserId = item.UserId;
+                    item.UserId = vm.UserId;
+                    item.TargetUserName = profile.Name;
+                    item.ProfileId = profile.Id;
+                    item.Location = profile.Location;
+                    item.CreateDate = profile.CreateDate;
+
+                    item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
+                    item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, item.Id);
+
+                    newList.Add(item);
+                }
+            }
+
+            return newList;
+        }
     }
 }

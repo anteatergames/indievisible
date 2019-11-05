@@ -101,7 +101,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             services.AddScoped<IUserConnectionAppService, UserConnectionAppService>();
             services.AddScoped<IUserConnectionDomainService, UserConnectionDomainService>();
-            services.AddScoped<IUserConnectionRepository, UserConnectionRepository>();
+            services.AddScoped<IUserConnectionRepositorySql, UserConnectionRepository>();
 
             services.AddScoped<IUserContentLikeRepositorySql, UserContentLikeRepositorySql>();
             services.AddScoped<IUserContentCommentRepositorySql, UserContentCommentRepositorySql>();
