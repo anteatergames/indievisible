@@ -8,6 +8,7 @@ using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,12 @@ namespace IndieVisible.Application.Services
     public class TeamAppService : BaseAppService, ITeamAppService
     {
         private readonly IMapper mapper;
-        private readonly IUnitOfWorkSql unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         private readonly ITeamDomainService teamDomainService;
         private readonly IProfileDomainService profileDomainService;
         private readonly IGamificationDomainService gamificationDomainService;
 
-        public TeamAppService(IMapper mapper, IUnitOfWorkSql unitOfWork
+        public TeamAppService(IMapper mapper, IUnitOfWork unitOfWork
             , ITeamDomainService teamDomainService
             , IProfileDomainService profileDomainService
             , IGamificationDomainService gamificationDomainService)

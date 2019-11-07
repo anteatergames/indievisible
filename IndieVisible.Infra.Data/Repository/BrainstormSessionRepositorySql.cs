@@ -4,7 +4,7 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class BrainstormSessionRepositorySql : Repository<BrainstormSession>, IBrainstormSessionRepositorySql
+    public class BrainstormSessionRepositorySql : RepositorySql<BrainstormSession>, IBrainstormSessionRepositorySql
     {
         public BrainstormSessionRepositorySql(IndieVisibleContext context) : base(context)
         {

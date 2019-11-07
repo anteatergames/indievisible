@@ -26,7 +26,6 @@ namespace IndieVisible.Application.Services
         private readonly IUnitOfWork unitOfWork;
         private readonly IProfileDomainService profileDomainService;
         private readonly IUserContentDomainService userContentDomainService;
-        private readonly IUserConnectionDomainService userConnectionDomainService;
 
         private readonly IGameRepository gameRepository;
 
@@ -34,14 +33,12 @@ namespace IndieVisible.Application.Services
             , IUnitOfWork unitOfWork
             , IProfileDomainService profileDomainService
             , IUserContentDomainService userContentDomainService
-            , IUserConnectionDomainService userConnectionDomainService
             , IGameRepository gameRepositoryMongo)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
             this.profileDomainService = profileDomainService;
             this.userContentDomainService = userContentDomainService;
-            this.userConnectionDomainService = userConnectionDomainService;
             gameRepository = gameRepositoryMongo;
         }
 
@@ -187,17 +184,19 @@ namespace IndieVisible.Application.Services
 
             vm.Counters.Followers = model.Followers.SafeCount();
             vm.Counters.Following = profileDomainService.CountFollow(x => x.UserId == userId);
-            int connectionsToUser = userConnectionDomainService.Count(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
-            int connectionsFromUser = userConnectionDomainService.Count(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
+            int connectionsToUser = profileDomainService.CountConnections(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
+            int connectionsFromUser = profileDomainService.CountConnections(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
 
             vm.Counters.Connections = connectionsToUser + connectionsFromUser;
 
-            vm.CurrentUserFollowing = profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
-            vm.ConnectionControl.CurrentUserConnected = userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
-            vm.ConnectionControl.CurrentUserWantsToFollowMe = userConnectionDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
-            vm.ConnectionControl.ConnectionIsPending = userConnectionDomainService.CheckConnection(currentUserId, vm.UserId, false, true);
 
-            vm.Connections = FormatConnections(vm);
+            if (vm.UserId != currentUserId)
+            {
+                vm.CurrentUserFollowing = profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
+                vm.ConnectionControl.CurrentUserConnected = profileDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
+                vm.ConnectionControl.CurrentUserWantsToFollowMe = profileDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
+                vm.ConnectionControl.ConnectionIsPending = profileDomainService.CheckConnection(currentUserId, vm.UserId, false, true); 
+            }
 
             return vm;
         }
@@ -320,13 +319,159 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        #region UserConnection
+        public OperationResultVo GetConnectionsByUserId(Guid userId)
+        {
+            try
+            {
+                List<UserConnection> connectionsFromDb = profileDomainService.GetConnectionsByUserId(userId, true);
 
-        private List<UserConnectionViewModel> FormatConnections(ProfileViewModel vm)
+                var connections = mapper.Map<List<UserConnectionViewModel>>(connectionsFromDb);
+
+                var connectionsFormatted = FormatConnections(userId, connections);
+
+                return new OperationResultListVo<UserConnectionViewModel>(connectionsFormatted);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo Connect(Guid currentUserId, Guid userId)
+        {
+            try
+            {
+                UserConnection model = new UserConnection
+                {
+                    UserId = currentUserId,
+                    TargetUserId = userId
+                };
+
+                UserConnection existing = profileDomainService.GetConnection(currentUserId, userId);
+
+                if (existing != null)
+                {
+                    return new OperationResultVo("You are already connected to this user!");
+                }
+                else
+                {
+                    profileDomainService.AddConnection(model);
+                }
+
+                unitOfWork.Commit();
+
+                int newCount = profileDomainService.CountConnections(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+
+                return new OperationResultVo<int>(newCount);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo Disconnect(Guid currentUserId, Guid userId)
+        {
+            try
+            {
+                // validate before
+
+                UserConnection toMe = profileDomainService.GetConnection(currentUserId, userId);
+                UserConnection fromMe = profileDomainService.GetConnection(userId, currentUserId);
+
+                if (toMe == null && fromMe == null)
+                {
+                    return new OperationResultVo("You are not connected to this user!");
+                }
+                else
+                {
+                    if (toMe != null)
+                    {
+                        profileDomainService.RemoveConnection(toMe.Id);
+                    }
+                    if (fromMe != null)
+                    {
+                        profileDomainService.RemoveConnection(fromMe.Id);
+                    }
+                }
+
+                unitOfWork.Commit();
+
+                int newCount = profileDomainService.CountConnections(x => x.TargetUserId == userId);
+
+                return new OperationResultVo<int>(newCount);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo Allow(Guid currentUserId, Guid userId)
+        {
+            try
+            {
+                UserConnection existing = profileDomainService.GetConnection(userId, currentUserId);
+
+                if (existing == null)
+                {
+                    return new OperationResultVo("There is no connection requested by this user.");
+                }
+                else
+                {
+                    existing.ApprovalDate = DateTime.Now;
+
+                    profileDomainService.UpdateConnection(existing);
+                }
+
+                unitOfWork.Commit();
+
+                int newCount = profileDomainService.CountConnections(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+
+                return new OperationResultVo<int>(newCount);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo Deny(Guid currentUserId, Guid userId)
+        {
+            try
+            {
+                UserConnection existing = profileDomainService.GetConnection(userId, currentUserId);
+
+                if (existing == null)
+                {
+                    return new OperationResultVo("There is no connection requested by this user.");
+                }
+                else
+                {
+                    profileDomainService.RemoveConnection(existing.Id);
+                }
+
+                unitOfWork.Commit();
+
+                int newCount = profileDomainService.CountConnections(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+
+                return new OperationResultVo<int>(newCount);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+        #endregion
+
+
+        private List<UserConnectionViewModel> FormatConnections(Guid userId, IEnumerable<UserConnectionViewModel> connections)
         {
             List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
 
-            IEnumerable<UserConnectionViewModel> connectionsFromMe = vm.Connections.Where(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue).ToList();
-            IEnumerable<UserConnectionViewModel> connectionsToMe = vm.Connections.Where(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue).ToList();
+            IEnumerable<UserConnectionViewModel> connectionsFromMe = connections.Where(x => x.UserId == userId && x.ApprovalDate.HasValue).ToList();
+            IEnumerable<UserConnectionViewModel> connectionsToMe = connections.Where(x => x.TargetUserId == userId && x.ApprovalDate.HasValue).ToList();
 
             foreach (UserConnectionViewModel item in connectionsFromMe)
             {
@@ -335,13 +480,12 @@ namespace IndieVisible.Application.Services
                     UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.TargetUserId);
 
                     item.TargetUserId = item.TargetUserId;
-                    item.UserId = vm.UserId;
+                    item.UserId = userId;
                     item.TargetUserName = profile.Name;
                     item.Location = profile.Location;
                     item.CreateDate = profile.CreateDate;
 
-                    item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
-                    item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, item.Id);
+                    FormatConnectionImages(item, profile.Id);
 
                     newList.Add(item);
                 }
@@ -351,23 +495,28 @@ namespace IndieVisible.Application.Services
             {
                 if (!newList.Any(x => x.UserId == item.UserId))
                 {
-                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.TargetUserId);
+                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.UserId);
 
                     item.TargetUserId = item.UserId;
-                    item.UserId = vm.UserId;
+                    item.UserId = userId;
                     item.TargetUserName = profile.Name;
                     item.ProfileId = profile.Id;
                     item.Location = profile.Location;
                     item.CreateDate = profile.CreateDate;
 
-                    item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
-                    item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, item.Id);
+                    FormatConnectionImages(item, profile.Id);
 
                     newList.Add(item);
                 }
             }
 
             return newList;
+        }
+
+        private static void FormatConnectionImages(UserConnectionViewModel item, Guid profileId)
+        {
+            item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
+            item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, profileId);
         }
     }
 }

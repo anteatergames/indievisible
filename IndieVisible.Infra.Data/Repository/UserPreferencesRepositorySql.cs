@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class UserPreferencesRepositorySql : Repository<UserPreferences>, IUserPreferencesRepositorySql
+    public class UserPreferencesRepositorySql : RepositorySql<UserPreferences>, IUserPreferencesRepositorySql
     {
         public UserPreferencesRepositorySql(IndieVisibleContext context) : base(context)
         {

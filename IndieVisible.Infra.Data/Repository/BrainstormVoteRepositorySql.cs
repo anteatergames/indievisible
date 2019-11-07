@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class BrainstormVoteRepositorySql : Repository<BrainstormVote>, IBrainstormVoteRepositorySql
+    public class BrainstormVoteRepositorySql : RepositorySql<BrainstormVote>, IBrainstormVoteRepositorySql
     {
         public BrainstormVoteRepositorySql(IndieVisibleContext context) : base(context)
         {

@@ -15,9 +15,9 @@ namespace IndieVisible.Domain.Models
 
         public bool Recruiting { get; set; }
 
-        public virtual ICollection<TeamMember> Members { get; set; }
+        public virtual List<TeamMember> Members { get; set; }
 
-        public virtual ICollection<Game> Games { get; set; }
+        public virtual List<Game> Games { get; set; }
 
     }
 }

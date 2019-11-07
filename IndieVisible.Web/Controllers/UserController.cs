@@ -19,15 +19,12 @@ namespace IndieVisible.Web.Controllers
     public class UserController : SecureBaseController
     {
         private readonly IProfileAppService profileAppService;
-        private readonly IUserConnectionAppService userConnectionAppService;
         private readonly INotificationAppService notificationAppService;
 
         public UserController(IProfileAppService profileAppService
-            , IUserConnectionAppService userConnectionAppService
             , INotificationAppService notificationAppService) : base()
         {
             this.profileAppService = profileAppService;
-            this.userConnectionAppService = userConnectionAppService;
             this.notificationAppService = notificationAppService;
         }
 
@@ -122,11 +119,36 @@ namespace IndieVisible.Web.Controllers
         }
 
         #region User Connection
+        [HttpGet]
+        [Route("connections/{userId:guid}")]
+        public IActionResult Connections(Guid userId)
+        {
+            OperationResultListVo<UserConnectionViewModel> connections = (OperationResultListVo<UserConnectionViewModel>)profileAppService.GetConnectionsByUserId(userId);
+
+            List<UserConnectionViewModel> model;
+
+            if (connections.Success)
+            {
+                model = connections.Value.ToList();
+            }
+            else
+            {
+                model = new List<UserConnectionViewModel>();
+            }
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("~/Views/Shared/_Connections.cshtml", model);
+            }
+
+            return View("~/Views/Shared/_Connections.cshtml", model);
+        }
+
         [HttpPost]
         [Route("connect")]
         public IActionResult ConnectToUser(Guid userId)
         {
-            OperationResultVo response = userConnectionAppService.Connect(CurrentUserId, userId);
+            OperationResultVo response = profileAppService.Connect(CurrentUserId, userId);
 
             string fullName = GetSessionValue(SessionValues.FullName);
 
@@ -143,7 +165,7 @@ namespace IndieVisible.Web.Controllers
         [Route("disconnect")]
         public IActionResult DisconnectUser(Guid userId)
         {
-            OperationResultVo response = userConnectionAppService.Disconnect(CurrentUserId, userId);
+            OperationResultVo response = profileAppService.Disconnect(CurrentUserId, userId);
 
             return Json(response);
         }
@@ -153,7 +175,7 @@ namespace IndieVisible.Web.Controllers
         [Route("allowconnection")]
         public IActionResult AllowUser(Guid userId)
         {
-            OperationResultVo response = userConnectionAppService.Allow(CurrentUserId, userId);
+            OperationResultVo response = profileAppService.Allow(CurrentUserId, userId);
 
             return Json(response);
         }
@@ -163,16 +185,10 @@ namespace IndieVisible.Web.Controllers
         [Route("denyconnection")]
         public IActionResult DenyUser(Guid userId)
         {
-            OperationResultVo response = userConnectionAppService.Deny(CurrentUserId, userId);
+            OperationResultVo response = profileAppService.Deny(CurrentUserId, userId);
 
             return Json(response);
         }
         #endregion
-
-        private void SetImages(UserConnectionViewModel vm)
-        {
-            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.TargetUserId);
-            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.TargetUserId, vm.ProfileId);
-        }
     }
 }

@@ -43,6 +43,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly IPollRepositorySql pollRepository;
         private readonly IPollOptionRepositorySql pollOptionRepository;
         private readonly IPollVoteRepositorySql pollVoteRepository;
+        private readonly ITeamRepositorySql teamRepository;
+        private readonly ITeamMemberRepositorySql teamMemberRepository;
 
         public MongoMigrationController(IMongoContext context
             , IProfileRepositorySql profileRepository
@@ -67,7 +69,9 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             , IUserBadgeRepositorySql userBadgeRepository
             , IPollRepositorySql pollRepository
             , IPollOptionRepositorySql pollOptionRepository
-            , IPollVoteRepositorySql pollVoteRepository)
+            , IPollVoteRepositorySql pollVoteRepository
+            , ITeamRepositorySql teamRepository
+            , ITeamMemberRepositorySql teamMemberRepository)
         {
             this.context = context;
             this.profileRepository = profileRepository;
@@ -93,6 +97,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             this.pollRepository = pollRepository;
             this.pollOptionRepository = pollOptionRepository;
             this.pollVoteRepository = pollVoteRepository;
+            this.teamRepository = teamRepository;
+            this.teamMemberRepository = teamMemberRepository;
         }
 
         public IActionResult Index()
@@ -103,6 +109,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 "GamificationLevel",
                 "UserBadges",
                 "UserProfiles",
+                "UserConnections",
                 "UserPreferences",
                 "Notification",
                 "Gamification",
@@ -110,7 +117,8 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 "Brainstorm",
                 "UserContent",
                 "Polls",
-                "FeaturedContent"
+                "FeaturedContent",
+                "Teams"
             };
 
             return View(model);
@@ -198,13 +206,34 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
 
                 var allProfiles = profileRepository.GetAll().ToList();
                 var allFollowers = userFollowRepository.GetAll().ToList();
-                var allConnections = userConnectionRepository.GetAll().ToList();
 
                 foreach (var item in allProfiles)
                 {
                     item.Followers = allFollowers.Where(x => x.UserId == item.UserId).ToList();
-                    item.Connections = allConnections.Where(x => x.TargetUserId == item.UserId || x.UserId == item.UserId).ToList();
                 }
+
+                collection.InsertMany(allProfiles);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            return MigrationResult(count);
+        }
+
+        [Route("UserConnections")]
+        public IActionResult UserConnections()
+        {
+            long count = 0;
+            try
+            {
+                count = userConnectionRepository.Count(x => true);
+
+                var collection = context.GetCollection<UserConnection>(typeof(UserConnection).Name);
+                collection.DeleteMany(Builders<UserConnection>.Filter.Empty);
+
+                var allProfiles = userConnectionRepository.GetAll().ToList();
 
                 collection.InsertMany(allProfiles);
             }
@@ -476,7 +505,40 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 var collection = context.GetCollection<Domain.Models.Gamification>(typeof(Domain.Models.Gamification).Name);
                 collection.DeleteMany(Builders<Domain.Models.Gamification>.Filter.Empty);
 
-                var all = gamificationRepository.GetAll();
+                var all = gamificationRepository.GetAll().ToList();
+
+                collection.InsertMany(all);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            return MigrationResult(count);
+        }
+
+        [Route("Teams")]
+        public IActionResult Teams()
+        {
+            long count = 0;
+            try
+            {
+                count = teamRepository.Count(x => true);
+
+                var collection = context.GetCollection<Domain.Models.Team>(typeof(Domain.Models.Team).Name);
+                collection.DeleteMany(Builders<Domain.Models.Team>.Filter.Empty);
+
+                var all = teamRepository.GetAll().ToList();
+                var allTeamMembers = teamMemberRepository.GetAll().ToList();
+
+                foreach (var team in all)
+                {
+                    team.Members = allTeamMembers.Where(x => x.TeamId == team.Id).ToList();
+                    foreach (var member in team.Members)
+                    {
+                        member.Team = null;
+                    }
+                }
 
                 collection.InsertMany(all);
             }

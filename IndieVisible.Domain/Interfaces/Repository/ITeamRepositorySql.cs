@@ -3,7 +3,7 @@ using IndieVisible.Domain.Models;
 
 namespace IndieVisible.Domain.Interfaces.Repository
 {
-    public interface ITeamMemberRepository : IRepositorySql<TeamMember>
+    public interface ITeamRepositorySql : IRepositorySql<Team>
     {
     }
 }

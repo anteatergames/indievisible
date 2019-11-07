@@ -8,8 +8,6 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface ITeamDomainService : IDomainService<Team>
     {
-        IEnumerable<TeamMember> GetMembers(Guid teamId);
-
         TeamMember GetMemberByUserId(Guid teamId, Guid userId);
 
         IQueryable<TeamMember> GetAllMembershipsByUser(Guid userId);

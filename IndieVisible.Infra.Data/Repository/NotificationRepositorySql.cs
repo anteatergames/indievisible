@@ -4,7 +4,7 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class NotificationRepositorySql : Repository<Notification>, INotificationRepositorySql
+    public class NotificationRepositorySql : RepositorySql<Notification>, INotificationRepositorySql
     {
         public NotificationRepositorySql(IndieVisibleContext context) : base(context)
         {

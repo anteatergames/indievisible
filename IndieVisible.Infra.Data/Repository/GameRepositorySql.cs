@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class GameRepositorySql : Repository<Game>, IGameRepositorySql
+    public class GameRepositorySql : RepositorySql<Game>, IGameRepositorySql
     {
         public GameRepositorySql(IndieVisibleContext context) : base(context)
         {

@@ -50,7 +50,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Brainstorm
             services.AddScoped<IBrainstormAppService, BrainstormAppService>();
-            services.AddScoped<IBrainstormCommentRepositorySql, BrainstormCommentRepository>();
+            services.AddScoped<IBrainstormCommentRepositorySql, BrainstormCommentRepositorySql>();
             services.AddScoped<IBrainstormRepository, BrainstormRepository>();
 
             services.AddScoped<IBrainstormSessionRepositorySql, BrainstormSessionRepositorySql>();
@@ -94,15 +94,12 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #endregion
 
             #region Interactions
-            services.AddScoped<IUserContentCommentAppService, UserContentCommentAppService>();
-
             services.AddScoped<IUserFollowAppService, UserFollowAppService>();
             services.AddScoped<IUserFollowDomainService, UserFollowDomainService>();
 
-            services.AddScoped<IUserConnectionAppService, UserConnectionAppService>();
-            services.AddScoped<IUserConnectionDomainService, UserConnectionDomainService>();
-            services.AddScoped<IUserConnectionRepositorySql, UserConnectionRepository>();
+            services.AddScoped<IUserConnectionRepository, UserConnectionRepository>();
 
+            services.AddScoped<IUserConnectionRepositorySql, UserConnectionRepositorySql>();
             services.AddScoped<IUserContentLikeRepositorySql, UserContentLikeRepositorySql>();
             services.AddScoped<IUserContentCommentRepositorySql, UserContentCommentRepositorySql>();
             services.AddScoped<IGameLikeRepositorySql, GameLikeRepositorySql>();
@@ -124,8 +121,10 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #region Team
             services.AddScoped<ITeamAppService, TeamAppService>();
             services.AddScoped<ITeamDomainService, TeamDomainService>();
-            services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
+
+            services.AddScoped<ITeamMemberRepositorySql, TeamMemberRepositorySql>();
+            services.AddScoped<ITeamRepositorySql, TeamRepositorySql>();
             #endregion
 
             // Infra - Data

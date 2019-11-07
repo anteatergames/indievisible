@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class TeamRepository : Repository<Team>, ITeamRepository
+    public class TeamRepositorySql : RepositorySql<Team>, ITeamRepositorySql
     {
-        public TeamRepository(IndieVisibleContext context) : base(context)
+        public TeamRepositorySql(IndieVisibleContext context) : base(context)
         {
         }
 

@@ -16,5 +16,13 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo Search(string term);
         OperationResultVo UserFollow(Guid currentUserId, Guid userId);
         OperationResultVo UserUnfollow(Guid currentUserId, Guid userId);
+
+        #region Connections
+        OperationResultVo Connect(Guid currentUserId, Guid userId);
+        OperationResultVo Disconnect(Guid currentUserId, Guid userId);
+        OperationResultVo Allow(Guid currentUserId, Guid userId);
+        OperationResultVo Deny(Guid currentUserId, Guid userId);
+        OperationResultVo GetConnectionsByUserId(Guid userId);
+        #endregion
     }
 }

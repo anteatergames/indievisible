@@ -4,7 +4,7 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class GameLikeRepositorySql : Repository<GameLike>, IGameLikeRepositorySql
+    public class GameLikeRepositorySql : RepositorySql<GameLike>, IGameLikeRepositorySql
     {
         public GameLikeRepositorySql(IndieVisibleContext context) : base(context)
         {

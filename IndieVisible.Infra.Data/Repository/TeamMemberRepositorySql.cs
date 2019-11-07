@@ -4,9 +4,9 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class TeamMemberRepository : Repository<TeamMember>, ITeamMemberRepository
+    public class TeamMemberRepositorySql : RepositorySql<TeamMember>, ITeamMemberRepositorySql
     {
-        public TeamMemberRepository(IndieVisibleContext context) : base(context)
+        public TeamMemberRepositorySql(IndieVisibleContext context) : base(context)
         {
         }
     }

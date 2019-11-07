@@ -81,31 +81,7 @@
                 </div>
             </div>
         </div>
-        @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
-        {
-            if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
-            {
-                <div class="text-center connectionalertbox">
-                    <div class="col-12 alert alert-info">
-                        <div class="col-12 col-lg-6 offset-lg-3 mb-10">
-                            <p>@SharedLocalizer["This user wants to connect with you."]</p>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                        @SharedLocalizer["allow"]
-                                    </button>
-                                </div>
-                                <div class="col-6">
-                                    <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                        @SharedLocalizer["deny"]
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
+
         <div class="box-footer pt-0 px-0">
             <div class="nav-tabs-custom">
                 <nav class="nav nav-pills flex-column flex-sm-row">
@@ -119,10 +95,35 @@
                 </nav>
 
                 <div class="tab-content pt-2">
-                    <div class="active tab-pane" id="about">
+                    <div class="active tab-pane" id="about">                        
                         <div class="row">
                             <div class="col-xl-4 col-lg-5 col-sm-12">
                                 <div class="box bg-white">
+                                    @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
+                                    {
+                                        if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
+                                        {
+                                            <div class="text-center connectionalertbox">
+                                                <div class="col-12 alert alert-secondary">
+                                                    <div class="col-12">
+                                                        <p>@SharedLocalizer["This user wants to connect with you."]</p>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                                                    @SharedLocalizer["allow"]
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                                                    @SharedLocalizer["deny"]
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
                                     <div class="box-body box-profile">
                                         <div class="row">
                                             <div class="col-12">
@@ -292,7 +293,6 @@
                     </div>
 
                     <div class="tab-pane" id="tabconnections">
-                        <partial name="_Connections" model="@Model.Connections" />
                     </div>
                 </div>
             </div>

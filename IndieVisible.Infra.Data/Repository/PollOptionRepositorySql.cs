@@ -4,7 +4,7 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class PollOptionRepositorySql : Repository<PollOption>, IPollOptionRepositorySql
+    public class PollOptionRepositorySql : RepositorySql<PollOption>, IPollOptionRepositorySql
     {
         public PollOptionRepositorySql(IndieVisibleContext context) : base(context)
         {

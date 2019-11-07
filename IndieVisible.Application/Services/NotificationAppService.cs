@@ -2,27 +2,28 @@
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Base;
-using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
     public class NotificationAppService : BaseAppService, INotificationAppService
     {
-        private readonly IMapper _mapper;
-        private readonly IUnitOfWorkSql _unitOfWork;
-        private readonly INotificationRepositorySql _notificationRepository;
+        private readonly IMapper mapper;
+        private readonly IUnitOfWork uow;
+        private readonly INotificationRepository notificationRepository;
 
-        public NotificationAppService(IMapper mapper, IUnitOfWorkSql unitOfWork, INotificationRepositorySql notificationRepository)
+        public NotificationAppService(IMapper mapper, IUnitOfWork unitOfWork, INotificationRepository notificationRepository)
         {
-            _mapper = mapper;
-            _unitOfWork = unitOfWork;
-            _notificationRepository = notificationRepository;
+            this.mapper = mapper;
+            uow = unitOfWork;
+            this.notificationRepository = notificationRepository;
         }
 
         #region ICrudAppService
@@ -47,27 +48,31 @@ namespace IndieVisible.Application.Services
             {
                 Notification model;
 
-                Notification existing = _notificationRepository.GetById(viewModel.Id);
+                Task<Notification> task = notificationRepository.GetById(viewModel.Id);
+                task.Wait();
+
+                Notification existing = task.Result;
+
                 if (existing != null)
                 {
-                    model = _mapper.Map(viewModel, existing);
+                    model = mapper.Map(viewModel, existing);
                 }
                 else
                 {
-                    model = _mapper.Map<Notification>(viewModel);
+                    model = mapper.Map<Notification>(viewModel);
                 }
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    _notificationRepository.Add(model);
+                    notificationRepository.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    _notificationRepository.Update(model);
+                    notificationRepository.Update(model);
                 }
 
-                _unitOfWork.Commit();
+                uow.Commit();
 
                 return new OperationResultVo<Guid>(model.Id);
             }
@@ -85,7 +90,7 @@ namespace IndieVisible.Application.Services
 
         public OperationResultListVo<NotificationItemViewModel> GetByUserId(Guid userId, int count)
         {
-            List<Notification> notifications = _notificationRepository.Get(x => x.UserId == userId).OrderByDescending(x => x.CreateDate).Take(count).ToList();
+            List<Notification> notifications = notificationRepository.Get(x => x.UserId == userId).OrderByDescending(x => x.CreateDate).Take(count).ToList();
 
             List<NotificationItemViewModel> tempList = new List<NotificationItemViewModel>();
             foreach (Notification notification in notifications)
@@ -130,14 +135,18 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Notification notification = _notificationRepository.GetById(id);
+                Task<Notification> task = notificationRepository.GetById(id);
+
+                task.Wait();
+
+                Notification notification = task.Result;
 
                 if (notification != null)
                 {
                     notification.IsRead = true;
-                    _notificationRepository.Update(notification);
+                    notificationRepository.Update(notification);
 
-                    _unitOfWork.Commit();
+                    uow.Commit();
                 }
 
                 return new OperationResultVo(true);

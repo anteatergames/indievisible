@@ -2,77 +2,67 @@
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
-    public class TeamDomainService : BaseDomainService<Team, ITeamRepository>, ITeamDomainService
+    public class TeamDomainService : BaseDomainMongoService<Team, ITeamRepository>, ITeamDomainService
     {
-        private readonly ITeamMemberRepository teamMemberRepository;
-
-        public TeamDomainService(ITeamRepository repository, ITeamMemberRepository teamMemberRepository) : base(repository)
+        public TeamDomainService(ITeamRepository repository) : base(repository)
         {
-            this.teamMemberRepository = teamMemberRepository;
         }
 
         public override IEnumerable<Team> GetAll()
         {
-            IQueryable<Team> qry = repositorySql.GetAll();
+            IQueryable<Team> qry = repository.Get();
 
             return qry.OrderByDescending(x => x.CreateDate).ToList();
         }
 
         public IQueryable<TeamMember> GetAllMembershipsByUser(Guid userId)
         {
-            IQueryable<TeamMember> qry = teamMemberRepository.Get(x => x.UserId == userId);
+            IQueryable<TeamMember> qry = repository.GetMemberships(x => x.UserId == userId);
 
             return qry;
         }
 
         public TeamMember GetMemberByUserId(Guid teamId, Guid userId)
         {
-            IQueryable<TeamMember> qry = teamMemberRepository.Get(x => x.UserId == userId && x.TeamId == teamId);
-
-            TeamMember obj = qry.FirstOrDefault();
+            TeamMember obj = Task.Run(async () => await repository.GetMembership(teamId, userId)).Result;
 
             return obj;
         }
 
-        public IEnumerable<TeamMember> GetMembers(Guid teamId)
-        {
-            IQueryable<TeamMember> qry = teamMemberRepository.Get(x => x.TeamId == teamId);
-
-            List<TeamMember> objs = qry.ToList();
-
-            return objs;
-        }
-
         public void ChangeInvitationStatus(Guid teamId, Guid userId, InvitationStatus invitationStatus, string quote)
         {
-            TeamMember member = teamMemberRepository.Get(x => x.TeamId == teamId && x.UserId == userId).FirstOrDefault();
+            TeamMember member = Task.Run(async () => await repository.GetMembership(teamId, userId)).Result;
 
             if (member != null)
             {
                 member.InvitationStatus = invitationStatus;
                 member.Quote = quote;
             }
+
+            repository.UpdateMembership(member);
         }
 
         public void Remove(Guid teamId, Guid userId)
         {
-            TeamMember member = teamMemberRepository.Get(x => x.TeamId == teamId && x.UserId == userId).FirstOrDefault();
+            TeamMember member = Task.Run(async () => await repository.GetMembership(teamId, userId)).Result;
 
             if (member != null)
             {
-                teamMemberRepository.Remove(member.Id);
+                repository.RemoveMember(teamId, userId);
             }
         }
 
         public IQueryable<Team> GetTeamsByMemberUserId(Guid userId)
         {
-            IQueryable<Team> teams = repositorySql.Get(x => x.Members.Any(y => y.UserId == userId), "Members");
+            IQueryable<Team> teams = repository.GetTeamsByMemberUserId(userId);
 
             return teams;
         }

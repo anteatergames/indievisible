@@ -4,7 +4,7 @@ using IndieVisible.Infra.Data.Context;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class FeaturedContentRepositorySql : Repository<FeaturedContent>, IFeaturedContentRepositorySql
+    public class FeaturedContentRepositorySql : RepositorySql<FeaturedContent>, IFeaturedContentRepositorySql
     {
         public FeaturedContentRepositorySql(IndieVisibleContext context) : base(context)
         {

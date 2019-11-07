@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class GamificationLevelRepositorySql : Repository<GamificationLevel>, IGamificationLevelRepositorySql
+    public class GamificationLevelRepositorySql : RepositorySql<GamificationLevel>, IGamificationLevelRepositorySql
     {
         public GamificationLevelRepositorySql(IndieVisibleContext context) : base(context)
         {

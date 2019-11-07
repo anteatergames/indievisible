@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace IndieVisible.Infra.Data.Repository
 {
-    public class ProfileRepositorySql : Repository<UserProfile>, IProfileRepositorySql
+    public class ProfileRepositorySql : RepositorySql<UserProfile>, IProfileRepositorySql
     {
         public ProfileRepositorySql(IndieVisibleContext context) : base(context)
         {
