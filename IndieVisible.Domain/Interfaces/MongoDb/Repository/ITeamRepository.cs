@@ -11,8 +11,8 @@ namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
     {
         IQueryable<Team> GetTeamsByMemberUserId(Guid userId);
         IQueryable<TeamMember> GetMemberships(Func<TeamMember, bool> where);
-        Task<TeamMember> GetMembership(Guid teamId, Guid userId);
-        Task UpdateMembership(TeamMember member);
-        Task RemoveMember(Guid teamId, Guid userId);
+        TeamMember GetMembership(Guid teamId, Guid userId);
+        void UpdateMembership(Guid teamId, TeamMember member);
+        Task<bool> RemoveMember(Guid teamId, Guid userId);
     }
 }

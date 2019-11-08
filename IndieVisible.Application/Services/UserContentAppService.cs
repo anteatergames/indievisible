@@ -168,7 +168,7 @@ namespace IndieVisible.Application.Services
 
                 if (isNew)
                 {
-                    var guid = userContentDomainService.Add(model);
+                    userContentDomainService.Add(model);
 
                     PlatformAction action = viewModel.IsComplex ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
                     pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, action);

@@ -32,14 +32,14 @@ namespace IndieVisible.Domain.Services
 
         public TeamMember GetMemberByUserId(Guid teamId, Guid userId)
         {
-            TeamMember obj = Task.Run(async () => await repository.GetMembership(teamId, userId)).Result;
+            TeamMember obj = repository.GetMembership(teamId, userId);
 
             return obj;
         }
 
         public void ChangeInvitationStatus(Guid teamId, Guid userId, InvitationStatus invitationStatus, string quote)
         {
-            TeamMember member = Task.Run(async () => await repository.GetMembership(teamId, userId)).Result;
+            TeamMember member = repository.GetMembership(teamId, userId);
 
             if (member != null)
             {
@@ -47,12 +47,12 @@ namespace IndieVisible.Domain.Services
                 member.Quote = quote;
             }
 
-            repository.UpdateMembership(member);
+            repository.UpdateMembership(teamId, member);
         }
 
         public void Remove(Guid teamId, Guid userId)
         {
-            TeamMember member = Task.Run(async () => await repository.GetMembership(teamId, userId)).Result;
+            TeamMember member = repository.GetMembership(teamId, userId);
 
             if (member != null)
             {

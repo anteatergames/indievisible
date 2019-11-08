@@ -152,6 +152,12 @@ namespace IndieVisible.Application.Services
         #endregion
 
         #region IProfileAppService
+        public UserProfileEssentialVo GetBasicDataByUserId(Guid userId)
+        {
+            UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(userId);
+
+            return profile;
+        }
         public ProfileViewModel GetByUserId(Guid userId, ProfileType type)
         {
             return GetByUserId(userId, userId, type);

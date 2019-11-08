@@ -19,7 +19,7 @@
     <div class="col-xl-12 col-md-6 col-12">
         <a asp-area="" asp-controller="user" asp-action="list">
             <div class="info-box">
-                <span class="info-box-icon bg-yellow"><i class="fa fa-users" aria-hidden="true"></i></span>
+                <span class="info-box-icon bg-yellow"><i class="fa fa-user" aria-hidden="true"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-number">@Model.UsersCount</span>
@@ -43,13 +43,15 @@
         </a>
     </div>
     <div class="col-xl-12 col-md-6 col-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-shapes" aria-hidden="true"></i></span>
+        <a asp-area="" asp-controller="team" asp-action="index">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-users" aria-hidden="true"></i></span>
 
-            <div class="info-box-content">
-                <span class="info-box-number">@Model.JamsCount</span>
-                <span class="info-box-text">@SharedLocalizer["Jams"]</span>
+                <div class="info-box-content">
+                    <span class="info-box-number">@Model.TeamCount</span>
+                    <span class="info-box-text">@SharedLocalizer["Teams"]</span>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>

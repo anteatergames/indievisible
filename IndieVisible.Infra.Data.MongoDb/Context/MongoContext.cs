@@ -53,7 +53,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Context
                 await Session.CommitTransactionAsync();
             }
 
-            return _commands.Count;
+            var count = _commands.Count;
+
+            _commands.Clear();
+
+            return count;
         }
 
         public IMongoCollection<T> GetCollection<T>(string name)

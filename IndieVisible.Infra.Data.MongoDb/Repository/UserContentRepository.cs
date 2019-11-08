@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Models;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
@@ -17,6 +18,16 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
     {
         public UserContentRepository(IMongoContext context) : base(context)
         {
+        }
+
+        public override void Add(UserContent obj)
+        {
+            if (obj.Language == 0)
+            {
+                obj.Language = SupportedLanguage.English;
+            }
+
+            base.Add(obj);
         }
 
         public Task<int> CountComments(Expression<Func<UserContentComment, bool>> where)

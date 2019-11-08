@@ -62,7 +62,7 @@ namespace IndieVisible.Application
                 GamesCount = 1658,
                 UsersCount = 2659,
                 ArticlesCount = 981,
-                JamsCount = 42
+                TeamCount = 42
             };
 
             return counters;

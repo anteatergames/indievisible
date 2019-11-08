@@ -147,6 +147,8 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
+                viewModel.Id = model.Id;
+
                 return new OperationResultVo<Guid>(model.Id, pointsEarned);
             }
             catch (Exception ex)
@@ -374,6 +376,7 @@ namespace IndieVisible.Application.Services
 
             foreach (TeamMemberViewModel member in team.Members)
             {
+                member.Permissions.CanDelete = member.UserId != userId && team.Permissions.CanDelete;
                 member.ProfileImage = UrlFormatter.ProfileImage(member.UserId);
             }
 

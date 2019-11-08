@@ -88,6 +88,7 @@ namespace IndieVisible.Web.Controllers
         #endregion
 
 
+        [Route("search")]
         public IActionResult Search(string term)
         {
             Select2SearchResultViewModel vm = new Select2SearchResultViewModel();

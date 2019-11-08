@@ -8,6 +8,6 @@
 
         public int ArticlesCount { get; set; }
 
-        public int JamsCount { get; set; }
+        public int TeamCount { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IProfileAppService : ICrudAppService<ProfileViewModel>
     {
+        UserProfileEssentialVo GetBasicDataByUserId(Guid userId);
         ProfileViewModel GetByUserId(Guid userId, ProfileType type);
 
         ProfileViewModel GetByUserId(Guid currentUserId, Guid userId, ProfileType type);

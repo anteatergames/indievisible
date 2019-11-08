@@ -15,6 +15,16 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
             {
                 map.AutoMap();
             });
+
+            BsonClassMap.RegisterClassMap<PollOption>(map =>
+            {
+                map.AutoMap();
+            });
+
+            BsonClassMap.RegisterClassMap<PollVote>(map =>
+            {
+                map.AutoMap();
+            });
         }
     }
 }

@@ -32,8 +32,7 @@ namespace IndieVisible.Infra.Data.MongoDb
             GamificationLevelMap.Configure();
             GamificationMap.Configure();
             PollMap.Configure();
-            PollOptionMap.Configure();
-            PollVoteMap.Configure();
+            TeamMap.Configure();
         }
     }
 }

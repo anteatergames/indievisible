@@ -17,35 +17,47 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         {
         }
 
-        public async Task<TeamMember> GetMembership(Guid teamId, Guid userId)
+        public TeamMember GetMembership(Guid teamId, Guid userId)
         {
-            var filter = Builders<Team>.Filter.And(
-                Builders<Team>.Filter.Eq(x => x.Id, teamId)
-                , Builders<Team>.Filter.ElemMatch(x => x.Members, x => x.UserId == userId));
+            var member = DbSet.Find(x => x.Id == teamId).First().Members.SingleOrDefault(x => x.UserId == userId);
 
-            var obj = await DbSet.Find(filter).FirstOrDefaultAsync();
-
-            return new TeamMember();
+            return member;
         }
 
         public IQueryable<TeamMember> GetMemberships(Func<TeamMember, bool> where)
         {
-            throw new NotImplementedException();
+            var members = DbSet.AsQueryable().SelectMany(x => x.Members).Where(where).AsQueryable();
+
+            return members;
         }
 
         public IQueryable<Team> GetTeamsByMemberUserId(Guid userId)
         {
-            throw new NotImplementedException();
+            return DbSet.AsQueryable().Where(x => x.Members.Any(y => y.UserId == userId));
         }
 
-        public Task RemoveMember(Guid teamId, Guid userId)
+        public async Task<bool> RemoveMember(Guid teamId, Guid userId)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Team>.Filter.Where(x => x.Id == teamId);
+            var remove = Builders<Team>.Update.PullFilter(c => c.Members, m => m.UserId == userId);
+
+            var result = await DbSet.UpdateOneAsync(filter, remove);
+
+            return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
-        public Task UpdateMembership(TeamMember member)
+        public void UpdateMembership(Guid teamId, TeamMember member)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Team>.Filter.And(
+                Builders<Team>.Filter.Eq(x => x.Id, teamId)
+                , Builders<Team>.Filter.ElemMatch(x => x.Members, x => x.UserId == member.UserId));
+
+            var update = Builders<Team>.Update.Combine(
+                Builders<Team>.Update.Set(x => x.Members[-1].InvitationStatus, member.InvitationStatus)
+                , Builders<Team>.Update.Set(x => x.Members[-1].Quote, member.Quote)
+            );
+
+            Context.AddCommand(() => DbSet.UpdateOneAsync(filter, update));
         }
     }
 }

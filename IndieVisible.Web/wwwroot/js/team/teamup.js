@@ -96,6 +96,7 @@
     function bindAll() {
         bindBtnSave();
 
+        console.log(isList);
         if (isList) {
             bindBtnNew();
             bindEditTeam();
@@ -103,11 +104,11 @@
         } else {
             bindAcceptInvitation();
             bindRejectInvitation();
-            bindDeleteMember();
             bindCandidateApply();
             bindAcceptCandidate();
             bindRejectCandidate();
         }
+        bindDeleteMember();
     }
 
     function bindSelect2() {
@@ -145,6 +146,7 @@
 
     function bindBtnSave() {
         objs.container.on('click', selectors.btnSaveTeam, function () {
+            console.log('clickbtnSaveTeam');
             var valid = objs.form.valid();
             if (valid && canInteract) {
                 submitForm();
@@ -299,6 +301,7 @@
 
     function bindDeleteMember() {
         objs.container.on('click', selectors.btnDeleteMember, function (e) {
+            console.log('meh');
             e.preventDefault();
 
             var btn = $(this);

@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +40,8 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
                 obj.ProfileImageUrl = UrlFormatter.ProfileImage(obj.UserId);
                 obj.CoverImageUrl = UrlFormatter.ProfileCoverImage(obj.UserId, obj.Id);
 
-                Application.ViewModels.User.ProfileViewModel profile = profileAppService.GetByUserId(obj.UserId, ProfileType.Personal);
+                var profile = profileAppService.GetBasicDataByUserId(obj.UserId);
+
                 if (profile != null)
                 {
                     obj.Name = profile.Name;
