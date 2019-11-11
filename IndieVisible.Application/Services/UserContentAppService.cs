@@ -291,19 +291,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<UserContent> all = userContentDomainService.Search(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
+                var all = userContentDomainService.Search(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
 
-                IQueryable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
-                    .Select(x => new UserContentSearchVo
-                    {
-                        ContentId = x.Id,
-                        Title = x.Title,
-                        FeaturedImage = x.FeaturedImage,
-                        Content = (string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction).GetFirstWords(20),
-                        Language = x.Language
-                    });
-
-                IQueryable<UserContentSearchViewModel> vms = selected.ProjectTo<UserContentSearchViewModel>(mapper.ConfigurationProvider);
+                IQueryable<UserContentSearchViewModel> vms = all.ProjectTo<UserContentSearchViewModel>(mapper.ConfigurationProvider);
 
                 return new OperationResultListVo<UserContentSearchViewModel>(vms);
             }

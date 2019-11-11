@@ -2,6 +2,7 @@
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,23 @@ namespace IndieVisible.Domain.Services
     {
         public UserContentDomainService(IUserContentRepository repository) : base(repository)
         {
+        }
+
+        public new IEnumerable<UserContentSearchVo> Search(Expression<Func<UserContent, bool>> where)
+        {
+            var all = base.Search(where);
+
+            var selected = all.OrderByDescending(x => x.CreateDate)
+                .Select(x => new UserContentSearchVo
+                {
+                    ContentId = x.Id,
+                    Title = x.Title,
+                    FeaturedImage = x.FeaturedImage,
+                    Content = (string.IsNullOrWhiteSpace(x.Introduction) ? x.Content : x.Introduction).GetFirstWords(20),
+                    Language = (x.Language == 0 ? SupportedLanguage.English : x.Language)
+                });
+
+            return selected;
         }
 
         public void AddLike(UserContentLike model)

@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface IUserContentDomainService : IDomainService<UserContent>
     {
+        new IEnumerable<UserContentSearchVo> Search(Expression<Func<UserContent, bool>> where);
         int CountComments(Expression<Func<UserContentComment, bool>> where);
         int CountCommentsByUserId(Guid userId);
         IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly, int count);
