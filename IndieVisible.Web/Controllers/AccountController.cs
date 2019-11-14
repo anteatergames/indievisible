@@ -4,6 +4,7 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.CrossCutting.Identity.Model;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels;
 using IndieVisible.Infra.CrossCutting.Identity.Services;

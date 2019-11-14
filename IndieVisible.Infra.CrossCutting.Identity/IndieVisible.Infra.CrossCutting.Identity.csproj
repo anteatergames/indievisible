@@ -14,18 +14,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="[2.1.6,2.2)" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="[2.1.6,2.2)" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.11">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.1.6" />
     <PackageReference Include="Sendgrid" Version="9.12.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\IndieVisible.Domain\IndieVisible.Domain.csproj" />
+    <ProjectReference Include="..\IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

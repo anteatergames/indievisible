@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using IndieVisible.Application.Interfaces;
-using IndieVisible.Application.ViewModels.Game;
+using AutoMapper;
 using IndieVisible.Domain.Interfaces.Repository;
-using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
-using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using Microsoft.Extensions.Configuration;
 
 namespace IndieVisible.Web.Areas.Staff.Controllers
 {
@@ -19,6 +16,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
     [Route("admin/mongomigration")]
     public class MongoMigrationController : SecureBaseController
     {
+        private readonly IConfiguration Configuration;
         private readonly IMongoContext context;
         private readonly IProfileRepositorySql profileRepository;
         private readonly IUserConnectionRepositorySql userConnectionRepository;
@@ -46,7 +44,9 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         private readonly ITeamRepositorySql teamRepository;
         private readonly ITeamMemberRepositorySql teamMemberRepository;
 
-        public MongoMigrationController(IMongoContext context
+        public MongoMigrationController(
+            IConfiguration configuration
+            , IMongoContext context
             , IProfileRepositorySql profileRepository
             , IUserConnectionRepositorySql userConnectionRepository
             , IUserFollowRepositorySql userFollowRepository
@@ -73,6 +73,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             , ITeamRepositorySql teamRepository
             , ITeamMemberRepositorySql teamMemberRepository)
         {
+            this.Configuration = configuration;
             this.context = context;
             this.profileRepository = profileRepository;
             this.userConnectionRepository = userConnectionRepository;
@@ -105,6 +106,7 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
         {
             var model = new List<string>
             {
+                //"Security",
                 "GamificationAction",
                 "GamificationLevel",
                 "UserBadges",
@@ -122,6 +124,75 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             };
 
             return View(model);
+        }
+
+        [Route("Security")]
+        public IActionResult Security()
+        {
+            long count = 0;
+            try
+            {
+                //string cs = Configuration.GetConnectionString("DefaultConnection");
+
+                //var optionBuilder = new DbContextOptionsBuilder<AspNetIdentityContext>();
+                //optionBuilder.UseSqlServer(cs);
+
+                //var db = new AspNetIdentityContext(optionBuilder.Options);
+
+                //var config = new MapperConfiguration(cfg => {
+                //    cfg.CreateMap<ApplicationUser, User>();
+                //    cfg.CreateMap<IdentityRole, Role>();
+                //});
+
+                //IMapper mapper = new Mapper(config);
+
+                //var roles = db.Roles.ToList();
+                //var newRoles = mapper.Map<IEnumerable<IdentityRole>, IEnumerable<Role>>(roles);
+                //var roleCollection = context.GetCollection<Role>(typeof(Role).Name);
+                //roleCollection.DeleteMany(Builders<Role>.Filter.Empty);
+                //roleCollection.InsertMany(newRoles);
+
+
+                //var allUserRoles = db.UserRoles.ToList();
+                //var allUserClaims = db.UserClaims.ToList();
+                //var allUserLogins = db.UserLogins.ToList();
+
+                //var users = db.Users.ToList();
+                //count = users.Count;
+                //var newUsers = mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<User>>(users);
+
+                //foreach (var user in newUsers)
+                //{
+                //    var userRoles = allUserRoles.Where(x => x.UserId.Equals(user.Id)).ToList();
+                //    foreach (var userRole in userRoles)
+                //    {
+                //        user.Roles.Add(userRole.RoleId);
+                //    }
+
+                //    var userClaims = allUserClaims.Where(x => x.UserId.Equals(user.Id)).ToList();
+                //    foreach (var userClaim in userClaims)
+                //    {
+                //        user.Claims.Add(userClaim);
+                //    }
+
+
+                //    var userLogins = allUserLogins.Where(x => x.UserId.Equals(user.Id)).ToList();
+                //    foreach (var userLogin in userLogins)
+                //    {
+                //        user.Logins.Add(userLogin);
+                //    }
+                //}
+
+                //var userCollection = context.GetCollection<User>(typeof(User).Name);
+                //userCollection.DeleteMany(Builders<User>.Filter.Empty);
+                //userCollection.InsertMany(newUsers);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+            }
+
+            return MigrationResult(count);
         }
 
         [Route("GamificationAction")]
@@ -454,6 +525,11 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
                 {
                     poll.Options = allOptions.Where(x => x.PollId == poll.Id).ToList();
                     poll.Votes = allVotes.Where(x => x.PollId == poll.Id).ToList();
+
+                    foreach (var option in poll.Options)
+                    {
+                        option.Poll = null;
+                    }
                 }
 
                 collection.InsertMany(all);

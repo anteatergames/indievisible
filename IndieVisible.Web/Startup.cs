@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Infra.CrossCutting.Identity.Data;
+using IndieVisible.Infra.CrossCutting.Identity;
+using IndieVisible.Infra.CrossCutting.Identity.Model;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.IoC;
 using IndieVisible.Infra.Data.Context;
@@ -52,22 +53,22 @@ namespace IndieVisible.Web
                 options.ConsentCookie.Name = "IndieVisible.Consent";
             });
 
-            string cs = Configuration.GetConnectionString("DefaultConnection");
-
-            services.AddDbContext<AspNetIdentityContext>(o => o.UseSqlServer(cs, b => b.MigrationsAssembly("IndieVisible.Infra.CrossCutting.Identity")));
-            services.AddDbContext<IndieVisibleContext>(o => o.UseSqlServer(cs, b => b.MigrationsAssembly("IndieVisible.Infra.Data")));
+            //string cs = Configuration.GetConnectionString("DefaultConnection");
 
             MongoDbPersistence.Configure();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            services.AddIdentityMongoDbProvider<ApplicationUser, Role>(options =>
             {
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 4;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
-            })
-                .AddEntityFrameworkStores<AspNetIdentityContext>()
+            }, options =>
+             {
+                 options.ConnectionString = Configuration["MongoSettings:Connection"];
+                 options.DatabaseName = Configuration["MongoSettings:DatabaseName"];
+             })
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -192,16 +193,13 @@ namespace IndieVisible.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
-            using (IServiceScope scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                scope.ServiceProvider.GetService<AspNetIdentityContext>().Database.Migrate();
-                scope.ServiceProvider.GetService<IndieVisibleContext>().Database.Migrate();
-            }
+            //app.UseDeveloperExceptionPage();
+            //app.UseExceptionHandler("/Home/Error");
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                //app.UseDatabaseErrorPage();
             }
             else
             {
@@ -223,7 +221,7 @@ namespace IndieVisible.Web
                 }
             });
 
-            app.UseETagger();
+            //app.UseETagger();
 
             IOptions<RequestLocalizationOptions> options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
@@ -234,7 +232,7 @@ namespace IndieVisible.Web
 
             app.UseSession();
 
-            app.UseSitemapMiddleware();
+            //app.UseSitemapMiddleware();
 
             app.UseRewriter(new RewriteOptions()
                .AddRedirectToHttps()
@@ -268,7 +266,7 @@ namespace IndieVisible.Web
 
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
         {
-            RoleManager<IdentityRole> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            RoleManager<Role> roleManager = serviceProvider.GetRequiredService<RoleManager<Role>>();
 
             List<Roles> roles = Enum.GetValues(typeof(Roles)).Cast<Roles>().ToList();
 
@@ -278,12 +276,12 @@ namespace IndieVisible.Web
             }
         }
 
-        private static async Task CreateIfNotExists(RoleManager<IdentityRole> RoleManager, string roleName)
+        private static async Task CreateIfNotExists(RoleManager<Role> RoleManager, string roleName)
         {
             bool roleCheck = await RoleManager.RoleExistsAsync(roleName);
             if (!roleCheck)
             {
-                await RoleManager.CreateAsync(new IdentityRole(roleName));
+                await RoleManager.CreateAsync(new Role(roleName));
             }
         }
     }

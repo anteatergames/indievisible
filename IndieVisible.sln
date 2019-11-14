@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Tests", "IndieVisible.Tests\IndieVisible.Tests.csproj", "{9378CBE6-2104-4042-95CF-D4D0988D103D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieVisible.Infra.Data.MongoDb", "IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj", "{97ADB308-2205-465C-9775-B21587FD5540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.Data.MongoDb", "IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj", "{97ADB308-2205-465C-9775-B21587FD5540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

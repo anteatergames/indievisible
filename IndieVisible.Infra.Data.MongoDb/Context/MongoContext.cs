@@ -32,9 +32,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Context
             if (MongoClient != null)
                 return;
 
-            MongoClient = new MongoClient(_configuration["MongoSettings:Connection"]);
+            var cs = _configuration["MongoSettings:Connection"];
+            MongoClient = new MongoClient(cs);
 
-            Database = MongoClient.GetDatabase(_configuration["MongoSettings:DatabaseName"]);
+            var dbName = _configuration["MongoSettings:DatabaseName"];
+            Database = MongoClient.GetDatabase(dbName);
 
         }
 
