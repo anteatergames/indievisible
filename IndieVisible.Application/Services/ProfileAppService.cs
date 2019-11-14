@@ -485,7 +485,6 @@ namespace IndieVisible.Application.Services
                 {
                     UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.TargetUserId);
 
-                    item.TargetUserId = item.TargetUserId;
                     item.UserId = userId;
                     item.TargetUserName = profile.Name;
                     item.Location = profile.Location;
