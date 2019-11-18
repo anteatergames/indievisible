@@ -89,6 +89,8 @@
 
             var url = urlElement.prop('href');
 
+            console.log(url);
+
             FB.ui({
                 method: 'share',
                 href: url

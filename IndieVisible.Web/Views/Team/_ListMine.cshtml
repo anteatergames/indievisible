@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TeamViewModel>
+﻿@model IEnumerable<SelectListItemVo>
 @{
     Layout = null;
     var canInteract = User.Identity.IsAuthenticated;
@@ -24,7 +24,7 @@ else
     @foreach (var team in Model)
     {
         <div class="col-12">
-            <a asp-area="" asp-controller="team" asp-action="details" asp-route-teamId="@team.Id"><span>@team.Name</span></a>
+            <a asp-area="" asp-controller="team" asp-action="details" asp-route-teamId="@team.Value"><span>@team.Text</span></a>
         </div>
     }
 }

@@ -64,11 +64,20 @@ namespace IndieVisible.Web.Controllers
         [Route("list/mine")]
         public IActionResult ListMyTeams()
         {
-            OperationResultListVo<TeamViewModel> serviceResult = (OperationResultListVo<TeamViewModel>)teamAppService.GetByUserId(CurrentUserId);
+            var serviceResult = teamAppService.GetSelectListByUserId(CurrentUserId);
 
-            List<TeamViewModel> model = serviceResult.Value.ToList();
+            if (serviceResult.Success)
+            {
+                var castResult = serviceResult as OperationResultListVo<SelectListItemVo>;
 
-            return PartialView("_ListMine", model);
+                List<SelectListItemVo> model = castResult.Value.ToList();
+
+                return PartialView("_ListMine", model);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [Route("{teamId:guid}")]

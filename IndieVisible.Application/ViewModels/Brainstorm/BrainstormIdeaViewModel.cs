@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels.Brainstorm
@@ -28,5 +29,9 @@ namespace IndieVisible.Application.ViewModels.Brainstorm
         public VoteValue CurrentUserVote { get; set; }
 
         public BrainstormIdeaStatus Status { get; set; }
+
+        public List<BrainstormVoteViewModel> Votes { get; set; }
+
+        public List<BrainstormCommentViewModel> Comments { get; set; }
     }
 }

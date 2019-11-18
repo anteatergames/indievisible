@@ -1784,7 +1784,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     height: 100%;
     margin: 20px auto 0;
     text-align: center;
-    position: fixed;
     background: url(../images/error-bg.jpg) center center no-repeat #fff;
 }
 

@@ -8,4 +8,14 @@
 
         public bool Selected { get; set; }
     }
+
+
+    public class SelectListItemVo<TValue>
+    {
+        public TValue Value { get; set; }
+
+        public string Text { get; set; }
+
+        public bool Selected { get; set; }
+    }
 }

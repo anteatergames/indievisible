@@ -2,6 +2,7 @@
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
@@ -60,11 +61,24 @@ namespace IndieVisible.Domain.Services
             }
         }
 
-        public IQueryable<Team> GetTeamsByMemberUserId(Guid userId)
+        public IEnumerable<Team> GetTeamsByMemberUserId(Guid userId)
         {
-            IQueryable<Team> teams = repository.GetTeamsByMemberUserId(userId);
+            var teams = repository.GetTeamsByMemberUserId(userId).ToList();
 
             return teams;
+        }
+
+        public IEnumerable<SelectListItemVo<Guid>> GetTeamListByMemberUserId(Guid userId)
+        {
+            var teams = repository.GetTeamsByMemberUserId(userId).Select(x => new { x.Name, x.Id }).ToList();
+
+            var vos = teams.Select(x => new SelectListItemVo<Guid>
+            {
+                Text = x.Name,
+                Value = x.Id
+            });
+
+            return vos;
         }
     }
 }

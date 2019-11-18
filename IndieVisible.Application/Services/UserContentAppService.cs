@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
@@ -173,7 +174,7 @@ namespace IndieVisible.Application.Services
                     PlatformAction action = viewModel.IsComplex ? PlatformAction.ComplexPost : PlatformAction.SimplePost;
                     pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, action);
 
-                    unitOfWork.Commit();
+                    unitOfWork.Commit().Wait();
                     viewModel.Id = model.Id;
 
                     if (viewModel.Poll != null && viewModel.Poll.PollOptions != null && viewModel.Poll.PollOptions.Any())
@@ -188,7 +189,7 @@ namespace IndieVisible.Application.Services
                     userContentDomainService.Update(model);
                 }
 
-                unitOfWork.Commit();
+                unitOfWork.Commit().Wait();
 
                 return new OperationResultVo<Guid>(model.Id, pointsEarned);
             }
@@ -248,10 +249,10 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<UserContentViewModel> GetActivityFeed(ActivityFeedRequestViewModel vm)
         {
-            var allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly, vm.Count).ToList();
-
             try
             {
+                var allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly, vm.Count).ToList();
+
                 IEnumerable<UserContentViewModel> viewModels = mapper.Map<IEnumerable<UserContent>, IEnumerable<UserContentViewModel>>(allModels);
 
                 foreach (UserContentViewModel item in viewModels)

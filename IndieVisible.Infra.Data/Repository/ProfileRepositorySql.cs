@@ -2,7 +2,9 @@
 using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
+using System.Collections;
 using System.Data.SqlClient;
 using System.Linq;
 

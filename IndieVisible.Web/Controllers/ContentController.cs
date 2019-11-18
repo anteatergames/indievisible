@@ -88,7 +88,7 @@ namespace IndieVisible.Web.Controllers
 
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
             vm.Permissions.CanDelete = vm.UserId == CurrentUserId || userIsAdmin;
-
+            
             return View(vm);
         }
 

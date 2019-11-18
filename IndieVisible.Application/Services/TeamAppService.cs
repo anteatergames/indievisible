@@ -249,7 +249,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<Team> allModels = teamDomainService.GetTeamsByMemberUserId(userId);
+                var allModels = teamDomainService.GetTeamsByMemberUserId(userId);
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
@@ -270,13 +270,15 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<SelectListItemVo> allModels = teamDomainService.GetTeamsByMemberUserId(userId).Select(x => new SelectListItemVo
+                var allModels = teamDomainService.GetTeamListByMemberUserId(userId);
+
+                var list = allModels.Select(x => new SelectListItemVo
                 {
-                    Text = x.Name,
-                    Value = x.Id.ToString()
+                    Text = x.Text,
+                    Value = x.Value.ToString()
                 });
 
-                return new OperationResultListVo<SelectListItemVo>(allModels);
+                return new OperationResultListVo<SelectListItemVo>(list);
             }
             catch (Exception ex)
             {

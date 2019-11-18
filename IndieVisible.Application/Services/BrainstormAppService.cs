@@ -64,15 +64,13 @@ namespace IndieVisible.Application.Services
                 BrainstormIdeaViewModel vm = mapper.Map<BrainstormIdeaViewModel>(idea);
 
                 vm.UserContentType = UserContentType.Idea;
-                vm.VoteCount = brainstormRepository.CountVotesByIdea(vm.Id).Result;
-                vm.Score = brainstormRepository.SumVotesByIdea(vm.Id).Result;
-                vm.CurrentUserVote = brainstormRepository.GetVote(id, currentUserId).Result?.VoteValue ?? VoteValue.Neutral;
+                vm.VoteCount = idea.Votes.Count;
+                vm.Score = idea.Votes.Sum(x => (int)x.VoteValue);
+                vm.CurrentUserVote = idea.Votes.FirstOrDefault(x => x.UserId == currentUserId)?.VoteValue ?? VoteValue.Neutral;
 
-                vm.CommentCount = brainstormRepository.CountCommentsByIdea(vm.Id).Result;
+                vm.CommentCount = idea.Comments.Count;
 
-                IQueryable<BrainstormComment> comments = brainstormRepository.GetCommentsByIdea(vm.Id).Result.AsQueryable();
-
-                IQueryable<BrainstormCommentViewModel> commentsVm = comments.ProjectTo<BrainstormCommentViewModel>(mapper.ConfigurationProvider);
+                IQueryable<BrainstormCommentViewModel> commentsVm = idea.Comments.AsQueryable().ProjectTo<BrainstormCommentViewModel>(mapper.ConfigurationProvider);
 
                 vm.Comments = commentsVm.OrderBy(x => x.CreateDate).ToList();
 
@@ -147,7 +145,7 @@ namespace IndieVisible.Application.Services
                 BrainstormVote model;
                 BrainstormIdea idea = brainstormRepository.GetIdea(ideaId).Result;
 
-                BrainstormVote existing = brainstormRepository.GetVote(ideaId, userId).Result;
+                BrainstormVote existing = idea.Votes.FirstOrDefault(x => x.UserId == userId);
                 if (existing != null)
                 {
                     model = existing;
@@ -310,20 +308,17 @@ namespace IndieVisible.Application.Services
             {
                 BrainstormSession session = brainstormRepository.GetById(sessionId).Result;
                 IEnumerable<BrainstormIdea> allIdeas = brainstormRepository.GetIdeasBySession(sessionId).Result;
-                IEnumerable<BrainstormVote> allVotes = brainstormRepository.GetVotesBySession(sessionId).Result;
-                IEnumerable<BrainstormVote> currentUserVotes = allVotes.Where(y => y.UserId == userId);
-                IEnumerable<BrainstormComment> allComments = brainstormRepository.GetCommentsBySession(sessionId).Result;
 
                 IEnumerable<BrainstormIdeaViewModel> vms = mapper.Map<IEnumerable<BrainstormIdea>, IEnumerable<BrainstormIdeaViewModel>>(allIdeas);
 
-                foreach (BrainstormIdeaViewModel item in vms)
+                foreach (BrainstormIdeaViewModel idea in vms)
                 {
-                    item.UserContentType = UserContentType.Idea;
-                    item.VoteCount = allVotes.Count(x => x.IdeaId == item.Id);
-                    item.Score = allVotes.Where(x => x.IdeaId == item.Id).Sum(x => (int)x.VoteValue);
-                    item.CurrentUserVote = currentUserVotes.FirstOrDefault(x => x.IdeaId == item.Id)?.VoteValue ?? VoteValue.Neutral;
+                    idea.UserContentType = UserContentType.Idea;
+                    idea.VoteCount = idea.Votes.Count();
+                    idea.Score = idea.Votes.Sum(x => (int)x.VoteValue);
+                    idea.CurrentUserVote = idea.Votes.Where(x => x.UserId == userId).FirstOrDefault()?.VoteValue ?? VoteValue.Neutral;
 
-                    item.CommentCount = allComments.Count(x => x.IdeaId == item.Id);
+                    idea.CommentCount = idea.Comments.Count();
                 }
 
                 vms = vms.OrderByDescending(x => x.Score).ThenByDescending(x => x.CreateDate);

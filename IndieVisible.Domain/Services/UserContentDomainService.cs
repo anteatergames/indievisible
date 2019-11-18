@@ -82,7 +82,7 @@ namespace IndieVisible.Domain.Services
 
             if (articlesOnly.HasValue && articlesOnly.Value)
             {
-                allModels = allModels.Where(x => !string.IsNullOrWhiteSpace(x.Title) && !string.IsNullOrWhiteSpace(x.Introduction) && !string.IsNullOrWhiteSpace(x.FeaturedImage) && x.Content.Length > 50);
+                allModels = allModels.Where(x => !string.IsNullOrEmpty(x.Title) && !string.IsNullOrEmpty(x.Introduction) && !string.IsNullOrEmpty(x.FeaturedImage) && x.Content.Length > 50);
             }
 
             if (userId.HasValue && userId != Guid.Empty)

@@ -17,34 +17,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         {
         }
 
-        public async Task<int> CountCommentsByIdea(Guid ideaId)
-        {
-            long count = await GetCollection<BrainstormComment>().CountDocumentsAsync(x => x.IdeaId == ideaId);
-
-            return (int)count;
-        }
-
-        public async Task<int> CountVotesByIdea(Guid ideaId)
-        {
-            long count = await GetCollection<BrainstormVote>().CountDocumentsAsync(x => x.IdeaId == ideaId);
-
-            return (int)count;
-        }
-
-        public async Task<IEnumerable<BrainstormComment>> GetCommentsByIdea(Guid ideaId)
-        {
-            List<BrainstormComment> comments = await GetCollection<BrainstormComment>().Find(x => x.IdeaId == ideaId).ToListAsync();
-
-            return comments;
-        }
-
-        public async Task<IEnumerable<BrainstormComment>> GetCommentsBySession(Guid sessionId)
-        {
-            List<BrainstormComment> comments = await GetCollection<BrainstormComment>().Find(x => x.SessionId == sessionId).ToListAsync();
-
-            return comments;
-        }
-
         public async Task<BrainstormIdea> GetIdea(Guid ideaId)
         {
             BrainstormIdea idea = await GetCollection<BrainstormIdea>().FindSync(x => x.Id == ideaId).FirstOrDefaultAsync();
@@ -59,29 +31,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return ideas;
         }
 
-        public async Task<BrainstormVote> GetVote(Guid ideaId, Guid userId)
-        {
-            var result = await GetCollection<BrainstormVote>().Find(x => x.IdeaId == ideaId && x.UserId == userId).FirstOrDefaultAsync();
-
-            return result;
-        }
-
-        public async Task<IEnumerable<BrainstormVote>> GetVotesBySession(Guid sessionId)
-        {
-            List<BrainstormVote> votes = await GetCollection<BrainstormVote>().Find(x => x.SessionId == sessionId).ToListAsync();
-
-            return votes;
-        }
-
-        public async Task<int> SumVotesByIdea(Guid ideaId)
-        {
-            var votes = await GetCollection<BrainstormVote>().Find(x => x.IdeaId == ideaId).ToListAsync();
-
-            var sum = votes.Sum(x => (int)x.VoteValue);
-
-            return sum;
-        }
-
         public async Task<bool> UpdateIdea(BrainstormIdea idea)
         {
             var result = await GetCollection<BrainstormIdea>().ReplaceOneAsync(x => x.Id == idea.Id, idea);
@@ -89,19 +38,37 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return result.IsAcknowledged && result.ModifiedCount > 0;
         }
 
-        public async Task AddVote(BrainstormVote model)
+        public async Task<bool> AddVote(BrainstormVote model)
         {
-            await GetCollection<BrainstormVote>().InsertOneAsync(model);
+            var filter = Builders<BrainstormIdea>.Filter.Where(x => x.Id == model.IdeaId);
+            var add = Builders<BrainstormIdea>.Update.AddToSet(c => c.Votes, model);
+
+            var result = await GetCollection<BrainstormIdea>().UpdateOneAsync(filter, add);
+
+            return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
-        public async Task UpdateVote(BrainstormVote model)
+        public async Task<bool> UpdateVote(BrainstormVote model)
         {
-            await GetCollection<BrainstormVote>().ReplaceOneAsync<BrainstormVote>(x => x.Id == model.Id, model);
+            var filter = Builders<BrainstormIdea>.Filter.And(
+                Builders<BrainstormIdea>.Filter.Eq(x => x.Id, model.IdeaId),
+                Builders<BrainstormIdea>.Filter.ElemMatch(x => x.Votes, x => x.UserId == model.UserId));
+
+            var update = Builders<BrainstormIdea>.Update.Set(c => c.Votes[-1].VoteValue, model.VoteValue);
+
+            var result = await GetCollection<BrainstormIdea>().UpdateOneAsync(filter, update);
+
+            return result.IsAcknowledged && result.ModifiedCount > 0;
         }
 
-        public async Task AddComment(BrainstormComment model)
+        public async Task<bool> AddComment(BrainstormComment model)
         {
-            await GetCollection<BrainstormComment>().InsertOneAsync(model);
+            var filter = Builders<BrainstormIdea>.Filter.Where(x => x.Id == model.IdeaId);
+            var add = Builders<BrainstormIdea>.Update.AddToSet(c => c.Comments, model);
+
+            var result = await GetCollection<BrainstormIdea>().UpdateOneAsync(filter, add);
+
+            return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
         public async Task AddIdea(BrainstormIdea model)

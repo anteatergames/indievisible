@@ -353,11 +353,12 @@ namespace IndieVisible.Web.Controllers
 
         private void SetMyTeamsSelectList()
         {
-            OperationResultListVo<SelectListItemVo> teamResult = (OperationResultListVo<SelectListItemVo>)teamAppService.GetSelectListByUserId(CurrentUserId);
+            OperationResultVo teamResult = teamAppService.GetSelectListByUserId(CurrentUserId);
 
             if (teamResult.Success)
             {
-                SelectList selectList = new SelectList(teamResult.Value, "Value", "Text");
+                var result = (OperationResultListVo<SelectListItemVo>)teamResult;
+                SelectList selectList = new SelectList(result.Value, "Value", "Text");
                 ViewData["MyTeams"] = selectList;
             }
         }

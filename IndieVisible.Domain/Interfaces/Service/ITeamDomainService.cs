@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         void Remove(Guid teamId, Guid userId);
 
-        IQueryable<Team> GetTeamsByMemberUserId(Guid userId);
+        IEnumerable<Team> GetTeamsByMemberUserId(Guid userId);
+
+        IEnumerable<SelectListItemVo<Guid>> GetTeamListByMemberUserId(Guid userId);
     }
 }
