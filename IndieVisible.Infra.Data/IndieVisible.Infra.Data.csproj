@@ -13,30 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190927013626_teams.cs" />
-    <Compile Remove="Migrations\20190927013626_teams.Designer.cs" />
-    <Compile Remove="Migrations\20190927014005_teams.cs" />
-    <Compile Remove="Migrations\20190927014005_teams.Designer.cs" />
-    <Compile Remove="Migrations\20190929015143_teamup.cs" />
-    <Compile Remove="Migrations\20190929015143_teamup.Designer.cs" />
-    <Compile Remove="Migrations\20190929220420_teamup.cs" />
-    <Compile Remove="Migrations\20190929220420_teamup.Designer.cs" />
-    <Compile Remove="Migrations\20190929220534_teamup.cs" />
-    <Compile Remove="Migrations\20190929220534_teamup.Designer.cs" />
-    <Compile Remove="Migrations\20191007002406_newgamificationactions.cs" />
-    <Compile Remove="Migrations\20191007002406_newgamificationactions.Designer.cs" />
-    <Compile Remove="Migrations\20191009223119_contenttype.cs" />
-    <Compile Remove="Migrations\20191009223119_contenttype.Designer.cs" />
-    <Compile Remove="Migrations\20191012164429_oldexternallinksremoval.cs" />
-    <Compile Remove="Migrations\20191012164429_oldexternallinksremoval.Designer.cs" />
-    <Compile Remove="Migrations\20191012172314_gameexternallinks.cs" />
-    <Compile Remove="Migrations\20191012172314_gameexternallinks.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.11" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="[2.1.1,2.2)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="[2.1.1,2.2)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="[2.1.1,2.2)" />

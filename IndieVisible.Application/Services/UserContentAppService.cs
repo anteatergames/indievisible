@@ -7,8 +7,6 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Extensions;
-using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;

@@ -25,17 +25,14 @@ namespace IndieVisible.Web.Controllers
     {
         private readonly IUserContentAppService userContentAppService;
         private readonly IGameAppService gameAppService;
-        private readonly IUserFollowAppService userFollowAppService;
         private readonly INotificationAppService notificationAppService;
 
         public ContentController(IUserContentAppService userContentAppService
             , IGameAppService gameAppService
-            , IUserFollowAppService userFollowAppService
             , INotificationAppService notificationAppService)
         {
             this.userContentAppService = userContentAppService;
             this.gameAppService = gameAppService;
-            this.userFollowAppService = userFollowAppService;
             this.notificationAppService = notificationAppService;
         }
 
@@ -88,7 +85,7 @@ namespace IndieVisible.Web.Controllers
 
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
             vm.Permissions.CanDelete = vm.UserId == CurrentUserId || userIsAdmin;
-            
+
             return View(vm);
         }
 
@@ -136,7 +133,9 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                ProfileViewModel profile = SetAuthorDetails(vm);
+                ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, ProfileType.Personal);
+
+                SetAuthorDetails(vm);
 
                 OperationResultVo<Guid> saveResult = userContentAppService.Save(CurrentUserId, vm);
 
@@ -189,7 +188,10 @@ namespace IndieVisible.Web.Controllers
                 }
             };
 
-            ProfileViewModel profile = SetAuthorDetails(vm);
+
+            ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, ProfileType.Personal);
+
+            SetAuthorDetails(vm);
 
             SetContentImages(vm, images);
 
@@ -287,11 +289,9 @@ namespace IndieVisible.Web.Controllers
 
             Guid targetId = Guid.Empty;
 
-            OperationResultListVo<UserFollowViewModel> userFollowers = userFollowAppService.GetByFollowedId(userId);
-
-            if (userFollowers.Success)
+            if (profile.Followers != null)
             {
-                foreach (UserFollowViewModel userFollower in userFollowers.Value)
+                foreach (UserFollowViewModel userFollower in profile.Followers)
                 {
                     followers.Add(userFollower.UserId, FollowType.Content);
                 }

@@ -31,7 +31,5 @@ namespace IndieVisible.Application.ViewModels.Brainstorm
         public BrainstormIdeaStatus Status { get; set; }
 
         public List<BrainstormVoteViewModel> Votes { get; set; }
-
-        public List<BrainstormCommentViewModel> Comments { get; set; }
     }
 }

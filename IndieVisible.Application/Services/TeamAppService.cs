@@ -4,7 +4,6 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
-using IndieVisible.Domain.Interfaces.Base;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;

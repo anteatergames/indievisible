@@ -3,7 +3,6 @@ using IndieVisible.Infra.CrossCutting.Identity;
 using IndieVisible.Infra.CrossCutting.Identity.Model;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.IoC;
-using IndieVisible.Infra.Data.Context;
 using IndieVisible.Infra.Data.MongoDb;
 using IndieVisible.Web.Extensions;
 using IndieVisible.Web.Middlewares;

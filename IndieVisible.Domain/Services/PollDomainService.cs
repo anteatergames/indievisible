@@ -1,5 +1,4 @@
 ﻿using IndieVisible.Domain.Core.Extensions;
-using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
