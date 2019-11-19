@@ -10,10 +10,16 @@ namespace IndieVisible.Application.Formatters
         {
             return String.Format("{0}/{1}/{2}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId);
         }
-
         public static string ProfileCoverImage(Guid userId, Guid profileId)
         {
-            return String.Format("{0}/{1}/profilecover_{2}", Constants.DefaultCdnPath, userId, profileId);
+            return ProfileCoverImage(userId, profileId, null);
+        }
+
+        public static string ProfileCoverImage(Guid userId, Guid profileId, string currentCoverImageUrl)
+        {
+            var url = string.IsNullOrWhiteSpace(currentCoverImageUrl) ? String.Format("{0}/{1}/profilecover_{2}", Constants.DefaultCdnPath, userId, profileId) : currentCoverImageUrl;
+
+            return url.Replace("//", "/").Replace("https:/", "https://");
         }
 
         public static string Image(Guid userId, BlobType type, string fileName)

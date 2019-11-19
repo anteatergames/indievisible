@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Core.Interfaces;
@@ -16,7 +17,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
-using UserProfile = IndieVisible.Domain.Models.UserProfile;
 
 namespace IndieVisible.Application.Services
 {
@@ -160,10 +160,19 @@ namespace IndieVisible.Application.Services
         }
         public ProfileViewModel GetByUserId(Guid userId, ProfileType type)
         {
-            return GetByUserId(userId, userId, type);
+            return GetByUserId(userId, userId, type, false);
         }
 
+        public ProfileViewModel GetByUserId(Guid userId, ProfileType type, bool forEdit)
+        {
+            return GetByUserId(userId, userId, type, forEdit);
+        }
         public ProfileViewModel GetByUserId(Guid currentUserId, Guid userId, ProfileType type)
+        {
+            return GetByUserId(currentUserId, userId, type, false);
+        }
+
+        public ProfileViewModel GetByUserId(Guid currentUserId, Guid userId, ProfileType type, bool forEdit)
         {
             ProfileViewModel vm = new ProfileViewModel();
 
@@ -180,9 +189,7 @@ namespace IndieVisible.Application.Services
                 return null;
             }
 
-            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id);
-
-            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
+            SetImages(vm);
 
             vm.Counters.Games = gameRepository.Count(x => x.UserId == vm.UserId).Result;
             vm.Counters.Posts = userContentDomainService.Count(x => x.UserId == vm.UserId);
@@ -202,6 +209,11 @@ namespace IndieVisible.Application.Services
                 vm.ConnectionControl.CurrentUserConnected = profileDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
                 vm.ConnectionControl.CurrentUserWantsToFollowMe = profileDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
                 vm.ConnectionControl.ConnectionIsPending = profileDomainService.CheckConnection(currentUserId, vm.UserId, false, true); 
+            }
+
+            if (forEdit)
+            {
+                FormatExternalLinksForEdit(vm);
             }
 
             return vm;
@@ -472,6 +484,51 @@ namespace IndieVisible.Application.Services
         #endregion
 
 
+        private void SetImages(ProfileViewModel vm)
+        {
+            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
+            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.CoverImageUrl);
+        }
+
+        private static void FormatConnectionImages(UserConnectionViewModel item, Guid profileId)
+        {
+            item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
+            item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, profileId);
+        }
+
+        private static void FormatExternalLinksForEdit(ProfileViewModel vm)
+        {
+            foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
+            {
+                UserProfileExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
+                ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
+
+                if (existingProvider == null)
+                {
+
+                    UserProfileExternalLinkViewModel placeHolder = new UserProfileExternalLinkViewModel
+                    {
+                        UserProfileId = vm.Id,
+                        UserId = vm.UserId,
+                        Type = uiInfo.Type,
+                        Provider = provider,
+                        Display = uiInfo.Display,
+                        IconClass = uiInfo.Class,
+                        IsStore = uiInfo.IsStore
+                    };
+
+                    vm.ExternalLinks.Add(placeHolder);
+                }
+                else
+                {
+                    existingProvider.Display = uiInfo.Display;
+                    existingProvider.IconClass = uiInfo.Class;
+                }
+            }
+
+            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
+        }
+
         private List<UserConnectionViewModel> FormatConnections(Guid userId, IEnumerable<UserConnectionViewModel> connections)
         {
             List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
@@ -516,12 +573,6 @@ namespace IndieVisible.Application.Services
             }
 
             return newList;
-        }
-
-        private static void FormatConnectionImages(UserConnectionViewModel item, Guid profileId)
-        {
-            item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
-            item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, profileId);
         }
     }
 }

@@ -55,8 +55,6 @@ namespace IndieVisible.Web.Controllers
                 vm = profile;
             }
 
-            SetImages(vm);
-
             FormatExternaLinks(vm);
 
             gamificationAppService.FillProfileGamificationDetails(CurrentUserId, ref vm);
@@ -83,11 +81,7 @@ namespace IndieVisible.Web.Controllers
         [Route("profile/edit/{userId:guid}")]
         public IActionResult Edit(Guid userId)
         {
-            ProfileViewModel vm = profileAppService.GetByUserId(userId, ProfileType.Personal);
-
-            FormatExternalLinksForEdit(vm);
-
-            SetImages(vm);
+            ProfileViewModel vm = profileAppService.GetByUserId(userId, ProfileType.Personal, true);
 
             return View(vm);
         }
@@ -112,45 +106,6 @@ namespace IndieVisible.Web.Controllers
             {
                 return Json(new OperationResultVo(ex.Message));
             }
-        }
-
-        private void SetImages(ProfileViewModel vm)
-        {
-            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
-            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id);
-        }
-
-        private static void FormatExternalLinksForEdit(ProfileViewModel vm)
-        {
-            foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
-            {
-                UserProfileExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
-                ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
-
-                if (existingProvider == null)
-                {
-
-                    UserProfileExternalLinkViewModel placeHolder = new UserProfileExternalLinkViewModel
-                    {
-                        UserProfileId = vm.Id,
-                        UserId = vm.UserId,
-                        Type = uiInfo.Type,
-                        Provider = provider,
-                        Display = uiInfo.Display,
-                        IconClass = uiInfo.Class,
-                        IsStore = uiInfo.IsStore
-                    };
-
-                    vm.ExternalLinks.Add(placeHolder);
-                }
-                else
-                {
-                    existingProvider.Display = uiInfo.Display;
-                    existingProvider.IconClass = uiInfo.Class;
-                }
-            }
-
-            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
         }
 
         private void FormatExternaLinks(ProfileViewModel vm)

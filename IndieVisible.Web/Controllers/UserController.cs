@@ -51,7 +51,7 @@ namespace IndieVisible.Web.Controllers
             foreach (ProfileViewModel profile in profiles)
             {
                 profile.ProfileImageUrl = UrlFormatter.ProfileImage(profile.UserId);
-                profile.CoverImageUrl = UrlFormatter.ProfileCoverImage(profile.UserId, profile.Id);
+                profile.CoverImageUrl = UrlFormatter.ProfileCoverImage(profile.UserId, profile.Id, profile.CoverImageUrl);
             }
 
             return View(profiles);
