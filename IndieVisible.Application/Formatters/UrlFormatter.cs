@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Enums;
 using System;
 
 namespace IndieVisible.Application.Formatters
@@ -8,16 +9,28 @@ namespace IndieVisible.Application.Formatters
         #region Internal
         public static string ProfileImage(Guid userId)
         {
-            return String.Format("{0}/{1}/{2}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId);
-        }
-        public static string ProfileCoverImage(Guid userId, Guid profileId)
-        {
-            return ProfileCoverImage(userId, profileId, false);
+            return ProfileImage(userId, null);
         }
 
-        public static string ProfileCoverImage(Guid userId, Guid profileId, bool hasCoverImage)
+        public static string ProfileImage(Guid userId, DateTime? lastUpdateDate)
         {
-            var url = hasCoverImage ? String.Format("{0}/{1}/profilecover_{2}?x={3}", Constants.DefaultCdnPath, userId, profileId, DateTime.Now.Ticks) : Constants.DefaultProfileCoverImage;
+            var v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : DateTime.Now.Ticks;
+
+            var url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
+
+            return url;
+        }
+
+        public static string ProfileCoverImage(Guid userId, Guid profileId)
+        {
+            return ProfileCoverImage(userId, profileId, null, false);
+        }
+
+        public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage)
+        {
+            var v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
+
+            var url = hasCoverImage ? String.Format("{0}/{1}/profilecover_{2}?v={3}", Constants.DefaultCdnPath, userId, profileId, v) : Constants.DefaultProfileCoverImage;
 
             return url.Replace("//", "/").Replace("https:/", "https://");
         }
@@ -38,16 +51,24 @@ namespace IndieVisible.Application.Formatters
         #region ExternalUrls
         private static string ExternalUrlCommon(string handler)
         {
-            handler = handler.ToLower().Replace(" ", "-");
+            if (!string.IsNullOrWhiteSpace(handler))
+            {
+                handler = handler.ToLower().Replace(" ", "-");
+            }
+
             return handler;
         }
         private static string CompleteUrlCommon(string handler)
         {
-            handler = handler.Trim('/');
-            if (!handler.StartsWith("http"))
+            if (!string.IsNullOrWhiteSpace(handler))
             {
-                handler = String.Format("http://{0}", handler);
+                handler = handler.Trim('/');
+                if (!handler.StartsWith("http"))
+                {
+                    handler = String.Format("http://{0}", handler);
+                } 
             }
+
             return handler;
         }
 

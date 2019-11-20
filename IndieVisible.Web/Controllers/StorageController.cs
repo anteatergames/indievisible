@@ -27,7 +27,7 @@ namespace IndieVisible.Web.Controllers
 
         [ResponseCache(CacheProfileName = "Never")]
         [Route("userimage/{type:alpha}/{userId:guid}/{name?}")]
-        public IActionResult UserImage(BlobType type, Guid userId, string name)
+        public IActionResult UserImage(BlobType type, Guid userId, string name, string v)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -39,19 +39,19 @@ namespace IndieVisible.Web.Controllers
                 name = String.Format("{0}_Personal", userId);
             }
 
-            return GetImage(type, userId, name);
+            return GetImage(type, userId, name, v);
         }
 
         [ResponseCache(CacheProfileName = "Default")]
         [Route("image/{type:alpha}/{userId:guid}/{name}")]
         [Route("image/{name}")]
         [Route("image")]
-        public IActionResult Image(BlobType type, Guid userId, string name)
+        public IActionResult Image(BlobType type, Guid userId, string name, string v)
         {
-            return GetImage(type, userId, name);
+            return GetImage(type, userId, name, v);
         }
 
-        private IActionResult GetImage(BlobType type, Guid userId, string name)
+        private IActionResult GetImage(BlobType type, Guid userId, string name, string v)
         {
             string baseUrl = Constants.DefaultCdnPath;
             name = name.Replace(Constants.DefaultImagePath, string.Empty);
@@ -63,6 +63,11 @@ namespace IndieVisible.Web.Controllers
                 storageBasePath = FormatBasePath(type, userId, baseUrl);
 
                 string url = storageBasePath + name;
+
+                if (!string.IsNullOrWhiteSpace(v))
+                {
+                    url += "?v=" + v;
+                }
 
                 byte[] data;
 

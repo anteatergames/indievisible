@@ -187,7 +187,7 @@
 
         objs.modalCropCoverImage.on('shown.bs.modal', function () {
             cropperCoverImage = new Cropper(cropImage, {
-                aspectRatio: 6 / 1,
+                aspectRatio: 37 / 10,
                 viewMode: 3,
                 autoCropArea: 1
             });

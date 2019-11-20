@@ -14,6 +14,8 @@ namespace IndieVisible.Domain.Core.Models
 
         public DateTime CreateDate { get; set; }
 
+        public DateTime? LastUpdateDate { get; set; }
+
         public Entity()
         {
             CreateDate = DateTime.Now;

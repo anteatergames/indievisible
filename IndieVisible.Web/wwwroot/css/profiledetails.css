@@ -1,3 +1,7 @@
+.box.user-profile .user-profile-header, .box.user-profile .overlay {
+    height: 300px;
+}
+
 .user-profile .user-profile-header {
     color: #fff;
     background-color: #89ad87;

@@ -71,7 +71,7 @@ namespace IndieVisible.Application.Services
                     var model = allModels.First(x => x.Id == profile.Id);
 
                     profile.ProfileImageUrl = UrlFormatter.ProfileImage(profile.UserId);
-                    profile.CoverImageUrl = UrlFormatter.ProfileCoverImage(profile.UserId, profile.Id, model.HasCoverImage);
+                    profile.CoverImageUrl = UrlFormatter.ProfileCoverImage(profile.UserId, profile.Id, profile.LastUpdateDate, model.HasCoverImage);
                 }
 
 
@@ -227,6 +227,9 @@ namespace IndieVisible.Application.Services
             {
                 FormatExternalLinksForEdit(vm);
             }
+
+
+            FormatExternaLinks(vm);
 
             return vm;
         }
@@ -498,14 +501,121 @@ namespace IndieVisible.Application.Services
 
         private void SetImages(ProfileViewModel vm, bool hasCoverImage)
         {
-            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
-            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, hasCoverImage);
+            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId, vm.LastUpdateDate);
+            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.LastUpdateDate, hasCoverImage);
         }
 
-        private static void FormatConnectionImages(UserConnectionViewModel item, Guid profileId)
+        private static void FormatConnectionImages(UserConnectionViewModel item, UserProfileEssentialVo profile)
         {
             item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
-            item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, profileId);
+            item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, profile.Id, profile.LastUpdateDate, profile.HasCoverImage);
+        }
+
+
+        private List<UserConnectionViewModel> FormatConnections(Guid userId, IEnumerable<UserConnectionViewModel> connections)
+        {
+            List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
+
+            IEnumerable<UserConnectionViewModel> connectionsFromMe = connections.Where(x => x.UserId == userId && x.ApprovalDate.HasValue).ToList();
+            IEnumerable<UserConnectionViewModel> connectionsToMe = connections.Where(x => x.TargetUserId == userId && x.ApprovalDate.HasValue).ToList();
+
+            foreach (UserConnectionViewModel item in connectionsFromMe)
+            {
+                if (!newList.Any(x => x.UserId == item.TargetUserId))
+                {
+                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.TargetUserId);
+
+                    item.UserId = userId;
+                    item.TargetUserName = profile.Name;
+                    item.Location = profile.Location;
+                    item.CreateDate = profile.CreateDate;
+
+                    FormatConnectionImages(item, profile);
+
+                    newList.Add(item);
+                }
+            }
+
+            foreach (var item in connectionsToMe)
+            {
+                if (!newList.Any(x => x.UserId == item.UserId))
+                {
+                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.UserId);
+
+                    item.TargetUserId = item.UserId;
+                    item.UserId = userId;
+                    item.TargetUserName = profile.Name;
+                    item.ProfileId = profile.Id;
+                    item.Location = profile.Location;
+                    item.CreateDate = profile.CreateDate;
+
+                    FormatConnectionImages(item, profile);
+
+                    newList.Add(item);
+                }
+            }
+
+            return newList;
+        }
+
+        private void FormatExternaLinks(ProfileViewModel vm)
+        {
+            foreach (UserProfileExternalLinkViewModel item in vm.ExternalLinks)
+            {
+                ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
+                item.Display = uiInfo.Display;
+                item.IconClass = uiInfo.Class;
+                item.ColorClass = uiInfo.ColorClass;
+
+                switch (item.Provider)
+                {
+                    case ExternalLinkProvider.Website:
+                        item.Value = UrlFormatter.Website(item.Value);
+                        break;
+                    case ExternalLinkProvider.Facebook:
+                        item.Value = UrlFormatter.Facebook(item.Value);
+                        break;
+                    case ExternalLinkProvider.Twitter:
+                        item.Value = UrlFormatter.Twitter(item.Value);
+                        break;
+                    case ExternalLinkProvider.Instagram:
+                        item.Value = UrlFormatter.Instagram(item.Value);
+                        break;
+                    case ExternalLinkProvider.Youtube:
+                        item.Value = UrlFormatter.Youtube(item.Value);
+                        break;
+                    case ExternalLinkProvider.XboxLive:
+                        item.Value = UrlFormatter.XboxLiveProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.PlaystationStore:
+                        item.Value = UrlFormatter.PlayStationStoreProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.Steam:
+                        item.Value = UrlFormatter.SteamGame(item.Value);
+                        break;
+                    case ExternalLinkProvider.GameJolt:
+                        item.Value = UrlFormatter.GameJoltProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.ItchIo:
+                        item.Value = UrlFormatter.ItchIoProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.GamedevNet:
+                        item.Value = UrlFormatter.GamedevNetProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.IndieDb:
+                        item.Value = UrlFormatter.IndieDbPofile(item.Value);
+                        break;
+                    case ExternalLinkProvider.UnityConnect:
+                        item.Value = UrlFormatter.UnityConnectProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.GooglePlayStore:
+                        item.Value = UrlFormatter.GooglePlayStoreProfile(item.Value);
+                        break;
+                    case ExternalLinkProvider.AppleAppStore:
+                        item.Value = UrlFormatter.AppleAppStoreProfile(item.Value);
+                        break;
+                }
+            }
         }
 
         private static void FormatExternalLinksForEdit(ProfileViewModel vm)
@@ -539,52 +649,6 @@ namespace IndieVisible.Application.Services
             }
 
             vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
-        }
-
-        private List<UserConnectionViewModel> FormatConnections(Guid userId, IEnumerable<UserConnectionViewModel> connections)
-        {
-            List<UserConnectionViewModel> newList = new List<UserConnectionViewModel>();
-
-            IEnumerable<UserConnectionViewModel> connectionsFromMe = connections.Where(x => x.UserId == userId && x.ApprovalDate.HasValue).ToList();
-            IEnumerable<UserConnectionViewModel> connectionsToMe = connections.Where(x => x.TargetUserId == userId && x.ApprovalDate.HasValue).ToList();
-
-            foreach (UserConnectionViewModel item in connectionsFromMe)
-            {
-                if (!newList.Any(x => x.UserId == item.TargetUserId))
-                {
-                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.TargetUserId);
-
-                    item.UserId = userId;
-                    item.TargetUserName = profile.Name;
-                    item.Location = profile.Location;
-                    item.CreateDate = profile.CreateDate;
-
-                    FormatConnectionImages(item, profile.Id);
-
-                    newList.Add(item);
-                }
-            }
-
-            foreach (var item in connectionsToMe)
-            {
-                if (!newList.Any(x => x.UserId == item.UserId))
-                {
-                    UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(item.UserId);
-
-                    item.TargetUserId = item.UserId;
-                    item.UserId = userId;
-                    item.TargetUserName = profile.Name;
-                    item.ProfileId = profile.Id;
-                    item.Location = profile.Location;
-                    item.CreateDate = profile.CreateDate;
-
-                    FormatConnectionImages(item, profile.Id);
-
-                    newList.Add(item);
-                }
-            }
-
-            return newList;
         }
     }
 }

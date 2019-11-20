@@ -76,6 +76,8 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
 
         public virtual void Update(TEntity obj)
         {
+            obj.LastUpdateDate = DateTime.Now;
+
             var filter = Builders<TEntity>.Filter.Eq(x => x.Id, obj.Id);
 
             Context.AddCommand(() => DbSet.ReplaceOneAsync(filter, obj));

@@ -11,6 +11,8 @@ namespace IndieVisible.Application.ViewModels
 
         public DateTime CreateDate { get; set; }
 
+        public DateTime? LastUpdateDate { get; set; }
+
         public bool CurrentUserLiked { get; set; }
 
         public bool CurrentUserFollowing { get; set; }

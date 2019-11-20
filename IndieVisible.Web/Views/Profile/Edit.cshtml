@@ -13,12 +13,12 @@
         <input type="hidden" asp-for="CreateDate" />
         <input type="hidden" asp-for="CoverImageUrl" />
 
-        <div class="box box-widget widget-user user-profile">
-            <div class="widget-user-header bg-dark" id="imgCoverImage" style="background: url('@Model.CoverImageUrl') center center;">
+        <div class="box box-widget user-profile">
+            <div class="user-profile-header bg-dark" id="imgCoverImage" style="background-image: url('@Model.CoverImageUrl'); background-size:cover;">
                 <div class="overlay dark">
-                    <div class="widget-user-image">
+                    <div class="user-profile-image">
                         <div class="avatar-wrapper">
-                            <label class="label" data-toggle="tooltip" title="" data-original-title="Change the Avatar">
+                            <label class="label" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Change the Avatar"] (512x512)">
                                 <img class="rounded-circle" id="imgAvatar" src="@Model.ProfileImageUrl" alt="User Avatar">
                                 <input id="avatar" name="avatar" type="file" class="sr-only">
                             </label>
@@ -26,13 +26,13 @@
                     </div>
                 </div>
                 <div class="user-profile-cover-topright">
-                    <label class="label btn btn-default bg-transparent" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Change Cover Image"]">
+                    <label class="label btn btn-default bg-transparent" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Change Cover Image"] (1110x300)">
                         @SharedLocalizer["Change Cover Image"]
                         <input id="coverImage" name="coverImage" type="file" class="sr-only">
                     </label>
                 </div>
             </div>
-            <div class="box-footer">
+            <div class="box-footer bg-white">
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-sm-12 description-block">
@@ -199,6 +199,13 @@
 </div>
 
 @section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
+    </environment>
+
     <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
     <style>
         .avatar-wrapper label {

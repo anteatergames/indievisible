@@ -55,8 +55,6 @@ namespace IndieVisible.Web.Controllers
                 vm = profile;
             }
 
-            FormatExternaLinks(vm);
-
             gamificationAppService.FillProfileGamificationDetails(CurrentUserId, ref vm);
 
             if (CurrentUserId != Guid.Empty)
@@ -105,66 +103,6 @@ namespace IndieVisible.Web.Controllers
             catch (Exception ex)
             {
                 return Json(new OperationResultVo(ex.Message));
-            }
-        }
-
-        private void FormatExternaLinks(ProfileViewModel vm)
-        {
-            foreach (UserProfileExternalLinkViewModel item in vm.ExternalLinks)
-            {
-                ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
-                item.Display = uiInfo.Display;
-                item.IconClass = uiInfo.Class;
-                item.ColorClass = uiInfo.ColorClass;
-
-                switch (item.Provider)
-                {
-                    case ExternalLinkProvider.Website:
-                        item.Value = UrlFormatter.Website(item.Value);
-                        break;
-                    case ExternalLinkProvider.Facebook:
-                        item.Value = UrlFormatter.Facebook(item.Value);
-                        break;
-                    case ExternalLinkProvider.Twitter:
-                        item.Value = UrlFormatter.Twitter(item.Value);
-                        break;
-                    case ExternalLinkProvider.Instagram:
-                        item.Value = UrlFormatter.Instagram(item.Value);
-                        break;
-                    case ExternalLinkProvider.Youtube:
-                        item.Value = UrlFormatter.Youtube(item.Value);
-                        break;
-                    case ExternalLinkProvider.XboxLive:
-                        item.Value = UrlFormatter.XboxLiveProfile(item.Value);
-                        break;
-                    case ExternalLinkProvider.PlaystationStore:
-                        item.Value = UrlFormatter.PlayStationStoreProfile(item.Value);
-                        break;
-                    case ExternalLinkProvider.Steam:
-                        item.Value = UrlFormatter.SteamGame(item.Value);
-                        break;
-                    case ExternalLinkProvider.GameJolt:
-                        item.Value = UrlFormatter.GameJoltProfile(item.Value);
-                        break;
-                    case ExternalLinkProvider.ItchIo:
-                        item.Value = UrlFormatter.ItchIoProfile(item.Value);
-                        break;
-                    case ExternalLinkProvider.GamedevNet:
-                        item.Value = UrlFormatter.GamedevNetProfile(item.Value);
-                        break;
-                    case ExternalLinkProvider.IndieDb:
-                        item.Value = UrlFormatter.IndieDbPofile(item.Value);
-                        break;
-                    case ExternalLinkProvider.UnityConnect:
-                        item.Value = UrlFormatter.UnityConnectProfile(item.Value);
-                        break;
-                    case ExternalLinkProvider.GooglePlayStore:
-                        item.Value = UrlFormatter.GooglePlayStoreProfile(item.Value);
-                        break;
-                    case ExternalLinkProvider.AppleAppStore:
-                        item.Value = UrlFormatter.AppleAppStoreProfile(item.Value);
-                        break;
-                }
             }
         }
     }

@@ -21,7 +21,7 @@ namespace IndieVisible.Domain.Models
         public bool HasCoverImage { get; set; }
 
         public List<UserProfileExternalLink> ExternalLinks { get; set; }
+
         public List<UserFollow> Followers { get; set; }
-        public List<UserConnection> Connections { get; set; }
     }
 }
