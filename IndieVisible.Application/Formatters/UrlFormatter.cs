@@ -12,12 +12,12 @@ namespace IndieVisible.Application.Formatters
         }
         public static string ProfileCoverImage(Guid userId, Guid profileId)
         {
-            return ProfileCoverImage(userId, profileId, null);
+            return ProfileCoverImage(userId, profileId, false);
         }
 
-        public static string ProfileCoverImage(Guid userId, Guid profileId, string currentCoverImageUrl)
+        public static string ProfileCoverImage(Guid userId, Guid profileId, bool hasCoverImage)
         {
-            var url = string.IsNullOrWhiteSpace(currentCoverImageUrl) ? String.Format("{0}/{1}/profilecover_{2}", Constants.DefaultCdnPath, userId, profileId) : currentCoverImageUrl;
+            var url = hasCoverImage ? String.Format("{0}/{1}/profilecover_{2}?x={3}", Constants.DefaultCdnPath, userId, profileId, DateTime.Now.Ticks) : Constants.DefaultProfileCoverImage;
 
             return url.Replace("//", "/").Replace("https:/", "https://");
         }

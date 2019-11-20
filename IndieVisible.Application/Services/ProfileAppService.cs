@@ -65,6 +65,16 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<ProfileViewModel> vms = mapper.Map<IEnumerable<UserProfile>, IEnumerable<ProfileViewModel>>(allModels);
 
+
+                foreach (ProfileViewModel profile in vms)
+                {
+                    var model = allModels.First(x => x.Id == profile.Id);
+
+                    profile.ProfileImageUrl = UrlFormatter.ProfileImage(profile.UserId);
+                    profile.CoverImageUrl = UrlFormatter.ProfileCoverImage(profile.UserId, profile.Id, model.HasCoverImage);
+                }
+
+
                 return new OperationResultListVo<ProfileViewModel>(vms);
             }
             catch (Exception ex)
@@ -128,6 +138,8 @@ namespace IndieVisible.Application.Services
                     model.Type = ProfileType.Personal;
                 }
 
+                model.HasCoverImage = !viewModel.CoverImageUrl.Equals(Constants.DefaultProfileCoverImage);
+
                 if (viewModel.Id == Guid.Empty)
                 {
                     profileDomainService.Add(model);
@@ -189,7 +201,7 @@ namespace IndieVisible.Application.Services
                 return null;
             }
 
-            SetImages(vm);
+            SetImages(vm, model.HasCoverImage);
 
             vm.Counters.Games = gameRepository.Count(x => x.UserId == vm.UserId).Result;
             vm.Counters.Posts = userContentDomainService.Count(x => x.UserId == vm.UserId);
@@ -484,10 +496,10 @@ namespace IndieVisible.Application.Services
         #endregion
 
 
-        private void SetImages(ProfileViewModel vm)
+        private void SetImages(ProfileViewModel vm, bool hasCoverImage)
         {
             vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
-            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.CoverImageUrl);
+            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, hasCoverImage);
         }
 
         private static void FormatConnectionImages(UserConnectionViewModel item, Guid profileId)

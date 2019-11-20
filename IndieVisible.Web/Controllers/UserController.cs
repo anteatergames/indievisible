@@ -48,12 +48,6 @@ namespace IndieVisible.Web.Controllers
 
             List<ProfileViewModel> profiles = serviceResult.Value.OrderByDescending(x => x.CreateDate).ToList();
 
-            foreach (ProfileViewModel profile in profiles)
-            {
-                profile.ProfileImageUrl = UrlFormatter.ProfileImage(profile.UserId);
-                profile.CoverImageUrl = UrlFormatter.ProfileCoverImage(profile.UserId, profile.Id, profile.CoverImageUrl);
-            }
-
             return View(profiles);
         }
 

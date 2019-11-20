@@ -26,7 +26,8 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
                 UserId = targetUserId,
                 Name = x.Name,
                 Location = x.Location,
-                CreateDate = x.CreateDate
+                CreateDate = x.CreateDate,
+                HasCoverImage = x.HasCoverImage
             }).FirstOrDefaultAsync();
 
             return profile;

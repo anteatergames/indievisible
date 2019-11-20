@@ -9,5 +9,6 @@ namespace IndieVisible.Domain.ValueObjects
     {
         public string Name { get; set; }
         public string Location { get; set; }
+        public bool HasCoverImage { get; set; }
     }
 }

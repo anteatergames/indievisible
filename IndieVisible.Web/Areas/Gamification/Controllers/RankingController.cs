@@ -37,14 +37,14 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
 
             foreach (Application.ViewModels.Gamification.RankingViewModel obj in objs)
             {
-                obj.ProfileImageUrl = UrlFormatter.ProfileImage(obj.UserId);
-                obj.CoverImageUrl = UrlFormatter.ProfileCoverImage(obj.UserId, obj.Id, obj.CoverImageUrl);
 
                 var profile = profileAppService.GetBasicDataByUserId(obj.UserId);
 
                 if (profile != null)
                 {
                     obj.Name = profile.Name;
+                    obj.ProfileImageUrl = UrlFormatter.ProfileImage(obj.UserId);
+                    obj.CoverImageUrl = UrlFormatter.ProfileCoverImage(obj.UserId, obj.Id, profile.HasCoverImage);
                 }
             }
 
