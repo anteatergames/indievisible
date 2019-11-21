@@ -48,12 +48,6 @@ namespace IndieVisible.Web.Helpers
                 else
                 {
                     newText = string.Format(@"<a href=""{0}"" target=""_blank"" style=""font-weight:500"">{0}</a>", url);
-
-
-                    if (string.IsNullOrWhiteSpace(oembedPrefix))
-                    {
-                        newText = toReplace;
-                    }
                 }
 
                 if (!string.IsNullOrWhiteSpace(openParenthesis) && !string.IsNullOrWhiteSpace(closeParenthesis))
@@ -78,7 +72,7 @@ namespace IndieVisible.Web.Helpers
 
         public static string FormatHashTagsToShow(string content)
         {
-            string patternHashtag = @"(#\w+)";
+            string patternHashtag = @"(\s#\w+)";
 
             Regex regexHashtag = new Regex(patternHashtag);
 
