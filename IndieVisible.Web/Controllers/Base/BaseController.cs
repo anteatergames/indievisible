@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Enums;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -13,8 +14,7 @@ namespace IndieVisible.Web.Controllers.Base
     {
         private IStringLocalizer<SharedResources> _sharedLocalizer;
         public IStringLocalizer<SharedResources> SharedLocalizer => _sharedLocalizer ?? (_sharedLocalizer = (IStringLocalizer<SharedResources>)HttpContext?.RequestServices.GetService(typeof(IStringLocalizer<SharedResources>)));
-
-
+        
         public BaseController()
         {
         }

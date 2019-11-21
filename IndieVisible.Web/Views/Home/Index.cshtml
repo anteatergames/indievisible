@@ -16,13 +16,17 @@
                 <partial name="_HomeSquare" model="joinUsViewModel" />
             </div>
         }
-        <div class="col-12">
-            <div id="divCounters"></div>
-        </div>
+    <div class="col-12">
+        <div id="divCounters"></div>
+    </div>
     </div>
 </div>
 
 <div class=" col-lg-8 col-xl-7 pr-lg-2 pl-xl-2 pr-xl-2">
+
+    <environment include="Development"><div class="text-center position-absolute w-100 text-white" style="z-index:9999;top:-45px">dev</div></environment>
+    <environment include="Staging"><div class="text-center position-absolute w-100 text-white" style="z-index:9999;top:-45px">staging</div></environment>
+
     @await Html.PartialAsync("_Carousel", ViewBag.Carousel as CarouselViewModel)
 
     @if (User.Identity.IsAuthenticated)

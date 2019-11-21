@@ -6,6 +6,7 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;

@@ -16,12 +16,12 @@ namespace IndieVisible.Web.Controllers
     [Route("storage")]
     public class StorageController : SecureBaseController
     {
-        private readonly IHostingEnvironment _hostingEnv;
+        private readonly IHostingEnvironment hostingEnvironment;
         private readonly IHttpContextAccessor HttpContextAccessor;
 
-        public StorageController(IHostingEnvironment hostingEnv, IHttpContextAccessor httpContextAccessor)
+        public StorageController(IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor)
         {
-            _hostingEnv = hostingEnv;
+            this.hostingEnvironment = hostingEnvironment;
             HttpContextAccessor = httpContextAccessor;
         }
 
@@ -413,7 +413,7 @@ namespace IndieVisible.Web.Controllers
         {
             string defaultImageNotRooted = GetDefaultImage(type);
 
-            string retorno = Path.Combine(_hostingEnv.WebRootPath, defaultImageNotRooted);
+            string retorno = Path.Combine(hostingEnvironment.WebRootPath, defaultImageNotRooted);
 
             byte[] bytes = System.IO.File.ReadAllBytes(retorno);
 
