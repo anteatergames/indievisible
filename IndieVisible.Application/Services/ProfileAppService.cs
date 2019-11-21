@@ -126,6 +126,17 @@ namespace IndieVisible.Application.Services
                 UserProfile existing = profileDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
+                    if (existing.Followers != null)
+                    {
+                        foreach (var follower in existing.Followers)
+                        {
+                            if (follower.FollowUserId != Guid.Empty && follower.UserId == currentUserId)
+                            {
+                                follower.UserId = follower.FollowUserId;
+                            }
+                        } 
+                    }
+
                     model = mapper.Map(viewModel, existing);
                 }
                 else

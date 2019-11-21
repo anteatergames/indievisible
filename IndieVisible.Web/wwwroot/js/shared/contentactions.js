@@ -44,16 +44,17 @@
     function bindCommentTextArea() {
         $('.content').on('keyup', 'textarea.commentbox', function (e) {
             var btn = $(this);
-            var commentCount = btn.closest('.box-content').find('.comment-count');
 
             if ((e.keyCode === 10 || e.keyCode === 13) && e.ctrlKey) {
-                var txtArea = $(this);
+                var txtArea = btn.closest('.interaction-commentbox').find('.commenttextarea');
+                var url = txtArea.data('url');
+                var commentCount = btn.closest('.box-content').find('.comment-count');
                 var id = txtArea.data('usercontentid');
-                var text = txtArea.val();
+                var text = txtArea.val().replace(/\n/g, '<br>\n');
                 var type = txtArea.data('usercontenttype');
 
                 if (text.length > 0) {
-                    comment(id, text, type).done(function (response) { commentCallback(response, commentCount, txtArea); });
+                    comment(url, id, text, type).done(function (response) { commentCallback(response, commentCount, txtArea); });
                 }
             }
 

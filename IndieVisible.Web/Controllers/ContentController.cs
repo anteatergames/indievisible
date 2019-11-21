@@ -280,7 +280,7 @@ namespace IndieVisible.Web.Controllers
 
         private void NotifyFollowers(Guid userId, ProfileViewModel profile, Guid? gameId, Guid contentId)
         {
-            Dictionary<Guid, FollowType> followers = new Dictionary<Guid, FollowType>();
+            Dictionary<Guid, FollowType> followersToNotify = new Dictionary<Guid, FollowType>();
 
             string notificationText = SharedLocalizer["{0} has posted a new content!"];
             string notificationUrl = Url.Action("Details", "Content", new { id = contentId });
@@ -293,13 +293,13 @@ namespace IndieVisible.Web.Controllers
             {
                 foreach (UserFollowViewModel userFollower in profile.Followers)
                 {
-                    followers.Add(userFollower.UserId, FollowType.Content);
+                    followersToNotify.Add(userFollower.UserId, FollowType.Content);
                 }
             }
 
-            gameName = ProcessGamePost(gameId, followers, gameName);
+            gameName = ProcessGamePost(gameId, followersToNotify, gameName);
 
-            Notify(profile, followers, notificationText, notificationUrl, gameName, targetId);
+            Notify(profile, followersToNotify, notificationText, notificationUrl, gameName, targetId);
         }
 
         private string ProcessGamePost(Guid? gameId, Dictionary<Guid, FollowType> userFollowers, string gameName)
