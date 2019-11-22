@@ -10,10 +10,10 @@ namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
 {
     public interface IUserProfileRepository : IRepository<UserProfile>
     {
-        Task<IQueryable<UserFollow>> GetFollows(Expression<Func<UserFollow, bool>> where);
+        Task<IQueryable<UserFollow>> GetFollows(Guid userId, Guid followerId);
 
-        Task<int> CountFollow(Expression<Func<UserFollow, bool>> where);
-        Task<bool> AddFollow(UserFollow model);
+        Task<int> CountFollowers(Guid userId);
+        Task<bool> AddFollow(Guid followerUserId, Guid userId);
         Task<bool> RemoveFollower(Guid userId, Guid followUserId);
         Task<UserProfileEssentialVo> GetBasicDataByUserId(Guid targetUserId);
     }

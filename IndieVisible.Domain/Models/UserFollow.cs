@@ -5,6 +5,6 @@ namespace IndieVisible.Domain.Models
 {
     public class UserFollow : Entity
     {
-        public Guid FollowUserId { get; set; }
+        public Guid? FollowUserId { get; set; }
     }
 }

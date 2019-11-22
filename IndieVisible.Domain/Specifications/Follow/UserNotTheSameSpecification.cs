@@ -6,15 +6,15 @@ namespace IndieVisible.Domain.Specifications.Follow
 {
     public class UserNotTheSameSpecification : ISpecification<UserFollow>
     {
-        private Guid currentUserId;
+        private Guid userBeingFollowed;
 
-        public UserNotTheSameSpecification(Guid currentUserId)
+        public UserNotTheSameSpecification(Guid userBeingFollowed)
         {
-            this.currentUserId = currentUserId;
+            this.userBeingFollowed = userBeingFollowed;
         }
 
         public string ErrorMessage => "Can't follow the same user!";
 
-        public bool IsSatisfiedBy(UserFollow item) => item.Id != currentUserId;
+        public bool IsSatisfiedBy(UserFollow item) => item.UserId != userBeingFollowed;
     }
 }

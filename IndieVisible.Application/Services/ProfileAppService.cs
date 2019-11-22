@@ -130,9 +130,9 @@ namespace IndieVisible.Application.Services
                     {
                         foreach (var follower in existing.Followers)
                         {
-                            if (follower.FollowUserId != Guid.Empty && follower.UserId == currentUserId)
+                            if (follower.FollowUserId.HasValue && follower.FollowUserId != Guid.Empty && follower.UserId == currentUserId)
                             {
-                                follower.UserId = follower.FollowUserId;
+                                follower.UserId = follower.FollowUserId.Value;
                             }
                         } 
                     }
@@ -219,7 +219,7 @@ namespace IndieVisible.Application.Services
             vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 
             vm.Counters.Followers = model.Followers.SafeCount();
-            vm.Counters.Following = profileDomainService.CountFollow(x => x.UserId == userId);
+            vm.Counters.Following = profileDomainService.CountFollowers(userId);
             int connectionsToUser = profileDomainService.CountConnections(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
             int connectionsFromUser = profileDomainService.CountConnections(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
 
@@ -228,7 +228,7 @@ namespace IndieVisible.Application.Services
 
             if (vm.UserId != currentUserId)
             {
-                vm.CurrentUserFollowing = profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == vm.UserId).Any();
+                vm.CurrentUserFollowing = model.Followers.Where(x => x.UserId == currentUserId).Any();
                 vm.ConnectionControl.CurrentUserConnected = profileDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
                 vm.ConnectionControl.CurrentUserWantsToFollowMe = profileDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
                 vm.ConnectionControl.ConnectionIsPending = profileDomainService.CheckConnection(currentUserId, vm.UserId, false, true); 
@@ -293,12 +293,12 @@ namespace IndieVisible.Application.Services
             {
                 UserFollow model = new UserFollow
                 {
-                    FollowUserId = userId,
-                    UserId = currentUserId
+                    UserId = currentUserId,
+                    FollowUserId = userId
                 };
 
-                ISpecification<UserFollow> spec = new IdsNotEmptySpecification()
-                    .And(new UserNotTheSameSpecification(currentUserId));
+                ISpecification<UserFollow> spec = new IdNotEmptySpecification()
+                    .And(new UserNotTheSameSpecification(userId));
 
                 if (!spec.IsSatisfiedBy(model))
                 {
@@ -317,7 +317,7 @@ namespace IndieVisible.Application.Services
 
                     unitOfWork.Commit();
 
-                    int newCount = profileDomainService.CountFollow(x => x.FollowUserId == userId);
+                    int newCount = profileDomainService.CountFollowers(userId);
 
                     return new OperationResultVo<int>(newCount);
 
@@ -339,7 +339,7 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    UserFollow existingFollow = profileDomainService.GetFollows(x => x.UserId == currentUserId && x.FollowUserId == userId).FirstOrDefault();
+                    UserFollow existingFollow = profileDomainService.GetFollows(userId, currentUserId).FirstOrDefault();
 
                     if (existingFollow == null)
                     {
@@ -347,11 +347,11 @@ namespace IndieVisible.Application.Services
                     }
                     else
                     {
-                        profileDomainService.RemoveFollow(existingFollow);
+                        profileDomainService.RemoveFollow(existingFollow, userId);
 
                         unitOfWork.Commit();
 
-                        int newCount = profileDomainService.CountFollow(x => x.FollowUserId == userId);
+                        int newCount = profileDomainService.CountFollowers(userId);
 
                         return new OperationResultVo<int>(newCount);
                     }

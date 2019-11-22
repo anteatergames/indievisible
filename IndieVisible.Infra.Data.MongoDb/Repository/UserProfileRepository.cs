@@ -33,9 +33,14 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return profile;
         }
 
-        public async Task<bool> AddFollow(UserFollow model)
+        public async Task<bool> AddFollow(Guid followerUserId, Guid userId)
         {
-            var filter = Builders<UserProfile>.Filter.Where(x => x.UserId == model.FollowUserId);
+            var model = new UserFollow
+            {
+                UserId = followerUserId
+            };
+
+            var filter = Builders<UserProfile>.Filter.Where(x => x.UserId == userId);
             var add = Builders<UserProfile>.Update.AddToSet(c => c.Followers, model);
 
             var result = await DbSet.UpdateOneAsync(filter, add);
@@ -43,16 +48,16 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
-        public Task<int> CountFollow(Expression<Func<UserFollow, bool>> where)
+        public Task<int> CountFollowers(Guid userId)
         {
-            var count = DbSet.AsQueryable().SelectMany(x => x.Followers).Count(where);
+            var count = DbSet.AsQueryable().FirstOrDefault(x => x.UserId == userId).Followers.Count();
 
             return Task.FromResult(count);
         }
 
-        public Task<IQueryable<UserFollow>> GetFollows(Expression<Func<UserFollow, bool>> where)
+        public Task<IQueryable<UserFollow>> GetFollows(Guid userId, Guid followerId)
         {
-            var list = DbSet.AsQueryable().SelectMany(x => x.Followers).Where(where).AsQueryable();
+            var list = DbSet.AsQueryable().Where(x => x.UserId == userId).SelectMany(x => x.Followers).Where(x => x.UserId == followerId).AsQueryable();
 
             return Task.FromResult(list);
         }

@@ -4,9 +4,9 @@ using System;
 
 namespace IndieVisible.Domain.Specifications.Follow
 {
-    public class IdsNotEmptySpecification : ISpecification<UserFollow>
+    public class IdNotEmptySpecification : ISpecification<UserFollow>
     {
-        public IdsNotEmptySpecification()
+        public IdNotEmptySpecification()
         {
         }
 
@@ -14,7 +14,7 @@ namespace IndieVisible.Domain.Specifications.Follow
 
         public bool IsSatisfiedBy(UserFollow item)
         {
-            return item.UserId != Guid.Empty && item.FollowUserId != Guid.Empty;
+            return item.UserId != Guid.Empty;
         }
     }
 }
