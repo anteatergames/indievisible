@@ -152,6 +152,8 @@ namespace IndieVisible.Web
             })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddMemoryCache();
+
             services.AddProgressiveWebApp();
 
             List<CultureInfo> supportedCultures = new List<CultureInfo>

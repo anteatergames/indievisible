@@ -1,8 +1,10 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.Services;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Services;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
+using IndieVisible.Infra.Data.Cache;
 using IndieVisible.Infra.Data.MongoDb.Context;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
@@ -19,6 +21,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
         {
             // ASP.NET HttpContext dependency
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<ICacheService, CacheService>();
 
             #region Game
             services.AddScoped<IGameAppService, GameAppService>();

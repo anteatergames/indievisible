@@ -358,7 +358,11 @@ namespace IndieVisible.Web.Controllers
             if (teamResult.Success)
             {
                 var result = (OperationResultListVo<SelectListItemVo>)teamResult;
-                SelectList selectList = new SelectList(result.Value, "Value", "Text");
+                var items = result.Value.ToList();
+                items.Add(new SelectListItemVo(SharedLocalizer["Create a new team (you can edit it later)"], Guid.Empty.ToString()));
+                
+                SelectList selectList = new SelectList(items, "Value", "Text");
+                
                 ViewData["MyTeams"] = selectList;
             }
         }

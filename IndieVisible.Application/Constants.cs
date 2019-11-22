@@ -2,6 +2,21 @@
 {
     public static class Constants
     {
+        public static string CacheKeyProfileFullName
+        {
+            get
+            {
+                return "{0}_fullName";
+            }
+        }
+
+        public static string DefaultProfileDescription
+        {
+            get
+            {
+                return "is a game developer willing to rock the game development world with funny games.";
+            }
+        }
         public static string DefaultUsername
         {
             get

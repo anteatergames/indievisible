@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Tests", "Indie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.Data.MongoDb", "IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj", "{97ADB308-2205-465C-9775-B21587FD5540}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieVisible.Infra.Data.Cache", "IndieVisible.Infra.Data.Cache\IndieVisible.Infra.Data.Cache.csproj", "{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{97ADB308-2205-465C-9775-B21587FD5540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97ADB308-2205-465C-9775-B21587FD5540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97ADB308-2205-465C-9775-B21587FD5540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{38AAE75A-8048-46A9-820A-EBAF3C6CBC43} = {E07745D1-3AC5-46D0-B4A5-62DCFF81ED4A}
 		{9378CBE6-2104-4042-95CF-D4D0988D103D} = {9323B416-B90D-4D52-A5EE-4C0A8864C811}
 		{97ADB308-2205-465C-9775-B21587FD5540} = {226F680D-ECFC-4966-8DE5-FB680D76F4C5}
+		{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF} = {226F680D-ECFC-4966-8DE5-FB680D76F4C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3E0D829-84B5-4934-AC66-A64246933BB4}

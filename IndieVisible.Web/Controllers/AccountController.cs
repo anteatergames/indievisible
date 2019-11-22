@@ -3,6 +3,7 @@ using IndieVisible.Application;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Model;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
@@ -35,6 +36,7 @@ namespace IndieVisible.Web.Controllers
         private readonly IProfileAppService profileAppService;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly ICacheService cacheService;
 
         private readonly IUserPreferencesAppService userPreferencesAppService;
 
@@ -44,7 +46,7 @@ namespace IndieVisible.Web.Controllers
             IProfileAppService profileAppService,
             IEmailSender emailSender,
             ILogger<AccountController> logger,
-            IMapper mapper,
+            ICacheService cacheService,
             IUserPreferencesAppService userPreferencesAppService) : base()
         {
             _userManager = userManager;
@@ -52,6 +54,7 @@ namespace IndieVisible.Web.Controllers
             this.profileAppService = profileAppService;
             _emailSender = emailSender;
             _logger = logger;
+            this.cacheService = cacheService;
             this.userPreferencesAppService = userPreferencesAppService;
         }
 
@@ -93,6 +96,8 @@ namespace IndieVisible.Web.Controllers
 
                         SetPreferences(user);
                     }
+
+                    SetCache(user);
 
                     _logger.LogInformation("User logged in.");
                     return RedirectToLocal(returnUrl);
@@ -660,6 +665,20 @@ namespace IndieVisible.Web.Controllers
             }
 
             return imageUrl;
+        }
+
+        private void SetCache(ApplicationUser user)
+        {
+            var key = String.Format(Constants.CacheKeyProfileFullName, user.Id);
+            var cacheFullName = cacheService.Get(key);
+            if (string.IsNullOrWhiteSpace(cacheFullName))
+            {
+                var profile = profileAppService.GetByUserId(new Guid(user.Id), ProfileType.Personal);
+                if (profile != null)
+                {
+                    cacheService.Set(key, profile.Name);
+                }
+            }
         }
 
         #endregion

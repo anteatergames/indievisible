@@ -1,9 +1,12 @@
-﻿using IndieVisible.Application.Formatters;
+﻿using IndieVisible.Application;
+using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 
 namespace IndieVisible.Web.Areas.Gamification.Controllers
@@ -37,7 +40,6 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
 
             foreach (Application.ViewModels.Gamification.RankingViewModel obj in objs)
             {
-
                 var profile = profileAppService.GetBasicDataByUserId(obj.UserId);
 
                 if (profile != null)

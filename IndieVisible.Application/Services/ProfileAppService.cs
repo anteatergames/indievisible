@@ -7,6 +7,7 @@ using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Core.Interfaces;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications.Follow;
@@ -24,6 +25,7 @@ namespace IndieVisible.Application.Services
     {
         private readonly IMapper mapper;
         private readonly IUnitOfWork unitOfWork;
+        private readonly ICacheService cacheService;
         private readonly IProfileDomainService profileDomainService;
         private readonly IUserContentDomainService userContentDomainService;
 
@@ -31,12 +33,14 @@ namespace IndieVisible.Application.Services
 
         public ProfileAppService(IMapper mapper
             , IUnitOfWork unitOfWork
+            , ICacheService cacheService
             , IProfileDomainService profileDomainService
             , IUserContentDomainService userContentDomainService
             , IGameRepository gameRepositoryMongo)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
+            this.cacheService = cacheService;
             this.profileDomainService = profileDomainService;
             this.userContentDomainService = userContentDomainService;
             gameRepository = gameRepositoryMongo;
@@ -68,6 +72,8 @@ namespace IndieVisible.Application.Services
 
                 foreach (ProfileViewModel profile in vms)
                 {
+                    cacheService.GetOrCreate(String.Format(Constants.CacheKeyProfileFullName, profile.UserId), profile.Name);
+
                     var model = allModels.First(x => x.Id == profile.Id);
 
                     profile.ProfileImageUrl = UrlFormatter.ProfileImage(profile.UserId);
@@ -121,6 +127,11 @@ namespace IndieVisible.Application.Services
             {
                 UserProfile model;
 
+                if (viewModel.Bio.Contains(Constants.DefaultProfileDescription))
+                {
+                    viewModel.Bio = String.Format("{0} {1}", viewModel.Name, Constants.DefaultProfileDescription);
+                }
+
                 viewModel.ExternalLinks.RemoveAll(x => String.IsNullOrWhiteSpace(x.Value));
 
                 UserProfile existing = profileDomainService.GetById(viewModel.Id);
@@ -164,6 +175,8 @@ namespace IndieVisible.Application.Services
                 profileDomainService.UpdateNameOnThePlatform(viewModel.UserId, viewModel.Name);
 
                 unitOfWork.Commit();
+
+                cacheService.Set(String.Format("{0}_fullName", viewModel.UserId), viewModel.Name);
 
                 return new OperationResultVo<Guid>(model.Id);
             }
@@ -260,7 +273,7 @@ namespace IndieVisible.Application.Services
             profile.Name = String.Format("NPC {0}", Math.Abs(randomNumber));
             profile.Motto = "It is dangerous out there, take this...";
 
-            profile.Bio = profile.Name + " is a game developer willing to rock the game development world with funny games.";
+            profile.Bio = String.Format("{0} {1}", profile.Name, Constants.DefaultProfileDescription);
 
             profile.StudioName = "Awesome Game Studio";
             profile.Location = "Atlantis";

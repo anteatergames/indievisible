@@ -89,11 +89,6 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                if (vm.Bio.Contains("is a game developer willing to rock the game development world with funny games."))
-                {
-                    vm.Bio = vm.Name + " is a game developer willing to rock the game development world with funny games.";
-                }
-
                 profileAppService.Save(CurrentUserId, vm);
 
                 string url = Url.Action("Details", "Profile", new { area = string.Empty, id = vm.UserId.ToString() });
