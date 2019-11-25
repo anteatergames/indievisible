@@ -6,6 +6,7 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Home;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
@@ -18,18 +19,15 @@ namespace IndieVisible.Application.Services
 {
     public class FeaturedContentAppService : BaseAppService, IFeaturedContentAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork uow;
         private readonly IFeaturedContentRepository featuredContentRepository;
         private readonly IUserContentRepository contentRepository;
 
         public FeaturedContentAppService(IMapper mapper
-            , IUnitOfWork uow
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService
             , IFeaturedContentRepository featuredContentRepository
-            , IUserContentRepository contentRepository)
+            , IUserContentRepository contentRepository) : base(mapper, unitOfWork, cacheService)
         {
-            this.mapper = mapper;
-            this.uow = uow;
             this.featuredContentRepository = featuredContentRepository;
             this.contentRepository = contentRepository;
 
@@ -115,7 +113,7 @@ namespace IndieVisible.Application.Services
                     featuredContentRepository.Update(model);
                 }
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 return new OperationResultVo<Guid>(model.Id);
             }
@@ -133,7 +131,7 @@ namespace IndieVisible.Application.Services
 
                 featuredContentRepository.Remove(id);
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 return new OperationResultVo(true);
             }
@@ -194,7 +192,7 @@ namespace IndieVisible.Application.Services
 
                 featuredContentRepository.Add(newFeaturedContent);
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 return new OperationResultVo<Guid>(newFeaturedContent.Id);
             }
@@ -223,7 +221,7 @@ namespace IndieVisible.Application.Services
 
                 item.IsFeatured = item.CurrentFeatureId.HasValue;
 
-                item.AuthorName = string.IsNullOrWhiteSpace(item.AuthorName) ? "Unknown soul" : item.AuthorName;
+                item.AuthorName = string.IsNullOrWhiteSpace(item.AuthorName) ? Constants.UnknownSoul : item.AuthorName;
 
                 item.TitleCompliant = !string.IsNullOrWhiteSpace(item.Title) && item.Title.Length <= 25;
 
@@ -261,7 +259,7 @@ namespace IndieVisible.Application.Services
 
                     featuredContentRepository.Update(existing);
 
-                    uow.Commit();
+                    unitOfWork.Commit();
                 }
 
                 return new OperationResultVo(true);

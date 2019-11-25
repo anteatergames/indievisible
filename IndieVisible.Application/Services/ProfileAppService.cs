@@ -21,12 +21,8 @@ using System.Security.Cryptography;
 
 namespace IndieVisible.Application.Services
 {
-    public class ProfileAppService : BaseAppService, IProfileAppService
+    public class ProfileAppService : ProfileBaseAppService, IProfileAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
-        private readonly ICacheService cacheService;
-        private readonly IProfileDomainService profileDomainService;
         private readonly IUserContentDomainService userContentDomainService;
 
         private readonly IGameRepository gameRepository;
@@ -36,12 +32,8 @@ namespace IndieVisible.Application.Services
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
             , IUserContentDomainService userContentDomainService
-            , IGameRepository gameRepositoryMongo)
+            , IGameRepository gameRepositoryMongo) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
-            this.mapper = mapper;
-            this.unitOfWork = unitOfWork;
-            this.cacheService = cacheService;
-            this.profileDomainService = profileDomainService;
             this.userContentDomainService = userContentDomainService;
             gameRepository = gameRepositoryMongo;
         }
@@ -65,21 +57,35 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<UserProfile> allModels = profileDomainService.GetAll();
+                var profiles = new List<UserProfile>();
+                var allIds = profileDomainService.GetAllUserIds();
 
-                IEnumerable<ProfileViewModel> vms = mapper.Map<IEnumerable<UserProfile>, IEnumerable<ProfileViewModel>>(allModels);
 
-
-                foreach (ProfileViewModel profile in vms)
+                foreach (var id in allIds)
                 {
-                    cacheService.GetOrCreate(String.Format(Constants.CacheKeyProfileFullName, profile.UserId), profile.Name);
+                    var profile = cacheService.Get<Guid, UserProfile>(id);
+                    if (profile == null)
+                    {
+                        var userProfile = profileDomainService.GetByUserId(id).FirstOrDefault();
 
-                    var model = allModels.First(x => x.Id == profile.Id);
-
-                    profile.ProfileImageUrl = UrlFormatter.ProfileImage(profile.UserId);
-                    profile.CoverImageUrl = UrlFormatter.ProfileCoverImage(profile.UserId, profile.Id, profile.LastUpdateDate, model.HasCoverImage);
+                        if (userProfile != null)
+                        {
+                            profile = userProfile;
+                            cacheService.Set(id, profile);
+                        }
+                    }
+                    profiles.Add(profile);
                 }
 
+                IEnumerable<ProfileViewModel> vms = mapper.Map<IEnumerable<UserProfile>, IEnumerable<ProfileViewModel>>(profiles);
+
+                foreach (var vm in vms)
+                {
+                    var model = profiles.First(x => x.UserId == vm.UserId);
+
+                    vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
+                    vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.LastUpdateDate, model.HasCoverImage);
+                }
 
                 return new OperationResultListVo<ProfileViewModel>(vms);
             }
@@ -176,7 +182,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                cacheService.Set(String.Format("{0}_fullName", viewModel.UserId), viewModel.Name);
+                cacheService.Set(viewModel.UserId, model);
 
                 return new OperationResultVo<Guid>(model.Id);
             }
@@ -673,6 +679,27 @@ namespace IndieVisible.Application.Services
             }
 
             vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
+        }
+
+        public void SetCache(Guid key, ProfileViewModel viewModel)
+        {
+            var model = mapper.Map<UserProfile>(viewModel);
+
+            base.SetCache(viewModel.UserId, model);
+        }
+
+        public ProfileViewModel GetWithCache(Guid userId)
+        {
+            var model = base.GetFromCache(userId);
+
+            if (model == null)
+            {
+                model = profileDomainService.GetById(userId);
+            }
+
+            var viewModel = mapper.Map<ProfileViewModel>(model);
+
+            return viewModel;
         }
     }
 }

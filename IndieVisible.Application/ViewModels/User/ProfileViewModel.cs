@@ -21,6 +21,8 @@ namespace IndieVisible.Application.ViewModels.User
 
         public string ProfileImageUrl { get; set; }
 
+        public bool HasCoverImage { get; set; }
+
         public string CoverImageUrl { get; set; }
 
         [Display(Name = "Bio")]

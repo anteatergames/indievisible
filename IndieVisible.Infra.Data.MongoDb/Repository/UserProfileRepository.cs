@@ -4,6 +4,7 @@ using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,15 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         public UserProfileRepository(IMongoContext context) : base(context)
         {
         }
+
+
+        public async Task<IEnumerable<Guid>> GetAllUserIds()
+        {
+            var ids = await DbSet.AsQueryable().Select(x => x.UserId).ToListAsync();
+
+            return ids;
+        }
+
         public async Task<UserProfileEssentialVo> GetBasicDataByUserId(Guid targetUserId)
         {
             var profile = await DbSet.Find(x => x.UserId == targetUserId).Project(x => new UserProfileEssentialVo

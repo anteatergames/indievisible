@@ -4,6 +4,7 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
@@ -14,23 +15,19 @@ using System.Linq;
 
 namespace IndieVisible.Application.Services
 {
-    public class TeamAppService : BaseAppService, ITeamAppService
+    public class TeamAppService : ProfileBaseAppService, ITeamAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
         private readonly ITeamDomainService teamDomainService;
-        private readonly IProfileDomainService profileDomainService;
         private readonly IGamificationDomainService gamificationDomainService;
 
-        public TeamAppService(IMapper mapper, IUnitOfWork unitOfWork
+        public TeamAppService(IMapper mapper
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService
             , ITeamDomainService teamDomainService
             , IProfileDomainService profileDomainService
-            , IGamificationDomainService gamificationDomainService)
+            , IGamificationDomainService gamificationDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
-            this.mapper = mapper;
-            this.unitOfWork = unitOfWork;
             this.teamDomainService = teamDomainService;
-            this.profileDomainService = profileDomainService;
             this.gamificationDomainService = gamificationDomainService;
         }
 
@@ -86,6 +83,8 @@ namespace IndieVisible.Application.Services
                 vm.Members = vm.Members.OrderByDescending(x => x.Leader).ToList();
                 foreach (TeamMemberViewModel member in vm.Members)
                 {
+                    var profile = GetCachedProfileByUserId(member.UserId);
+                    member.Name = profile.Name;
                     member.Permissions.IsMe = member.UserId == currentUserId;
                     member.WorkDictionary = member.Works.ToDisplayName();
                 }
@@ -94,7 +93,7 @@ namespace IndieVisible.Application.Services
 
                 if (vm.Recruiting)
                 {
-                    UserProfile myProfile = profileDomainService.GetByUserId(currentUserId).FirstOrDefault();
+                    UserProfile myProfile = GetCachedProfileByUserId(currentUserId);
 
                     vm.Candidate = new TeamMemberViewModel
                     {
@@ -181,24 +180,14 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                UserProfile myProfile = profileDomainService.GetByUserId(currentUserId).FirstOrDefault();
+                var newTeam = teamDomainService.GenerateNewTeam(currentUserId);
 
-                TeamViewModel newVm = new TeamViewModel
-                {
-                    Members = new List<TeamMemberViewModel>()
-                };
+                var newVm = mapper.Map<TeamViewModel>(newTeam);
+                UserProfile myProfile = GetCachedProfileByUserId(currentUserId);
 
-                TeamMemberViewModel meAsMember = new TeamMemberViewModel
-                {
-                    UserId = currentUserId,
-                    Leader = true,
-                    ProfileImage = UrlFormatter.ProfileImage(currentUserId),
-                    Name = myProfile != null ? myProfile.Name : "Me",
-                    InvitationStatus = InvitationStatus.Accepted
-                };
-
-                newVm.Members.Add(meAsMember);
-
+                var me = newVm.Members.FirstOrDefault(x => x.UserId == currentUserId);
+                me.Name = myProfile.Name;
+                me.ProfileImage = UrlFormatter.ProfileImage(currentUserId);
 
                 return new OperationResultVo<TeamViewModel>(newVm);
             }

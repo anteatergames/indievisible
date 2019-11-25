@@ -8,6 +8,8 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface IProfileDomainService : IDomainService<UserProfile>
     {
+        IEnumerable<Guid> GetAllUserIds();
+
         int CountFollowers(Guid userId);
 
         IEnumerable<UserFollow> GetFollows(Guid userId, Guid followerId);

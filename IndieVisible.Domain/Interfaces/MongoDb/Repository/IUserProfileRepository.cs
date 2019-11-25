@@ -16,5 +16,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
         Task<bool> AddFollow(Guid followerUserId, Guid userId);
         Task<bool> RemoveFollower(Guid userId, Guid followUserId);
         Task<UserProfileEssentialVo> GetBasicDataByUserId(Guid targetUserId);
+        Task<IEnumerable<Guid>> GetAllUserIds();
     }
 }

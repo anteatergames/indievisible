@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.UserPreferences;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
@@ -13,14 +14,13 @@ namespace IndieVisible.Application.Services
 {
     public class UserPreferencesAppService : BaseAppService, IUserPreferencesAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork uow;
         private readonly IUserPreferencesRepository userPreferencesRepository;
 
-        public UserPreferencesAppService(IMapper mapper, IUnitOfWork uow, IUserPreferencesRepository repository)
+        public UserPreferencesAppService(IMapper mapper
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService
+            , IUserPreferencesRepository repository) : base(mapper, unitOfWork, cacheService)
         {
-            this.mapper = mapper;
-            this.uow = uow;
             userPreferencesRepository = repository;
         }
 
@@ -81,7 +81,7 @@ namespace IndieVisible.Application.Services
             {
                 userPreferencesRepository.Remove(id);
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 return new OperationResultVo(true);
             }
@@ -127,7 +127,7 @@ namespace IndieVisible.Application.Services
                     userPreferencesRepository.Update(model);
                 }
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 return new OperationResultVo<Guid>(model.Id);
             }

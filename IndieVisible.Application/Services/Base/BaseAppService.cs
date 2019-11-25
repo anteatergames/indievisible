@@ -1,4 +1,7 @@
-﻿using IndieVisible.Domain.Core.Enums;
+﻿using AutoMapper;
+using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Infrastructure;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -7,6 +10,19 @@ namespace IndieVisible.Application.Services
 {
     public abstract class BaseAppService : IDisposable
     {
+        protected readonly IMapper mapper;
+        protected readonly IUnitOfWork unitOfWork;
+        protected readonly ICacheService cacheService;
+
+        public BaseAppService(IMapper mapper
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService)
+        {
+            this.mapper = mapper;
+            this.unitOfWork = unitOfWork;
+            this.cacheService = cacheService;
+        }
+
         protected MediaType GetMediaType(string featuredImage)
         {
 

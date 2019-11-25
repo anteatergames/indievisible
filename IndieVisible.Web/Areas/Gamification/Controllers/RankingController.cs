@@ -1,12 +1,15 @@
 ﻿using IndieVisible.Application;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Infrastructure;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace IndieVisible.Web.Areas.Gamification.Controllers
@@ -27,20 +30,20 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
         [Route("help")]
         public IActionResult Help()
         {
-            Domain.ValueObjects.OperationResultListVo<Application.ViewModels.Gamification.GamificationLevelViewModel> objs = gamificationAppService.GetAllLevels();
+            OperationResultListVo<GamificationLevelViewModel> objs = gamificationAppService.GetAllLevels();
 
             return View(objs.Value);
         }
 
         public IActionResult Index()
         {
-            Domain.ValueObjects.OperationResultListVo<Application.ViewModels.Gamification.RankingViewModel> serviceResult = gamificationAppService.GetAll();
+            OperationResultListVo<RankingViewModel> serviceResult = gamificationAppService.GetAll();
 
-            System.Collections.Generic.List<Application.ViewModels.Gamification.RankingViewModel> objs = serviceResult.Value.ToList();
+            List<RankingViewModel> objs = serviceResult.Value.ToList();
 
-            foreach (Application.ViewModels.Gamification.RankingViewModel obj in objs)
+            foreach (RankingViewModel obj in objs)
             {
-                var profile = profileAppService.GetBasicDataByUserId(obj.UserId);
+                var profile = profileAppService.GetWithCache(obj.UserId);
 
                 if (profile != null)
                 {

@@ -5,30 +5,31 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Brainstorm;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace IndieVisible.Application.Services
 {
-    public class BrainstormAppService : BaseAppService, IBrainstormAppService
+    public class BrainstormAppService : ProfileBaseAppService, IBrainstormAppService
     {
-        private readonly IMapper mapper;
-        private readonly Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork;
         private readonly IGamificationDomainService gamificationDomainService;
 
-        private readonly Infra.Data.MongoDb.Interfaces.Repository.IBrainstormRepository brainstormRepository;
+        private readonly IBrainstormRepository brainstormRepository;
 
         public BrainstormAppService(IMapper mapper
-            , Infra.Data.MongoDb.Interfaces.IUnitOfWork unitOfWork
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService
+            , IProfileDomainService profileDomainService
             , IGamificationDomainService gamificationDomainService
-            , Infra.Data.MongoDb.Interfaces.Repository.IBrainstormRepository brainstormRepository)
+            , IBrainstormRepository brainstormRepository) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
-            this.mapper = mapper;
-            this.unitOfWork = unitOfWork;
             this.gamificationDomainService = gamificationDomainService;
 
             this.brainstormRepository = brainstormRepository;
@@ -76,7 +77,16 @@ namespace IndieVisible.Application.Services
 
                 foreach (BrainstormCommentViewModel comment in vm.Comments)
                 {
-                    comment.AuthorName = string.IsNullOrWhiteSpace(comment.AuthorName) ? "Unknown soul" : comment.AuthorName;
+                    var commenterProfile = GetCachedProfileByUserId(comment.UserId);
+                    if (commenterProfile == null)
+                    {
+                        comment.AuthorName = Constants.UnknownSoul;
+                    }
+                    else
+                    {
+                        comment.AuthorName = commenterProfile.Name;
+                    }
+
                     comment.AuthorPicture = UrlFormatter.ProfileImage(comment.UserId);
                     comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? "this is the sound... of silence..." : comment.Text;
                 }

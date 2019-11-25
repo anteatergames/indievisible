@@ -7,6 +7,7 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
@@ -19,21 +20,20 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
-    public class UserContentAppService : BaseAppService, IUserContentAppService
+    public class UserContentAppService : ProfileBaseAppService, IUserContentAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork unitOfWork;
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
 
-        public UserContentAppService(IMapper mapper, IUnitOfWork unitOfWork
+        public UserContentAppService(IMapper mapper
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService
+            , IProfileDomainService profileDomainService
             , IUserContentDomainService userContentDomainService
-            , IGamificationDomainService gamificationDomainService
-            , IPollDomainService pollDomainService)
+            , IGamificationDomainService gamificationDomainService            
+            , IPollDomainService pollDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
-            this.mapper = mapper;
-            this.unitOfWork = unitOfWork;
             this.userContentDomainService = userContentDomainService;
             this.gamificationDomainService = gamificationDomainService;
             this.pollDomainService = pollDomainService;
@@ -75,6 +75,16 @@ namespace IndieVisible.Application.Services
             try
             {
                 UserContent model = userContentDomainService.GetById(id);
+
+                var authorProfile = GetCachedProfileByUserId(model.UserId);
+                if (authorProfile == null)
+                {
+                    model.AuthorName = Constants.UnknownSoul;
+                }
+                else
+                {
+                    model.AuthorName = authorProfile.Name;
+                }
 
                 UserContentViewModel vm = mapper.Map<UserContentViewModel>(model);
 
@@ -255,7 +265,16 @@ namespace IndieVisible.Application.Services
 
                 foreach (UserContentViewModel item in viewModels)
                 {
-                    item.AuthorName = string.IsNullOrWhiteSpace(item.AuthorName) ? "Unknown soul" : item.AuthorName;
+                    var authorProfile = GetCachedProfileByUserId(item.UserId);
+                    if (authorProfile == null)
+                    {
+                        item.AuthorName = Constants.UnknownSoul;
+                    }
+                    else
+                    {
+                        item.AuthorName = authorProfile.Name;
+                    }
+
                     item.AuthorPicture = UrlFormatter.ProfileImage(item.UserId);
 
                     item.IsArticle = !string.IsNullOrWhiteSpace(item.Title) && !string.IsNullOrWhiteSpace(item.Introduction);
@@ -341,7 +360,16 @@ namespace IndieVisible.Application.Services
 
                 foreach (UserContentCommentViewModel comment in item.Comments)
                 {
-                    comment.AuthorName = string.IsNullOrWhiteSpace(comment.AuthorName) ? "Unknown soul" : comment.AuthorName;
+                    var commenterProfile = GetCachedProfileByUserId(comment.UserId);
+                    if (commenterProfile == null)
+                    {
+                        comment.AuthorName = Constants.UnknownSoul;
+                    }
+                    else
+                    {
+                        comment.AuthorName = commenterProfile.Name;
+                    }
+
                     comment.AuthorPicture = UrlFormatter.ProfileImage(comment.UserId);
                     comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? "this is the sound... of silence..." : comment.Text;
                 }

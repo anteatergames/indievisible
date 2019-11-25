@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.ValueObjects;
 using System;
 
@@ -29,6 +30,8 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo Allow(Guid currentUserId, Guid userId);
         OperationResultVo Deny(Guid currentUserId, Guid userId);
         OperationResultVo GetConnectionsByUserId(Guid userId);
+        void SetCache(Guid key, ProfileViewModel viewModel);
+        ProfileViewModel GetWithCache(Guid key);
         #endregion
     }
 }

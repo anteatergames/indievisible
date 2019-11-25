@@ -5,32 +5,32 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace IndieVisible.Application.Services
 {
-    public class GameAppService : BaseAppService, IGameAppService
+    public class GameAppService : ProfileBaseAppService, IGameAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork uow;
         private readonly IGamificationDomainService gamificationDomainService;
 
-        private readonly Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepository;
+        private readonly IGameRepository gameRepository;
 
         public GameAppService(IMapper mapper
-            , IUnitOfWork uow
-            , Infra.Data.MongoDb.Interfaces.Repository.IGameRepository gameRepositoryMongo
-            , IGamificationDomainService gamificationDomainService)
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService
+            , IProfileDomainService profileDomainService
+            , IGameRepository gameRepository
+            , IGamificationDomainService gamificationDomainService) :base(mapper, unitOfWork, cacheService, profileDomainService)
         {
-            this.mapper = mapper;
-            this.uow = uow;
-            gameRepository = gameRepositoryMongo;
+            this.gameRepository = gameRepository;
             this.gamificationDomainService = gamificationDomainService;
         }
 
@@ -80,6 +80,9 @@ namespace IndieVisible.Application.Services
                 vm.CurrentUserLiked = model.Likes.SafeAny(x => x.GameId == vm.Id && x.UserId == currentUserId);
                 vm.CurrentUserFollowing = model.Followers.SafeAny(x => x.GameId == vm.Id && x.UserId == currentUserId);
 
+                var authorProfile = GetCachedProfileByUserId(vm.UserId);
+                vm.AuthorName = authorProfile.Name;
+
                 return new OperationResultVo<GameViewModel>(vm);
             }
             catch (Exception ex)
@@ -119,7 +122,7 @@ namespace IndieVisible.Application.Services
                     gameRepository.Update(model);
                 }
 
-                uow.Commit();
+                unitOfWork.Commit();
                 viewModel.Id = model.Id;
 
 
@@ -136,7 +139,7 @@ namespace IndieVisible.Application.Services
             try
             {
                 gameRepository.Remove(id);
-                uow.Commit();
+                unitOfWork.Commit();
 
                 return new OperationResultVo(true);
             }
@@ -176,6 +179,9 @@ namespace IndieVisible.Application.Services
             {
                 item.ThumbnailUrl = string.IsNullOrWhiteSpace(item.ThumbnailUrl) || Constants.DefaultGameThumbnail.Contains(item.ThumbnailUrl) ? Constants.DefaultGameThumbnail : UrlFormatter.Image(item.UserId, BlobType.GameThumbnail, item.ThumbnailUrl);
                 item.DeveloperImageUrl = UrlFormatter.ProfileImage(item.UserId);
+
+                var authorProfile = GetCachedProfileByUserId(item.UserId);
+                item.DeveloperName = authorProfile.Name;
             }
 
             return vms;
@@ -203,7 +209,7 @@ namespace IndieVisible.Application.Services
 
                 task.Wait();
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountFollowers(gameId);
 
@@ -230,7 +236,7 @@ namespace IndieVisible.Application.Services
 
                 task.Wait();
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountFollowers(gameId);
 
@@ -252,7 +258,7 @@ namespace IndieVisible.Application.Services
 
                 task.Wait();
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountLikes(gameId);
 
@@ -274,7 +280,7 @@ namespace IndieVisible.Application.Services
 
                 task.Wait();
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountLikes(gameId);
 

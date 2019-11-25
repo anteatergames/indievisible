@@ -2,11 +2,11 @@
 {
     public static class Constants
     {
-        public static string CacheKeyProfileFullName
+        public static string UnknownSoul
         {
             get
             {
-                return "{0}_fullName";
+                return "Unknown soul";
             }
         }
 

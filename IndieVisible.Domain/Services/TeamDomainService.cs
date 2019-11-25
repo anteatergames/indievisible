@@ -79,5 +79,24 @@ namespace IndieVisible.Domain.Services
 
             return vos;
         }
+
+        public Team GenerateNewTeam(Guid currentUserId)
+        {
+            Team team = new Team
+            {
+                Members = new List<TeamMember>()
+            };
+
+            TeamMember meAsMember = new TeamMember
+            {
+                UserId = currentUserId,
+                Leader = true,
+                InvitationStatus = InvitationStatus.Accepted
+            };
+
+            team.Members.Add(meAsMember);
+
+            return team;
+        }
     }
 }

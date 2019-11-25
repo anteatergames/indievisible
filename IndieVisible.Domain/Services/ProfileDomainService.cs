@@ -20,6 +20,13 @@ namespace IndieVisible.Domain.Services
             this.userConnectionRepository = userConnectionRepository;
         }
 
+        public IEnumerable<Guid> GetAllUserIds()
+        {
+            var allIds = Task.Run(async ()=> await repository.GetAllUserIds());
+
+            return allIds.Result;
+        }
+
         public void AddFollow(UserFollow model)
         {
             var task = repository.AddFollow(model.UserId, model.FollowUserId.Value);

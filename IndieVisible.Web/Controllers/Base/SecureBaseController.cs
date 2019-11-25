@@ -92,7 +92,7 @@ namespace IndieVisible.Web.Controllers.Base
                 vm.UserId = CurrentUserId;
             }
 
-            ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, vm.UserId, ProfileType.Personal);
+            ProfileViewModel profile = ProfileAppService.GetWithCache(vm.UserId);
 
             if (profile != null)
             {

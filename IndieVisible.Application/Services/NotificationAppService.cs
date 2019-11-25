@@ -2,6 +2,7 @@
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
@@ -15,14 +16,13 @@ namespace IndieVisible.Application.Services
 {
     public class NotificationAppService : BaseAppService, INotificationAppService
     {
-        private readonly IMapper mapper;
-        private readonly IUnitOfWork uow;
         private readonly INotificationRepository notificationRepository;
 
-        public NotificationAppService(IMapper mapper, IUnitOfWork unitOfWork, INotificationRepository notificationRepository)
+        public NotificationAppService(IMapper mapper
+            , IUnitOfWork unitOfWork
+            , ICacheService cacheService
+            , INotificationRepository notificationRepository) : base(mapper, unitOfWork, cacheService)
         {
-            this.mapper = mapper;
-            uow = unitOfWork;
             this.notificationRepository = notificationRepository;
         }
 
@@ -72,7 +72,7 @@ namespace IndieVisible.Application.Services
                     notificationRepository.Update(model);
                 }
 
-                uow.Commit();
+                unitOfWork.Commit();
 
                 return new OperationResultVo<Guid>(model.Id);
             }
@@ -146,7 +146,7 @@ namespace IndieVisible.Application.Services
                     notification.IsRead = true;
                     notificationRepository.Update(notification);
 
-                    uow.Commit();
+                    unitOfWork.Commit();
                 }
 
                 return new OperationResultVo(true);
