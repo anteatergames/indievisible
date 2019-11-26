@@ -488,15 +488,7 @@ namespace IndieVisible.Web.Controllers
                 string code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 string callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
 
-
-                EmailSendRequest request = new EmailSendRequest
-                {
-                    ActionUrl = callbackUrl,
-                    TextBeforeAction = "You requested for a password reset. Click the button below and choose a new password.",
-                    TextAfterAction = "Do not share your password with anyone."
-                };
-
-                await _emailSender.SendEmailAsync(model.Email, "d-a440f7da0dc04eca98ee514b100ccde7", request);
+                await _emailSender.SendEmailPasswordResetAsync(model.Email, callbackUrl);
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
             }
 
