@@ -20,7 +20,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
             BsonClassMap.RegisterClassMap<TeamMember>(map =>
             {
                 map.AutoMap();
-                map.MapMember(x => x.Name).SetIsRequired(true);
             });
         }
     }

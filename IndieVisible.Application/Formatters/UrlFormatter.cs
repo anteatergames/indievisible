@@ -292,12 +292,18 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
-        public static string ItchIoGame(string handler)
+        public static string ItchIoGame(string userBase, string handler)
         {
-            if (handler.ToLower().Contains("itch.io") && !handler.ToLower().Contains("http"))
+            if (!handler.ToLower().Contains("itch.io"))
             {
-                handler = "https://" + handler;
+                userBase = userBase.Replace("https://", string.Empty).Replace("http://", string.Empty).TrimEnd('/');
+                handler = String.Format("https://{0}/{1}", userBase, handler.Trim('/'));
             }
+            else if (handler.ToLower().Contains("itch.io") && !handler.ToLower().Contains("http"))
+            {
+                handler = String.Format("https://{0}", handler.Trim('/'));
+            }
+
             return handler;
         }
 

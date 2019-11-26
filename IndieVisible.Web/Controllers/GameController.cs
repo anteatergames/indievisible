@@ -48,7 +48,7 @@ namespace IndieVisible.Web.Controllers
 
             SetImages(vm);
 
-            FormatExternaLinks(vm);
+            FormatExternalLinks(vm);
 
             bool isAdmin = false;
 
@@ -290,8 +290,11 @@ namespace IndieVisible.Web.Controllers
             vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
         }
 
-        private void FormatExternaLinks(GameViewModel vm)
+        private void FormatExternalLinks(GameViewModel vm)
         {
+            var authorProfile = ProfileAppService.GetWithCache(vm.UserId);
+            var itchProfile = authorProfile.ExternalLinks.FirstOrDefault(x => x.Provider == ExternalLinkProvider.ItchIo);
+
             foreach (GameExternalLinkViewModel item in vm.ExternalLinks)
             {
                 ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
@@ -330,7 +333,7 @@ namespace IndieVisible.Web.Controllers
                         item.Value = UrlFormatter.GameJoltGame(item.Value);
                         break;
                     case ExternalLinkProvider.ItchIo:
-                        item.Value = UrlFormatter.ItchIoGame(item.Value);
+                        item.Value = UrlFormatter.ItchIoGame(itchProfile?.Value, item.Value);
                         break;
                     case ExternalLinkProvider.GamedevNet:
                         item.Value = UrlFormatter.GamedevNetGame(item.Value);

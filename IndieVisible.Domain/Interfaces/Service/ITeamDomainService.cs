@@ -15,7 +15,7 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         void ChangeInvitationStatus(Guid teamId, Guid userId, InvitationStatus invitationStatus, string quote);
 
-        void Remove(Guid teamId, Guid userId);
+        void RemoveMember(Guid teamId, Guid userId);
 
         IEnumerable<Team> GetTeamsByMemberUserId(Guid userId);
 

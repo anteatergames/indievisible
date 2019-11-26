@@ -20,6 +20,7 @@ namespace IndieVisible.Application.Services
     public class GameAppService : ProfileBaseAppService, IGameAppService
     {
         private readonly IGamificationDomainService gamificationDomainService;
+        private readonly ITeamDomainService teamDomainService;
 
         private readonly IGameRepository gameRepository;
 
@@ -27,10 +28,12 @@ namespace IndieVisible.Application.Services
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
+            , ITeamDomainService teamDomainService
             , IGameRepository gameRepository
             , IGamificationDomainService gamificationDomainService) :base(mapper, unitOfWork, cacheService, profileDomainService)
         {
             this.gameRepository = gameRepository;
+            this.teamDomainService = teamDomainService;
             this.gamificationDomainService = gamificationDomainService;
         }
 
@@ -97,36 +100,52 @@ namespace IndieVisible.Application.Services
 
             try
             {
-                Game model;
+                Game game;
+                Team newTeam = null;
+                var createTeam = viewModel.TeamId == Guid.Empty;
+
+                if (createTeam)
+                {
+                    newTeam = teamDomainService.GenerateNewTeam(currentUserId);
+                    newTeam.Name = String.Format("Team {0}", viewModel.Title);
+                    teamDomainService.Add(newTeam);
+                }
 
                 viewModel.ExternalLinks.RemoveAll(x => String.IsNullOrWhiteSpace(x.Value));
 
                 Game existing = gameRepository.GetById(viewModel.Id).Result;
                 if (existing != null)
                 {
-                    model = mapper.Map(viewModel, existing);
+                    game = mapper.Map(viewModel, existing);
                 }
                 else
                 {
-                    model = mapper.Map<Game>(viewModel);
+                    game = mapper.Map<Game>(viewModel);
                 }
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    gameRepository.Add(model);
+                    gameRepository.Add(game);
 
                     pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
                 }
                 else
                 {
-                    gameRepository.Update(model);
+                    gameRepository.Update(game);
                 }
 
                 unitOfWork.Commit();
-                viewModel.Id = model.Id;
+                viewModel.Id = game.Id;
+
+                if (createTeam)
+                {
+                    game.TeamId = newTeam.Id;
+                    gameRepository.Update(game);
+                    unitOfWork.Commit();
+                }
 
 
-                return new OperationResultVo<Guid>(model.Id, pointsEarned);
+                return new OperationResultVo<Guid>(game.Id, pointsEarned);
             }
             catch (Exception ex)
             {

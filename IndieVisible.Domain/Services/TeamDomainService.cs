@@ -12,8 +12,10 @@ namespace IndieVisible.Domain.Services
 {
     public class TeamDomainService : BaseDomainMongoService<Team, ITeamRepository>, ITeamDomainService
     {
-        public TeamDomainService(ITeamRepository repository) : base(repository)
+        private readonly IGameRepository gameRepository;
+        public TeamDomainService(ITeamRepository repository, IGameRepository gameRepository) : base(repository)
         {
+            this.gameRepository = gameRepository;
         }
 
         public override IEnumerable<Team> GetAll()
@@ -21,6 +23,19 @@ namespace IndieVisible.Domain.Services
             IQueryable<Team> qry = repository.Get();
 
             return qry.OrderByDescending(x => x.CreateDate).ToList();
+        }
+
+        public override void Remove(Guid id)
+        {
+            var games = gameRepository.Get(x => x.TeamId == id).ToList();
+
+            foreach (var game in games)
+            {
+                game.TeamId = null;
+                gameRepository.Update(game);
+            }
+
+            base.Remove(id);
         }
 
         public IQueryable<TeamMember> GetAllMembershipsByUser(Guid userId)
@@ -50,7 +65,7 @@ namespace IndieVisible.Domain.Services
             repository.UpdateMembership(teamId, member);
         }
 
-        public void Remove(Guid teamId, Guid userId)
+        public void RemoveMember(Guid teamId, Guid userId)
         {
             TeamMember member = repository.GetMembership(teamId, userId);
 

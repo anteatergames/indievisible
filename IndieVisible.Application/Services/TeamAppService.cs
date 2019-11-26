@@ -221,7 +221,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                teamDomainService.Remove(teamId, currentUserId);
+                teamDomainService.RemoveMember(teamId, currentUserId);
 
                 unitOfWork.Commit();
 
@@ -280,7 +280,7 @@ namespace IndieVisible.Application.Services
             {
                 // validate before
 
-                teamDomainService.Remove(teamId, userId);
+                teamDomainService.RemoveMember(teamId, userId);
 
                 unitOfWork.Commit();
 
@@ -343,7 +343,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                teamDomainService.Remove(teamId, userId);
+                teamDomainService.RemoveMember(teamId, userId);
 
                 unitOfWork.Commit();
 
