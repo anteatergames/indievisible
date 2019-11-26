@@ -238,7 +238,7 @@ namespace IndieVisible.Application.Services
             vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 
             vm.Counters.Followers = model.Followers.SafeCount();
-            vm.Counters.Following = profileDomainService.CountFollowers(userId);
+            vm.Counters.Following = profileDomainService.CountFollows(userId);
             int connectionsToUser = profileDomainService.CountConnections(x => x.TargetUserId == vm.UserId && x.ApprovalDate.HasValue);
             int connectionsFromUser = profileDomainService.CountConnections(x => x.UserId == vm.UserId && x.ApprovalDate.HasValue);
 
@@ -247,7 +247,7 @@ namespace IndieVisible.Application.Services
 
             if (vm.UserId != currentUserId)
             {
-                vm.CurrentUserFollowing = model.Followers.Where(x => x.UserId == currentUserId).Any();
+                vm.CurrentUserFollowing = model.Followers.SafeAny(x => x.UserId == currentUserId);
                 vm.ConnectionControl.CurrentUserConnected = profileDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
                 vm.ConnectionControl.CurrentUserWantsToFollowMe = profileDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
                 vm.ConnectionControl.ConnectionIsPending = profileDomainService.CheckConnection(currentUserId, vm.UserId, false, true); 
@@ -336,7 +336,7 @@ namespace IndieVisible.Application.Services
 
                     unitOfWork.Commit();
 
-                    int newCount = profileDomainService.CountFollowers(userId);
+                    int newCount = profileDomainService.CountFollows(userId);
 
                     return new OperationResultVo<int>(newCount);
 
@@ -370,7 +370,7 @@ namespace IndieVisible.Application.Services
 
                         unitOfWork.Commit();
 
-                        int newCount = profileDomainService.CountFollowers(userId);
+                        int newCount = profileDomainService.CountFollows(userId);
 
                         return new OperationResultVo<int>(newCount);
                     }

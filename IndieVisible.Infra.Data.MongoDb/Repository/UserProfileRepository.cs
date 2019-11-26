@@ -60,7 +60,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public Task<int> CountFollowers(Guid userId)
         {
-            var count = DbSet.AsQueryable().FirstOrDefault(x => x.UserId == userId).Followers.Count();
+            var count = DbSet.AsQueryable().SelectMany(x => x.Followers).Where(x => x.UserId == userId).Count();
 
             return Task.FromResult(count);
         }

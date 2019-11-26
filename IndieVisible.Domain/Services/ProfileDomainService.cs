@@ -45,7 +45,7 @@ namespace IndieVisible.Domain.Services
             return exists;
         }
 
-        public int CountFollowers(Guid userId)
+        public int CountFollows(Guid userId)
         {
             var task = repository.CountFollowers(userId);
 

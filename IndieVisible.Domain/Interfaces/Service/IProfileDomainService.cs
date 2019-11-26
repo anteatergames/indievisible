@@ -10,7 +10,7 @@ namespace IndieVisible.Domain.Interfaces.Service
     {
         IEnumerable<Guid> GetAllUserIds();
 
-        int CountFollowers(Guid userId);
+        int CountFollows(Guid userId);
 
         IEnumerable<UserFollow> GetFollows(Guid userId, Guid followerId);
 
