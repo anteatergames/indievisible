@@ -137,7 +137,7 @@ namespace IndieVisible.Application.Services
                 unitOfWork.Commit();
                 viewModel.Id = game.Id;
 
-                if (createTeam)
+                if (createTeam && newTeam != null)
                 {
                     game.TeamId = newTeam.Id;
                     gameRepository.Update(game);
