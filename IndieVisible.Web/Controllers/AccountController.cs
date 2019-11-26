@@ -25,6 +25,7 @@ using System;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using static IndieVisible.Infra.CrossCutting.Identity.Services.EmailSenderExtensions;
 
 namespace IndieVisible.Web.Controllers
 {
@@ -486,8 +487,16 @@ namespace IndieVisible.Web.Controllers
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 string code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 string callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
-                await _emailSender.SendEmailAsync(model.Email, "Reset Password",
-                   $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+
+
+                EmailSendRequest request = new EmailSendRequest
+                {
+                    ActionUrl = callbackUrl,
+                    TextBeforeAction = "You requested for a password reset. Click the button below and choose a new password.",
+                    TextAfterAction = "Do not share your password with anyone."
+                };
+
+                await _emailSender.SendEmailAsync(model.Email, "d-a440f7da0dc04eca98ee514b100ccde7", request);
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
             }
 

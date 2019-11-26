@@ -10,5 +10,10 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
         {
             return Task.CompletedTask;
         }
+
+        public Task SendEmailAsync(string email, string templateId, object templateData)
+        {
+            return Task.CompletedTask;
+        }
     }
 }
