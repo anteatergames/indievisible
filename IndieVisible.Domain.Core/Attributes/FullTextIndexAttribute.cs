@@ -2,7 +2,7 @@
 
 namespace IndieVisible.Domain.Core
 {
-    public class FullTextIndexAttribute  : Attribute
+    public class FullTextIndexAttribute : Attribute
     {
     }
 }

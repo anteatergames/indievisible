@@ -131,13 +131,13 @@
         border-bottom: 1px solid #f7f7f7;
     }
 
-.box-header .box-title, .box-header > .fa {
-    display: inline-block;
-    font-size: 18px;
-    margin: 0;
-    line-height: 1;
-    font-weight: 300;
-}
+    .box-header .box-title, .box-header > .fa {
+        display: inline-block;
+        font-size: 18px;
+        margin: 0;
+        line-height: 1;
+        font-weight: 300;
+    }
 
 .box-title {
     font-size: 18px;

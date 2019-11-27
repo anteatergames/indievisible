@@ -45,7 +45,6 @@
         });
     }
 
-
     function bindPollVote() {
         $('.content').on('click', 'ul.poll.canvote li input.poll-option', function (e) {
             var pollOptionCtrl = $(this);
@@ -116,7 +115,6 @@
         }
     };
 }());
-
 
 $(function () {
     POLLS.Init();

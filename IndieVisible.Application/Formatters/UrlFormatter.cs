@@ -1,5 +1,4 @@
-﻿using IndieVisible.Application.ViewModels.User;
-using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Domain.Core.Enums;
 using System;
 
 namespace IndieVisible.Application.Formatters
@@ -7,6 +6,7 @@ namespace IndieVisible.Application.Formatters
     public static class UrlFormatter
     {
         #region Internal
+
         public static string ProfileImage(Guid userId)
         {
             return ProfileImage(userId, null);
@@ -14,9 +14,9 @@ namespace IndieVisible.Application.Formatters
 
         public static string ProfileImage(Guid userId, DateTime? lastUpdateDate)
         {
-            var v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : DateTime.Now.Ticks;
+            long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : DateTime.Now.Ticks;
 
-            var url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
+            string url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
 
             return url;
         }
@@ -28,9 +28,9 @@ namespace IndieVisible.Application.Formatters
 
         public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage)
         {
-            var v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
+            long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
 
-            var url = hasCoverImage ? String.Format("{0}/{1}/profilecover_{2}?v={3}", Constants.DefaultCdnPath, userId, profileId, v) : Constants.DefaultProfileCoverImage;
+            string url = hasCoverImage ? String.Format("{0}/{1}/profilecover_{2}?v={3}", Constants.DefaultCdnPath, userId, profileId, v) : Constants.DefaultProfileCoverImage;
 
             return url.Replace("//", "/").Replace("https:/", "https://");
         }
@@ -46,9 +46,11 @@ namespace IndieVisible.Application.Formatters
                 return String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath.TrimEnd('/'), userId, fileName);
             }
         }
-        #endregion
+
+        #endregion Internal
 
         #region ExternalUrls
+
         private static string ExternalUrlCommon(string handler)
         {
             if (!string.IsNullOrWhiteSpace(handler))
@@ -58,6 +60,7 @@ namespace IndieVisible.Application.Formatters
 
             return handler;
         }
+
         private static string CompleteUrlCommon(string handler)
         {
             if (!string.IsNullOrWhiteSpace(handler))
@@ -66,16 +69,16 @@ namespace IndieVisible.Application.Formatters
                 if (!handler.StartsWith("http"))
                 {
                     handler = String.Format("http://{0}", handler);
-                } 
+                }
             }
 
             return handler;
         }
 
         #region Profiles
+
         public static string ItchIoProfile(string handler)
         {
-
             if (!string.IsNullOrWhiteSpace(handler) && !handler.EndsWith("itch.io"))
             {
                 handler = ExternalUrlCommon(handler);
@@ -90,7 +93,6 @@ namespace IndieVisible.Application.Formatters
 
         public static string GameJoltProfile(string handler)
         {
-
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("gamejolt.com"))
             {
                 handler = ExternalUrlCommon(handler);
@@ -172,7 +174,8 @@ namespace IndieVisible.Application.Formatters
                 return handler;
             }
         }
-        #endregion
+
+        #endregion Profiles
 
         public static string Website(string handler)
         {
@@ -393,6 +396,7 @@ namespace IndieVisible.Application.Formatters
                 return handler;
             }
         }
-        #endregion
+
+        #endregion ExternalUrls
     }
 }

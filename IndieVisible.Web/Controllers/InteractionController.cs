@@ -1,8 +1,6 @@
 ﻿using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
-using IndieVisible.Application.ViewModels.Game;
-using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
@@ -21,9 +19,8 @@ namespace IndieVisible.Web.Controllers
             this.pollAppService = pollAppService;
         }
 
-
-
         #region Poll
+
         [HttpPost]
         [Route("poll/vote")]
         public IActionResult PollVote(Guid pollOptionId)
@@ -32,16 +29,18 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
-        #endregion
 
+        #endregion Poll
 
         #region Private Methods
+
         private void SetAuthorDetails(UserContentCommentViewModel viewModel)
         {
             viewModel.UserId = CurrentUserId;
             viewModel.AuthorName = GetSessionValue(SessionValues.FullName);
             viewModel.AuthorPicture = UrlFormatter.ProfileImage(CurrentUserId);
         }
-        #endregion
+
+        #endregion Private Methods
     }
 }

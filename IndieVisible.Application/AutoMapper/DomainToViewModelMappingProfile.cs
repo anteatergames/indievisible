@@ -20,6 +20,7 @@ namespace IndieVisible.Application.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             #region General
+
             CreateMap<Game, SelectListItemVo>()
                     .ForMember(x => x.Value, opt => opt.MapFrom(x => x.Id.ToString()))
                     .ForMember(x => x.Text, opt => opt.MapFrom(x => x.Title));
@@ -28,26 +29,32 @@ namespace IndieVisible.Application.AutoMapper
 
             CreateMap<UserPreferences, UserPreferencesViewModel>()
                 .ForMember(dest => dest.Languages, opt => opt.MapFrom<UserLanguagesFromDomainResolver>());
-            #endregion
+
+            #endregion General
 
             #region Game
+
             CreateMap<Game, GameViewModel>()
                     .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.DeveloperName))
                     .ForMember(dest => dest.Platforms, opt => opt.MapFrom<GamePlatformFromDomainResolver>());
             CreateMap<Game, GameListItemViewModel>();
 
             CreateMap<GameExternalLink, GameExternalLinkViewModel>();
-            #endregion
+
+            #endregion Game
 
             #region Profile
+
             CreateMap<UserProfile, ProfileViewModel>()
                     .ForMember(x => x.Counters, opt => opt.Ignore())
                     .ForMember(x => x.IndieXp, opt => opt.Ignore());
 
             CreateMap<UserProfileExternalLink, UserProfileExternalLinkViewModel>();
-            #endregion
+
+            #endregion Profile
 
             #region Content
+
             CreateMap<UserContent, UserContentViewModel>()
                 .ForMember(x => x.Likes, opt => opt.MapFrom(x => x.Likes.Select(y => y.UserId)))
                 .ForMember(x => x.LikeCount, opt => opt.MapFrom(x => x.Likes.Count));
@@ -55,38 +62,49 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<UserContentComment, UserContentCommentViewModel>();
 
             CreateMap<UserContent, UserContentToBeFeaturedViewModel>();
-            #endregion
+
+            #endregion Content
 
             #region Brainstorm
+
             CreateMap<BrainstormSession, BrainstormSessionViewModel>();
             CreateMap<BrainstormIdea, BrainstormIdeaViewModel>();
             CreateMap<BrainstormVote, BrainstormVoteViewModel>();
             CreateMap<BrainstormComment, BrainstormCommentViewModel>();
-            #endregion
+
+            #endregion Brainstorm
 
             #region Gamification
+
             CreateMap<UserBadge, UserBadgeViewModel>();
             CreateMap<Gamification, RankingViewModel>();
             CreateMap<GamificationLevel, GamificationLevelViewModel>();
-            #endregion
+
+            #endregion Gamification
 
             #region Interaction
+
             CreateMap<GameFollow, GameFollowViewModel>();
             CreateMap<UserFollow, UserFollowViewModel>();
             CreateMap<UserConnection, UserConnectionViewModel>();
-            #endregion
+
+            #endregion Interaction
 
             #region Search
+
             CreateMap<UserContentSearchVo, UserContentSearchViewModel>();
-            #endregion
+
+            #endregion Search
 
             #region Team
+
             CreateMap<Team, TeamViewModel>();
             CreateMap<TeamMember, TeamMemberViewModel>()
                     .ForMember(dest => dest.Works, opt => opt.MapFrom<TeamWorkFromDomainResolver>());
 
             CreateMap<UserProfile, ProfileSearchViewModel>();
-            #endregion
+
+            #endregion Team
         }
     }
 }

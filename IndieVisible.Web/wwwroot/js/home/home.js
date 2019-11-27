@@ -109,7 +109,6 @@
                 }
 
                 selectors.divPostImages.show();
-
             }
 
             resizePostBox();
@@ -135,7 +134,6 @@
 
     function bindSendSimpleContent() {
         $('.content').on('click', '#btnSendSimpleContent', function (e) {
-
             var btn = $(this);
             var txtArea = btn.closest('.simplecontentpostarea').find('.posttextarea');
             var text = txtArea.val().replace(/\n/g, '<br>\n');
@@ -198,7 +196,6 @@
                                 postImagesDropZone = null;
                             }
 
-
                             instantiateDropZone();
                         });
                     }
@@ -254,7 +251,6 @@
 
         var h = Math.floor(selectors.txtPostContent.height());
         var txtPostContentHeight = h === defaultTxtPostContentHeight ? 0 : h - defaultTxtPostContentHeight;
-
 
         var height = defaultCommentBoxHeight + txtPostContentHeight;
 
@@ -355,7 +351,6 @@
         $.get("/game/latest", function (data) { selectors.divLatestGames.html(data); });
     }
 
-
     function autosize(el) {
         setTimeout(function () {
             resizeTextArea(el);
@@ -386,7 +381,6 @@
         Init: init
     };
 }());
-
 
 $(function () {
     HOMEPAGE.Init();

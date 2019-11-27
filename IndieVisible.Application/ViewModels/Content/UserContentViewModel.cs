@@ -11,6 +11,7 @@ namespace IndieVisible.Application.ViewModels.Content
     {
         [Display(Name = "Featured Image")]
         public string FeaturedImage { get; set; }
+
         [Display(Name = "Images")]
         public List<string> Images { get; set; }
 
@@ -30,6 +31,7 @@ namespace IndieVisible.Application.ViewModels.Content
 
         [Display(Name = "Related Game")]
         public Guid? GameId { get; set; }
+
         public string GameTitle { get; set; }
         public string GameThumbnail { get; set; }
 

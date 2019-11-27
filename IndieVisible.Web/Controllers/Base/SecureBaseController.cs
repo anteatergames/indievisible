@@ -110,19 +110,26 @@ namespace IndieVisible.Web.Controllers.Base
                 case "pt-BR":
                 case "pt":
                     return SupportedLanguage.Portuguese;
+
                 case "ru":
                 case "ru-RU":
                     return SupportedLanguage.Russian;
+
                 case "de":
                     return SupportedLanguage.German;
+
                 case "es":
                     return SupportedLanguage.Spanish;
+
                 case "bs":
                     return SupportedLanguage.Bosnian;
+
                 case "sr":
                     return SupportedLanguage.Serbian;
+
                 case "hr":
                     return SupportedLanguage.Croatian;
+
                 default:
                     return SupportedLanguage.English;
             }
@@ -140,7 +147,9 @@ namespace IndieVisible.Web.Controllers.Base
         }
 
         #region Upload Management
+
         #region Main Methods
+
         private string UploadImage(Guid userId, string imageType, string filename, byte[] fileBytes)
         {
             Task<string> op = ImageStorageService.StoreImageAsync(userId.ToString(), imageType.ToLower() + "_" + filename, fileBytes);
@@ -155,6 +164,7 @@ namespace IndieVisible.Web.Controllers.Base
 
             return url;
         }
+
         private string DeleteImage(Guid userId, string filename)
         {
             Task<string> op = ImageStorageService.DeleteImageAsync(userId.ToString(), filename);
@@ -184,7 +194,8 @@ namespace IndieVisible.Web.Controllers.Base
 
             return url;
         }
-        #endregion
+
+        #endregion Main Methods
 
         protected string UploadImage(Guid userId, BlobType container, string filename, byte[] fileBytes)
         {
@@ -229,9 +240,11 @@ namespace IndieVisible.Web.Controllers.Base
 
             return result;
         }
-        #endregion
+
+        #endregion Upload Management
 
         #region Cookie Management
+
         protected string GetCookieValue(SessionValues key)
         {
             string value = CookieMgrService.Get(key.ToString());
@@ -243,18 +256,22 @@ namespace IndieVisible.Web.Controllers.Base
         {
             SetCookieValue(key, value, expireTime, false);
         }
+
         protected void SetCookieValue(SessionValues key, string value, int? expireTime, bool isEssential)
         {
             CookieMgrService.Set(key.ToString(), value, expireTime, isEssential);
         }
+
         protected void SetCookieValue(string key, string value, int? expireTime)
         {
             SetCookieValue(key, value, expireTime, false);
         }
+
         protected void SetCookieValue(string key, string value, int? expireTime, bool isEssential)
         {
             CookieMgrService.Set(key, value, expireTime, isEssential);
         }
-        #endregion
+
+        #endregion Cookie Management
     }
 }

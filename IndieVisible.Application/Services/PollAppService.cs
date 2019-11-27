@@ -1,7 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
@@ -40,7 +39,7 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("Unable to identify the poll you are voting for.");
                 }
 
-                var option = poll.Options.First(x => x.Id == pollOptionId);
+                PollOption option = poll.Options.First(x => x.Id == pollOptionId);
 
                 bool alreadyVoted = poll.Votes.Any(x => x.PollOptionId == pollOptionId && x.UserId == currentUserId);
 
@@ -49,7 +48,7 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("You already voted on this option.");
                 }
 
-                var userVotesOnThisPoll = poll.Votes.Where(x => x.UserId == currentUserId);
+                IEnumerable<PollVote> userVotesOnThisPoll = poll.Votes.Where(x => x.UserId == currentUserId);
 
                 if (poll.MultipleChoice || !userVotesOnThisPoll.Any())
                 {
@@ -57,7 +56,7 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    var oldVote = userVotesOnThisPoll.FirstOrDefault();
+                    PollVote oldVote = userVotesOnThisPoll.FirstOrDefault();
                     if (oldVote != null)
                     {
                         pollDomainService.ReplaceVote(currentUserId, poll.Id, oldVote.PollOptionId, pollOptionId);
@@ -85,7 +84,7 @@ namespace IndieVisible.Application.Services
         {
             PollResultsViewModel resultVm = new PollResultsViewModel();
 
-            var votes = pollDomainService.GetVotes(poll.Id);
+            IEnumerable<PollVote> votes = pollDomainService.GetVotes(poll.Id);
 
             IEnumerable<KeyValuePair<Guid, int>> groupedVotes = from v in votes
                                                                 group v by v.PollOptionId into g

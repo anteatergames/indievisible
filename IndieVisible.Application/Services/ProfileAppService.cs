@@ -39,6 +39,7 @@ namespace IndieVisible.Application.Services
         }
 
         #region ICrudAppService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
@@ -57,16 +58,15 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var profiles = new List<UserProfile>();
-                var allIds = profileDomainService.GetAllUserIds();
+                List<UserProfile> profiles = new List<UserProfile>();
+                IEnumerable<Guid> allIds = profileDomainService.GetAllUserIds();
 
-
-                foreach (var id in allIds)
+                foreach (Guid id in allIds)
                 {
-                    var profile = cacheService.Get<Guid, UserProfile>(id);
+                    UserProfile profile = cacheService.Get<Guid, UserProfile>(id);
                     if (profile == null)
                     {
-                        var userProfile = profileDomainService.GetByUserId(id).FirstOrDefault();
+                        UserProfile userProfile = profileDomainService.GetByUserId(id).FirstOrDefault();
 
                         if (userProfile != null)
                         {
@@ -79,9 +79,9 @@ namespace IndieVisible.Application.Services
 
                 IEnumerable<ProfileViewModel> vms = mapper.Map<IEnumerable<UserProfile>, IEnumerable<ProfileViewModel>>(profiles);
 
-                foreach (var vm in vms)
+                foreach (ProfileViewModel vm in vms)
                 {
-                    var model = profiles.First(x => x.UserId == vm.UserId);
+                    UserProfile model = profiles.First(x => x.UserId == vm.UserId);
 
                     vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
                     vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.LastUpdateDate, model.HasCoverImage);
@@ -145,13 +145,13 @@ namespace IndieVisible.Application.Services
                 {
                     if (existing.Followers != null)
                     {
-                        foreach (var follower in existing.Followers)
+                        foreach (UserFollow follower in existing.Followers)
                         {
                             if (follower.FollowUserId.HasValue && follower.FollowUserId != Guid.Empty && follower.UserId == currentUserId)
                             {
                                 follower.UserId = follower.FollowUserId.Value;
                             }
-                        } 
+                        }
                     }
 
                     model = mapper.Map(viewModel, existing);
@@ -191,15 +191,18 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo<Guid>(ex.Message);
             }
         }
-        #endregion
+
+        #endregion ICrudAppService
 
         #region IProfileAppService
+
         public UserProfileEssentialVo GetBasicDataByUserId(Guid userId)
         {
             UserProfileEssentialVo profile = profileDomainService.GetBasicDataByUserId(userId);
 
             return profile;
         }
+
         public ProfileViewModel GetByUserId(Guid userId, ProfileType type)
         {
             return GetByUserId(userId, userId, type, false);
@@ -209,6 +212,7 @@ namespace IndieVisible.Application.Services
         {
             return GetByUserId(userId, userId, type, forEdit);
         }
+
         public ProfileViewModel GetByUserId(Guid currentUserId, Guid userId, ProfileType type)
         {
             return GetByUserId(currentUserId, userId, type, false);
@@ -244,13 +248,12 @@ namespace IndieVisible.Application.Services
 
             vm.Counters.Connections = connectionsToUser + connectionsFromUser;
 
-
             if (vm.UserId != currentUserId)
             {
                 vm.CurrentUserFollowing = model.Followers.SafeAny(x => x.UserId == currentUserId);
                 vm.ConnectionControl.CurrentUserConnected = profileDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
                 vm.ConnectionControl.CurrentUserWantsToFollowMe = profileDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
-                vm.ConnectionControl.ConnectionIsPending = profileDomainService.CheckConnection(currentUserId, vm.UserId, false, true); 
+                vm.ConnectionControl.ConnectionIsPending = profileDomainService.CheckConnection(currentUserId, vm.UserId, false, true);
             }
 
             if (forEdit)
@@ -258,12 +261,12 @@ namespace IndieVisible.Application.Services
                 FormatExternalLinksForEdit(vm);
             }
 
-
             FormatExternaLinks(vm);
 
             return vm;
         }
-        #endregion
+
+        #endregion IProfileAppService
 
         public ProfileViewModel GenerateNewOne(ProfileType type)
         {
@@ -339,7 +342,6 @@ namespace IndieVisible.Application.Services
                     int newCount = profileDomainService.CountFollows(userId);
 
                     return new OperationResultVo<int>(newCount);
-
                 }
             }
             catch (Exception ex)
@@ -383,15 +385,16 @@ namespace IndieVisible.Application.Services
         }
 
         #region UserConnection
+
         public OperationResultVo GetConnectionsByUserId(Guid userId)
         {
             try
             {
                 List<UserConnection> connectionsFromDb = profileDomainService.GetConnectionsByUserId(userId, true);
 
-                var connections = mapper.Map<List<UserConnectionViewModel>>(connectionsFromDb);
+                List<UserConnectionViewModel> connections = mapper.Map<List<UserConnectionViewModel>>(connectionsFromDb);
 
-                var connectionsFormatted = FormatConnections(userId, connections);
+                List<UserConnectionViewModel> connectionsFormatted = FormatConnections(userId, connections);
 
                 return new OperationResultListVo<UserConnectionViewModel>(connectionsFormatted);
             }
@@ -526,8 +529,8 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
-        #endregion
 
+        #endregion UserConnection
 
         private void SetImages(ProfileViewModel vm, bool hasCoverImage)
         {
@@ -540,7 +543,6 @@ namespace IndieVisible.Application.Services
             item.ProfileImageUrl = UrlFormatter.ProfileImage(item.TargetUserId);
             item.CoverImageUrl = UrlFormatter.ProfileCoverImage(item.TargetUserId, profile.Id, profile.LastUpdateDate, profile.HasCoverImage);
         }
-
 
         private List<UserConnectionViewModel> FormatConnections(Guid userId, IEnumerable<UserConnectionViewModel> connections)
         {
@@ -566,7 +568,7 @@ namespace IndieVisible.Application.Services
                 }
             }
 
-            foreach (var item in connectionsToMe)
+            foreach (UserConnectionViewModel item in connectionsToMe)
             {
                 if (!newList.Any(x => x.UserId == item.UserId))
                 {
@@ -602,45 +604,59 @@ namespace IndieVisible.Application.Services
                     case ExternalLinkProvider.Website:
                         item.Value = UrlFormatter.Website(item.Value);
                         break;
+
                     case ExternalLinkProvider.Facebook:
                         item.Value = UrlFormatter.Facebook(item.Value);
                         break;
+
                     case ExternalLinkProvider.Twitter:
                         item.Value = UrlFormatter.Twitter(item.Value);
                         break;
+
                     case ExternalLinkProvider.Instagram:
                         item.Value = UrlFormatter.Instagram(item.Value);
                         break;
+
                     case ExternalLinkProvider.Youtube:
                         item.Value = UrlFormatter.Youtube(item.Value);
                         break;
+
                     case ExternalLinkProvider.XboxLive:
                         item.Value = UrlFormatter.XboxLiveProfile(item.Value);
                         break;
+
                     case ExternalLinkProvider.PlaystationStore:
                         item.Value = UrlFormatter.PlayStationStoreProfile(item.Value);
                         break;
+
                     case ExternalLinkProvider.Steam:
                         item.Value = UrlFormatter.SteamGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.GameJolt:
                         item.Value = UrlFormatter.GameJoltProfile(item.Value);
                         break;
+
                     case ExternalLinkProvider.ItchIo:
                         item.Value = UrlFormatter.ItchIoProfile(item.Value);
                         break;
+
                     case ExternalLinkProvider.GamedevNet:
                         item.Value = UrlFormatter.GamedevNetProfile(item.Value);
                         break;
+
                     case ExternalLinkProvider.IndieDb:
                         item.Value = UrlFormatter.IndieDbPofile(item.Value);
                         break;
+
                     case ExternalLinkProvider.UnityConnect:
                         item.Value = UrlFormatter.UnityConnectProfile(item.Value);
                         break;
+
                     case ExternalLinkProvider.GooglePlayStore:
                         item.Value = UrlFormatter.GooglePlayStoreProfile(item.Value);
                         break;
+
                     case ExternalLinkProvider.AppleAppStore:
                         item.Value = UrlFormatter.AppleAppStoreProfile(item.Value);
                         break;
@@ -657,7 +673,6 @@ namespace IndieVisible.Application.Services
 
                 if (existingProvider == null)
                 {
-
                     UserProfileExternalLinkViewModel placeHolder = new UserProfileExternalLinkViewModel
                     {
                         UserProfileId = vm.Id,
@@ -683,21 +698,21 @@ namespace IndieVisible.Application.Services
 
         public void SetCache(Guid key, ProfileViewModel viewModel)
         {
-            var model = mapper.Map<UserProfile>(viewModel);
+            UserProfile model = mapper.Map<UserProfile>(viewModel);
 
             base.SetCache(viewModel.UserId, model);
         }
 
         public ProfileViewModel GetWithCache(Guid userId)
         {
-            var model = base.GetFromCache(userId);
+            UserProfile model = base.GetFromCache(userId);
 
             if (model == null)
             {
                 model = profileDomainService.GetById(userId);
             }
 
-            var viewModel = mapper.Map<ProfileViewModel>(model);
+            ProfileViewModel viewModel = mapper.Map<ProfileViewModel>(model);
 
             return viewModel;
         }

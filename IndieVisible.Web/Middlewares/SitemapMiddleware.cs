@@ -82,7 +82,6 @@ namespace IndieVisible.Web.Middlewares
 
                 { "userbadge", "listbyuser" }
             };
-
         }
 
         public async Task Invoke(HttpContext context)

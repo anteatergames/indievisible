@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
-using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
 using MongoDB.Driver;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Repository
 {
@@ -16,9 +16,9 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public async Task<GamificationAction> GetByAction(PlatformAction action)
         {
-            var filter = Builders<GamificationAction>.Filter.Eq(x => x.Action, action);
+            FilterDefinition<GamificationAction> filter = Builders<GamificationAction>.Filter.Eq(x => x.Action, action);
 
-            var result = await DbSet.Find(filter).FirstOrDefaultAsync();
+            GamificationAction result = await DbSet.Find(filter).FirstOrDefaultAsync();
 
             return result;
         }

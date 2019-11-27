@@ -150,18 +150,18 @@ a {
 
     .skin-indievisible .search-form input[type="text"]:hover {
         border-bottom: 2px solid gray;
-        margin-top:1px;
+        margin-top: 1px;
     }
 
     .skin-indievisible .search-form input[type="text"]:focus {
         color: #fff;
     }
 
-    .skin-indievisible .search-form input[type="text"]:focus,
-    .skin-indievisible .search-form input[type="text"]:focus + .input-group-btn .btn {
-        border-bottom: 2px solid #ffbf36;
-        margin-top: 1px;
-    }
+        .skin-indievisible .search-form input[type="text"]:focus,
+        .skin-indievisible .search-form input[type="text"]:focus + .input-group-btn .btn {
+            border-bottom: 2px solid #ffbf36;
+            margin-top: 1px;
+        }
 
 .skin-indievisible .btn-blue {
     background-color: #232323;
@@ -181,8 +181,6 @@ a {
 .sidebar > .user-panel > .info a {
     color: #ffffff
 }
-
-
 
 .alert-danger, .alert-error, .alert-info, .alert-success, .alert-warning, .bg-aqua, .bg-aqua-active, .bg-black, .bg-black-active, .bg-blue, .bg-blue-active, .bg-fuchsia, .bg-fuchsia-active, .bg-green, .bg-green-active, .bg-light-blue, .bg-light-blue-active, .bg-lime, .bg-lime-active, .bg-maroon, .bg-maroon-active, .bg-navy, .bg-navy-active, .bg-olive, .bg-olive-active, .bg-orange, .bg-orange-active, .bg-purple, .bg-purple-active, .bg-red, .bg-red-active, .bg-teal, .bg-teal-active, .bg-yellow, .bg-yellow-active, .label-danger, .label-info, .label-primary, .label-success, .label-warning, .modal-danger .modal-body, .modal-danger .modal-footer, .modal-danger .modal-header, .modal-info .modal-body, .modal-info .modal-footer, .modal-info .modal-header, .modal-primary .modal-body, .modal-primary .modal-footer, .modal-primary .modal-header, .modal-success .modal-body, .modal-success .modal-footer, .modal-success .modal-header, .modal-warning .modal-body, .modal-warning .modal-footer, .modal-warning .modal-header {
     color: #fff !important;

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
@@ -28,7 +27,7 @@ namespace IndieVisible.Application.Services
 
         protected UserProfile GetFromCache(Guid key)
         {
-            var fromCache = cacheService.Get<Guid, UserProfile>(key);
+            UserProfile fromCache = cacheService.Get<Guid, UserProfile>(key);
 
             return fromCache;
         }

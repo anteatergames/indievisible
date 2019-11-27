@@ -38,7 +38,6 @@ namespace IndieVisible.Domain.Core.Extensions
             }
         }
 
-
         public static Dictionary<string, string> ToDictionary<TEnum>(this TEnum enumeration) where TEnum : Enum
         {
             if (!typeof(TEnum).IsEnum)
@@ -61,6 +60,7 @@ namespace IndieVisible.Domain.Core.Extensions
 
             return result;
         }
+
         public static Dictionary<string, string> ToDisplayName<TEnum>(this IList<TEnum> enumeration) where TEnum : Enum
         {
             if (!typeof(TEnum).IsEnum)

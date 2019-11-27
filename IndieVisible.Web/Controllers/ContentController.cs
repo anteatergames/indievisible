@@ -188,7 +188,6 @@ namespace IndieVisible.Web.Controllers
                 }
             };
 
-
             ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, ProfileType.Personal);
 
             SetAuthorDetails(vm);
@@ -202,9 +201,10 @@ namespace IndieVisible.Web.Controllers
             return Json(result);
         }
 
-
         [HttpPost]
+
         #region Content interactions
+
         [Route("content/like")]
         public IActionResult LikeContent(Guid targetId)
         {
@@ -232,7 +232,6 @@ namespace IndieVisible.Web.Controllers
             return Json(response);
         }
 
-
         [HttpPost]
         [Route("content/comment")]
         public IActionResult Comment(UserContentCommentViewModel vm)
@@ -245,7 +244,8 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
-        #endregion
+
+        #endregion Content interactions
 
         public IActionResult Feed(Guid? gameId, Guid? userId, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly)
         {
@@ -337,9 +337,11 @@ namespace IndieVisible.Web.Controllers
                     case FollowType.Content:
                         notificationAppService.Notify(CurrentUserId, follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
                         break;
+
                     case FollowType.Game:
                         notificationAppService.Notify(CurrentUserId, follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, gameName), notificationUrl);
                         break;
+
                     default:
                         notificationAppService.Notify(CurrentUserId, follower.Key, NotificationType.ContentPosted, targetId, String.Format(notificationText, profile.Name), notificationUrl);
                         break;

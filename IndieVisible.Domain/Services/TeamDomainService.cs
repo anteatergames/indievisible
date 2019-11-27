@@ -6,13 +6,13 @@ using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
     public class TeamDomainService : BaseDomainMongoService<Team, ITeamRepository>, ITeamDomainService
     {
         private readonly IGameRepository gameRepository;
+
         public TeamDomainService(ITeamRepository repository, IGameRepository gameRepository) : base(repository)
         {
             this.gameRepository = gameRepository;
@@ -27,9 +27,9 @@ namespace IndieVisible.Domain.Services
 
         public override void Remove(Guid id)
         {
-            var games = gameRepository.Get(x => x.TeamId == id).ToList();
+            List<Game> games = gameRepository.Get(x => x.TeamId == id).ToList();
 
-            foreach (var game in games)
+            foreach (Game game in games)
             {
                 game.TeamId = null;
                 gameRepository.Update(game);
@@ -77,7 +77,7 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<Team> GetTeamsByMemberUserId(Guid userId)
         {
-            var teams = repository.GetTeamsByMemberUserId(userId).ToList();
+            List<Team> teams = repository.GetTeamsByMemberUserId(userId).ToList();
 
             return teams;
         }
@@ -86,7 +86,7 @@ namespace IndieVisible.Domain.Services
         {
             var teams = repository.GetTeamsByMemberUserId(userId).Select(x => new { x.Name, x.Id }).ToList();
 
-            var vos = teams.Select(x => new SelectListItemVo<Guid>
+            IEnumerable<SelectListItemVo<Guid>> vos = teams.Select(x => new SelectListItemVo<Guid>
             {
                 Text = x.Name,
                 Value = x.Id

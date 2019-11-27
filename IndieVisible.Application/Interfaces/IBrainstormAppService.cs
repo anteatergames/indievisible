@@ -23,6 +23,7 @@ namespace IndieVisible.Application.Interfaces
         OperationResultListVo<BrainstormIdeaViewModel> GetAllBySessionId(Guid userId, Guid sessionId);
 
         OperationResultVo<BrainstormSessionViewModel> GetMainSession();
+
         OperationResultVo ChangeStatus(Guid currentUserId, Guid ideaId, BrainstormIdeaStatus selectedStatus);
     }
 }

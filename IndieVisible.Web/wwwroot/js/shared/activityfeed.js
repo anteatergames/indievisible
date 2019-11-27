@@ -17,7 +17,6 @@ var ACTIVITYFEED = (function () {
     var oldestDate;
 
     function init(divActivityFeed, type, id) {
-
         feedType = type;
         feedId = id;
 
@@ -25,10 +24,8 @@ var ACTIVITYFEED = (function () {
         selectorText.btnMorePosts = '#btnMorePosts';
         selectorText.btnDeletePost = '.btnDeletePost';
 
-
         bindAll();
     }
-
 
     function bindAll() {
         bindMorePosts();
@@ -78,7 +75,6 @@ var ACTIVITYFEED = (function () {
         });
     }
 
-
     function loadActivityFeed(callback) {
         selectors.divActivityFeed.append(MAINMODULE.Default.Spinner);
 
@@ -102,7 +98,6 @@ var ACTIVITYFEED = (function () {
         }
 
         $.get(url, function (response) {
-
             if (oldestDate !== undefined && oldestGuid !== undefined) {
                 selectors.divActivityFeed.find('.spinner').remove();
                 $(selectorText.btnMorePosts).parent().remove();
@@ -113,7 +108,6 @@ var ACTIVITYFEED = (function () {
             }
 
             loadOembeds();
-
 
             if (callback) {
                 callback();

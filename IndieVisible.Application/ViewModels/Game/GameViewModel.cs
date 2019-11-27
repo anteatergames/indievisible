@@ -59,10 +59,12 @@ namespace IndieVisible.Application.ViewModels.Game
         public TeamViewModel Team { get; set; }
 
         #region Counters
+
         public int FollowerCount { get; set; }
         public int CommentCount { get; set; }
         public int LikeCount { get; set; }
-        #endregion
+
+        #endregion Counters
 
         public GameViewModel()
         {

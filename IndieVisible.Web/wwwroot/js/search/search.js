@@ -24,12 +24,10 @@
         $.get("/search/posts/" + encodeURIComponent(selectors.term.val()), function (data) { selectors.divSearchPosts.html(data); });
     }
 
-
     return {
         Init: init
     };
 }());
-
 
 $(function () {
     SEARCH.Init();

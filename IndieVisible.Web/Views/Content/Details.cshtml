@@ -13,9 +13,9 @@
         </h1>
         @if (Model.Permissions.CanEdit)
         {
-        <span class="float-right">
-            <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-default bg-transparent"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
-        </span>
+            <span class="float-right">
+                <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-default bg-transparent"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+            </span>
         }
     </div>
     @if (Model.HasFeaturedImage)

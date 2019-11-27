@@ -1,13 +1,12 @@
 ﻿using IndieVisible.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface IPollDomainService : IDomainService<Poll>
     {
-        Poll GetByUserContentId(Guid id);
+        Poll GetByUserContentId(Guid userContentId);
 
         Poll GetPollByOptionId(Guid id);
 
@@ -16,7 +15,7 @@ namespace IndieVisible.Domain.Interfaces.Service
         void ReplaceVote(Guid userId, Guid pollId, Guid oldOptionId, Guid newOptionId);
 
         IEnumerable<PollVote> GetVotes(Guid pollId);
-        
+
         void RemoveByContentId(Guid userContentId);
     }
 }

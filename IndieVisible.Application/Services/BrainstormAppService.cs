@@ -36,6 +36,7 @@ namespace IndieVisible.Application.Services
         }
 
         #region ICrudAppService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
@@ -77,7 +78,7 @@ namespace IndieVisible.Application.Services
 
                 foreach (BrainstormCommentViewModel comment in vm.Comments)
                 {
-                    var commenterProfile = GetCachedProfileByUserId(comment.UserId);
+                    UserProfile commenterProfile = GetCachedProfileByUserId(comment.UserId);
                     if (commenterProfile == null)
                     {
                         comment.AuthorName = Constants.UnknownSoul;
@@ -146,7 +147,8 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo<Guid>(ex.Message);
             }
         }
-        #endregion
+
+        #endregion ICrudAppService
 
         public OperationResultVo Vote(Guid userId, Guid ideaId, VoteValue vote)
         {

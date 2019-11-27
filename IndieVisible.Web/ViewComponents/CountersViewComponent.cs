@@ -47,8 +47,7 @@ namespace IndieVisible.Web.ViewComponents
 
             model.ArticlesCount = contentService.CountArticles();
 
-
-            var teamCount = teamAppService.Count(this.CurrentUserId);
+            OperationResultVo<int> teamCount = teamAppService.Count(CurrentUserId);
 
             if (teamCount.Success)
             {

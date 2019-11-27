@@ -34,7 +34,6 @@ namespace IndieVisible.Domain.Models
 
         public UserContent() : base()
         {
-
         }
     }
 }

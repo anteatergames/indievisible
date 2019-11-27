@@ -92,6 +92,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         #region Profile
+
         [HttpPost]
         [Route("uploadavatar")]
         public IActionResult UploadProfileAvatar(IFormFile image, string currentImage, Guid userId)
@@ -135,6 +136,7 @@ namespace IndieVisible.Web.Controllers
                 return Json(json);
             }
         }
+
         [HttpPost]
         [Route("uploadprofilecoverimage")]
         public IActionResult UploadProfileCoverImage(IFormFile image, string currentImage, Guid userId, Guid profileId)
@@ -178,9 +180,11 @@ namespace IndieVisible.Web.Controllers
                 return Json(json);
             }
         }
-        #endregion
+
+        #endregion Profile
 
         #region Game
+
         [HttpPost]
         [Route("uploadgamethumbnail")]
         public IActionResult UploadGameThumbnail(IFormFile image, Guid gameId, string currentImage, Guid userId)
@@ -246,9 +250,11 @@ namespace IndieVisible.Web.Controllers
                 return Json(json);
             }
         }
-        #endregion
+
+        #endregion Game
 
         #region Content
+
         [HttpPost]
         [Route("uploadcontentimage")]
         public IActionResult UploadContentImage(IFormFile upload)
@@ -406,9 +412,11 @@ namespace IndieVisible.Web.Controllers
                 return Json(json);
             }
         }
-        #endregion
+
+        #endregion Content
 
         #region Private Methods
+
         private IActionResult ReturnDefaultImage(BlobType type)
         {
             string defaultImageNotRooted = GetDefaultImage(type);
@@ -444,9 +452,11 @@ namespace IndieVisible.Web.Controllers
                 case BlobType.ProfileImage:
                     storageBasePath = baseUrl + userId + "/" + type.ToString().ToLower() + "_";
                     break;
+
                 case BlobType.ProfileCover:
                     storageBasePath = baseUrl + userId + "/" + type.ToString().ToLower() + "_";
                     break;
+
                 default:
                     storageBasePath = baseUrl + userId + "/";
                     break;
@@ -464,21 +474,27 @@ namespace IndieVisible.Web.Controllers
                 case BlobType.ProfileImage:
                     defaultImageNotRooted = Constants.DefaultAvatar;
                     break;
+
                 case BlobType.ProfileCover:
                     defaultImageNotRooted = Constants.DefaultProfileCoverImage;
                     break;
+
                 case BlobType.GameThumbnail:
                     defaultImageNotRooted = Constants.DefaultGameThumbnail;
                     break;
+
                 case BlobType.GameCover:
                     defaultImageNotRooted = Constants.DefaultGameCoverImage;
                     break;
+
                 case BlobType.ContentImage:
                     defaultImageNotRooted = Constants.DefaultGameThumbnail;
                     break;
+
                 case BlobType.FeaturedImage:
                     defaultImageNotRooted = Constants.DefaultFeaturedImage;
                     break;
+
                 default:
                     defaultImageNotRooted = Constants.DefaultAvatar;
                     break;
@@ -496,6 +512,7 @@ namespace IndieVisible.Web.Controllers
             ImageOptimizer optimizer = new ImageOptimizer();
             optimizer.LosslessCompress(ms);
         }
-        #endregion
+
+        #endregion Private Methods
     }
 }

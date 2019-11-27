@@ -30,7 +30,7 @@ namespace IndieVisible.Application.Services
             , IProfileDomainService profileDomainService
             , ITeamDomainService teamDomainService
             , IGameRepository gameRepository
-            , IGamificationDomainService gamificationDomainService) :base(mapper, unitOfWork, cacheService, profileDomainService)
+            , IGamificationDomainService gamificationDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
             this.gameRepository = gameRepository;
             this.teamDomainService = teamDomainService;
@@ -38,6 +38,7 @@ namespace IndieVisible.Application.Services
         }
 
         #region ICrudAppService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
@@ -51,7 +52,6 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo<int>(ex.Message);
             }
         }
-
 
         public OperationResultListVo<GameViewModel> GetAll(Guid currentUserId)
         {
@@ -83,7 +83,7 @@ namespace IndieVisible.Application.Services
                 vm.CurrentUserLiked = model.Likes.SafeAny(x => x.GameId == vm.Id && x.UserId == currentUserId);
                 vm.CurrentUserFollowing = model.Followers.SafeAny(x => x.GameId == vm.Id && x.UserId == currentUserId);
 
-                var authorProfile = GetCachedProfileByUserId(vm.UserId);
+                UserProfile authorProfile = GetCachedProfileByUserId(vm.UserId);
                 vm.AuthorName = authorProfile.Name;
 
                 return new OperationResultVo<GameViewModel>(vm);
@@ -102,7 +102,7 @@ namespace IndieVisible.Application.Services
             {
                 Game game;
                 Team newTeam = null;
-                var createTeam = viewModel.TeamId == Guid.Empty;
+                bool createTeam = viewModel.TeamId == Guid.Empty;
 
                 if (createTeam)
                 {
@@ -144,7 +144,6 @@ namespace IndieVisible.Application.Services
                     unitOfWork.Commit();
                 }
 
-
                 return new OperationResultVo<Guid>(game.Id, pointsEarned);
             }
             catch (Exception ex)
@@ -167,7 +166,8 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
-        #endregion
+
+        #endregion ICrudAppService
 
         public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, Guid? teamId, GameGenre genre)
         {
@@ -199,7 +199,7 @@ namespace IndieVisible.Application.Services
                 item.ThumbnailUrl = string.IsNullOrWhiteSpace(item.ThumbnailUrl) || Constants.DefaultGameThumbnail.Contains(item.ThumbnailUrl) ? Constants.DefaultGameThumbnail : UrlFormatter.Image(item.UserId, BlobType.GameThumbnail, item.ThumbnailUrl);
                 item.DeveloperImageUrl = UrlFormatter.ProfileImage(item.UserId);
 
-                var authorProfile = GetCachedProfileByUserId(item.UserId);
+                UserProfile authorProfile = GetCachedProfileByUserId(item.UserId);
                 item.DeveloperName = authorProfile.Name;
             }
 

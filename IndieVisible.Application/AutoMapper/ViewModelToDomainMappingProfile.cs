@@ -21,6 +21,7 @@ namespace IndieVisible.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             #region General
+
             CreateMap<BaseViewModel, Entity>()
                 .ForMember(dest => dest.CreateDate, opt => opt.Condition(x => x.CreateDate != DateTime.MinValue));
 
@@ -30,9 +31,11 @@ namespace IndieVisible.Application.AutoMapper
                 .ForMember(dest => dest.ContentLanguages, opt => opt.MapFrom<UserLanguagesToDomainResolver>());
 
             CreateMap<NotificationItemViewModel, Domain.Models.Notification>();
-            #endregion
+
+            #endregion General
 
             #region Game
+
             CreateMap<GameViewModel, Domain.Models.Game>()
                     .ForMember(dest => dest.DeveloperName, opt => opt.MapFrom(src => src.AuthorName))
                     .ForMember(dest => dest.Platforms, opt => opt.MapFrom<GamePlatformToDomainResolver>())
@@ -40,49 +43,62 @@ namespace IndieVisible.Application.AutoMapper
                     .AfterMap<AddOrUpdateGameExternalLinks>();
 
             CreateMap<GameExternalLinkViewModel, Domain.Models.GameExternalLink>();
-            #endregion
+
+            #endregion Game
 
             #region Profile
+
             CreateMap<ProfileViewModel, Domain.Models.UserProfile>()
                 .ForMember(dest => dest.ExternalLinks, opt => opt.Ignore())
                 .ForMember(dest => dest.Followers, opt => opt.Ignore())
                 .AfterMap<AddOrUpdateProfileExternalLinks>();
 
             CreateMap<UserProfileExternalLinkViewModel, Domain.Models.UserProfileExternalLink>();
-            #endregion
+
+            #endregion Profile
 
             #region Content
+
             CreateMap<UserContentViewModel, Domain.Models.UserContent>();
 
             CreateMap<UserContentCommentViewModel, Domain.Models.UserContentComment>();
-            #endregion
+
+            #endregion Content
 
             #region Brainstorm
+
             CreateMap<BrainstormSessionViewModel, Domain.Models.BrainstormSession>();
             CreateMap<BrainstormIdeaViewModel, Domain.Models.BrainstormIdea>();
             CreateMap<BrainstormVoteViewModel, Domain.Models.BrainstormVote>();
             CreateMap<BrainstormCommentViewModel, Domain.Models.BrainstormComment>();
-            #endregion
+
+            #endregion Brainstorm
 
             #region Gamification
+
             CreateMap<UserBadgeViewModel, Domain.Models.UserBadge>();
-            #endregion
+
+            #endregion Gamification
 
             #region Interactions
+
             CreateMap<GameFollowViewModel, Domain.Models.GameFollow>();
 
             CreateMap<UserFollowViewModel, Domain.Models.UserFollow>();
 
             CreateMap<UserConnectionViewModel, Domain.Models.UserConnection>();
-            #endregion
+
+            #endregion Interactions
 
             #region Team
+
             CreateMap<TeamViewModel, Domain.Models.Team>()
                 .ForMember(dest => dest.Members, opt => opt.Ignore())
                 .AfterMap<AddOrUpdateTeamMembers>();
             CreateMap<TeamMemberViewModel, Domain.Models.TeamMember>()
                     .ForMember(dest => dest.Work, opt => opt.MapFrom<TeamWorkToDomainResolver>());
-            #endregion
+
+            #endregion Team
         }
     }
 }

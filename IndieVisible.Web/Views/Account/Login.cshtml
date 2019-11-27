@@ -27,7 +27,6 @@
             <div class="alert alert-danger">@SharedLocalizer["Invalid login! Keep calm and try again!"]</div>
         }
 
-
         <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" autocomplete="off">
             <div class="form-group has-feedback">
                 <input asp-for="UserName" class="form-control" placeholder="@SharedLocalizer["UserName"]">
@@ -42,7 +41,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="checkbox">
-                        <input asp-for="RememberMe"/>
+                        <input asp-for="RememberMe" />
                         <label asp-for="RememberMe">@SharedLocalizer["Remember Me"]</label>
                     </div>
                 </div>
@@ -76,11 +75,9 @@
             <p>@SharedLocalizer["Don't have an account?"]<a asp-area="" asp-controller="account" asp-action="register" class="text-info m-l-5"> @SharedLocalizer["Sign Up"]</a></p>
             <p>@SharedLocalizer["Don't want to Log In?"]<a asp-area="" asp-controller="home" asp-action="index" class="text-info m-l-5"> @SharedLocalizer["Continue browsing"]</a></p>
         </div>
-
     </div>
     <!-- /.login-box-body -->
 </div>
-
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")

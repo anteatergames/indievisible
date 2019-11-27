@@ -16,8 +16,6 @@
     height: 200px !important;
 }
 
-
-
 .box.widget-game {
     padding: 0;
     box-shadow: none;
@@ -36,11 +34,9 @@
     margin: 0;
 }
 
-
 .widget-game .widget-game-header .game-top-details a {
     color: white;
 }
-
 
 .widget-game .widget-game-title {
     margin-top: 0;
@@ -87,7 +83,6 @@
     margin: 0;
 }
 
-
 .game-info {
     padding: 30px 15px;
     border-top: 1px solid #ccc;
@@ -117,7 +112,6 @@
 .game-external-links {
     margin-top: -24px;
 }
-
 
 @media (max-width: 575px) {
     .box.widget-game .overlay, .widget-game .widget-game-header {

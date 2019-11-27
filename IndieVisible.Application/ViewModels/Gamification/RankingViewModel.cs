@@ -12,8 +12,6 @@ namespace IndieVisible.Application.ViewModels.Gamification
 
         public string Location { get; set; }
 
-
-
         public string CurrentLevelName { get; set; }
 
         public int CurrentLevelNumber { get; set; }
@@ -23,8 +21,6 @@ namespace IndieVisible.Application.ViewModels.Gamification
         public int XpCurrentLevel { get; set; }
 
         public int XpToNextLevel { get; set; }
-
-
 
         public int PercentageToNextLevel
         {

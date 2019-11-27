@@ -19,6 +19,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
 
             return emailSender.SendEmailAsync(email, "d-0be6280da017483fb8f759ec3d3c8797", request);
         }
+
         public static Task SendEmailPasswordResetAsync(this IEmailSender emailSender, string email, string link)
         {
             EmailSendRequest request = new EmailSendRequest

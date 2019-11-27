@@ -1,12 +1,8 @@
-﻿using AutoMapper;
-using IndieVisible.Application;
+﻿using IndieVisible.Application;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Infrastructure;
-using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Infra.CrossCutting.Identity.Model;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.Identity.Models.AccountViewModels;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
@@ -668,12 +664,12 @@ namespace IndieVisible.Web.Controllers
 
         private void SetCache(ApplicationUser user)
         {
-            var key = new Guid(user.Id);
-            var cachedProfile = profileAppService.GetWithCache(key);
+            Guid key = new Guid(user.Id);
+            ProfileViewModel cachedProfile = profileAppService.GetWithCache(key);
 
             if (cachedProfile == null)
             {
-                var profile = profileAppService.GetByUserId(key, ProfileType.Personal);
+                ProfileViewModel profile = profileAppService.GetByUserId(key, ProfileType.Personal);
                 if (profile != null)
                 {
                     profileAppService.SetCache(key, profile);
@@ -681,6 +677,6 @@ namespace IndieVisible.Web.Controllers
             }
         }
 
-        #endregion
+        #endregion Helpers
     }
 }

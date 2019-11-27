@@ -35,7 +35,6 @@ namespace IndieVisible.Web.Helpers
 
                 url = !url.TrimStart('(').TrimEnd(')').ToLower().StartsWith("http") ? String.Format("http://{0}", url) : url;
 
-
                 string newText = string.Empty;
                 if (!string.IsNullOrWhiteSpace(imagePrefix))
                 {
@@ -80,7 +79,7 @@ namespace IndieVisible.Web.Helpers
 
             foreach (Match match in matchesHashtag)
             {
-                var toReplace = match.Groups[0].Value;
+                string toReplace = match.Groups[0].Value;
 
                 string formattedLink = String.Format(@"<a href=""/search/?q={0}"" class=""hashtag"">{1}</a>", HttpUtility.UrlEncode(toReplace), toReplace);
 
@@ -96,6 +95,7 @@ namespace IndieVisible.Web.Helpers
             {
                 case UserContentType.TeamCreation:
                     return "<div class=\"row p-3 \"><div class=\"col-12 col-md-4 p-2 text-center align-middle\"><i class=\"fas fa-4x fa-users\"></i></div><div class=\"col-12 col-md-8\">{0}. <br> <br> <span class=\"font-weight-bold text-uppercase\">{1}</span> <br> {2}</div></div>";
+
                 default:
                     return "Check this out!";
             }

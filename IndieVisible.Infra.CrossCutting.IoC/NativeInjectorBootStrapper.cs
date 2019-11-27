@@ -24,66 +24,88 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddSingleton<ICacheService, CacheService>();
 
             #region Game
+
             services.AddScoped<IGameAppService, GameAppService>();
             services.AddScoped<IGameRepository, GameRepository>();
-            #endregion
+
+            #endregion Game
 
             #region Profile
+
             services.AddScoped<IProfileAppService, ProfileAppService>();
             services.AddScoped<IProfileDomainService, ProfileDomainService>();
             services.AddScoped<IUserProfileRepository, UserProfileRepository>();
-            #endregion
+
+            #endregion Profile
 
             #region Content
+
             services.AddScoped<IUserContentAppService, UserContentAppService>();
             services.AddScoped<IUserContentDomainService, UserContentDomainService>();
             services.AddScoped<IUserContentRepository, UserContentRepository>();
-            #endregion
+
+            #endregion Content
 
             #region Brainstorm
+
             services.AddScoped<IBrainstormAppService, BrainstormAppService>();
             services.AddScoped<IBrainstormRepository, BrainstormRepository>();
-            #endregion
+
+            #endregion Brainstorm
 
             #region Featuring
+
             services.AddScoped<IFeaturedContentAppService, FeaturedContentAppService>();
             services.AddScoped<IFeaturedContentRepository, FeaturedContentRepository>();
-            #endregion
+
+            #endregion Featuring
 
             #region Preferences
+
             services.AddScoped<IUserPreferencesAppService, UserPreferencesAppService>();
             services.AddScoped<IUserPreferencesRepository, UserPreferencesRepository>();
-            #endregion
+
+            #endregion Preferences
 
             #region Notifications
+
             services.AddScoped<INotificationAppService, NotificationAppService>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
-            #endregion
+
+            #endregion Notifications
 
             #region Gamification
+
             services.AddScoped<IGamificationAppService, GamificationAppService>();
             services.AddScoped<IGamificationDomainService, GamificationDomainService>();
             services.AddScoped<IGamificationRepository, GamificationRepository>();
             services.AddScoped<IGamificationActionRepository, GamificationActionRepository>();
             services.AddScoped<IGamificationLevelRepository, GamificationLevelRepository>();
             services.AddScoped<IUserBadgeRepository, UserBadgeRepository>();
-            #endregion
+
+            #endregion Gamification
 
             #region Interactions
+
             services.AddScoped<IUserConnectionRepository, UserConnectionRepository>();
-            #endregion
+
+            #endregion Interactions
 
             #region Poll
+
             services.AddScoped<IPollAppService, PollAppService>();
             services.AddScoped<IPollDomainService, PollDomainService>();
             services.AddScoped<IPollRepository, PollRepository>();
-            #endregion
+
+            #endregion Poll
 
             #region Team
+
             services.AddScoped<ITeamAppService, TeamAppService>();
             services.AddScoped<ITeamDomainService, TeamDomainService>();
             services.AddScoped<ITeamRepository, TeamRepository>();
-            #endregion
+
+            #endregion Team
 
             // Infra - Identity Services
             services.AddTransient<IEmailSender, SendGridEmailService>();

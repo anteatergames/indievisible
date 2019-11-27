@@ -10,7 +10,6 @@
         box-shadow: none;
     }
 
-
         .widget-ranking.box .box-body {
             background: white;
             height: 100%;
@@ -21,7 +20,6 @@
             -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
             box-shadow: 0 0 5px rgba(0, 0, 0, .2);
         }
-
 
             .widget-ranking.box .box-body .row {
                 margin-left: 50px;
@@ -80,9 +78,8 @@
 }
 
     .info-box .progress .progress-bar {
-        border-radius:unset;
+        border-radius: unset;
     }
-
 
 @media (max-width: 575px) {
     .info-box .progress-description {

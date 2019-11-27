@@ -14,12 +14,14 @@ namespace IndieVisible.Web.Models
             Pagination = new Select2SearchResultPaginationViewModel();
         }
     }
+
     public class Select2SearchResultItemViewModel
     {
         public string Id { get; set; }
 
         public string Text { get; set; }
     }
+
     public class Select2SearchResultPaginationViewModel
     {
         public bool More { get; set; }

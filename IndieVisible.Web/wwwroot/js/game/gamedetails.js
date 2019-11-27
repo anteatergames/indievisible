@@ -26,7 +26,6 @@
         bindShareBtn();
     }
 
-
     function bindLikeBtn() {
         $('.content').on('click', '#btn-game-like', function (e) {
             var btn = $(this);
@@ -146,7 +145,6 @@
         Init: init
     };
 }());
-
 
 $(function () {
     GAMEDETAILS.Init();

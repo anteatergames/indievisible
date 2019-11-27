@@ -38,7 +38,6 @@ namespace IndieVisible.Web.Controllers
             else
             {
                 currentSession = sessions.Value.FirstOrDefault(x => x.Type == BrainstormSessionType.Main);
-
             }
 
             return View(currentSession);

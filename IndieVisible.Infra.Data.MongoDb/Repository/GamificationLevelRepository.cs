@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using IndieVisible.Domain.Models;
+﻿using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
 using MongoDB.Driver;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Repository
 {
@@ -15,9 +15,9 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public async Task<GamificationLevel> GetByNumber(int levelNumber)
         {
-            var filter = Builders<GamificationLevel>.Filter.Eq(x => x.Number, levelNumber);
+            FilterDefinition<GamificationLevel> filter = Builders<GamificationLevel>.Filter.Eq(x => x.Number, levelNumber);
 
-            var result = await DbSet.Find(filter).FirstOrDefaultAsync();
+            GamificationLevel result = await DbSet.Find(filter).FirstOrDefaultAsync();
 
             return result;
         }

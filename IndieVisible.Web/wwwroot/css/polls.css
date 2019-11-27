@@ -9,7 +9,6 @@ ul.poll {
     margin-bottom: 0;
 }
 
-
     ul.poll li {
         display: block;
         border: solid 1px #ddd;
@@ -18,7 +17,7 @@ ul.poll {
         padding: 5px;
         height: 35px;
         z-index: 3;
-        border-radius:5px;
+        border-radius: 5px;
     }
 
         ul.poll li .perc-back {

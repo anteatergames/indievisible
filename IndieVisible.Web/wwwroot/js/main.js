@@ -77,7 +77,7 @@
 
             var msg = translatedMessages['msgNotImplementedYet'];
 
-            ALERTSYSTEM.Toastr.ShowWarning( msg);
+            ALERTSYSTEM.Toastr.ShowWarning(msg);
 
             return false;
         });
@@ -99,7 +99,6 @@
     function setGlobalAjax() {
         $(document).ajaxStart(function () { Pace.restart(); });
     }
-
 
     function loadNotifications() {
         $.get("/home/notifications", function (data) { objs.notificationsMenu.html(data); });
@@ -134,7 +133,6 @@
         }
     };
 }());
-
 
 $(function () {
     MAINMODULE.Init();

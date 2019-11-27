@@ -20,6 +20,7 @@ namespace IndieVisible.Domain.Interfaces.Service
         IEnumerable<Team> GetTeamsByMemberUserId(Guid userId);
 
         IEnumerable<SelectListItemVo<Guid>> GetTeamListByMemberUserId(Guid userId);
+
         Team GenerateNewTeam(Guid currentUserId);
     }
 }

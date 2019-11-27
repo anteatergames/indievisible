@@ -22,32 +22,32 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<Guid> GetAllUserIds()
         {
-            var allIds = Task.Run(async ()=> await repository.GetAllUserIds());
+            Task<IEnumerable<Guid>> allIds = Task.Run(async () => await repository.GetAllUserIds());
 
             return allIds.Result;
         }
 
         public void AddFollow(UserFollow model)
         {
-            var task = repository.AddFollow(model.UserId, model.FollowUserId.Value);
+            Task<bool> task = repository.AddFollow(model.UserId, model.FollowUserId.Value);
 
             task.Wait();
         }
 
         public bool CheckFollowing(Guid userId, Guid folloWedUserId)
         {
-            var task = repository.GetFollows(userId, folloWedUserId);
+            Task<IQueryable<UserFollow>> task = repository.GetFollows(userId, folloWedUserId);
 
             task.Wait();
 
-            var exists = task.Result.Any();
+            bool exists = task.Result.Any();
 
             return exists;
         }
 
         public int CountFollows(Guid userId)
         {
-            var task = repository.CountFollowers(userId);
+            Task<int> task = repository.CountFollowers(userId);
 
             task.Wait();
 
@@ -56,7 +56,7 @@ namespace IndieVisible.Domain.Services
 
         public UserProfileEssentialVo GetBasicDataByUserId(Guid targetUserId)
         {
-            var task = repository.GetBasicDataByUserId(targetUserId);
+            Task<UserProfileEssentialVo> task = repository.GetBasicDataByUserId(targetUserId);
 
             task.Wait();
 
@@ -65,18 +65,17 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserFollow> GetFollows(Guid userId, Guid followerId)
         {
-            var task = Task.Run(async () => await repository.GetFollows(userId, followerId));
+            Task<IQueryable<UserFollow>> task = Task.Run(async () => await repository.GetFollows(userId, followerId));
 
             return task.Result;
         }
 
         public void RemoveFollow(UserFollow existingFollow, Guid userFollowed)
         {
-            var task = Task.Run(async () => await repository.RemoveFollower(existingFollow.UserId, userFollowed));
+            Task<bool> task = Task.Run(async () => await repository.RemoveFollower(existingFollow.UserId, userFollowed));
 
             task.Wait();
         }
-
 
         public void UpdateNameOnThePlatform(Guid userId, string newName)
         {
@@ -84,9 +83,10 @@ namespace IndieVisible.Domain.Services
         }
 
         #region Connection
+
         public int CountConnections(Expression<Func<UserConnection, bool>> where)
         {
-            var task = userConnectionRepository.Count(where);
+            Task<int> task = userConnectionRepository.Count(where);
             task.Wait();
             return task.Result;
         }
@@ -180,6 +180,7 @@ namespace IndieVisible.Domain.Services
 
             return connections.ToList();
         }
-        #endregion
+
+        #endregion Connection
     }
 }

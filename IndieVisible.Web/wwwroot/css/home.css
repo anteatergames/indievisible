@@ -39,14 +39,13 @@
 
 .modal-backdrop {
     top: 0 !important;
-    border-radius:0;
+    border-radius: 0;
 }
 
 .commentmodal .btn.btn-vertical-align i {
     font-size: 20px;
     vertical-align: middle;
 }
-
 
 .dropzone {
     margin-top: 10px;
@@ -59,7 +58,6 @@
     .dropzone .dz-message {
         font-weight: 400;
     }
-
 
 #divPostPoll {
     color: #495057;
@@ -86,7 +84,6 @@
             box-shadow: none !important;
         }
 
-
     #divPostPoll .btn-option-remove {
         margin-left: 5px;
         color: #495057;
@@ -105,8 +102,6 @@
             color: black;
             box-shadow: none !important;
         }
-
-
 
 input::-webkit-input-placeholder {
     color: #999;

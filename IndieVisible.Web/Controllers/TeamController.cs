@@ -64,11 +64,11 @@ namespace IndieVisible.Web.Controllers
         [Route("list/mine")]
         public IActionResult ListMyTeams()
         {
-            var serviceResult = teamAppService.GetSelectListByUserId(CurrentUserId);
+            OperationResultVo serviceResult = teamAppService.GetSelectListByUserId(CurrentUserId);
 
             if (serviceResult.Success)
             {
-                var castResult = serviceResult as OperationResultListVo<SelectListItemVo>;
+                OperationResultListVo<SelectListItemVo> castResult = serviceResult as OperationResultListVo<SelectListItemVo>;
 
                 List<SelectListItemVo> model = castResult.Value.ToList();
 
@@ -165,7 +165,6 @@ namespace IndieVisible.Web.Controllers
             return Json(serviceResult);
         }
 
-
         [Route("{teamId:guid}/invitation/reject")]
         public IActionResult RejectInvitation(Guid teamId)
         {
@@ -173,7 +172,6 @@ namespace IndieVisible.Web.Controllers
 
             return Json(serviceResult);
         }
-
 
         [HttpDelete("{teamId:guid}")]
         public IActionResult DeleteTeam(Guid teamId)
@@ -183,7 +181,6 @@ namespace IndieVisible.Web.Controllers
             return Json(serviceResult);
         }
 
-
         [HttpDelete("{teamId:guid}/{userId:guid}")]
         public IActionResult RemoveMember(Guid teamId, Guid userId)
         {
@@ -191,8 +188,6 @@ namespace IndieVisible.Web.Controllers
 
             return Json(serviceResult);
         }
-
-
 
         [HttpPost("CandidateApply")]
         public IActionResult CandidateApply(TeamMemberViewModel vm)

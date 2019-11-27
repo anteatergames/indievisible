@@ -25,7 +25,7 @@ namespace IndieVisible.Domain.Services
 
         public virtual int Count()
         {
-            var count = repository.Count();
+            System.Threading.Tasks.Task<int> count = repository.Count();
 
             count.Wait();
 

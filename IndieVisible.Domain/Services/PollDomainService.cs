@@ -5,7 +5,6 @@ using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace IndieVisible.Domain.Services
 {
@@ -46,25 +45,25 @@ namespace IndieVisible.Domain.Services
                 PollOptionId = optionId
             };
 
-            var task = repository.AddVote(pollId, newVote);
+            System.Threading.Tasks.Task<bool> task = repository.AddVote(pollId, newVote);
 
             task.Wait();
         }
 
         public void ReplaceVote(Guid userId, Guid pollId, Guid oldOptionId, Guid newOptionId)
         {
-            var vote = repository.GetVote(userId, pollId);
+            PollVote vote = repository.GetVote(userId, pollId);
 
             if (vote != null)
             {
                 vote.PollOptionId = newOptionId;
             }
 
-            var task = repository.UpdateVote(vote);
+            System.Threading.Tasks.Task<bool> task = repository.UpdateVote(vote);
 
             task.Wait();
 
-            var result = task.Result;
+            bool result = task.Result;
         }
 
         public bool CheckUserVoted(Guid userId, Guid pollOptionId)

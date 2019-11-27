@@ -12,6 +12,7 @@ namespace IndieVisible.Web.Models
             Items = new List<TimeLineItemViewModel>();
         }
     }
+
     public class TimeLineItemViewModel
     {
         public bool Start { get; set; }

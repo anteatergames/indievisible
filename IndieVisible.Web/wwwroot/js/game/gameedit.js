@@ -171,7 +171,6 @@
         var input = document.getElementById('gamecoverimage');
 
         input.addEventListener('change', function (e) {
-
             if (cropperCoverImage !== undefined) {
                 cropperCoverImage.destroy();
             }
@@ -335,11 +334,9 @@
     };
 }());
 
-
 $(function () {
     GAMEEDIT.Init();
 });
-
 
 // must be set outside document.ready
 $.validator.setDefaults({

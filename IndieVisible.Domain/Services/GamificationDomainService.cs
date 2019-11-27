@@ -29,6 +29,7 @@ namespace IndieVisible.Domain.Services
         }
 
         #region Gamification
+
         public IEnumerable<RankingVo> Get(int count)
         {
             List<RankingVo> result = new List<RankingVo>();
@@ -55,11 +56,11 @@ namespace IndieVisible.Domain.Services
 
         public Gamification GetByUserId(Guid userId)
         {
-            var userGamificationTask = gamificationRepository.GetByUserId(userId);
+            Task<IEnumerable<Gamification>> userGamificationTask = gamificationRepository.GetByUserId(userId);
 
             userGamificationTask.Wait();
 
-            var userGamification = userGamificationTask.Result.FirstOrDefault();
+            Gamification userGamification = userGamificationTask.Result.FirstOrDefault();
 
             if (userGamification == null)
             {
@@ -70,9 +71,11 @@ namespace IndieVisible.Domain.Services
 
             return userGamification;
         }
-        #endregion
+
+        #endregion Gamification
 
         #region Levels
+
         public IQueryable<GamificationLevel> GetAllLevels()
         {
             IQueryable<GamificationLevel> levels = gamificationLevelRepository.Get();
@@ -82,13 +85,15 @@ namespace IndieVisible.Domain.Services
 
         public GamificationLevel GetLevel(int levelNumber)
         {
-            var task = Task.Run(async () => await gamificationLevelRepository.GetByNumber(levelNumber));
+            Task<GamificationLevel> task = Task.Run(async () => await gamificationLevelRepository.GetByNumber(levelNumber));
 
             return task.Result;
         }
-        #endregion
+
+        #endregion Levels
 
         #region Badges
+
         public IEnumerable<UserBadge> GetBadges()
         {
             IQueryable<UserBadge> model = userBadgeRepository.Get();
@@ -98,28 +103,29 @@ namespace IndieVisible.Domain.Services
 
         public UserBadge GetBadgeById(Guid id)
         {
-            var task = userBadgeRepository.GetById(id);
+            Task<UserBadge> task = userBadgeRepository.GetById(id);
             task.Wait();
             return task.Result;
         }
 
         public IEnumerable<UserBadge> GetBadgesByUserId(Guid userId)
         {
-            var task = userBadgeRepository.GetByUserId(userId);
+            Task<IEnumerable<UserBadge>> task = userBadgeRepository.GetByUserId(userId);
             task.Wait();
             return task.Result;
         }
-        #endregion
+
+        #endregion Badges
 
         public int ProcessAction(Guid userId, PlatformAction action)
         {
-            var actionToProcess = Task.Run(async () => await gamificationActionRepository.GetByAction(action)).Result;
+            GamificationAction actionToProcess = Task.Run(async () => await gamificationActionRepository.GetByAction(action)).Result;
 
-            var userGamificationTask = gamificationRepository.GetByUserId(userId);
+            Task<IEnumerable<Gamification>> userGamificationTask = gamificationRepository.GetByUserId(userId);
 
             userGamificationTask.Wait();
 
-            var userGamification = userGamificationTask.Result.FirstOrDefault();
+            Gamification userGamification = userGamificationTask.Result.FirstOrDefault();
 
             if (userGamification == null)
             {

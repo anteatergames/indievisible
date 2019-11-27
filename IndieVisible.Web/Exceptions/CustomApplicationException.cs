@@ -23,26 +23,21 @@ namespace IndieVisible.Web.Exceptions
 
         public CustomApplicationException() : base()
         {
-
         }
 
         public CustomApplicationException(string message) : base(message)
         {
-
         }
 
         public CustomApplicationException(string message, Exception innerException) : base(message, innerException)
         {
-
         }
 
         [SecurityPermissionAttribute(SecurityAction.Demand, SerializationFormatter = true)]
-
         protected CustomApplicationException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
             resourceName = info.GetString("CustomApplicationException.ResourceName");
             validationErrors = (IList<string>)info.GetValue("CustomApplicationException.ValidationErrors", typeof(IList<string>));
-
         }
 
         [SecurityPermissionAttribute(SecurityAction.Demand, SerializationFormatter = true)]

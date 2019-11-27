@@ -5,7 +5,6 @@
     var canInteract = User.Identity.IsAuthenticated;
 }
 
-
 <div class="col-xl-8 offset-xl-2 col-md-12 offset-md-0">
     <h1 class="sr-only">
         @SharedLocalizer["idea details"]
@@ -66,7 +65,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="col-12 text-lowercase text-right">
                         <span class="text-muted"><span class="comment-count">@Model.CommentCount</span> @SharedLocalizer["Comments"]</span>
@@ -130,7 +128,6 @@
         </div>
     </div>
 </div>
-
 
 @section ComponentStyles {
     <environment include="Development">

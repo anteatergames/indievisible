@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Models;
 using System;
-using System.Collections.Generic;
 
 namespace IndieVisible.Domain.Models
 {
@@ -17,6 +16,5 @@ namespace IndieVisible.Domain.Models
         public virtual Poll Poll { get; set; }
 
         //public virtual ICollection<PollVote> Votes { get; set; }
-
     }
 }

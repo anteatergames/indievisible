@@ -22,12 +22,10 @@
     function bindAll() {
     }
 
-
     return {
         Init: init
     };
 }());
-
 
 $(function () {
     MODULETEMPLATE.Init();

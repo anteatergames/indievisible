@@ -5,7 +5,6 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IUserPreferencesAppService : ICrudAppService<UserPreferencesViewModel>
     {
-
         UserPreferencesViewModel GetByUserId(Guid userId);
     }
 }

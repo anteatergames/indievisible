@@ -61,7 +61,6 @@
         var input = document.getElementById('avatar');
 
         input.addEventListener('change', function (e) {
-
             if (cropperAvatar !== undefined) {
                 cropperAvatar.destroy();
             }
@@ -156,7 +155,6 @@
         var input = document.getElementById('coverImage');
 
         input.addEventListener('change', function (e) {
-
             if (cropperCoverImage !== undefined) {
                 cropperCoverImage.destroy();
             }
@@ -246,7 +244,6 @@
         }
     }
 
-
     function bindSave() {
         $('#frmProfileSave').on('click', '#btnProfileSave', function (e) {
             e.preventDefault();
@@ -316,12 +313,10 @@
         });
     }
 
-
     return {
         Init: init
     };
 }());
-
 
 $(function () {
     PROFILEEDIT.Init();

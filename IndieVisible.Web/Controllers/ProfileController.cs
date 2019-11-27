@@ -1,16 +1,12 @@
-﻿using IndieVisible.Application.Formatters;
-using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
-using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Controllers
@@ -65,7 +61,6 @@ namespace IndieVisible.Web.Controllers
                 vm.Permissions.CanEdit = vm.UserId == CurrentUserId;
                 vm.Permissions.CanFollow = vm.UserId != CurrentUserId;
                 vm.Permissions.CanConnect = vm.UserId != CurrentUserId;
-
 
                 if (notificationclicked != Guid.Empty)
                 {

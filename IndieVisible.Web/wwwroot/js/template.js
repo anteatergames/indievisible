@@ -132,5 +132,4 @@ if (typeof jQuery === 'undefined') {
         if (event) event.preventDefault();
         Plugin.call($(this), 'toggle');
     });
-
 }(jQuery); // End of use strict

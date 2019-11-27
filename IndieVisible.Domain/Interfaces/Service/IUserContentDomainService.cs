@@ -11,14 +11,23 @@ namespace IndieVisible.Domain.Interfaces.Service
     public interface IUserContentDomainService : IDomainService<UserContent>
     {
         new IEnumerable<UserContentSearchVo> Search(Expression<Func<UserContent, bool>> where);
+
         int CountComments(Expression<Func<UserContentComment, bool>> where);
+
         int CountCommentsByUserId(Guid userId);
+
         IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly, int count);
+
         IQueryable<UserContentComment> GetComments(Expression<Func<UserContentComment, bool>> where);
+
         void AddLike(UserContentLike model);
+
         IEnumerable<UserContentLike> GetLikes(Func<UserContentLike, bool> where);
-        void RemoveLike(Guid currentUserId, Guid targetId);
+
+        void RemoveLike(Guid currentUserId, Guid userContentId);
+
         bool CheckIfCommentExists<T>(Expression<Func<UserContentComment, bool>> where);
+
         void Comment(UserContentComment model);
     }
 }

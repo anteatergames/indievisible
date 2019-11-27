@@ -5,7 +5,7 @@
     var canInteract = User.Identity.IsAuthenticated;
 
     var sessions = ViewData["Sessions"] as IEnumerable<IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel>;
-    var noSessionsModel = new ListNoItemsViewModel("nosessions","fas fa-sad-tear", "We have no sessions to show.");
+    var noSessionsModel = new ListNoItemsViewModel("nosessions", "fas fa-sad-tear", "We have no sessions to show.");
 }
 
 <div id="brainstormcontainer" class="col-12">
@@ -83,7 +83,6 @@
     </div>
 </div>
 
-
 @section Styles {
     <environment include="Development">
         <link rel="stylesheet" href="~/css/brainstorm.css">
@@ -100,7 +99,6 @@
     <environment exclude="Development">
         <script src="~/js/brainstorm/brainstorm.min.js" asp-append-version="true"></script>
     </environment>
-
 
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

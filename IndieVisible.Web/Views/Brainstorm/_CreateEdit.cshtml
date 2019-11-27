@@ -45,7 +45,6 @@
     </form>
 </div>
 
-
 @if (!isAjax)
 {
     @section Scripts {
@@ -55,7 +54,6 @@
         <environment exclude="Development">
             <script src="~/js/brainstorm/brainstorm.min.js" asp-append-version="true"></script>
         </environment>
-
 
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }

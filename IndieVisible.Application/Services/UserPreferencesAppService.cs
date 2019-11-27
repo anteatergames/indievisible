@@ -25,11 +25,12 @@ namespace IndieVisible.Application.Services
         }
 
         #region ICrudAppService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
             {
-                var count = userPreferencesRepository.Count();
+                System.Threading.Tasks.Task<int> count = userPreferencesRepository.Count();
 
                 count.Wait();
 
@@ -61,7 +62,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var model = userPreferencesRepository.GetById(id);
+                System.Threading.Tasks.Task<UserPreferences> model = userPreferencesRepository.GetById(id);
 
                 model.Wait();
 
@@ -102,11 +103,11 @@ namespace IndieVisible.Application.Services
                     viewModel.Id = Guid.Empty;
                 }
 
-                var task = userPreferencesRepository.GetById(viewModel.Id);
+                System.Threading.Tasks.Task<UserPreferences> task = userPreferencesRepository.GetById(viewModel.Id);
 
                 task.Wait();
 
-                var existing = task.Result;
+                UserPreferences existing = task.Result;
 
                 if (existing != null)
                 {
@@ -136,15 +137,16 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo<Guid>(ex.Message);
             }
         }
-        #endregion
+
+        #endregion ICrudAppService
 
         public UserPreferencesViewModel GetByUserId(Guid userId)
         {
-            var task = userPreferencesRepository.GetByUserId(userId);
+            System.Threading.Tasks.Task<IEnumerable<UserPreferences>> task = userPreferencesRepository.GetByUserId(userId);
 
             task.Wait();
 
-            var model = task.Result.FirstOrDefault();
+            UserPreferences model = task.Result.FirstOrDefault();
 
             if (model == null)
             {

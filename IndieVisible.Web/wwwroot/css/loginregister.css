@@ -46,7 +46,6 @@
         padding-right: 15px;
     }
 
-
 @media (max-width:768px) {
     .login-box, .register-box {
         width: 90%;
@@ -82,7 +81,6 @@
 .social-auth-links {
     margin: 10px 0;
 }
-
 
 .login-register-page .form-control-feedback {
     position: absolute;

@@ -13,6 +13,7 @@ namespace IndieVisible.Application.ViewModels.Poll
             OptionResults = new List<PollOptionResultsViewModel>();
         }
     }
+
     public class PollOptionResultsViewModel
     {
         public Guid OptionId { get; set; }

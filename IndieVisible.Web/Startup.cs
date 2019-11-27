@@ -5,7 +5,6 @@ using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.IoC;
 using IndieVisible.Infra.Data.MongoDb;
 using IndieVisible.Web.Extensions;
-using IndieVisible.Web.Middlewares;
 using IndieVisible.Web.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OAuth;
@@ -18,7 +17,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -104,7 +102,6 @@ namespace IndieVisible.Web
                     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
                 });
 
-
             services.AddAutoMapperSetup();
 
             services.AddSession(opt =>
@@ -172,7 +169,6 @@ namespace IndieVisible.Web
 
             services.Configure<RequestLocalizationOptions>(opts =>
             {
-
                 opts.DefaultRequestCulture = new RequestCulture("en-US");
                 // Formatting numbers, dates, etc.
                 opts.SupportedCultures = supportedCultures;

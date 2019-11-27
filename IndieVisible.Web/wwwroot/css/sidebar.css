@@ -70,9 +70,6 @@
     border-color: transparent;
 }
 
-
-
-
 .user-panel {
     position: relative;
     width: 100%;
@@ -117,7 +114,6 @@
         margin-top: 3px;
         font-size: 11px;
     }
-
 
         .user-panel .info > a > .fa {
             margin-right: 3px;
@@ -194,7 +190,6 @@
             background: #333333;
             transition: all 1s ease-in;
         }
-
 
     .mainmenu li.active .submenu {
         display: block;

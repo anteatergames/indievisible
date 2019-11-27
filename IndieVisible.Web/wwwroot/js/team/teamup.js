@@ -78,7 +78,6 @@
         canInteract = $(selectors.container).find(selectors.caninteract).val();
         objs.container.find(selectors.caninteract).val();
 
-
         if (isList) {
             loadTeams();
             loadMyTeams();
@@ -166,7 +165,6 @@
 
             $.post(url, data)
                 .done(function (response) {
-
                     MAINMODULE.Common.HandlePointsEarned(response);
 
                     var quote = btn.closest(selectors.divDetails).find('.quote');
@@ -188,7 +186,6 @@
                 });
         });
     }
-
 
     function bindCandidateApply() {
         objs.divApplication.on('click', selectors.btnCandidateApply, function () {
@@ -454,7 +451,6 @@
         });
     }
 
-
     function submitForm(callback) {
         var url = objs.form.attr('action');
 
@@ -462,7 +458,6 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
-
                 if (callback) {
                     callback();
                 }
@@ -499,12 +494,10 @@
         });
     }
 
-
     return {
         Init: init
     };
 }());
-
 
 $(function () {
     TEAMUP.Init();

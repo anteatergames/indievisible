@@ -34,7 +34,6 @@ namespace IndieVisible.Web.Controllers
                 OperationResultListVo<UserContentSearchViewModel> result = userContentAppService.Search(CurrentUserId, q);
                 return View("_SearchPostsResult", result.Value);
             }
-
         }
     }
 }

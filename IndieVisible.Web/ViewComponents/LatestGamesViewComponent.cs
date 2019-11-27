@@ -12,7 +12,6 @@ namespace IndieVisible.Web.ViewComponents
 {
     public class LatestGamesViewComponent : BaseViewComponent
     {
-
         private readonly IGameAppService _gameAppService;
 
         public LatestGamesViewComponent(IHttpContextAccessor httpContextAccessor, IGameAppService gameAppService) : base(httpContextAccessor)

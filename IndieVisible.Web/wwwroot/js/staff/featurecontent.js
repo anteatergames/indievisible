@@ -72,12 +72,10 @@
         });
     }
 
-
     return {
         Init: init
     };
 }());
-
 
 $(function () {
     FEATURECONTENT.Init();

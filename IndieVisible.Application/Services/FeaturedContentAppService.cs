@@ -30,17 +30,17 @@ namespace IndieVisible.Application.Services
         {
             this.featuredContentRepository = featuredContentRepository;
             this.contentRepository = contentRepository;
-
         }
 
         #region ICrudAppService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
             {
-                var task = featuredContentRepository.Count();
+                System.Threading.Tasks.Task<int> task = featuredContentRepository.Count();
                 task.Wait();
-                var count = task.Result;
+                int count = task.Result;
 
                 return new OperationResultVo<int>(count);
             }
@@ -54,7 +54,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var allModels = featuredContentRepository.Get();
+                IQueryable<FeaturedContent> allModels = featuredContentRepository.Get();
 
                 IEnumerable<FeaturedContentViewModel> vms = mapper.Map<IEnumerable<FeaturedContent>, IEnumerable<FeaturedContentViewModel>>(allModels);
 
@@ -70,9 +70,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var task = featuredContentRepository.GetById(id);
+                System.Threading.Tasks.Task<FeaturedContent> task = featuredContentRepository.GetById(id);
                 task.Wait();
-                var model = task.Result;
+                FeaturedContent model = task.Result;
 
                 FeaturedContentViewModel vm = mapper.Map<FeaturedContentViewModel>(model);
 
@@ -90,9 +90,9 @@ namespace IndieVisible.Application.Services
             {
                 FeaturedContent model;
 
-                var task = featuredContentRepository.GetById(viewModel.Id);
+                System.Threading.Tasks.Task<FeaturedContent> task = featuredContentRepository.GetById(viewModel.Id);
                 task.Wait();
-                var existing = task.Result;
+                FeaturedContent existing = task.Result;
 
                 if (existing != null)
                 {
@@ -140,12 +140,12 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
-        #endregion
 
+        #endregion ICrudAppService
 
         public CarouselViewModel GetFeaturedNow()
         {
-            var allModels = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today && (!x.EndDate.HasValue || x.EndDate > DateTime.Today));
+            IQueryable<FeaturedContent> allModels = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today && (!x.EndDate.HasValue || x.EndDate > DateTime.Today));
 
             if (allModels.Any())
             {
@@ -175,11 +175,11 @@ namespace IndieVisible.Application.Services
                     UserContentId = contentId
                 };
 
-                var task = contentRepository.GetById(contentId);
+                System.Threading.Tasks.Task<UserContent> task = contentRepository.GetById(contentId);
 
                 task.Wait();
 
-                var content = task.Result;
+                UserContent content = task.Result;
 
                 newFeaturedContent.Title = string.IsNullOrWhiteSpace(title) ? content.Title : title;
                 newFeaturedContent.Introduction = string.IsNullOrWhiteSpace(introduction) ? content.Introduction : introduction;
@@ -205,7 +205,7 @@ namespace IndieVisible.Application.Services
         public IEnumerable<UserContentToBeFeaturedViewModel> GetContentToBeFeatured()
         {
             IQueryable<UserContent> finalList = contentRepository.Get();
-            var featured = featuredContentRepository.Get().ToList();
+            List<FeaturedContent> featured = featuredContentRepository.Get().ToList();
 
             List<UserContentToBeFeaturedViewModel> viewModels = finalList.ProjectTo<UserContentToBeFeaturedViewModel>(mapper.ConfigurationProvider).ToList();
 
@@ -217,7 +217,6 @@ namespace IndieVisible.Application.Services
                 {
                     item.CurrentFeatureId = featuredNow.Id;
                 }
-
 
                 item.IsFeatured = item.CurrentFeatureId.HasValue;
 
@@ -231,7 +230,6 @@ namespace IndieVisible.Application.Services
 
                 item.IsArticle = !string.IsNullOrWhiteSpace(item.Title) && !string.IsNullOrWhiteSpace(item.Introduction);
 
-
                 //item.LikeCount = _likeRepository.GetAll().Count(x => x.ContentId == item.Id);
 
                 //tem.CommentCount = _commentRepository.GetAll().Count(x => x.UserContentId == item.Id);
@@ -242,14 +240,13 @@ namespace IndieVisible.Application.Services
             return viewModels;
         }
 
-
         public OperationResultVo Unfeature(Guid id)
         {
             try
             {
-                var task = featuredContentRepository.GetById(id);
+                System.Threading.Tasks.Task<FeaturedContent> task = featuredContentRepository.GetById(id);
                 task.Wait();
-                var existing = task.Result;
+                FeaturedContent existing = task.Result;
 
                 if (existing != null)
                 {

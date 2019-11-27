@@ -63,7 +63,7 @@ namespace IndieVisible.Web.ViewComponents
                     item.Content = ContentHelper.FormatContentToShow(item.Content);
                 }
 
-                foreach (var comment in item.Comments)
+                foreach (UserContentCommentViewModel comment in item.Comments)
                 {
                     comment.Text = ContentHelper.FormatHashTagsToShow(comment.Text);
                 }

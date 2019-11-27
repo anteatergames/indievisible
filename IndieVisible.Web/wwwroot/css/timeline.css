@@ -146,12 +146,7 @@
         margin-top: 5px;
     }
 
-
-
-
-
 @media (max-width: 767px) {
-
     .timeline:before, .timeline > li > .timeline-badge {
         left: 10px;
     }

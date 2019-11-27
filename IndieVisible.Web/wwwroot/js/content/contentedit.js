@@ -8,7 +8,6 @@
     var initialUrl;
     var cropped = false;
 
-
     function init() {
         cacheSelectors();
 
@@ -223,7 +222,6 @@
         Init: init
     };
 }());
-
 
 $(function () {
     CONTENTEDIT.Init();

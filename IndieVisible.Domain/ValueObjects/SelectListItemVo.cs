@@ -10,16 +10,14 @@
 
         public SelectListItemVo()
         {
-
         }
 
         public SelectListItemVo(string text, string value)
         {
-            this.Text = text;
-            this.Value = value;
+            Text = text;
+            Value = value;
         }
     }
-
 
     public class SelectListItemVo<TValue>
     {

@@ -3,8 +3,6 @@ using IndieVisible.Domain.Models;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {

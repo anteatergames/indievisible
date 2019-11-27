@@ -1,5 +1,4 @@
 ﻿using IndieVisible.Application;
-using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
@@ -51,9 +50,8 @@ namespace IndieVisible.Web.Controllers
             return View(profiles);
         }
 
-
-
         #region User Follow/Unfollow
+
         [HttpPost]
         [Route("follow")]
         public IActionResult FollowUser(Guid userId)
@@ -79,8 +77,8 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
-        #endregion
 
+        #endregion User Follow/Unfollow
 
         [Route("search")]
         public IActionResult Search(string term)
@@ -110,10 +108,10 @@ namespace IndieVisible.Web.Controllers
             {
                 return Json(serviceResult);
             }
-
         }
 
         #region User Connection
+
         [HttpGet]
         [Route("connections/{userId:guid}")]
         public IActionResult Connections(Guid userId)
@@ -165,7 +163,6 @@ namespace IndieVisible.Web.Controllers
             return Json(response);
         }
 
-
         [HttpPost]
         [Route("allowconnection")]
         public IActionResult AllowUser(Guid userId)
@@ -175,7 +172,6 @@ namespace IndieVisible.Web.Controllers
             return Json(response);
         }
 
-
         [HttpPost]
         [Route("denyconnection")]
         public IActionResult DenyUser(Guid userId)
@@ -184,6 +180,7 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
-        #endregion
+
+        #endregion User Connection
     }
 }

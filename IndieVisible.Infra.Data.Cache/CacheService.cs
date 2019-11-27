@@ -1,8 +1,5 @@
 ﻿using IndieVisible.Domain.Interfaces.Infrastructure;
 using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Infra.Data.Cache
 {
@@ -17,35 +14,35 @@ namespace IndieVisible.Infra.Data.Cache
 
         public string Get(string key)
         {
-            var obj = (string)memoryCache.Get(key);
+            string obj = (string)memoryCache.Get(key);
 
             return obj;
         }
 
         public T Get<T>(string key)
         {
-            var obj = (T)memoryCache.Get(key);
+            T obj = (T)memoryCache.Get(key);
 
             return obj;
         }
 
         public T Get<TKey, T>(TKey key)
         {
-            var obj = (T)memoryCache.Get(key);
+            T obj = (T)memoryCache.Get(key);
 
             return obj;
         }
 
         public string GetOrCreate(string key, string value)
         {
-            var obj = memoryCache.GetOrCreate(key, entry => value);
+            string obj = memoryCache.GetOrCreate(key, entry => value);
 
             return obj;
         }
 
         public T GetOrCreate<T>(string key, T value)
         {
-            var obj = memoryCache.GetOrCreate(key, entry => value);
+            T obj = memoryCache.GetOrCreate(key, entry => value);
 
             return obj;
         }

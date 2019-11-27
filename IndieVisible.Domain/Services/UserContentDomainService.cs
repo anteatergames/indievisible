@@ -20,9 +20,9 @@ namespace IndieVisible.Domain.Services
 
         public new IEnumerable<UserContentSearchVo> Search(Expression<Func<UserContent, bool>> where)
         {
-            var all = base.Search(where);
+            IEnumerable<UserContent> all = base.Search(where);
 
-            var selected = all.OrderByDescending(x => x.CreateDate)
+            IEnumerable<UserContentSearchVo> selected = all.OrderByDescending(x => x.CreateDate)
                 .Select(x => new UserContentSearchVo
                 {
                     ContentId = x.Id,
@@ -42,11 +42,11 @@ namespace IndieVisible.Domain.Services
 
         public bool CheckIfCommentExists<T>(Expression<Func<UserContentComment, bool>> where)
         {
-            var task = repository.GetComments(where);
+            Task<IQueryable<UserContentComment>> task = repository.GetComments(where);
 
             task.Wait();
 
-            var exists = task.Result.Any();
+            bool exists = task.Result.Any();
 
             return exists;
         }
@@ -58,27 +58,25 @@ namespace IndieVisible.Domain.Services
 
         public int CountComments(Expression<Func<UserContentComment, bool>> where)
         {
-            var countTask = repository.CountComments(where);
+            Task<int> countTask = repository.CountComments(where);
 
             countTask.Wait();
 
             return countTask.Result;
         }
-
 
         public int CountCommentsByUserId(Guid userId)
         {
-            var countTask = repository.CountComments(x => x.UserId == userId);
+            Task<int> countTask = repository.CountComments(x => x.UserId == userId);
 
             countTask.Wait();
 
             return countTask.Result;
         }
 
-
         public IQueryable<UserContent> GetActivityFeed(Guid? gameId, Guid? userId, List<SupportedLanguage> languages, Guid? oldestId, DateTime? oldestDate, bool? articlesOnly, int count)
         {
-            var allModels = repository.Get();
+            IQueryable<UserContent> allModels = repository.Get();
 
             if (articlesOnly.HasValue && articlesOnly.Value)
             {
@@ -108,21 +106,21 @@ namespace IndieVisible.Domain.Services
             IOrderedQueryable<UserContent> orderedList = allModels
                 .OrderByDescending(x => x.CreateDate);
 
-            var finalList = orderedList.Take(count);
+            IQueryable<UserContent> finalList = orderedList.Take(count);
 
             return finalList;
         }
 
         public IQueryable<UserContentComment> GetComments(Expression<Func<UserContentComment, bool>> where)
         {
-            var task = Task.Run(async () => await repository.GetComments(where));
+            Task<IQueryable<UserContentComment>> task = Task.Run(async () => await repository.GetComments(where));
 
             return task.Result;
         }
 
         public IEnumerable<UserContentLike> GetLikes(Func<UserContentLike, bool> where)
         {
-            var task = Task.Run(async () => await repository.GetLikes(where));
+            Task<IQueryable<UserContentLike>> task = Task.Run(async () => await repository.GetLikes(where));
 
             return task.Result;
         }

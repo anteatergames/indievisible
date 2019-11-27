@@ -25,7 +25,6 @@ namespace IndieVisible.Application.Services
 
         protected MediaType GetMediaType(string featuredImage)
         {
-
             if (string.IsNullOrWhiteSpace(featuredImage))
             {
                 return MediaType.None;
@@ -44,7 +43,6 @@ namespace IndieVisible.Application.Services
             string[] videoExtensions = new string[] { "mp4", "avi", "mpeg", "vob", "webm", "mpg", "m4v", "wmv", "asf", "mov", "mpe", "3gp" };
 
             string extension = featuredImage.Split('.').Last();
-
 
             if (imageExtensions.Contains(extension.ToLower()))
             {

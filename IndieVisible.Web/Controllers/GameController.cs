@@ -144,6 +144,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         #region Game Like/Unlike
+
         [HttpPost]
         [Route("game/like")]
         public IActionResult LikeGame(Guid likedId)
@@ -160,7 +161,6 @@ namespace IndieVisible.Web.Controllers
 
             notificationAppService.Notify(CurrentUserId, gameResult.Value.UserId, NotificationType.ContentLike, likedId, text, url);
 
-
             return Json(response);
         }
 
@@ -172,9 +172,11 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
-        #endregion
+
+        #endregion Game Like/Unlike
 
         #region Game Follow/Unfollow
+
         [HttpPost]
         [Route("game/follow")]
         public IActionResult FollowGame(Guid gameId)
@@ -191,7 +193,6 @@ namespace IndieVisible.Web.Controllers
 
             notificationAppService.Notify(CurrentUserId, gameResult.Value.UserId, NotificationType.ContentLike, gameId, text, url);
 
-
             return Json(response);
         }
 
@@ -203,7 +204,8 @@ namespace IndieVisible.Web.Controllers
 
             return Json(response);
         }
-        #endregion
+
+        #endregion Game Follow/Unfollow
 
         [Route("game/byteam/{teamId:guid}")]
         public IActionResult ByTeam(Guid teamId)
@@ -256,7 +258,6 @@ namespace IndieVisible.Web.Controllers
             }
         }
 
-
         private static void FormatExternalLinksForEdit(GameViewModel vm)
         {
             foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
@@ -292,8 +293,8 @@ namespace IndieVisible.Web.Controllers
 
         private void FormatExternalLinks(GameViewModel vm)
         {
-            var authorProfile = ProfileAppService.GetWithCache(vm.UserId);
-            var itchProfile = authorProfile.ExternalLinks.FirstOrDefault(x => x.Provider == ExternalLinkProvider.ItchIo);
+            ProfileViewModel authorProfile = ProfileAppService.GetWithCache(vm.UserId);
+            UserProfileExternalLinkViewModel itchProfile = authorProfile.ExternalLinks.FirstOrDefault(x => x.Provider == ExternalLinkProvider.ItchIo);
 
             foreach (GameExternalLinkViewModel item in vm.ExternalLinks)
             {
@@ -308,45 +309,59 @@ namespace IndieVisible.Web.Controllers
                     case ExternalLinkProvider.Website:
                         item.Value = UrlFormatter.Website(item.Value);
                         break;
+
                     case ExternalLinkProvider.Facebook:
                         item.Value = UrlFormatter.Facebook(item.Value);
                         break;
+
                     case ExternalLinkProvider.Twitter:
                         item.Value = UrlFormatter.Twitter(item.Value);
                         break;
+
                     case ExternalLinkProvider.Instagram:
                         item.Value = UrlFormatter.Instagram(item.Value);
                         break;
+
                     case ExternalLinkProvider.Youtube:
                         item.Value = UrlFormatter.Youtube(item.Value);
                         break;
+
                     case ExternalLinkProvider.XboxLive:
                         item.Value = UrlFormatter.XboxLiveGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.PlaystationStore:
                         item.Value = UrlFormatter.PlayStationStoreGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.Steam:
                         item.Value = UrlFormatter.SteamGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.GameJolt:
                         item.Value = UrlFormatter.GameJoltGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.ItchIo:
                         item.Value = UrlFormatter.ItchIoGame(itchProfile?.Value, item.Value);
                         break;
+
                     case ExternalLinkProvider.GamedevNet:
                         item.Value = UrlFormatter.GamedevNetGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.IndieDb:
                         item.Value = UrlFormatter.IndieDbGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.UnityConnect:
                         item.Value = UrlFormatter.UnityConnectGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.GooglePlayStore:
                         item.Value = UrlFormatter.GooglePlayStoreGame(item.Value);
                         break;
+
                     case ExternalLinkProvider.AppleAppStore:
                         item.Value = UrlFormatter.AppleAppStoreGame(item.Value);
                         break;
@@ -360,12 +375,12 @@ namespace IndieVisible.Web.Controllers
 
             if (teamResult.Success)
             {
-                var result = (OperationResultListVo<SelectListItemVo>)teamResult;
-                var items = result.Value.ToList();
+                OperationResultListVo<SelectListItemVo> result = (OperationResultListVo<SelectListItemVo>)teamResult;
+                List<SelectListItemVo> items = result.Value.ToList();
                 items.Add(new SelectListItemVo(SharedLocalizer["Create a new team (you can edit it later)"], Guid.Empty.ToString()));
-                
+
                 SelectList selectList = new SelectList(items, "Value", "Text");
-                
+
                 ViewData["MyTeams"] = selectList;
             }
         }

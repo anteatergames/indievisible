@@ -1,5 +1,4 @@
-﻿
-var BRAINSTORM = (function () {
+﻿var BRAINSTORM = (function () {
     "use strict";
 
     var rootUrl = '/brainstorm';
@@ -119,7 +118,6 @@ var BRAINSTORM = (function () {
             if (canInteract === 'true' && !sameVote) {
                 var url = rootUrl + "/vote";
 
-
                 return $.post(url, { votingItemId: id, voteValue: vote }).then(function (response) {
                     if (response.success === true) {
                         ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
@@ -200,7 +198,6 @@ var BRAINSTORM = (function () {
         Init: init
     };
 }());
-
 
 $(function () {
     BRAINSTORM.Init();

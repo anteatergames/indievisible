@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Models;
-using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 

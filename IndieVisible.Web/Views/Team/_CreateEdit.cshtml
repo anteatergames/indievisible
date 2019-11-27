@@ -54,61 +54,60 @@
                     {
                         var member = Model.Members.ElementAt(i);
 
-                    <div class="row team-member">
-                        <input type="hidden" asp-for="Members[i].Id" />
-                        <input type="hidden" asp-for="Members[i].CreateDate" />
-                        <input type="hidden" asp-for="Members[i].UserId" class="team-member-userid" />
-                        <input type="hidden" asp-for="Members[i].TeamId" />
-                        <input type="hidden" asp-for="Members[i].Leader" />
-                        <input type="hidden" asp-for="Members[i].Name" class="team-member-name-hidden" />
-                        <input type="hidden" asp-for="Members[i].InvitationStatus" />
-                        <div class="div-avatar">
-                            @if (member.Leader)
-                            {
-                                <h5 class="text-center team-member-isleader">@SharedLocalizer["Team Leader"]</h5>
-                            }
-                            else
-                            {
-                                <span>&nbsp;</span>
-                            }
-                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId">
-                                <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" src="~/images/profileimages/developer.png" alt="@member.Quote">
-                            </a>
+                        <div class="row team-member">
+                            <input type="hidden" asp-for="Members[i].Id" />
+                            <input type="hidden" asp-for="Members[i].CreateDate" />
+                            <input type="hidden" asp-for="Members[i].UserId" class="team-member-userid" />
+                            <input type="hidden" asp-for="Members[i].TeamId" />
+                            <input type="hidden" asp-for="Members[i].Leader" />
+                            <input type="hidden" asp-for="Members[i].Name" class="team-member-name-hidden" />
+                            <input type="hidden" asp-for="Members[i].InvitationStatus" />
+                            <div class="div-avatar">
+                                @if (member.Leader)
+                                {
+                                    <h5 class="text-center team-member-isleader">@SharedLocalizer["Team Leader"]</h5>
+                                }
+                                else
+                                {
+                                    <span>&nbsp;</span>
+                                }
+                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId">
+                                    <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" src="~/images/profileimages/developer.png" alt="@member.Quote">
+                                </a>
 
-
-                            @if (member.Permissions.CanDelete)
-                            {
-                                <div class="text-center">
-                                    <a class="btnDeleteMember text-danger" href="#" title="@SharedLocalizer["remove"]" data-url="@Url.Action("RemoveMember", "Team", new { teamId = Model.Id, userId = member.UserId })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to remove this member from the team?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]"><i class="fas fa-2x fa-times" aria-hidden="true"></i></a>
+                                @if (member.Permissions.CanDelete)
+                                {
+                                    <div class="text-center">
+                                        <a class="btnDeleteMember text-danger" href="#" title="@SharedLocalizer["remove"]" data-url="@Url.Action("RemoveMember", "Team", new { teamId = Model.Id, userId = member.UserId })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to remove this member from the team?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]"><i class="fas fa-2x fa-times" aria-hidden="true"></i></a>
+                                    </div>
+                                }
+                            </div>
+                            <div class="div-details col">
+                                @if (!string.IsNullOrWhiteSpace(member.Name))
+                                {
+                                    <h5 class="text-center team-member-name">@member.Name</h5>
+                                }
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label asp-for="Members[i].Role"></label>
+                                            <input asp-for="Members[i].Role" class="form-control" placeholder="Role" />
+                                            <span asp-validation-for="Members[i].Role" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Members[i].Works"></label>
+                                            <select asp-for="Members[i].Works" asp-items="Html.GetEnumSelectList<TeamWorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                                            <span asp-validation-for="Members[i].Works" class="text-danger"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            }
-                        </div>
-                        <div class="div-details col">
-                            @if (!string.IsNullOrWhiteSpace(member.Name))
-                            {
-                                <h5 class="text-center team-member-name">@member.Name</h5>
-                            }
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label asp-for="Members[i].Role"></label>
-                                        <input asp-for="Members[i].Role" class="form-control" placeholder="Role" />
-                                        <span asp-validation-for="Members[i].Role" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="Members[i].Works"></label>
-                                        <select asp-for="Members[i].Works" asp-items="Html.GetEnumSelectList<TeamWorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
-                                        <span asp-validation-for="Members[i].Works" class="text-danger"></span>
-                                    </div>
+                                <div class="form-group">
+                                    <label asp-for="Members[i].Quote"></label>
+                                    <input asp-for="Members[i].Quote" class="form-control" placeholder="Quote" />
+                                    <span asp-validation-for="Members[i].Quote" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="Members[i].Quote"></label>
-                                <input asp-for="Members[i].Quote" class="form-control" placeholder="Quote" />
-                                <span asp-validation-for="Members[i].Quote" class="text-danger"></span>
-                            </div>
                         </div>
-                    </div>
                     }
                 </div>
             </div>
@@ -118,7 +117,6 @@
         </div>
     </form>
 </div>
-
 
 <div class="row team-member template">
     <input type="hidden" id="Members_0__Id" name="Members[0].Id" />

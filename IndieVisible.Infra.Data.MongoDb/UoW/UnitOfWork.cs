@@ -1,7 +1,5 @@
 ﻿using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.UoW
@@ -24,10 +22,11 @@ namespace IndieVisible.Infra.Data.MongoDb.UoW
                 return false;
             }
 
-            var changeAmount = await _context.SaveChanges();
+            int changeAmount = await _context.SaveChanges();
 
             return changeAmount > 0;
         }
+
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)

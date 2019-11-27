@@ -24,7 +24,6 @@
     border: 1px solid #ced4da;
 }
 
-
 .convidado {
     background-color: rgba(0, 0, 0, .05);
 }
@@ -63,7 +62,6 @@
     visibility: hidden;
 }
 
-
 @media (max-width:575px) {
     #divToolbar button, #divListTeams, #divListTeams div, #teamsidebar div {
         border-radius: 0;
@@ -79,7 +77,6 @@
         margin: 10px 0 0 0;
     }
 }
-
 
 #divApplication .team-member {
     background-color: #F8F5F5;

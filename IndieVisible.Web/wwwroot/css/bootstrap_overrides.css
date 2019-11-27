@@ -1,5 +1,4 @@
-﻿
-.alert h4, .nav-pills > li.active > a {
+﻿.alert h4, .nav-pills > li.active > a {
     font-weight: 400;
 }
 
@@ -131,7 +130,6 @@
     .btn-warning:focus, .btn-warning.focus {
         color: #fff;
     }
-
 
 .btn-default.btn-outline {
     background-color: #fff;

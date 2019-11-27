@@ -3,22 +3,22 @@
 namespace IndieVisible.Infra.CrossCutting.Identity.Model
 {
     public class Role : IdentityRole
-	{
-	    //public ObjectId _id { get; set; }
+    {
+        //public ObjectId _id { get; set; }
 
         public Role()
-		{
-		}
+        {
+        }
 
-		public Role(string name)
-		{
-			Name = name;
-			NormalizedName = name.ToUpperInvariant();
-		}
+        public Role(string name)
+        {
+            Name = name;
+            NormalizedName = name.ToUpperInvariant();
+        }
 
-		public override string ToString()
-		{
-			return Name;
-		}
-	}
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
 }

@@ -3,7 +3,6 @@
 @using Microsoft.Extensions.Options
 @using Microsoft.AspNetCore.Http.Features
 
-
 @inject IOptions<ConfigOptions> ConfigOptions
 
 @{
@@ -188,16 +187,13 @@
                 <div class="row mt-0 mt-md-10 no-gutters px-0 px-lg-10">
                     @RenderBody()
                 </div>
-
             </section>
-
         </div>
 
         @await Html.PartialAsync("_ControlSidebarPartial")
 
         <div class="control-sidebar-bg"></div>
     </div>
-
 
     <environment include="Development">
         <script src="~/lib/tinyDrawyer/js/tinyDrawer.js"></script>
@@ -211,7 +207,6 @@
         <script src="~/lib/jquery-toast/jquery.toast.js"></script>
 
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.js"></script>
-
 
         <!--[if lt IE 11]>
             <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>

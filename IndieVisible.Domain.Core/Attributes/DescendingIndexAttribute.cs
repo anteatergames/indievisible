@@ -2,7 +2,7 @@
 
 namespace IndieVisible.Domain.Core
 {
-    public class DescendingIndexAttribute  : Attribute
+    public class DescendingIndexAttribute : Attribute
     {
     }
 }

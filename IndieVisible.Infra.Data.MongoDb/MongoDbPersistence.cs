@@ -1,9 +1,6 @@
 ﻿using IndieVisible.Infra.Data.MongoDb.Maps;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Conventions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Infra.Data.MongoDb
 {
@@ -11,7 +8,7 @@ namespace IndieVisible.Infra.Data.MongoDb
     {
         public static void Configure()
         {
-            var conventionPack = new ConventionPack
+            ConventionPack conventionPack = new ConventionPack
                 {
                     new IgnoreIfDefaultConvention(true),
                     new IgnoreExtraElementsConvention(true),

@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 namespace IndieVisible.Web.Areas.Staff.Controllers
 {
-
     [Route("staff/featuredcontent")]
     public class FeaturedContentController : StaffBaseController
     {
@@ -32,7 +31,6 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
             return PartialView("_List", model);
         }
 
-
         [HttpPost("add")]
         public IActionResult Add(Guid id, string title, string introduction)
         {
@@ -40,7 +38,6 @@ namespace IndieVisible.Web.Areas.Staff.Controllers
 
             return Json(operationResult);
         }
-
 
         [HttpPost("remove")]
         public IActionResult Remove(Guid id, string title, string introduction)

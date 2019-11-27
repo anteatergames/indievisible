@@ -18,6 +18,7 @@
             Icon = icon;
             Text = text;
         }
+
         public HomeSquareViewModel(string area, string controller, string action, string colorClass, string icon, string text)
         {
             Area = area;

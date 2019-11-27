@@ -54,7 +54,6 @@
     border: 0;
 }
 
-
 .user-profile .avatar-wrapper, .game-page .avatar-wrapper {
     display: inline-flex;
     align-items: center;
@@ -85,8 +84,6 @@
     margin-right: auto;
 }
 
-
-
 .user-profile-header .user-social-acount {
     border-radius: 0;
     border-top: 1px solid white;
@@ -102,7 +99,6 @@
         .user-profile-header .user-social-acount .btn-social-icon.bg-transparent {
             border: 2px dotted #dbdbdb;
         }
-
 
 .user-profile .nav-pills {
     background-color: white;
@@ -146,7 +142,6 @@
     background: rgba(0, 0, 0, 0.5) !important;
 }
 
-
 .btn-connect {
     color: #fff;
 }
@@ -184,9 +179,6 @@
     .user-profile-others > .other-icon {
         padding: 5px;
     }
-
-
-
 
 @media (max-width: 575px) {
     .box.user-profile .overlay, .user-profile .user-profile-header {
@@ -242,8 +234,6 @@
         box-shadow: 0 2px 2px 0 rgba(169, 169, 169, .14), 0 3px 1px -2px rgba(169, 169, 169, .2), 0 1px 5px 0 rgba(169, 169, 169, .12);
     }
 
-
-
 .box-profile div {
     border-radius: 0;
 }
@@ -259,7 +249,6 @@
         .box-profile .social-states a:hover {
             color: #0092ee;
         }
-
 
 .profile-username {
     font-size: 21px;

@@ -4,9 +4,7 @@ using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Repository
@@ -19,7 +17,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public override void Add(Poll obj)
         {
-            foreach (var option in obj.Options)
+            foreach (PollOption option in obj.Options)
             {
                 option.Id = Guid.NewGuid();
             }
@@ -34,33 +32,33 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public async Task<bool> AddVote(Guid pollId, PollVote vote)
         {
-            var filter = Builders<Poll>.Filter.Where(x => x.Id == vote.PollId);
-            var add = Builders<Poll>.Update.AddToSet(c => c.Votes, vote);
+            FilterDefinition<Poll> filter = Builders<Poll>.Filter.Where(x => x.Id == vote.PollId);
+            UpdateDefinition<Poll> add = Builders<Poll>.Update.AddToSet(c => c.Votes, vote);
 
-            var result = await DbSet.UpdateOneAsync(filter, add);
+            UpdateResult result = await DbSet.UpdateOneAsync(filter, add);
 
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
         public async Task<bool> RemoveVote(Guid userId, Guid pollId)
         {
-            var filter = Builders<Poll>.Filter.Where(x => x.Id == pollId);
-            var remove = Builders<Poll>.Update.PullFilter(c => c.Votes, m => m.UserId == userId);
+            FilterDefinition<Poll> filter = Builders<Poll>.Filter.Where(x => x.Id == pollId);
+            UpdateDefinition<Poll> remove = Builders<Poll>.Update.PullFilter(c => c.Votes, m => m.UserId == userId);
 
-            var result = await DbSet.UpdateOneAsync(filter, remove);
+            UpdateResult result = await DbSet.UpdateOneAsync(filter, remove);
 
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
         public async Task<bool> UpdateVote(PollVote vote)
         {
-            var filter = Builders<Poll>.Filter.And(
+            FilterDefinition<Poll> filter = Builders<Poll>.Filter.And(
                 Builders<Poll>.Filter.Eq(x => x.Id, vote.PollId),
                 Builders<Poll>.Filter.ElemMatch(x => x.Votes, x => x.UserId == vote.UserId));
 
-            var update = Builders<Poll>.Update.Set(c => c.Votes[-1].PollOptionId, vote.PollOptionId);
+            UpdateDefinition<Poll> update = Builders<Poll>.Update.Set(c => c.Votes[-1].PollOptionId, vote.PollOptionId);
 
-            var result = await DbSet.UpdateOneAsync(filter, update);
+            UpdateResult result = await DbSet.UpdateOneAsync(filter, update);
 
             return result.IsAcknowledged && result.ModifiedCount > 0;
         }

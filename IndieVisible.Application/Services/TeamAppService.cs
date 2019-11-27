@@ -32,6 +32,7 @@ namespace IndieVisible.Application.Services
         }
 
         #region ICrudAPpService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
@@ -83,7 +84,7 @@ namespace IndieVisible.Application.Services
                 vm.Members = vm.Members.OrderByDescending(x => x.Leader).ToList();
                 foreach (TeamMemberViewModel member in vm.Members)
                 {
-                    var profile = GetCachedProfileByUserId(member.UserId);
+                    UserProfile profile = GetCachedProfileByUserId(member.UserId);
                     member.Name = profile.Name;
                     member.Permissions.IsMe = member.UserId == currentUserId;
                     member.WorkDictionary = member.Works.ToDisplayName();
@@ -172,20 +173,21 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
-        #endregion
 
+        #endregion ICrudAPpService
 
         #region ITeamAppService
+
         public OperationResultVo GenerateNewTeam(Guid currentUserId)
         {
             try
             {
-                var newTeam = teamDomainService.GenerateNewTeam(currentUserId);
+                Team newTeam = teamDomainService.GenerateNewTeam(currentUserId);
 
-                var newVm = mapper.Map<TeamViewModel>(newTeam);
+                TeamViewModel newVm = mapper.Map<TeamViewModel>(newTeam);
                 UserProfile myProfile = GetCachedProfileByUserId(currentUserId);
 
-                var me = newVm.Members.FirstOrDefault(x => x.UserId == currentUserId);
+                TeamMemberViewModel me = newVm.Members.FirstOrDefault(x => x.UserId == currentUserId);
                 me.Name = myProfile.Name;
                 me.ProfileImage = UrlFormatter.ProfileImage(currentUserId);
 
@@ -237,7 +239,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var allModels = teamDomainService.GetTeamsByMemberUserId(userId);
+                IEnumerable<Team> allModels = teamDomainService.GetTeamsByMemberUserId(userId);
 
                 IEnumerable<TeamViewModel> vms = mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(allModels);
 
@@ -258,9 +260,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var allModels = teamDomainService.GetTeamListByMemberUserId(userId);
+                IEnumerable<SelectListItemVo<Guid>> allModels = teamDomainService.GetTeamListByMemberUserId(userId);
 
-                var list = allModels.Select(x => new SelectListItemVo
+                IEnumerable<SelectListItemVo> list = allModels.Select(x => new SelectListItemVo
                 {
                     Text = x.Text,
                     Value = x.Value.ToString()
@@ -354,7 +356,8 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
-        #endregion
+
+        #endregion ITeamAppService
 
         private void SetUiData(Guid userId, TeamViewModel team)
         {

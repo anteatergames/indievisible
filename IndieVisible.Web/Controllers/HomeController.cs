@@ -6,7 +6,6 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +26,7 @@ namespace IndieVisible.Web.Controllers
             this.userPreferencesAppService = userPreferencesAppService;
             this.featuredContentAppService = featuredContentAppService;
         }
-        
+
         [HttpGet("{handler?}")]
         public IActionResult Index(string handler, int? pointsEarned)
         {

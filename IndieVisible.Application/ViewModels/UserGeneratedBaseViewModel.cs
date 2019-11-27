@@ -17,9 +17,9 @@ namespace IndieVisible.Application.ViewModels
 
         protected UserGeneratedBaseViewModel() : base()
         {
-
         }
     }
+
     public abstract class UserGeneratedCommentBaseViewModel<TComment> : UserGeneratedBaseViewModel
     {
         public List<TComment> Comments { get; set; }
@@ -32,6 +32,4 @@ namespace IndieVisible.Application.ViewModels
             Likes = new List<Guid>();
         }
     }
-
-
 }

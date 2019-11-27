@@ -14,7 +14,6 @@
 
         loadTeams();
 
-
         ACTIVITYFEED.Init(objs.divActivityFeed, FEEDTYPE.USER, objs.Id.val());
     }
     function setSelectors() {
@@ -83,7 +82,6 @@
         });
     }
 
-
     function bindAllowConnectionBtn() {
         objs.content.on('click', '#btn-profile-connect-allow', function (e) {
             var btn = $(this);
@@ -94,7 +92,6 @@
             allowConnection(targetId).done(function (response) { allowConnectionCallback(response, connectionCount, btnConnect); });
         });
     }
-
 
     function bindDenyConnectionBtn() {
         objs.content.on('click', '#btn-profile-connect-deny', function (e) {
@@ -126,7 +123,6 @@
         });
     }
 
-
     function loadGameList(userId) {
         objs.tabGamesContainer.html(MAINMODULE.Default.Spinner);
 
@@ -150,8 +146,6 @@
             objs.tabConnections.html(data);
         });
     }
-
-
 
     function follow(userId) {
         return $.post("/user/follow", { userId: userId });
@@ -181,7 +175,6 @@
         }
     }
 
-
     function connect(userId) {
         return $.post("/user/connect", { userId: userId });
     }
@@ -191,9 +184,7 @@
 
             btn.text(newText);
             btn.addClass('disabled');
-
         } else {
-
             ALERTSYSTEM.ShowWarningMessage(response.message);
         }
     }
@@ -212,8 +203,6 @@
             ALERTSYSTEM.ShowWarningMessage(response.message);
         }
     }
-
-
 
     function allowConnection(userId) {
         return $.post("/user/allowconnection", { userId: userId });
@@ -252,7 +241,6 @@
         }
     }
 
-
     function loadTeams() {
         objs.divListUserTeams.html(MAINMODULE.Default.Spinner2);
         console.log(objs.divListUserTeams);
@@ -279,7 +267,6 @@
         Init: init
     };
 }());
-
 
 $(function () {
     PROFILEDETAILS.Init();

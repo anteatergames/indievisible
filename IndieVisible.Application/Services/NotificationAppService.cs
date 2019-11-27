@@ -27,6 +27,7 @@ namespace IndieVisible.Application.Services
         }
 
         #region ICrudAppService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             return new OperationResultVo<int>(string.Empty);
@@ -86,7 +87,8 @@ namespace IndieVisible.Application.Services
         {
             return new OperationResultVo(string.Empty);
         }
-        #endregion
+
+        #endregion ICrudAppService
 
         public OperationResultListVo<NotificationItemViewModel> GetByUserId(Guid userId, int count)
         {
@@ -110,7 +112,6 @@ namespace IndieVisible.Application.Services
             }
 
             return new OperationResultListVo<NotificationItemViewModel>(tempList);
-
         }
 
         OperationResultVo<NotificationItemViewModel> ICrudAppService<NotificationItemViewModel>.GetById(Guid currentUserId, Guid id)

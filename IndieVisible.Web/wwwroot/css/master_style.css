@@ -126,7 +126,7 @@ a:active, a:focus, a:hover {
         background-color: transparent;
         background-image: none;
         padding: 13px;
-        padding-bottom:10px;
+        padding-bottom: 10px;
     }
 
     .main-header .navbar {
@@ -190,7 +190,6 @@ a:active, a:focus, a:hover {
     }
 
 @media (max-width:991px) {
-
     .navbar-custom-menu .navbar-nav > li {
         float: left;
     }
@@ -232,7 +231,6 @@ a:active, a:focus, a:hover {
             float: right;
         }
 }
-
 
 .control-sidebar-bg {
     position: fixed;
@@ -428,7 +426,6 @@ a:active, a:focus, a:hover {
             width: 20px;
         }
 
-
 .show:not(.dropup) > .animated-dropdown-menu {
     backface-visibility: visible !important;
     -webkit-animation: flipInX .7s both;
@@ -581,7 +578,6 @@ select:-webkit-autofill:focus {
     color: #ffffff;
 }
 
-
 /*Custom vertical tab*/
 
 .customvtab .tabs-vertical li .nav-link.active,
@@ -605,11 +601,9 @@ select:-webkit-autofill:focus {
     }
 }
 
-
 .card-footer {
     padding: 0;
 }
-
 
 /*---Notification---*/
 .jq-icon-info {
@@ -1260,7 +1254,6 @@ ul.flexbox {
     padding-right: 5px;
 }
 
-
 .info-box, .info-box-icon, .info-box-more, .info-box-number {
     display: block;
 }
@@ -1330,8 +1323,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     box-shadow: none;
     border-width: 1px;
 }
-
-
 
 .btn-app, .pagination li a, table.text-center, table.text-center td, table.text-center th {
     text-align: center;
@@ -1573,7 +1564,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
         border: 1px solid #89ad87;
         background-color: #89ad87;
     }
-
 
 /*data table*/
 @media screen and (max-width: 767px) {
@@ -2075,7 +2065,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     color: #686868 !important;
 }
 
-
 .lh-10 {
     line-height: 10px;
 }
@@ -2100,7 +2089,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     border-radius: 50%;
     margin-right: 5px;
 }
-
 
 .game-page-cover-topright, .user-profile-cover-topright {
     position: absolute;
@@ -2207,7 +2195,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     background-color: transparent !important;
 }
 
-
 @media (max-width: 767px) {
     .comment-send-button {
         margin-top: -38px;
@@ -2220,7 +2207,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     }
 }
 
-
 .control-buttons {
     margin-bottom: 10px;
 }
@@ -2228,7 +2214,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     .control-buttons a {
         color: white;
     }
-
 
 video {
     object-fit: fill;

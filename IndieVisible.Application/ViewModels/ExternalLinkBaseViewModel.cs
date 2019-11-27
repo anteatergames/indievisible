@@ -2,7 +2,6 @@
 
 namespace IndieVisible.Application.ViewModels
 {
-
     public class ExternalLinkBaseViewModel : BaseViewModel
     {
         public ExternalLinkType Type { get; set; }

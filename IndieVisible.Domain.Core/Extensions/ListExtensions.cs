@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace IndieVisible.Domain.Core.Extensions
 {
@@ -9,7 +6,7 @@ namespace IndieVisible.Domain.Core.Extensions
     {
         public static List<T> Safe<T>(this List<T> list)
         {
-            return list ??  new List<T>();
+            return list ?? new List<T>();
         }
     }
 }

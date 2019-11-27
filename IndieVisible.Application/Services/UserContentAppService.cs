@@ -16,7 +16,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
@@ -31,7 +30,7 @@ namespace IndieVisible.Application.Services
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
             , IUserContentDomainService userContentDomainService
-            , IGamificationDomainService gamificationDomainService            
+            , IGamificationDomainService gamificationDomainService
             , IPollDomainService pollDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
             this.userContentDomainService = userContentDomainService;
@@ -76,7 +75,7 @@ namespace IndieVisible.Application.Services
             {
                 UserContent model = userContentDomainService.GetById(id);
 
-                var authorProfile = GetCachedProfileByUserId(model.UserId);
+                UserProfile authorProfile = GetCachedProfileByUserId(model.UserId);
                 if (authorProfile == null)
                 {
                     model.AuthorName = Constants.UnknownSoul;
@@ -228,7 +227,7 @@ namespace IndieVisible.Application.Services
         private void CreatePoll(UserContentViewModel contentVm)
         {
             Poll newPoll = new Poll
-            {                
+            {
                 UserId = contentVm.UserId,
                 UserContentId = contentVm.Id
             };
@@ -244,7 +243,6 @@ namespace IndieVisible.Application.Services
                 newPoll.Options.Add(newOption);
             }
 
-
             pollDomainService.Add(newPoll);
         }
 
@@ -259,13 +257,13 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly, vm.Count).ToList();
+                List<UserContent> allModels = userContentDomainService.GetActivityFeed(vm.GameId, vm.UserId, vm.Languages, vm.OldestId, vm.OldestDate, vm.ArticlesOnly, vm.Count).ToList();
 
                 IEnumerable<UserContentViewModel> viewModels = mapper.Map<IEnumerable<UserContent>, IEnumerable<UserContentViewModel>>(allModels);
 
                 foreach (UserContentViewModel item in viewModels)
                 {
-                    var authorProfile = GetCachedProfileByUserId(item.UserId);
+                    UserProfile authorProfile = GetCachedProfileByUserId(item.UserId);
                     if (authorProfile == null)
                     {
                         item.AuthorName = Constants.UnknownSoul;
@@ -309,7 +307,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var all = userContentDomainService.Search(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
+                IQueryable<UserContentSearchVo> all = userContentDomainService.Search(x => x.Content.Contains(q) || x.Introduction.Contains(q)).AsQueryable();
 
                 IQueryable<UserContentSearchViewModel> vms = all.ProjectTo<UserContentSearchViewModel>(mapper.ConfigurationProvider);
 
@@ -360,7 +358,7 @@ namespace IndieVisible.Application.Services
 
                 foreach (UserContentCommentViewModel comment in item.Comments)
                 {
-                    var commenterProfile = GetCachedProfileByUserId(comment.UserId);
+                    UserProfile commenterProfile = GetCachedProfileByUserId(comment.UserId);
                     if (commenterProfile == null)
                     {
                         comment.AuthorName = Constants.UnknownSoul;
@@ -385,7 +383,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var likes = userContentDomainService.GetLikes(x => x.ContentId == targetId);
+                IEnumerable<UserContentLike> likes = userContentDomainService.GetLikes(x => x.ContentId == targetId);
                 bool alreadyLiked = likes.Any(x => x.UserId == currentUserId);
 
                 if (alreadyLiked)
@@ -419,7 +417,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var likes = userContentDomainService.GetLikes(x => x.ContentId == targetId);
+                IEnumerable<UserContentLike> likes = userContentDomainService.GetLikes(x => x.ContentId == targetId);
                 UserContentLike existingLike = likes.FirstOrDefault(x => x.ContentId == targetId && x.UserId == currentUserId);
 
                 if (existingLike == null)
@@ -439,7 +437,6 @@ namespace IndieVisible.Application.Services
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }

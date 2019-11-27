@@ -8,9 +8,8 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
 {
     public class SendGridEmailService : IEmailSender
     {
-
-
         private readonly IConfiguration _configuration;
+
         public SendGridEmailService(IConfiguration configuration)
         {
             _configuration = configuration;

@@ -70,7 +70,6 @@ namespace IndieVisible.Application.Services
                 vm.IndieXp.NextLevelXp = gamification.XpToNextLevel + gamification.XpCurrentLevel;
 
                 return new OperationResultVo(true);
-
             }
             catch (Exception ex)
             {
@@ -86,8 +85,6 @@ namespace IndieVisible.Application.Services
 
             return new OperationResultListVo<GamificationLevelViewModel>(vms);
         }
-
-
 
         public OperationResultListVo<UserBadgeViewModel> GetBadgesByUserId(Guid userId)
         {

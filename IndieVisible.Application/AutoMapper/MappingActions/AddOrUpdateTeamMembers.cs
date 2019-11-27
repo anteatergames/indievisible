@@ -9,7 +9,6 @@ namespace IndieVisible.Application.AutoMapper.MappingActions
 {
     public class AddOrUpdateTeamMembers : IMappingAction<TeamViewModel, Team>
     {
-
         public void Process(TeamViewModel source, Team destination, ResolutionContext context)
         {
             List<TeamMember> destinationMembers = new List<TeamMember>();

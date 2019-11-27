@@ -62,7 +62,6 @@
         });
     }
 
-
     function bindCommentSendBtn() {
         $('.content').on('click', '.btn-interaction-comment-send', function (e) {
             var btn = $(this);
@@ -78,10 +77,8 @@
             if (text.length > 0) {
                 comment(url, id, text, type).done(function (response) { commentCallback(response, commentCount, txtArea); });
             }
-
         });
     }
-
 
     function bindShare() {
         $('body').on('click', '.btn-interaction-share', function (e) {
@@ -98,7 +95,6 @@
             }, function (response) { });
         });
     }
-
 
     function like(targetId) {
         return $.post("/content/like", { targetId: targetId });
@@ -125,7 +121,6 @@
     }
 
     function comment(url, contentId, text, type) {
-
         if (url === null || url === undefined || url.length === 0) {
             url = "/content/comment";
         }
@@ -152,7 +147,6 @@
         }
     }
 
-
     function autosize(el) {
         setTimeout(function () {
             el.style.cssText = 'height:auto;';
@@ -167,7 +161,6 @@
         AutosizeTextArea: autosize
     };
 }());
-
 
 $(function () {
     CONTENTACTIONS.Init();

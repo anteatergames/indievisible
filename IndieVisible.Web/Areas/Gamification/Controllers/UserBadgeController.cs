@@ -40,6 +40,7 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
 
             return View("_List", badges.Value);
         }
+
         private static Dictionary<string, UiInfoAttribute> SetBadgeList()
         {
             List<KeyValuePair<string, UiInfoAttribute>> list = new List<KeyValuePair<string, UiInfoAttribute>>();

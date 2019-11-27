@@ -26,12 +26,10 @@
     function bindAll() {
     }
 
-
     return {
         Init: init
     };
 }());
-
 
 $(function () {
     ARTICLES.Init();

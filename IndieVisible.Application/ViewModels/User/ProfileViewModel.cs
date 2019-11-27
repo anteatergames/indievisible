@@ -35,6 +35,7 @@ namespace IndieVisible.Application.ViewModels.User
         public string Location { get; set; }
 
         #region ExternalHandles
+
         public bool HasOtherProfiles
         {
             get
@@ -42,8 +43,8 @@ namespace IndieVisible.Application.ViewModels.User
                 return ExternalLinks.Any(x => x.Type == ExternalLinkType.GameDev);
             }
         }
-        #endregion
 
+        #endregion ExternalHandles
 
         public UserCounters Counters { get; set; }
 

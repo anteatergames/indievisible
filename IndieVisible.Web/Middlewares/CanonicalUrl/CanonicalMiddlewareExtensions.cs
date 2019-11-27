@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 
-
 namespace IndieVisible.Web.Middlewares.CanonicalUrl
 {
     public static class CanonicalUrlMiddlewareExtensions

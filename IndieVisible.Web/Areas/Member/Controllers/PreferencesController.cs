@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.UserPreferences;
-using IndieVisible.Infra.CrossCutting.Identity.Model;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
@@ -544,6 +543,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         }
 
         #region Helpers
+
         private void SetPreferences(UserPreferencesViewModel preferences)
         {
             SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
@@ -596,6 +596,6 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             model.AuthenticatorUri = GenerateQrCodeUri(user.Email, unformattedKey);
         }
 
-        #endregion
+        #endregion Helpers
     }
 }

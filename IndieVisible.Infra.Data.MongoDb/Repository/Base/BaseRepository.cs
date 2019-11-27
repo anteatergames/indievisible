@@ -1,13 +1,11 @@
 ﻿using IndieVisible.Domain.Core.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
@@ -45,32 +43,32 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
 
         public virtual async Task<TEntity> GetById(Guid id)
         {
-            var data = await DbSet.FindAsync(Builders<TEntity>.Filter.Eq("_id", id));
+            IAsyncCursor<TEntity> data = await DbSet.FindAsync(Builders<TEntity>.Filter.Eq("_id", id));
             return data.SingleOrDefault();
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetByUserId(Guid id)
         {
-            var data = await DbSet.FindAsync(Builders<TEntity>.Filter.Eq(x => x.UserId, id));
+            IAsyncCursor<TEntity> data = await DbSet.FindAsync(Builders<TEntity>.Filter.Eq(x => x.UserId, id));
 
             return data.ToList();
         }
 
         public virtual async Task<int> Count()
         {
-            var count = await DbSet.CountDocumentsAsync(Builders<TEntity>.Filter.Empty);
+            long count = await DbSet.CountDocumentsAsync(Builders<TEntity>.Filter.Empty);
             return (int)count;
         }
 
         public virtual async Task<int> Count(Expression<Func<TEntity, bool>> where)
         {
-            var count = await DbSet.CountDocumentsAsync(where);
+            long count = await DbSet.CountDocumentsAsync(where);
             return (int)count;
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
-            var all = await DbSet.FindAsync(Builders<TEntity>.Filter.Empty);
+            IAsyncCursor<TEntity> all = await DbSet.FindAsync(Builders<TEntity>.Filter.Empty);
             return all.ToList();
         }
 
@@ -78,7 +76,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
         {
             obj.LastUpdateDate = DateTime.Now;
 
-            var filter = Builders<TEntity>.Filter.Eq(x => x.Id, obj.Id);
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(x => x.Id, obj.Id);
 
             Context.AddCommand(() => DbSet.ReplaceOneAsync(filter, obj));
         }
@@ -90,14 +88,14 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
 
         public IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> where)
         {
-            var result = DbSet.AsQueryable().Where(where);
+            IMongoQueryable<TEntity> result = DbSet.AsQueryable().Where(where);
 
             return result;
         }
 
         public IQueryable<TEntity> Get()
         {
-            var result = DbSet.AsQueryable();
+            IMongoQueryable<TEntity> result = DbSet.AsQueryable();
 
             return result;
         }

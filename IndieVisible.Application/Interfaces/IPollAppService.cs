@@ -5,6 +5,6 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IPollAppService
     {
-        OperationResultVo PollVote(Guid userId, Guid pollOptionId);
+        OperationResultVo PollVote(Guid currentUserId, Guid pollOptionId);
     }
 }

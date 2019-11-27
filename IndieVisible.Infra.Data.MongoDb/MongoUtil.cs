@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MongoDB.Driver;
 
 namespace IndieVisible.Infra.Data.MongoDb
 {
@@ -13,13 +13,12 @@ namespace IndieVisible.Infra.Data.MongoDb
             Limit = 1
         };
 
-
         public static IMongoCollection<TItem> FromConnectionString<TItem>(string connectionString)
         {
-            var name = typeof(TItem).Name.ToCharArray();
+            char[] name = typeof(TItem).Name.ToCharArray();
             name[0] = char.ToLowerInvariant(name[0]);
 
-            var newName = new String(name);
+            string newName = new String(name);
 
             return FromConnectionString<TItem>(connectionString, null, newName);
         }
@@ -27,16 +26,15 @@ namespace IndieVisible.Infra.Data.MongoDb
         public static IMongoCollection<TItem> FromConnectionString<TItem>(string connectionString, string databaseName, string collectionName)
         {
             IMongoCollection<TItem> collection;
-                
-            var type = typeof(TItem);
 
+            Type type = typeof(TItem);
 
             if (connectionString != null)
             {
-                var url = new MongoUrl(connectionString);
-                var client = new MongoClient(connectionString);
+                MongoUrl url = new MongoUrl(connectionString);
+                MongoClient client = new MongoClient(connectionString);
 
-                var database = client.GetDatabase(databaseName ?? "default");
+                IMongoDatabase database = client.GetDatabase(databaseName ?? "default");
                 collection = database.GetCollection<TItem>(collectionName ?? type.Name.ToLowerInvariant());
             }
             else
@@ -49,19 +47,19 @@ namespace IndieVisible.Infra.Data.MongoDb
 
         public static void AscendingIndex<TItem>(this IMongoCollection<TItem> collection, Expression<Func<TItem, object>> field)
         {
-            var def = Builders<TItem>.IndexKeys.Ascending(field);
+            IndexKeysDefinition<TItem> def = Builders<TItem>.IndexKeys.Ascending(field);
             collection.Indexes.CreateOne(new CreateIndexModel<TItem>(def));
         }
 
         public static void DescendingIndex<TItem>(this IMongoCollection<TItem> collection, Expression<Func<TItem, object>> field)
         {
-            var def = Builders<TItem>.IndexKeys.Descending(field);
+            IndexKeysDefinition<TItem> def = Builders<TItem>.IndexKeys.Descending(field);
             collection.Indexes.CreateOne(new CreateIndexModel<TItem>(def));
         }
 
         public static void FullTextIndex<TItem>(this IMongoCollection<TItem> collection, Expression<Func<TItem, object>> field)
         {
-            var def = Builders<TItem>.IndexKeys.Text(field);
+            IndexKeysDefinition<TItem> def = Builders<TItem>.IndexKeys.Text(field);
             collection.Indexes.CreateOne(new CreateIndexModel<TItem>(def));
         }
 
@@ -81,7 +79,7 @@ namespace IndieVisible.Infra.Data.MongoDb
 
         public static async Task<bool> AnyAsync<TItem>(this IMongoCollection<TItem> mongoCollection)
         {
-            return await (await mongoCollection.FindAsync(x => true,LimitOneOption<TItem>())).AnyAsync();
+            return await (await mongoCollection.FindAsync(x => true, LimitOneOption<TItem>())).AnyAsync();
         }
 
         public static async Task<bool> AnyAsync<TItem>(this IMongoCollection<TItem> mongoCollection, Expression<Func<TItem, bool>> p)
@@ -91,7 +89,7 @@ namespace IndieVisible.Infra.Data.MongoDb
 
         public static async Task<TItem> FirstOrDefault<TItem>(this IMongoCollection<TItem> mongoCollection)
         {
-            return await (await mongoCollection.FindAsync(Builders<TItem>.Filter.Empty,LimitOneOption<TItem>())).FirstOrDefaultAsync();
+            return await (await mongoCollection.FindAsync(Builders<TItem>.Filter.Empty, LimitOneOption<TItem>())).FirstOrDefaultAsync();
         }
 
         public static TItem FirstOrDefault<TItem>(this IMongoCollection<TItem> mongoCollection, Expression<Func<TItem, bool>> p)
@@ -101,15 +99,15 @@ namespace IndieVisible.Infra.Data.MongoDb
 
         public static async Task<TItem> FirstOrDefaultAsync<TItem>(this IMongoCollection<TItem> mongoCollection, FilterDefinition<TItem> p)
         {
-            return await (await mongoCollection.FindAsync(p,LimitOneOption<TItem>())).FirstOrDefaultAsync();
+            return await (await mongoCollection.FindAsync(p, LimitOneOption<TItem>())).FirstOrDefaultAsync();
         }
 
         public static async Task<TItem> FirstOrDefaultAsync<TItem>(this IMongoCollection<TItem> mongoCollection, Expression<Func<TItem, bool>> p)
         {
-            return await (await mongoCollection.FindAsync(p,LimitOneOption<TItem>())).FirstOrDefaultAsync();
+            return await (await mongoCollection.FindAsync(p, LimitOneOption<TItem>())).FirstOrDefaultAsync();
         }
 
-        public static async Task ForEachAsync<TItem>(this IMongoCollection<TItem> mongoCollection, Expression<Func<TItem, bool>> p,  Action<TItem> action)
+        public static async Task ForEachAsync<TItem>(this IMongoCollection<TItem> mongoCollection, Expression<Func<TItem, bool>> p, Action<TItem> action)
         {
             await (await mongoCollection.FindAsync(p)).ForEachAsync(action);
         }
@@ -136,7 +134,7 @@ namespace IndieVisible.Infra.Data.MongoDb
 
         public static async Task<IEnumerable<TItem>> TextSearch<TItem>(this IMongoCollection<TItem> mongoCollection, string str, Expression<Func<TItem, bool>> filter)
         {
-            var f = Builders<TItem>.Filter.Text(str) & filter;
+            FilterDefinition<TItem> f = Builders<TItem>.Filter.Text(str) & filter;
             return (await mongoCollection.FindAsync(f)).ToEnumerable();
         }
     }

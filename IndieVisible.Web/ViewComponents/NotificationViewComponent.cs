@@ -14,7 +14,6 @@ namespace IndieVisible.Web.ViewComponents
     {
         private readonly INotificationAppService _notificationAppService;
 
-
         public NotificationViewComponent(IHttpContextAccessor httpContextAccessor, INotificationAppService notificationAppService) : base(httpContextAccessor)
         {
             _notificationAppService = notificationAppService;

@@ -17,6 +17,7 @@
                 return "is a game developer willing to rock the game development world with funny games.";
             }
         }
+
         public static string DefaultUsername
         {
             get
@@ -24,6 +25,7 @@
                 return "theuser";
             }
         }
+
         public static string DefaultAvatar
         {
             get

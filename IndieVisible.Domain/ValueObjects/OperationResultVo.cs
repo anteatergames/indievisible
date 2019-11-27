@@ -39,7 +39,6 @@ namespace IndieVisible.Domain.ValueObjects
         }
     }
 
-
     public class OperationResultHtmlVo : OperationResultVo
     {
         public string Html { get; set; }
@@ -48,11 +47,11 @@ namespace IndieVisible.Domain.ValueObjects
         {
             Html = html;
         }
+
         public OperationResultHtmlVo(bool success, string message) : base(success, message)
         {
         }
     }
-
 
     public class OperationResultRedirectVo : OperationResultVo
     {
@@ -62,6 +61,7 @@ namespace IndieVisible.Domain.ValueObjects
         {
             Url = url;
         }
+
         public OperationResultRedirectVo(bool success, string message) : base(success, message)
         {
         }
@@ -72,7 +72,6 @@ namespace IndieVisible.Domain.ValueObjects
             Url = url;
         }
     }
-
 
     public class OperationResultVo<T> : OperationResultVo
     {
@@ -88,11 +87,11 @@ namespace IndieVisible.Domain.ValueObjects
             Value = item;
             PointsEarned = pointsEarned;
         }
+
         public OperationResultVo(string message) : base(message)
         {
         }
     }
-
 
     public class OperationResultListVo<T> : OperationResultVo
     {

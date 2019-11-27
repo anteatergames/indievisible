@@ -29,7 +29,7 @@ namespace IndieVisible.Application.Services
                 bool created = await cloudBlobContainer.CreateIfNotExistsAsync();
                 if (created)
                 {
-                    // Set the permissions so the blobs are public. 
+                    // Set the permissions so the blobs are public.
                     BlobContainerPermissions permissions = new BlobContainerPermissions
                     {
                         PublicAccess = BlobContainerPublicAccessType.Blob
@@ -37,7 +37,6 @@ namespace IndieVisible.Application.Services
 
                     await cloudBlobContainer.SetPermissionsAsync(permissions);
                 }
-
 
                 CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(filename);
                 if (image != null)
@@ -49,10 +48,8 @@ namespace IndieVisible.Application.Services
             return filename;
         }
 
-
         public async Task<string> DeleteImageAsync(string container, string filename)
         {
-
             if (!string.IsNullOrWhiteSpace(filename))
             {
                 string storageConnectionString = _config["Storage:ConnectionString"];
@@ -63,7 +60,6 @@ namespace IndieVisible.Application.Services
                     CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
                     CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
-
 
                     CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(filename);
 

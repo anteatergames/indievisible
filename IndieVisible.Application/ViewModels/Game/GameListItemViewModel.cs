@@ -25,8 +25,8 @@ namespace IndieVisible.Application.ViewModels.Game
 
         public string Platforms { get; set; }
 
-
         private List<string> _platformList;
+
         public List<string> PlatformList
         {
             get

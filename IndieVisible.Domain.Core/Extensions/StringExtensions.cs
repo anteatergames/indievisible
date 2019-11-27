@@ -4,7 +4,6 @@ namespace IndieVisible.Domain.Core.Extensions
 {
     public static class StringExtensions
     {
-
         public static string GetFirstWords(this string input, int count)
         {
             return String.Join(' ', input.GetWords(count, null, StringSplitOptions.RemoveEmptyEntries));

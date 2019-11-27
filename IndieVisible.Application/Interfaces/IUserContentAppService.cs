@@ -13,8 +13,11 @@ namespace IndieVisible.Application.Interfaces
         int CountArticles();
 
         OperationResultListVo<UserContentSearchViewModel> Search(Guid currentUserId, string q);
+
         OperationResultVo ContentLike(Guid currentUserId, Guid targetId);
+
         OperationResultVo ContentUnlike(Guid currentUserId, Guid targetId);
+
         OperationResultVo Comment(UserContentCommentViewModel vm);
     }
 }
