@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {
-    public class BrainstormMap
+    public static class BrainstormMap
     {
         public static void Configure()
         {

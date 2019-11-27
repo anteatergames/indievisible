@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {
-    public class UserPreferencesMap
+    public static class UserPreferencesMap
     {
         public static void Configure()
         {

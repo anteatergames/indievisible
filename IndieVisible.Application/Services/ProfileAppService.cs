@@ -143,16 +143,7 @@ namespace IndieVisible.Application.Services
                 UserProfile existing = profileDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
-                    if (existing.Followers != null)
-                    {
-                        foreach (UserFollow follower in existing.Followers)
-                        {
-                            if (follower.FollowUserId.HasValue && follower.FollowUserId != Guid.Empty && follower.UserId == currentUserId)
-                            {
-                                follower.UserId = follower.FollowUserId.Value;
-                            }
-                        }
-                    }
+                    SetFollowers(currentUserId, existing);
 
                     model = mapper.Map(viewModel, existing);
                 }
@@ -177,8 +168,6 @@ namespace IndieVisible.Application.Services
                 {
                     profileDomainService.Update(model);
                 }
-
-                profileDomainService.UpdateNameOnThePlatform(viewModel.UserId, viewModel.Name);
 
                 unitOfWork.Commit();
 
@@ -531,6 +520,20 @@ namespace IndieVisible.Application.Services
         }
 
         #endregion UserConnection
+
+        private static void SetFollowers(Guid currentUserId, UserProfile existing)
+        {
+            if (existing.Followers != null)
+            {
+                foreach (UserFollow follower in existing.Followers)
+                {
+                    if (follower.FollowUserId.HasValue && follower.FollowUserId != Guid.Empty && follower.UserId == currentUserId)
+                    {
+                        follower.UserId = follower.FollowUserId.Value;
+                    }
+                }
+            }
+        }
 
         private void SetImages(ProfileViewModel vm, bool hasCoverImage)
         {

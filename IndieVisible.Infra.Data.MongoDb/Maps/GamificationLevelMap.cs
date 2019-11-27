@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {
-    public class GamificationLevelMap
+    public static class GamificationLevelMap
     {
         public static void Configure()
         {

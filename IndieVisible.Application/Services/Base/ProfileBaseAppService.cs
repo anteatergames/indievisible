@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace IndieVisible.Application.Services
 {
-    public abstract class ProfileBaseAppService : BaseAppService, IProfileBaseAppService, IDisposable
+    public abstract class ProfileBaseAppService : BaseAppService, IProfileBaseAppService
     {
         protected readonly IProfileDomainService profileDomainService;
 
-        public ProfileBaseAppService(IMapper mapper
+        protected ProfileBaseAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
             , IProfileDomainService profileDomainService) : base(mapper, unitOfWork, cacheService)

@@ -14,8 +14,6 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         IEnumerable<UserFollow> GetFollows(Guid userId, Guid followerId);
 
-        void UpdateNameOnThePlatform(Guid userId, string newName);
-
         bool CheckFollowing(Guid userId, Guid folloWedUserId);
 
         void AddFollow(UserFollow model);

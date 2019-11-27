@@ -4,8 +4,6 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Model
 {
     public class Role : IdentityRole
     {
-        //public ObjectId _id { get; set; }
-
         public Role()
         {
         }

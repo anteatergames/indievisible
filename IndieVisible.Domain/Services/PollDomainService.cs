@@ -5,6 +5,7 @@ using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
@@ -45,7 +46,7 @@ namespace IndieVisible.Domain.Services
                 PollOptionId = optionId
             };
 
-            System.Threading.Tasks.Task<bool> task = repository.AddVote(pollId, newVote);
+            Task<bool> task = repository.AddVote(pollId, newVote);
 
             task.Wait();
         }
@@ -59,11 +60,9 @@ namespace IndieVisible.Domain.Services
                 vote.PollOptionId = newOptionId;
             }
 
-            System.Threading.Tasks.Task<bool> task = repository.UpdateVote(vote);
+            Task<bool> task = repository.UpdateVote(vote);
 
             task.Wait();
-
-            bool result = task.Result;
         }
 
         public bool CheckUserVoted(Guid userId, Guid pollOptionId)
@@ -74,13 +73,6 @@ namespace IndieVisible.Domain.Services
         }
 
         public IEnumerable<PollVote> GetVotes(Guid pollId)
-        {
-            IQueryable<PollVote> objs = repository.GetVotes(pollId);
-
-            return objs.ToList();
-        }
-
-        public IEnumerable<PollVote> GetByPollId(Guid pollId)
         {
             IQueryable<PollVote> objs = repository.GetVotes(pollId);
 

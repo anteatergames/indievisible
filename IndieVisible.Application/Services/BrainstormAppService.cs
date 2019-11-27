@@ -318,7 +318,6 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                BrainstormSession session = brainstormRepository.GetById(sessionId).Result;
                 IEnumerable<BrainstormIdea> allIdeas = brainstormRepository.GetIdeasBySession(sessionId).Result;
 
                 IEnumerable<BrainstormIdeaViewModel> vms = mapper.Map<IEnumerable<BrainstormIdea>, IEnumerable<BrainstormIdeaViewModel>>(allIdeas);
@@ -326,11 +325,11 @@ namespace IndieVisible.Application.Services
                 foreach (BrainstormIdeaViewModel idea in vms)
                 {
                     idea.UserContentType = UserContentType.Idea;
-                    idea.VoteCount = idea.Votes.Count();
+                    idea.VoteCount = idea.Votes.Count;
                     idea.Score = idea.Votes.Sum(x => (int)x.VoteValue);
-                    idea.CurrentUserVote = idea.Votes.Where(x => x.UserId == userId).FirstOrDefault()?.VoteValue ?? VoteValue.Neutral;
+                    idea.CurrentUserVote = idea.Votes.FirstOrDefault(x => x.UserId == userId)?.VoteValue ?? VoteValue.Neutral;
 
-                    idea.CommentCount = idea.Comments.Count();
+                    idea.CommentCount = idea.Comments.Count;
                 }
 
                 vms = vms.OrderByDescending(x => x.Score).ThenByDescending(x => x.CreateDate);

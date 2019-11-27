@@ -299,7 +299,7 @@ namespace IndieVisible.Application.Services
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

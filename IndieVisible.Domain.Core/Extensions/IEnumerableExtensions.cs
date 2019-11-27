@@ -18,7 +18,7 @@ namespace IndieVisible.Domain.Core.Extensions
 
         public static bool SafeAny<T>(this IEnumerable<T> list, Func<T, bool> where)
         {
-            return list == null ? false : list.Any(where);
+            return list != null && list.Any(where);
         }
     }
 }

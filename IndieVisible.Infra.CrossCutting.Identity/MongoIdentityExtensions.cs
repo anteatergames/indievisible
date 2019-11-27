@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 using System;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.CrossCutting.Identity
 {
@@ -59,17 +60,16 @@ namespace IndieVisible.Infra.CrossCutting.Identity
             IMongoCollection<TUser> userCollection = MongoUtil.FromConnectionString<TUser>(dbOptions.ConnectionString, dbOptions.DatabaseName, dbOptions.UsersCollection);
             IMongoCollection<TRole> roleCollection = MongoUtil.FromConnectionString<TRole>(dbOptions.ConnectionString, dbOptions.DatabaseName, dbOptions.RolesCollection);
 
-            services.AddSingleton<IMongoCollection<TUser>>(x => userCollection);
-            services.AddSingleton<IMongoCollection<TRole>>(x => roleCollection);
+            services.AddSingleton(x => userCollection);
+            services.AddSingleton(x => roleCollection);
 
             // Identity Services
             services.AddTransient<IUserStore<TUser>>(x => new UserStore<TUser, TRole>(userCollection, roleCollection, x.GetService<ILookupNormalizer>()));
             services.AddTransient<IRoleStore<TRole>>(x => new RoleStore<TRole>(roleCollection));
 
-            System.Threading.Tasks.Task<System.Collections.Generic.List<TUser>> all = userCollection.All();
+            Task<System.Collections.Generic.List<TUser>> all = userCollection.All();
 
             all.Wait();
-            System.Collections.Generic.List<TUser> todos = all.Result;
 
             return builder;
         }

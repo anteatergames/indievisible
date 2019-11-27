@@ -14,7 +14,7 @@ namespace IndieVisible.Application.Services
         protected readonly IUnitOfWork unitOfWork;
         protected readonly ICacheService cacheService;
 
-        public BaseAppService(IMapper mapper
+        protected BaseAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService)
         {

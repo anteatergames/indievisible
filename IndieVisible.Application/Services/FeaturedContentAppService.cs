@@ -229,10 +229,6 @@ namespace IndieVisible.Application.Services
                 item.ContentCompliant = !string.IsNullOrWhiteSpace(item.Content) && item.Content.Length >= 800;
 
                 item.IsArticle = !string.IsNullOrWhiteSpace(item.Title) && !string.IsNullOrWhiteSpace(item.Introduction);
-
-                //item.LikeCount = _likeRepository.GetAll().Count(x => x.ContentId == item.Id);
-
-                //tem.CommentCount = _commentRepository.GetAll().Count(x => x.UserContentId == item.Id);
             }
 
             viewModels = viewModels.OrderByDescending(x => x.IsFeatured).ToList();

@@ -39,8 +39,6 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("Unable to identify the poll you are voting for.");
                 }
 
-                PollOption option = poll.Options.First(x => x.Id == pollOptionId);
-
                 bool alreadyVoted = poll.Votes.Any(x => x.PollOptionId == pollOptionId && x.UserId == currentUserId);
 
                 if (alreadyVoted)

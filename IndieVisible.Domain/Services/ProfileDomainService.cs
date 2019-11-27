@@ -77,11 +77,6 @@ namespace IndieVisible.Domain.Services
             task.Wait();
         }
 
-        public void UpdateNameOnThePlatform(Guid userId, string newName)
-        {
-            //repositorySql.UpdateNameOnThePlatform(userId, newName);
-        }
-
         #region Connection
 
         public int CountConnections(Expression<Func<UserConnection, bool>> where)

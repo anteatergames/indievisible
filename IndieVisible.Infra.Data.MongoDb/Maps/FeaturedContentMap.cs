@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {
-    public class FeaturedContentMap
+    public static class FeaturedContentMap
     {
         public static void Configure()
         {

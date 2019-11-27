@@ -14,7 +14,5 @@ namespace IndieVisible.Domain.Models
         public string Image { get; set; }
 
         public virtual Poll Poll { get; set; }
-
-        //public virtual ICollection<PollVote> Votes { get; set; }
     }
 }

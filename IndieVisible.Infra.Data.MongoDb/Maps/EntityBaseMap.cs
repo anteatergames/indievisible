@@ -6,7 +6,7 @@ using System;
 
 namespace IndieVisible.Infra.Data.MongoDb.Maps
 {
-    public class EntityBaseMap
+    public static class EntityBaseMap
     {
         public static void Configure()
         {
