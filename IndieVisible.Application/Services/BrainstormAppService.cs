@@ -10,7 +10,6 @@ using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
-using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,18 +20,18 @@ namespace IndieVisible.Application.Services
     {
         private readonly IGamificationDomainService gamificationDomainService;
 
-        private readonly IBrainstormRepository brainstormRepository;
+        private readonly IBrainstormDomainService brainstormDomainService;
 
         public BrainstormAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
             , IGamificationDomainService gamificationDomainService
-            , IBrainstormRepository brainstormRepository) : base(mapper, unitOfWork, cacheService, profileDomainService)
+            , IBrainstormDomainService brainstormDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
             this.gamificationDomainService = gamificationDomainService;
 
-            this.brainstormRepository = brainstormRepository;
+            this.brainstormDomainService = brainstormDomainService;
         }
 
         #region ICrudAppService
@@ -41,7 +40,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = brainstormRepository.Count().Result;
+                int count = brainstormDomainService.Count();
 
                 return new OperationResultVo<int>(count);
             }
@@ -60,8 +59,8 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                BrainstormIdea idea = brainstormRepository.GetIdea(id).Result;
-                BrainstormSession session = brainstormRepository.GetById(idea.SessionId).Result; // TODO get just session userId
+                BrainstormIdea idea = brainstormDomainService.GetIdea(id);
+                BrainstormSession session = brainstormDomainService.GetById(idea.SessionId); // TODO get just session userId
 
                 BrainstormIdeaViewModel vm = mapper.Map<BrainstormIdeaViewModel>(idea);
 
@@ -111,11 +110,11 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                BrainstormSession session = brainstormRepository.Get(x => x.Id == viewModel.SessionId).FirstOrDefault();
+                BrainstormSession session = brainstormDomainService.GetById(viewModel.SessionId);
 
                 BrainstormIdea model;
 
-                BrainstormIdea existing = brainstormRepository.GetIdea(viewModel.Id).Result;
+                BrainstormIdea existing = brainstormDomainService.GetIdea(viewModel.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(viewModel, existing);
@@ -129,11 +128,11 @@ namespace IndieVisible.Application.Services
 
                 if (model.Id == Guid.Empty)
                 {
-                    brainstormRepository.AddIdea(model);
+                    brainstormDomainService.AddIdea(model);
                 }
                 else
                 {
-                    brainstormRepository.UpdateIdea(model);
+                    brainstormDomainService.UpdateIdea(model);
                 }
 
                 gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.IdeaSuggested);
@@ -155,7 +154,7 @@ namespace IndieVisible.Application.Services
             try
             {
                 BrainstormVote model;
-                BrainstormIdea idea = brainstormRepository.GetIdea(ideaId).Result;
+                BrainstormIdea idea = brainstormDomainService.GetIdea(ideaId);
 
                 BrainstormVote existing = idea.Votes.FirstOrDefault(x => x.UserId == userId);
                 if (existing != null)
@@ -176,11 +175,11 @@ namespace IndieVisible.Application.Services
 
                 if (model.Id == Guid.Empty)
                 {
-                    brainstormRepository.AddVote(model);
+                    brainstormDomainService.AddVote(model);
                 }
                 else
                 {
-                    brainstormRepository.UpdateVote(model);
+                    brainstormDomainService.UpdateVote(model);
                 }
 
                 unitOfWork.Commit();
@@ -197,7 +196,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                BrainstormIdea idea = brainstormRepository.GetIdea(vm.UserContentId).Result;
+                BrainstormIdea idea = brainstormDomainService.GetIdea(vm.UserContentId);
                 BrainstormComment model = new BrainstormComment
                 {
                     UserId = vm.UserId,
@@ -208,7 +207,7 @@ namespace IndieVisible.Application.Services
                     AuthorPicture = vm.AuthorPicture
                 };
 
-                brainstormRepository.AddComment(model);
+                brainstormDomainService.AddComment(model);
 
                 unitOfWork.Commit();
 
@@ -224,9 +223,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<BrainstormSession> allMain = brainstormRepository.Get(x => x.Id == sessionId);
-
-                BrainstormSession main = allMain.FirstOrDefault();
+                BrainstormSession main = brainstormDomainService.GetById(sessionId);
 
                 BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(main);
 
@@ -248,7 +245,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                BrainstormSession model = brainstormRepository.GetAll().Result.LastOrDefault(x => x.Type == type);
+                BrainstormSession model = brainstormDomainService.GetAll().LastOrDefault(x => x.Type == type);
 
                 BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(model);
 
@@ -264,7 +261,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<BrainstormSession> allModels = brainstormRepository.GetAll().Result;
+                IEnumerable<BrainstormSession> allModels = brainstormDomainService.GetAll();
 
                 IEnumerable<BrainstormSessionViewModel> vms = mapper.Map<IEnumerable<BrainstormSession>, IEnumerable<BrainstormSessionViewModel>>(allModels);
 
@@ -284,7 +281,7 @@ namespace IndieVisible.Application.Services
             {
                 BrainstormSession model;
 
-                BrainstormSession existing = brainstormRepository.GetById(vm.Id).Result;
+                BrainstormSession existing = brainstormDomainService.GetById(vm.Id);
                 if (existing != null)
                 {
                     model = mapper.Map(vm, existing);
@@ -296,12 +293,12 @@ namespace IndieVisible.Application.Services
 
                 if (vm.Id == Guid.Empty)
                 {
-                    brainstormRepository.Add(model);
+                    brainstormDomainService.Add(model);
                     vm.Id = model.Id;
                 }
                 else
                 {
-                    brainstormRepository.Update(model);
+                    brainstormDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
@@ -318,7 +315,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<BrainstormIdea> allIdeas = brainstormRepository.GetIdeasBySession(sessionId).Result;
+                IEnumerable<BrainstormIdea> allIdeas = brainstormDomainService.GetIdeasBySession(sessionId);
 
                 IEnumerable<BrainstormIdeaViewModel> vms = mapper.Map<IEnumerable<BrainstormIdea>, IEnumerable<BrainstormIdeaViewModel>>(allIdeas);
 
@@ -346,9 +343,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<BrainstormSession> allMain = brainstormRepository.Get(x => x.Type == BrainstormSessionType.Main);
-
-                BrainstormSession main = allMain.FirstOrDefault();
+                BrainstormSession main = brainstormDomainService.Get(BrainstormSessionType.Main);
 
                 BrainstormSessionViewModel vm = mapper.Map<BrainstormSessionViewModel>(main);
 
@@ -364,7 +359,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                BrainstormIdea idea = brainstormRepository.GetIdea(ideaId).Result;
+                BrainstormIdea idea = brainstormDomainService.GetIdea(ideaId);
 
                 if (idea == null)
                 {
@@ -373,7 +368,7 @@ namespace IndieVisible.Application.Services
 
                 idea.Status = selectedStatus;
 
-                brainstormRepository.UpdateIdea(idea);
+                brainstormDomainService.UpdateIdea(idea);
 
                 unitOfWork.Commit();
 

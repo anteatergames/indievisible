@@ -26,6 +26,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #region Game
 
             services.AddScoped<IGameAppService, GameAppService>();
+            services.AddScoped<IGameDomainService, GameDomainService>();
             services.AddScoped<IGameRepository, GameRepository>();
 
             #endregion Game
@@ -49,6 +50,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #region Brainstorm
 
             services.AddScoped<IBrainstormAppService, BrainstormAppService>();
+            services.AddScoped<IBrainstormDomainService, BrainstormDomainService>();
             services.AddScoped<IBrainstormRepository, BrainstormRepository>();
 
             #endregion Brainstorm

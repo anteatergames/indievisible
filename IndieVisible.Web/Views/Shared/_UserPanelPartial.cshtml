@@ -8,7 +8,7 @@
 }
 
 <div class="col-12">
-    <div class="row">
+    <div class="row mb-2">
         @if (SignInManager.IsSignedIn(User))
         {
             <input type="hidden" id="userid" value="@id" />
@@ -23,7 +23,6 @@
                     <a asp-area="" asp-controller="profile" asp-action="edit" asp-route-id="@id" aria-label="@SharedLocalizer["Edit your profile"]" class="btn"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                     <a asp-area="member" asp-controller="preferences" asp-action="index" aria-label="@SharedLocalizer["Setings"]" class="link" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Settings"]"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></a>
                 </p>
-                @*<a href="#"><i class="fa fa-circle text-success" aria-hidden="true"></i> @SharedLocalizer["Online"]</a>*@
             </div>
         }
     </div>

@@ -19,7 +19,7 @@
       "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
     },
     {
-      "library": "font-awesome@5.10.0-11",
+      "library": "font-awesome@5.11.2",
       "destination": "wwwroot/lib/font-awesome/"
     },
     {
@@ -39,7 +39,7 @@
       "destination": "wwwroot/lib/jquery-toast"
     },
     {
-      "library": "select2@4.0.8",
+      "library": "select2@4.0.10",
       "destination": "wwwroot/lib/select2"
     },
     {
@@ -51,7 +51,7 @@
       "destination": "wwwroot/lib/embedo"
     },
     {
-      "library": "cropperjs@1.5.4",
+      "library": "cropperjs@1.5.6",
       "destination": "wwwroot/lib/cropperjs"
     },
     {

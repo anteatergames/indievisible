@@ -22,17 +22,17 @@ namespace IndieVisible.Application.Services
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly ITeamDomainService teamDomainService;
 
-        private readonly IGameRepository gameRepository;
+        private readonly IGameDomainService gameDomainService;
 
         public GameAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
             , ITeamDomainService teamDomainService
-            , IGameRepository gameRepository
+            , IGameDomainService gameDomainService
             , IGamificationDomainService gamificationDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
-            this.gameRepository = gameRepository;
+            this.gameDomainService = gameDomainService;
             this.teamDomainService = teamDomainService;
             this.gamificationDomainService = gamificationDomainService;
         }
@@ -43,7 +43,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                int count = gameRepository.Count().Result;
+                int count = gameDomainService.Count();
 
                 return new OperationResultVo<int>(count);
             }
@@ -57,7 +57,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<Game> allModels = gameRepository.GetAll().Result;
+                IEnumerable<Game> allModels = gameDomainService.GetAll();
 
                 IEnumerable<GameViewModel> vms = mapper.Map<IEnumerable<Game>, IEnumerable<GameViewModel>>(allModels);
 
@@ -73,7 +73,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Game model = gameRepository.GetById(id).Result;
+                Game model = gameDomainService.GetById(id);
 
                 GameViewModel vm = mapper.Map<GameViewModel>(model);
 
@@ -113,7 +113,7 @@ namespace IndieVisible.Application.Services
 
                 viewModel.ExternalLinks.RemoveAll(x => String.IsNullOrWhiteSpace(x.Value));
 
-                Game existing = gameRepository.GetById(viewModel.Id).Result;
+                Game existing = gameDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
                     game = mapper.Map(viewModel, existing);
@@ -125,13 +125,13 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    gameRepository.Add(game);
+                    gameDomainService.Add(game);
 
                     pointsEarned += gamificationDomainService.ProcessAction(viewModel.UserId, PlatformAction.GameAdd);
                 }
                 else
                 {
-                    gameRepository.Update(game);
+                    gameDomainService.Update(game);
                 }
 
                 unitOfWork.Commit();
@@ -140,7 +140,7 @@ namespace IndieVisible.Application.Services
                 if (createTeam && newTeam != null)
                 {
                     game.TeamId = newTeam.Id;
-                    gameRepository.Update(game);
+                    gameDomainService.Update(game);
                     unitOfWork.Commit();
                 }
 
@@ -156,7 +156,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                gameRepository.Remove(id);
+                gameDomainService.Remove(id);
                 unitOfWork.Commit();
 
                 return new OperationResultVo(true);
@@ -171,22 +171,7 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, Guid? teamId, GameGenre genre)
         {
-            IQueryable<Game> allModels = gameRepository.Get();
-
-            if (genre != 0)
-            {
-                allModels = allModels.Where(x => x.Genre == genre);
-            }
-
-            if (userId != Guid.Empty)
-            {
-                allModels = allModels.Where(x => x.UserId == userId);
-            }
-
-            if (teamId.HasValue)
-            {
-                allModels = allModels.Where(x => x.TeamId == teamId);
-            }
+            IQueryable<Game> allModels = gameDomainService.Get(genre, userId, teamId);
 
             IOrderedQueryable<Game> ordered = allModels.OrderByDescending(x => x.CreateDate);
 
@@ -208,7 +193,7 @@ namespace IndieVisible.Application.Services
 
         public IEnumerable<SelectListItemVo> GetByUser(Guid userId)
         {
-            IEnumerable<Game> allModels = gameRepository.GetByUserId(userId).Result;
+            IEnumerable<Game> allModels = gameDomainService.GetByUserId(userId);
 
             List<SelectListItemVo> vms = mapper.Map<IEnumerable<Game>, IEnumerable<SelectListItemVo>>(allModels).ToList();
 
@@ -224,17 +209,13 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("You must be logged in to follow a game");
                 }
 
-                System.Threading.Tasks.Task<bool> task = gameRepository.Follow(currentUserId, gameId);
-
-                task.Wait();
+                gameDomainService.Follow(currentUserId, gameId);
 
                 unitOfWork.Commit();
 
-                System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountFollowers(gameId);
+                var newCount = gameDomainService.CountFollowers(gameId);
 
-                newCountTask.Wait();
-
-                return new OperationResultVo<int>(newCountTask.Result);
+                return new OperationResultVo<int>(newCount);
             }
             catch (Exception ex)
             {
@@ -251,17 +232,13 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("You must be logged in to unfollow a game");
                 }
 
-                System.Threading.Tasks.Task<bool> task = gameRepository.Unfollow(currentUserId, gameId);
-
-                task.Wait();
+                gameDomainService.Unfollow(currentUserId, gameId);
 
                 unitOfWork.Commit();
 
-                System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountFollowers(gameId);
+                var newCount = gameDomainService.CountFollowers(gameId);
 
-                newCountTask.Wait();
-
-                return new OperationResultVo<int>(newCountTask.Result);
+                return new OperationResultVo<int>(newCount);
             }
             catch (Exception ex)
             {
@@ -273,17 +250,13 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                System.Threading.Tasks.Task<bool> task = gameRepository.Like(currentUserId, gameId);
-
-                task.Wait();
+                gameDomainService.Like(currentUserId, gameId);
 
                 unitOfWork.Commit();
 
-                System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountLikes(gameId);
+                var newCount = gameDomainService.CountLikes(gameId);
 
-                newCountTask.Wait();
-
-                return new OperationResultVo<int>(newCountTask.Result);
+                return new OperationResultVo<int>(newCount);
             }
             catch (Exception ex)
             {
@@ -295,17 +268,13 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                System.Threading.Tasks.Task<bool> task = gameRepository.Unlike(currentUserId, gameId);
-
-                task.Wait();
+                gameDomainService.Unlike(currentUserId, gameId);
 
                 unitOfWork.Commit();
 
-                System.Threading.Tasks.Task<int> newCountTask = gameRepository.CountLikes(gameId);
+                var newCount = gameDomainService.CountLikes(gameId);
 
-                newCountTask.Wait();
-
-                return new OperationResultVo<int>(newCountTask.Result);
+                return new OperationResultVo<int>(newCount);
             }
             catch (Exception ex)
             {
