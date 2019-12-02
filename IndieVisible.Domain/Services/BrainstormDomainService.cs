@@ -15,6 +15,16 @@ namespace IndieVisible.Domain.Services
         {
         }
 
+        public override Guid Add(BrainstormSession model)
+        {
+            if (model.Type == 0)
+            {
+                model.Type = BrainstormSessionType.Generic;
+            }
+
+            return base.Add(model);
+        }
+
         public BrainstormSession Get(BrainstormSessionType type)
         {
             return repository.Get(x => x.Type == type).FirstOrDefault();

@@ -3,7 +3,8 @@
     public enum BrainstormSessionType
     {
         Main = 1,
-        Game = 2,
-        Content = 3
+        Generic = 2,
+        Game = 3,
+        Content = 4
     }
 }
