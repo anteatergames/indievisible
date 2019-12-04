@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Conventions;
 
 namespace IndieVisible.Infra.Data.MongoDb
 {
-    public class MongoDbPersistence
+    public static class MongoDbPersistence
     {
         public static void Configure()
         {

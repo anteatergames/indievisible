@@ -31,7 +31,6 @@ namespace IndieVisible.Infra.Data.MongoDb
 
             if (connectionString != null)
             {
-                MongoUrl url = new MongoUrl(connectionString);
                 MongoClient client = new MongoClient(connectionString);
 
                 IMongoDatabase database = client.GetDatabase(databaseName ?? "default");

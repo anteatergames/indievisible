@@ -84,8 +84,15 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
             return _collection.FirstOrDefaultAsync(x => x.NormalizedName == normalizedRoleName);
         }
 
-        void IDisposable.Dispose()
+        protected virtual void Dispose(bool dispose)
         {
+            // Nothing to dispose
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -297,9 +297,9 @@ namespace IndieVisible.Application.Services
 
                 return viewModels;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -435,7 +435,7 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo<int>(newCount);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

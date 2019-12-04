@@ -276,10 +276,6 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
             await Update(user, x => x.UserName, userName);
         }
 
-        void IDisposable.Dispose()
-        {
-        }
-
         public async Task<string> GetEmailAsync(TUser user, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -602,6 +598,17 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
             user.TwoFactorEnabled = enabled;
 
             await Update(user, x => x.TwoFactorEnabled, enabled);
+        }
+
+        protected virtual void Dispose(bool dispose)
+        {
+            // Nothing to dispose
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

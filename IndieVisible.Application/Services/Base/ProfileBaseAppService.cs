@@ -49,10 +49,5 @@ namespace IndieVisible.Application.Services
 
             return myProfile;
         }
-
-        protected override void Dispose(bool dispose)
-        {
-            // dispose resources
-        }
     }
 }

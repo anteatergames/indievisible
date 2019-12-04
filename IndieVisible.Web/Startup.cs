@@ -50,8 +50,6 @@ namespace IndieVisible.Web
                 options.ConsentCookie.Name = "IndieVisible.Consent";
             });
 
-            //string cs = Configuration.GetConnectionString("DefaultConnection");
-
             MongoDbPersistence.Configure();
 
             services.AddIdentityMongoDbProvider<ApplicationUser, Role>(options =>

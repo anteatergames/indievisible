@@ -34,13 +34,6 @@ namespace IndieVisible.Web.Controllers
 
         #region Private Methods
 
-        private void SetAuthorDetails(UserContentCommentViewModel viewModel)
-        {
-            viewModel.UserId = CurrentUserId;
-            viewModel.AuthorName = GetSessionValue(SessionValues.FullName);
-            viewModel.AuthorPicture = UrlFormatter.ProfileImage(CurrentUserId);
-        }
-
         #endregion Private Methods
     }
 }

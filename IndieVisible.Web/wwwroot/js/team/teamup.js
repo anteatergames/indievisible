@@ -190,7 +190,7 @@
     function bindCandidateApply() {
         objs.divApplication.on('click', selectors.btnCandidateApply, function () {
             var btn = $(this);
-            var url = $(this).data('url');
+            var url = btn.data('url');
 
             var data = objs.divApplication.find(':input').serialize();
 
@@ -217,7 +217,7 @@
     function bindAcceptCandidate() {
         objs.divMembers.on('click', selectors.btnAcceptCandidate, function () {
             var btn = $(this);
-            var url = $(this).data('url');
+            var url = btn.data('url');
 
             $.post(url)
                 .done(function (response) {

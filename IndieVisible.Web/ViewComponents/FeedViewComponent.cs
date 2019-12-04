@@ -95,7 +95,12 @@ namespace IndieVisible.Web.ViewComponents
             string name = teamData[1];
             string motto = teamData[2];
             string memberCount = teamData[3];
-            bool recruiting = teamData.Length > 4 ? bool.Parse(teamData[4] ?? "False") : false;
+            bool recruiting = false;
+
+            if (teamData.Length > 4)
+            {
+                recruiting = bool.Parse(teamData[4] ?? "False");
+            }
 
             string postTemplate = ContentHelper.FormatUrlContentToShow(item.UserContentType);
             string translatedText = SharedLocalizer["A new team has been created with {0} members.", memberCount].ToString();

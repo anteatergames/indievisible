@@ -145,7 +145,7 @@ namespace IndieVisible.Web.Controllers
                 }
                 else
                 {
-                    NotifyFollowers(CurrentUserId, profile, vm.GameId, vm.Id);
+                    NotifyFollowers(profile, vm.GameId, vm.Id);
 
                     string url = Url.Action("Index", "Home", new { area = string.Empty, id = vm.Id, pointsEarned = saveResult.PointsEarned });
 
@@ -196,7 +196,7 @@ namespace IndieVisible.Web.Controllers
 
             OperationResultVo<Guid> result = userContentAppService.Save(CurrentUserId, vm);
 
-            NotifyFollowers(CurrentUserId, profile, vm.GameId, vm.Id);
+            NotifyFollowers(profile, vm.GameId, vm.Id);
 
             return Json(result);
         }
@@ -278,7 +278,7 @@ namespace IndieVisible.Web.Controllers
             }
         }
 
-        private void NotifyFollowers(Guid userId, ProfileViewModel profile, Guid? gameId, Guid contentId)
+        private void NotifyFollowers(ProfileViewModel profile, Guid? gameId, Guid contentId)
         {
             Dictionary<Guid, FollowType> followersToNotify = new Dictionary<Guid, FollowType>();
 
