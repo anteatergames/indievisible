@@ -1,9 +1,6 @@
-﻿using IndieVisible.Application.Formatters;
-using IndieVisible.Application.Interfaces;
-using IndieVisible.Application.ViewModels.Content;
+﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
-using IndieVisible.Web.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
