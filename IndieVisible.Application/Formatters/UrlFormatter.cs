@@ -32,9 +32,16 @@ namespace IndieVisible.Application.Formatters
         {
             long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
 
-            string url = hasCoverImage ? String.Format("{0}/{1}/profilecover_{2}?v={3}", Constants.DefaultCdnPath, userId, profileId, v) : Constants.DefaultProfileCoverImage;
+            var fileName = String.Format("profilecover_{0}", profileId);
 
-            return url.Replace("//", "/").Replace("https:/", "https://");
+            string url = hasCoverImage ? String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultCdnPath, userId, fileName, v) : Constants.DefaultProfileCoverImage;
+
+            url = url.Replace("//", "/").Replace("https:/", "https://");
+
+
+            url = CloudinaryCommon(userId, fileName, url);
+
+            return url;
         }
 
         public static string Image(Guid userId, BlobType type, string fileName)
@@ -50,6 +57,13 @@ namespace IndieVisible.Application.Formatters
                 url = String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath.TrimEnd('/'), userId, fileName);
             }
 
+            url = CloudinaryCommon(userId, fileName, url);
+
+            return url;
+        }
+
+        private static string CloudinaryCommon(Guid userId, string fileName, string url)
+        {
             var publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
 
             Cloudinary cloudinary = new Cloudinary();
@@ -65,6 +79,7 @@ namespace IndieVisible.Application.Formatters
 
             return url2;
         }
+
 
         #endregion Internal
 
