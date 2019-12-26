@@ -1,4 +1,6 @@
-﻿using IndieVisible.Domain.Core.Enums;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using IndieVisible.Domain.Core.Enums;
 using System;
 
 namespace IndieVisible.Application.Formatters
@@ -37,14 +39,31 @@ namespace IndieVisible.Application.Formatters
 
         public static string Image(Guid userId, BlobType type, string fileName)
         {
+            var url = string.Empty;
+
             if (fileName.StartsWith(Constants.DefaultCdnPath))
             {
-                return fileName;
+                url = fileName;
             }
             else
             {
-                return String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath.TrimEnd('/'), userId, fileName);
+                url = String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath.TrimEnd('/'), userId, fileName);
             }
+
+            var publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
+
+            Cloudinary cloudinary = new Cloudinary();
+            var uploadParams = new ImageUploadParams()
+            {
+                PublicId = publicId,
+                File = new FileDescription(fileName, url)
+            };
+            var uploadResult = cloudinary.Upload(uploadParams);
+            Console.WriteLine(uploadResult);
+
+            var url2 = cloudinary.Api.UrlImgUp.Secure(true).BuildUrl(publicId);
+
+            return url2;
         }
 
         #endregion Internal

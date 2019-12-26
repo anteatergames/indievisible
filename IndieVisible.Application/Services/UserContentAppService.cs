@@ -297,7 +297,7 @@ namespace IndieVisible.Application.Services
 
                 return viewModels;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
