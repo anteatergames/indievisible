@@ -20,6 +20,13 @@ namespace IndieVisible.Domain.Services
             this.userConnectionRepository = userConnectionRepository;
         }
 
+        public override Guid Add(UserProfile model)
+        {
+            model.HasCoverImage = false;
+
+            return base.Add(model);
+        }
+
         public IEnumerable<Guid> GetAllUserIds()
         {
             Task<IEnumerable<Guid>> allIds = Task.Run(async () => await repository.GetAllUserIds());
