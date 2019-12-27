@@ -40,7 +40,10 @@ namespace IndieVisible.Application.Formatters
 
             url = url.Replace("//", "/").Replace("https:/", "https://");
 
-            url = CloudinaryCommon(userId, fileName, url);
+            if (hasCoverImage && url.Equals(Constants.DefaultGameCoverImage))
+            {
+                url = CloudinaryCommon(userId, fileName, url); 
+            }
 
             return url;
         }
