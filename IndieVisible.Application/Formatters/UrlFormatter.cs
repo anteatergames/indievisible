@@ -78,13 +78,12 @@ namespace IndieVisible.Application.Formatters
                 
             Cloudinary cloudinary = new Cloudinary();
 
-            var uploadParams = new ImageUploadParams()
-            {
-                PublicId = publicId,
-                File = new FileDescription(fileName, url)
-            };
-            var uploadResult = cloudinary.Upload(uploadParams);
-            Console.WriteLine(uploadResult);
+            //var uploadParams = new ImageUploadParams()
+            //{
+            //    PublicId = publicId,
+            //    File = new FileDescription(fileName, url)
+            //};
+            //var uploadResult = cloudinary.Upload(uploadParams);
 
             var url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(new Transformation().FetchFormat("auto")).BuildUrl(publicId);
 
