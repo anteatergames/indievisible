@@ -1,7 +1,9 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using IndieVisible.Domain.Core.Enums;
+using Microsoft.Extensions.Configuration;
 using System;
+using System.Linq;
 
 namespace IndieVisible.Application.Formatters
 {
@@ -38,7 +40,6 @@ namespace IndieVisible.Application.Formatters
 
             url = url.Replace("//", "/").Replace("https:/", "https://");
 
-
             url = CloudinaryCommon(userId, fileName, url);
 
             return url;
@@ -64,9 +65,16 @@ namespace IndieVisible.Application.Formatters
 
         private static string CloudinaryCommon(Guid userId, string fileName, string url)
         {
-            var publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
+            var fileNameSplit = fileName.Split('/');
+            if (fileNameSplit.Length > 1)
+            {
+                fileName = fileNameSplit.Last();
+            }
 
+            var publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
+                
             Cloudinary cloudinary = new Cloudinary();
+
             var uploadParams = new ImageUploadParams()
             {
                 PublicId = publicId,
