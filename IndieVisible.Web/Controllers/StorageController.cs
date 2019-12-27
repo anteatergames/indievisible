@@ -64,6 +64,9 @@ namespace IndieVisible.Web.Controllers
 
                 string url = storageBasePath + name;
 
+                var fileName = String.Format("profileimage_{0}_Personal", userId);
+                url = UrlFormatter.CloudinaryCommon(userId, fileName, String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath, userId, fileName));
+
                 if (!string.IsNullOrWhiteSpace(v))
                 {
                     url += "?v=" + v;
@@ -82,6 +85,7 @@ namespace IndieVisible.Web.Controllers
                     return new StatusCodeResult(StatusCodes.Status304NotModified);
                 }
                 HttpContextAccessor.HttpContext.Response.Headers.Add(HeaderNames.ETag, new[] { etag });
+
 
                 return File(new MemoryStream(data), "image/jpeg");
             }

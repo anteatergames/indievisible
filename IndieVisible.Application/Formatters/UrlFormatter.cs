@@ -40,7 +40,7 @@ namespace IndieVisible.Application.Formatters
 
             url = url.Replace("//", "/").Replace("https:/", "https://");
 
-            if (hasCoverImage && url.Equals(Constants.DefaultGameCoverImage))
+            if (hasCoverImage && !url.Equals(Constants.DefaultGameCoverImage))
             {
                 url = CloudinaryCommon(userId, fileName, url); 
             }
@@ -66,7 +66,7 @@ namespace IndieVisible.Application.Formatters
             return url;
         }
 
-        private static string CloudinaryCommon(Guid userId, string fileName, string url)
+        public static string CloudinaryCommon(Guid userId, string fileName, string url)
         {
             var fileNameSplit = fileName.Split('/');
             if (fileNameSplit.Length > 1)
@@ -86,7 +86,7 @@ namespace IndieVisible.Application.Formatters
             var uploadResult = cloudinary.Upload(uploadParams);
             Console.WriteLine(uploadResult);
 
-            var url2 = cloudinary.Api.UrlImgUp.Secure(true).BuildUrl(publicId);
+            var url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(new Transformation().FetchFormat("auto")).BuildUrl(publicId);
 
             return url2;
         }
