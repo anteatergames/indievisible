@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Application;
+using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
@@ -12,12 +13,15 @@ using IndieVisible.Web.Exceptions;
 using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -37,13 +41,16 @@ namespace IndieVisible.Web.Controllers
 
         private readonly IUserPreferencesAppService userPreferencesAppService;
 
+        private readonly IHostingEnvironment hostingEnvironment;
+
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IProfileAppService profileAppService,
             IEmailSender emailSender,
             ILogger<AccountController> logger,
-            IUserPreferencesAppService userPreferencesAppService) : base()
+            IUserPreferencesAppService userPreferencesAppService,
+            IHostingEnvironment hostingEnvironment) : base()
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -51,6 +58,7 @@ namespace IndieVisible.Web.Controllers
             _emailSender = emailSender;
             _logger = logger;
             this.userPreferencesAppService = userPreferencesAppService;
+            this.hostingEnvironment = hostingEnvironment;
         }
 
         [TempData]
@@ -265,6 +273,8 @@ namespace IndieVisible.Web.Controllers
                     ProfileViewModel profile = profileAppService.GenerateNewOne(ProfileType.Personal);
                     profile.UserId = new Guid(user.Id);
                     profileAppService.Save(CurrentUserId, profile);
+
+                    UploadFirstAvatar(profile.UserId, ProfileType.Personal);
 
                     await SetStaffRoles(user);
 
@@ -675,6 +685,21 @@ namespace IndieVisible.Web.Controllers
                     profileAppService.SetCache(key, profile);
                 }
             }
+        }
+
+        private void UploadFirstAvatar(Guid userId, ProfileType type)
+        {
+            var fileName = String.Format("{0}_{1}", userId, type);
+
+            string defaultImageNotRooted = UrlFormatter.GetDefaultImage(BlobType.ProfileImage);
+
+            string retorno = Path.Combine(hostingEnvironment.WebRootPath, defaultImageNotRooted);
+
+            byte[] bytes = System.IO.File.ReadAllBytes(retorno);
+
+            fileName = fileName.Split('.').First();
+
+            base.UploadImage(userId, BlobType.ProfileImage, fileName, bytes);
         }
 
         #endregion Helpers

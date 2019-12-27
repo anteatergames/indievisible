@@ -10,6 +10,45 @@ namespace IndieVisible.Application.Formatters
     public static class UrlFormatter
     {
         #region Internal
+        public static string GetDefaultImage(BlobType type)
+        {
+            string defaultImageNotRooted = string.Empty;
+
+            switch (type)
+            {
+                case BlobType.ProfileImage:
+                    defaultImageNotRooted = Constants.DefaultAvatar;
+                    break;
+
+                case BlobType.ProfileCover:
+                    defaultImageNotRooted = Constants.DefaultProfileCoverImage;
+                    break;
+
+                case BlobType.GameThumbnail:
+                    defaultImageNotRooted = Constants.DefaultGameThumbnail;
+                    break;
+
+                case BlobType.GameCover:
+                    defaultImageNotRooted = Constants.DefaultGameCoverImage;
+                    break;
+
+                case BlobType.ContentImage:
+                    defaultImageNotRooted = Constants.DefaultGameThumbnail;
+                    break;
+
+                case BlobType.FeaturedImage:
+                    defaultImageNotRooted = Constants.DefaultFeaturedImage;
+                    break;
+
+                default:
+                    defaultImageNotRooted = Constants.DefaultAvatar;
+                    break;
+            }
+
+            defaultImageNotRooted = defaultImageNotRooted.Substring(1).Replace(@"/", @"\");
+
+            return defaultImageNotRooted;
+        }
 
         public static string ProfileImage(Guid userId)
         {
@@ -20,7 +59,10 @@ namespace IndieVisible.Application.Formatters
         {
             long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : DateTime.Now.Ticks;
 
-            string url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
+            //string url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
+
+            var fileName = String.Format("profileimage_{0}_Personal", userId);
+            var url = UrlFormatter.CloudinaryCommon(userId, fileName, String.Format("{0}/{1}/{2}", Constants.DefaultCloudinaryPath, userId, fileName));
 
             return url;
         }
@@ -83,6 +125,7 @@ namespace IndieVisible.Application.Formatters
             //    PublicId = publicId,
             //    File = new FileDescription(fileName, url)
             //};
+            
             //var uploadResult = cloudinary.Upload(uploadParams);
 
             var url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(new Transformation().FetchFormat("auto")).BuildUrl(publicId);

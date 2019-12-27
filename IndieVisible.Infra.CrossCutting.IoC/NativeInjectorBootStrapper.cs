@@ -112,7 +112,8 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             // Infra - Identity Services
             services.AddTransient<IEmailSender, SendGridEmailService>();
 
-            services.AddTransient<IImageStorageService, ImageStorageService>();
+            //services.AddTransient<IImageStorageService, AzureCloudStorageService>();
+            services.AddTransient<IImageStorageService, CloudinaryService>();
 
             services.AddScoped<IMongoContext, MongoContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

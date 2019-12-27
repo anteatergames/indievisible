@@ -82,6 +82,22 @@
             }
         }
 
+        public static string DefaultCloudinaryPath
+        {
+            get
+            {
+                return "https://res.cloudinary.com/indievisible/image/upload/f_auto/";
+            }
+        }
+
+        public static string DefaultIndieVisiblePath
+        {
+            get
+            {
+                return "https://www.indievisible.net/";
+            }
+        }
+
         public static string DefaultCdnPath
         {
             get

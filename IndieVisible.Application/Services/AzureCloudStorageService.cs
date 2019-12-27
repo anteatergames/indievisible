@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
-    public class ImageStorageService : IImageStorageService
+    public class AzureCloudStorageService : IImageStorageService
     {
         private readonly IConfiguration _config;
         private CloudStorageAccount storageAccount;
 
-        public ImageStorageService(IConfiguration config)
+        public AzureCloudStorageService(IConfiguration config)
         {
             _config = config;
         }

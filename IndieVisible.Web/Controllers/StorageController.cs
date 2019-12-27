@@ -89,9 +89,9 @@ namespace IndieVisible.Web.Controllers
 
                 return File(new MemoryStream(data), "image/jpeg");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return ReturnDefaultImage(type);
+                return ReturnDefaultImage(type, userId);
             }
         }
 
@@ -421,9 +421,9 @@ namespace IndieVisible.Web.Controllers
 
         #region Private Methods
 
-        private IActionResult ReturnDefaultImage(BlobType type)
+        private IActionResult ReturnDefaultImage(BlobType type, Guid userId)
         {
-            string defaultImageNotRooted = GetDefaultImage(type);
+            string defaultImageNotRooted = UrlFormatter.GetDefaultImage(type);
 
             string retorno = Path.Combine(hostingEnvironment.WebRootPath, defaultImageNotRooted);
 
@@ -467,46 +467,6 @@ namespace IndieVisible.Web.Controllers
             }
 
             return storageBasePath;
-        }
-
-        private static string GetDefaultImage(BlobType type)
-        {
-            string defaultImageNotRooted = string.Empty;
-
-            switch (type)
-            {
-                case BlobType.ProfileImage:
-                    defaultImageNotRooted = Constants.DefaultAvatar;
-                    break;
-
-                case BlobType.ProfileCover:
-                    defaultImageNotRooted = Constants.DefaultProfileCoverImage;
-                    break;
-
-                case BlobType.GameThumbnail:
-                    defaultImageNotRooted = Constants.DefaultGameThumbnail;
-                    break;
-
-                case BlobType.GameCover:
-                    defaultImageNotRooted = Constants.DefaultGameCoverImage;
-                    break;
-
-                case BlobType.ContentImage:
-                    defaultImageNotRooted = Constants.DefaultGameThumbnail;
-                    break;
-
-                case BlobType.FeaturedImage:
-                    defaultImageNotRooted = Constants.DefaultFeaturedImage;
-                    break;
-
-                default:
-                    defaultImageNotRooted = Constants.DefaultAvatar;
-                    break;
-            }
-
-            defaultImageNotRooted = defaultImageNotRooted.Substring(1).Replace(@"/", @"\");
-
-            return defaultImageNotRooted;
         }
 
         private static void OptimizeImage(MemoryStream ms)
