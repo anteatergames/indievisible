@@ -212,7 +212,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                var newCount = gameDomainService.CountFollowers(gameId);
+                int newCount = gameDomainService.CountFollowers(gameId);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -235,7 +235,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                var newCount = gameDomainService.CountFollowers(gameId);
+                int newCount = gameDomainService.CountFollowers(gameId);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -253,7 +253,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                var newCount = gameDomainService.CountLikes(gameId);
+                int newCount = gameDomainService.CountLikes(gameId);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -271,7 +271,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                var newCount = gameDomainService.CountLikes(gameId);
+                int newCount = gameDomainService.CountLikes(gameId);
 
                 return new OperationResultVo<int>(newCount);
             }

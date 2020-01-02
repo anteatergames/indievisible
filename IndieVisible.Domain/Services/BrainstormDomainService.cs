@@ -47,14 +47,14 @@ namespace IndieVisible.Domain.Services
 
         public BrainstormIdea GetIdea(Guid ideaId)
         {
-            var task = Task.Run(async () => await repository.GetIdea(ideaId));
+            Task<BrainstormIdea> task = Task.Run(async () => await repository.GetIdea(ideaId));
 
             return task.Result;
         }
 
         public IEnumerable<BrainstormIdea> GetIdeasBySession(Guid sessionId)
         {
-            var task = Task.Run(async () => await repository.GetIdeasBySession(sessionId));
+            Task<IEnumerable<BrainstormIdea>> task = Task.Run(async () => await repository.GetIdeasBySession(sessionId));
 
             return task.Result;
         }

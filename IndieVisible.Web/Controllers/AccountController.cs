@@ -689,7 +689,7 @@ namespace IndieVisible.Web.Controllers
 
         private void UploadFirstAvatar(Guid userId, ProfileType type)
         {
-            var fileName = String.Format("{0}_{1}", userId, type);
+            string fileName = String.Format("{0}_{1}", userId, type);
 
             string defaultImageNotRooted = UrlFormatter.GetDefaultImage(BlobType.ProfileImage);
 

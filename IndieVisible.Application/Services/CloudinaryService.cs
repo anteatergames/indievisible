@@ -1,7 +1,6 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using IndieVisible.Application.Interfaces;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,18 +17,18 @@ namespace IndieVisible.Application.Services
         {
             Cloudinary cloudinary = new Cloudinary();
 
-            var publicId = String.Format("{0}/{1}", container, fileName);
+            string publicId = String.Format("{0}/{1}", container, fileName);
 
             MemoryStream stream = new MemoryStream(image);
 
-            var uploadParams = new ImageUploadParams()
+            ImageUploadParams uploadParams = new ImageUploadParams()
             {
                 PublicId = publicId,
                 File = new FileDescription(fileName, stream),
                 Invalidate = true
             };
 
-            var uploadResult = await cloudinary.UploadAsync(uploadParams);
+            ImageUploadResult uploadResult = await cloudinary.UploadAsync(uploadParams);
 
             return fileName;
         }
@@ -38,9 +37,9 @@ namespace IndieVisible.Application.Services
         {
             Cloudinary cloudinary = new Cloudinary();
 
-            var publicId = String.Format("{0}/{1}", container, fileName);
+            string publicId = String.Format("{0}/{1}", container, fileName);
 
-            var result = await cloudinary.DeleteResourcesAsync(publicId);
+            DelResResult result = await cloudinary.DeleteResourcesAsync(publicId);
 
             return fileName;
         }

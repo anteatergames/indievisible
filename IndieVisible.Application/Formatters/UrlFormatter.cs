@@ -1,7 +1,5 @@
 ﻿using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
 using IndieVisible.Domain.Core.Enums;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
 
@@ -61,8 +59,8 @@ namespace IndieVisible.Application.Formatters
 
             //string url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
 
-            var fileName = String.Format("profileimage_{0}_Personal", userId);
-            var url = UrlFormatter.CloudinaryCommon(userId, fileName, String.Format("{0}/{1}/{2}", Constants.DefaultCloudinaryPath, userId, fileName));
+            string fileName = String.Format("profileimage_{0}_Personal", userId);
+            string url = UrlFormatter.CloudinaryCommon(userId, fileName, String.Format("{0}/{1}/{2}", Constants.DefaultCloudinaryPath, userId, fileName));
 
             return url;
         }
@@ -76,7 +74,7 @@ namespace IndieVisible.Application.Formatters
         {
             long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
 
-            var fileName = String.Format("profilecover_{0}", profileId);
+            string fileName = String.Format("profilecover_{0}", profileId);
 
             string url = hasCoverImage ? String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultCdnPath, userId, fileName, v) : Constants.DefaultProfileCoverImage;
 
@@ -84,7 +82,7 @@ namespace IndieVisible.Application.Formatters
 
             if (hasCoverImage && !url.Equals(Constants.DefaultGameCoverImage))
             {
-                url = CloudinaryCommon(userId, fileName, url); 
+                url = CloudinaryCommon(userId, fileName, url);
             }
 
             return url;
@@ -92,7 +90,7 @@ namespace IndieVisible.Application.Formatters
 
         public static string Image(Guid userId, BlobType type, string fileName)
         {
-            var url = string.Empty;
+            string url = string.Empty;
 
             if (fileName.StartsWith(Constants.DefaultCdnPath))
             {
@@ -110,14 +108,14 @@ namespace IndieVisible.Application.Formatters
 
         public static string CloudinaryCommon(Guid userId, string fileName, string url)
         {
-            var fileNameSplit = fileName.Split('/');
+            string[] fileNameSplit = fileName.Split('/');
             if (fileNameSplit.Length > 1)
             {
                 fileName = fileNameSplit.Last();
             }
 
-            var publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
-                
+            string publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
+
             Cloudinary cloudinary = new Cloudinary();
 
             //var uploadParams = new ImageUploadParams()
@@ -125,10 +123,10 @@ namespace IndieVisible.Application.Formatters
             //    PublicId = publicId,
             //    File = new FileDescription(fileName, url)
             //};
-            
+
             //var uploadResult = cloudinary.Upload(uploadParams);
 
-            var url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(new Transformation().FetchFormat("auto")).BuildUrl(publicId);
+            string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(new Transformation().FetchFormat("auto")).BuildUrl(publicId);
 
             return url2;
         }

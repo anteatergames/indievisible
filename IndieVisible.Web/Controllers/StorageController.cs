@@ -64,7 +64,7 @@ namespace IndieVisible.Web.Controllers
 
                 string url = storageBasePath + name;
 
-                var fileName = String.Format("profileimage_{0}_Personal", userId);
+                string fileName = String.Format("profileimage_{0}_Personal", userId);
                 url = UrlFormatter.CloudinaryCommon(userId, fileName, String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath, userId, fileName));
 
                 if (!string.IsNullOrWhiteSpace(v))
