@@ -17,6 +17,8 @@ namespace IndieVisible.Application.Services
         {
             Cloudinary cloudinary = new Cloudinary();
 
+            fileName = fileName.Contains(".") ? fileName.Split(".")[0] : fileName;
+
             string publicId = String.Format("{0}/{1}", container, fileName);
 
             MemoryStream stream = new MemoryStream(image);
