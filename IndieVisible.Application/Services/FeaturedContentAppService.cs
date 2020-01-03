@@ -145,7 +145,8 @@ namespace IndieVisible.Application.Services
 
         public CarouselViewModel GetFeaturedNow()
         {
-            IQueryable<FeaturedContent> allModels = featuredContentRepository.Get(x => x.StartDate <= DateTime.Today && (!x.EndDate.HasValue || x.EndDate > DateTime.Today));
+            var now = DateTime.Now;
+            IQueryable<FeaturedContent> allModels = featuredContentRepository.Get(x => x.StartDate <= now && (!x.EndDate.HasValue || x.EndDate > now));
 
             if (allModels.Any())
             {
@@ -155,6 +156,13 @@ namespace IndieVisible.Application.Services
                 {
                     Items = vms.OrderByDescending(x => x.CreateDate).ToList()
                 };
+
+                foreach (var vm in model.Items)
+                {
+                    var imageSplit = vm.ImageUrl.Split("/");
+                    var userId = vm.OriginalUserId == Guid.Empty ? vm.UserId : vm.OriginalUserId;
+                    vm.FeaturedImage = UrlFormatter.Image(userId, BlobType.FeaturedImage, imageSplit.Last());
+                }
 
                 return model;
             }
@@ -186,9 +194,12 @@ namespace IndieVisible.Application.Services
 
                 newFeaturedContent.ImageUrl = string.IsNullOrWhiteSpace(content.FeaturedImage) || content.FeaturedImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(content.UserId, BlobType.FeaturedImage, content.FeaturedImage);
 
+                newFeaturedContent.FeaturedImage = content.FeaturedImage;
+
                 newFeaturedContent.StartDate = DateTime.Now;
                 newFeaturedContent.Active = true;
                 newFeaturedContent.UserId = userId;
+                newFeaturedContent.OriginalUserId = content.UserId;
 
                 featuredContentRepository.Add(newFeaturedContent);
 

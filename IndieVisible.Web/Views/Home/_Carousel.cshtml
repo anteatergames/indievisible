@@ -20,7 +20,7 @@
             var classItemNext = i == 0 ? " carousel-item-next" : string.Empty;
             var classItemLeft = i == 0 ? " carousel-item-left" : string.Empty;
             <div role="option" class="carousel-item @classActive">
-                <img src="@Model.Items.ElementAt(i).ImageUrl" class="img-fluid" alt="slide-@(i + 1)">
+                <img src="@Model.Items.ElementAt(i).FeaturedImage" class="img-fluid" alt="slide-@(i + 1)">
                 @if (Model.Items.ElementAt(i).UserContentId != Guid.Empty)
                 {
                     <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Items.ElementAt(i).UserContentId">

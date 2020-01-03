@@ -60,7 +60,7 @@ namespace IndieVisible.Application.Formatters
             //string url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
 
             string fileName = String.Format("profileimage_{0}_Personal", userId);
-            string url = UrlFormatter.CloudinaryCommon(userId, fileName, String.Format("{0}/{1}/{2}", Constants.DefaultCloudinaryPath, userId, fileName));
+            string url = CdnCommon(userId, fileName);
 
             return url;
         }
@@ -82,31 +82,29 @@ namespace IndieVisible.Application.Formatters
 
             if (hasCoverImage && !url.Equals(Constants.DefaultGameCoverImage))
             {
-                url = CloudinaryCommon(userId, fileName, url);
+                url = CdnCommon(userId, fileName);
             }
 
             return url;
         }
-
         public static string Image(Guid userId, BlobType type, string fileName)
         {
-            string url = string.Empty;
+            return Image(userId, type, fileName, 0);
+        }
 
-            if (fileName.StartsWith(Constants.DefaultCdnPath))
-            {
-                url = fileName;
-            }
-            else
-            {
-                url = String.Format("{0}/{1}/{2}", Constants.DefaultCdnPath.TrimEnd('/'), userId, fileName);
-            }
-
-            url = CloudinaryCommon(userId, fileName, url);
+        public static string Image(Guid userId, BlobType type, string fileName, int width)
+        {
+            var url = CdnCommon(userId, fileName, width);
 
             return url;
         }
 
-        public static string CloudinaryCommon(Guid userId, string fileName, string url)
+        public static string CdnCommon(Guid userId, string fileName)
+        {
+            return CdnCommon(userId, fileName, 0);
+        }
+
+        public static string CdnCommon(Guid userId, string fileName, int width)
         {
             string[] fileNameSplit = fileName.Split('/');
             if (fileNameSplit.Length > 1)
@@ -118,15 +116,13 @@ namespace IndieVisible.Application.Formatters
 
             Cloudinary cloudinary = new Cloudinary();
 
-            //var uploadParams = new ImageUploadParams()
-            //{
-            //    PublicId = publicId,
-            //    File = new FileDescription(fileName, url)
-            //};
+            var transformation = new Transformation().FetchFormat("auto").Quality("auto");
+            if (width > 0)
+            {
+                transformation = transformation.Width(width);
+            }
 
-            //var uploadResult = cloudinary.Upload(uploadParams);
-
-            string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(new Transformation().FetchFormat("auto")).BuildUrl(publicId);
+            string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
 
             return url2;
         }

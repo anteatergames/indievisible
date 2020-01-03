@@ -5,13 +5,17 @@ namespace IndieVisible.Domain.Models
 {
     public class FeaturedContent : Entity
     {
-        public bool Active { get; set; }
+        public Guid OriginalUserId { get; set; }
 
         public Guid UserContentId { get; set; }
+
+        public bool Active { get; set; }
 
         public string Title { get; set; }
 
         public string Introduction { get; set; }
+
+        public string FeaturedImage { get; set; }
 
         public DateTime StartDate { get; set; }
 
