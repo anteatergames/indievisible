@@ -83,8 +83,8 @@ namespace IndieVisible.Application.Services
                 {
                     UserProfile model = profiles.First(x => x.UserId == vm.UserId);
 
-                    vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId);
-                    vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.LastUpdateDate, model.HasCoverImage);
+                    vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId, 84);
+                    vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.LastUpdateDate, model.HasCoverImage, 300);
                 }
 
                 return new OperationResultListVo<ProfileViewModel>(vms);
@@ -537,8 +537,8 @@ namespace IndieVisible.Application.Services
 
         private void SetImages(ProfileViewModel vm, bool hasCoverImage)
         {
-            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId, vm.LastUpdateDate);
-            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.LastUpdateDate, hasCoverImage);
+            vm.ProfileImageUrl = UrlFormatter.ProfileImage(vm.UserId, vm.LastUpdateDate, 84);
+            vm.CoverImageUrl = UrlFormatter.ProfileCoverImage(vm.UserId, vm.Id, vm.LastUpdateDate, hasCoverImage, 1110);
         }
 
         private static void FormatConnectionImages(UserConnectionViewModel item, UserProfileEssentialVo profile)

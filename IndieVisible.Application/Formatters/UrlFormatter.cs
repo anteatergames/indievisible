@@ -50,27 +50,39 @@ namespace IndieVisible.Application.Formatters
 
         public static string ProfileImage(Guid userId)
         {
-            return ProfileImage(userId, null);
+            return ProfileImage(userId, null, 0);
+        }
+
+        public static string ProfileImage(Guid userId, int width)
+        {
+            return ProfileImage(userId, null, width);
         }
 
         public static string ProfileImage(Guid userId, DateTime? lastUpdateDate)
         {
-            long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : DateTime.Now.Ticks;
+            return ProfileImage(userId, lastUpdateDate, 0);
+        }
 
-            //string url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
-
+        public static string ProfileImage(Guid userId, DateTime? lastUpdateDate, int width)
+        {
             string fileName = String.Format("profileimage_{0}_Personal", userId);
-            string url = CdnCommon(userId, fileName, 84);
+
+            string url = CdnCommon(userId, fileName, width);
 
             return url;
         }
 
         public static string ProfileCoverImage(Guid userId, Guid profileId)
         {
-            return ProfileCoverImage(userId, profileId, null, false);
+            return ProfileCoverImage(userId, profileId, null, false, 0);
         }
 
         public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage)
+        {
+            return ProfileCoverImage(userId, profileId, lastUpdateDate, hasCoverImage, 0);
+        }
+
+        public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage, int width)
         {
             long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
 
@@ -82,7 +94,7 @@ namespace IndieVisible.Application.Formatters
 
             if (hasCoverImage && !url.Equals(Constants.DefaultGameCoverImage))
             {
-                url = CdnCommon(userId, fileName, 600);
+                url = CdnCommon(userId, fileName, width);
             }
 
             return url;
