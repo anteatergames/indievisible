@@ -181,7 +181,7 @@ namespace IndieVisible.Application.Services
             foreach (GameListItemViewModel item in vms)
             {
                 item.ThumbnailUrl = string.IsNullOrWhiteSpace(item.ThumbnailUrl) || Constants.DefaultGameThumbnail.Contains(item.ThumbnailUrl) ? Constants.DefaultGameThumbnail : UrlFormatter.Image(item.UserId, BlobType.GameThumbnail, item.ThumbnailUrl, 278);
-                item.DeveloperImageUrl = UrlFormatter.ProfileImage(item.UserId);
+                item.DeveloperImageUrl = UrlFormatter.ProfileImage(item.UserId, 40);
 
                 UserProfile authorProfile = GetCachedProfileByUserId(item.UserId);
                 item.DeveloperName = authorProfile.Name;

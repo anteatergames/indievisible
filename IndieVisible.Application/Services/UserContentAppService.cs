@@ -273,7 +273,7 @@ namespace IndieVisible.Application.Services
                         item.AuthorName = authorProfile.Name;
                     }
 
-                    item.AuthorPicture = UrlFormatter.ProfileImage(item.UserId);
+                    item.AuthorPicture = UrlFormatter.ProfileImage(item.UserId, 40);
 
                     item.IsArticle = !string.IsNullOrWhiteSpace(item.Title) && !string.IsNullOrWhiteSpace(item.Introduction);
 
