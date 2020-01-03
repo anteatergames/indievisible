@@ -60,7 +60,7 @@ namespace IndieVisible.Application.Formatters
             //string url = String.Format("{0}/{1}/{2}?v={3}", Constants.DefaultUserImagePath, BlobType.ProfileImage, userId, v);
 
             string fileName = String.Format("profileimage_{0}_Personal", userId);
-            string url = CdnCommon(userId, fileName);
+            string url = CdnCommon(userId, fileName, 84);
 
             return url;
         }
@@ -82,7 +82,7 @@ namespace IndieVisible.Application.Formatters
 
             if (hasCoverImage && !url.Equals(Constants.DefaultGameCoverImage))
             {
-                url = CdnCommon(userId, fileName);
+                url = CdnCommon(userId, fileName, 600);
             }
 
             return url;
