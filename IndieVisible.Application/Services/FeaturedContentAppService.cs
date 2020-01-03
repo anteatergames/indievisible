@@ -161,7 +161,7 @@ namespace IndieVisible.Application.Services
                 {
                     var imageSplit = vm.ImageUrl.Split("/");
                     var userId = vm.OriginalUserId == Guid.Empty ? vm.UserId : vm.OriginalUserId;
-                    vm.FeaturedImage = UrlFormatter.Image(userId, BlobType.FeaturedImage, imageSplit.Last());
+                    vm.FeaturedImage = UrlFormatter.Image(userId, BlobType.FeaturedImage, imageSplit.Last(), 612);
                 }
 
                 return model;
