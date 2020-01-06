@@ -6,6 +6,7 @@ using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.IO;
@@ -17,12 +18,16 @@ namespace IndieVisible.Web.Controllers
     public class StorageController : SecureBaseController
     {
         private readonly IHostingEnvironment hostingEnvironment;
-        private readonly IHttpContextAccessor HttpContextAccessor;
+        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly ILogger logger;
 
-        public StorageController(IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor)
+        public StorageController(IHostingEnvironment hostingEnvironment
+            , IHttpContextAccessor httpContextAccessor
+            , ILogger<StorageController> logger)
         {
             this.hostingEnvironment = hostingEnvironment;
-            HttpContextAccessor = httpContextAccessor;
+            this.httpContextAccessor = httpContextAccessor;
+            this.logger = logger;
         }
 
         [ResponseCache(CacheProfileName = "Never")]
@@ -80,18 +85,21 @@ namespace IndieVisible.Web.Controllers
                     data = webClient.DownloadData(url);
                 }
 
-                string etag = ETagGenerator.GetETag(HttpContextAccessor.HttpContext.Request.Path.ToString(), data);
-                if (HttpContextAccessor.HttpContext.Request.Headers.Keys.Contains(HeaderNames.IfNoneMatch) && HttpContextAccessor.HttpContext.Request.Headers[HeaderNames.IfNoneMatch].ToString() == etag)
+                string etag = ETagGenerator.GetETag(httpContextAccessor.HttpContext.Request.Path.ToString(), data);
+                if (httpContextAccessor.HttpContext.Request.Headers.Keys.Contains(HeaderNames.IfNoneMatch) && httpContextAccessor.HttpContext.Request.Headers[HeaderNames.IfNoneMatch].ToString() == etag)
                 {
                     return new StatusCodeResult(StatusCodes.Status304NotModified);
                 }
-                HttpContextAccessor.HttpContext.Response.Headers.Add(HeaderNames.ETag, new[] { etag });
+                httpContextAccessor.HttpContext.Response.Headers.Add(HeaderNames.ETag, new[] { etag });
 
 
                 return File(new MemoryStream(data), "image/jpeg");
             }
             catch (Exception ex)
             {
+                string msg = $"Unable to save get the Image.";
+                logger.Log(LogLevel.Error, ex, msg);
+
                 return ReturnDefaultImage(type, userId);
             }
         }

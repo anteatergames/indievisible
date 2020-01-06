@@ -26,11 +26,11 @@ namespace IndieVisible.Web.Areas.Member.Controllers
     [Route("[controller]/[action]")]
     public class PreferencesController : MemberBaseController
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IEmailSender _emailSender;
-        private readonly ILogger _logger;
-        private readonly UrlEncoder _urlEncoder;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly IEmailSender emailSender;
+        private readonly ILogger logger;
+        private readonly UrlEncoder urlEncoder;
 
         private readonly IUserPreferencesAppService userPreferencesAppService;
 
@@ -46,11 +46,11 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             , IMapper mapper
             , IUserPreferencesAppService userPreferencesAppService) : base()
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _emailSender = emailSender;
-            _logger = logger;
-            _urlEncoder = urlEncoder;
+            this.userManager = userManager;
+            this.signInManager = signInManager;
+            this.emailSender = emailSender;
+            this.logger = logger;
+            this.urlEncoder = urlEncoder;
 
             this.userPreferencesAppService = userPreferencesAppService;
         }
@@ -61,10 +61,10 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             IndexViewModel model = new IndexViewModel
@@ -88,16 +88,16 @@ namespace IndieVisible.Web.Areas.Member.Controllers
                 return View(model);
             }
 
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             string email = user.Email;
             if (model.Email != email)
             {
-                IdentityResult setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
+                IdentityResult setEmailResult = await userManager.SetEmailAsync(user, model.Email);
                 if (!setEmailResult.Succeeded)
                 {
                     throw new CustomApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
@@ -107,7 +107,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             string phoneNumber = user.PhoneNumber;
             if (model.PhoneNumber != phoneNumber)
             {
-                IdentityResult setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
+                IdentityResult setPhoneResult = await userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
                     throw new CustomApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
@@ -151,7 +151,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             catch (Exception ex)
             {
                 string msg = $"Unable to save your preferences.";
-                _logger.Log(LogLevel.Error, ex, msg);
+                logger.Log(LogLevel.Error, ex, msg);
 
                 throw new CustomApplicationException(msg);
             }
@@ -166,16 +166,16 @@ namespace IndieVisible.Web.Areas.Member.Controllers
                 return View(model);
             }
 
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            string code = await userManager.GenerateEmailConfirmationTokenAsync(user);
             string callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
             string email = user.Email;
-            await _emailSender.SendEmailConfirmationAsync(email, callbackUrl);
+            await emailSender.SendEmailConfirmationAsync(email, callbackUrl);
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToAction(nameof(Index));
@@ -184,13 +184,13 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> ChangePassword()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            bool hasPassword = await _userManager.HasPasswordAsync(user);
+            bool hasPassword = await userManager.HasPasswordAsync(user);
             if (!hasPassword)
             {
                 return RedirectToAction(nameof(SetPassword));
@@ -209,21 +209,21 @@ namespace IndieVisible.Web.Areas.Member.Controllers
                 return View(model);
             }
 
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            IdentityResult changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            IdentityResult changePasswordResult = await userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
             if (!changePasswordResult.Succeeded)
             {
                 AddErrors(changePasswordResult);
                 return View(model);
             }
 
-            await _signInManager.SignInAsync(user, isPersistent: false);
-            _logger.LogInformation("User changed their password successfully.");
+            await signInManager.SignInAsync(user, isPersistent: false);
+            logger.LogInformation("User changed their password successfully.");
             StatusMessage = "Your password has been changed.";
 
             return RedirectToAction(nameof(ChangePassword));
@@ -232,13 +232,13 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> SetPassword()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            bool hasPassword = await _userManager.HasPasswordAsync(user);
+            bool hasPassword = await userManager.HasPasswordAsync(user);
 
             if (hasPassword)
             {
@@ -258,20 +258,20 @@ namespace IndieVisible.Web.Areas.Member.Controllers
                 return View(model);
             }
 
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            IdentityResult addPasswordResult = await _userManager.AddPasswordAsync(user, model.NewPassword);
+            IdentityResult addPasswordResult = await userManager.AddPasswordAsync(user, model.NewPassword);
             if (!addPasswordResult.Succeeded)
             {
                 AddErrors(addPasswordResult);
                 return View(model);
             }
 
-            await _signInManager.SignInAsync(user, isPersistent: false);
+            await signInManager.SignInAsync(user, isPersistent: false);
             StatusMessage = "Your password has been set.";
 
             return RedirectToAction(nameof(SetPassword));
@@ -280,17 +280,17 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> ExternalLogins()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            ExternalLoginsViewModel model = new ExternalLoginsViewModel { CurrentLogins = await _userManager.GetLoginsAsync(user) };
-            model.OtherLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync())
+            ExternalLoginsViewModel model = new ExternalLoginsViewModel { CurrentLogins = await userManager.GetLoginsAsync(user) };
+            model.OtherLogins = (await signInManager.GetExternalAuthenticationSchemesAsync())
                 .Where(auth => model.CurrentLogins.All(ul => auth.Name != ul.LoginProvider))
                 .ToList();
-            model.ShowRemoveButton = await _userManager.HasPasswordAsync(user) || model.CurrentLogins.Count > 1;
+            model.ShowRemoveButton = await userManager.HasPasswordAsync(user) || model.CurrentLogins.Count > 1;
             model.StatusMessage = StatusMessage;
 
             return View(model);
@@ -305,26 +305,26 @@ namespace IndieVisible.Web.Areas.Member.Controllers
 
             // Request a redirect to the external login provider to link a login for the current user
             string redirectUrl = Url.Action(nameof(LinkLoginCallback));
-            AuthenticationProperties properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl, _userManager.GetUserId(User));
+            AuthenticationProperties properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl, userManager.GetUserId(User));
             return new ChallengeResult(provider, properties);
         }
 
         [HttpGet]
         public async Task<IActionResult> LinkLoginCallback()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync(user.Id);
+            ExternalLoginInfo info = await signInManager.GetExternalLoginInfoAsync(user.Id);
             if (info == null)
             {
                 throw new CustomApplicationException($"Unexpected error occurred loading external login info for user with ID '{user.Id}'.");
             }
 
-            IdentityResult result = await _userManager.AddLoginAsync(user, info);
+            IdentityResult result = await userManager.AddLoginAsync(user, info);
             if (!result.Succeeded)
             {
                 throw new CustomApplicationException($"Unexpected error occurred adding external login for user with ID '{user.Id}'.");
@@ -341,19 +341,19 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel model)
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            IdentityResult result = await _userManager.RemoveLoginAsync(user, model.LoginProvider, model.ProviderKey);
+            IdentityResult result = await userManager.RemoveLoginAsync(user, model.LoginProvider, model.ProviderKey);
             if (!result.Succeeded)
             {
                 throw new CustomApplicationException($"Unexpected error occurred removing external login for user with ID '{user.Id}'.");
             }
 
-            await _signInManager.SignInAsync(user, isPersistent: false);
+            await signInManager.SignInAsync(user, isPersistent: false);
             StatusMessage = SharedLocalizer["The external login was removed."];
             return RedirectToAction(nameof(ExternalLogins));
         }
@@ -361,17 +361,17 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> TwoFactorAuthentication()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             TwoFactorAuthenticationViewModel model = new TwoFactorAuthenticationViewModel
             {
-                HasAuthenticator = await _userManager.GetAuthenticatorKeyAsync(user) != null,
+                HasAuthenticator = await userManager.GetAuthenticatorKeyAsync(user) != null,
                 Is2faEnabled = user.TwoFactorEnabled,
-                RecoveryCodesLeft = await _userManager.CountRecoveryCodesAsync(user),
+                RecoveryCodesLeft = await userManager.CountRecoveryCodesAsync(user),
             };
 
             return View(model);
@@ -380,10 +380,10 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> Disable2faWarning()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
@@ -398,29 +398,29 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Disable2fa()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            IdentityResult disable2faResult = await _userManager.SetTwoFactorEnabledAsync(user, false);
+            IdentityResult disable2faResult = await userManager.SetTwoFactorEnabledAsync(user, false);
             if (!disable2faResult.Succeeded)
             {
                 throw new CustomApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
             }
 
-            _logger.LogInformation("User with ID {UserId} has disabled 2fa.", user.Id);
+            logger.LogInformation("User with ID {UserId} has disabled 2fa.", user.Id);
             return RedirectToAction(nameof(TwoFactorAuthentication));
         }
 
         [HttpGet]
         public async Task<IActionResult> EnableAuthenticator()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             EnableAuthenticatorViewModel model = new EnableAuthenticatorViewModel();
@@ -433,10 +433,10 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EnableAuthenticator(EnableAuthenticatorViewModel model)
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -448,8 +448,8 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             // Strip spaces and hypens
             string verificationCode = model.Code.Replace(" ", string.Empty).Replace("-", string.Empty);
 
-            bool is2faTokenValid = await _userManager.VerifyTwoFactorTokenAsync(
-                user, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
+            bool is2faTokenValid = await userManager.VerifyTwoFactorTokenAsync(
+                user, userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
 
             if (!is2faTokenValid)
             {
@@ -458,9 +458,9 @@ namespace IndieVisible.Web.Areas.Member.Controllers
                 return View(model);
             }
 
-            await _userManager.SetTwoFactorEnabledAsync(user, true);
-            _logger.LogInformation("User with ID {UserId} has enabled 2FA with an authenticator app.", user.Id);
-            IEnumerable<string> recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
+            await userManager.SetTwoFactorEnabledAsync(user, true);
+            logger.LogInformation("User with ID {UserId} has enabled 2FA with an authenticator app.", user.Id);
+            IEnumerable<string> recoveryCodes = await userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
             TempData[RecoveryCodesKey] = recoveryCodes.ToArray();
 
             return RedirectToAction(nameof(ShowRecoveryCodes));
@@ -489,15 +489,15 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetAuthenticator()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
-            await _userManager.SetTwoFactorEnabledAsync(user, false);
-            await _userManager.ResetAuthenticatorKeyAsync(user);
-            _logger.LogInformation("User with id '{UserId}' has reset their authentication app key.", user.Id);
+            await userManager.SetTwoFactorEnabledAsync(user, false);
+            await userManager.ResetAuthenticatorKeyAsync(user);
+            logger.LogInformation("User with id '{UserId}' has reset their authentication app key.", user.Id);
 
             return RedirectToAction(nameof(EnableAuthenticator));
         }
@@ -505,10 +505,10 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [HttpGet]
         public async Task<IActionResult> GenerateRecoveryCodesWarning()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
@@ -523,10 +523,10 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> GenerateRecoveryCodes()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new CustomApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new CustomApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
@@ -534,8 +534,8 @@ namespace IndieVisible.Web.Areas.Member.Controllers
                 throw new CustomApplicationException($"Cannot generate recovery codes for user with ID '{user.Id}' as they do not have 2FA enabled.");
             }
 
-            IEnumerable<string> recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
-            _logger.LogInformation("User with ID {UserId} has generated new 2FA recovery codes.", user.Id);
+            IEnumerable<string> recoveryCodes = await userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
+            logger.LogInformation("User with ID {UserId} has generated new 2FA recovery codes.", user.Id);
 
             ShowRecoveryCodesViewModel model = new ShowRecoveryCodesViewModel { RecoveryCodes = recoveryCodes.ToArray() };
 
@@ -578,18 +578,18 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("IndieVisible"),
-                _urlEncoder.Encode(email),
+                urlEncoder.Encode("IndieVisible"),
+                urlEncoder.Encode(email),
                 unformattedKey);
         }
 
         private async Task LoadSharedKeyAndQrCodeUriAsync(ApplicationUser user, EnableAuthenticatorViewModel model)
         {
-            string unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);
+            string unformattedKey = await userManager.GetAuthenticatorKeyAsync(user);
             if (string.IsNullOrEmpty(unformattedKey))
             {
-                await _userManager.ResetAuthenticatorKeyAsync(user);
-                unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);
+                await userManager.ResetAuthenticatorKeyAsync(user);
+                unformattedKey = await userManager.GetAuthenticatorKeyAsync(user);
             }
 
             model.SharedKey = FormatKey(unformattedKey);

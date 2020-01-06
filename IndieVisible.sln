@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.CrossCut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.CrossCutting.Identity", "IndieVisible.Infra.CrossCutting.Identity\IndieVisible.Infra.CrossCutting.Identity.csproj", "{6D469AB6-33A2-4143-8809-91F1B469A965}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.CrossCutting.Bus", "IndieVisible.Infra.CrossCutting.Bus\IndieVisible.Infra.CrossCutting.Bus.csproj", "{75FAD522-85E7-4446-9C35-5ADC065367D3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Domain.Core", "IndieVisible.Domain.Core\IndieVisible.Domain.Core.csproj", "{38AAE75A-8048-46A9-820A-EBAF3C6CBC43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{9323B416-B90D-4D52-A5EE-4C0A8864C811}"
@@ -37,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Tests", "Indie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.Data.MongoDb", "IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj", "{97ADB308-2205-465C-9775-B21587FD5540}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieVisible.Infra.Data.Cache", "IndieVisible.Infra.Data.Cache\IndieVisible.Infra.Data.Cache.csproj", "{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.Data.Cache", "IndieVisible.Infra.Data.Cache\IndieVisible.Infra.Data.Cache.csproj", "{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,10 +67,6 @@ Global
 		{6D469AB6-33A2-4143-8809-91F1B469A965}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D469AB6-33A2-4143-8809-91F1B469A965}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D469AB6-33A2-4143-8809-91F1B469A965}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75FAD522-85E7-4446-9C35-5ADC065367D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75FAD522-85E7-4446-9C35-5ADC065367D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75FAD522-85E7-4446-9C35-5ADC065367D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75FAD522-85E7-4446-9C35-5ADC065367D3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{38AAE75A-8048-46A9-820A-EBAF3C6CBC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{38AAE75A-8048-46A9-820A-EBAF3C6CBC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38AAE75A-8048-46A9-820A-EBAF3C6CBC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -102,7 +96,6 @@ Global
 		{85F39964-0C95-4D9B-A1AA-B4FACF240403} = {226F680D-ECFC-4966-8DE5-FB680D76F4C5}
 		{DF375368-E69D-40AF-B572-27F2C9941AF2} = {400C777F-65C4-4EAF-A899-AB4D89C6BA0A}
 		{6D469AB6-33A2-4143-8809-91F1B469A965} = {400C777F-65C4-4EAF-A899-AB4D89C6BA0A}
-		{75FAD522-85E7-4446-9C35-5ADC065367D3} = {400C777F-65C4-4EAF-A899-AB4D89C6BA0A}
 		{38AAE75A-8048-46A9-820A-EBAF3C6CBC43} = {E07745D1-3AC5-46D0-B4A5-62DCFF81ED4A}
 		{9378CBE6-2104-4042-95CF-D4D0988D103D} = {9323B416-B90D-4D52-A5EE-4C0A8864C811}
 		{97ADB308-2205-465C-9775-B21587FD5540} = {226F680D-ECFC-4966-8DE5-FB680D76F4C5}

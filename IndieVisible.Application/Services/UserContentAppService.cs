@@ -12,6 +12,7 @@ using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,13 @@ namespace IndieVisible.Application.Services
 {
     public class UserContentAppService : ProfileBaseAppService, IUserContentAppService
     {
+        private readonly ILogger logger;
         private readonly IUserContentDomainService userContentDomainService;
         private readonly IGamificationDomainService gamificationDomainService;
         private readonly IPollDomainService pollDomainService;
 
-        public UserContentAppService(IMapper mapper
+        public UserContentAppService(ILogger<UserContentAppService> logger
+            , IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
@@ -33,6 +36,7 @@ namespace IndieVisible.Application.Services
             , IGamificationDomainService gamificationDomainService
             , IPollDomainService pollDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
+            this.logger = logger;
             this.userContentDomainService = userContentDomainService;
             this.gamificationDomainService = gamificationDomainService;
             this.pollDomainService = pollDomainService;
@@ -299,6 +303,8 @@ namespace IndieVisible.Application.Services
             }
             catch (Exception ex)
             {
+                string msg = $"Unable to save get the Activity Feed.";
+                logger.Log(LogLevel.Error, ex, msg);
                 throw;
             }
         }

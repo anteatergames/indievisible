@@ -16,7 +16,7 @@ namespace IndieVisible.Application.Services
             _config = config;
         }
 
-        public async Task<string> StoreImageAsync(string container, string filename, byte[] image)
+        public async Task<string> StoreImageAsync(string container, string fileName, byte[] image)
         {
             string storageConnectionString = _config["Storage:ConnectionString"];
 
@@ -38,19 +38,19 @@ namespace IndieVisible.Application.Services
                     await cloudBlobContainer.SetPermissionsAsync(permissions);
                 }
 
-                CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(filename);
+                CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
                 if (image != null)
                 {
                     await cloudBlockBlob.UploadFromByteArrayAsync(image, 0, image.Length);
                 }
             }
 
-            return filename;
+            return fileName;
         }
 
-        public async Task<string> DeleteImageAsync(string container, string filename)
+        public async Task<string> DeleteImageAsync(string container, string fileName)
         {
-            if (!string.IsNullOrWhiteSpace(filename))
+            if (!string.IsNullOrWhiteSpace(fileName))
             {
                 string storageConnectionString = _config["Storage:ConnectionString"];
 
@@ -61,13 +61,13 @@ namespace IndieVisible.Application.Services
 
                     CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
 
-                    CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(filename);
+                    CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
 
                     await cloudBlockBlob.DeleteIfExistsAsync();
                 }
             }
 
-            return filename;
+            return fileName;
         }
     }
 }

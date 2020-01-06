@@ -30,7 +30,7 @@ namespace IndieVisible.Application.Services
                 Invalidate = true
             };
 
-            ImageUploadResult uploadResult = await cloudinary.UploadAsync(uploadParams);
+            await cloudinary.UploadAsync(uploadParams);
 
             return fileName;
         }
@@ -41,7 +41,7 @@ namespace IndieVisible.Application.Services
 
             string publicId = String.Format("{0}/{1}", container, fileName);
 
-            DelResResult result = await cloudinary.DeleteResourcesAsync(publicId);
+            await cloudinary.DeleteResourcesAsync(publicId);
 
             return fileName;
         }
