@@ -386,10 +386,10 @@ namespace IndieVisible.Web.Controllers
             // Future
             model.Items.Add(new TimeLineItemViewModel
             {
-                Date = new DateTime(2020, 01, 01),
+                Date = new DateTime(2020, 11, 01),
                 Icon = "fas fa-bug",
                 Color = "danger",
-                Title = "January 2020",
+                Title = "November 2020",
                 Subtitle = "Open Beta",
                 Description = "At this point, we hope to have a consistent beta tester base so we can polish the platform and fix every possible bug tha shows up."
             });
@@ -397,12 +397,12 @@ namespace IndieVisible.Web.Controllers
             model.Items.Add(new TimeLineItemViewModel
             {
                 End = true,
-                Date = new DateTime(2020, 07, 01),
+                Date = new DateTime(2021, 01, 01),
                 Icon = "fas fa-star",
                 Color = "success",
-                Title = "July 2020",
+                Title = "January 2021",
                 Subtitle = "Launch day!",
-                Description = "This is the scheduled launch day. On this day, all the core features must be implented."
+                Description = "This is the scheduled launch day. On this day, all the core features will be implented."
             });
 
             model.Items = model.Items.OrderBy(x => x.Date).ToList();
