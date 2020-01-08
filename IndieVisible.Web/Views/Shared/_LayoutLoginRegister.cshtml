@@ -67,8 +67,10 @@
     <![endif]-->
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    @await Html.PartialAsync("_TagManagerHead")
 </head>
 <body class="hold-transition login-register-page">
+    @await Html.PartialAsync("_TagManagerBody")
     @RenderBody()
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/popper.js/umd/popper.min.js"></script>
@@ -100,8 +102,6 @@
         </script>
         <script src="~/lib/pace/pace.min.js"></script>
         <script src="~/lib/fastclick/fastclick.min.js"></script>
-
-        @await Html.PartialAsync("_HotJarPartial")
     </environment>
 
     @RenderSection("Scripts", required: false)
