@@ -131,6 +131,12 @@
     <Content Update="Views\Shared\Components\Feed\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\_TagManagerBody.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\_TagManagerHead.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\_InfoBox.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

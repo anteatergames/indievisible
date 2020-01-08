@@ -74,7 +74,7 @@ namespace IndieVisible.Application
 
             GameListItemViewModel game2 = new GameListItemViewModel
             {
-                ThumbnailUrl = "/images/games/gameplaceholder.jpg",
+                ThumbnailUrl = "/images/games/gameplaceholder.png",
                 DeveloperImageUrl = "/images/profileimages/fakedeveloper1.jpg",
                 Title = "Who I See",
                 DeveloperName = "ChillingCircuits",
@@ -84,7 +84,7 @@ namespace IndieVisible.Application
 
             GameListItemViewModel game3 = new GameListItemViewModel
             {
-                ThumbnailUrl = "/images/games/gameplaceholder.jpg",
+                ThumbnailUrl = "/images/games/gameplaceholder.png",
                 DeveloperImageUrl = "/images/profileimages/fakedeveloper2.jpg",
                 Title = "Black Paradox",
                 DeveloperName = "fantasticostudio",
@@ -94,7 +94,7 @@ namespace IndieVisible.Application
 
             GameListItemViewModel game1 = new GameListItemViewModel
             {
-                ThumbnailUrl = "/images/games/gameplaceholder.jpg",
+                ThumbnailUrl = "/images/games/gameplaceholder.png",
                 DeveloperImageUrl = "/images/profileimages/fakedeveloper3.jpg",
                 Title = "SWITCH!",
                 DeveloperName = "NitrogenLive",

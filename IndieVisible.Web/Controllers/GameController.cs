@@ -217,7 +217,7 @@ namespace IndieVisible.Web.Controllers
 
         private void SetImages(GameViewModel vm)
         {
-            vm.ThumbnailUrl = string.IsNullOrWhiteSpace(vm.ThumbnailUrl) || Constants.DefaultGameThumbnail.Contains(vm.ThumbnailUrl) ? Constants.DefaultGameThumbnail : UrlFormatter.Image(vm.UserId, BlobType.GameThumbnail, vm.ThumbnailUrl);
+            vm.ThumbnailUrl = string.IsNullOrWhiteSpace(vm.ThumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(vm.ThumbnailUrl.NoExtension()) ? Constants.DefaultGameThumbnail : UrlFormatter.Image(vm.UserId, BlobType.GameThumbnail, vm.ThumbnailUrl);
 
             vm.CoverImageUrl = string.IsNullOrWhiteSpace(vm.CoverImageUrl) || Constants.DefaultGameCoverImage.Contains(vm.CoverImageUrl) ? Constants.DefaultGameCoverImage : UrlFormatter.Image(vm.UserId, BlobType.GameCover, vm.CoverImageUrl);
 

@@ -115,8 +115,10 @@
     {
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     }
+    @await Html.PartialAsync("_TagManagerHead")
 </head>
 <body class="hold-transition skin-indievisible sidebar-mini">
+    @await Html.PartialAsync("_TagManagerBody")
     <div id="translatedJavascriptMessages" class="d-none">
         <span class="msg" data-msg-id="msgNeedLoginToLikeAndComment">@SharedLocalizer["You need to be logged in to be able to Like and Comment on posts."]</span>
         <span class="msg" data-msg-id="msgNotImplementedYet">@SharedLocalizer["Keep calm! This is not implemented yet!"]</span>
@@ -257,7 +259,7 @@
         <script src="~/js/site.min.js" asp-append-version="true" defer></script>
 
         @await Html.PartialAsync("_AnalyticsPartial")
-        @await Html.PartialAsync("_HotJarPartial")
+        @*@await Html.PartialAsync("_HotJarPartial")*@
     </environment>
 
     <script>

@@ -54,7 +54,7 @@
         {
             get
             {
-                return "/images/placeholders/gameplaceholder.jpg";
+                return "/images/placeholders/gameplaceholder.png";
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace IndieVisible.Domain.Core.Extensions
 {
@@ -34,6 +35,11 @@ namespace IndieVisible.Domain.Core.Extensions
             Array.Resize(ref words, words.Length - 1);
 
             return words;
+        }
+
+        public static string NoExtension(this string input)
+        {
+            return Path.GetFileNameWithoutExtension(input);
         }
     }
 }
