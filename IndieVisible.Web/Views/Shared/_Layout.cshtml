@@ -86,14 +86,13 @@
               asp-fallback-test-value="absolute"
               integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN"
               crossorigin="anonymous" />
-        <link rel="stylesheet" href="~/lib/pace/themes/white/pace-theme-minimal.min.css">
         <link rel="stylesheet"
-              href="~/lib/pace/themes/white/pace-theme-minimal.min.css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/white/pace-theme-minimal.min.css"
               asp-fallback-href="~/lib/pace/themes/white/pace-theme-minimal.min.css"
               asp-fallback-test-class="sr-only"
               asp-fallback-test-property="position"
               asp-fallback-test-value="absolute"
-              integrity="sha384-fHdycnsK2rShc693xdyXwDfyNukSqCSmKMesSHdH+6gZVhBw6LaLXJBGXYMYr6SJ"
+              integrity="sha256-E35gzLnIxEQ1I4i28fiuAR/kqvLZLqcCqvpefyJqjZs="
               crossorigin="anonymous" />
         <link rel="stylesheet" href="~/lib/jquery-toast/jquery.toast.min.css" />
         <link rel="stylesheet" href="~/lib/tinyDrawyer/css/tinyDrawer.min.css">
@@ -245,15 +244,19 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous">
         </script>
-        <script src="~/lib/pace/pace.min.js" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+                asp-fallback-src="~/lib/pace/pace.min.js"
+                asp-fallback-test="Pace"
+                integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+                crossorigin="anonymous" async></script>
         <script src="~/lib/fastclick/fastclick.min.js" defer></script>
 
         <script src="~/lib/jquery-toast/jquery.toast.min.js" defer></script>
 
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.min.js" defer></script>
         <!--[if lt IE 11]>
-            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-        <![endif]-->
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <![endif]-->
         <script src="~/lib/lazysizes/lazysizes.min.js" async defer></script>
 
         <script src="~/js/site.min.js" asp-append-version="true" defer></script>
