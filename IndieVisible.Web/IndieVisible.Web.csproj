@@ -131,6 +131,9 @@
     <Content Update="Views\Shared\Components\Feed\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\_FacebookSdk.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\_TagManagerBody.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

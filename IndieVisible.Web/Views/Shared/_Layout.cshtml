@@ -255,8 +255,8 @@
 
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.min.js" defer></script>
         <!--[if lt IE 11]>
-        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <![endif]-->
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
         <script src="~/lib/lazysizes/lazysizes.min.js" async defer></script>
 
         <script src="~/js/site.min.js" asp-append-version="true" defer></script>
@@ -266,24 +266,7 @@
         tinyDrawer();
     </script>
 
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: $('meta[property="fb:app_id"]').attr('content'),
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v3.2'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    @await Html.PartialAsync("_FacebookSdk")
 
     @RenderSection("Scripts", required: false)
 
