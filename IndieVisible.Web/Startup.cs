@@ -27,6 +27,7 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using IndieVisible.Web.Extensions;
 
 namespace IndieVisible.Web
 {
@@ -98,6 +99,11 @@ namespace IndieVisible.Web
                 {
                     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
                     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                })
+                .AddGithub(githubOptions =>
+                {
+                    githubOptions.ClientId = Configuration["Authentication:Github:ClientId"];
+                    githubOptions.ClientSecret = Configuration["Authentication:Github:ClientSecret"];
                 });
 
             services.AddAutoMapperSetup();
