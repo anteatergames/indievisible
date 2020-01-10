@@ -64,14 +64,17 @@
                 else
                 {
                     <div class="col-12 p-2">
-                        @Html.Raw(item.Content)
+                        @if (!item.HasFeaturedImage)
+                        {
+                            Html.Raw(item.Content);
+                       }
                     </div>
                 }
             }
 
             @if (item.HasFeaturedImage)
             {
-                <div class="col-12 text-center featuredimage">
+                <div class="col-12 text-center featuredimage @item.FeaturedImageType">
                     <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
                         @if (item.FeaturedImageType == MediaType.Youtube)
                         {

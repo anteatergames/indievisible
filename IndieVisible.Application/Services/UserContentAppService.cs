@@ -100,7 +100,7 @@ namespace IndieVisible.Application.Services
                     isYoutube = Regex.IsMatch(vm.FeaturedImage, youtubePattern);
                 }
 
-                vm.HasFeaturedImage = !string.IsNullOrWhiteSpace(vm.FeaturedImage) && !vm.FeaturedImage.Contains(Constants.DefaultFeaturedImage) && !isYoutube;
+                vm.HasFeaturedImage = !string.IsNullOrWhiteSpace(vm.FeaturedImage) && !vm.FeaturedImage.Contains(Constants.DefaultFeaturedImage);
 
                 vm.FeaturedMediaType = GetMediaType(vm.FeaturedImage);
 
@@ -396,7 +396,7 @@ namespace IndieVisible.Application.Services
                 }
                 else
                 {
-                    return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 100);
+                    return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 20);
                 }
             }
         }

@@ -119,35 +119,37 @@
     </environment>
 
     <script src="~/lib/embedo/embedo.js"></script>
-
     <script>
-        var embedo = new Embedo({
-            youtube: true,
-            facebook: {
-                appId: $('meta[property="fb:app_id"]').attr('content'),
-                version: 'v3.2',
-                width: "100%"
-            }
-        });
+        if (typeof Embedo === 'function') {
+            var embedo = new Embedo({
+                youtube: true,
+                facebook: {
+                    appId: $('meta[property="fb:app_id"]').attr('content'),
+                    version: 'v3.2',
+                    width: "100%"
+                }
+            });
 
-        var oembeds = $('oembed');
+            var oembeds = $('oembed');
+            console.log(oembeds);
 
-        oembeds.each(function (index, element) {
-            $(element).find('embed').hide();
+            oembeds.each(function (index, element) {
+                $(element).find('embed').hide();
 
-            var w = $(element).closest('.videoWrapper').width();
-            var h = w * 9 / 16;
+                var w = $(element).closest('.videoWrapper').width();
+                var h = w * 9 / 16;
 
-            embedo.load(element, element.innerHTML, {
-                width: w,
-                height: h,
-                centerize: true,
-                strict: false
-            })
-                .done(function (xpto) {
-                    //$(element).find('embed').addClass('embed-responsive').show();
-                });
-        });
+                embedo.load(element, element.innerHTML, {
+                    width: w,
+                    height: h,
+                    centerize: true,
+                    strict: false
+                })
+                    .done(function (xpto) {
+                        //$(element).find('embed').addClass('embed-responsive').show();
+                    });
+            });
+        }
     </script>
     <script type="application/ld+json">
         {

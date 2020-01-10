@@ -106,7 +106,12 @@ namespace IndieVisible.Application.Formatters
 
         public static string Image(Guid userId, BlobType type, string fileName, int width)
         {
-            var url = CdnCommon(userId, fileName, width);
+            return Image(userId, type, fileName, width, 0);
+        }
+
+        public static string Image(Guid userId, BlobType type, string fileName, int width, int quality)
+        {
+            var url = CdnCommon(userId, fileName, width, quality);
 
             return url;
         }
@@ -118,6 +123,11 @@ namespace IndieVisible.Application.Formatters
 
         public static string CdnCommon(Guid userId, string fileName, int width)
         {
+            return CdnCommon(userId, fileName, width, 0);
+        }
+
+        public static string CdnCommon(Guid userId, string fileName, int width, int quality)
+        {
             string[] fileNameSplit = fileName.Split('/');
             if (fileNameSplit.Length > 1)
             {
@@ -128,10 +138,19 @@ namespace IndieVisible.Application.Formatters
 
             Cloudinary cloudinary = new Cloudinary();
 
-            var transformation = new Transformation().FetchFormat("auto").Quality("auto");
+            var transformation = new Transformation().FetchFormat("auto");
             if (width > 0)
             {
                 transformation = transformation.Width(width);
+            }
+
+            if (quality > 0)
+            {
+                transformation = transformation.Quality(quality);
+            }
+            else
+            {
+                transformation = transformation.Quality("auto");
             }
 
             string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
