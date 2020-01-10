@@ -221,7 +221,7 @@ namespace IndieVisible.Web.Controllers
 
             vm.CoverImageUrl = string.IsNullOrWhiteSpace(vm.CoverImageUrl) || Constants.DefaultGameCoverImage.Contains(vm.CoverImageUrl) ? Constants.DefaultGameCoverImage : UrlFormatter.Image(vm.UserId, BlobType.GameCover, vm.CoverImageUrl);
 
-            vm.AuthorPicture = UrlFormatter.ProfileImage(vm.UserId);
+            vm.AuthorPicture = UrlFormatter.ProfileImage(vm.UserId, 90);
         }
 
         private void SetAuthorDetails(GameViewModel vm)

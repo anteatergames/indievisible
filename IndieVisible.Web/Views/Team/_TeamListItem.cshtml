@@ -43,7 +43,7 @@ else
                 @foreach (var member in Model.Members)
                 {
                     <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId" data-toggle="popover" data-trigger="hover" data-target="#divPopOver@(member.Id)">
-                        <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" style="left: -@(i * 30)px; z-index: @(Model.Members.Count - i)" src="~/images/profileimages/developer.png" alt="@member.Quote">
+                        <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" style="left: -@(i * 30)px; z-index: @(Model.Members.Count - i)" src="@member.ProfileImage" alt="@member.Quote">
                     </a>
                     <div id="divPopOver@(member.Id)" style="display:none">
                         <h5>@member.Name</h5>
