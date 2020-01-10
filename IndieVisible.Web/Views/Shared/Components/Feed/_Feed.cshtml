@@ -64,10 +64,7 @@
                 else
                 {
                     <div class="col-12 p-2">
-                        @if (!item.HasFeaturedImage)
-                        {
-                            Html.Raw(item.Content);
-                       }
+                        @Html.Raw(item.Content) 
                     </div>
                 }
             }

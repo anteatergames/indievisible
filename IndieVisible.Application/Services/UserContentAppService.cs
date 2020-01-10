@@ -285,6 +285,10 @@ namespace IndieVisible.Application.Services
                     item.HasFeaturedImage = !string.IsNullOrWhiteSpace(item.FeaturedImage) && !item.FeaturedImage.Contains(Constants.DefaultFeaturedImage);
 
                     item.FeaturedImageType = GetMediaType(item.FeaturedImage);
+                    if (item.FeaturedImageType == MediaType.Youtube)
+                    {
+                        item.Content = string.Empty;
+                    }
 
                     if (item.FeaturedImageType != MediaType.Youtube)
                     {
