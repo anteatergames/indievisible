@@ -11,7 +11,7 @@
         <div class="box-header with-border">
             <div class="user-block">
                 <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
-                    <img class="rounded-circle lazyload" data-src="@item.AuthorPicture" src="~/images/profileimages/developer.png" alt="This is @item.AuthorName">
+                    <img class="rounded-circle" src="@item.AuthorPicture" alt="This is @item.AuthorName">
                 </a>
                 <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">@item.AuthorName</a></span>
 
