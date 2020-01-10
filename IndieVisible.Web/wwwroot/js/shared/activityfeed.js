@@ -38,7 +38,9 @@ var ACTIVITYFEED = (function () {
             oldestGuid = btn.data('oldestid');
             oldestDate = btn.data('oldestdate');
 
-            ACTIVITYFEED.Methods.LoadActivityFeed();
+            btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
+            ACTIVITYFEED.Methods.LoadActivityFeed(false);
         });
     }
 
@@ -75,8 +77,10 @@ var ACTIVITYFEED = (function () {
         });
     }
 
-    function loadActivityFeed(callback) {
-        selectors.divActivityFeed.append(MAINMODULE.Default.Spinner);
+    function loadActivityFeed(first, callback) {
+        if (first !== false) {
+            selectors.divActivityFeed.append(MAINMODULE.Default.Spinner);
+        }
 
         var url = "/content/feed?load=1";
 
