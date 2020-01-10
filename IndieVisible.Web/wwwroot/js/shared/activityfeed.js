@@ -38,7 +38,7 @@ var ACTIVITYFEED = (function () {
             oldestGuid = btn.data('oldestid');
             oldestDate = btn.data('oldestdate');
 
-            btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+            btn.html('<span class="spinner-border" role="status" aria-hidden="true"></span>');
 
             ACTIVITYFEED.Methods.LoadActivityFeed(false);
         });
@@ -121,12 +121,17 @@ var ACTIVITYFEED = (function () {
 
     function loadOembeds() {
         if (typeof Embedo === 'function') {
-                var oembeds = $('oembed');
+            var oembeds = $('oembed');
 
-                oembeds.each(function (index, element) {
+            oembeds.each(function (index, element) {
+                var wrapper = $(element).closest('.videoWrapper');
+
+                if (wrapper.hasClass('loaded')) {
+                    return;
+                }
+                else {
                     $(element).find('embed').hide();
-
-                    var w = $(element).closest('.videoWrapper').width();
+                    var w = wrapper.width();
                     var h = w * 9 / 16;
 
                     embedo.load(element, element.innerHTML, {
@@ -137,8 +142,10 @@ var ACTIVITYFEED = (function () {
                     })
                         .done(function (xpto) {
                             //$(element).find('embed').addClass('embed-responsive').show();
+                            wrapper.addClass('loaded');
                         });
-                });
+                }
+            });
         }
     }
 

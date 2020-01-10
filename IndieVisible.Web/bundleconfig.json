@@ -82,7 +82,7 @@
     "outputFileName": "wwwroot/js/profile/profiledetails.min.js",
     "inputFiles": [
       "wwwroot/js/shared/contentactions.js",
-      "wwwroot/lib/embedo/embedo.js",
+      "wwwroot/lib/embedo/embedo.min.js",
       "wwwroot/js/shared/polls.js",
       "wwwroot/js/shared/activityfeed.js",
       "wwwroot/js/profile/profiledetails.js"
