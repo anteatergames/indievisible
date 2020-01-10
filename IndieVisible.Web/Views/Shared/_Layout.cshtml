@@ -213,7 +213,8 @@
             <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
         <![endif]-->
 
-        <script src="~/lib/lazysizes/lazysizes.min.js" defer async></script>
+        <script src="~/lib/lazysizes/plugins/blur-up/ls.blur-up.min.js" async></script>
+        <script src="~/lib/lazysizes/lazysizes.min.js" async></script>
 
         <script src="~/js/template.js" defer></script>
         <script src="~/js/main.js" asp-append-version="true" defer></script>
@@ -255,9 +256,22 @@
 
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.min.js" defer></script>
         <!--[if lt IE 11]>
-            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-        <![endif]-->
-        <script src="~/lib/lazysizes/lazysizes.min.js" async defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <![endif]-->
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/plugins/blur-up/ls.blur-up.min.js"
+                asp-fallback-src="~/lib/lazysizes/plugins/blur-up/ls.blur-up.min.js"
+                asp-fallback-test="lazySizes"
+                integrity="sha256-QQuLtUP+fQZR2citA2XQxKD74+36/G2eEifhN7whb2c="
+                crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"
+                asp-fallback-src="~/lib/lazysizes/lazysizes.min.js"
+                asp-fallback-test="lazySizes"
+                integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE="
+                crossorigin="anonymous">
+        </script>
 
         <script src="~/js/site.min.js" asp-append-version="true" defer></script>
     </environment>

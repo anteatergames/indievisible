@@ -55,7 +55,7 @@
       "destination": "wwwroot/lib/cropperjs"
     },
     {
-      "library": "lazysizes@4.1.8",
+      "library": "lazysizes@5.2.0",
       "destination": "wwwroot/lib/lazysizes"
     },
     {

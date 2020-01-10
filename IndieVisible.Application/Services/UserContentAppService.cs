@@ -106,7 +106,8 @@ namespace IndieVisible.Application.Services
 
                 if (vm.FeaturedMediaType != MediaType.Youtube)
                 {
-                    vm.FeaturedImage = SetFeaturedImage(vm.UserId, vm.FeaturedImage);
+                    vm.FeaturedImage = SetFeaturedImage(vm.UserId, vm.FeaturedImage, false);
+                    vm.FeaturedImageLquip = SetFeaturedImage(vm.UserId, vm.FeaturedImage, true);
                 }
 
                 LoadAuthenticatedData(currentUserId, vm);
@@ -287,7 +288,8 @@ namespace IndieVisible.Application.Services
 
                     if (item.FeaturedImageType != MediaType.Youtube)
                     {
-                        item.FeaturedImage = SetFeaturedImage(item.UserId, item.FeaturedImage);
+                        item.FeaturedImage = SetFeaturedImage(item.UserId, item.FeaturedImage, false);
+                        item.FeaturedImageLquip = SetFeaturedImage(item.UserId, item.FeaturedImage, true);
                     }
 
                     item.LikeCount = item.Likes.Count;
@@ -380,9 +382,23 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        private static string SetFeaturedImage(Guid userId, string featuredImage)
+        private static string SetFeaturedImage(Guid userId, string featuredImage, bool lquip)
         {
-            return string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
+            if (string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage))
+            {
+                return Constants.DefaultFeaturedImage;
+            }
+            else
+            {
+                if (!lquip)
+                {
+                    return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
+                }
+                else
+                {
+                    return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 100);
+                }
+            }
         }
 
         public OperationResultVo ContentLike(Guid currentUserId, Guid targetId)
