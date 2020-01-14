@@ -27,7 +27,6 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using IndieVisible.Web.Extensions;
 
 namespace IndieVisible.Web
 {

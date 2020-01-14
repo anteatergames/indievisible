@@ -9,6 +9,13 @@
                 return "Unknown soul";
             }
         }
+        public static string SoundOfSilence
+        {
+            get
+            {
+                return "this is the sound... of silence...";
+            }
+        }
 
         public static string DefaultProfileDescription
         {

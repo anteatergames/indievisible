@@ -71,13 +71,13 @@
 
             @if (item.HasFeaturedImage)
             {
-                <div class="col-12 text-center featuredimage @item.FeaturedImageType">
+                <div class="col-12 text-center featuredimage @item.FeaturedMediaType">
                     <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
-                        @if (item.FeaturedImageType == MediaType.Youtube)
+                        @if (item.FeaturedMediaType == MediaType.Youtube)
                         {
                             <div class="videoWrapper"><oembed>@item.FeaturedImage</oembed></div>
                         }
-                        else if (item.FeaturedImageType == MediaType.Video)
+                        else if (item.FeaturedMediaType == MediaType.Video)
                         {
                             <video src="@item.FeaturedImage" width="500" height="281" controls>
                                 <track kind="captions" src="@Url.Content("~/default.vtt")" srclang="en">
@@ -85,7 +85,7 @@
                         }
                         else
                         {
-                            <img data-src="@item.FeaturedImage" src="@item.FeaturedImageLquip" class="img-fluid lazyload blur-up" style="width:100%" alt="@item.Title" />
+                            <img data-sizes="auto" data-src="@item.FeaturedImageLquip" data-srcset="@item.FeaturedImageResponsive" class="img-fluid lazyload blur-up" style="width:100%" alt="@item.Title" />
                         }
                     </a>
                 </div>

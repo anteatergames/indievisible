@@ -88,7 +88,7 @@ namespace IndieVisible.Application.Services
                     }
 
                     comment.AuthorPicture = UrlFormatter.ProfileImage(comment.UserId);
-                    comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? "this is the sound... of silence..." : comment.Text;
+                    comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? Constants.SoundOfSilence : comment.Text;
                 }
 
                 vm.Permissions.CanEdit = currentUserId == session.UserId;

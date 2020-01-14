@@ -34,20 +34,20 @@ namespace IndieVisible.Application.Services
 
         protected UserProfile GetCachedProfileByUserId(Guid userId)
         {
-            UserProfile myProfile = cacheService.Get<Guid, UserProfile>(userId);
+            UserProfile profile = cacheService.Get<Guid, UserProfile>(userId);
 
-            if (myProfile == null)
+            if (profile == null)
             {
-                UserProfile profile = profileDomainService.GetByUserId(userId).FirstOrDefault();
+                UserProfile profileFromDb = profileDomainService.GetByUserId(userId).FirstOrDefault();
 
-                if (profile != null)
+                if (profileFromDb != null)
                 {
-                    cacheService.Set(userId, profile);
-                    myProfile = profile;
+                    cacheService.Set(userId, profileFromDb);
+                    profile = profileFromDb;
                 }
             }
 
-            return myProfile;
+            return profile;
         }
     }
 }

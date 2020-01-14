@@ -2,6 +2,7 @@
 using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Linq;
+using System.Text;
 
 namespace IndieVisible.Application.Formatters
 {
@@ -52,17 +53,14 @@ namespace IndieVisible.Application.Formatters
         {
             return ProfileImage(userId, null, 0);
         }
-
         public static string ProfileImage(Guid userId, int width)
         {
             return ProfileImage(userId, null, width);
         }
-
         public static string ProfileImage(Guid userId, DateTime? lastUpdateDate)
         {
             return ProfileImage(userId, lastUpdateDate, 0);
         }
-
         public static string ProfileImage(Guid userId, DateTime? lastUpdateDate, int width)
         {
             string fileName = String.Format("profileimage_{0}_Personal", userId);
@@ -76,12 +74,10 @@ namespace IndieVisible.Application.Formatters
         {
             return ProfileCoverImage(userId, profileId, null, false, 0);
         }
-
         public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage)
         {
             return ProfileCoverImage(userId, profileId, lastUpdateDate, hasCoverImage, 0);
         }
-
         public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage, int width)
         {
             long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
@@ -99,19 +95,23 @@ namespace IndieVisible.Application.Formatters
 
             return url;
         }
+
+
         public static string Image(Guid userId, BlobType type, string fileName)
         {
             return Image(userId, type, fileName, 0);
         }
-
         public static string Image(Guid userId, BlobType type, string fileName, int width)
         {
             return Image(userId, type, fileName, width, 0);
         }
-
         public static string Image(Guid userId, BlobType type, string fileName, int width, int quality)
         {
-            var url = CdnCommon(userId, fileName, width, quality);
+            return Image(userId, type, fileName, width, quality, false);
+        }
+        public static string Image(Guid userId, BlobType type, string fileName, int width, int quality, bool responsive)
+        {
+            var url = CdnCommon(userId, fileName, responsive, width, quality);
 
             return url;
         }
@@ -123,10 +123,10 @@ namespace IndieVisible.Application.Formatters
 
         public static string CdnCommon(Guid userId, string fileName, int width)
         {
-            return CdnCommon(userId, fileName, width, 0);
+            return CdnCommon(userId, fileName, false, width, 0);
         }
 
-        public static string CdnCommon(Guid userId, string fileName, int width, int quality)
+        public static string CdnCommon(Guid userId, string fileName, bool responsive, int width, int quality)
         {
             string[] fileNameSplit = fileName.Split('/');
             if (fileNameSplit.Length > 1)
@@ -138,24 +138,46 @@ namespace IndieVisible.Application.Formatters
 
             Cloudinary cloudinary = new Cloudinary();
 
-            var transformation = new Transformation().FetchFormat("auto");
-            if (width > 0)
+            if (responsive)
             {
-                transformation = transformation.Width(width);
-            }
+                StringBuilder sb = new StringBuilder();
 
-            if (quality > 0)
-            {
-                transformation = transformation.Quality(quality);
+                Transformation transformation = new Transformation().FetchFormat("auto").Width(300);
+                string url300 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+                sb.Append(String.Format("{0} 300w, ", url300));
+
+                transformation = new Transformation().FetchFormat("auto").Width(600);
+                string url600 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+                sb.Append(String.Format("{0} 600w, ", url600));
+
+                transformation = new Transformation().FetchFormat("auto").Width(900);
+                string url900 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+                sb.Append(String.Format("{0} 900w", url900));
+
+                return sb.ToString();
             }
             else
             {
-                transformation = transformation.Quality("auto");
+                var transformation = new Transformation().FetchFormat("auto");
+
+                if (width > 0)
+                {
+                    transformation = transformation.Width(width);
+                }
+
+                if (quality > 0)
+                {
+                    transformation = transformation.Quality(quality);
+                }
+                else
+                {
+                    transformation = transformation.Quality("auto");
+                }
+
+                string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+
+                return url2;
             }
-
-            string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
-
-            return url2;
         }
 
 

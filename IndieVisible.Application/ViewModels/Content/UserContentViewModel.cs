@@ -11,6 +11,7 @@ namespace IndieVisible.Application.ViewModels.Content
     {
         [Display(Name = "Featured Image")]
         public string FeaturedImage { get; set; }
+        public string FeaturedImageResponsive { get; set; }
         public string FeaturedImageLquip { get; set; }
 
         [Display(Name = "Images")]
@@ -34,6 +35,7 @@ namespace IndieVisible.Application.ViewModels.Content
         public Guid? GameId { get; set; }
 
         public string GameTitle { get; set; }
+
         public string GameThumbnail { get; set; }
 
         public bool HasFeaturedImage { get; set; }
@@ -52,7 +54,5 @@ namespace IndieVisible.Application.ViewModels.Content
         public int CommentCount { get; set; }
 
         public bool IsArticle { get; set; }
-
-        public MediaType FeaturedImageType { get; set; }
     }
 }
