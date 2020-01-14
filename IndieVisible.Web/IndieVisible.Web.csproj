@@ -183,7 +183,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\.well-known\acme-challenge\**">
+    <Content Include="wwwroot\.well-known\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
