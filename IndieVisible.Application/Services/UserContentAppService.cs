@@ -400,7 +400,7 @@ namespace IndieVisible.Application.Services
                     case ImageType.Responsive:
                         return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 0, 0, true);
                     case ImageType.Lquip:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 20);
+                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 10);
                     case ImageType.Full:
                     default:
                         return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
