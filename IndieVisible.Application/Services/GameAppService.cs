@@ -180,7 +180,9 @@ namespace IndieVisible.Application.Services
 
             foreach (GameListItemViewModel item in vms)
             {
-                item.ThumbnailUrl = string.IsNullOrWhiteSpace(item.ThumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(item.ThumbnailUrl.NoExtension()) ? Constants.DefaultGameThumbnail : UrlFormatter.Image(item.UserId, BlobType.GameThumbnail, item.ThumbnailUrl, 278);
+                item.ThumbnailUrl = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageType.Full);
+                item.ThumbnailResponsive = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageType.Responsive);
+                item.ThumbnailLquip = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageType.LowQuality);
                 item.DeveloperImageUrl = UrlFormatter.ProfileImage(item.UserId, 40);
 
                 UserProfile authorProfile = GetCachedProfileByUserId(item.UserId);
@@ -188,6 +190,29 @@ namespace IndieVisible.Application.Services
             }
 
             return vms;
+        }
+
+        private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
+        {
+
+            if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
+            {
+                return Constants.DefaultGameThumbnail;
+            }
+            else
+            {
+
+                switch (imageType)
+                {
+                    case ImageType.LowQuality:
+                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278, 10);
+                    case ImageType.Responsive:
+                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 0, 0, true);
+                    case ImageType.Full:
+                    default:
+                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278);
+                }
+            }
         }
 
         public IEnumerable<SelectListItemVo> GetByUser(Guid userId)

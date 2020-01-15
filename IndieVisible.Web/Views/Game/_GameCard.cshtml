@@ -5,7 +5,7 @@
 
 <div class="box box-game bg-white">
     <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
-        <img class="card-img-top img-fluid" src="@Model.ThumbnailUrl" alt="Card image cap">
+        <img data-sizes="auto" src="@Model.ThumbnailLquip" data-src="@Model.ThumbnailLquip" data-srcset="@Model.ThumbnailResponsive" class="card-img-top img-fluid lazyload blur-up" style="width:100%" alt="@Model.Title" />
     </a>
     <div class="box-body">
         <div class="gamebox-description">

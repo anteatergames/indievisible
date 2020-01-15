@@ -107,7 +107,7 @@ namespace IndieVisible.Application.Services
                 if (vm.FeaturedMediaType != MediaType.Youtube)
                 {
                     vm.FeaturedImage = SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.Full);
-                    vm.FeaturedImageLquip = SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.Lquip);
+                    vm.FeaturedImageLquip = SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.LowQuality);
                 }
 
                 LoadAuthenticatedData(currentUserId, vm);
@@ -294,7 +294,7 @@ namespace IndieVisible.Application.Services
                     {
                         item.FeaturedImage = SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Full);
                         item.FeaturedImageResponsive = SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Responsive);
-                        item.FeaturedImageLquip = SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Lquip);
+                        item.FeaturedImageLquip = SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.LowQuality);
                     }
 
                     item.LikeCount = item.Likes.Count;
@@ -397,10 +397,10 @@ namespace IndieVisible.Application.Services
             {
                 switch (type)
                 {
+                    case ImageType.LowQuality:
+                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 10);
                     case ImageType.Responsive:
                         return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 0, 0, true);
-                    case ImageType.Lquip:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 10);
                     case ImageType.Full:
                     default:
                         return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);

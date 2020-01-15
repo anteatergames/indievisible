@@ -15,6 +15,10 @@ namespace IndieVisible.Application.ViewModels.Game
 
         public string ThumbnailUrl { get; set; }
 
+        public string ThumbnailResponsive { get; set; }
+
+        public string ThumbnailLquip { get; set; }
+
         public string DeveloperImageUrl { get; set; }
 
         public string Title { get; set; }
