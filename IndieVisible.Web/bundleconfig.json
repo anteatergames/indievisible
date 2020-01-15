@@ -27,6 +27,7 @@
   {
     "outputFileName": "wwwroot/js/home/home.min.js",
     "inputFiles": [
+      "wwwroot/lib/dropzone/dropzone.js",
       "wwwroot/js/shared/contentactions.js",
       "wwwroot/js/shared/polls.js",
       "wwwroot/js/shared/activityfeed.js",
