@@ -46,6 +46,8 @@
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
 
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
     <link rel="alternate" href="https://www.indievisible.net/?culture=pt-BR" hreflang="pt-br" />
     <link rel="alternate" href="https://www.indievisible.net/?culture=en" hreflang="en" />
     <link rel="alternate" href="https://www.indievisible.net/?culture=ru" hreflang="ru" />
@@ -279,13 +281,13 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/plugins/blur-up/ls.blur-up.min.js"
                 asp-fallback-src="~/lib/lazysizes/plugins/blur-up/ls.blur-up.min.js"
-                asp-fallback-test="lazySizes"
+                asp-fallback-test="window.lazySizes"
                 integrity="sha256-QQuLtUP+fQZR2citA2XQxKD74+36/G2eEifhN7whb2c="
                 crossorigin="anonymous">
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"
                 asp-fallback-src="~/lib/lazysizes/lazysizes.min.js"
-                asp-fallback-test="lazySizes"
+                asp-fallback-test="window.lazySizes"
                 integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE="
                 crossorigin="anonymous">
         </script>
