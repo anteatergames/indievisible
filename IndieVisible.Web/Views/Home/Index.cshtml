@@ -79,39 +79,39 @@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/home.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/lib/dropzone/min/dropzone.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css"
+              asp-fallback-href="~/lib/dropzone/min/dropzone.min.css"
+              asp-fallback-test-class="dropzone"
+              asp-fallback-test-property="box-sizing"
+              asp-fallback-test-value="border-box"
+              integrity="sha256-e47xOkXs1JXFbjjpoRr1/LhVcqSzRmGmPqsrUQeVs+g=" crossorigin="anonymous">
     </environment>
 }
 
 @section Scripts {
     <environment include="Development">
-        <script src="~/lib/dropzone/dropzone.js"></script>
-        <script src="~/js/shared/contentactions.js"></script>
-        <script src="~/js/shared/polls.js"></script>
-        <script src="~/js/shared/activityfeed.js"></script>
-        <script src="~/js/home/home.js"></script>
+        <script src="~/lib/embedo/embedo.js"defer></script>
+        <script src="~/lib/dropzone/dropzone.js" defer></script>
+        <script src="~/js/shared/contentactions.js" defer></script>
+        <script src="~/js/shared/polls.js" defer></script>
+        <script src="~/js/shared/activityfeed.js" defer></script>
+        <script src="~/js/home/home.js" defer></script>
     </environment>
     <environment exclude="Development">
-        <script src="~/js/home/home.min.js" asp-append-version="true"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/embedo/1.12.0/embedo.min.js"
+                asp-fallback-src="~/lib/embedo/embedo.min.js"
+                asp-fallback-test="window.Embedo"
+                integrity="sha256-LMEyTMVe0/kFslU26YYottuAm+12r5/5ButJGqOdt8Y="
+                crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"
+                asp-fallback-src="~/lib/dropzone/min/dropzone.min.js"
+                asp-fallback-test="window.Dropzone"
+                integrity="sha256-cs4thShDfjkqFGk5s2Lxj35sgSRr4MRcyccmi0WKqCM="
+                crossorigin="anonymous" defer>
+        </script>
+
+        <script src="~/js/home/home.min.js" asp-append-version="true" defer></script>
     </environment>
-
-    <script>
-        Dropzone.autoDiscover = false;
-    </script>
-
-    <script src="~/lib/embedo/embedo.min.js"></script>
-    <script>
-        if (typeof Embedo === 'function') {
-            var embedo = new Embedo({
-                youtube: true,
-                facebook: {
-                    appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK
-                    version: 'v3.2',
-                    width: "100%"
-                }
-            });
-        }
-    </script>
 
     <script type="application/ld+json">
         {

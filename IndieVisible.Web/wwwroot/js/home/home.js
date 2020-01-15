@@ -385,3 +385,16 @@
 $(function () {
     HOMEPAGE.Init();
 });
+
+if (typeof Embedo === 'function') {
+    var embedo = new Embedo({
+        youtube: true,
+        facebook: {
+            appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK
+            version: 'v3.2',
+            width: "100%"
+        }
+    });
+}
+
+Dropzone.autoDiscover = false;

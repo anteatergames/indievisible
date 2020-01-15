@@ -1,5 +1,4 @@
-﻿using ImageMagick;
-using IndieVisible.Application;
+﻿using IndieVisible.Application;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Web.Controllers.Base;
@@ -120,8 +119,6 @@ namespace IndieVisible.Web.Controllers
                     {
                         image.CopyTo(ms);
 
-                        OptimizeImage(ms);
-
                         byte[] fileBytes = ms.ToArray();
 
                         string filename = userId + "_Personal";
@@ -163,8 +160,6 @@ namespace IndieVisible.Web.Controllers
                     using (MemoryStream ms = new MemoryStream())
                     {
                         image.CopyTo(ms);
-
-                        OptimizeImage(ms);
 
                         byte[] fileBytes = ms.ToArray();
 
@@ -224,8 +219,6 @@ namespace IndieVisible.Web.Controllers
                     {
                         image.CopyTo(ms);
 
-                        OptimizeImage(ms);
-
                         byte[] fileBytes = ms.ToArray();
 
                         string extension = GetFileExtension(image);
@@ -282,11 +275,6 @@ namespace IndieVisible.Web.Controllers
                     {
                         upload.CopyTo(ms);
 
-                        if (upload.ContentType.StartsWith("image"))
-                        {
-                            OptimizeImage(ms);
-                        }
-
                         byte[] fileBytes = ms.ToArray();
 
                         string extension = GetFileExtension(upload);
@@ -330,11 +318,6 @@ namespace IndieVisible.Web.Controllers
                     {
                         upload.CopyTo(ms);
 
-                        if (upload.ContentType.StartsWith("image"))
-                        {
-                            OptimizeImage(ms);
-                        }
-
                         byte[] fileBytes = ms.ToArray();
 
                         string extension = GetFileExtension(upload);
@@ -377,11 +360,6 @@ namespace IndieVisible.Web.Controllers
                     using (MemoryStream ms = new MemoryStream())
                     {
                         featuredimage.CopyTo(ms);
-
-                        if (featuredimage.ContentType.StartsWith("image"))
-                        {
-                            OptimizeImage(ms);
-                        }
 
                         byte[] fileBytes = ms.ToArray();
 
@@ -476,14 +454,6 @@ namespace IndieVisible.Web.Controllers
             }
 
             return storageBasePath;
-        }
-
-        private static void OptimizeImage(MemoryStream ms)
-        {
-            ms.Position = 0;
-
-            ImageOptimizer optimizer = new ImageOptimizer();
-            optimizer.LosslessCompress(ms);
         }
 
         #endregion Private Methods
