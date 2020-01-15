@@ -110,8 +110,24 @@
                 crossorigin="anonymous">
         </script>
 
-        <script src="~/js/home/home.min.js" asp-append-version="true" defer></script>
+        <script src="~/js/home/home.min.js" asp-append-version="true"></script>
     </environment>
+
+    <script>
+        Dropzone.autoDiscover = false;
+    </script>
+    <script>
+        if (typeof Embedo === 'function') {
+            var embedo = new Embedo({
+                youtube: true,
+                facebook: {
+                    appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK
+                    version: 'v3.2',
+                    width: "100%"
+                }
+            });
+        }
+    </script>
 
     <script type="application/ld+json">
         {
