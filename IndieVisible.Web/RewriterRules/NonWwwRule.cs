@@ -15,7 +15,7 @@ namespace IndieVisible.Web.RewriterRules
             HostString host = context.HttpContext.Request.Host;
 
 
-            if (host.HasValue && host.Value.ToLower().StartsWith("indievisible.net"))
+            if (host.HasValue && !host.Value.ToLower().StartsWith("staging"))
             {
                 context.Result = RuleResult.ContinueRules;
             }
