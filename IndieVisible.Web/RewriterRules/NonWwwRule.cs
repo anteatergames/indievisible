@@ -17,11 +17,11 @@ namespace IndieVisible.Web.RewriterRules
 
             if (host.HasValue && host.Value.ToLower().StartsWith("indievisible.net"))
             {
-                context.Result = RuleResult.SkipRemainingRules;
+                context.Result = RuleResult.ContinueRules;
             }
             else
             {
-                context.Result = RuleResult.ContinueRules;
+                context.Result = RuleResult.SkipRemainingRules;
             }
         }
     }
