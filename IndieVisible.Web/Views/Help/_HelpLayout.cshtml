@@ -1,6 +1,9 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = ViewData["Title"] ?? SharedLocalizer["help"].Value.ToUpper();
 }
+
+<h1 class="sr-only">@title</h1>
 
 <div class="row">
     <h2 class="text-capitalize">@ViewData["Title"]</h2>
