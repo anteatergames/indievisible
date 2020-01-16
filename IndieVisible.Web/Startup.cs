@@ -203,6 +203,7 @@ namespace IndieVisible.Web
             }
 
             app.UseHttpsRedirection();
+            app.UseHsts();
 
             FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
