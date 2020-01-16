@@ -5,6 +5,7 @@ using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.IoC;
 using IndieVisible.Infra.Data.MongoDb;
 using IndieVisible.Web.Extensions;
+using IndieVisible.Web.RewriterRules;
 using IndieVisible.Web.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OAuth;
@@ -231,9 +232,12 @@ namespace IndieVisible.Web
 
             //app.UseSitemapMiddleware();
 
-            app.UseRewriter(new RewriteOptions()
-               .AddRedirectToHttps()
-            );
+            var rewriteOptions = new RewriteOptions()
+                .AddRedirectToHttps()
+                .Add(new NonWwwRule())
+                .AddRedirectToWwwPermanent();
+
+            app.UseRewriter(rewriteOptions);
 
             app.UseMvc(routes =>
             {
