@@ -14,6 +14,7 @@ namespace IndieVisible.Web.RewriterRules
             HttpRequest request = context.HttpContext.Request;
             HostString host = context.HttpContext.Request.Host;
 
+
             if (host.HasValue && host.Value.ToLower().StartsWith("indievisible.net"))
             {
                 context.Result = RuleResult.SkipRemainingRules;
