@@ -44,7 +44,7 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
                 {
                     obj.Name = profile.Name;
                     obj.ProfileImageUrl = UrlFormatter.ProfileImage(obj.UserId);
-                    obj.CoverImageUrl = UrlFormatter.ProfileCoverImage(obj.UserId, obj.Id, profile.LastUpdateDate, profile.HasCoverImage);
+                    obj.CoverImageUrl = UrlFormatter.ProfileCoverImage(obj.UserId, profile.Id, profile.LastUpdateDate, profile.HasCoverImage);
                 }
             }
 
