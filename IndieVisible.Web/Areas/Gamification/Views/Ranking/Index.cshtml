@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<IndieVisible.Application.ViewModels.Gamification.RankingViewModel>
 
 @{
-    ViewData["Title"] = "Ranking";
+    ViewData["Title"] = SharedLocalizer["Ranking"];
+    ViewData["Description"] = SharedLocalizer["Climb the INDIEVISIBLE ranks."];
 }
+
+<h1 class="sr-only">@ViewData["Title"]</h1>
 
 <div class="row">
     <div class="col-12 mx-1">

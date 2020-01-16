@@ -1,6 +1,7 @@
 ﻿@model IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel
 @{
-    ViewData["Title"] = SharedLocalizer["Brainstorm"];
+    ViewData["Title"] = SharedLocalizer["Brainstorm"];    
+    ViewData["Description"] = SharedLocalizer["Manage your ideas and collect ideas from other fellow developers."];
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
 

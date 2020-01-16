@@ -4,6 +4,8 @@
     ViewData["Title"] = "Registered Users";
 }
 
+<h1 class="sr-only">@ViewData["Title"]</h1>
+
 <div class="row mx-1">
     <div class="col-12 mx-1">
         <h2>@SharedLocalizer["We have {0} users", Model.Count()]</h2>

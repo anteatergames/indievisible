@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = SharedLocalizer["Teams"];
+    ViewData["Description"] = SharedLocalizer["Join and manage teams."];
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
 }
@@ -27,6 +28,8 @@
 
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<h1 class="sr-only">@ViewData["Title"]</h1>
 
 <div id="teamcontainer" class="col-12">
     <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
