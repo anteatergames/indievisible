@@ -33,7 +33,7 @@
             }
             else
             {
-                <img data-src="@Model.FeaturedImage" src="@Model.FeaturedImageLquip" class="img-fluid lazyload blur-up" style="width:100%" alt="@Model.Title" />
+                <img data-src="@Model.FeaturedImage" src="@Model.FeaturedImageLquip" class="img-fluid lazyload blur-up" style="width:100%" alt="@(String.IsNullOrWhiteSpace(Model.Title) ? SharedLocalizer["User Content"] : Model.Title)" />
             }
         </div>
     }

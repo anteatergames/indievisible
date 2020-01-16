@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     var title = ViewData["Title"] ?? SharedLocalizer["help"].Value.ToUpper();
+    ViewData["Description"] = String.Format("{0} - {1}", title, SharedLocalizer["Get help on how INDIEVISIBLE works. Learn how to interact with other users and how to use the platform."]);
 }
 
 <h1 class="sr-only">@title</h1>
