@@ -92,15 +92,6 @@ namespace IndieVisible.Application.Services
 
                 UserContentViewModel vm = mapper.Map<UserContentViewModel>(model);
 
-                bool isYoutube = false;
-
-                if (!string.IsNullOrWhiteSpace(vm.FeaturedImage))
-                {
-                    string youtubePattern = @"(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+";
-
-                    isYoutube = Regex.IsMatch(vm.FeaturedImage, youtubePattern);
-                }
-
                 vm.HasFeaturedImage = !string.IsNullOrWhiteSpace(vm.FeaturedImage) && !vm.FeaturedImage.Contains(Constants.DefaultFeaturedImage);
 
                 vm.FeaturedMediaType = GetMediaType(vm.FeaturedImage);
@@ -444,8 +435,10 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo<int>(newCount);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string msg = $"Unable Unlike the content.";
+                logger.Log(LogLevel.Error, ex, msg);
                 throw;
             }
         }

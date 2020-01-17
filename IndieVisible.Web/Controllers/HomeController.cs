@@ -83,6 +83,12 @@ namespace IndieVisible.Web.Controllers
             return View(model);
         }
 
+        [Route("/errortest")]
+        public IActionResult ErrorTest()
+        {
+            throw new Exception("meh");
+        }
+
         private void SetLanguage()
         {
             PostFromHomeViewModel postModel = new PostFromHomeViewModel();

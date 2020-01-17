@@ -30,6 +30,12 @@
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
 
+
+    @if (ViewData["CanonicalUrl"] != null)
+    {
+        <link rel="canonical" href="@ViewData["CanonicalUrl"]" />
+    }
+
     <meta property="og:type" content="website" />
     <meta property="fb:app_id" content="@ConfigOptions.Value.FacebookAppId" />
 

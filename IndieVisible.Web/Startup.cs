@@ -5,6 +5,7 @@ using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.IoC;
 using IndieVisible.Infra.Data.MongoDb;
 using IndieVisible.Web.Extensions;
+using IndieVisible.Web.Middlewares;
 using IndieVisible.Web.RewriterRules;
 using IndieVisible.Web.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -219,8 +220,6 @@ namespace IndieVisible.Web
                 }
             });
 
-            //app.UseETagger();
-
             IOptions<RequestLocalizationOptions> options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
 
@@ -230,14 +229,15 @@ namespace IndieVisible.Web
 
             app.UseSession();
 
-            //app.UseSitemapMiddleware();
-
             var rewriteOptions = new RewriteOptions()
                 .AddRedirectToHttps()
                 .Add(new NonWwwRule())
                 .AddRedirectToWwwPermanent();
 
             app.UseRewriter(rewriteOptions);
+
+            //app.UseETagger();
+            app.UseSitemapMiddleware();
 
             app.UseMvc(routes =>
             {

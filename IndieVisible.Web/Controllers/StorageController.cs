@@ -66,11 +66,9 @@ namespace IndieVisible.Web.Controllers
 
                 storageBasePath = FormatBasePath(type, userId, baseUrl);
 
-                string url = storageBasePath + name;
-
                 string fileName = String.Format("profileimage_{0}_Personal", userId);
 
-                url = UrlFormatter.CdnCommon(userId, fileName);
+                var url = UrlFormatter.CdnCommon(userId, fileName);
 
                 if (!string.IsNullOrWhiteSpace(v))
                 {
@@ -99,7 +97,7 @@ namespace IndieVisible.Web.Controllers
                 string msg = $"Unable to save get the Image.";
                 logger.Log(LogLevel.Error, ex, msg);
 
-                return ReturnDefaultImage(type, userId);
+                return ReturnDefaultImage(type);
             }
         }
 
@@ -408,7 +406,7 @@ namespace IndieVisible.Web.Controllers
 
         #region Private Methods
 
-        private IActionResult ReturnDefaultImage(BlobType type, Guid userId)
+        private IActionResult ReturnDefaultImage(BlobType type)
         {
             string defaultImageNotRooted = UrlFormatter.GetDefaultImage(type);
 

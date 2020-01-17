@@ -1,8 +1,6 @@
 ﻿using IndieVisible.Application.Formatters;
 using IndieVisible.Domain.Core.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Application.Helpers
 {

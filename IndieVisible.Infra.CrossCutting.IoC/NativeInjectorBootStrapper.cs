@@ -109,10 +109,9 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #endregion Team
 
-            // Infra - Identity Services
+            // Infra
             services.AddTransient<IEmailSender, SendGridEmailService>();
 
-            //services.AddTransient<IImageStorageService, AzureCloudStorageService>();
             services.AddTransient<IImageStorageService, CloudinaryService>();
 
             services.AddScoped<IMongoContext, MongoContext>();

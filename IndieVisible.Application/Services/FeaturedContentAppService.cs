@@ -163,8 +163,8 @@ namespace IndieVisible.Application.Services
                     var imageSplit = vm.ImageUrl.Split("/");
                     var userId = vm.OriginalUserId == Guid.Empty ? vm.UserId : vm.OriginalUserId;
 
-                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(vm.UserId, imageSplit.Last(), ImageType.Full);
-                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(vm.UserId, imageSplit.Last(), ImageType.LowQuality);
+                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(userId, imageSplit.Last(), ImageType.Full);
+                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(userId, imageSplit.Last(), ImageType.LowQuality);
                 }
 
                 return model;
