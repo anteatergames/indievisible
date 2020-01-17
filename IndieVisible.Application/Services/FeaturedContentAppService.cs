@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
+using IndieVisible.Application.Helpers;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
@@ -161,7 +162,9 @@ namespace IndieVisible.Application.Services
                 {
                     var imageSplit = vm.ImageUrl.Split("/");
                     var userId = vm.OriginalUserId == Guid.Empty ? vm.UserId : vm.OriginalUserId;
-                    vm.FeaturedImage = UrlFormatter.Image(userId, BlobType.FeaturedImage, imageSplit.Last(), 632);
+
+                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(vm.UserId, imageSplit.Last(), ImageType.Full);
+                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(vm.UserId, imageSplit.Last(), ImageType.LowQuality);
                 }
 
                 return model;

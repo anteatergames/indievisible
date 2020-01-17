@@ -16,6 +16,8 @@ namespace IndieVisible.Application.ViewModels.FeaturedContent
 
         public string FeaturedImage { get; set; }
 
+        public string FeaturedImageLquip { get; set; }
+
         public DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }

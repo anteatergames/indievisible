@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
+using IndieVisible.Application.Helpers;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Content;
@@ -106,8 +107,8 @@ namespace IndieVisible.Application.Services
 
                 if (vm.FeaturedMediaType != MediaType.Youtube)
                 {
-                    vm.FeaturedImage = SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.Full);
-                    vm.FeaturedImageLquip = SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.LowQuality);
+                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.Full);
+                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.LowQuality);
                 }
 
                 LoadAuthenticatedData(currentUserId, vm);
@@ -292,9 +293,9 @@ namespace IndieVisible.Application.Services
 
                     if (item.FeaturedMediaType != MediaType.Youtube)
                     {
-                        item.FeaturedImage = SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Full);
-                        item.FeaturedImageResponsive = SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Responsive);
-                        item.FeaturedImageLquip = SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.LowQuality);
+                        item.FeaturedImage = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Full);
+                        item.FeaturedImageResponsive = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Responsive);
+                        item.FeaturedImageLquip = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.LowQuality);
                     }
 
                     item.LikeCount = item.Likes.Count;
@@ -383,27 +384,6 @@ namespace IndieVisible.Application.Services
 
                     comment.AuthorPicture = UrlFormatter.ProfileImage(comment.UserId);
                     comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? Constants.SoundOfSilence : comment.Text;
-                }
-            }
-        }
-
-        private static string SetFeaturedImage(Guid userId, string featuredImage, ImageType type)
-        {
-            if (string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage))
-            {
-                return Constants.DefaultFeaturedImage;
-            }
-            else
-            {
-                switch (type)
-                {
-                    case ImageType.LowQuality:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 10);
-                    case ImageType.Responsive:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 0, 0, true);
-                    case ImageType.Full:
-                    default:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
                 }
             }
         }
