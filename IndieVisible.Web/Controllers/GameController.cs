@@ -75,8 +75,6 @@ namespace IndieVisible.Web.Controllers
 
             ViewBag.Games = latest;
             ViewData["Genre"] = genre;
-            ViewData["Title"] = genre == 0 ? SharedLocalizer["Games"] : SharedLocalizer[genre.ToString() + " Games"];
-            ViewData["Description"] = SharedLocalizer["Check awesome " + genre.ToString() + " Games"];
 
             return View();
         }
