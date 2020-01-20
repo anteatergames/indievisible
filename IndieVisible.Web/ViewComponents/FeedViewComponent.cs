@@ -112,6 +112,7 @@ namespace IndieVisible.Web.ViewComponents
 
             item.Content = String.Format(postTemplate, translatedText, name, motto);
             item.Url = Url.Action("Details", "Team", new { teamId = id });
+            item.Language = SupportedLanguage.English;
         }
     }
 }

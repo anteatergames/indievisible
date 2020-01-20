@@ -140,7 +140,7 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="row no-gutters bb-1">
+                <div class="row no-gutters bb-1 mt-3">
                     <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-like @(item.CurrentUserLiked ? "text-blue like-liked" : string.Empty)" data-id="@item.Id">
                         <i class="fa fa-thumbs-up" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Like"]
                     </button>
