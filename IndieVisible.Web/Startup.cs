@@ -86,7 +86,7 @@ namespace IndieVisible.Web
                         {
                             ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
                             string profileImg = context.User["picture"]["data"].Value<string>("url");
-                            identity.AddClaim(new Claim("fbprofilepicture", profileImg));
+                            identity.AddClaim(new Claim("urn:facebook:picture", profileImg));
                             return Task.CompletedTask;
                         }
                     };
@@ -95,6 +95,16 @@ namespace IndieVisible.Web
                 {
                     googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
                     googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                    googleOptions.Events = new OAuthEvents
+                    {
+                        OnCreatingTicket = context =>
+                        {
+                            var identity = (ClaimsIdentity)context.Principal.Identity;
+                            string profileImg = ((Newtonsoft.Json.Linq.JValue)context.User["picture"]).Value.ToString();
+                            identity.AddClaim(new Claim("urn:google:picture", profileImg));
+                            return Task.FromResult(0);
+                        }
+                    };
                 })
                 .AddMicrosoftAccount(microsoftOptions =>
                 {

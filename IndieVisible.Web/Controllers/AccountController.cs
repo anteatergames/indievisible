@@ -430,7 +430,7 @@ namespace IndieVisible.Web.Controllers
 
                     profile.Name = info.Principal.FindFirstValue(ClaimTypes.Name);
 
-                    await SetProfileImage(info, user, profile);
+                    await SetExternalProfilePicture(info, user, profile);
 
                     profileAppService.Save(CurrentUserId, profile);
 
@@ -640,33 +640,42 @@ namespace IndieVisible.Web.Controllers
             }
         }
 
-        private async Task SetProfileImage(ExternalLoginInfo info, ApplicationUser user, ProfileViewModel profile)
-        {
-            if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl.Equals(Constants.DefaultAvatar))
-            {
-                string imageFileName = await GetExternalProfilePicture(info, user);
-
-                profile.ProfileImageUrl = imageFileName.Equals(Constants.DefaultAvatar) ? imageFileName : Constants.DefaultImagePath + imageFileName;
-            }
-        }
-
-        private async Task<string> GetExternalProfilePicture(ExternalLoginInfo info, ApplicationUser user)
+        private async Task SetExternalProfilePicture(ExternalLoginInfo info, ApplicationUser user, ProfileViewModel profile)
         {
             string imageUrl = Constants.DefaultAvatar;
-
-            byte[] thumbnailBytes = null;
-            if (info.LoginProvider == "Facebook")
+            if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl.Equals(Constants.DefaultAvatar))
             {
-                string nameIdentifier = info.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
-                string thumbnailUrl = $"https://graph.facebook.com/{nameIdentifier}/picture?type=large";
-
-                using (HttpClient httpClient = new HttpClient())
+                if (info.LoginProvider == "Facebook")
                 {
-                    string filename = user.Id + "_" + ProfileType.Personal.ToString();
-                    thumbnailBytes = await httpClient.GetByteArrayAsync(thumbnailUrl);
+                    string nameIdentifier = info.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+                    string pictureUrl = $"https://graph.facebook.com/{nameIdentifier}/picture?type=large";
 
-                    imageUrl = base.UploadImage(new Guid(user.Id), BlobType.ProfileImage, filename, thumbnailBytes);
+                    imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
                 }
+                else if (info.LoginProvider == "Google")
+                {
+                    if (info.Principal.HasClaim(x => x.Type == "urn:google:picture"))
+                    {
+                        var pictureUrl = info.Principal.FindFirstValue("urn:google:picture");
+                        imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
+                    }
+                }
+            }
+
+            profile.ProfileImageUrl = imageUrl.Equals(Constants.DefaultAvatar) ? imageUrl : Constants.DefaultImagePath + imageUrl;
+        }
+
+        private async Task<string> UploadProfilePicture(string userId, string pictureUrl)
+        {
+            string imageUrl = Constants.DefaultAvatar;
+            byte[] thumbnailBytes = null;
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                string filename = userId + "_" + ProfileType.Personal.ToString();
+                thumbnailBytes = await httpClient.GetByteArrayAsync(pictureUrl);
+
+                imageUrl = base.UploadImage(new Guid(userId), BlobType.ProfileImage, filename, thumbnailBytes);
             }
 
             return imageUrl;
