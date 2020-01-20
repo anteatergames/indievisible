@@ -47,6 +47,9 @@ namespace IndieVisible.Domain.Core.Enums
         GooglePlayStore = 14,
 
         [ExternalLinkInfo(Display = "Apple App Store", Class = "fab fa-apple", ColorClass = "btn-appleappstore", Type = ExternalLinkType.General, IsStore = true)]
-        AppleAppStore = 15
+        AppleAppStore = 15,
+
+        [ExternalLinkInfo(Display = "Indiexpo", Class = "fas fa-gamepad", ColorClass = "bg-black-active", Type = ExternalLinkType.General, IsStore = true)]
+        IndiExpo = 16
     }
 }

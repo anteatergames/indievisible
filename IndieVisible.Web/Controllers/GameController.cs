@@ -363,6 +363,10 @@ namespace IndieVisible.Web.Controllers
                     case ExternalLinkProvider.AppleAppStore:
                         item.Value = UrlFormatter.AppleAppStoreGame(item.Value);
                         break;
+
+                    case ExternalLinkProvider.IndiExpo:
+                        item.Value = UrlFormatter.IndiExpoGame(item.Value);
+                        break;
                 }
             }
         }

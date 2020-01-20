@@ -309,6 +309,20 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
+        internal static string IndiExpoProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("indiexpo.net"))
+            {
+                handler = ExternalUrlCommon(handler);
+                return String.Format("https://www.indiexpo.net/users/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
         #endregion Profiles
 
         public static string Website(string handler)
@@ -523,6 +537,19 @@ namespace IndieVisible.Application.Formatters
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("store.playstation.com"))
             {
                 return String.Format("https://store.playstation.com/en-us/product/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string IndiExpoGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("indiexpo.net"))
+            {
+                return String.Format("https://www.indiexpo.net/games/{0}", handler);
             }
             else
             {

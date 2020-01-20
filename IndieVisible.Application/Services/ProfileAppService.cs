@@ -663,6 +663,10 @@ namespace IndieVisible.Application.Services
                     case ExternalLinkProvider.AppleAppStore:
                         item.Value = UrlFormatter.AppleAppStoreProfile(item.Value);
                         break;
+
+                    case ExternalLinkProvider.IndiExpo:
+                        item.Value = UrlFormatter.IndiExpoProfile(item.Value);
+                        break;
                 }
             }
         }
