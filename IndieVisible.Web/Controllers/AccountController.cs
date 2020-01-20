@@ -352,6 +352,7 @@ namespace IndieVisible.Web.Controllers
 
                 return RedirectToLocal(returnUrl);
             }
+
             if (result.IsLockedOut)
             {
                 return RedirectToAction(nameof(Lockout));
