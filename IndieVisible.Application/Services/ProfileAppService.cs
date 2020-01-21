@@ -10,6 +10,7 @@ using IndieVisible.Domain.Core.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.Specifications;
 using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
@@ -143,8 +144,6 @@ namespace IndieVisible.Application.Services
                 UserProfile existing = profileDomainService.GetById(viewModel.Id);
                 if (existing != null)
                 {
-                    SetFollowers(currentUserId, existing);
-
                     model = mapper.Map(viewModel, existing);
                 }
                 else
@@ -308,7 +307,7 @@ namespace IndieVisible.Application.Services
                     FollowUserId = userId
                 };
 
-                ISpecification<UserFollow> spec = new IdNotEmptySpecification()
+                ISpecification<UserFollow> spec = new IdNotEmptySpecification<UserFollow>()
                     .And(new UserNotTheSameSpecification(userId));
 
                 if (!spec.IsSatisfiedBy(model))
@@ -520,20 +519,6 @@ namespace IndieVisible.Application.Services
         }
 
         #endregion UserConnection
-
-        private static void SetFollowers(Guid currentUserId, UserProfile existing)
-        {
-            if (existing.Followers != null)
-            {
-                foreach (UserFollow follower in existing.Followers)
-                {
-                    if (follower.FollowUserId.HasValue && follower.FollowUserId != Guid.Empty && follower.UserId == currentUserId)
-                    {
-                        follower.UserId = follower.FollowUserId.Value;
-                    }
-                }
-            }
-        }
 
         private void SetImages(ProfileViewModel vm, bool hasCoverImage)
         {

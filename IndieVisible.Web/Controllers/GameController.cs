@@ -10,6 +10,7 @@ using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -96,6 +97,7 @@ namespace IndieVisible.Web.Controllers
             return View("CreateEdit", vm);
         }
 
+        [Authorize]
         public IActionResult Edit(Guid id)
         {
             OperationResultVo<GameViewModel> serviceResult = gameAppService.GetById(CurrentUserId, id);
@@ -112,6 +114,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Save(GameViewModel vm, IFormFile thumbnail)
         {
             try
@@ -121,9 +124,16 @@ namespace IndieVisible.Web.Controllers
 
                 OperationResultVo<Guid> saveResult = gameAppService.Save(CurrentUserId, vm);
 
-                string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString(), pointsEarned = saveResult.PointsEarned });
+                if (!saveResult.Success)
+                {
+                    return Json(saveResult);
+                }
+                else
+                {
+                    string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString(), pointsEarned = saveResult.PointsEarned });
 
-                return Json(new OperationResultRedirectVo(url));
+                    return Json(new OperationResultRedirectVo(url));
+                }
             }
             catch (Exception ex)
             {

@@ -49,7 +49,6 @@ namespace IndieVisible.Application.AutoMapper
             #region Profile
 
             CreateMap<ProfileViewModel, Domain.Models.UserProfile>()
-                .ForMember(dest => dest.ExternalLinks, opt => opt.Ignore())
                 .ForMember(dest => dest.Followers, opt => opt.Ignore())
                 .AfterMap<AddOrUpdateProfileExternalLinks>();
 
