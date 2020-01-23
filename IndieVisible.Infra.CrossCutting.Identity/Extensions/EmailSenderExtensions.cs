@@ -17,7 +17,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
                 ByeText = "And welcome to YOUR community."
             };
 
-            return emailSender.SendEmailAsync(email, "d-0be6280da017483fb8f759ec3d3c8797", request);
+            return emailSender.SendEmailAsync(email, "d-186b082218114c889a72a197c6ec2fa3", request);
         }
 
         public static Task SendEmailPasswordResetAsync(this IEmailSender emailSender, string email, string link)
@@ -29,7 +29,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
                 TextAfterAction = "Do not share your password with anyone."
             };
 
-            return emailSender.SendEmailAsync(email, "d-a440f7da0dc04eca98ee514b100ccde7", request);
+            return emailSender.SendEmailAsync(email, "d-d0224f347d57420bb39a025787b6443a", request);
         }
 
         public class EmailSendRequest
