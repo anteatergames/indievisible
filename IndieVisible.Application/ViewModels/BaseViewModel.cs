@@ -1,9 +1,10 @@
-﻿using IndieVisible.Domain.ValueObjects;
+﻿using IndieVisible.Domain.Core.Interfaces;
+using IndieVisible.Domain.ValueObjects;
 using System;
 
 namespace IndieVisible.Application.ViewModels
 {
-    public abstract class BaseViewModel
+    public abstract class BaseViewModel : IEntity
     {
         public Guid Id { get; set; }
 

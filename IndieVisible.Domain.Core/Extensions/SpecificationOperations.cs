@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Interfaces;
 using System;
+using System.Text;
 
 namespace IndieVisible.Domain.Core.Extensions
 {
@@ -8,7 +9,31 @@ namespace IndieVisible.Domain.Core.Extensions
         public ISpecification<T> Left { get; set; }
         public ISpecification<T> Right { get; set; }
 
-        public string ErrorMessage => String.Format("{0}|{1}", Left.ErrorMessage, Right.ErrorMessage);
+        public string ErrorMessage
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                if (!Left.IsSatisfied)
+                {
+                    sb.Append(Left.ErrorMessage);
+                }
+
+                if (!Right.IsSatisfied)
+                {
+                    if (sb.Length > 0)
+                    {
+                        sb.Append("|");
+                    }
+
+                    sb.Append(Right.ErrorMessage);
+                }
+
+                return sb.ToString();
+            }
+        }
+
+        public bool IsSatisfied { get; private set; }
 
         public AndSpecification(ISpecification<T> left, ISpecification<T> right)
         {
@@ -16,7 +41,12 @@ namespace IndieVisible.Domain.Core.Extensions
             Right = right;
         }
 
-        public bool IsSatisfiedBy(T item) => Left.IsSatisfiedBy(item) && Right.IsSatisfiedBy(item);
+        public bool IsSatisfiedBy(T item)
+        {
+            IsSatisfied = Left.IsSatisfiedBy(item) && Right.IsSatisfiedBy(item);
+
+            return IsSatisfied;
+        }
     }
 
     public class OrSpecification<T> : ISpecification<T>
@@ -32,7 +62,14 @@ namespace IndieVisible.Domain.Core.Extensions
 
         public string ErrorMessage => String.Format("{0}|{1}", Left.ErrorMessage, Right.ErrorMessage);
 
-        public bool IsSatisfiedBy(T item) => Left.IsSatisfiedBy(item) || Right.IsSatisfiedBy(item);
+        public bool IsSatisfied { get; private set; }
+
+        public bool IsSatisfiedBy(T item)
+        {
+            IsSatisfied = Left.IsSatisfiedBy(item) || Right.IsSatisfiedBy(item);
+
+            return IsSatisfied;
+        }
     }
 
     public class NotSpecification<T> : ISpecification<T>
@@ -45,7 +82,13 @@ namespace IndieVisible.Domain.Core.Extensions
         }
 
         public string ErrorMessage => Specification.ErrorMessage;
+        public bool IsSatisfied { get; private set; }
 
-        public bool IsSatisfiedBy(T item) => !Specification.IsSatisfiedBy(item);
+        public bool IsSatisfiedBy(T item)
+        {
+            IsSatisfied = !Specification.IsSatisfiedBy(item);
+
+            return IsSatisfied;
+        }
     }
 }

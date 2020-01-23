@@ -5,9 +5,12 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.Core.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.Specifications;
+using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using System;
@@ -102,6 +105,15 @@ namespace IndieVisible.Application.Services
                 Game game;
                 Team newTeam = null;
                 bool createTeam = viewModel.TeamId == Guid.Empty;
+
+
+                ISpecification<GameViewModel> spec = new UserMustBeAuthenticatedSpecification<GameViewModel>(currentUserId)
+                    .And(new UserIsOwnerSpecification<GameViewModel>(currentUserId));
+
+                if (!spec.IsSatisfiedBy(viewModel))
+                {
+                    return new OperationResultVo<Guid>(spec.ErrorMessage);
+                }
 
                 if (createTeam)
                 {

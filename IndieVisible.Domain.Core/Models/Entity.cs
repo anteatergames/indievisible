@@ -1,10 +1,11 @@
-﻿using System;
+﻿using IndieVisible.Domain.Core.Interfaces;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IndieVisible.Domain.Core.Models
 {
-    public class Entity
+    public class Entity : IEntity
     {
         [Key, Column(Order = 0)]
         public Guid Id { get; set; }
