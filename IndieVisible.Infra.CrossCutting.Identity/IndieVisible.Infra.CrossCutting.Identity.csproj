@@ -21,11 +21,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="[2.1.6,2.2)" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.1.6" />
-    <PackageReference Include="Sendgrid" Version="9.12.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\IndieVisible.Domain\IndieVisible.Domain.csproj" />
+    <ProjectReference Include="..\IndieVisible.Infra.CrossCutting.Abstractions\IndieVisible.Infra.CrossCutting.Abstractions.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj" />
   </ItemGroup>
 

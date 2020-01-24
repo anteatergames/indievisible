@@ -6,6 +6,7 @@ using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Infra.CrossCutting.Abstractions;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Services;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -21,6 +23,10 @@ namespace IndieVisible.Web.Controllers.Base
 {
     public class SecureBaseController : BaseController
     {
+
+        private INotificationSender notificationSender;
+        public INotificationSender NotificationSender => notificationSender ?? (notificationSender = HttpContext?.RequestServices.GetService<INotificationSender>());
+
         private UserManager<ApplicationUser> _userManager;
         public UserManager<ApplicationUser> UserManager => _userManager ?? (_userManager = HttpContext?.RequestServices.GetService<UserManager<ApplicationUser>>());
 

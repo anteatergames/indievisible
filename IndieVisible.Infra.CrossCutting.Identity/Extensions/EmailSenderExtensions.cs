@@ -1,3 +1,4 @@
+using IndieVisible.Infra.CrossCutting.Abstractions;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
@@ -5,7 +6,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
 {
     public static class EmailSenderExtensions
     {
-        public static Task SendEmailConfirmationAsync(this IEmailSender emailSender, string email, string link)
+        public static Task SendEmailConfirmationAsync(this INotificationSender notificationSender, string email, string link)
         {
             EmailSendRequest request = new EmailSendRequest
             {
@@ -17,10 +18,10 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
                 ByeText = "And welcome to YOUR community."
             };
 
-            return emailSender.SendEmailAsync(email, "d-186b082218114c889a72a197c6ec2fa3", request);
+            return notificationSender.SendEmailAsync(email, "d-186b082218114c889a72a197c6ec2fa3", request);
         }
 
-        public static Task SendEmailPasswordResetAsync(this IEmailSender emailSender, string email, string link)
+        public static Task SendEmailPasswordResetAsync(this INotificationSender notificationSender, string email, string link)
         {
             EmailSendRequest request = new EmailSendRequest
             {
@@ -29,7 +30,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
                 TextAfterAction = "Do not share your password with anyone."
             };
 
-            return emailSender.SendEmailAsync(email, "d-d0224f347d57420bb39a025787b6443a", request);
+            return notificationSender.SendEmailAsync(email, "d-d0224f347d57420bb39a025787b6443a", request);
         }
 
         public class EmailSendRequest

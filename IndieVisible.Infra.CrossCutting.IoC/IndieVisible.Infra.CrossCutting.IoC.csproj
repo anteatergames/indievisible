@@ -15,7 +15,9 @@
   <ItemGroup>
     <ProjectReference Include="..\IndieVisible.Application\IndieVisible.Application.csproj" />
     <ProjectReference Include="..\IndieVisible.Domain\IndieVisible.Domain.csproj" />
+    <ProjectReference Include="..\IndieVisible.Infra.CrossCutting.Abstractions\IndieVisible.Infra.CrossCutting.Abstractions.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.CrossCutting.Identity\IndieVisible.Infra.CrossCutting.Identity.csproj" />
+    <ProjectReference Include="..\IndieVisible.Infra.CrossCutting.Notifications\IndieVisible.Infra.CrossCutting.Notifications.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.Data.Cache\IndieVisible.Infra.Data.Cache.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.Data.MongoDb\IndieVisible.Infra.Data.MongoDb.csproj" />
     <ProjectReference Include="..\IndieVisible.Infra.Data\IndieVisible.Infra.Data.csproj" />

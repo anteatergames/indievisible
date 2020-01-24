@@ -36,7 +36,6 @@ namespace IndieVisible.Web.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IProfileAppService profileAppService;
-        private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
         private readonly IUserPreferencesAppService userPreferencesAppService;
@@ -47,7 +46,6 @@ namespace IndieVisible.Web.Controllers
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IProfileAppService profileAppService,
-            IEmailSender emailSender,
             ILogger<AccountController> logger,
             IUserPreferencesAppService userPreferencesAppService,
             IHostingEnvironment hostingEnvironment) : base()
@@ -55,7 +53,6 @@ namespace IndieVisible.Web.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             this.profileAppService = profileAppService;
-            _emailSender = emailSender;
             _logger = logger;
             this.userPreferencesAppService = userPreferencesAppService;
             this.hostingEnvironment = hostingEnvironment;
@@ -102,7 +99,13 @@ namespace IndieVisible.Web.Controllers
 
                     SetCache(user);
 
-                    _logger.LogInformation("User logged in.");
+
+                    var logMessage = String.Format("User {0} logged in.", model.UserName);
+
+                    await NotificationSender.SendTeamNotificationAsync(logMessage);
+
+                    _logger.LogInformation(logMessage);
+
                     return RedirectToLocal(returnUrl);
                 }
 
@@ -280,14 +283,19 @@ namespace IndieVisible.Web.Controllers
 
                     SetPreferences(user);
 
-                    _logger.LogInformation("User created a new account with password.");
+
+                    var logMessage = String.Format("User {0} created a new account with password.", model.UserName);
+
+                    await NotificationSender.SendTeamNotificationAsync(logMessage);
+
+                    _logger.LogInformation(logMessage);
 
                     string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     string callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+                    await NotificationSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("User logged in with password.");
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
@@ -336,13 +344,19 @@ namespace IndieVisible.Web.Controllers
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (result.Succeeded)
             {
-                _logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
 
                 string email = info.Principal.FindFirstValue(ClaimTypes.Email);
                 ApplicationUser existingUser = await _userManager.FindByEmailAsync(email);
 
                 if (existingUser != null)
                 {
+
+                    var logMessage = String.Format("User {0} logged in with {1} provider.", existingUser.UserName, info.LoginProvider);
+
+                    await NotificationSender.SendTeamNotificationAsync(logMessage);
+
+                    _logger.LogInformation(logMessage);
+
                     SetProfileOnSession(new Guid(existingUser.Id), existingUser.UserName);
 
                     await SetStaffRoles(existingUser);
@@ -439,7 +453,15 @@ namespace IndieVisible.Web.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
-                    _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
+                    var logMessage = String.Format("User {0} linked a {1} account.", user.UserName, info.LoginProvider);
+                    if (existingUser == null)
+                    {
+                        logMessage = String.Format("User {0} registered with a {1} account.", user.UserName, info.LoginProvider);
+                    }
+
+                    await NotificationSender.SendTeamNotificationAsync(logMessage);
+
+                    _logger.LogInformation(logMessage);
 
                     return RedirectToLocal(returnUrl);
                 }
@@ -495,7 +517,7 @@ namespace IndieVisible.Web.Controllers
                 string code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 string callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
 
-                await _emailSender.SendEmailPasswordResetAsync(model.Email, callbackUrl);
+                await NotificationSender.SendEmailPasswordResetAsync(model.Email, callbackUrl);
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
             }
 
@@ -613,11 +635,23 @@ namespace IndieVisible.Web.Controllers
         // HACK replace by default admin user
         private async Task SetStaffRoles(ApplicationUser user)
         {
-            await _userManager.AddToRoleAsync(user, Roles.Member.ToString());
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var userIsMember = userRoles.Contains(Roles.Member.ToString());
+
+            if (!userIsMember)
+            {
+                await _userManager.AddToRoleAsync(user, Roles.Member.ToString());
+            }
 
             if (user.UserName.Equals("programad") || user.UserName.Equals("cadko"))
             {
-                await _userManager.AddToRoleAsync(user, Roles.Administrator.ToString());
+                var userIsAdmin = userRoles.Contains(Roles.Administrator.ToString());
+
+                if (!userIsAdmin)
+                {
+                    await _userManager.AddToRoleAsync(user, Roles.Administrator.ToString());
+                }
             }
         }
 
