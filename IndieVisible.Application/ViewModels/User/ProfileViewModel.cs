@@ -67,17 +67,17 @@ namespace IndieVisible.Application.ViewModels.User
 
     public class IndieXpCounter
     {
-        public int Level { get; set; }
+        public int CurrentLevelNumber { get; set; }
 
-        public int LevelXp { get; set; }
+        public int XpCurrentLevel { get; set; }
 
-        public int NextLevelXp { get; set; }
+        public int XpCurrentLevelMax { get; set; }
 
         public int XpToNextLevel
         {
             get
             {
-                return NextLevelXp - LevelXp;
+                return XpCurrentLevelMax - XpCurrentLevel;
             }
         }
 
@@ -85,7 +85,7 @@ namespace IndieVisible.Application.ViewModels.User
         {
             get
             {
-                int percentage = (int)Math.Round((double)(100 * LevelXp) / NextLevelXp);
+                int percentage = (int)Math.Round((double)(100 * XpCurrentLevel) / XpCurrentLevelMax);
 
                 return percentage;
             }

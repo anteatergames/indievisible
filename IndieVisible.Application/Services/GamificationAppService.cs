@@ -42,6 +42,7 @@ namespace IndieVisible.Application.Services
                         XpCurrentLevel = item.Gamification.XpCurrentLevel,
                         XpToNextLevel = item.Gamification.XpToNextLevel,
                         XpTotal = item.Gamification.XpTotal,
+                        XpCurrentLevelMax = item.Level.XpToAchieve,
                         CurrentLevelName = item.Level.Name
                     };
 
@@ -65,9 +66,9 @@ namespace IndieVisible.Application.Services
                 GamificationLevel currentLevel = gamificationDomainService.GetLevel(gamification.CurrentLevelNumber);
 
                 vm.IndieXp.LevelName = currentLevel.Name;
-                vm.IndieXp.Level = gamification.CurrentLevelNumber;
-                vm.IndieXp.LevelXp = gamification.XpCurrentLevel;
-                vm.IndieXp.NextLevelXp = gamification.XpToNextLevel + gamification.XpCurrentLevel;
+                vm.IndieXp.CurrentLevelNumber = gamification.CurrentLevelNumber;
+                vm.IndieXp.XpCurrentLevel = gamification.XpCurrentLevel;
+                vm.IndieXp.XpCurrentLevelMax = gamification.XpToNextLevel + gamification.XpCurrentLevel;
 
                 return new OperationResultVo(true);
             }

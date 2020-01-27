@@ -701,7 +701,7 @@ namespace IndieVisible.Application.Services
 
             if (model == null)
             {
-                model = profileDomainService.GetById(userId);
+                model = profileDomainService.GetByUserId(userId).FirstOrDefault();
             }
 
             ProfileViewModel viewModel = mapper.Map<ProfileViewModel>(model);

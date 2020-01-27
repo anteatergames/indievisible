@@ -129,9 +129,9 @@ namespace IndieVisible.Application
             profile.Counters.Comments = 95191;
             profile.Counters.Jams = 25;
 
-            profile.IndieXp.Level = 5;
-            profile.IndieXp.LevelXp = 500;
-            profile.IndieXp.NextLevelXp = 1500;
+            profile.IndieXp.CurrentLevelNumber = 5;
+            profile.IndieXp.XpCurrentLevel = 500;
+            profile.IndieXp.XpCurrentLevelMax = 1500;
 
             return profile;
         }
