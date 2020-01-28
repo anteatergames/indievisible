@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Models;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
@@ -71,6 +72,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public async Task AddIdea(BrainstormIdea model)
         {
+            if (model.Status == 0)
+            {
+                model.Status = BrainstormIdeaStatus.Proposed;
+            }
+
             await GetCollection<BrainstormIdea>().InsertOneAsync(model);
         }
     }
