@@ -2,7 +2,7 @@
 
 namespace IndieVisible.Domain.Core.Enums
 {
-    public enum TeamWorkType
+    public enum WorkType
     {
         [Display(Name = "Game Design")]
         GameDesign,
@@ -43,8 +43,8 @@ namespace IndieVisible.Domain.Core.Enums
         [Display(Name = "Environment Art")]
         ArtEnvironment,
 
-        [Display(Name = "Artificial Intellingence")]
-        ArtificialIntellingence,
+        [Display(Name = "Artificial Intelligence")]
+        ArtificialIntelligence,
 
         [Display(Name = "Game Logic")]
         GameLogic,

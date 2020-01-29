@@ -12,7 +12,7 @@ namespace IndieVisible.Application.ViewModels.Team
 
         public string Name { get; set; }
 
-        public List<TeamWorkType> Works { get; set; }
+        public List<WorkType> Works { get; set; }
 
         public string Role { get; set; }
 
@@ -26,7 +26,7 @@ namespace IndieVisible.Application.ViewModels.Team
 
         public TeamMemberViewModel()
         {
-            Works = new List<TeamWorkType>();
+            Works = new List<WorkType>();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.UserPreferences;
+using IndieVisible.Infra.CrossCutting.Abstractions;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Infra.CrossCutting.Identity.Models.ManageViewModels;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
@@ -28,7 +29,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-        private readonly IEmailSender emailSender;
+        private readonly INotificationSender notificationSender;
         private readonly ILogger logger;
         private readonly UrlEncoder urlEncoder;
 
@@ -40,7 +41,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         public PreferencesController(
             UserManager<ApplicationUser> userManager
             , SignInManager<ApplicationUser> signInManager
-            , IEmailSender emailSender
+            , INotificationSender notificationSender
             , ILogger<PreferencesController> logger
             , UrlEncoder urlEncoder
             , IMapper mapper
@@ -48,7 +49,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
-            this.emailSender = emailSender;
+            this.notificationSender = notificationSender;
             this.logger = logger;
             this.urlEncoder = urlEncoder;
 
@@ -175,7 +176,7 @@ namespace IndieVisible.Web.Areas.Member.Controllers
             string code = await userManager.GenerateEmailConfirmationTokenAsync(user);
             string callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
             string email = user.Email;
-            await emailSender.SendEmailConfirmationAsync(email, callbackUrl);
+            await notificationSender.SendEmailConfirmationAsync(email, callbackUrl);
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToAction(nameof(Index));

@@ -1,11 +1,13 @@
 ﻿using System.Threading.Tasks;
 
-namespace IndieVisible.Infra.CrossCutting.Identity.Services
+namespace IndieVisible.Infra.CrossCutting.Abstractions
 {
-    public interface IEmailSender
+    public interface INotificationSender
     {
         Task SendEmailAsync(string email, string subject, string message);
 
         Task SendEmailAsync(string email, string templateId, object templateData);
+
+        Task SendTeamNotificationAsync(string message);
     }
 }

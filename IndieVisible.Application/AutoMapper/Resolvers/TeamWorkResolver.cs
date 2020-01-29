@@ -25,14 +25,14 @@ namespace IndieVisible.Application.AutoMapper.Resolvers
         }
     }
 
-    public class TeamWorkFromDomainResolver : IValueResolver<TeamMember, TeamMemberViewModel, List<TeamWorkType>>
+    public class TeamWorkFromDomainResolver : IValueResolver<TeamMember, TeamMemberViewModel, List<WorkType>>
     {
-        public List<TeamWorkType> Resolve(TeamMember source, TeamMemberViewModel destination, List<TeamWorkType> destMember, ResolutionContext context)
+        public List<WorkType> Resolve(TeamMember source, TeamMemberViewModel destination, List<WorkType> destMember, ResolutionContext context)
         {
             string[] platforms = (source.Work ?? string.Empty)
                 .Split(new Char[] { '|' });
 
-            IEnumerable<TeamWorkType> platformsConverted = platforms.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => (TeamWorkType)Enum.Parse(typeof(TeamWorkType), x));
+            IEnumerable<WorkType> platformsConverted = platforms.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => (WorkType)Enum.Parse(typeof(WorkType), x));
 
             return platformsConverted.ToList();
         }

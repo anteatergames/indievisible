@@ -22,11 +22,13 @@ namespace IndieVisible.Application.ViewModels.Gamification
 
         public int XpToNextLevel { get; set; }
 
+        public int XpCurrentLevelMax { get; set; }
+
         public int PercentageToNextLevel
         {
             get
             {
-                int percentage = (int)Math.Round((double)(100 * XpCurrentLevel) / XpToNextLevel);
+                int percentage = (int)Math.Round((double)(100 * XpCurrentLevel) / XpCurrentLevelMax);
 
                 return percentage;
             }

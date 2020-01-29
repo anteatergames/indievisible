@@ -3,11 +3,12 @@ using IndieVisible.Application.Services;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Services;
-using IndieVisible.Infra.CrossCutting.Identity.Services;
+using IndieVisible.Infra.CrossCutting.Abstractions;
+using IndieVisible.Infra.CrossCutting.Notifications;
 using IndieVisible.Infra.Data.Cache;
 using IndieVisible.Infra.Data.MongoDb.Context;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
-using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository;
 using IndieVisible.Infra.Data.MongoDb.UoW;
 using Microsoft.AspNetCore.Http;
@@ -110,7 +111,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #endregion Team
 
             // Infra
-            services.AddTransient<IEmailSender, SendGridEmailService>();
+            services.AddTransient<INotificationSender, SendGridSlackNotificationService>();
 
             services.AddTransient<IImageStorageService, CloudinaryService>();
 

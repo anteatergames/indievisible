@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
+namespace IndieVisible.Domain.Interfaces.Repository
 {
     public interface ITeamRepository : IRepository<Team>
     {

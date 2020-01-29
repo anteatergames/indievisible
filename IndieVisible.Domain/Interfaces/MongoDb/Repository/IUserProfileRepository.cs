@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IndieVisible.Infra.Data.MongoDb.Interfaces.Repository
+namespace IndieVisible.Domain.Interfaces.Repository
 {
     public interface IUserProfileRepository : IRepository<UserProfile>
     {

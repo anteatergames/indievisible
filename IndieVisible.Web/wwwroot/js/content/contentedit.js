@@ -70,10 +70,16 @@
         var input = document.getElementById('featuredimage');
 
         input.addEventListener('change', function (e) {
+            if (cropper) {
+                cropper.destroy();
+            }
+
             var files = e.target.files;
             var done = function (url2) {
                 input.value = '';
+
                 image.src = url2;
+
                 selectors.modalCrop.modal('show');
             };
             var reader;
@@ -86,7 +92,7 @@
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e2) {
+                    reader.onloadend = function (e2) {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);

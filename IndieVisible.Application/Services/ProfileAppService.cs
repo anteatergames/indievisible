@@ -14,7 +14,7 @@ using IndieVisible.Domain.Specifications;
 using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
-using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
+using IndieVisible.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -701,7 +701,7 @@ namespace IndieVisible.Application.Services
 
             if (model == null)
             {
-                model = profileDomainService.GetById(userId);
+                model = profileDomainService.GetByUserId(userId).FirstOrDefault();
             }
 
             ProfileViewModel viewModel = mapper.Map<ProfileViewModel>(model);

@@ -44,6 +44,12 @@ namespace IndieVisible.Domain.Core.Enums
         BeatEmUp = 13,
 
         [UiInfo(Class = "teal")]
-        MotionComics = 14
+        MotionComics = 14,
+
+        [UiInfo(Class = "olive")]
+        Platformer = 15,
+
+        [UiInfo(Class = "red")]
+        Metroidvania = 16
     }
 }
