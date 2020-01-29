@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Models;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;

@@ -1,7 +1,7 @@
 ﻿using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
-using IndieVisible.Infra.Data.MongoDb.Interfaces.Repository;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;

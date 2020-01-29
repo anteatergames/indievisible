@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace IndieVisible.Infra.Data.MongoDb.Interfaces
+namespace IndieVisible.Domain.Interfaces
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
