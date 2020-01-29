@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label asp-for="Members[i].Works"></label>
-                                            <select asp-for="Members[i].Works" asp-items="Html.GetEnumSelectList<TeamWorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                                            <select asp-for="Members[i].Works" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
                                             <span asp-validation-for="Members[i].Works" class="text-danger"></span>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Members[0].Works"></label>
-                    <select id="Members_0__Works" name="Members[0].Works" asp-items="Html.GetEnumSelectList<TeamWorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                    <select id="Members_0__Works" name="Members[0].Works" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
                 </div>
             </div>
         </div>
