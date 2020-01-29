@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace IndieVisible.Infra.Data.MongoDb.Interfaces
+namespace IndieVisible.Domain.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

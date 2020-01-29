@@ -31,6 +31,7 @@ namespace IndieVisible.Infra.Data.MongoDb
             PollMap.Configure();
             BrainstormMap.Configure();
             TeamMap.Configure();
+            JobsMap.Configure();
         }
     }
 }

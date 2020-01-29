@@ -13,6 +13,7 @@ using IndieVisible.Infra.Data.MongoDb.Repository;
 using IndieVisible.Infra.Data.MongoDb.UoW;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using IndieVisible.Domain.Interfaces;
 
 namespace IndieVisible.Infra.CrossCutting.IoC
 {
@@ -109,6 +110,12 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<ITeamRepository, TeamRepository>();
 
             #endregion Team
+
+            #region Jobs
+            services.AddScoped<IJobPositionAppService, JobPositionAppService>();
+            services.AddScoped<IJobPositionDomainService, JobPositionDomainService>();
+            services.AddScoped<IJobPositionRepository, JobPositionRepository>();
+            #endregion Jobs
 
             // Infra
             services.AddTransient<INotificationSender, SendGridSlackNotificationService>();

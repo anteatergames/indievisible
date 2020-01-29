@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
-using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;

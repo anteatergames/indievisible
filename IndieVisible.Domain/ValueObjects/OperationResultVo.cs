@@ -15,6 +15,12 @@ namespace IndieVisible.Domain.ValueObjects
             Success = success;
         }
 
+        public OperationResultVo(int pointsEarned)
+        {
+            Success = true;
+            PointsEarned = pointsEarned;
+        }
+
         public OperationResultVo(bool success, string message) : this(success)
         {
             Message = message;

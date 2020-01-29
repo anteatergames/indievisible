@@ -12,7 +12,7 @@ using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications;
 using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

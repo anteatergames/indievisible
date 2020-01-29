@@ -1,4 +1,5 @@
-﻿using IndieVisible.Infra.Data.MongoDb.Interfaces;
+﻿using IndieVisible.Domain.Interfaces;
+using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using System;
 using System.Threading.Tasks;
 

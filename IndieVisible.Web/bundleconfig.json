@@ -110,6 +110,19 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/css/jobposition.min.css",
+    "inputFiles": [
+      "wwwroot/css/jobposition.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/jobposition/jobposition.min.js",
+    "inputFiles": [
+      "wwwroot/js/jobposition/jobposition.js",
+      "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/css/ranking.min.css",
     "inputFiles": [
       "wwwroot/css/ranking.css"

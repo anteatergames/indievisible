@@ -78,6 +78,12 @@
     <Content Update="Areas\Staff\Views\FeaturedContent\_List.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Areas\Work\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Work\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Brainstorm\_CreateEditSession.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -177,6 +183,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Work\Data\" />
+    <Folder Include="Areas\Work\Models\" />
     <Folder Include="wwwroot\images\badges\" />
   </ItemGroup>
 

@@ -4,7 +4,7 @@ using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;

@@ -14,7 +14,7 @@ namespace IndieVisible.Domain.Models
 
         public string Location { get; set; }
 
-        public decimal Rate { get; set; }
+        public decimal? Rate { get; set; }
 
         public PaymentFrequency PaymentFrequency { get; set; }
 
