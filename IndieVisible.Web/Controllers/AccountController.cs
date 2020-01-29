@@ -287,7 +287,7 @@ namespace IndieVisible.Web.Controllers
                     await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("User signed in with password.");
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
