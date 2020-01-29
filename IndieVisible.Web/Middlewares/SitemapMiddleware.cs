@@ -51,6 +51,7 @@ namespace IndieVisible.Web.Middlewares
                 { "home", "error" },
                 { "home", "counters" },
                 { "home", "notifications" },
+                { "home", "errortest" },
 
                 { "user", "listprofiles" },
 
@@ -61,6 +62,7 @@ namespace IndieVisible.Web.Middlewares
 
                 { "game", "latest" },
                 { "game", "list" },
+                { "game", "byteam" },
 
                 { "content", "feed" },
 
@@ -79,6 +81,7 @@ namespace IndieVisible.Web.Middlewares
                 { "team", "rejectinvitation" },
                 { "team", "deleteteam" },
                 { "team", "removemember" },
+                { "team", "listmyteams" },
 
                 { "userbadge", "listbyuser" }
             };
