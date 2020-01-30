@@ -124,6 +124,25 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             }
         }
 
+
+        [Authorize]
+        [Route("work/jobposition/edit/{jobPositionId:guid}")]
+        public IActionResult Edit(Guid jobPositionId)
+        {
+            OperationResultVo serviceResult = jobPositionAppService.GetById(CurrentUserId, jobPositionId);
+
+            if (serviceResult.Success)
+            {
+                OperationResultVo<JobPositionViewModel> castResult = serviceResult as OperationResultVo<JobPositionViewModel>;
+
+                return PartialView("_CreateEdit", castResult.Value);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         [Authorize]
         [HttpPost("work/jobposition/save")]
         public IActionResult Save(JobPositionViewModel vm)

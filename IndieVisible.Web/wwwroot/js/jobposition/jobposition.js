@@ -43,6 +43,7 @@
         selectors.form = '#frmJobPositionSave';
         selectors.btnSave = '#btnPostJobPosition';
         selectors.ddlStatus = '#ddlStatus';
+        selectors.btnEditJobPosition = '.btnEditJobPosition';
         selectors.btnDeleteJobPosition = '.btnDeleteJobPosition';
     }
 
@@ -61,6 +62,7 @@
         bindBtnSaveForm();
         bindBtnApply();
         bindStatusChange();
+        bindEditJobPosition();
         bindDeleteJobPosition();
     }
 
@@ -110,6 +112,18 @@
             var valid = objs.form.valid();
             if (valid && canInteract) {
                 submitForm();
+            }
+        });
+    }
+
+
+    function bindEditJobPosition() {
+        objs.containerList.on('click', selectors.btnEditJobPosition, function (e) {
+            e.preventDefault();
+            var url = $(this).data('url');
+
+            if (canInteract) {
+                loadEditForm(url);
             }
         });
     }
@@ -203,6 +217,20 @@
             objs.form = $(selectors.form);
 
             $.validator.unobtrusive.parse(selectors.form);
+        });
+    }
+
+    function loadEditForm(url) {
+        objs.containerDetails.html(MAINMODULE.Default.Spinner);
+        objs.containerList.hide();
+
+        $.get(url, function (data) {
+            objs.containerDetails.html(data);
+            objs.containerDetails.show();
+
+            objs.form = $(selectors.form);
+
+            $.validator.unobtrusive.parse(objs.form);
         });
     }
 

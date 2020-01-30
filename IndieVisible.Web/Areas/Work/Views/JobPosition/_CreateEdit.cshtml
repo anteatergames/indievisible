@@ -26,6 +26,11 @@
         <!-- /.box-header -->
         <div class="box-body p-md-10">
             <div class="form-group">
+                <label asp-for="Status"></label>
+                <select asp-for="Status" asp-items="Html.GetEnumSelectList<JobPositionStatus>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the job position status"]" tabindex="-1" aria-hidden="true"></select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="WorkType"></label>
                 <select asp-for="WorkType" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
                 <span asp-validation-for="WorkType" class="text-danger"></span>
