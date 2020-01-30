@@ -80,7 +80,7 @@ namespace IndieVisible.Application.Services
 
                 vm.CurrentUserApplied = model.Applicants.Any(x => x.UserId == currentUserId);
 
-                vm.Permissions.CanEdit = model.UserId == currentUserId;
+                SetPermissions(currentUserId, vm);
 
                 return new OperationResultVo<JobPositionViewModel>(vm);
             }
@@ -251,6 +251,12 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo(ex.Message);
             }
+        }
+
+        private static void SetPermissions(Guid currentUserId, JobPositionViewModel vm)
+        {
+            vm.Permissions.CanEdit = vm.UserId == currentUserId;
+            vm.Permissions.CanDelete = vm.UserId == currentUserId;
         }
     }
 }
