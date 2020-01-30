@@ -1353,4 +1353,60 @@
     <value>linha do tempo</value>
     <comment>Generic</comment>
   </data>
+  <data name="applicants" xml:space="preserve">
+    <value>candidatos</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelado</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Candidate Actions" xml:space="preserve">
+    <value>Ações do Candidato</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Closed for Application" xml:space="preserve">
+    <value>Não aceitando candidatos</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Rascunho</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Employer Actions" xml:space="preserve">
+    <value>Ações do Empregador</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Fulfilled" xml:space="preserve">
+    <value>Encerrada</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Here you can see the currently available job positions." xml:space="preserve">
+    <value>Aqui você pode consultar as vagas disponíveis.</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="If you want to hire someone, create a new job position, describe the kind of professional that would fit your needs and just enjoy analysing the applicants." xml:space="preserve">
+    <value>Se você deseja contratar alguém, crie um novo cargo, descreva o tipo de profissional que atenda às suas necessidades e aproveite a análise dos candidatos.</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="In Analisys" xml:space="preserve">
+    <value>Em Análise</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="My Positions" xml:space="preserve">
+    <value>Minhas Vagas</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="New Position" xml:space="preserve">
+    <value>Nova Vaga</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Open for Application" xml:space="preserve">
+    <value>Aceitando candidatos</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="This position was posted by" xml:space="preserve">
+    <value>Esta vaga foi enviada por</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>

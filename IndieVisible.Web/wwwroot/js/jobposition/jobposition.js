@@ -1,12 +1,12 @@
 ﻿var JOBPOSITION = (function () {
     "use strict";
 
-    var rootUrl = '/jobposition';
+    var rootUrl = '/work/jobposition';
 
     var selectors = {};
     var objs = {};
     var canInteract = false;
-    var newIdea = false;
+    var newPosition = false;
     var details = false;
 
     function init() {
@@ -15,37 +15,39 @@
 
         bindAll();
 
-        canInteract = objs.container.find('#caninteract').val();
-        newIdea = window.location.href.indexOf('newidea') > -1;
+        canInteract = objs.container.find(selectors.canInteract).val();
+        newPosition = window.location.href.indexOf('add') > -1;
         details = window.location.href.indexOf('details') > -1;
 
-        if (!newIdea && !details) {
-            loadSession();
+        if (!newPosition && !details) {
+            loadJobPositions();
         }
 
         objs.ddlStatus.removeClass('invisible').show();
     }
 
     function setSelectors() {
+        selectors.canInteract = '#caninteract';
         selectors.container = '.content';
-        selectors.toolbar = $("#divToolbar");
-        selectors.list = $("#divList");
-        selectors.btnPostVotingItem = $("#btnPostVotingItem");
-        selectors.form = $("#frmBrainstormIdeaSave");
+        selectors.list = '#divList';
+        selectors.btnNewJobPosition = '#btn-jobposition-new';
+        selectors.btnListMine = '#btn-jobposition-listmine';
+        selectors.form = '#frmJobPositionSave';
+        selectors.btnSave = '#btnPostJobPosition';
         selectors.ddlStatus = '#ddlStatus';
     }
 
     function cacheObjects() {
         objs.container = $(selectors.container);
+        objs.list = $(selectors.list);
         objs.ddlStatus = $(selectors.ddlStatus);
     }
 
     function bindAll() {
-        bindBtnNewIdea();
-        bindBtnNewSession();
-        bindBtnSaveIdea();
-        bindBtnSaveSession();
-        bindBtnVote();
+        bindBtnNewJobPosition();
+        bindBtnListMine();
+        bindBtnSaveForm();
+        bindBtnApply();
         bindStatusChange();
     }
 
@@ -53,11 +55,11 @@
         objs.container.on('change', selectors.ddlStatus, function (e) {
             var selectedStatus = $(this).val();
             var url = $(this).data('url');
-            var ideaId = $(this).data('id');
+            var id = $(this).data('id');
 
             var data = {
                 selectedStatus: selectedStatus,
-                ideaId: ideaId
+                jobPositionId: id
             };
 
             $.post(url, data).done(function (response) {
@@ -73,41 +75,32 @@
         });
     }
 
-    function bindBtnNewIdea() {
-        objs.container.on('click', '.btn-idea-new', function () {
+    function bindBtnNewJobPosition() {
+        objs.container.on('click', selectors.btnNewJobPosition, function () {
             if (canInteract) {
-                loadNewForm();
+                loadNewJobPositionForm();
             }
         });
     }
 
-    function bindBtnNewSession() {
-        objs.container.on('click', '.btn-session-new', function () {
+    function bindBtnListMine() {
+        objs.container.on('click', selectors.btnListMine, function () {
             if (canInteract) {
-                loadNewSessionForm();
+                loadMyJobPositions();
             }
         });
     }
 
-    function bindBtnSaveIdea() {
-        objs.container.on('click', '#btnPostBrainstormIdea', function () {
-            var valid = selectors.form.valid();
+    function bindBtnSaveForm() {
+        objs.container.on('click', selectors.btnSave, function () {
+            var valid = objs.form.valid();
             if (valid && canInteract) {
                 submitForm();
             }
         });
     }
 
-    function bindBtnSaveSession() {
-        objs.container.on('click', '#btnPostBrainstormSession', function () {
-            var valid = selectors.form.valid();
-            if (valid && canInteract) {
-                submitForm();
-            }
-        });
-    }
-
-    function bindBtnVote() {
+    function bindBtnApply() {
         objs.container.on('click', '.jobposition-button', function () {
             var btn = $(this);
             var item = btn.closest('.jobposition-item');
@@ -132,52 +125,42 @@
         });
     }
 
-    function loadSession() {
-        selectors.list.html(MAINMODULE.Default.Spinner);
+    function loadJobPositions() {
+        objs.list.html(MAINMODULE.Default.Spinner);
 
         var url = "/list";
 
-        var sessionId = $('#Id').val();
+        $.get(rootUrl + url, function (data) {
+            objs.list.html(data);
+        });
+    }
 
-        if (sessionId) {
-            url += '/' + sessionId;
-        }
+    function loadMyJobPositions() {
+        objs.list.html(MAINMODULE.Default.Spinner);
+
+        var url = "/listmine";
 
         $.get(rootUrl + url, function (data) {
-            selectors.list.html(data);
+            objs.list.html(data);
         });
     }
 
-    function loadNewForm() {
-        var sessionId = $('#jobpositioncontainer #Id').val();
-
+    function loadNewJobPositionForm() {
         objs.container.html(MAINMODULE.Default.Spinner);
 
-        $.get(rootUrl + "/" + sessionId + "/newidea", function (data) {
+        $.get(rootUrl + "/new", function (data) {
             objs.container.html(data);
 
-            selectors.form = $("#frmBrainstormIdeaSave");
-
-            $.validator.unobtrusive.parse(selectors.form);
-        });
-    }
-
-    function loadNewSessionForm() {
-        objs.container.html(MAINMODULE.Default.Spinner);
-
-        $.get(rootUrl + "/newsession", function (data) {
-            objs.container.html(data);
-
-            selectors.form = $("#frmBrainstormSessionSave");
+            objs.form = $(selectors.form);
 
             $.validator.unobtrusive.parse(selectors.form);
         });
     }
 
     function submitForm(callback) {
-        var url = selectors.form.attr('action');
+        var url = objs.form.attr('action');
 
-        var data = selectors.form.serialize();
+        var data = objs.form.serialize();
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {

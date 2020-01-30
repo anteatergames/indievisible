@@ -5,6 +5,7 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.Gamification;
+using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
@@ -105,6 +106,13 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<UserProfile, ProfileSearchViewModel>();
 
             #endregion Team
+
+            #region Jobs
+
+            CreateMap<JobPosition, JobPositionViewModel>();
+            CreateMap<JobApplicant, JobApplicantViewModel>();
+
+            #endregion Jobs
         }
     }
 }

@@ -115,3 +115,29 @@ select.form-control {
         -webkit-filter: blur(0);
         filter: blur(0);
     }
+
+
+
+.badge-status {
+    color: white;
+}
+
+    .badge-status.badge-proposed, .badge-status.badge-draft {
+        background-color: #9488AD;
+    }
+
+    .badge-status.badge-inanalysis, {
+        background-color: #BFA200;
+    }
+
+    .badge-status.badge-accepted, .badge-status.badge-openforapplication {
+        background-color: #4582FC;
+    }
+
+    .badge-status.badge-rejected, .badge-status.badge-closedforapplication, .badge-status.badge-cancelled {
+        background-color: #FB5012;
+    }
+
+    .badge-status.badge-implemented, .badge-status.badge-fulfilled {
+        background-color: #03CF99;
+    }

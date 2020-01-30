@@ -22,21 +22,29 @@
     <Compile Remove="Areas\Member\Models\**" />
     <Compile Remove="Areas\Staff\Data\**" />
     <Compile Remove="Areas\Staff\Models\**" />
+    <Compile Remove="Areas\Work\Data\**" />
+    <Compile Remove="Areas\Work\Models\**" />
     <Compile Remove="wwwroot\assets\**" />
     <Content Remove="Areas\Member\Data\**" />
     <Content Remove="Areas\Member\Models\**" />
     <Content Remove="Areas\Staff\Data\**" />
     <Content Remove="Areas\Staff\Models\**" />
+    <Content Remove="Areas\Work\Data\**" />
+    <Content Remove="Areas\Work\Models\**" />
     <Content Remove="wwwroot\assets\**" />
     <EmbeddedResource Remove="Areas\Member\Data\**" />
     <EmbeddedResource Remove="Areas\Member\Models\**" />
     <EmbeddedResource Remove="Areas\Staff\Data\**" />
     <EmbeddedResource Remove="Areas\Staff\Models\**" />
+    <EmbeddedResource Remove="Areas\Work\Data\**" />
+    <EmbeddedResource Remove="Areas\Work\Models\**" />
     <EmbeddedResource Remove="wwwroot\assets\**" />
     <None Remove="Areas\Member\Data\**" />
     <None Remove="Areas\Member\Models\**" />
     <None Remove="Areas\Staff\Data\**" />
     <None Remove="Areas\Staff\Models\**" />
+    <None Remove="Areas\Work\Data\**" />
+    <None Remove="Areas\Work\Models\**" />
     <None Remove="wwwroot\assets\**" />
   </ItemGroup>
 
@@ -76,6 +84,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Staff\Views\FeaturedContent\_List.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Work\Views\JobPosition\_Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Work\Views\_ViewImports.cshtml">
@@ -183,8 +194,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Work\Data\" />
-    <Folder Include="Areas\Work\Models\" />
     <Folder Include="wwwroot\images\badges\" />
   </ItemGroup>
 

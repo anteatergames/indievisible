@@ -1,0 +1,84 @@
+﻿@model JobPositionViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+<div class="col-xl-8 offset-xl-2 col-md-12 offset-md-0">
+    <h1 class="sr-only">
+        @SharedLocalizer["job position details"]
+    </h1>
+    <input type="hidden" asp-for="Id" />
+    <div id="jobpositioncontainer" class="mx-0">
+        <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+        <div class="box bg-white" data-id="@Model.Id">
+            <div class="box-header with-border">
+                <div class="float-left mr-3 mb-3">
+                    <a asp-area="work" asp-controller="jobposition" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                </div>
+                <div class="float-left">
+                    <h2 class="card-title">@ViewData["Title"]</h2>
+                </div>
+                <h6 class="float-left card-subtitle col-12">
+                    xxx
+                </h6>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body p-0 p-md-2">
+
+                <div class="jobposition-item" data-id="@Model.Id" data-currentuserapplied="@Model.CurrentUserApplied">
+                    <div class="jobposition-details">
+                        <div class="col-12">
+                            <p>@Model.Description</p>
+                        </div>
+
+                        @if (canInteract && Model.Permissions.CanEdit)
+                        {
+                            <div class="col-12 py-2">
+                                <select id="ddlStatus" asp-for="Status" asp-items="Html.GetEnumSelectList<JobPositionStatus>()" data-url="@Url.Action("ChangeStatus", "JobPosition", new { area = "Work", jobPositionId = Model.Id })" class="form-control" data-placeholder="@SharedLocalizer["Set the current status"]" tabindex="-1" aria-hidden="true"></select>
+                            </div>
+                        }
+                    </div>
+                    <div class="author-details">
+                        <div class="col-12">
+                            <span>@SharedLocalizer["This position was posted by"]:</span>
+                            <div class="user-block">
+                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                                    <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                                </a>
+                                <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
+
+                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
+                                    <span class="description">@Model.CreateDate.ToString()</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-lowercase text-right">
+                        <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @SharedLocalizer["applicants"]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ComponentStyles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/jobposition.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/jobposition.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/jobposition/jobposition.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/jobposition/jobposition.min.js" asp-append-version="true"></script>
+    </environment>
+}

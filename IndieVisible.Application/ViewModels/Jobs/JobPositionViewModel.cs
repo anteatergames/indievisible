@@ -1,10 +1,11 @@
 ﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Models;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace IndieVisible.Domain.Models
+namespace IndieVisible.Application.ViewModels.Jobs
 {
-    public class JobPosition : Entity
+    public class JobPositionViewModel : UserGeneratedBaseViewModel
     {
         public JobPositionStatus Status { get; set; }
 
@@ -20,6 +21,13 @@ namespace IndieVisible.Domain.Models
 
         public PaymentFrequency PaymentFrequency { get; set; }
 
-        public List<JobApplicant> Applicants { get; set; }
+        public List<JobApplicantViewModel> Applicants { get; set; }
+
+        public bool CurrentUserApplied { get; set; }
+
+        public int ApplicantCount { get; set; }
+
+        public string Title { get; set; }
+        public string StatusLocalized { get; set; }
     }
 }

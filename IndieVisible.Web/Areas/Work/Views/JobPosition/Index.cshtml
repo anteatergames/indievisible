@@ -7,51 +7,18 @@
     var canInteract = User.Identity.IsAuthenticated;
 }
 
-<div id="jobpositioncontainer" class="col-12">
-    <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
-    <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
-    <div class="row">
-        <div class="col-lg-8">
-            <h1><i class="fa fa-brain" aria-hidden="true">&nbsp;</i>@ViewData["Title"]</h1>
-            <span>placeholder</span>
-            <div id="divList"></div>
-        </div>
-        <div id="jobpositionsidebar" class="col-lg-4 no-gutters">
-            <div class="col-12">
-                @if (canInteract && Model != null)
-                {
-                    <button class="btn-idea-new btn btn-lg btn-primary d-none d-lg-block btn-block"><i class="far fa-lightbulb" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Idea"]</button>
-                }
-            </div>
-            <div class="jobposition-box jobposition-sessionlist">
-                <h3>@SharedLocalizer["Available Actions"]</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <span>placeholder</span>
-                    </div>
-                    @if (canInteract)
-                    {
-                        <div class="col-12">
-                            <button class="btn-session-new btn btn-success btn-block"><i class="fa fa-brain" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Position"]</button>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div class="jobposition-box">
-                <p>Try it!</p>
-            </div>
-        </div>
-    </div>
-</div>
+@section ComponentStyles {
 
-@section Styles {
     <environment include="Development">
+        <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
+        <link rel="stylesheet" href="~/css/switch.css">
         <link rel="stylesheet" href="~/css/jobposition.css">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/jobposition.min.css" asp-append-version="true">
     </environment>
 }
+
 
 @section Scripts {
     <environment include="Development">
@@ -63,3 +30,42 @@
 
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<div id="jobpositioncontainer" class="col-12">
+    <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
+    <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+    <div class="row">
+        <div class="col-lg-8 mb-5">
+            <h1><i class="fa fa-briefcase" aria-hidden="true">&nbsp;</i>@ViewData["Title"]</h1>
+            <p>@SharedLocalizer["Here you can see the currently available job positions."]</p>
+            <div id="divList"></div>
+        </div>
+        <div id="jobpositionsidebar" class="col-lg-4 no-gutters">
+            <div class="jobposition-box">
+                <h3>@SharedLocalizer["Employer Actions"]</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <p>@SharedLocalizer["If you want to hire someone, create a new job position, describe the kind of professional that would fit your needs and just enjoy analysing the applicants."]</p>
+                    </div>
+                    @if (canInteract)
+                    {
+                        <div class="col-12">
+                            <button id="btn-jobposition-new" class="btn btn-success btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Position"]</button>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <button id="btn-jobposition-listmine" class="btn btn-secondary btn-block"><i class="fas fa-briefcase" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Positions"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="jobposition-box">
+                <h3>@SharedLocalizer["Candidate Actions"]</h3>
+                <ul>
+                    <li>position 1</li>
+                    <li>position 2</li>
+                    <li>position 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

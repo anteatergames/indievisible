@@ -1,0 +1,23 @@
+﻿@model JobPositionViewModel
+@{
+    Layout = null;
+}
+
+
+<div class="col-12 bg-white jobposition-item list-item" data-id="@Model.Id" data-currentuservote="@Model.CurrentUserApplied">
+    <div class="jobposition-details">
+        <div class="col-12">
+            <a asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@Model.Id" class="btnViewJobPosition"><h4>@Model.WorkType at @Model.Location</h4></a>
+        </div>
+        <div class="col-12">
+            <p>@Model.Description</p>
+        </div>
+        <div class="col-12">
+            <span class="badge badge-status badge-@(Model.Status.ToString().ToLower()) p-2">@Model.StatusLocalized</span>
+        </div>
+
+        <div class="col-12 text-lowercase text-right">
+            <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @SharedLocalizer["applicants"]</span>
+        </div>
+    </div>
+</div>

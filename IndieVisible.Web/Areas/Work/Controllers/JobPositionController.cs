@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.Jobs;
+using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Work.Controllers.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace IndieVisible.Web.Areas.Work.Controllers
 {
@@ -22,10 +27,153 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             return View();
         }
 
-        [Route("jobposition/list")]
+        [Route("work/jobposition/list")]
         public PartialViewResult List()
         {
-            return PartialView("_List");
+            IEnumerable<JobPositionViewModel> model;
+
+            OperationResultVo serviceResult = jobPositionAppService.GetAllAvailable();
+
+            if (serviceResult.Success)
+            {
+                OperationResultListVo<JobPositionViewModel> castResult = serviceResult as OperationResultListVo<JobPositionViewModel>;
+
+                model = castResult.Value;
+            }
+            else
+            {
+                model = new List<JobPositionViewModel>();
+            }
+
+            foreach (var item in model)
+            {
+                SetLocalization(item);
+            }
+
+            return PartialView("_List", model);
+        }
+
+        [Route("work/jobposition/listmine")]
+        public PartialViewResult ListMine()
+        {
+            List<JobPositionViewModel> model;
+
+            OperationResultVo serviceResult = jobPositionAppService.GetAllMine(CurrentUserId);
+
+            if (serviceResult.Success)
+            {
+                OperationResultListVo<JobPositionViewModel> castResult = serviceResult as OperationResultListVo<JobPositionViewModel>;
+
+                model = castResult.Value.ToList();
+            }
+            else
+            {
+                model = new List<JobPositionViewModel>();
+            }
+
+            foreach (var item in model)
+            {
+                SetLocalization(item);
+            }
+
+            return PartialView("_List", model);
+        }
+
+        [Route("work/jobposition/details/{id:guid}")]
+        public IActionResult Details(Guid id)
+        {
+            OperationResultVo<JobPositionViewModel> op = jobPositionAppService.GetById(CurrentUserId, id);
+
+            JobPositionViewModel vm = op.Value;
+
+            SetLocalization(vm);
+            SetAuthorDetails(vm);
+
+            return View("_Details", vm);
+        }
+
+
+        [Authorize]
+        [Route("work/jobposition/new")]
+        public IActionResult New()
+        {
+            OperationResultVo serviceResult = jobPositionAppService.GenerateNewTeam(CurrentUserId);
+
+            if (serviceResult.Success)
+            {
+                OperationResultVo<JobPositionViewModel> castResult = serviceResult as OperationResultVo<JobPositionViewModel>;
+
+                return PartialView("_CreateEdit", castResult.Value);
+            }
+            else
+            {
+                return PartialView("_CreateEdit", new JobPositionViewModel());
+            }
+        }
+
+        [Authorize]
+        [HttpPost("work/jobposition/save")]
+        public IActionResult Save(JobPositionViewModel vm)
+        {
+            try
+            {
+                bool newTeam = vm.Id == Guid.Empty;
+                vm.UserId = CurrentUserId;
+
+                OperationResultVo<Guid> saveResult = jobPositionAppService.Save(CurrentUserId, vm);
+
+                if (saveResult.Success)
+                {
+                    string url = Url.Action("Index", "JobPosition", new { area = "Work", pointsEarned = saveResult.PointsEarned });
+
+                    //Notify(vm, oldMembers);
+                    //GenerateTeamPost(vm, newTeam, recruiting);
+
+                    return Json(new OperationResultRedirectVo(saveResult, url));
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [HttpPost("work/jobposition/changestatus/{jobPositionId:guid}")]
+        public IActionResult ChangeStatus(Guid jobPositionId, JobPositionStatus selectedStatus)
+        {
+            try
+            {
+                jobPositionAppService.ChangeStatus(CurrentUserId, jobPositionId, selectedStatus);
+                
+                string url = Url.Action("Index", "JobPosition", new { area = "Work"});
+
+                return Json(new OperationResultRedirectVo(url));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        private void SetLocalization(JobPositionViewModel item)
+        {
+            if (item.Remote || string.IsNullOrWhiteSpace(item.Location))
+            {
+                item.Location = SharedLocalizer["Planet Earth"];
+            }
+
+            var displayWorkType = item.WorkType.GetAttributeOfType<DisplayAttribute>();
+            var localizedWorkType = SharedLocalizer[displayWorkType != null ? displayWorkType.Name : item.WorkType.ToString()];
+
+            item.Title = SharedLocalizer["{0} at {1}", localizedWorkType, item.Location];
+
+
+            var displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
+            item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
         }
     }
 }

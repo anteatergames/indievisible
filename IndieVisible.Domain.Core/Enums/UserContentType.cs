@@ -4,6 +4,7 @@
     {
         Post = 1,
         Idea = 2,
-        TeamCreation = 3
+        TeamCreation = 3,
+        JobPosition = 4
     }
 }

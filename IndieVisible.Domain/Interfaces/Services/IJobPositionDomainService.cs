@@ -7,5 +7,7 @@ namespace IndieVisible.Domain.Interfaces.Service
     public interface IJobPositionDomainService : IDomainService<JobPosition>
     {
         void AddApplicant(Guid userId, Guid jobPositionId, string coverLetter);
+        IEnumerable<JobPosition> GetAllAvailable();
+        JobPosition GenerateNewJobPosition(Guid currentUserId);
     }
 }

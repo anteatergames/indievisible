@@ -6,11 +6,13 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.Gamification;
+using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Models;
+using IndieVisible.Domain.Models;
 using System;
 using Profile = AutoMapper.Profile;
 
@@ -98,6 +100,14 @@ namespace IndieVisible.Application.AutoMapper
                     .ForMember(dest => dest.Work, opt => opt.MapFrom<TeamWorkToDomainResolver>());
 
             #endregion Team
+
+
+            #region Jobs
+
+            CreateMap<JobPositionViewModel, JobPosition>();
+            CreateMap<JobApplicantViewModel, JobApplicant>();
+
+            #endregion Jobs
         }
     }
 }
