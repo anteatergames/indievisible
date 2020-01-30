@@ -261,9 +261,12 @@ a:active, a:focus, a:hover {
         right: 0;
     }
 
-.control-sidebar-dark {
+.control-sidebar-dark, .control-sidebar-dark a {
     color: #b8c7ce;
 }
+    .control-sidebar-dark a:hover {
+        color: #3f93db;
+    }
 
     .control-sidebar-dark, .control-sidebar-dark + .control-sidebar-bg {
         background: #2f323e;

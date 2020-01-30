@@ -27,14 +27,27 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             return View();
         }
 
+        [Route("work/jobposition/list/{employerId:guid?}")]
         [Route("work/jobposition/list")]
-        public PartialViewResult List()
+        public PartialViewResult List(Guid? employerId)
         {
             IEnumerable<JobPositionViewModel> model;
+            OperationResultVo serviceResult;
 
-            OperationResultVo serviceResult = jobPositionAppService.GetAllAvailable();
+            if (employerId.HasValue)
+            {
 
-            if (serviceResult.Success)
+                ViewData["ListDescription"] = "These are the job positions you posted.";
+                serviceResult = jobPositionAppService.GetAllMine(employerId.Value);
+            }
+            else
+            {
+
+                ViewData["ListDescription"] = "Here you can see the currently available job positions.";
+                serviceResult = jobPositionAppService.GetAllAvailable(CurrentUserId);
+            }
+
+            if (serviceResult != null && serviceResult.Success)
             {
                 OperationResultListVo<JobPositionViewModel> castResult = serviceResult as OperationResultListVo<JobPositionViewModel>;
 
@@ -140,6 +153,15 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             {
                 return Json(new OperationResultVo(ex.Message));
             }
+        }
+
+
+        [HttpDelete("work/jobposition/deletejobposition/{jobPositionId:guid}")]
+        public IActionResult DeleteJobPosition(Guid jobPositionId)
+        {
+            OperationResultVo serviceResult = jobPositionAppService.Remove(CurrentUserId, jobPositionId);
+
+            return Json(serviceResult);
         }
 
         [HttpPost("work/jobposition/changestatus/{jobPositionId:guid}")]

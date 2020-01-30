@@ -165,13 +165,20 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo GetAllAvailable()
+        public OperationResultVo GetAllAvailable(Guid currentUserId)
         {
             try
             {
                 var allModels = jobPositionDomainService.GetAllAvailable();
 
-                IEnumerable<JobPositionViewModel> vms = mapper.Map<IEnumerable<JobPosition>, IEnumerable<JobPositionViewModel>>(allModels);
+                List<JobPositionViewModel> vms = mapper.Map<IEnumerable<JobPosition>, IEnumerable<JobPositionViewModel>>(allModels).ToList();
+
+                foreach (var vm in vms)
+                {
+                    SetPermissions(currentUserId, vm);
+                }
+
+                vms = vms.OrderByDescending(x => x.CreateDate).ToList();
 
                 return new OperationResultListVo<JobPositionViewModel>(vms);
             }
@@ -187,7 +194,14 @@ namespace IndieVisible.Application.Services
             {
                 var allModels = jobPositionDomainService.GetByUserId(currentUserId);
 
-                IEnumerable<JobPositionViewModel> vms = mapper.Map<IEnumerable<JobPosition>, IEnumerable<JobPositionViewModel>>(allModels);
+                List<JobPositionViewModel> vms = mapper.Map<IEnumerable<JobPosition>, IEnumerable<JobPositionViewModel>>(allModels).ToList();
+
+                foreach (var vm in vms)
+                {
+                    SetPermissions(currentUserId, vm);
+                }
+
+                vms = vms.OrderByDescending(x => x.CreateDate).ToList();
 
                 return new OperationResultListVo<JobPositionViewModel>(vms);
             }

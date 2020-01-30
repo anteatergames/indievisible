@@ -206,7 +206,54 @@
             </section>
         </div>
 
-        @await Html.PartialAsync("_ControlSidebarPartial")
+        <aside class="control-sidebar control-sidebar-dark">
+            @if (SignInManager.IsSignedIn(User))
+            {
+
+                @if (User.IsInRole(Roles.Administrator.ToString()))
+                {
+                    <div class="col-12 mb-2">
+                        <h3>@SharedLocalizer["Staff Actions"]</h3>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <a asp-area="staff" asp-controller="superpowers" asp-action="index" class="btn bg-transparent btn-block btn-outline-danger">
+                            <i class="fa fa-star" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Staff Area"]
+                        </a>
+                    </div>
+                }
+
+                <div class="col-12 mb-2">
+                    @if (ViewData["ControlSidebarTitle"] != null)
+                    {
+                        if (ViewData["ControlSidebarUrl"] != null)
+                        {
+                            <a href="@ViewData["ControlSidebarUrl"]">
+                                <h3>@ViewData["ControlSidebarTitle"]</h3>
+                            </a>
+                        }
+                        else
+                        {
+                            <h3>@ViewData["ControlSidebarTitle"]</h3>
+                        }
+                    }
+
+                    @RenderSection("ControlSideBar", required: false)
+                </div>
+                <div class="col-12 mb-2">
+                    <h3>@SharedLocalizer["Quick Actions"]</h3>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <a asp-area="" asp-controller="brainstorm" asp-action="newidea" class="btn btn-default bg-transparent btn-block" data-toggle="tooltip" data-title="@SharedLocalizer["Suggest new features to the IndieVisible team. Tell us your best ideas!"]">@SharedLocalizer["New Suggestion"]</a>
+                </div>
+                <div class="col-12 mb-2">
+                    <a asp-area="" asp-controller="game" asp-action="add" class="btn btn-default bg-transparent btn-block" data-toggle="tooltip" data-title="@SharedLocalizer["Add your game to the platform."]">@SharedLocalizer["Add Game"]</a>
+                </div>
+                <div class="col-12 mb-2">
+                    <a asp-area="" asp-controller="content" asp-action="add" class="btn btn-default bg-transparent btn-block" data-toggle="tooltip" data-title="@SharedLocalizer["Post quality content to the platform."]">@SharedLocalizer["Post Content"]</a>
+                </div>
+            }
+        </aside>
 
         <div class="control-sidebar-bg"></div>
     </div>
@@ -223,8 +270,8 @@
         <script src="~/lib/jquery-toast/jquery.toast.js"></script>
 
         <!--[if lt IE 11]>
-        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <![endif]-->
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
         <script src="~/lib/lazysizes/lazysizes.min.js"></script>
         <script src="~/lib/lazysizes/plugins/blur-up/ls.blur-up.min.js"></script>
 
@@ -280,8 +327,8 @@
                 integrity="sha384-Y0HJZYgyXFtR2JeeBfEFYo7+uF9C+Bgn1yr/EtGnl/uc9vJjNN9yi3AX0ZY9tpN4"
                 crossorigin="anonymous" defer></script>
         <!--[if lt IE 11]>
-        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <![endif]-->
+            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <![endif]-->
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"

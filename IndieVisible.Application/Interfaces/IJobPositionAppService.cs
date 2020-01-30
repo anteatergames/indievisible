@@ -7,7 +7,7 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IJobPositionAppService : ICrudAppService<JobPositionViewModel>
     {
-        OperationResultVo GetAllAvailable();
+        OperationResultVo GetAllAvailable(Guid currentUserId);
         OperationResultVo Apply(Guid currentUserId, Guid jobPositionId, string coverLetter);
         OperationResultVo GenerateNewTeam(Guid currentUserId);
         OperationResultVo GetAllMine(Guid currentUserId);

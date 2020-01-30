@@ -1361,8 +1361,8 @@
     <value>Cancelado</value>
     <comment>Generic</comment>
   </data>
-  <data name="Candidate Actions" xml:space="preserve">
-    <value>Ações do Candidato</value>
+  <data name="Candidate Panel" xml:space="preserve">
+    <value>Painel do Candidato</value>
     <comment>JobPosition</comment>
   </data>
   <data name="Closed for Application" xml:space="preserve">
@@ -1373,8 +1373,8 @@
     <value>Rascunho</value>
     <comment>Generic</comment>
   </data>
-  <data name="Employer Actions" xml:space="preserve">
-    <value>Ações do Empregador</value>
+  <data name="Employer Panel" xml:space="preserve">
+    <value>Painel do Empregador</value>
     <comment>JobPosition</comment>
   </data>
   <data name="Fulfilled" xml:space="preserve">

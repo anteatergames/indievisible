@@ -2,9 +2,16 @@
 @{
     ViewData["Title"] = SharedLocalizer["Work"];
     ViewData["Description"] = SharedLocalizer["Create and apply to job positions."];
+    ViewData["ControlSidebarTitle"] = ViewData["Title"];
+    ViewData["ControlSidebarUrl"] = Url.Action("Index", "JobPosition", new { area = "Work" });
 
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
 }
 
 @section ComponentStyles {
@@ -31,40 +38,55 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<div id="jobpositioncontainer" class="col-12">
+@if (canInteract)
+{
+    @section ControlSidebar {
+        <button id="btn-jobposition-new" class="btn btn-success btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Position"]</button>
+        <button id="btn-jobposition-listmine" class="btn btn-secondary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })"><i class="fas fa-briefcase" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Positions"]</button>
+        <button id="btn-jobposition-myapplications" class="btn btn-warning btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Applications"]</button>
+    }
+}
+
+<div id="jobpositioncontainer container" class="col-12">
     <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
     <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
-    <div class="row">
-        <div class="col-lg-8 mb-5">
+
+    <div id="containerdetails" class="row">
+
+    </div>
+    <div id="containerlist" class="row">
+        <div class="col-lg-12 mb-2">
             <h1><i class="fa fa-briefcase" aria-hidden="true">&nbsp;</i>@ViewData["Title"]</h1>
-            <p>@SharedLocalizer["Here you can see the currently available job positions."]</p>
+        </div>
+        <div class="col-lg-8 mb-5">
             <div id="divList"></div>
         </div>
         <div id="jobpositionsidebar" class="col-lg-4 no-gutters">
+            <div class="jobposition-box alert-info p-2">
+                @SharedLocalizer["Use the asterisk menu on the top right cornder to manage your job positions and applications."]
+            </div>
             <div class="jobposition-box">
-                <h3>@SharedLocalizer["Employer Actions"]</h3>
+                <h3>@SharedLocalizer["Employer Panel"]</h3>
                 <div class="row">
                     <div class="col-12">
                         <p>@SharedLocalizer["If you want to hire someone, create a new job position, describe the kind of professional that would fit your needs and just enjoy analysing the applicants."]</p>
                     </div>
-                    @if (canInteract)
-                    {
-                        <div class="col-12">
-                            <button id="btn-jobposition-new" class="btn btn-success btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Position"]</button>
-                        </div>
-                        <div class="col-12 mt-2">
-                            <button id="btn-jobposition-listmine" class="btn btn-secondary btn-block"><i class="fas fa-briefcase" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Positions"]</button>
-                        </div>
-                    }
                 </div>
             </div>
             <div class="jobposition-box">
-                <h3>@SharedLocalizer["Candidate Actions"]</h3>
-                <ul>
-                    <li>position 1</li>
-                    <li>position 2</li>
-                    <li>position 3</li>
-                </ul>
+                <h3>@SharedLocalizer["Candidate Panel"]</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <p>@SharedLocalizer["Here you can see the job positions you have applied."]</p>
+                    </div>
+                    <div class="col-12">
+                        <ul>
+                            <li>position 1</li>
+                            <li>position 2</li>
+                            <li>position 3</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

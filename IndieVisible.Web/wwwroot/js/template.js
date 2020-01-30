@@ -9,6 +9,8 @@ if (typeof jQuery === 'undefined') {
  *         or add [data-toggle="control-sidebar"] to the trigger
  *         Pass any option as data-option="value"
  */
+var ControlSidebar = null;
+
 + function ($) {
     'use strict';
 
@@ -38,7 +40,7 @@ if (typeof jQuery === 'undefined') {
     };
 
     // ControlSidebar Class Definition
-    var ControlSidebar = function (element, options) {
+    ControlSidebar = function (element, options) {
         this.element = element;
         this.options = options;
         this.hasBindedResize = false;

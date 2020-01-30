@@ -6,8 +6,9 @@
     var selectors = {};
     var objs = {};
     var canInteract = false;
-    var newPosition = false;
-    var details = false;
+    var isIndex = false;
+    var isNew = false;
+    var isDetails = false;
 
     function init() {
         setSelectors();
@@ -16,29 +17,40 @@
         bindAll();
 
         canInteract = objs.container.find(selectors.canInteract).val();
-        newPosition = window.location.href.indexOf('add') > -1;
-        details = window.location.href.indexOf('details') > -1;
+        isNew = window.location.href.indexOf('add') > -1;
+        isDetails = window.location.href.indexOf('details') > -1;
+        isIndex = !isNew && !isDetails;
 
-        if (!newPosition && !details) {
-            loadJobPositions();
+        if (isIndex) {
+            loadJobPositions(false, rootUrl + '/list');
         }
 
-        objs.ddlStatus.removeClass('invisible').show();
+        if (isDetails) {
+            objs.ddlStatus.removeClass('invisible').show();
+        }
     }
 
     function setSelectors() {
+        selectors.controlsidebar = '.control-sidebar';
         selectors.canInteract = '#caninteract';
         selectors.container = '.content';
+        selectors.containerDetails = '#containerdetails';
+        selectors.containerList = '#containerlist';
         selectors.list = '#divList';
+        selectors.divListItem = '.jobposition-item';
         selectors.btnNewJobPosition = '#btn-jobposition-new';
         selectors.btnListMine = '#btn-jobposition-listmine';
         selectors.form = '#frmJobPositionSave';
         selectors.btnSave = '#btnPostJobPosition';
         selectors.ddlStatus = '#ddlStatus';
+        selectors.btnDeleteJobPosition = '.btnDeleteJobPosition';
     }
 
     function cacheObjects() {
+        objs.controlsidebar = $(selectors.controlsidebar);
         objs.container = $(selectors.container);
+        objs.containerDetails = $(selectors.containerDetails);
+        objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
         objs.ddlStatus = $(selectors.ddlStatus);
     }
@@ -49,6 +61,7 @@
         bindBtnSaveForm();
         bindBtnApply();
         bindStatusChange();
+        bindDeleteJobPosition();
     }
 
     function bindStatusChange() {
@@ -76,7 +89,7 @@
     }
 
     function bindBtnNewJobPosition() {
-        objs.container.on('click', selectors.btnNewJobPosition, function () {
+        objs.controlsidebar.on('click', selectors.btnNewJobPosition, function () {
             if (canInteract) {
                 loadNewJobPositionForm();
             }
@@ -84,15 +97,16 @@
     }
 
     function bindBtnListMine() {
-        objs.container.on('click', selectors.btnListMine, function () {
+        objs.controlsidebar.on('click', selectors.btnListMine, function () {
+            var url = $(this).data('url');
             if (canInteract) {
-                loadMyJobPositions();
+                loadJobPositions(true, url);
             }
         });
     }
 
     function bindBtnSaveForm() {
-        objs.container.on('click', selectors.btnSave, function () {
+        objs.containerDetails.on('click', selectors.btnSave, function () {
             var valid = objs.form.valid();
             if (valid && canInteract) {
                 submitForm();
@@ -100,8 +114,45 @@
         });
     }
 
+
+    function bindDeleteJobPosition() {
+        objs.containerList.on('click', selectors.btnDeleteJobPosition, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+            var url = $(this).data('url');
+            var msg = btn.data('confirmationmessage');
+            var confirmationTitle = btn.data('confirmationtitle');
+            var confirmationButtonText = btn.data('confirmationbuttontext');
+            var cancelButtonText = btn.data('cancelbuttontext');
+
+            ALERTSYSTEM.ShowConfirmMessage(confirmationTitle, msg, confirmationButtonText, cancelButtonText, function () {
+                $.ajax({
+                    url: url,
+                    type: 'DELETE'
+                }).done(function (response) {
+                    if (response.success) {
+                        btn.closest(selectors.divListItem).remove();
+                        loadJobPositions(false, rootUrl + '/list');
+
+                        if (response.message) {
+                            ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                                if (response.url) {
+                                    window.location = response.url;
+                                }
+                            });
+                        }
+                    }
+                    else {
+                        ALERTSYSTEM.ShowWarningMessage(response.message);
+                    }
+                });
+            });
+        });
+    }
+
     function bindBtnApply() {
-        objs.container.on('click', '.jobposition-button', function () {
+        objs.containerDetails.on('click', '.jobposition-button', function () {
             var btn = $(this);
             var item = btn.closest('.jobposition-item');
             var id = item.data('id');
@@ -125,31 +176,29 @@
         });
     }
 
-    function loadJobPositions() {
+    function loadJobPositions(fromControlSidebar, url) {
         objs.list.html(MAINMODULE.Default.Spinner);
 
-        var url = "/list";
-
-        $.get(rootUrl + url, function (data) {
-            objs.list.html(data);
-        });
-    }
-
-    function loadMyJobPositions() {
-        objs.list.html(MAINMODULE.Default.Spinner);
-
-        var url = "/listmine";
-
-        $.get(rootUrl + url, function (data) {
-            objs.list.html(data);
+        $.get(url, function (data) {
+            if (fromControlSidebar) {
+                objs.containerDetails.hide();
+                objs.list.html(data);
+                objs.containerList.show();
+                cacheObjects();
+            }
+            else {
+                objs.list.html(data);
+            }
         });
     }
 
     function loadNewJobPositionForm() {
-        objs.container.html(MAINMODULE.Default.Spinner);
+        objs.containerDetails.html(MAINMODULE.Default.Spinner);
+        objs.containerList.hide();
 
         $.get(rootUrl + "/new", function (data) {
-            objs.container.html(data);
+            objs.containerDetails.html(data);
+            objs.containerDetails.show();
 
             objs.form = $(selectors.form);
 
