@@ -2,16 +2,7 @@
 
 @{
     Layout = null;
-    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "You have no positions right now.");
 }
-
-
-@if (!Model.Any())
-{
-    <partial name="_ListNoItems" model="noItemsModel" />
-}
-else
-{
     <ul class="list-group">
         @foreach (var item in Model)
         {
@@ -21,5 +12,3 @@ else
             </li>
         }
     </ul>
-
-}

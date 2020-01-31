@@ -4,43 +4,50 @@
 }
 
 
-    <div class="col-12 box bg-white jobposition-item list-item" data-id="@Model.Id" data-currentuservote="@Model.CurrentUserApplied">
-        <div class="box-header with-border">
-            <a asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@Model.Id" class="btnViewJobPosition"><h2>@Model.Title</h2></a>
-            <h4>@SharedLocalizer["Posted on {0}", Model.CreateDate.ToString()]</h4>
-            <div class="box-tools">
-                @if (Model.Permissions.CanEdit || Model.Permissions.CanDelete)
-                {
-                    <div class="btn-group">
-                        <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
-                        </button>
-                        <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+<div class="col-12 box bg-white jobposition-item list-item" data-id="@Model.Id" data-currentuservote="@Model.CurrentUserApplied">
+    <div class="box-header with-border">
+        <a asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@Model.Id" class="btnViewJobPosition"><h2>@Model.Title</h2></a>
+        <span>@SharedLocalizer["Posted on {0}", Model.CreateDate.ToString()]</span>
+        <div class="box-tools">
+            @if (Model.Permissions.CanEdit || Model.Permissions.CanDelete)
+            {
+                <div class="btn-group">
+                    <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
 
-                            @if (Model.Permissions.CanEdit)
-                            {
-                                <a class="btnEditJobPosition dropdown-item" href="#" data-url="@Url.Action("Edit", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["edit"]</a>
-                            }
+                        @if (Model.Permissions.CanEdit)
+                        {
+                            <a class="btnEditJobPosition dropdown-item" href="#" data-url="@Url.Action("Edit", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["edit"]</a>
+                        }
 
-                            @if (Model.Permissions.CanDelete)
-                            {
-                                <a class="btnDeleteJobPosition dropdown-item" href="#" data-url="@Url.Action("DeleteJobPosition", "JobPosition", new { area = "Work", jobPositionId = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this job position?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
-                            }
-                        </div>
+                        @if (Model.Permissions.CanDelete)
+                        {
+                            <a class="btnDeleteJobPosition dropdown-item" href="#" data-url="@Url.Action("DeleteJobPosition", "JobPosition", new { area = "Work", jobPositionId = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this job position?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                        }
                     </div>
-                }
-            </div>
-        </div>
-        <div class="box-body jobposition-details no-gutters">
-            <div class="col-12">
-                <p>@Model.Description</p>
-            </div>
-            <div class="col-12">
-                <span class="badge badge-status badge-@(Model.Status.ToString().ToLower()) p-2">@Model.StatusLocalized</span>
-            </div>
-
-            <div class="col-12 text-lowercase text-right">
-                <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @SharedLocalizer["applicants"]</span>
-            </div>
+                </div>
+            }
         </div>
     </div>
+    <div class="box-body jobposition-details no-gutters">
+        <div class="col-12">
+            @if (Model.PositionType != JobPositonType.NotDefined)
+            {
+                <span class="badge badge-secondary p-2">@Model.PositionType</span>
+            }
+            <span class="badge badge-secondary p-2">@Model.ExperienceLevel</span>
+        </div>
+        <div class="col-12">
+            <p>@Model.Description</p>
+        </div>
+        <div class="col-12">
+            <span class="badge badge-status badge-@(Model.Status.ToString().ToLower()) p-2">@Model.StatusLocalized</span>
+        </div>
+
+        <div class="col-12 text-lowercase text-right">
+            <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @SharedLocalizer["applicants"]</span>
+        </div>
+    </div>
+</div>

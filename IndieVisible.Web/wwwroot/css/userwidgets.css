@@ -15,6 +15,9 @@
     margin-bottom: 5px;
     font-size: 25px;
     font-weight: 300;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .widget-user .widget-user-header {

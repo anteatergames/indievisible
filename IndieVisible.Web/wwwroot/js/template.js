@@ -103,6 +103,10 @@ var ControlSidebar = null;
         });
     };
 
+    ControlSidebar.Toggle = function () {
+        Plugin.call($(Selector.data), 'toggle');
+    };
+
     // Plugin Definition
     function Plugin(option) {
         return this.each(function () {
@@ -114,7 +118,9 @@ var ControlSidebar = null;
                 $this.data(DataKey, data = new ControlSidebar($this, options));
             }
 
-            if (typeof option === 'string') data.toggle();
+            if (typeof option === 'string') {
+                data.toggle();
+            }
         });
     }
 

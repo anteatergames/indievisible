@@ -4,7 +4,7 @@
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
 
-    ViewData["Title"] = SharedLocalizer["New Job Position"];
+    ViewData["Title"] = SharedLocalizer["{0} Job Position", (Model.Id == Guid.Empty ? "New" : "Edit") ];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -35,6 +35,16 @@
                 <select asp-for="WorkType" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
                 <span asp-validation-for="WorkType" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="PositionType"></label>
+                <select asp-for="PositionType" asp-items="Html.GetEnumSelectList<JobPositonType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position type"]" tabindex="-1" aria-hidden="true"></select>
+                <span asp-validation-for="PositionType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExperienceLevel"></label>
+                <select asp-for="ExperienceLevel" asp-items="Html.GetEnumSelectList<JobExperienceLevel>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position experience level"]" tabindex="-1" aria-hidden="true"></select>
+                <span asp-validation-for="ExperienceLevel" class="text-danger"></span>
+            </div>
             <div class="form-row">
                 <div class="col-12 col-md-3">
                     <label class="col-form-label">@SharedLocalizer["Remote"]</label>
@@ -49,9 +59,31 @@
                 </div>
             </div>
             <div class="form-group">
+                <label asp-for="ClosingDateText" class="col-form-label"></label>
+                <input asp-for="ClosingDateText" type="text" class="form-control datepicker" data-date-start-date="@(DateTime.Now.ToShortDateString())" data-date-format="@(System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern.ToLower())" placeholder="@SharedLocalizer["Pick a date"]" />
+                <span asp-validation-for="ClosingDateText" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Salary" class="col-form-label"></label>
+                <input asp-for="Salary" asp-is-invariant="true" type="number" class="form-control" placeholder="@SharedLocalizer["Type the salary"]" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentFrequency"></label>
+                <select asp-for="PaymentFrequency" asp-items="Html.GetEnumSelectList<PaymentFrequency>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select payment frequency"]" tabindex="-1" aria-hidden="true"></select>
+                <span asp-validation-for="PaymentFrequency" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="Description" class="col-form-label"></label>
                 <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language"></label>
+                <select asp-for="Language" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the description language"]" tabindex="-1" aria-hidden="true"></select>
+                <span asp-validation-for="Language" class="text-danger"></span>
             </div>
             <div class="text-right">
                 <button type="button" id="btnPostJobPosition" class="btn btn-lg btn-primary"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save Job Position"]</button>

@@ -51,6 +51,7 @@
         selectors.chkRemote = '#Remote';
         selectors.location = '#Location';
         selectors.myPositionStats = '#divMyPositionStats';
+        selectors.datepicker = '.datepicker';
     }
 
     function cacheObjects() {
@@ -65,6 +66,12 @@
 
     function cacheObjectsCreateEdit() {
         objs.location = $(selectors.location);
+    }
+
+    function setCreateEdit() {
+        cacheObjectsCreateEdit();
+
+        $(selectors.datepicker).datepicker();
     }
 
     function bindAll() {
@@ -106,6 +113,7 @@
         objs.controlsidebar.on('click', selectors.btnNewJobPosition, function () {
             if (canInteract) {
                 loadNewJobPositionForm();
+                ControlSidebar.Toggle();
             }
         });
     }
@@ -115,6 +123,7 @@
             var url = $(this).data('url');
             if (canInteract) {
                 loadJobPositions(true, url);
+                ControlSidebar.Toggle();
             }
         });
     }
@@ -255,7 +264,7 @@
             objs.form = $(selectors.form);
 
             $.validator.unobtrusive.parse(selectors.form);
-            cacheObjectsCreateEdit();
+            setCreateEdit();
         });
     }
 
@@ -270,6 +279,7 @@
             objs.form = $(selectors.form);
 
             $.validator.unobtrusive.parse(objs.form);
+            setCreateEdit();
         });
     }
 

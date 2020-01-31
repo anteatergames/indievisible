@@ -156,7 +156,10 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             {
                 OperationResultVo<JobPositionViewModel> castResult = serviceResult as OperationResultVo<JobPositionViewModel>;
 
-                return PartialView("_CreateEdit", castResult.Value);
+                var model = castResult.Value;
+                model.ClosingDateText = model.ClosingDate.HasValue ? model.ClosingDate.Value.ToShortDateString() : string.Empty;
+
+                return PartialView("_CreateEdit", model);
             }
             else
             {
@@ -172,6 +175,11 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             {
                 bool newTeam = vm.Id == Guid.Empty;
                 vm.UserId = CurrentUserId;
+
+                if (!string.IsNullOrWhiteSpace(vm.ClosingDateText))
+                {
+                    vm.ClosingDate = DateTime.Parse(vm.ClosingDateText);
+                }
 
                 OperationResultVo<Guid> saveResult = jobPositionAppService.Save(CurrentUserId, vm);
 

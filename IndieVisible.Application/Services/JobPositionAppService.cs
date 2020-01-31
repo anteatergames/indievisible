@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndieVisible.Domain.Core.Extensions;
+using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.Services
 {
@@ -220,9 +221,19 @@ namespace IndieVisible.Application.Services
 
                 var model = new Dictionary<string, int>();
 
-                foreach (var item in stats)
+                var allStatus = Enum.GetValues(typeof(JobPositionStatus)).Cast<JobPositionStatus>().ToList();
+
+                foreach (JobPositionStatus status in allStatus)
                 {
-                    model.Add(item.Key.ToDisplayName(), item.Value);
+                    if (stats.ContainsKey(status))
+                    {
+                        var statusStats = stats[status];
+                        model.Add(status.ToDisplayName(), statusStats);
+                    }
+                    else
+                    {
+                        model.Add(status.ToDisplayName(), 0);
+                    }
                 }
 
                 return new OperationResultVo<Dictionary<string, int>>(model);
