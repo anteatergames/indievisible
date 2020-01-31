@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace IndieVisible.Domain.Services
 {
@@ -30,6 +31,19 @@ namespace IndieVisible.Domain.Services
             var all = repository.Get(x => x.Status == JobPositionStatus.OpenForApplication);
 
             return all;
+        }
+
+        public Dictionary<JobPositionStatus, int> GetPositionsStats(Guid userId)
+        {
+            var all = from x in repository.Get(x => x.UserId == userId)
+                      group x by x.Status into grouped
+                      select new
+                      {
+                          Status = grouped.Key,
+                          Count = grouped.Count()
+                      };
+
+            return all.ToDictionary(x => x.Status, y => y.Count);
         }
 
         public void AddApplicant(Guid userId, Guid jobPositionId, string coverLetter)

@@ -17,7 +17,6 @@
 @section ComponentStyles {
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
         <link rel="stylesheet" href="~/css/switch.css">
         <link rel="stylesheet" href="~/css/jobposition.css">
     </environment>
@@ -41,9 +40,9 @@
 @if (canInteract)
 {
     @section ControlSidebar {
-        <button id="btn-jobposition-new" class="btn btn-success btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Position"]</button>
-        <button id="btn-jobposition-listmine" class="btn btn-secondary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })"><i class="fas fa-briefcase" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Positions"]</button>
-        <button id="btn-jobposition-myapplications" class="btn btn-warning btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Applications"]</button>
+        <button id="btn-jobposition-new" class="btn btn-default bg-transparent btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Position"]</button>
+        <button id="btn-jobposition-listmine" class="btn btn-default bg-transparent btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })"><i class="fas fa-briefcase" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Positions"]</button>
+        <button id="btn-jobposition-myapplications" class="btn btn-default bg-transparent btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Applications"]</button>
     }
 }
 
@@ -58,18 +57,23 @@
         <div class="col-lg-12 mb-2">
             <h1><i class="fa fa-briefcase" aria-hidden="true">&nbsp;</i>@ViewData["Title"]</h1>
         </div>
-        <div class="col-lg-8 mb-5">
+        <div class="col-lg-8 mb-3">
             <div id="divList"></div>
         </div>
         <div id="jobpositionsidebar" class="col-lg-4 no-gutters">
-            <div class="jobposition-box alert-info p-2">
-                @SharedLocalizer["Use the asterisk menu on the top right cornder to manage your job positions and applications."]
+            <div class="alert-info p-2">
+                @SharedLocalizer["Use the asterisk menu on the top right corner to manage your job positions and applications."]
             </div>
             <div class="jobposition-box">
                 <h3>@SharedLocalizer["Employer Panel"]</h3>
                 <div class="row">
                     <div class="col-12">
                         <p>@SharedLocalizer["If you want to hire someone, create a new job position, describe the kind of professional that would fit your needs and just enjoy analysing the applicants."]</p>
+                    </div>
+                    <div class="col-12">
+                        <h4>@SharedLocalizer["Your job positions"]:</h4>
+
+                        <div id="divMyPositionStats"></div>
                     </div>
                 </div>
             </div>

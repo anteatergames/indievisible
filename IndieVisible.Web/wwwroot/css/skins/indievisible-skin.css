@@ -30,6 +30,15 @@ a {
             background-color: transparent;
         }
 
+.skin-indievisible .box-header > .box-tools .dropdown-menu {
+    background-color: #eafff7;
+    border: 1px solid gray;
+}
+
+    .skin-indievisible .box-header > .box-tools .dropdown-menu a:hover {
+        background-color: #0092ee !important;
+    }
+
 @media (max-width: 767px) {
     .skin-indievisible .main-header .navbar .dropdown-menu li.divider {
         background-color: rgba(255, 255, 255, 0.1);

@@ -113,14 +113,12 @@
     "outputFileName": "wwwroot/css/jobposition.min.css",
     "inputFiles": [
       "wwwroot/css/switch.css",
-      "wwwroot/lib/select2/css/select2.min.css",
       "wwwroot/css/jobposition.css"
     ]
   },
   {
     "outputFileName": "wwwroot/js/jobposition/jobposition.min.js",
     "inputFiles": [
-      "wwwroot/lib/select2/js/select2.full.min.js",
       "wwwroot/js/jobposition/jobposition.js",
       "wwwroot/js/shared/contentactions.js"
     ]

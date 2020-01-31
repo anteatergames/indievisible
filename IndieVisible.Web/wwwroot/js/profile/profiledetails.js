@@ -242,7 +242,7 @@
     }
 
     function loadTeams() {
-        objs.divListUserTeams.html(MAINMODULE.Default.Spinner2);
+        objs.divListUserTeams.html(MAINMODULE.Default.SpinnerTop);
         console.log(objs.divListUserTeams);
         $.get('/team/list/user/' + objs.UserId.val(), function (data) { objs.divListUserTeams.html(data); })
             .done(function (response) {

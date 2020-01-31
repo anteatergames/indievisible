@@ -2,6 +2,8 @@
     "use strict";
 
     var rootUrl = '/work/jobposition';
+    var urlListDefault = rootUrl + '/list';
+    var urlMyPositionStats = rootUrl + '/myPositionsStats';
 
     var selectors = {};
     var objs = {};
@@ -22,7 +24,8 @@
         isIndex = !isNew && !isDetails;
 
         if (isIndex) {
-            loadJobPositions(false, rootUrl + '/list');
+            loadJobPositions(false, urlListDefault);
+            loadMyJobPositionStats(urlMyPositionStats);
         }
 
         if (isDetails) {
@@ -45,6 +48,9 @@
         selectors.ddlStatus = '#ddlStatus';
         selectors.btnEditJobPosition = '.btnEditJobPosition';
         selectors.btnDeleteJobPosition = '.btnDeleteJobPosition';
+        selectors.chkRemote = '#Remote';
+        selectors.location = '#Location';
+        selectors.myPositionStats = '#divMyPositionStats';
     }
 
     function cacheObjects() {
@@ -53,7 +59,12 @@
         objs.containerDetails = $(selectors.containerDetails);
         objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
+        objs.myPositionStats = $(selectors.myPositionStats);
         objs.ddlStatus = $(selectors.ddlStatus);
+    }
+
+    function cacheObjectsCreateEdit() {
+        objs.location = $(selectors.location);
     }
 
     function bindAll() {
@@ -64,6 +75,7 @@
         bindStatusChange();
         bindEditJobPosition();
         bindDeleteJobPosition();
+        bindRemoteChange();
     }
 
     function bindStatusChange() {
@@ -147,7 +159,9 @@
                 }).done(function (response) {
                     if (response.success) {
                         btn.closest(selectors.divListItem).remove();
-                        loadJobPositions(false, rootUrl + '/list');
+                        loadJobPositions(false, urlListDefault);
+
+                        loadMyJobPositionStats(urlMyPositionStats);
 
                         if (response.message) {
                             ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
@@ -162,6 +176,20 @@
                     }
                 });
             });
+        });
+    }
+
+
+    function bindRemoteChange() {
+        objs.containerDetails.on('change', selectors.chkRemote, function (e) {
+            var isRemote = $(this).is(':checked');
+
+            if (isRemote) {
+                objs.location.val('').hide();
+            }
+            else {
+                objs.location.val('').show();
+            }
         });
     }
 
@@ -192,10 +220,11 @@
 
     function loadJobPositions(fromControlSidebar, url) {
         objs.list.html(MAINMODULE.Default.Spinner);
+        objs.containerDetails.html('');
+        objs.containerDetails.hide();
 
         $.get(url, function (data) {
             if (fromControlSidebar) {
-                objs.containerDetails.hide();
                 objs.list.html(data);
                 objs.containerList.show();
                 cacheObjects();
@@ -203,6 +232,15 @@
             else {
                 objs.list.html(data);
             }
+        });
+    }
+
+
+    function loadMyJobPositionStats(url) {
+        objs.myPositionStats.html(MAINMODULE.Default.SpinnerTop);
+
+        $.get(url, function (data) {
+            objs.myPositionStats.html(data);
         });
     }
 
@@ -217,6 +255,7 @@
             objs.form = $(selectors.form);
 
             $.validator.unobtrusive.parse(selectors.form);
+            cacheObjectsCreateEdit();
         });
     }
 

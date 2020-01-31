@@ -19,7 +19,7 @@
     }
 
     function searchPosts() {
-        selectors.divSearchPosts.html(MAINMODULE.Default.Spinner2);
+        selectors.divSearchPosts.html(MAINMODULE.Default.SpinnerTop);
 
         $.get("/search/posts/" + encodeURIComponent(selectors.term.val()), function (data) { selectors.divSearchPosts.html(data); });
     }

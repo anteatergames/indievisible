@@ -92,6 +92,27 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             return PartialView("_List", model);
         }
 
+        [Route("work/jobposition/mypositionsstats")]
+        public PartialViewResult MyPositionsStats()
+        {
+            Dictionary<string, int> model;
+
+            OperationResultVo serviceResult = jobPositionAppService.GetMyPositionsStats(CurrentUserId);
+
+            if (serviceResult.Success)
+            {
+                OperationResultVo<Dictionary<string, int>> castResult = serviceResult as OperationResultVo<Dictionary<string, int>>;
+
+                model = castResult.Value;
+            }
+            else
+            {
+                model = new Dictionary<string, int>();
+            }
+
+            return PartialView("_MyPositionsStats", model);
+        }
+
         [Route("work/jobposition/details/{id:guid}")]
         public IActionResult Details(Guid id)
         {

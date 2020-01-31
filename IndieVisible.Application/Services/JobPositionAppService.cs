@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using IndieVisible.Domain.Core.Extensions;
 
 namespace IndieVisible.Application.Services
 {
@@ -204,6 +205,27 @@ namespace IndieVisible.Application.Services
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();
 
                 return new OperationResultListVo<JobPositionViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetMyPositionsStats(Guid currentUserId)
+        {
+            try
+            {
+                Dictionary<JobPositionStatus, int> stats = jobPositionDomainService.GetPositionsStats(currentUserId);
+
+                var model = new Dictionary<string, int>();
+
+                foreach (var item in stats)
+                {
+                    model.Add(item.Key.ToDisplayName(), item.Value);
+                }
+
+                return new OperationResultVo<Dictionary<string, int>>(model);
             }
             catch (Exception ex)
             {

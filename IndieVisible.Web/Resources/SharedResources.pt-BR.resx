@@ -1386,7 +1386,7 @@
     <comment>JobPosition</comment>
   </data>
   <data name="If you want to hire someone, create a new job position, describe the kind of professional that would fit your needs and just enjoy analysing the applicants." xml:space="preserve">
-    <value>Se você deseja contratar alguém, crie um novo cargo, descreva o tipo de profissional que atenda às suas necessidades e aproveite a análise dos candidatos.</value>
+    <value>Se você deseja contratar alguém, crie uma nova vaga, descreva o tipo de profissional que atenda às suas necessidades e aproveite a análise dos candidatos.</value>
     <comment>JobPosition</comment>
   </data>
   <data name="In Analisys" xml:space="preserve">
@@ -1408,5 +1408,29 @@
   <data name="This position was posted by" xml:space="preserve">
     <value>Esta vaga foi enviada por</value>
     <comment>JobPosition</comment>
+  </data>
+  <data name="Use the asterisk menu on the top right corner to manage your job positions and applications." xml:space="preserve">
+    <value>Use o menu asterisco no canto superior direito para gerenciar suas vagas e candidaturas.</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="My Applications" xml:space="preserve">
+    <value>Candidaturas</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Your job positions" xml:space="preserve">
+    <value>Suas Vagas</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Posted on {0}" xml:space="preserve">
+    <value>Postado em {0}</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="{0} at {1}" xml:space="preserve">
+    <value>{0} em {1}</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Planet Earth" xml:space="preserve">
+    <value>Planeta Terra</value>
+    <comment>Generic</comment>
   </data>
 </root>

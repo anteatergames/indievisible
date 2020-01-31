@@ -330,7 +330,7 @@
     }
 
     function loadTeams() {
-        objs.divListTeams.html(MAINMODULE.Default.Spinner2);
+        objs.divListTeams.html(MAINMODULE.Default.SpinnerTop);
 
         $.get('/team/list/', function (data) { objs.divListTeams.html(data); })
             .done(function (response) {
@@ -339,7 +339,7 @@
     }
 
     function loadMyTeams() {
-        objs.divListMyTeams.html(MAINMODULE.Default.Spinner2);
+        objs.divListMyTeams.html(MAINMODULE.Default.SpinnerTop);
 
         $.get('/team/list/mine', function (data) { objs.divListMyTeams.html(data); })
             .done(function (response) {
@@ -380,7 +380,7 @@
     }
 
     function loadTeamGames() {
-        objs.divGamesList.html(MAINMODULE.Default.Spinner2);
+        objs.divGamesList.html(MAINMODULE.Default.SpinnerTop);
 
         var id = objs.divGames.data('id');
 

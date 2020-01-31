@@ -12,5 +12,6 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GenerateNewTeam(Guid currentUserId);
         OperationResultVo GetAllMine(Guid currentUserId);
         OperationResultVo ChangeStatus(Guid currentUserId, Guid jobPositionId, JobPositionStatus selectedStatus);
+        OperationResultVo GetMyPositionsStats(Guid currentUserId);
     }
 }
