@@ -81,6 +81,7 @@ namespace IndieVisible.Application.Services
                     if (profile != null)
                     {
                         applicant.Name = profile.Name;
+                        applicant.Location = profile.Location;
                         applicant.ProfileImageUrl = UrlFormatter.ProfileImage(applicant.UserId, 84);
                         applicant.CoverImageUrl = UrlFormatter.ProfileCoverImage(applicant.UserId, profile.Id, null, profile.HasCoverImage, 300); 
                     }
