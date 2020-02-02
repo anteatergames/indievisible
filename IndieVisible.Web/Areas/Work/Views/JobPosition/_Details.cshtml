@@ -100,20 +100,30 @@
     </div>
     <div class="col-lg-4">
         <div class="col-12 mt-2">
-            @if (Model.Permissions.CanEdit)
+            @if (!canInteract)
             {
-                <partial name="_ListApplicants" model="Model.Applicants" />
+                <div class="alert-info p-2">
+                    @SharedLocalizer["You must be logged in to post and apply to job positions."]
+                </div>
             }
             else
             {
-                if (Model.CurrentUserApplied)
+                @if (Model.Permissions.CanEdit)
                 {
-                    <div class="alert alert-info">@SharedLocalizer["You have applyed to this Job Position!"]</div>
+                    <partial name="_ListApplicants" model="Model.Applicants" />
                 }
                 else
                 {
-                    <button type="button" id="btnApply" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                    if (Model.CurrentUserApplied)
+                    {
+                        <div class="alert alert-info">@SharedLocalizer["You have applyed to this Job Position!"]</div>
+                    }
+                    else
+                    {
+                        <button type="button" id="btnApply" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                    }
                 }
+
             }
         </div>
     </div>
