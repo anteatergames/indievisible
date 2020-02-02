@@ -375,7 +375,7 @@ namespace IndieVisible.Web.Controllers
                 Date = new DateTime(2019, 09, 01),
                 Icon = "fas fa-users",
                 Color = "info",
-                Title = "October",
+                Title = "October 2019",
                 Subtitle = "Team up!",
                 Description = "Join forces to make games.",
                 Items = {
@@ -386,6 +386,33 @@ namespace IndieVisible.Web.Controllers
                     "Teams can be linked to games",
                     "Recruitin Teams!",
                     "#hashtagging"
+                }
+            });
+
+
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2019, 12, 01),
+                Icon = "fas fa-bolt",
+                Color = "danger",
+                Title = "December 2019",
+                Subtitle = "Optimizations!",
+                Description = "Now the whole web rendering is blazing fast!"
+            });
+
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2020, 01, 01),
+                Icon = "fas fa-briefcase",
+                Color = "warning",
+                Title = "January 2020",
+                Subtitle = "It is time to work! Seriously!",
+                Description = "The job management is here!",
+                Items = {
+                    "Create job position",
+                    "List existing positions",
+                    "Apply to positions",
+                    "See who applied to your posted job positions"
                 }
             });
 

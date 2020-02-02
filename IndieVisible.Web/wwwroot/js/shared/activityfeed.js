@@ -38,7 +38,7 @@ var ACTIVITYFEED = (function () {
             oldestGuid = btn.data('oldestid');
             oldestDate = btn.data('oldestdate');
 
-            btn.html('<span class="spinner-border" role="status" aria-hidden="true"></span>');
+            btn.html(MAINMODULE.Default.SpinnerBtn);
 
             ACTIVITYFEED.Methods.LoadActivityFeed(false);
         });

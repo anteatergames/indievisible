@@ -94,7 +94,15 @@ namespace IndieVisible.Domain.Core.Extensions
 
             DisplayAttribute display = enumeration.GetAttributeOfType<DisplayAttribute>();
 
-            return display.Name;
+
+            if (display == null)
+            {
+                return enumeration.ToString();
+            }
+            else
+            {
+                return display.Name;
+            }
         }
     }
 }

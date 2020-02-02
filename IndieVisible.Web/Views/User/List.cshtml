@@ -14,38 +14,7 @@
     @foreach (var item in Model)
     {
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="box box-widget widget-user">
-                <div class="widget-user-image">
-                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
-                        <img class="rounded-circle lazyload" data-src="@item.ProfileImageUrl" src="~/images/profileimages/developer.png" alt="User Avatar">
-                    </a>
-                </div>
-                <div class="widget-user-header bg-black" style="background-image: url('@item.CoverImageUrl')">
-                </div>
-                <div class="box-footer">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3 class="widget-user-username">@Html.DisplayFor(modelItem => item.Name)</h3>
-                        </div>
-                        <div class="col-6 border-right">
-                            <div class="description-block">
-                                <span class="description-text">
-                                    @SharedLocalizer["location"]
-                                </span>
-                                <h5 class="description-header text-truncate">@item.Location</h5>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="description-block">
-                                <span class="description-text">
-                                    @SharedLocalizer["Member since"]
-                                </span>
-                                <h5 class="description-header">@item.CreateDate.ToShortDateString()</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <partial name="_UserCard" model="item" />
         </div>
     }
 </div>

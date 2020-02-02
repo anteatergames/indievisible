@@ -32,5 +32,10 @@ namespace IndieVisible.Domain.Models
         public SupportedLanguage Language { get; set; }
 
         public List<JobApplicant> Applicants { get; set; }
+
+        public JobPosition()
+        {
+            Applicants = new List<JobApplicant>();
+        }
     }
 }

@@ -63,6 +63,8 @@ namespace IndieVisible.Domain.Services
         {
             var model = new JobPosition();
 
+            model.Remote = true;
+
             return model;
         }
     }

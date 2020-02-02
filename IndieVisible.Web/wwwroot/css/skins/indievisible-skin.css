@@ -1,5 +1,20 @@
+/*
+    primary #E0E0E2
+    accent #7389AE
+    highlight #81D2C7
+    shade #B5BAD0
+    dark background #416788
+
+*/
+
 a {
     color: #111;
+}
+
+.skin-indievisible .col-form-label {
+    color: #7389AE;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .skin-indievisible .main-header .navbar {

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<JobApplicantViewModel>
+
+@{
+    Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "Nobody applied... yet!");
+
+    var description = ViewData["ListDescription"] == null ? SharedLocalizer["Applicants"] : (string)ViewData["ListDescription"];
+}
+
+<h4>@SharedLocalizer[description]</h4>
+
+@if (!Model.Any())
+{
+    <partial name="_ListNoItems" model="noItemsModel" />
+}
+else
+{
+
+    @foreach (var applicant in Model)
+    {
+        <partial name="_UserCard" model="applicant" />
+    }
+}

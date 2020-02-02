@@ -27,10 +27,6 @@
             loadJobPositions(false, urlListDefault);
             loadMyJobPositionStats(urlMyPositionStats);
         }
-
-        if (isDetails) {
-            objs.ddlStatus.removeClass('invisible').show();
-        }
     }
 
     function setSelectors() {
@@ -45,9 +41,9 @@
         selectors.btnListMine = '#btn-jobposition-listmine';
         selectors.form = '#frmJobPositionSave';
         selectors.btnSave = '#btnPostJobPosition';
-        selectors.ddlStatus = '#ddlStatus';
         selectors.btnEditJobPosition = '.btnEditJobPosition';
         selectors.btnDeleteJobPosition = '.btnDeleteJobPosition';
+        selectors.btnApply = '#btnApply';
         selectors.chkRemote = '#Remote';
         selectors.location = '#Location';
         selectors.myPositionStats = '#divMyPositionStats';
@@ -61,7 +57,7 @@
         objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
         objs.myPositionStats = $(selectors.myPositionStats);
-        objs.ddlStatus = $(selectors.ddlStatus);
+        objs.btnApply = $(selectors.btnApply);
     }
 
     function cacheObjectsCreateEdit() {
@@ -79,34 +75,9 @@
         bindBtnListMine();
         bindBtnSaveForm();
         bindBtnApply();
-        bindStatusChange();
         bindEditJobPosition();
         bindDeleteJobPosition();
         bindRemoteChange();
-    }
-
-    function bindStatusChange() {
-        objs.container.on('change', selectors.ddlStatus, function (e) {
-            var selectedStatus = $(this).val();
-            var url = $(this).data('url');
-            var id = $(this).data('id');
-
-            var data = {
-                selectedStatus: selectedStatus,
-                jobPositionId: id
-            };
-
-            $.post(url, data).done(function (response) {
-                if (response.success === true) {
-                    ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
-                        window.location = response.url;
-                    });
-                }
-                else {
-                    ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
-                }
-            });
-        });
     }
 
     function bindBtnNewJobPosition() {
@@ -119,11 +90,10 @@
     }
 
     function bindBtnListMine() {
-        objs.controlsidebar.on('click', selectors.btnListMine, function () {
+        objs.container.on('click', selectors.btnListMine, function () {
             var url = $(this).data('url');
             if (canInteract) {
                 loadJobPositions(true, url);
-                ControlSidebar.Toggle();
             }
         });
     }
@@ -203,27 +173,29 @@
     }
 
     function bindBtnApply() {
-        objs.containerDetails.on('click', '.jobposition-button', function () {
+        objs.container.on('click', selectors.btnApply, function (e) {
+            e.preventDefault();
+
             var btn = $(this);
-            var item = btn.closest('.jobposition-item');
-            var id = item.data('id');
-            var vote = btn.data('vote');
-            var sameVote = item.data('currentuservote') === vote;
+            var originalText = btn.html();
 
-            if (canInteract === 'true' && !sameVote) {
-                var url = rootUrl + "/vote";
+            btn.html(MAINMODULE.Default.SpinnerBtn);
 
-                return $.post(url, { votingItemId: id, voteValue: vote }).then(function (response) {
+            var url = btn.data('url');
+
+            if (canInteract) {
+                apply(url, function (response) {
                     if (response.success === true) {
-                        ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
-                            location.reload();
-                        });
+                        btn.html('...');
                     }
                     else {
-                        ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+                        btn.html(originalText);
                     }
+                    console.log(response);
                 });
             }
+
+            return false;
         });
     }
 
@@ -265,6 +237,24 @@
 
             $.validator.unobtrusive.parse(selectors.form);
             setCreateEdit();
+        });
+    }
+
+    function apply(url, callback) {
+        $.post(url).done(function (response) {
+            if (response.success === true) {
+                if (callback) {
+                    callback(response);
+                }
+                ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                    if (response.url) {
+                        window.location = response.url;
+                    }
+                });
+            }
+            else {
+                ALERTSYSTEM.ShowWarningMessage(response.message);
+            }
         });
     }
 

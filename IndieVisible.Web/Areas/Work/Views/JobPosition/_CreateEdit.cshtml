@@ -4,7 +4,7 @@
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
 
-    ViewData["Title"] = SharedLocalizer["{0} Job Position", (Model.Id == Guid.Empty ? "New" : "Edit") ];
+    ViewData["Title"] = SharedLocalizer["{0} Job Position", (Model.Id == Guid.Empty ? "New" : "Edit")];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -15,64 +15,82 @@
         <input type="hidden" asp-for="UserId" />
         <input type="hidden" asp-for="CreateDate" />
         <div class="box-header with-border">
-            <div class="float-left mr-3 mb-3">
+            <div class="float-left mr-3">
                 <a asp-area="work" asp-controller="jobposition" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
             </div>
-            <h3 class="card-title">@SharedLocalizer["You are creating a new Job Position"]</h3>
-            <h4 class="card-subtitle">
+            <h3 class="card-title">@SharedLocalizer["You are {0} a new Job Position", (Model.Id == Guid.Empty ? "creating" : "editing")]</h3>
+            <span class="card-subtitle">
                 @SharedLocalizer["Describe the talent you are looking for!"]
-            </h4>
+            </span>
         </div>
         <!-- /.box-header -->
         <div class="box-body p-md-10">
             <div class="form-group">
-                <label asp-for="Status"></label>
+                <label asp-for="Status" class="col-form-label"></label>
                 <select asp-for="Status" asp-items="Html.GetEnumSelectList<JobPositionStatus>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the job position status"]" tabindex="-1" aria-hidden="true"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="WorkType"></label>
+                <label asp-for="WorkType" class="col-form-label"></label>
                 <select asp-for="WorkType" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
                 <span asp-validation-for="WorkType" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PositionType"></label>
-                <select asp-for="PositionType" asp-items="Html.GetEnumSelectList<JobPositonType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position type"]" tabindex="-1" aria-hidden="true"></select>
-                <span asp-validation-for="PositionType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ExperienceLevel"></label>
-                <select asp-for="ExperienceLevel" asp-items="Html.GetEnumSelectList<JobExperienceLevel>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position experience level"]" tabindex="-1" aria-hidden="true"></select>
-                <span asp-validation-for="ExperienceLevel" class="text-danger"></span>
-            </div>
-            <div class="form-row">
-                <div class="col-12 col-md-3">
-                    <label class="col-form-label">@SharedLocalizer["Remote"]</label>
-                    <label class="switch ">
-                        <input asp-for="Remote" type="checkbox" class="default" />
-                        <span class="slider round"></span>
-                    </label>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PositionType" class="col-form-label"></label>
+                        <select asp-for="PositionType" asp-items="Html.GetEnumSelectList<JobPositonType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position type"]" tabindex="-1" aria-hidden="true"></select>
+                        <span asp-validation-for="PositionType" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="col">
-                    <input asp-for="Location" class="form-control" placeholder="@SharedLocalizer["Location"]" />
-                    <span asp-validation-for="Location" class="text-danger"></span>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ExperienceLevel" class="col-form-label"></label>
+                        <select asp-for="ExperienceLevel" asp-items="Html.GetEnumSelectList<JobExperienceLevel>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position experience level"]" tabindex="-1" aria-hidden="true"></select>
+                        <span asp-validation-for="ExperienceLevel" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
+
+            <div class="border p-2 bg-light">
+                <h3>@SharedLocalizer["Location"]</h3>
+                <div class="form-row">
+                    <div class="col-12 col-md-3">
+                        <label class="col-form-label">@SharedLocalizer["Remote"]</label>
+                        <label class="switch ">
+                            <input asp-for="Remote" type="checkbox" class="default" />
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Location" class="form-control" placeholder="@SharedLocalizer["City/Country"]" style="display:@(Model.Remote ? "none" : "block")" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label asp-for="ClosingDateText" class="col-form-label"></label>
                 <input asp-for="ClosingDateText" type="text" class="form-control datepicker" data-date-start-date="@(DateTime.Now.ToShortDateString())" data-date-format="@(System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern.ToLower())" placeholder="@SharedLocalizer["Pick a date"]" />
                 <span asp-validation-for="ClosingDateText" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Salary" class="col-form-label"></label>
-                <input asp-for="Salary" asp-is-invariant="true" type="number" class="form-control" placeholder="@SharedLocalizer["Type the salary"]" />
-                <span asp-validation-for="Salary" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PaymentFrequency"></label>
-                <select asp-for="PaymentFrequency" asp-items="Html.GetEnumSelectList<PaymentFrequency>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select payment frequency"]" tabindex="-1" aria-hidden="true"></select>
-                <span asp-validation-for="PaymentFrequency" class="text-danger"></span>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Salary" class="col-form-label"></label>
+                        <input asp-for="Salary" asp-is-invariant="true" type="number" class="form-control" placeholder="@SharedLocalizer["Type the salary in USD"]" />
+                        <span asp-validation-for="Salary" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PaymentFrequency" class="col-form-label"></label>
+                        <select asp-for="PaymentFrequency" asp-items="Html.GetEnumSelectList<PaymentFrequency>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select payment frequency"]" tabindex="-1" aria-hidden="true"></select>
+                        <span asp-validation-for="PaymentFrequency" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">

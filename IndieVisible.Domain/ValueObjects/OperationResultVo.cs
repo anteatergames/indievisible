@@ -37,11 +37,14 @@ namespace IndieVisible.Domain.ValueObjects
             PointsEarned = pointsEarned;
         }
 
-        public OperationResultVo(bool success, string message, int pointsEarned)
+        public OperationResultVo(int pointsEarned, string message) : this(true, pointsEarned)
         {
-            Success = success;
             Message = message;
-            PointsEarned = pointsEarned;
+        }
+
+        public OperationResultVo(bool success, string message, int pointsEarned) : this(success, pointsEarned)
+        {
+            Message = message;
         }
     }
 
@@ -64,6 +67,10 @@ namespace IndieVisible.Domain.ValueObjects
         public string Url { get; set; }
 
         public OperationResultRedirectVo(string url) : base(true)
+        {
+            Url = url;
+        }
+        public OperationResultRedirectVo(string url, string message) : base(true, message)
         {
             Url = url;
         }

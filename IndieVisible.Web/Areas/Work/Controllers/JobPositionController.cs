@@ -218,10 +218,36 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             try
             {
                 jobPositionAppService.ChangeStatus(CurrentUserId, jobPositionId, selectedStatus);
-                
-                string url = Url.Action("Index", "JobPosition", new { area = "Work"});
+
+                string url = Url.Action("Index", "JobPosition", new { area = "Work" });
 
                 return Json(new OperationResultRedirectVo(url));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [HttpPost("work/jobposition/apply/{jobPositionId:guid}")]
+        public IActionResult Apply(Guid jobPositionId, string coverLetter)
+        {
+            try
+            {
+                OperationResultVo serviceResult = jobPositionAppService.Apply(CurrentUserId, jobPositionId, coverLetter);
+
+                if (serviceResult.Success)
+                {
+                    string url = Url.Action("Details", "JobPosition", new { area = "Work", id = jobPositionId });
+
+                    return Json(new OperationResultRedirectVo(url, SharedLocalizer[serviceResult.Message]));
+                }
+                else
+                {
+                    return Json(new OperationResultVo(SharedLocalizer[serviceResult.Message]));
+                }
+
+
             }
             catch (Exception ex)
             {

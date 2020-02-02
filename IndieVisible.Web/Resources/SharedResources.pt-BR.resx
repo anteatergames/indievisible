@@ -1409,16 +1409,12 @@
     <value>Esta vaga foi enviada por</value>
     <comment>JobPosition</comment>
   </data>
-  <data name="Use the asterisk menu on the top right corner to manage your job positions and applications." xml:space="preserve">
-    <value>Use o menu asterisco no canto superior direito para gerenciar suas vagas e candidaturas.</value>
+  <data name="Use the asterisk menu on the top right corner to add a new position." xml:space="preserve">
+    <value>Use o menu asterisco no canto superior direito para adicionar uma nova vaga.</value>
     <comment>JobPosition</comment>
   </data>
   <data name="My Applications" xml:space="preserve">
     <value>Candidaturas</value>
-    <comment>JobPosition</comment>
-  </data>
-  <data name="Your job positions" xml:space="preserve">
-    <value>Suas Vagas</value>
     <comment>JobPosition</comment>
   </data>
   <data name="Posted on {0}" xml:space="preserve">
@@ -1432,5 +1428,29 @@
   <data name="Planet Earth" xml:space="preserve">
     <value>Planeta Terra</value>
     <comment>Generic</comment>
+  </data>
+  <data name="Closing Date" xml:space="preserve">
+    <value>Encerramento</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Payment Frequency" xml:space="preserve">
+    <value>Frequência de Pagamento</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Position Type" xml:space="preserve">
+    <value>Tipo de Vaga</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Salary" xml:space="preserve">
+    <value>Salário</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Work Type" xml:space="preserve">
+    <value>Tipo de Trabalho</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Here you can see the job positions you have applied." xml:space="preserve">
+    <value>Aqui você confere as vagas que você se candidatou.</value>
+    <comment>JobPosition</comment>
   </data>
 </root>

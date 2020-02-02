@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using IndieVisible.Domain.Core.Extensions;
 using System.ComponentModel.DataAnnotations;
+using IndieVisible.Application.Formatters;
 
 namespace IndieVisible.Application.Services
 {
@@ -77,10 +78,16 @@ namespace IndieVisible.Application.Services
                 foreach (JobApplicantViewModel applicant in vm.Applicants)
                 {
                     UserProfile profile = GetCachedProfileByUserId(applicant.UserId);
-                    applicant.Name = profile.Name;
+                    if (profile != null)
+                    {
+                        applicant.Name = profile.Name;
+                        applicant.ProfileImageUrl = UrlFormatter.ProfileImage(applicant.UserId, 84);
+                        applicant.CoverImageUrl = UrlFormatter.ProfileCoverImage(applicant.UserId, profile.Id, null, profile.HasCoverImage, 300); 
+                    }
                 }
 
                 vm.CurrentUserApplied = model.Applicants.Any(x => x.UserId == currentUserId);
+                vm.ApplicantCount = model.Applicants.Count;
 
                 SetPermissions(currentUserId, vm);
 
@@ -178,6 +185,7 @@ namespace IndieVisible.Application.Services
                 foreach (var vm in vms)
                 {
                     SetPermissions(currentUserId, vm);
+                    vm.ApplicantCount = vm.Applicants.Count;
                 }
 
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();
@@ -201,6 +209,7 @@ namespace IndieVisible.Application.Services
                 foreach (var vm in vms)
                 {
                     SetPermissions(currentUserId, vm);
+                    vm.ApplicantCount = vm.Applicants.Count;
                 }
 
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();
@@ -267,7 +276,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo(pointsEarned);
+                return new OperationResultVo(pointsEarned, "You have applyed to this Job Position!");
             }
             catch (Exception ex)
             {

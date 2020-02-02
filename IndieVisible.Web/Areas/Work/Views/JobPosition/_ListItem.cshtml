@@ -33,17 +33,22 @@
     </div>
     <div class="box-body jobposition-details no-gutters">
         <div class="col-12">
+            @if (Model.Remote)
+            {
+                <span class="badge badge-secondary p-2">@SharedLocalizer["Remote"]</span>
+            }
             @if (Model.PositionType != JobPositonType.NotDefined)
             {
-                <span class="badge badge-secondary p-2">@Model.PositionType</span>
+                <span class="badge badge-secondary p-2">@SharedLocalizer[Model.PositionType.ToDisplayName()]</span>
             }
-            <span class="badge badge-secondary p-2">@Model.ExperienceLevel</span>
+        <span class="badge badge-secondary p-2">@SharedLocalizer[Model.ExperienceLevel.ToDisplayName()]</span>
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-2">
             <p>@Model.Description</p>
         </div>
         <div class="col-12">
             <span class="badge badge-status badge-@(Model.Status.ToString().ToLower()) p-2">@Model.StatusLocalized</span>
+            <span class="badge badge-status badge-dark p-2">@SharedLocalizer[Model.Language.ToDisplayName()]</span>
         </div>
 
         <div class="col-12 text-lowercase text-right">

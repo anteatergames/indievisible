@@ -4,62 +4,117 @@
     var canInteract = User.Identity.IsAuthenticated;
 }
 
-<div class="col-xl-8 offset-xl-2 col-md-12 offset-md-0">
-    <h1 class="sr-only">
-        @SharedLocalizer["job position details"]
-    </h1>
-    <input type="hidden" asp-for="Id" />
-    <div id="jobpositioncontainer" class="mx-0">
-        <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
-        <div class="box bg-white" data-id="@Model.Id">
-            <div class="box-header with-border">
-                <div class="float-left mr-3 mb-3">
-                    <a asp-area="work" asp-controller="jobposition" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+<div class="row box bg-white no-gutters">
+    <div class="col-lg-8">
+        <h1 class="sr-only">
+            @SharedLocalizer["job position details"]
+        </h1>
+        <input type="hidden" asp-for="Id" />
+        <div id="jobpositioncontainer" class="mx-0">
+            <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+            <div data-id="@Model.Id">
+                <div class="box-header with-border">
+                    <div class="float-left mr-2">
+                        <a asp-area="work" asp-controller="jobposition" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="float-left">
+                        <h2 class="card-title">@ViewData["Title"]</h2>
+                    </div>
                 </div>
-                <div class="float-left">
-                    <h2 class="card-title">@ViewData["Title"]</h2>
-                </div>
-                <h6 class="float-left card-subtitle col-12">
-                    xxx
-                </h6>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body p-0 p-md-2">
+                <!-- /.box-header -->
+                <div class="box-body p-0 p-md-2">
+                    <div class="jobposition-item" data-id="@Model.Id" data-currentuserapplied="@Model.CurrentUserApplied">
+                        <div class="jobposition-details">
+                            <div class="border mb-3 p-2 bg-light">
+                                <div class="row">
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="col-form-label">@SharedLocalizer["Job Reference"]</label>
+                                            <p>@Model.Id</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-group">
+                                            <label asp-for="Location" class="col-form-label"></label>
+                                            <p>@(Model.Remote ? SharedLocalizer["Remote"] : Model.Location)</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-group">
+                                            <label asp-for="PositionType" class="col-form-label"></label>
+                                            <p>@SharedLocalizer[Model.PositionType.ToDisplayName()]</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-group">
+                                            <label asp-for="ExperienceLevel" class="col-form-label"></label>
+                                            <p>@SharedLocalizer[Model.ExperienceLevel.ToDisplayName()]</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-group">
+                                            <label asp-for="Salary" class="col-form-label"></label>
+                                            <p>@(Model.Salary.HasValue ? "USD " + Model.Salary : SharedLocalizer["Not Informed"])</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-group">
+                                            <label asp-for="PaymentFrequency" class="col-form-label"></label>
+                                            <p>@SharedLocalizer[Model.PaymentFrequency.ToDisplayName()]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p>@Model.Description</p>
+                            </div>
 
-                <div class="jobposition-item" data-id="@Model.Id" data-currentuserapplied="@Model.CurrentUserApplied">
-                    <div class="jobposition-details">
-                        <div class="col-12">
-                            <p>@Model.Description</p>
+                            <div class="col-12">
+                                <span class="badge badge-status badge-@(Model.Status.ToString().ToLower()) p-2">@Model.StatusLocalized</span>
+                                <span class="badge badge-status badge-dark p-2">@SharedLocalizer[Model.Language.ToDisplayName()]</span>
+                            </div>
+                        </div>
+                        <div class="author-details mt-2">
+                            <div class="col-12">
+                                <span>@SharedLocalizer["This position was posted by"]:</span>
+                                <div class="user-block">
+                                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                                        <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                                    </a>
+                                    <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
+
+                                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
+                                        <span class="description">@Model.CreateDate.ToString()</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
-                        @if (canInteract && Model.Permissions.CanEdit)
-                        {
-                            <div class="col-12 py-2">
-                                <select id="ddlStatus" asp-for="Status" asp-items="Html.GetEnumSelectList<JobPositionStatus>()" data-url="@Url.Action("ChangeStatus", "JobPosition", new { area = "Work", jobPositionId = Model.Id })" class="form-control" data-placeholder="@SharedLocalizer["Set the current status"]" tabindex="-1" aria-hidden="true"></select>
-                            </div>
-                        }
-                    </div>
-                    <div class="author-details">
-                        <div class="col-12">
-                            <span>@SharedLocalizer["This position was posted by"]:</span>
-                            <div class="user-block">
-                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
-                                    <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
-                                </a>
-                                <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
-
-                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
-                                    <span class="description">@Model.CreateDate.ToString()</span>
-                                </a>
-                            </div>
+                        <div class="col-12 text-lowercase text-right">
+                            <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @(Model.ApplicantCount == 1 ? SharedLocalizer["applicant"] : SharedLocalizer["applicants"])</span>
                         </div>
-                    </div>
-
-                    <div class="col-12 text-lowercase text-right">
-                        <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @SharedLocalizer["applicants"]</span>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="col-12 mt-2">
+            @if (Model.Permissions.CanEdit)
+            {
+                <partial name="_ListApplicants" model="Model.Applicants" />
+            }
+            else
+            {
+                if (Model.CurrentUserApplied)
+                {
+                    <div class="alert alert-info">@SharedLocalizer["You have applyed to this Job Position!"]</div>
+                }
+                else
+                {
+                    <button type="button" id="btnApply" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                }
+            }
         </div>
     </div>
 </div>

@@ -44,9 +44,7 @@
 @if (canInteract)
 {
     @section ControlSidebar {
-        <button id="btn-jobposition-new" class="btn btn-default bg-transparent btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["New Position"]</button>
-        <button id="btn-jobposition-listmine" class="btn btn-default bg-transparent btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })"><i class="fas fa-briefcase" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Positions"]</button>
-        <button id="btn-jobposition-myapplications" class="btn btn-default bg-transparent btn-block"><i class="fa fa-plus" aria-hidden="true">&nbsp;</i>@SharedLocalizer["My Applications"]</button>
+        <button id="btn-jobposition-new" class="btn btn-default bg-transparent btn-block">@SharedLocalizer["New Position"]</button>
     }
 }
 
@@ -66,7 +64,7 @@
         </div>
         <div id="jobpositionsidebar" class="col-lg-4 no-gutters">
             <div class="alert-info p-2">
-                @SharedLocalizer["Use the asterisk menu on the top right corner to manage your job positions and applications."]
+                @SharedLocalizer["Use the asterisk menu on the top right corner to add a new position."]
             </div>
             <div class="jobposition-box">
                 <h3>@SharedLocalizer["Employer Panel"]</h3>
@@ -75,9 +73,11 @@
                         <p>@SharedLocalizer["If you want to hire someone, create a new job position, describe the kind of professional that would fit your needs and just enjoy analysing the applicants."]</p>
                     </div>
                     <div class="col-12">
-                        <h4>@SharedLocalizer["Your job positions"]:</h4>
-
-                        <div id="divMyPositionStats"></div>
+                        <h4>@SharedLocalizer["My Positions"]:</h4>
+                        <div id="divEmployerActions">
+                            <button id="btn-jobposition-listmine" class="btn btn-outline-primary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })">@SharedLocalizer["Manage"]</button>
+                        </div>
+                        <div id="divMyPositionStats" class="mt-1 p-1"></div>
                     </div>
                 </div>
             </div>
@@ -88,11 +88,11 @@
                         <p>@SharedLocalizer["Here you can see the job positions you have applied."]</p>
                     </div>
                     <div class="col-12">
-                        <ul>
-                            <li>position 1</li>
-                            <li>position 2</li>
-                            <li>position 3</li>
-                        </ul>
+                        <h4>@SharedLocalizer["My Applications"]:</h4>
+                        <div id="divApplicantActions">
+                            <button id="btn-jobposition-myapplications" class="btn btn-outline-primary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })">@SharedLocalizer["Manage"]</button>
+                        </div>
+                        <div id="divMyApplications" class="mt-1"></div>
                     </div>
                 </div>
             </div>

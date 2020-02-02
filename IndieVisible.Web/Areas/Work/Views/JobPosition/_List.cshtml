@@ -15,8 +15,8 @@ else
 {
     <p>@SharedLocalizer[description]</p>
 
-    @foreach (var team in Model)
+    @foreach (var jobPosition in Model)
     {
-        <partial name="_ListItem" model="team" />
+        <partial name="_ListItem" model="jobPosition" />
     }
 }

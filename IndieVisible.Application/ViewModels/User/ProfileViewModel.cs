@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.User
 {
-    public class ProfileViewModel : BaseViewModel
+    public class ProfileViewModel : BaseViewModel, IUserProfileBasic
     {
         public ProfileType Type { get; set; }
 
