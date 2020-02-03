@@ -1497,4 +1497,8 @@
     <value>Você se candidatou a esta Vaga!</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="Hire" xml:space="preserve">
+    <value>Contratar</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>

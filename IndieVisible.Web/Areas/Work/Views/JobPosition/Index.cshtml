@@ -1,7 +1,5 @@
 ﻿
 @{
-    ViewData["Title"] = SharedLocalizer["Work"];
-    ViewData["Description"] = SharedLocalizer["Create and apply to job positions."];
     //ViewData["ControlSidebarTitle"] = ViewData["Title"];
     //ViewData["ControlSidebarUrl"] = Url.Action("Index", "JobPosition", new { area = "Work" });
 
@@ -14,6 +12,9 @@
     }
 
     var jobProfile = (JobProfile)Enum.Parse(typeof(JobProfile), (string)ViewData["jobProfile"]);
+
+    ViewData["Title"] = jobProfile == JobProfile.Company ? SharedLocalizer["Hire"] :  SharedLocalizer["Work"];
+    ViewData["Description"] = SharedLocalizer["Create and apply to job positions."];
 }
 
 @section ComponentStyles {
