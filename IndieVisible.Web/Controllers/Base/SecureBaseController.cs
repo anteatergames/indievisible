@@ -39,6 +39,9 @@ namespace IndieVisible.Web.Controllers.Base
         private IProfileAppService profileAppService;
         public IProfileAppService ProfileAppService => profileAppService ?? (profileAppService = HttpContext?.RequestServices.GetService<IProfileAppService>());
 
+        private IUserPreferencesAppService userPreferencesAppService;
+        public IUserPreferencesAppService UserPreferencesAppService => userPreferencesAppService ?? (userPreferencesAppService = HttpContext?.RequestServices.GetService<IUserPreferencesAppService>());
+
         public Guid CurrentUserId { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext context)

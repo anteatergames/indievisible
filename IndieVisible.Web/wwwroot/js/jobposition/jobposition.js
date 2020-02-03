@@ -11,6 +11,7 @@
     var isIndex = false;
     var isNew = false;
     var isDetails = false;
+    var isCompany = false;
 
     function init() {
         setSelectors();
@@ -19,12 +20,19 @@
         bindAll();
 
         canInteract = objs.container.find(selectors.canInteract).val();
+        isCompany = objs.container.find(selectors.jobProfile).val() === 'Company';
         isNew = window.location.href.indexOf('add') > -1;
         isDetails = window.location.href.indexOf('details') > -1;
         isIndex = !isNew && !isDetails;
 
         if (isIndex) {
-            loadJobPositions(false, urlListDefault);
+            if (isCompany) {
+                var url = $(selectors.btnListMine).data('url');
+                loadJobPositions(false, url);
+            }
+            else {
+                loadJobPositions(false, urlListDefault);
+            }
             loadMyJobPositionStats(urlMyPositionStats);
         }
     }
@@ -32,6 +40,7 @@
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
         selectors.canInteract = '#caninteract';
+        selectors.jobProfile = '#jobprofile';
         selectors.container = '.content';
         selectors.containerDetails = '#containerdetails';
         selectors.containerList = '#containerlist';

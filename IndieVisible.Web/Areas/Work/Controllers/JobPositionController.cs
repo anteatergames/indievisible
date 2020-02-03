@@ -1,9 +1,11 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Jobs;
+using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Work.Controllers.Base;
+using IndieVisible.Web.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,8 +26,58 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
         public IActionResult Index()
         {
+            var jobProfile = GetSessionValue(Enums.SessionValues.JobProfile);
+
+            if (string.IsNullOrWhiteSpace(jobProfile))
+            {
+                return View("NoJobProfile");
+            }
+
+            ViewData["jobProfile"] = jobProfile;
+
             return View();
         }
+
+        [HttpPost("work/jobposition/setjobprofile/{type}")]
+        public IActionResult SetJobProfile(JobProfile type)
+        {
+            try
+            {
+                if (type == 0)
+                {
+                    type = JobProfile.Applicant;
+                }
+
+                var userPreferences = UserPreferencesAppService.GetByUserId(CurrentUserId);
+
+                if (userPreferences == null)
+                {
+                    userPreferences = new UserPreferencesViewModel();
+                    userPreferences.UserId = CurrentUserId;
+                }
+                userPreferences.JobProfile = type;
+
+                var saveResult = UserPreferencesAppService.Save(CurrentUserId, userPreferences);
+
+                if (!saveResult.Success)
+                {
+                    return Json(new OperationResultVo(false, saveResult.Message));
+                }
+
+
+                SetSessionValue(SessionValues.JobProfile, userPreferences.JobProfile.ToString());
+
+
+                string url = Url.Action("Index", "JobPosition", new { area = "Work" });
+
+                return Json(new OperationResultRedirectVo(url, SharedLocalizer["Job Profile set successfully!"]));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
 
         [Route("work/jobposition/list/{employerId:guid?}")]
         [Route("work/jobposition/list")]

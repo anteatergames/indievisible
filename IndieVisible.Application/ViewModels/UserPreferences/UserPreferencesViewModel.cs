@@ -15,6 +15,10 @@ namespace IndieVisible.Application.ViewModels.UserPreferences
         [Display(Name = "Content Language")]
         public List<SupportedLanguage> Languages { get; set; }
 
+        [Display(Name = "Job Profile")]
+        public JobProfile JobProfile { get; set; }
+
+
         public string StatusMessage { get; set; }
     }
 }

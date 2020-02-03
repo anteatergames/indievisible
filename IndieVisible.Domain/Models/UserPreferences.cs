@@ -8,5 +8,7 @@ namespace IndieVisible.Domain.Models
         public SupportedLanguage UiLanguage { get; set; }
 
         public string ContentLanguages { get; set; }
+
+        public JobProfile JobProfile { get; set; }
     }
 }

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = SharedLocalizer["Select your Job Profile"];
+    ViewData["Description"] = SharedLocalizer["Create and apply to job positions."];
+
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
+}
+
+
+@section Scripts {
+    <script src="~/js/jobposition/jobprofileselector.js"></script>
+}
+
+<input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+
+<div class="col row justify-content-center m-5">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+        <div class="flex-square clickable rectangle bg-danger">
+            <div class="flex-square-inner">
+                <a id="btnSetJobProfileApplicant" class="btnsetjobprofile" asp-area="work" asp-controller="jobposition" asp-action="setjobprofile" asp-route-type="@JobProfile.Applicant">
+                    <div class="flex-square-inner-content text-white">
+                        <div><i class="fa fa-3x fa-user-tie" aria-hidden="true"></i></div>
+                        <div>@SharedLocalizer[JobProfile.Applicant.ToString()]</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+        <div class="flex-square clickable rectangle bg-warning">
+            <div class="flex-square-inner">
+                <a id="btnSetJobProfileCompany" class="btnsetjobprofile" asp-area="work" asp-controller="jobposition" asp-action="setjobprofile" asp-route-type="@JobProfile.Company">
+                    <div class="flex-square-inner-content text-white">
+                        <div><i class="fa fa-3x fa-building" aria-hidden="true"></i></div>
+                        <div>@SharedLocalizer[JobProfile.Company.ToString()]</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

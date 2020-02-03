@@ -264,6 +264,7 @@ a:active, a:focus, a:hover {
 .control-sidebar-dark, .control-sidebar-dark a {
     color: #b8c7ce;
 }
+
     .control-sidebar-dark a:hover {
         color: #3f93db;
     }
@@ -2055,6 +2056,14 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     overflow: hidden;
     margin-bottom: 10px;
 }
+
+    .flex-square:hover {
+        border: 1px solid #0092ee;
+    }
+
+        .flex-square:hover .flex-square-inner-content {
+            color: #0092ee !important;
+        }
 
 .clickable {
     cursor: pointer;

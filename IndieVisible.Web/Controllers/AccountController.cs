@@ -2,6 +2,7 @@
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
@@ -38,8 +39,6 @@ namespace IndieVisible.Web.Controllers
         private readonly IProfileAppService profileAppService;
         private readonly ILogger _logger;
 
-        private readonly IUserPreferencesAppService userPreferencesAppService;
-
         private readonly IHostingEnvironment hostingEnvironment;
 
         public AccountController(
@@ -47,14 +46,12 @@ namespace IndieVisible.Web.Controllers
             SignInManager<ApplicationUser> signInManager,
             IProfileAppService profileAppService,
             ILogger<AccountController> logger,
-            IUserPreferencesAppService userPreferencesAppService,
             IHostingEnvironment hostingEnvironment) : base()
         {
             _userManager = userManager;
             _signInManager = signInManager;
             this.profileAppService = profileAppService;
             _logger = logger;
-            this.userPreferencesAppService = userPreferencesAppService;
             this.hostingEnvironment = hostingEnvironment;
         }
 
@@ -95,9 +92,9 @@ namespace IndieVisible.Web.Controllers
                         await SetStaffRoles(user);
 
                         SetPreferences(user);
-                    }
 
-                    SetCache(user);
+                        SetCache(user);
+                    }
 
 
                     var logMessage = String.Format("User {0} logged in.", model.UserName);
@@ -616,7 +613,7 @@ namespace IndieVisible.Web.Controllers
 
         private void SetPreferences(ApplicationUser user)
         {
-            Application.ViewModels.UserPreferences.UserPreferencesViewModel preferences = userPreferencesAppService.GetByUserId(new Guid(user.Id));
+            UserPreferencesViewModel preferences = UserPreferencesAppService.GetByUserId(new Guid(user.Id));
             if (preferences == null || preferences.Id == Guid.Empty)
             {
                 RequestCulture requestLanguage = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture;
@@ -627,6 +624,8 @@ namespace IndieVisible.Web.Controllers
             else
             {
                 SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
+                SetSessionValue(SessionValues.JobProfile, preferences.JobProfile.ToString());
+
             }
         }
 
