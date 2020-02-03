@@ -26,11 +26,16 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
         public IActionResult Index()
         {
-            var jobProfile = GetSessionValue(Enums.SessionValues.JobProfile);
+            string jobProfile = JobProfile.Applicant.ToString();
 
-            if (string.IsNullOrWhiteSpace(jobProfile))
+            if (User.Identity.IsAuthenticated)
             {
-                return View("NoJobProfile");
+                jobProfile = GetSessionValue(Enums.SessionValues.JobProfile);
+
+                if (string.IsNullOrWhiteSpace(jobProfile))
+                {
+                    return View("NoJobProfile");
+                }
             }
 
             ViewData["jobProfile"] = jobProfile;
@@ -135,6 +140,8 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             {
                 model = new List<JobPositionViewModel>();
             }
+
+            var jobProfile = GetSessionValue(SessionValues.JobProfile);
 
             foreach (var item in model)
             {
