@@ -4,10 +4,10 @@
     Layout = null;
     var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "Nobody applied... yet!");
 
-    var description = ViewData["ListDescription"] == null ? SharedLocalizer["Applicants"] : (string)ViewData["ListDescription"];
+    var description = ViewData["ListDescription"] == null ? SharedLocalizer["applicants"] : (string)ViewData["ListDescription"];
 }
 
-<h4>@SharedLocalizer[description]</h4>
+<h4 class="text-capitalize">@SharedLocalizer[description]</h4>
 
 @if (!Model.Any())
 {

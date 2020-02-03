@@ -187,6 +187,7 @@ namespace IndieVisible.Application.Services
                 {
                     SetPermissions(currentUserId, vm);
                     vm.ApplicantCount = vm.Applicants.Count;
+                    vm.CurrentUserApplied = vm.Applicants.Any(x => x.UserId == currentUserId);
                 }
 
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();

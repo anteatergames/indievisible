@@ -1409,10 +1409,6 @@
     <value>Esta vaga foi enviada por</value>
     <comment>JobPosition</comment>
   </data>
-  <data name="Use the asterisk menu on the top right corner to add a new position." xml:space="preserve">
-    <value>Use o menu asterisco no canto superior direito para adicionar uma nova vaga.</value>
-    <comment>JobPosition</comment>
-  </data>
   <data name="My Applications" xml:space="preserve">
     <value>Candidaturas</value>
     <comment>JobPosition</comment>
@@ -1451,6 +1447,54 @@
   </data>
   <data name="Here you can see the job positions you have applied." xml:space="preserve">
     <value>Aqui você confere as vagas que você se candidatou.</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Nobody applied... yet!" xml:space="preserve">
+    <value>Sem candidatos... ainda!</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Not Defined" xml:space="preserve">
+    <value>Não definido</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="remote" xml:space="preserve">
+    <value>remoto</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="applicant" xml:space="preserve">
+    <value>candidato</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="All Levels" xml:space="preserve">
+    <value>Todos os níveis</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="day" xml:space="preserve">
+    <value>dia</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>hora</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="month" xml:space="preserve">
+    <value>mês</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Not Informed" xml:space="preserve">
+    <value>Não Informado</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="week" xml:space="preserve">
+    <value>semana</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>ano</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="You have applied to this Job Position!" xml:space="preserve">
+    <value>Você se candidatou a esta Vaga!</value>
     <comment>JobPosition</comment>
   </data>
 </root>

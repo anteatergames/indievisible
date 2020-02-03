@@ -41,7 +41,7 @@
             {
                 <span class="badge badge-secondary p-2">@SharedLocalizer[Model.PositionType.ToDisplayName()]</span>
             }
-        <span class="badge badge-secondary p-2">@SharedLocalizer[Model.ExperienceLevel.ToDisplayName()]</span>
+            <span class="badge badge-secondary p-2">@SharedLocalizer[Model.ExperienceLevel.ToDisplayName()]</span>
         </div>
         <div class="col-12 mt-2">
             <p>@Model.Description</p>
@@ -52,7 +52,11 @@
         </div>
 
         <div class="col-12 text-lowercase text-right">
-            <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @SharedLocalizer["applicants"]</span>
+            @if (Model.CurrentUserApplied)
+            {
+                <span class="text-success" title="Applied"><i class="fas fa-check-circle"></i></span>
+            }
+            <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @(Model.ApplicantCount == 1 ? SharedLocalizer["applicant"] : SharedLocalizer["applicants"])</span>
         </div>
     </div>
 </div>

@@ -19,10 +19,12 @@
 
 <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
 
-<h3>@SharedLocalizer["Choose your destiny!"]</h3>
+<div class="col-12 text-center">
+    <h3>@SharedLocalizer["Choose your destiny!"]</h3>
+</div>
 
-<div class="col row justify-content-center m-5">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+<div class="col-12 row justify-content-center my-5">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <div class="flex-square clickable rectangle bg-danger">
             <div class="flex-square-inner">
                 <a id="btnSetJobProfileApplicant" class="btnsetjobprofile" asp-area="work" asp-controller="jobposition" asp-action="setjobprofile" asp-route-type="@JobProfile.Applicant">
@@ -35,7 +37,7 @@
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <div class="flex-square clickable rectangle bg-warning">
             <div class="flex-square-inner">
                 <a id="btnSetJobProfileCompany" class="btnsetjobprofile" asp-area="work" asp-controller="jobposition" asp-action="setjobprofile" asp-route-type="@JobProfile.Company">

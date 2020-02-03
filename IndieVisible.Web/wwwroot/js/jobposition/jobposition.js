@@ -27,7 +27,7 @@
 
         if (isIndex) {
             if (isCompany) {
-                var url = $(selectors.btnListMine).data('url');
+                var url = objs.urls.data('urlMine');
                 loadJobPositions(false, url);
             }
             else {
@@ -40,6 +40,7 @@
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
         selectors.canInteract = '#caninteract';
+        selectors.urls = '#urls';
         selectors.jobProfile = '#jobprofile';
         selectors.container = '.content';
         selectors.containerDetails = '#containerdetails';
@@ -62,6 +63,7 @@
     function cacheObjects() {
         objs.controlsidebar = $(selectors.controlsidebar);
         objs.container = $(selectors.container);
+        objs.urls = $(selectors.urls);
         objs.containerDetails = $(selectors.containerDetails);
         objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
@@ -81,7 +83,6 @@
 
     function bindAll() {
         bindBtnNewJobPosition();
-        bindBtnListMine();
         bindBtnSaveForm();
         bindBtnApply();
         bindEditJobPosition();
@@ -90,19 +91,10 @@
     }
 
     function bindBtnNewJobPosition() {
-        objs.controlsidebar.on('click', selectors.btnNewJobPosition, function () {
+        objs.container.on('click', selectors.btnNewJobPosition, function () {
+                var url = $(this).data('url');
             if (canInteract) {
-                loadNewJobPositionForm();
-                ControlSidebar.Toggle();
-            }
-        });
-    }
-
-    function bindBtnListMine() {
-        objs.container.on('click', selectors.btnListMine, function () {
-            var url = $(this).data('url');
-            if (canInteract) {
-                loadJobPositions(true, url);
+                loadNewJobPositionForm(url);
             }
         });
     }
@@ -234,11 +226,11 @@
         });
     }
 
-    function loadNewJobPositionForm() {
+    function loadNewJobPositionForm(url) {
         objs.containerDetails.html(MAINMODULE.Default.Spinner);
         objs.containerList.hide();
 
-        $.get(rootUrl + "/new", function (data) {
+        $.get(url, function (data) {
             objs.containerDetails.html(data);
             objs.containerDetails.show();
 

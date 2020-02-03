@@ -96,10 +96,12 @@ namespace IndieVisible.Web.Controllers
                         SetCache(user);
                     }
 
-
                     var logMessage = String.Format("User {0} logged in.", model.UserName);
 
-                    await NotificationSender.SendTeamNotificationAsync(logMessage);
+                    if (!model.UserName.Equals("programad"))
+                    {
+                        await NotificationSender.SendTeamNotificationAsync(logMessage);
+                    }
 
                     _logger.LogInformation(logMessage);
 

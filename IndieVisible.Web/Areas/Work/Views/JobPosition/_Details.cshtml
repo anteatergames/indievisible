@@ -33,10 +33,10 @@
                                             <p>@Model.Id</p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4">
+                                    <div class="col-6 col-md-4 text-capitalize">
                                         <div class="form-group">
                                             <label asp-for="Location" class="col-form-label"></label>
-                                            <p>@(Model.Remote ? SharedLocalizer["Remote"] : Model.Location)</p>
+                                            <p>@(Model.Remote ? SharedLocalizer["remote"] : Model.Location)</p>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-4">
@@ -57,10 +57,10 @@
                                             <p>@(Model.Salary.HasValue ? "USD " + Model.Salary : SharedLocalizer["Not Informed"])</p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4">
+                                    <div class="col-6 col-md-4 text-capitalize">
                                         <div class="form-group">
                                             <label asp-for="PaymentFrequency" class="col-form-label"></label>
-                                            <p>@SharedLocalizer[Model.PaymentFrequency.ToDisplayName()]</p>
+                                            <p>@SharedLocalizer[Model.PaymentFrequency.ToDisplayName().ToLower()]</p>
                                         </div>
                                     </div>
                                 </div>
