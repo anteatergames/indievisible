@@ -10,7 +10,6 @@ using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications;
-using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Domain.Interfaces;
 using System;

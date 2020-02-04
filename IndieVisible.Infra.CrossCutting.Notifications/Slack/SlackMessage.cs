@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IndieVisible.Infra.CrossCutting.Notifications.Slack
+﻿namespace IndieVisible.Infra.CrossCutting.Notifications.Slack
 {
     internal class SlackMessage
     {

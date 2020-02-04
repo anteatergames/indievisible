@@ -186,7 +186,7 @@
         </header>
 
         <drawer-menu class="menu">
-            <aside class="main-sidebar">
+            <aside class="main-sidebar" aria-label="Sidebar">
                 <section class="sidebar">
                     <h6 class="d-none">&nbsp;</h6>
                     <div class="user-panel">
@@ -200,14 +200,13 @@
         <div class="content-wrapper container">
 
             <section class="content">
-
                 <div class="row mt-0 mt-md-10 no-gutters px-0 px-lg-10">
                     @RenderBody()
                 </div>
             </section>
         </div>
 
-        <aside class="control-sidebar control-sidebar-dark">
+        <aside class="control-sidebar control-sidebar-dark" aria-label="ControlSidebar">
             @if (SignInManager.IsSignedIn(User))
             {
 

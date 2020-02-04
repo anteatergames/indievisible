@@ -58,7 +58,7 @@
         <div class="col-12 text-lowercase text-right">
             @if (Model.CurrentUserApplied)
             {
-                <span class="text-success" title="Applied"><i class="fas fa-check-circle"></i></span>
+                <span class="text-success" title="Applied"><i class="fas fa-check-circle" aria-hidden="true"></i></span>
             }
             @if (Model.Origin == JobPositionOrigin.Internal)
             {

@@ -1,7 +1,4 @@
 ﻿using IndieVisible.Domain.Interfaces.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Application.ViewModels.Jobs
 {

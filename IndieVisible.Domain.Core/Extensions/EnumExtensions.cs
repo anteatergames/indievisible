@@ -90,8 +90,6 @@ namespace IndieVisible.Domain.Core.Extensions
                 throw new ArgumentException("Type must be an enum");
             }
 
-            List<KeyValuePair<string, string>> dict = new List<KeyValuePair<string, string>>();
-
             DisplayAttribute display = enumeration.GetAttributeOfType<DisplayAttribute>();
 
 

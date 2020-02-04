@@ -4,9 +4,8 @@ using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {

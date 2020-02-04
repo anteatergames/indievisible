@@ -678,7 +678,7 @@ namespace IndieVisible.Web.Controllers
 
         private async Task SetExternalProfilePicture(ExternalLoginInfo info, ApplicationUser user, ProfileViewModel profile)
         {
-            string imageUrl = Constants.DefaultAvatar;
+            string imageUrl = String.Empty;
             if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl.Equals(Constants.DefaultAvatar))
             {
                 if (info.LoginProvider == "Facebook")
@@ -688,13 +688,14 @@ namespace IndieVisible.Web.Controllers
 
                     imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
                 }
-                else if (info.LoginProvider == "Google")
+                else if (info.LoginProvider == "Google" && info.Principal.HasClaim(x => x.Type == "urn:google:picture"))
                 {
-                    if (info.Principal.HasClaim(x => x.Type == "urn:google:picture"))
-                    {
-                        var pictureUrl = info.Principal.FindFirstValue("urn:google:picture");
-                        imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
-                    }
+                    var pictureUrl = info.Principal.FindFirstValue("urn:google:picture");
+                    imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
+                }
+                else
+                {
+                    imageUrl = Constants.DefaultAvatar;
                 }
             }
 
@@ -704,7 +705,7 @@ namespace IndieVisible.Web.Controllers
         private async Task<string> UploadProfilePicture(string userId, string pictureUrl)
         {
             string imageUrl = Constants.DefaultAvatar;
-            byte[] thumbnailBytes = null;
+            byte[] thumbnailBytes;
 
             using (HttpClient httpClient = new HttpClient())
             {

@@ -5,6 +5,7 @@ using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
+using IndieVisible.Web.Exceptions;
 using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
@@ -86,7 +87,7 @@ namespace IndieVisible.Web.Controllers
         [Route("/errortest")]
         public IActionResult ErrorTest()
         {
-            throw new Exception("meh");
+            throw new CustomApplicationException("meh");
         }
 
         private void SetLanguage()

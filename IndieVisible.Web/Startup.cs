@@ -246,7 +246,6 @@ namespace IndieVisible.Web
 
             app.UseRewriter(rewriteOptions);
 
-            //app.UseETagger();
             app.UseSitemapMiddleware();
 
             app.UseMvc(routes =>

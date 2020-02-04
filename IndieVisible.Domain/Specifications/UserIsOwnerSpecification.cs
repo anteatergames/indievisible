@@ -1,6 +1,4 @@
 ﻿using IndieVisible.Domain.Core.Interfaces;
-using IndieVisible.Domain.Core.Models;
-using IndieVisible.Domain.Models;
 using System;
 
 namespace IndieVisible.Domain.Specifications

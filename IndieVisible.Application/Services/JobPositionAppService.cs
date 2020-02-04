@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
@@ -10,10 +12,6 @@ using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using IndieVisible.Domain.Core.Extensions;
-using System.ComponentModel.DataAnnotations;
-using IndieVisible.Application.Formatters;
 
 namespace IndieVisible.Application.Services
 {

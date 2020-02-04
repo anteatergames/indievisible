@@ -9,7 +9,7 @@ namespace IndieVisible.Web.TagHelpers
     {
         private const string ForAttributeName = "asp-for";
 
-        private IHtmlGenerator _generator;
+        private readonly IHtmlGenerator _generator;
 
         [HtmlAttributeName("asp-is-invariant")]
         public bool IsInvariant { set; get; }
@@ -23,7 +23,7 @@ namespace IndieVisible.Web.TagHelpers
         {
             base.Process(context, output);
 
-            if (IsInvariant && output.TagName == "input" && For.Model != null && For.Model.GetType() == typeof(decimal))
+            if (IsInvariant && output.TagName == "input" && For.Model != null && For.Model is decimal)
             {
                 decimal value = (decimal)(For.Model);
                 var invariantValue = value.ToString(System.Globalization.CultureInfo.InvariantCulture);

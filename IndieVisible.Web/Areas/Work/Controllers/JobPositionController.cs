@@ -141,8 +141,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 model = new List<JobPositionViewModel>();
             }
 
-            var jobProfile = GetSessionValue(SessionValues.JobProfile);
-
             foreach (var item in model)
             {
                 SetLocalization(item);
@@ -236,7 +234,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             try
             {
-                bool newTeam = vm.Id == Guid.Empty;
                 vm.UserId = CurrentUserId;
 
                 if (!string.IsNullOrWhiteSpace(vm.ClosingDateText))
@@ -249,9 +246,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 if (saveResult.Success)
                 {
                     string url = Url.Action("Index", "JobPosition", new { area = "Work", pointsEarned = saveResult.PointsEarned });
-
-                    //Notify(vm, oldMembers);
-                    //GenerateTeamPost(vm, newTeam, recruiting);
 
                     return Json(new OperationResultRedirectVo(saveResult, url));
                 }
