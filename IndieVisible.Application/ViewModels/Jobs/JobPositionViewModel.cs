@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,9 @@ namespace IndieVisible.Application.ViewModels.Jobs
 
         [Display(Name = "Status")]
         public JobPositionStatus Status { get; set; }
+
+        [Display(Name = "Duration")]
+        public JobPositionDuration Duration { get; set; }
 
         [Display(Name = "Position Type")]
         public JobPositonType PositionType { get; set; }
@@ -51,6 +55,8 @@ namespace IndieVisible.Application.ViewModels.Jobs
         public string Url { get; set; }
 
         public List<JobApplicantViewModel> Applicants { get; set; }
+
+        public List<JobPositionBenefitVo> Benefits { get; set; }
         #endregion
 
         [Display(Name = "Current User Applied")]

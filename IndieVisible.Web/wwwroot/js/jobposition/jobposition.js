@@ -61,6 +61,8 @@
         selectors.url = '#Url';
         selectors.myPositionStats = '#divMyPositionStats';
         selectors.datepicker = '.datepicker';
+        selectors.switchBenefit = '.switch-benefit';
+        selectors.hdnBenefit = '.hdnBenefit';
     }
 
     function cacheObjects() {
@@ -94,6 +96,7 @@
         bindEditJobPosition();
         bindDeleteJobPosition();
         bindRemoteChange();
+        bindSwitchBenefitChange();
     }
 
     function bindBtnNewExternalJobPosition() {
@@ -192,6 +195,23 @@
             }
             else {
                 objs.location.val('').show();
+            }
+        });
+    }
+
+
+    function bindSwitchBenefitChange() {
+        objs.containerDetails.on('change', selectors.switchBenefit, function (e) {
+            var obj = $(this);
+            var isChecked = obj.is(':checked');
+
+            var hdn = obj.parent().find(selectors.hdnBenefit);
+
+            if (isChecked) {
+                hdn.val('True');
+            }
+            else {
+                hdn.val('False');
             }
         });
     }

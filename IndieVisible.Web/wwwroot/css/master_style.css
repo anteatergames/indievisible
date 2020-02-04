@@ -316,7 +316,7 @@ a:active, a:focus, a:hover {
     }
 }
 
-.dropdown-menu {
+.dropdown-menu:not(.datepicker) {
     box-shadow: none;
     border-color: #eee;
 }
@@ -796,7 +796,7 @@ ul.flexbox {
     font-size: 1rem;
 }
 
-.dropdown-menu, .dropdown-grid {
+.dropdown-menu:not(.datepicker), .dropdown-grid {
     color: #616a78;
     border-radius: 2px;
     font-size: 13px;

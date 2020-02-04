@@ -27,16 +27,21 @@
                         <div class="jobposition-details">
                             <div class="border mb-3 p-2 bg-light">
                                 <div class="row">
-                                    <div class="col-6 col-md-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">@SharedLocalizer["Job Reference"]</label>
-                                            <p>@Model.Id</p>
-                                        </div>
+                                    <div class="col-12">
+                                        <label class="col-form-label">@SharedLocalizer["Job Reference"]</label>: <span>@Model.Id</span>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-6 col-md-4 text-capitalize">
                                         <div class="form-group">
                                             <label asp-for="Location" class="col-form-label"></label>
                                             <p>@(Model.Remote ? SharedLocalizer["remote"] : Model.Location)</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-group">
+                                            <label asp-for="Duration" class="col-form-label"></label>
+                                            <p>@SharedLocalizer[Model.Duration.ToDisplayName()]</p>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-4">
@@ -62,6 +67,20 @@
                                             <label asp-for="PaymentFrequency" class="col-form-label"></label>
                                             <p>@SharedLocalizer[Model.PaymentFrequency.ToDisplayName().ToLower()]</p>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-8 offset-md-2 text-center">
+                                        <div class="col-12">
+                                            <label class="col-form-label">@SharedLocalizer["Benefits"]</label>
+                                        </div>
+                                        @foreach (var benefit in Model.Benefits)
+                                        {
+                                            if (benefit.Available)
+                                            {
+                                                <span class="btn border p-1 rounded-circle btn-benefit-icon bg-green" title="@benefit.Benefit.ToUiInfo().Display"><i class="fas fa-@(benefit.Benefit.ToUiInfo().Class)" aria-hidden="true"></i></span>
+                                            }
+                                        }
                                     </div>
                                 </div>
                             </div>

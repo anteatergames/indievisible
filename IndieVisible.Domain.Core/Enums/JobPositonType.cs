@@ -8,15 +8,11 @@ namespace IndieVisible.Domain.Core.Enums
         NotInformed = 0,
         [Display(Name = "Contract")]
         Contract = 1,
-        [Display(Name = "Permanent")]
-        Permanent = 2,
-        [Display(Name = "Temporary")]
-        Temporary = 3,
         [Display(Name = "Full Time")]
-        FullTime = 4,
+        FullTime = 2,
         [Display(Name = "Part Time")]
-        PartTime = 5,
+        PartTime = 3,
         [Display(Name = "Freelance")]
-        Freelance = 6
+        Freelance = 4
     }
 }

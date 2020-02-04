@@ -102,5 +102,29 @@ namespace IndieVisible.Domain.Core.Extensions
                 return display.Name;
             }
         }
+
+
+        public static UiInfoAttribute ToUiInfo<TEnum>(this TEnum enumeration) where TEnum : Enum
+        {
+            if (!typeof(TEnum).IsEnum)
+            {
+                throw new ArgumentException("Type must be an enum");
+            }
+
+            UiInfoAttribute uiInfo = enumeration.GetAttributeOfType<UiInfoAttribute>();
+
+
+            if (uiInfo == null)
+            {
+                return new UiInfoAttribute
+                {
+                    Display = enumeration.ToString()
+                };
+            }
+            else
+            {
+                return uiInfo;
+            }
+        }
     }
 }

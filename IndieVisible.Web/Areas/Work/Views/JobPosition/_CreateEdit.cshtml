@@ -7,6 +7,20 @@
     ViewData["Title"] = SharedLocalizer["{0} Job Position", (Model.Id == Guid.Empty ? "New" : "Edit")];
 }
 
+@if (!isAjax)
+{
+    @section Scripts {
+        <environment include="Development">
+            <script src="~/js/jobposition/jobposition.js"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="~/js/jobposition/jobposition.min.js" asp-append-version="true"></script>
+        </environment>
+
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+}
+
 <div class="col-lg-12 mb-2 px-4">
     <h1>@ViewData["Title"]</h1>
 </div>
@@ -47,37 +61,60 @@
                     </div>
                 </div>
             }
-        <div class="col-12">
-            <div class="form-group">
-                @if (Model.Origin == JobPositionOrigin.External)
-                {
-                    <label asp-for="Status" class="col-form-label"></label>
-                    <input asp-for="StatusLocalized" class="form-control" readonly />
-                    <input type="hidden" asp-for="Status" />
-                }
-                else
-                {
-                    <label asp-for="Status" class="col-form-label"></label>
-                    <select asp-for="Status" asp-items="Html.GetEnumSelectList<JobPositionStatus>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the job position status"]" tabindex="-1" aria-hidden="true"></select>
-                    <span asp-validation-for="Status" class="text-danger"></span>
-                }
-            </div>
-            <div class="form-group">
-                <label asp-for="WorkType" class="col-form-label"></label>
-                <select asp-for="WorkType" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
-                <span asp-validation-for="WorkType" class="text-danger"></span>
-            </div>
-        </div>
+
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            @if (Model.Origin == JobPositionOrigin.External)
+                            {
+                                <label asp-for="Status" class="col-form-label"></label>
+                                <input asp-for="StatusLocalized" class="form-control" readonly />
+                                <input type="hidden" asp-for="Status" />
+                            }
+                            else
+                            {
+                                <label asp-for="Status" class="col-form-label"></label>
+                                <select asp-for="Status" asp-items="Html.GetEnumSelectList<JobPositionStatus>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the job position status"]" tabindex="-1" aria-hidden="true"></select>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label asp-for="ClosingDateText" class="col-form-label"></label>
+                            <input asp-for="ClosingDateText" type="text" class="form-control datepicker" data-date-orientation="bottom" data-date-start-date="@(DateTime.Now.ToShortDateString())" data-date-format="@(System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern.ToLower())" placeholder="@SharedLocalizer["Pick a date"]" />
+                            <span asp-validation-for="ClosingDateText" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="WorkType" class="col-form-label"></label>
+                    <select asp-for="WorkType" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                    <span asp-validation-for="WorkType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Duration" class="col-form-label"></label>
+                            <select asp-for="Duration" asp-items="Html.GetEnumSelectList<JobPositionDuration>()" class="form-control" data-placeholder="@SharedLocalizer["Select the position duration"]" tabindex="-1" aria-hidden="true"></select>
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
                         <div class="form-group">
                             <label asp-for="PositionType" class="col-form-label"></label>
                             <select asp-for="PositionType" asp-items="Html.GetEnumSelectList<JobPositonType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position type"]" tabindex="-1" aria-hidden="true"></select>
                             <span asp-validation-for="PositionType" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-4">
                         <div class="form-group">
                             <label asp-for="ExperienceLevel" class="col-form-label"></label>
                             <select asp-for="ExperienceLevel" asp-items="Html.GetEnumSelectList<JobExperienceLevel>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select position experience level"]" tabindex="-1" aria-hidden="true"></select>
@@ -106,22 +143,15 @@
             </div>
 
             <div class="col-12">
-                <div class="form-group">
-                    <label asp-for="ClosingDateText" class="col-form-label"></label>
-                    <input asp-for="ClosingDateText" type="text" class="form-control datepicker" data-date-start-date="@(DateTime.Now.ToShortDateString())" data-date-format="@(System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern.ToLower())" placeholder="@SharedLocalizer["Pick a date"]" />
-                    <span asp-validation-for="ClosingDateText" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-sm-6">
                         <div class="form-group">
                             <label asp-for="Salary" class="col-form-label"></label>
                             <input asp-for="Salary" asp-is-invariant="true" type="number" class="form-control" placeholder="@SharedLocalizer["Type the salary in USD"]" />
                             <span asp-validation-for="Salary" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-sm-6">
                         <div class="form-group">
                             <label asp-for="PaymentFrequency" class="col-form-label"></label>
                             <select asp-for="PaymentFrequency" asp-items="Html.GetEnumSelectList<PaymentFrequency>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select payment frequency"]" tabindex="-1" aria-hidden="true"></select>
@@ -130,6 +160,34 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="text-capitalize">@SharedLocalizer["benefits"]</h3>
+                    </div>
+
+                    @for (int i = 0; i < Model.Benefits.Count; i++)
+                    {
+                        var benefit = Model.Benefits[i];
+
+                        <div class="col-4">
+                            <div class="border bg-light m-2 pt-2 px-2">
+                                <div class="form-group">
+                                    <label class="col-form-label">@SharedLocalizer[benefit.Benefit.ToUiInfo().Display]</label>
+                                    <label class="switch">
+                                        <input name="Benefits[@i].Benefit" type="hidden" value="@benefit.Benefit" />
+                                        <input name="Benefits[@i].Available" class="hdnBenefit" type="hidden" value="@benefit.Available.ToString()" />
+                                        <input type="checkbox" class="default switch-benefit" @(benefit.Available ? "checked=checked" : string.Empty) />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
             <div class="col-12">
                 <div class="form-group">
                     <label asp-for="Description" class="col-form-label"></label>
@@ -150,17 +208,3 @@
         </div>
     </form>
 </div>
-
-@if (!isAjax)
-{
-    @section Scripts {
-        <environment include="Development">
-            <script src="~/js/jobposition/jobposition.js"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="~/js/jobposition/jobposition.min.js" asp-append-version="true"></script>
-        </environment>
-
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
-}

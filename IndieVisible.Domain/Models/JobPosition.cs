@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 
@@ -10,6 +11,8 @@ namespace IndieVisible.Domain.Models
         public DateTime? ClosingDate { get; set; }
 
         public JobPositionStatus Status { get; set; }
+
+        public JobPositionDuration Duration { get; set; }
 
         public JobPositonType PositionType { get; set; }
 
@@ -37,9 +40,12 @@ namespace IndieVisible.Domain.Models
 
         public string Url { get; set; }
 
+        public List<JobPositionBenefitVo> Benefits { get; set; }
+
         public JobPosition()
         {
             Applicants = new List<JobApplicant>();
+            Benefits = new List<JobPositionBenefitVo>();
         }
     }
 }

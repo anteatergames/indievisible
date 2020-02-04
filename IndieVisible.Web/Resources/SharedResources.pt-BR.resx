@@ -1501,4 +1501,20 @@
     <value>Contratar</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="Permanent" xml:space="preserve">
+    <value>Permanente</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Temporary" xml:space="preserve">
+    <value>Temporário</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duração</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Experience Level" xml:space="preserve">
+    <value>Nível de Experiência</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>

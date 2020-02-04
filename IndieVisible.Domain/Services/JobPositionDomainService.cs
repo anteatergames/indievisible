@@ -2,6 +2,7 @@
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,8 @@ namespace IndieVisible.Domain.Services
             {
                 model.Status = JobPositionStatus.OpenForApplication;
             }
+
+            model.Benefits = Enum.GetValues(typeof(JobPositionBenefit)).Cast<JobPositionBenefit>().Where(x => x != JobPositionBenefit.NotInformed).Select(x => new JobPositionBenefitVo { Benefit = x, Available = false }).ToList();
 
             return model;
         }
