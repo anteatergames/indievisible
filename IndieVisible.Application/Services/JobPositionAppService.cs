@@ -159,11 +159,11 @@ namespace IndieVisible.Application.Services
         }
         #endregion
 
-        public OperationResultVo GenerateNewTeam(Guid currentUserId)
+        public OperationResultVo GenerateNewTeam(Guid currentUserId, JobPositionOrigin origin)
         {
             try
             {
-                JobPosition newJobPosition = jobPositionDomainService.GenerateNewJobPosition(currentUserId);
+                JobPosition newJobPosition = jobPositionDomainService.GenerateNewJobPosition(currentUserId, origin);
 
                 JobPositionViewModel newVm = mapper.Map<JobPositionViewModel>(newJobPosition);
 

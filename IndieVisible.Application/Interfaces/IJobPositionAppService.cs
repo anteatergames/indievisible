@@ -9,7 +9,7 @@ namespace IndieVisible.Application.Interfaces
     {
         OperationResultVo GetAllAvailable(Guid currentUserId);
         OperationResultVo Apply(Guid currentUserId, Guid jobPositionId, string coverLetter);
-        OperationResultVo GenerateNewTeam(Guid currentUserId);
+        OperationResultVo GenerateNewTeam(Guid currentUserId, JobPositionOrigin origin);
         OperationResultVo GetAllMine(Guid currentUserId);
         OperationResultVo ChangeStatus(Guid currentUserId, Guid jobPositionId, JobPositionStatus selectedStatus);
         OperationResultVo GetMyPositionsStats(Guid currentUserId);

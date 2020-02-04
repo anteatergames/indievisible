@@ -4,17 +4,19 @@ namespace IndieVisible.Domain.Core.Enums
 {
     public enum JobExperienceLevel
     {
+        [Display(Name = "Not Informed")]
+        NotInformed = 0,
         [Display(Name = "All Levels")]
-        AllLevels = 0,
+        AllLevels = 1,
         [Display(Name = "Associate")]
-        Associate = 1,
+        Associate = 2,
         [Display(Name = "Junior")]
-        Junior = 2,
+        Junior = 3,
         [Display(Name = "Mid-Senior")]
-        MidSenior = 3,
+        MidSenior = 4,
         [Display(Name = "Senior")]
-        Senior = 4,
+        Senior = 5,
         [Display(Name = "Director")]
-        Director = 4
+        Director = 6
     }
 }

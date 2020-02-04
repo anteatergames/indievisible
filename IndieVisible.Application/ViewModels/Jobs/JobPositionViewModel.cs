@@ -44,6 +44,12 @@ namespace IndieVisible.Application.ViewModels.Jobs
 
         [Display(Name = "Language")]
         public SupportedLanguage Language { get; set; }
+        
+        [Display(Name = "Origin")]
+        public JobPositionOrigin Origin { get; set; }
+
+        [Display(Name = "Url")]
+        public string Url { get; set; }
 
         public List<JobApplicantViewModel> Applicants { get; set; }
         #endregion

@@ -33,6 +33,10 @@ namespace IndieVisible.Domain.Models
 
         public List<JobApplicant> Applicants { get; set; }
 
+        public JobPositionOrigin Origin { get; set; }
+
+        public string Url { get; set; }
+
         public JobPosition()
         {
             Applicants = new List<JobApplicant>();

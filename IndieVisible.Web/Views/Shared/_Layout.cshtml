@@ -137,6 +137,7 @@
         <span class="msg" data-msg-id="msgNeedLoginToLikeAndComment">@SharedLocalizer["You need to be logged in to be able to Like and Comment on posts."]</span>
         <span class="msg" data-msg-id="msgNotImplementedYet">@SharedLocalizer["Keep calm! This is not implemented yet!"]</span>
         <span class="msg" data-msg-id="mgsPointsEarned">@SharedLocalizer["You earned 0 points. Awesome!"]</span>
+        @RenderSection("TranslatedMessages", required: false)
     </div>
     @if (TempData["Message"] != null)
     {

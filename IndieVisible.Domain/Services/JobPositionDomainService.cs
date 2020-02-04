@@ -59,11 +59,17 @@ namespace IndieVisible.Domain.Services
             task.Wait();
         }
 
-        public JobPosition GenerateNewJobPosition(Guid currentUserId)
+        public JobPosition GenerateNewJobPosition(Guid currentUserId, JobPositionOrigin origin)
         {
             var model = new JobPosition();
 
             model.Remote = true;
+            model.Origin = origin;
+
+            if (model.Origin == JobPositionOrigin.External)
+            {
+                model.Status = JobPositionStatus.OpenForApplication;
+            }
 
             return model;
         }

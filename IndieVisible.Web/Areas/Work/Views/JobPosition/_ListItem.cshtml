@@ -37,7 +37,7 @@
             {
                 <span class="badge badge-secondary p-2">@SharedLocalizer["Remote"]</span>
             }
-            @if (Model.PositionType != JobPositonType.NotDefined)
+            @if (Model.PositionType != JobPositonType.NotInformed)
             {
                 <span class="badge badge-secondary p-2">@SharedLocalizer[Model.PositionType.ToDisplayName()]</span>
             }
@@ -49,6 +49,10 @@
         <div class="col-12">
             <span class="badge badge-status badge-@(Model.Status.ToString().ToLower()) p-2">@Model.StatusLocalized</span>
             <span class="badge badge-status badge-dark p-2">@SharedLocalizer[Model.Language.ToDisplayName()]</span>
+            @if (Model.Origin == JobPositionOrigin.External)
+            {
+                <span class="badge badge-status badge-success p-2">@SharedLocalizer[Model.Origin.ToDisplayName()]</span>
+            }
         </div>
 
         <div class="col-12 text-lowercase text-right">
@@ -56,7 +60,10 @@
             {
                 <span class="text-success" title="Applied"><i class="fas fa-check-circle"></i></span>
             }
-            <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @(Model.ApplicantCount == 1 ? SharedLocalizer["applicant"] : SharedLocalizer["applicants"])</span>
+            @if (Model.Origin == JobPositionOrigin.Internal)
+            {
+                <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @(Model.ApplicantCount == 1 ? SharedLocalizer["applicant"] : SharedLocalizer["applicants"])</span>
+            }
         </div>
     </div>
 </div>

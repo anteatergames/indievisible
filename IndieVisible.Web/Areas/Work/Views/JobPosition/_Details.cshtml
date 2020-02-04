@@ -90,9 +90,12 @@
                             </div>
                         </div>
 
-                        <div class="col-12 text-lowercase text-right">
-                            <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @(Model.ApplicantCount == 1 ? SharedLocalizer["applicant"] : SharedLocalizer["applicants"])</span>
-                        </div>
+                        @if (Model.Origin == JobPositionOrigin.Internal)
+                        {
+                            <div class="col-12 text-lowercase text-right">
+                                <span class="text-muted"><span class="comment-count">@Model.ApplicantCount</span> @(Model.ApplicantCount == 1 ? SharedLocalizer["applicant"] : SharedLocalizer["applicants"])</span>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -108,7 +111,7 @@
             }
             else
             {
-                @if (Model.Permissions.CanEdit)
+                @if (Model.Origin == JobPositionOrigin.Internal && Model.Permissions.CanEdit)
                 {
                     <partial name="_ListApplicants" model="Model.Applicants" />
                 }
@@ -120,7 +123,14 @@
                     }
                     else
                     {
-                        <button type="button" id="btnApply" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                        if (Model.Origin == JobPositionOrigin.External && !String.IsNullOrWhiteSpace(Model.Url))
+                        {
+                            <a href="@Model.Url" target="_blank" class="btn btn-primary btn-lg btn-block">@SharedLocalizer["Apply on the website"]</a>
+                        }
+                        else
+                        {
+                            <button type="button" id="btnApply" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                        }
                     }
                 }
 

@@ -4,8 +4,8 @@ namespace IndieVisible.Domain.Core.Enums
 {
     public enum JobPositonType
     {
-        [Display(Name = "Not Defined")]
-        NotDefined = 0,
+        [Display(Name = "Not Informed")]
+        NotInformed = 0,
         [Display(Name = "Contract")]
         Contract = 1,
         [Display(Name = "Permanent")]

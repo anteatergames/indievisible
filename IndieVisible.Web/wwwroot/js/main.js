@@ -127,7 +127,8 @@
             SetStickyElement: setStickyElement
         },
         Common: {
-            HandlePointsEarned: handlePointsEarned
+            HandlePointsEarned: handlePointsEarned,
+            TranslatedMessages: translatedMessages
         },
         Default: {
             Spinner: spinnerCenter,

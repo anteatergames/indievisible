@@ -187,16 +187,20 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
 
         [Authorize]
-        [Route("work/jobposition/new")]
-        public IActionResult New()
+        [Route("work/jobposition/new/{origin}")]
+        public IActionResult New(JobPositionOrigin origin)
         {
-            OperationResultVo serviceResult = jobPositionAppService.GenerateNewTeam(CurrentUserId);
+            OperationResultVo serviceResult = jobPositionAppService.GenerateNewTeam(CurrentUserId, origin);
 
             if (serviceResult.Success)
             {
                 OperationResultVo<JobPositionViewModel> castResult = serviceResult as OperationResultVo<JobPositionViewModel>;
 
-                return PartialView("_CreateEdit", castResult.Value);
+                var model = castResult.Value;
+
+                SetLocalization(model);
+
+                return PartialView("_CreateEdit", model);
             }
             else
             {
@@ -316,19 +320,22 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
         private void SetLocalization(JobPositionViewModel item)
         {
-            if (item.Remote || string.IsNullOrWhiteSpace(item.Location))
+            if (item != null)
             {
-                item.Location = SharedLocalizer["Planet Earth"];
+                if (item.Remote || string.IsNullOrWhiteSpace(item.Location))
+                {
+                    item.Location = SharedLocalizer["Planet Earth"];
+                }
+
+                var displayWorkType = item.WorkType.GetAttributeOfType<DisplayAttribute>();
+                var localizedWorkType = SharedLocalizer[displayWorkType != null ? displayWorkType.Name : item.WorkType.ToString()];
+
+                item.Title = SharedLocalizer["{0} at {1}", localizedWorkType, item.Location];
+
+
+                var displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
+                item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()]; 
             }
-
-            var displayWorkType = item.WorkType.GetAttributeOfType<DisplayAttribute>();
-            var localizedWorkType = SharedLocalizer[displayWorkType != null ? displayWorkType.Name : item.WorkType.ToString()];
-
-            item.Title = SharedLocalizer["{0} at {1}", localizedWorkType, item.Location];
-
-
-            var displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
-            item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
         }
     }
 }

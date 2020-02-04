@@ -96,6 +96,11 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected ProfileViewModel SetAuthorDetails(UserGeneratedBaseViewModel vm)
         {
+            if (vm == null)
+            {
+                return null;
+            }
+
             if (vm.Id == Guid.Empty || vm.UserId == Guid.Empty)
             {
                 vm.UserId = CurrentUserId;

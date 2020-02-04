@@ -9,7 +9,7 @@ namespace IndieVisible.Domain.Interfaces.Service
     {
         void AddApplicant(Guid userId, Guid jobPositionId, string coverLetter);
         IEnumerable<JobPosition> GetAllAvailable();
-        JobPosition GenerateNewJobPosition(Guid currentUserId);
+        JobPosition GenerateNewJobPosition(Guid currentUserId, JobPositionOrigin origin);
         Dictionary<JobPositionStatus, int> GetPositionsStats(Guid userId);
     }
 }

@@ -48,6 +48,7 @@
         selectors.list = '#divList';
         selectors.divListItem = '.jobposition-item';
         selectors.btnNewJobPosition = '#btn-jobposition-new';
+        selectors.btnNewExternalJobPosition = '#btn-jobposition-new-external';
         selectors.btnListMine = '#btn-jobposition-listmine';
         selectors.form = '#frmJobPositionSave';
         selectors.btnSave = '#btnPostJobPosition';
@@ -56,6 +57,8 @@
         selectors.btnApply = '#btnApply';
         selectors.chkRemote = '#Remote';
         selectors.location = '#Location';
+        selectors.origin = '#Origin';
+        selectors.url = '#Url';
         selectors.myPositionStats = '#divMyPositionStats';
         selectors.datepicker = '.datepicker';
     }
@@ -73,6 +76,8 @@
 
     function cacheObjectsCreateEdit() {
         objs.location = $(selectors.location);
+        objs.origin = $(selectors.origin);
+        objs.url = $(selectors.url);
     }
 
     function setCreateEdit() {
@@ -82,6 +87,7 @@
     }
 
     function bindAll() {
+        bindBtnNewExternalJobPosition();
         bindBtnNewJobPosition();
         bindBtnSaveForm();
         bindBtnApply();
@@ -90,9 +96,18 @@
         bindRemoteChange();
     }
 
+    function bindBtnNewExternalJobPosition() {
+        objs.container.on('click', selectors.btnNewExternalJobPosition, function () {
+            var url = $(this).data('url');
+            if (canInteract) {
+                loadNewJobPositionForm(url);
+            }
+        });
+    }
+
     function bindBtnNewJobPosition() {
         objs.container.on('click', selectors.btnNewJobPosition, function () {
-                var url = $(this).data('url');
+            var url = $(this).data('url');
             if (canInteract) {
                 loadNewJobPositionForm(url);
             }
@@ -102,6 +117,14 @@
     function bindBtnSaveForm() {
         objs.containerDetails.on('click', selectors.btnSave, function () {
             var valid = objs.form.valid();
+
+            var origin = objs.origin.val();
+
+            if (origin === 'external' && objs.url.val().length === 0) {
+                valid = false;
+                ALERTSYSTEM.ShowWarningMessage(MAINMODULE.Common.TranslatedMessages['msgUrlMissing']);
+            }
+
             if (valid && canInteract) {
                 submitForm();
             }

@@ -7,6 +7,8 @@ namespace IndieVisible.Domain.Core.Enums
 {
     public enum PaymentFrequency
     {
+        [Display(Name = "Not Informed")]
+        NotInformed,
         [Display(Name = "Hour")]
         Hour,
         [Display(Name = "Day")]

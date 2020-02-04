@@ -13,7 +13,7 @@
 
     var jobProfile = (JobProfile)Enum.Parse(typeof(JobProfile), (string)ViewData["jobProfile"]);
 
-    ViewData["Title"] = jobProfile == JobProfile.Company ? SharedLocalizer["Hire"] :  SharedLocalizer["Work"];
+    ViewData["Title"] = jobProfile == JobProfile.Company ? SharedLocalizer["Hire"] : SharedLocalizer["Work"];
     ViewData["Description"] = SharedLocalizer["Create and apply to job positions."];
 }
 
@@ -44,17 +44,21 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
+@section TranslatedMessages {
+    <span class="msg" data-msg-id="msgUrlMissing">@SharedLocalizer["The Url must not be empty!"]</span>
+}
+
 <div id="jobpositioncontainer container" class="col-12">
     <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
     <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
     <input type="hidden" id="jobprofile" value="@jobProfile" />
-    <input type="hidden" id="urls" value="urls" data-url-mine="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })"/>
+    <input type="hidden" id="urls" value="urls" data-url-mine="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })" />
 
     <div id="containerdetails" class="row">
 
     </div>
     <div id="containerlist" class="row">
-        <div class="col-lg-12 mb-2">
+        <div class="col-lg-12 mb-2 px-4">
             <h1><i class="fa fa-briefcase" aria-hidden="true">&nbsp;</i>@ViewData["Title"]</h1>
         </div>
         <div class="col-lg-8 mb-3">
@@ -69,6 +73,9 @@
             }
             else
             {
+                <div class="col-12">
+                    <button id="btn-jobposition-new-external" class="btn btn-outline-primary btn-block" data-url="@Url.Action("New", "JobPosition", new { area = "Work", origin = JobPositionOrigin.External })">@SharedLocalizer["New External Position"]</button>
+                </div>
                 if (jobProfile == JobProfile.Company)
                 {
                     <div class="jobposition-box">
@@ -82,7 +89,7 @@
                                 @if (canInteract)
                                 {
                                     <div id="divEmployerActions">
-                                        <button id="btn-jobposition-new" class="btn btn-outline-primary btn-block" data-url="@Url.Action("New", "JobPosition", new { area = "Work" })">@SharedLocalizer["New Position"]</button>
+                                        <button id="btn-jobposition-new" class="btn btn-outline-primary btn-block" data-url="@Url.Action("New", "JobPosition", new { area = "Work", origin = JobPositionOrigin.Internal })">@SharedLocalizer["New Position"]</button>
                                     </div>
                                 }
                                 <div id="divMyPositionStats" class="mt-1 p-1"></div>
@@ -101,12 +108,12 @@
                                 <p>@SharedLocalizer["Here you can see the job positions you have applied."]</p>
                             </div>
                             @*<div class="col-12">
-                                <h4>@SharedLocalizer["My Applications"]:</h4>
-                                <div id="divApplicantActions">
-                                    <button id="btn-jobposition-myapplications" class="btn btn-outline-primary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })">@SharedLocalizer["Manage"]</button>
-                                </div>
-                                <div id="divMyApplications" class="mt-1"></div>
-                            </div>*@
+                                    <h4>@SharedLocalizer["My Applications"]:</h4>
+                                    <div id="divApplicantActions">
+                                        <button id="btn-jobposition-myapplications" class="btn btn-outline-primary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })">@SharedLocalizer["Manage"]</button>
+                                    </div>
+                                    <div id="divMyApplications" class="mt-1"></div>
+                                </div>*@
                         </div>
                     </div>
                 }
