@@ -15,6 +15,10 @@
 
     ViewData["Title"] = jobProfile == JobProfile.Company ? SharedLocalizer["Hire"] : SharedLocalizer["Work"];
     ViewData["Description"] = SharedLocalizer["Create and apply to job positions."];
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("index", "jobposition", new { area = "work" });
+    ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
+    ViewData["OgImageWidth"] = 1200;
+    ViewData["OgImageHeight"] = 630;
 }
 
 @section ComponentStyles {

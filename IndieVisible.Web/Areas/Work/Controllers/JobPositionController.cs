@@ -26,15 +26,25 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
         public IActionResult Index()
         {
-            string jobProfile = JobProfile.Applicant.ToString();
+
+            string jobProfile = string.Empty;
 
             if (User.Identity.IsAuthenticated)
             {
-                jobProfile = GetSessionValue(Enums.SessionValues.JobProfile);
+                jobProfile = GetSessionValue(SessionValues.JobProfile);
 
                 if (string.IsNullOrWhiteSpace(jobProfile))
                 {
-                    return View("NoJobProfile");
+                    var userPreferences = UserPreferencesAppService.GetByUserId(CurrentUserId);
+                    if (userPreferences == null || userPreferences.JobProfile == 0)
+                    {
+                        return View("NoJobProfile");
+                    }
+                    else
+                    {
+                        SetSessionValue(SessionValues.JobProfile, userPreferences.JobProfile.ToString());
+                        jobProfile = userPreferences.JobProfile.ToString();
+                    }
                 }
             }
 
@@ -245,7 +255,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
                 if (saveResult.Success)
                 {
-                    string url = Url.Action("Index", "JobPosition", new { area = "Work", pointsEarned = saveResult.PointsEarned });
+                    string url = Url.Action("Details", "JobPosition", new { area = "Work", id = vm.Id, pointsEarned = saveResult.PointsEarned });
 
                     return Json(new OperationResultRedirectVo(saveResult, url));
                 }
@@ -328,7 +338,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
 
                 var displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
-                item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()]; 
+                item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
             }
         }
     }

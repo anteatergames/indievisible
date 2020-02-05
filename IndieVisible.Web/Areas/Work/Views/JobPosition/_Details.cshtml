@@ -1,6 +1,12 @@
 ﻿@model JobPositionViewModel
 @{
     ViewData["Title"] = Model.Title;
+    ViewData["Description"] = Model.Description;
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("details", "jobposition", new { area = "work", id = Model.Id });
+    ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
+    ViewData["OgImageWidth"] = 1200;
+    ViewData["OgImageHeight"] = 630;
+
     var canInteract = User.Identity.IsAuthenticated;
 }
 
@@ -149,13 +155,36 @@
                     }
                     else
                     {
+                        @if (Model.ClosingDate.HasValue)
+                        {
+                            if (Model.ClosingDate.Value.Date > DateTime.Today)
+                            {
+                                <div class="alert alert-info">@SharedLocalizer["Accepting applications until {0}", Model.ClosingDate.Value.ToShortDateString()]</div>
+                            }
+                            else if (Model.ClosingDate.Value.Date == DateTime.Today)
+                            {
+                                <div class="alert alert-warning">@SharedLocalizer["Today is the last day to apply for this position!"]</div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-danger">@SharedLocalizer["Application phase is closed! Don't be sad, apply for another job position!"]</div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-success">@SharedLocalizer["Accepting applications"]</div>
+                        }
+
                         if (Model.Origin == JobPositionOrigin.External && !String.IsNullOrWhiteSpace(Model.Url))
                         {
                             <a href="@Model.Url" target="_blank" class="btn btn-primary btn-lg btn-block">@SharedLocalizer["Apply on the website"]</a>
                         }
                         else
                         {
-                            <button type="button" id="btnApply" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                            if (Model.Permissions.CanConnect)
+                            {
+                                <button type="button" id="btnApply" class="btn btn-success btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                            }
                         }
                     }
                 }

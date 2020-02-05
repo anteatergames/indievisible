@@ -52,6 +52,7 @@ namespace IndieVisible.Application.ViewModels.Jobs
         public JobPositionOrigin Origin { get; set; }
 
         [Display(Name = "Url")]
+        [RegularExpression(@"(http(s)?://)?([\w-]+\.)+[\w-]+(/[\w- ;,./?%&=]*)?", ErrorMessage = "Must be a valid URL")]
         public string Url { get; set; }
 
         public List<JobApplicantViewModel> Applicants { get; set; }
