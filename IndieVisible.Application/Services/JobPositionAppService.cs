@@ -81,12 +81,26 @@ namespace IndieVisible.Application.Services
                         applicant.Name = profile.Name;
                         applicant.Location = profile.Location;
                         applicant.ProfileImageUrl = UrlFormatter.ProfileImage(applicant.UserId, 84);
-                        applicant.CoverImageUrl = UrlFormatter.ProfileCoverImage(applicant.UserId, profile.Id, null, profile.HasCoverImage, 300); 
+                        applicant.CoverImageUrl = UrlFormatter.ProfileCoverImage(applicant.UserId, profile.Id, null, profile.HasCoverImage, 300);
                     }
                 }
 
                 vm.CurrentUserApplied = model.Applicants.Any(x => x.UserId == currentUserId);
                 vm.ApplicantCount = model.Applicants.Count;
+
+                if (vm.Benefits == null)
+                {
+                    vm.Benefits = new List<JobPositionBenefitVo>();
+                }
+                var allBenefits = Enum.GetValues(typeof(JobPositionBenefit)).Cast<JobPositionBenefit>().Where(x => x != JobPositionBenefit.NotInformed).ToList();
+
+                foreach (var benefit in allBenefits)
+                {
+                    if (!vm.Benefits.Any(x => x.Benefit == benefit))
+                    {
+                        vm.Benefits.Add(new JobPositionBenefitVo { Benefit = benefit, Available = false });
+                    }
+                }
 
                 SetPermissions(currentUserId, vm);
 

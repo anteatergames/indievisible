@@ -11,6 +11,28 @@ a {
     color: #111;
 }
 
+.bg-primary {
+    background-color: #E0E0E2 !important;
+    color: white;
+}
+
+    .bg-primary:hover {
+        background-color: #B5BAD0 !important;
+        color: #7389AE;
+    }
+
+.bg-label {
+    background-color: #416788 !important;
+    color: white;
+    border: 1px solid #B5BAD0 !important;
+}
+
+    .bg-label:hover {
+        background-color: #416788 !important;
+        color: #B5BAD0;
+        border: 1px solid #416788 !important;
+    }
+
 .skin-indievisible .col-form-label {
     color: #7389AE;
     font-size: 13px;
@@ -380,3 +402,28 @@ a {
 .text-orange {
     color: #89ad87;
 }
+
+
+.badge-status {
+    color: white;
+}
+
+    .badge-status.badge-proposed, .badge-status.badge-draft {
+        background-color: #9488AD;
+    }
+
+    .badge-status.badge-inanalysis, {
+        background-color: #BFA200;
+    }
+
+    .badge-status.badge-accepted, .badge-status.badge-fulfilled {
+        background-color: #4582FC;
+    }
+
+    .badge-status.badge-rejected, .badge-status.badge-closedforapplication, .badge-status.badge-cancelled {
+        background-color: #FB5012;
+    }
+
+    .badge-status.badge-implemented, .badge-status.badge-openforapplication {
+        background-color: #01921f;
+    }

@@ -6,7 +6,7 @@ namespace IndieVisible.Domain.Core.Enums
     public enum JobPositionBenefit
     {
         [Display(Name = "Not Informed")]
-        [UiInfo(Display = "NotInformed", Class = "times")]
+        [UiInfo(Display = "Not Informed", Class = "times")]
         NotInformed = 0,
         [Display(Name = "Flexible Hours")]
         [UiInfo(Display = "Flexible Hours", Class = "clock")]

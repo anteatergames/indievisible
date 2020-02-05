@@ -74,11 +74,18 @@
                                         <div class="col-12">
                                             <label class="col-form-label">@SharedLocalizer["Benefits"]</label>
                                         </div>
-                                        @foreach (var benefit in Model.Benefits)
+                                        @if (Model.Benefits == null || Model.Benefits.All(x => !x.Available))
                                         {
-                                            if (benefit.Available)
+                                            <span>@SharedLocalizer[JobPositionBenefit.NotInformed.ToUiInfo().Display]</span>
+                                        }
+                                        else
+                                        {
+                                            foreach (var benefit in Model.Benefits)
                                             {
-                                                <span class="btn border p-1 rounded-circle btn-benefit-icon bg-green" title="@benefit.Benefit.ToUiInfo().Display"><i class="fas fa-@(benefit.Benefit.ToUiInfo().Class)" aria-hidden="true"></i></span>
+                                                if (benefit.Available)
+                                                {
+                                                    <span class="btn border p-1 rounded-circle btn-benefit-icon bg-label" title="@benefit.Benefit.ToUiInfo().Display"><i class="fas fa-@(benefit.Benefit.ToUiInfo().Class)" aria-hidden="true"></i></span>
+                                                }
                                             }
                                         }
                                     </div>
