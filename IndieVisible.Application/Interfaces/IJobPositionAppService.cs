@@ -13,5 +13,6 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GetAllMine(Guid currentUserId);
         OperationResultVo ChangeStatus(Guid currentUserId, Guid jobPositionId, JobPositionStatus selectedStatus);
         OperationResultVo GetMyPositionsStats(Guid currentUserId);
+        OperationResultVo RateApplicant(Guid currentUserId, Guid jobPositionId, Guid userId, decimal score);
     }
 }

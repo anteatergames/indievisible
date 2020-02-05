@@ -10,6 +10,33 @@
     var canInteract = User.Identity.IsAuthenticated;
 }
 
+@section ComponentStyles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/jobposition.css">
+        <link href="~/lib/bootstrap-star-rating/themes/krajee-fa/theme.css" media="all" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-star-rating/css/star-rating.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap-star-rating/css/star-rating.min.css">
+        <link href="~/lib/bootstrap-star-rating/themes/krajee-fas/" media="all" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="~/css/jobposition.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
+        <script src="~/lib/bootstrap-star-rating/themes/krajee-fas/theme.js"></script>
+        <script src="~/js/jobposition/jobposition.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/bootstrap-star-rating/js/star-rating.min.js"></script>
+        <script src="~/lib/bootstrap-star-rating/themes/krajee-fa/theme.min.js"></script>
+        <script src="~/js/jobposition/jobposition.min.js" asp-append-version="true"></script>
+    </environment>
+}
+
 <div class="row box bg-white no-gutters">
     <div class="col-lg-8">
         <h1 class="sr-only">
@@ -76,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12 col-md-8 offset-md-2 text-center">
+                                    <div class="col-12">
                                         <div class="col-12">
                                             <label class="col-form-label">@SharedLocalizer["Benefits"]</label>
                                         </div>
@@ -86,13 +113,18 @@
                                         }
                                         else
                                         {
-                                            foreach (var benefit in Model.Benefits)
-                                            {
-                                                if (benefit.Available)
+                                            <div class="row mx-2">
+                                                @foreach (var benefit in Model.Benefits)
                                                 {
-                                                    <span class="btn border p-1 rounded-circle btn-benefit-icon bg-label" title="@benefit.Benefit.ToUiInfo().Display"><i class="fas fa-@(benefit.Benefit.ToUiInfo().Class)" aria-hidden="true"></i></span>
+                                                    if (benefit.Available)
+                                                    {
+                                                        <div class="col-12 col-md-6 mb-1 p-1 border bg-light">
+                                                            <span class="btn border p-1 rounded-circle btn-benefit-icon-sm bg-label" title="@benefit.Benefit.ToUiInfo().Display"><i class="fas fa-@(benefit.Benefit.ToUiInfo().Class)" aria-hidden="true"></i></span>
+                                                            <span>@benefit.Benefit.ToUiInfo().Display</span>
+                                                        </div>
+                                                    }
                                                 }
-                                            }
+                                            </div>
                                         }
                                     </div>
                                 </div>
@@ -145,6 +177,11 @@
             {
                 @if (Model.Origin == JobPositionOrigin.Internal && Model.Permissions.CanEdit)
                 {
+                    if (Model.ClosingDate.HasValue)
+                    {
+                        <div class="alert alert-info">@SharedLocalizer["Accepting applications until {0}", Model.ClosingDate.Value.ToShortDateString()]</div>
+                    }
+
                     <partial name="_ListApplicants" model="Model.Applicants" />
                 }
                 else
@@ -193,22 +230,3 @@
         </div>
     </div>
 </div>
-
-@section ComponentStyles {
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/jobposition.css">
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/jobposition.min.css" asp-append-version="true">
-    </environment>
-}
-
-@section Scripts {
-    <environment include="Development">
-        <script src="~/js/jobposition/jobposition.js"></script>
-        <script src="~/js/shared/contentactions.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="~/js/jobposition/jobposition.min.js" asp-append-version="true"></script>
-    </environment>
-}

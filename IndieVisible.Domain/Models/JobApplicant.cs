@@ -5,5 +5,7 @@ namespace IndieVisible.Domain.Models
     public class JobApplicant : Entity
     {
         public string CoverLetter { get; set; }
+
+        public decimal Score { get; set; }
     }
 }

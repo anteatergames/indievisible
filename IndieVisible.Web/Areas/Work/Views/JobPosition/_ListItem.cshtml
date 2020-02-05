@@ -34,19 +34,19 @@
         <div class="col-12">
             @if (Model.Remote)
             {
-                <span class="badge badge-secondary p-2 text-capitalize">@SharedLocalizer["remote"]</span>
+                <span class="badge badge-secondary mb-1 p-2 text-capitalize">@SharedLocalizer["remote"]</span>
             }
             @if (Model.Duration != JobPositionDuration.NotInformed)
             {
-                <span class="badge badge-secondary p-2">@SharedLocalizer[Model.Duration.ToDisplayName()]</span>
+                <span class="badge badge-secondary mb-1 p-2">@SharedLocalizer[Model.Duration.ToDisplayName()]</span>
             }
             @if (Model.PositionType != JobPositonType.NotInformed)
             {
-                <span class="badge badge-secondary p-2">@SharedLocalizer[Model.PositionType.ToDisplayName()]</span>
+                <span class="badge badge-secondary mb-1 p-2">@SharedLocalizer[Model.PositionType.ToDisplayName()]</span>
             }
             @if (Model.ExperienceLevel != JobExperienceLevel.NotInformed)
             {
-                <span class="badge badge-secondary p-2">@SharedLocalizer[Model.ExperienceLevel.ToDisplayName()]</span>
+                <span class="badge badge-secondary mb-1 p-2">@SharedLocalizer[Model.ExperienceLevel.ToDisplayName()]</span>
             }
         </div>
 

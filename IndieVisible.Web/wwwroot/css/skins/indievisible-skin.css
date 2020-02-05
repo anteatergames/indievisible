@@ -11,6 +11,19 @@ a {
     color: #111;
 }
 
+.bordered {
+    border: 1px solid #89ad87;
+}
+
+    .bordered:hover {
+        border: 1px solid #00ff21;
+        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    }
+
+.filled-stars {
+    color: #416788 !important;
+}
+
 .bg-primary {
     background-color: #E0E0E2 !important;
     color: white;

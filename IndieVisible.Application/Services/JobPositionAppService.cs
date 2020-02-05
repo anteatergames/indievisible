@@ -78,12 +78,15 @@ namespace IndieVisible.Application.Services
                     UserProfile profile = GetCachedProfileByUserId(applicant.UserId);
                     if (profile != null)
                     {
+                        applicant.JobPositionId = id;
                         applicant.Name = profile.Name;
                         applicant.Location = profile.Location;
                         applicant.ProfileImageUrl = UrlFormatter.ProfileImage(applicant.UserId, 84);
                         applicant.CoverImageUrl = UrlFormatter.ProfileCoverImage(applicant.UserId, profile.Id, null, profile.HasCoverImage, 300);
                     }
                 }
+
+                vm.Applicants = vm.Applicants.OrderByDescending(x => x.Score).ToList();
 
                 vm.CurrentUserApplied = model.Applicants.Any(x => x.UserId == currentUserId);
                 vm.ApplicantCount = model.Applicants.Count;
@@ -316,6 +319,37 @@ namespace IndieVisible.Application.Services
                 unitOfWork.Commit();
 
                 return new OperationResultVo(true);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo RateApplicant(Guid currentUserId, Guid jobPositionId, Guid userId, decimal score)
+        {
+            try
+            {
+                JobPosition jobPosition = jobPositionDomainService.GetById(jobPositionId);
+
+                if (jobPosition == null)
+                {
+                    return new OperationResultVo("Idea not found!");
+                }
+
+                foreach (var applicant in jobPosition.Applicants)
+                {
+                    if (applicant.UserId == userId)
+                    {
+                        applicant.Score = score;
+                    }
+                }
+
+                jobPositionDomainService.Update(jobPosition);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "Applicant rated!");
             }
             catch (Exception ex)
             {

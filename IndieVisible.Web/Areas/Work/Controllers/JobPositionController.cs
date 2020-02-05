@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 
 namespace IndieVisible.Web.Areas.Work.Controllers
@@ -35,7 +36,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
                 if (string.IsNullOrWhiteSpace(jobProfile))
                 {
-                    var userPreferences = UserPreferencesAppService.GetByUserId(CurrentUserId);
+                    UserPreferencesViewModel userPreferences = UserPreferencesAppService.GetByUserId(CurrentUserId);
                     if (userPreferences == null || userPreferences.JobProfile == 0)
                     {
                         return View("NoJobProfile");
@@ -63,7 +64,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                     type = JobProfile.Applicant;
                 }
 
-                var userPreferences = UserPreferencesAppService.GetByUserId(CurrentUserId);
+                UserPreferencesViewModel userPreferences = UserPreferencesAppService.GetByUserId(CurrentUserId);
 
                 if (userPreferences == null)
                 {
@@ -72,7 +73,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 }
                 userPreferences.JobProfile = type;
 
-                var saveResult = UserPreferencesAppService.Save(CurrentUserId, userPreferences);
+                OperationResultVo<Guid> saveResult = UserPreferencesAppService.Save(CurrentUserId, userPreferences);
 
                 if (!saveResult.Success)
                 {
@@ -125,7 +126,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 model = new List<JobPositionViewModel>();
             }
 
-            foreach (var item in model)
+            foreach (JobPositionViewModel item in model)
             {
                 SetLocalization(item);
             }
@@ -151,7 +152,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 model = new List<JobPositionViewModel>();
             }
 
-            foreach (var item in model)
+            foreach (JobPositionViewModel item in model)
             {
                 SetLocalization(item);
             }
@@ -204,7 +205,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             {
                 OperationResultVo<JobPositionViewModel> castResult = serviceResult as OperationResultVo<JobPositionViewModel>;
 
-                var model = castResult.Value;
+                JobPositionViewModel model = castResult.Value;
 
                 SetLocalization(model);
 
@@ -227,7 +228,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             {
                 OperationResultVo<JobPositionViewModel> castResult = serviceResult as OperationResultVo<JobPositionViewModel>;
 
-                var model = castResult.Value;
+                JobPositionViewModel model = castResult.Value;
                 model.ClosingDateText = model.ClosingDate.HasValue ? model.ClosingDate.Value.ToShortDateString() : string.Empty;
 
                 return PartialView("_CreateEdit", model);
@@ -322,6 +323,23 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             }
         }
 
+        [HttpPost("work/jobposition/rateapplicant/{jobPositionId:guid}/{userId:guid}")]
+        public IActionResult RateApplicant(Guid jobPositionId, Guid userId, string score)
+        {
+            try
+            {
+                decimal scoreDecimal = decimal.Parse(score, CultureInfo.InvariantCulture);
+
+                OperationResultVo serviceResult = jobPositionAppService.RateApplicant(CurrentUserId, jobPositionId, userId, scoreDecimal);
+
+                return Json(new OperationResultVo(serviceResult.Success, serviceResult.Message));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
         private void SetLocalization(JobPositionViewModel item)
         {
             if (item != null)
@@ -331,13 +349,13 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                     item.Location = SharedLocalizer["Planet Earth"];
                 }
 
-                var displayWorkType = item.WorkType.GetAttributeOfType<DisplayAttribute>();
-                var localizedWorkType = SharedLocalizer[displayWorkType != null ? displayWorkType.Name : item.WorkType.ToString()];
+                DisplayAttribute displayWorkType = item.WorkType.GetAttributeOfType<DisplayAttribute>();
+                Microsoft.Extensions.Localization.LocalizedString localizedWorkType = SharedLocalizer[displayWorkType != null ? displayWorkType.Name : item.WorkType.ToString()];
 
                 item.Title = SharedLocalizer["{0} at {1}", localizedWorkType, item.Location];
 
 
-                var displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
+                DisplayAttribute displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
                 item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
             }
         }

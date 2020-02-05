@@ -1,22 +1,14 @@
 .widget-user {
     padding: 0;
-    min-height: 266px;
-    margin-bottom: 20px;
-    border: 1px solid #89ad87;
+    min-height: 215px;
     background-color: #fff;
 }
-
-    .widget-user:hover {
-        border: 1px solid #00ff21;
-        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
-    }
 
 .widget-user-username {
     margin-bottom: 5px;
     font-size: 25px;
     font-weight: 300;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
 }
 

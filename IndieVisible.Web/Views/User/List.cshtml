@@ -13,8 +13,10 @@
     </div>
     @foreach (var item in Model)
     {
-        <div class="col-12 col-sm-6 col-lg-4">
-            <partial name="_UserCard" model="item" />
+        <div class="col-12 col-md-6 col-lg-4 px-0 px-md-2 mb-3">
+            <div class="bordered">
+                <partial name="_UserCard" model="item" />
+            </div>
         </div>
     }
 </div>

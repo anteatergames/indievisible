@@ -2,9 +2,11 @@
 
 @{
     Layout = null;
+    var nameLimitParam = 20;
+    var nameLimit = nameLimitParam < Model.Name.Length ? nameLimitParam : Model.Name.Length;
 }
 
-<div class="box box-widget widget-user">
+<div class="box-widget widget-user">
     <div class="widget-user-image">
         <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
             <img class="rounded-circle lazyload" data-src="@Model.ProfileImageUrl" src="~/images/profileimages/developer.png" alt="User Avatar">
@@ -15,7 +17,7 @@
     <div class="box-footer">
         <div class="row">
             <div class="col-12">
-                <h3 class="widget-user-username">@Html.DisplayFor(modelItem => Model.Name)</h3>
+                <h3 class="widget-user-username">@Model.Name.Substring(0, nameLimit)</h3>
             </div>
             <div class="col-6 border-right">
                 <div class="description-block">

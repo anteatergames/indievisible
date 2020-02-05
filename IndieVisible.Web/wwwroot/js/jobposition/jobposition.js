@@ -35,6 +35,9 @@
             }
             loadMyJobPositionStats(urlMyPositionStats);
         }
+        else if (isDetails) {
+            bindDetails();
+        }
     }
 
     function setSelectors() {
@@ -63,6 +66,7 @@
         selectors.datepicker = '.datepicker';
         selectors.switchBenefit = '.switch-benefit';
         selectors.hdnBenefit = '.hdnBenefit';
+        selectors.applicantRating = '.applicant-rating';
     }
 
     function cacheObjects() {
@@ -97,6 +101,45 @@
         bindDeleteJobPosition();
         bindRemoteChange();
         bindSwitchBenefitChange();
+    }
+
+
+    function bindDetails() {
+        bindRatings();
+    }
+
+    function bindRatings() {
+        $(selectors.applicantRating).rating({
+            theme: 'krajee-fas',
+            showClear: false,
+            size: 'md',
+            animate: false,
+            step: 0.5,
+            filledStar: '<i class="fas fa-gamepad tilt-20"></i>',
+            emptyStar: '<i class="fas fa-gamepad tilt-20"></i>',
+            starCaptions: {
+                0.5: 'Padawan',
+                1: '1',
+                1.5: '1.5',
+                2: '2',
+                2.5: '2.5',
+                3: '3',
+                3.5: '3.5',
+                4: '4',
+                4.5: '4.5',
+                5: 'Jedi'
+            }
+        });
+
+        objs.container.on('rating:change', selectors.applicantRating, function (event, value, caption) {
+            var url = $(this).data('url');
+
+            console.log(value);
+
+            var data = { score: value };
+
+            genericPost(url, data);
+        });
     }
 
     function bindBtnNewExternalJobPosition() {
@@ -333,6 +376,24 @@
             }
             else {
                 ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+            }
+        });
+    }
+
+    function genericPost(url, data, callback) {
+        $.post(url, data).done(function (response) {
+            if (response.success === true) {
+                if (callback) {
+                    callback(response);
+                }
+                ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                    if (response.url) {
+                        window.location = response.url;
+                    }
+                });
+            }
+            else {
+                ALERTSYSTEM.ShowWarningMessage(response.message);
             }
         });
     }
