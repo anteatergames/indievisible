@@ -1517,4 +1517,68 @@
     <value>Nível de Experiência</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="Child Care" xml:space="preserve">
+    <value>Auxílio Creche</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Dental Insurance" xml:space="preserve">
+    <value>Plano Odontológico</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Flexible Hours" xml:space="preserve">
+    <value>Horário Flexível</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Free Coffee" xml:space="preserve">
+    <value>Café Grátis</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Gym Membership" xml:space="preserve">
+    <value>Gym Pass</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Health Insurance" xml:space="preserve">
+    <value>Plano de Saúde</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Life Insurance" xml:space="preserve">
+    <value>Seguro de Vida</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Maternity/Paternity Leave" xml:space="preserve">
+    <value>Licença (pater/mater)nidade</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Meals" xml:space="preserve">
+    <value>Vale Refeição</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Paid Vacation" xml:space="preserve">
+    <value>Férias Remuneradas</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Parking Reimbursement" xml:space="preserve">
+    <value>Reelmbolso de Estacionamento</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Profit Sharing" xml:space="preserve">
+    <value>PLR</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Retirement Plan" xml:space="preserve">
+    <value>FGTS</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Transportation" xml:space="preserve">
+    <value>Vale Transporte</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Tuition Reimbursement" xml:space="preserve">
+    <value>Bolsa Estudo</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="You must be logged in to post and apply to job positions." xml:space="preserve">
+    <value>Você preisa estar autenticado para poder postar e se candidatar a vagas.</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>

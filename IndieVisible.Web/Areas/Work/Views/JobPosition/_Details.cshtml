@@ -98,7 +98,7 @@
                                     <div class="col-6 col-md-4 text-capitalize">
                                         <div class="form-group">
                                             <label asp-for="PaymentFrequency" class="col-form-label"></label>
-                                            <p>@SharedLocalizer[Model.PaymentFrequency.ToDisplayName().ToLower()]</p>
+                                            <p>@SharedLocalizer[Model.PaymentFrequency.ToDisplayName()]</p>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                                                     {
                                                         <div class="col-12 col-md-6 mb-1 p-1 border bg-light">
                                                             <span class="btn border p-1 rounded-circle btn-benefit-icon-sm bg-label" title="@benefit.Benefit.ToUiInfo().Display"><i class="fas fa-@(benefit.Benefit.ToUiInfo().Class)" aria-hidden="true"></i></span>
-                                                            <span>@benefit.Benefit.ToUiInfo().Display</span>
+                                                            <span>@SharedLocalizer[benefit.Benefit.ToUiInfo().Display]</span>
                                                         </div>
                                                     }
                                                 }
