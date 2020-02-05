@@ -27,7 +27,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         public IActionResult Index()
         {
 
-            string jobProfile = string.Empty;
+            string jobProfile = JobProfile.Applicant.ToString();
 
             if (User.Identity.IsAuthenticated)
             {
