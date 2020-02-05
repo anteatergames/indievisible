@@ -1581,4 +1581,8 @@
     <value>Você preisa estar autenticado para poder postar e se candidatar a vagas.</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="benefits" xml:space="preserve">
+    <value>Benefícios</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>
