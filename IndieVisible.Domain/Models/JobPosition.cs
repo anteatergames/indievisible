@@ -20,6 +20,10 @@ namespace IndieVisible.Domain.Models
 
         public WorkType WorkType { get; set; }
 
+        public string Reference { get; set; }
+
+        public string CompanyName { get; set; }
+
         public bool Remote { get; set; }
 
         public string Location { get; set; }

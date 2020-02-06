@@ -6,6 +6,7 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Work.Controllers.Base;
 using IndieVisible.Web.Enums;
+using IndieVisible.Web.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -190,6 +191,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
             SetLocalization(vm);
             SetAuthorDetails(vm);
+            vm.Description = ContentHelper.FormatContentToShow(vm.Description);
 
             return View("_Details", vm);
         }
@@ -230,6 +232,8 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
                 JobPositionViewModel model = castResult.Value;
                 model.ClosingDateText = model.ClosingDate.HasValue ? model.ClosingDate.Value.ToShortDateString() : string.Empty;
+
+                SetLocalization(model);
 
                 return PartialView("_CreateEdit", model);
             }
@@ -357,6 +361,11 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
                 DisplayAttribute displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
                 item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
+
+                if (string.IsNullOrWhiteSpace(item.CompanyName) && item.Id != Guid.Empty)
+                {
+                    item.CompanyName = SharedLocalizer["Not Informed"];
+                }
             }
         }
     }

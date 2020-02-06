@@ -107,6 +107,11 @@ namespace IndieVisible.Application.Services
 
                 SetPermissions(currentUserId, vm);
 
+                if (string.IsNullOrWhiteSpace(vm.Reference))
+                {
+                    vm.Reference = vm.Id.ToString();
+                }
+
                 return new OperationResultVo<JobPositionViewModel>(vm);
             }
             catch (Exception ex)

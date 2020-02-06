@@ -1,6 +1,9 @@
 ﻿@model JobPositionViewModel
 @{
     Layout = null;
+    var limitMaxCharParam = 240;
+    var needMore = limitMaxCharParam < Model.Description.Length;
+    var limitMaxCharDescription = needMore ? limitMaxCharParam : Model.Description.Length;
 }
 
 
@@ -62,7 +65,13 @@
             </div>
         </div>
         <div class="col-12 mt-2">
-            <p>@Model.Description</p>
+            <p>
+                @Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>").Substring(0, limitMaxCharDescription))
+                @if (needMore)
+                {
+                    <span>... <a asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@Model.Id" class="btnViewJobPosition btn btn-sm badge badge-info">@SharedLocalizer["read more"]</a></span>
+                }
+            </p>
         </div>
         <div class="col-12">
             <span class="badge badge-status badge-@(Model.Status.ToString().ToLower()) p-2">@Model.StatusLocalized</span>
