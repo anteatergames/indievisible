@@ -26,6 +26,12 @@ namespace IndieVisible.Application.ViewModels.Jobs
         [Display(Name = "Work Type")]
         public WorkType WorkType { get; set; }
 
+        [Display(Name = "Reference")]
+        public string Reference { get; set; }
+
+        [Display(Name = "Comapny Name")]
+        public string CompanyName { get; set; }
+
         [Display(Name = "Remote")]
         public bool Remote { get; set; }
 

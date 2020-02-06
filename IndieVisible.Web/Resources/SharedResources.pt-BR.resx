@@ -1585,4 +1585,8 @@
     <value>Benefícios</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="String1" xml:space="preserve">
+    <value>leia mais</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>

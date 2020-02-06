@@ -60,8 +60,17 @@
                         <div class="jobposition-details">
                             <div class="border mb-3 p-2 bg-light">
                                 <div class="row">
-                                    <div class="col-12">
-                                        <label class="col-form-label">@SharedLocalizer["Job Reference"]</label>: <span>@Model.Id</span>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label asp-for="Reference" class="col-form-label"></label>
+                                            <p>@Model.Reference</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label asp-for="CompanyName" class="col-form-label"></label>
+                                            <p>@Model.CompanyName</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -134,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <p>@Model.Description</p>
+                                <p>@Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))</p>
                             </div>
 
                             <div class="col-12">
@@ -171,22 +180,39 @@
     </div>
     <div class="col-lg-4">
         <div class="col-12 mt-2">
-            @if (!canInteract)
+            <div class="alert alert-warning">@SharedLocalizer["Start Date is set to {0}", (Model.StartDate.HasValue ? Model.StartDate.Value.ToShortDateString() : SharedLocalizer["ASAP"].ToString())]</div>
+
+            @if (Model.ClosingDate.HasValue)
             {
-                <div class="alert-info p-2">
-                    @SharedLocalizer["You must be logged in to post and apply to job positions."]
-                </div>
+                if (Model.ClosingDate.Value.Date > DateTime.Today)
+                {
+                    <div class="alert alert-success">@SharedLocalizer["Accepting applications until {0}", Model.ClosingDate.Value.ToShortDateString()]</div>
+                }
+                else if (Model.ClosingDate.Value.Date == DateTime.Today)
+                {
+                    <div class="alert alert-warning">@SharedLocalizer["Today is the last day to apply for this position!"]</div>
+                }
+                else
+                {
+                    <div class="alert alert-danger">@SharedLocalizer["Application phase is closed! Don't be sad, apply for another job position!"]</div>
+                }
             }
             else
             {
-                @if (Model.Origin == JobPositionOrigin.Internal && Model.Permissions.CanEdit)
-                {
-                    if (Model.ClosingDate.HasValue)
-                    {
-                        <div class="alert alert-info">@SharedLocalizer["Accepting applications until {0}", Model.ClosingDate.Value.ToShortDateString()]</div>
-                    }
+                <div class="alert alert-success">@SharedLocalizer["Accepting applications"]</div>
+            }
 
-                    <partial name="_ListApplicants" model="Model.Applicants" />
+            @if (Model.Origin == JobPositionOrigin.Internal && Model.Permissions.CanEdit)
+            {
+                <partial name="_ListApplicants" model="Model.Applicants" />
+            }
+            else
+            {
+                if (!canInteract)
+                {
+                    <div class="alert-info p-2">
+                        @SharedLocalizer["You must be logged in to post and apply to job positions."]
+                    </div>
                 }
                 else
                 {
@@ -196,25 +222,6 @@
                     }
                     else
                     {
-                        @if (Model.ClosingDate.HasValue)
-                        {
-                            if (Model.ClosingDate.Value.Date > DateTime.Today)
-                            {
-                                <div class="alert alert-info">@SharedLocalizer["Accepting applications until {0}", Model.ClosingDate.Value.ToShortDateString()]</div>
-                            }
-                            else if (Model.ClosingDate.Value.Date == DateTime.Today)
-                            {
-                                <div class="alert alert-warning">@SharedLocalizer["Today is the last day to apply for this position!"]</div>
-                            }
-                            else
-                            {
-                                <div class="alert alert-danger">@SharedLocalizer["Application phase is closed! Don't be sad, apply for another job position!"]</div>
-                            }
-                        }
-                        else
-                        {
-                            <div class="alert alert-success">@SharedLocalizer["Accepting applications"]</div>
-                        }
 
                         if (Model.Origin == JobPositionOrigin.External && !String.IsNullOrWhiteSpace(Model.Url))
                         {

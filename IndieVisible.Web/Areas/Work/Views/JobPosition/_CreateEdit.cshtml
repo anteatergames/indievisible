@@ -64,7 +64,7 @@
 
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-sm-6">
                         <div class="form-group">
                             @if (Model.Origin == JobPositionOrigin.External)
                             {
@@ -80,7 +80,7 @@
                             }
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-sm-6">
                         <div class="form-group">
                             <label asp-for="ClosingDateText" class="col-form-label"></label>
                             <input asp-for="ClosingDateText" type="text" class="form-control datepicker" data-date-orientation="bottom" data-date-start-date="@(DateTime.Now.ToShortDateString())" data-date-format="@(System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern.ToLower())" placeholder="@SharedLocalizer["Pick a date"]" />
@@ -92,9 +92,9 @@
 
             <div class="col-12">
                 <div class="form-group">
-                    <label asp-for="WorkType" class="col-form-label"></label>
-                    <select asp-for="WorkType" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
-                    <span asp-validation-for="WorkType" class="text-danger"></span>
+                    <label asp-for="CompanyName" class="col-form-label"></label>
+                    <input asp-for="CompanyName"  class="form-control" data-date-orientation="bottom" placeholder="@SharedLocalizer["The name of the hiring company"]" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
                 </div>
             </div>
 
@@ -123,6 +123,41 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="WorkType" class="col-form-label"></label>
+                    <select asp-for="WorkType" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
+                    <span asp-validation-for="WorkType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Salary" class="col-form-label"></label>
+                            <input asp-for="Salary" asp-is-invariant="true" type="number" class="form-control" placeholder="@SharedLocalizer["Type the salary in USD"]" />
+                            <span asp-validation-for="Salary" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label asp-for="PaymentFrequency" class="col-form-label"></label>
+                            <select asp-for="PaymentFrequency" asp-items="Html.GetEnumSelectList<PaymentFrequency>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select payment frequency"]" tabindex="-1" aria-hidden="true"></select>
+                            <span asp-validation-for="PaymentFrequency" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label asp-for="StartDate" class="col-form-label"></label>
+                            <input asp-for="StartDate" type="text" class="form-control datepicker" data-date-orientation="bottom" data-date-start-date="@(DateTime.Now.ToShortDateString())" data-date-format="@(System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern.ToLower())" placeholder="@SharedLocalizer["Empty for 'ASAP'"]" />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12">
                 <div class="border p-2 bg-light">
                     <h3>@SharedLocalizer["Location"]</h3>
@@ -142,25 +177,7 @@
                 </div>
             </div>
 
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="form-group">
-                            <label asp-for="Salary" class="col-form-label"></label>
-                            <input asp-for="Salary" asp-is-invariant="true" type="number" class="form-control" placeholder="@SharedLocalizer["Type the salary in USD"]" />
-                            <span asp-validation-for="Salary" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <div class="form-group">
-                            <label asp-for="PaymentFrequency" class="col-form-label"></label>
-                            <select asp-for="PaymentFrequency" asp-items="Html.GetEnumSelectList<PaymentFrequency>()" class="form-control select2" data-placeholder="@SharedLocalizer["Select payment frequency"]" tabindex="-1" aria-hidden="true"></select>
-                            <span asp-validation-for="PaymentFrequency" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <br />
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
