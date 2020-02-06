@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
@@ -20,10 +21,12 @@ namespace IndieVisible.Web.Areas.Work.Controllers
     public class JobPositionController : WorkBaseController
     {
         private readonly IJobPositionAppService jobPositionAppService;
+        private readonly IUserContentAppService userContentAppService;
 
-        public JobPositionController(IJobPositionAppService jobPositionAppService)
+        public JobPositionController(IJobPositionAppService jobPositionAppService, IUserContentAppService userContentAppService)
         {
             this.jobPositionAppService = jobPositionAppService;
+            this.userContentAppService = userContentAppService;
         }
 
         public IActionResult Index()
@@ -249,6 +252,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             try
             {
+                var isNew = vm.Id == Guid.Empty;
                 vm.UserId = CurrentUserId;
 
                 if (!string.IsNullOrWhiteSpace(vm.ClosingDateText))
@@ -260,6 +264,8 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
                 if (saveResult.Success)
                 {
+                    GenerateFeedPost(vm);
+
                     string url = Url.Action("Details", "JobPosition", new { area = "Work", id = vm.Id, pointsEarned = saveResult.PointsEarned });
 
                     return Json(new OperationResultRedirectVo(saveResult, url));
@@ -366,6 +372,21 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 {
                     item.CompanyName = SharedLocalizer["Not Informed"];
                 }
+            }
+        }
+
+        private void GenerateFeedPost(JobPositionViewModel vm)
+        {
+            if (vm != null && vm.Status == JobPositionStatus.OpenForApplication)
+            {
+                UserContentViewModel newContent = new UserContentViewModel
+                {
+                    UserId = CurrentUserId,
+                    UserContentType = UserContentType.JobPosition,
+                    Content = String.Format("{0}|{1}|{2}|{3}|{4}", vm.Id, vm.WorkType, vm.Remote, vm.Location, vm.Language)
+                };
+
+                userContentAppService.Save(CurrentUserId, newContent);
             }
         }
     }

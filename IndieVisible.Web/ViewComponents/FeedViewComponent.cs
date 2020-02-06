@@ -58,6 +58,10 @@ namespace IndieVisible.Web.ViewComponents
                 {
                     FormatTeamCreationPost(item);
                 }
+                if (item.UserContentType == UserContentType.JobPosition)
+                {
+                    FormatJobPositionPost(item);
+                }
                 else
                 {
                     item.Content = ContentHelper.FormatContentToShow(item.Content);
@@ -113,6 +117,33 @@ namespace IndieVisible.Web.ViewComponents
             item.Content = String.Format(postTemplate, translatedText, name, motto);
             item.Url = Url.Action("Details", "Team", new { teamId = id });
             item.Language = SupportedLanguage.English;
+        }
+
+        private void FormatJobPositionPost(UserContentViewModel item)
+        {
+            string[] jobData = item.Content.Split('|');
+            string id = jobData[0];
+            string workType = jobData[1];
+            string remote = jobData[2];
+            string location = jobData[3];
+            SupportedLanguage language = SupportedLanguage.English;
+
+            if (!string.IsNullOrEmpty(remote) && remote.ToLower().Equals("true"))
+            {
+                location = SharedLocalizer["remote"];
+            }
+
+            if (jobData.Length > 4)
+            {
+                language = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), jobData[4]);
+            }
+
+            string postTemplate = ContentHelper.FormatUrlContentToShow(item.UserContentType);
+            string translatedText = SharedLocalizer["A new job position for {0}({1}) is open for applications.", workType, location].ToString();
+
+            item.Content = String.Format(postTemplate, translatedText, workType, location);
+            item.Url = Url.Action("Details", "JobPosition", new { area = "Work", id = id });
+            item.Language = language;
         }
     }
 }

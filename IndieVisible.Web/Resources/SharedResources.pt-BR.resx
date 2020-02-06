@@ -1501,4 +1501,8 @@
     <value>Benefícios</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="A new job position for {0}({1}) is open for applications." xml:space="preserve">
+    <value>Uma nova vaga de emprego para {0} ({1}) está aceitando candidatos!</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>
