@@ -217,10 +217,6 @@
     <value>Registre-se</value>
     <comment>Login Page</comment>
   </data>
-  <data name="Singleplayer" xml:space="preserve">
-    <value>Um Jogador</value>
-    <comment>Menu</comment>
-  </data>
   <data name="Start" xml:space="preserve">
     <value>Começar</value>
     <comment>Menu</comment>
@@ -293,20 +289,12 @@
     <value>Curtidas</value>
     <comment>Profile Page</comment>
   </data>
-  <data name="What is this" xml:space="preserve">
-    <value>O que é</value>
-    <comment>Front Page</comment>
-  </data>
   <data name="Action" xml:space="preserve">
     <value>Ação</value>
     <comment>Genre</comment>
   </data>
   <data name="Adventure" xml:space="preserve">
     <value>Aventura</value>
-    <comment>Genre</comment>
-  </data>
-  <data name="Archeology" xml:space="preserve">
-    <value>Arqueologia</value>
     <comment>Genre</comment>
   </data>
   <data name="BeatEmUp" xml:space="preserve">
@@ -433,10 +421,6 @@
     <value>Descrição</value>
     <comment>Generic</comment>
   </data>
-  <data name="Edit Content" xml:space="preserve">
-    <value>Editar Conteúdo</value>
-    <comment>Add Content Page</comment>
-  </data>
   <data name="Edit Game" xml:space="preserve">
     <value>Editar Jogo</value>
     <comment>Add Game Page</comment>
@@ -525,20 +509,8 @@
     <value>Digite um texto campeão aqui</value>
     <comment>Placeholder</comment>
   </data>
-  <data name="Type a brief introduction here" xml:space="preserve">
-    <value>Digite uma breve introdução aqui</value>
-    <comment>Placeholder</comment>
-  </data>
-  <data name="Type the Facebook address here" xml:space="preserve">
-    <value>Digite o endereço do Facebook aqui</value>
-    <comment>Placeholder</comment>
-  </data>
   <data name="Type the title you want to post here" xml:space="preserve">
     <value>Digite o título do que quer postar aqui</value>
-    <comment>Placeholder</comment>
-  </data>
-  <data name="Type the Twitter address here" xml:space="preserve">
-    <value>Digite o endereço do Twitter aqui</value>
     <comment>Placeholder</comment>
   </data>
   <data name="No results to show" xml:space="preserve">
@@ -547,10 +519,6 @@
   </data>
   <data name="Change my password" xml:space="preserve">
     <value>Alterar minha senha</value>
-    <comment>Preferences Page</comment>
-  </data>
-  <data name="Configure my experience" xml:space="preserve">
-    <value>Configurar minha experiência</value>
     <comment>Preferences Page</comment>
   </data>
   <data name="Content Language" xml:space="preserve">
@@ -567,10 +535,6 @@
   </data>
   <data name="UI Language" xml:space="preserve">
     <value>Idioma da interface</value>
-    <comment>Preferences</comment>
-  </data>
-  <data name="Unlink" xml:space="preserve">
-    <value>Desassociar</value>
     <comment>Preferences</comment>
   </data>
   <data name="Casual" xml:space="preserve">
@@ -605,16 +569,8 @@
     <value>aceitar</value>
     <comment>Generic</comment>
   </data>
-  <data name="Do you like cookies?" xml:space="preserve">
-    <value>Você gosta de cookies?</value>
-    <comment>Cookie Consent</comment>
-  </data>
   <data name="Learn more" xml:space="preserve">
     <value>Leia mais</value>
-    <comment>Cookie Consent</comment>
-  </data>
-  <data name="We use cookies to ensure you get the best experience on our website." xml:space="preserve">
-    <value>Nós usamos cookies para garantir que você tenha a melhor experiência aqui.</value>
     <comment>Cookie Consent</comment>
   </data>
   <data name="Activity" xml:space="preserve">
@@ -623,14 +579,6 @@
   </data>
   <data name="I love it" xml:space="preserve">
     <value>Adoro</value>
-    <comment>Game Details Page</comment>
-  </data>
-  <data name="Recommended" xml:space="preserve">
-    <value>Recomendado</value>
-    <comment>Game Details Page</comment>
-  </data>
-  <data name="Reviews" xml:space="preserve">
-    <value>Reviews</value>
     <comment>Game Details Page</comment>
   </data>
   <data name="by" xml:space="preserve">
@@ -647,10 +595,6 @@
   </data>
   <data name="location" xml:space="preserve">
     <value>Localidade</value>
-    <comment>Profile Page</comment>
-  </data>
-  <data name="Other Profiles" xml:space="preserve">
-    <value>Outros Perfís</value>
     <comment>Profile Page</comment>
   </data>
   <data name="Posts" xml:space="preserve">
@@ -693,10 +637,6 @@
     <value>enquete</value>
     <comment>Home</comment>
   </data>
-  <data name="Associate your Google account" xml:space="preserve">
-    <value>Associar sua conta Google</value>
-    <comment>Register</comment>
-  </data>
   <data name="Oh! It looks like you already have a user registered here with us. Check your info below and confirm to link your account to your external account." xml:space="preserve">
     <value>Eita! Parece que você já tem um usuário registrado aqui com a gente. Verifique suas informações abaixo e confirme para associar seu usuário à sua conta externa.</value>
     <comment>Register</comment>
@@ -732,10 +672,6 @@
   <data name="MotionComics" xml:space="preserve">
     <value>Quadrinhos Animados</value>
     <comment>Genre</comment>
-  </data>
-  <data name="be a Patron" xml:space="preserve">
-    <value>seja Patrão</value>
-    <comment>Home</comment>
   </data>
   <data name="{0} has posted a new content!" xml:space="preserve">
     <value>{0} postou um novo conteúdo!</value>
@@ -843,10 +779,6 @@
   </data>
   <data name="Set password" xml:space="preserve">
     <value>Definir senha</value>
-    <comment>Preferences</comment>
-  </data>
-  <data name="Set your password" xml:space="preserve">
-    <value>Defina sua senha</value>
     <comment>Preferences</comment>
   </data>
   <data name="The external login was removed." xml:space="preserve">
@@ -1076,10 +1008,6 @@
   <data name="new team" xml:space="preserve">
     <value>nova equipe</value>
     <comment>Team</comment>
-  </data>
-  <data name="rejected" xml:space="preserve">
-    <value>rejeitado</value>
-    <comment>Generic</comment>
   </data>
   <data name="Teams" xml:space="preserve">
     <value>Equipes</value>
@@ -1453,10 +1381,6 @@
     <value>Sem candidatos... ainda!</value>
     <comment>JobPosition</comment>
   </data>
-  <data name="Not Defined" xml:space="preserve">
-    <value>Não definido</value>
-    <comment>JobPosition</comment>
-  </data>
   <data name="remote" xml:space="preserve">
     <value>remoto</value>
     <comment>JobPosition</comment>
@@ -1473,10 +1397,6 @@
     <value>dia</value>
     <comment>Generic</comment>
   </data>
-  <data name="hour" xml:space="preserve">
-    <value>hora</value>
-    <comment>Generic</comment>
-  </data>
   <data name="month" xml:space="preserve">
     <value>mês</value>
     <comment>Generic</comment>
@@ -1484,10 +1404,6 @@
   <data name="Not Informed" xml:space="preserve">
     <value>Não Informado</value>
     <comment>JobPosition</comment>
-  </data>
-  <data name="week" xml:space="preserve">
-    <value>semana</value>
-    <comment>Generic</comment>
   </data>
   <data name="year" xml:space="preserve">
     <value>ano</value>
@@ -1583,10 +1499,6 @@
   </data>
   <data name="benefits" xml:space="preserve">
     <value>Benefícios</value>
-    <comment>JobPosition</comment>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>leia mais</value>
     <comment>JobPosition</comment>
   </data>
 </root>
