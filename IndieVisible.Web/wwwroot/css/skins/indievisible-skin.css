@@ -42,8 +42,8 @@ a {
 
     .bg-label:hover {
         background-color: #416788 !important;
-        color: #B5BAD0;
-        border: 1px solid #416788 !important;
+        color: #ffbf36;
+        border: 1px solid #B5BAD0 !important;
     }
 
 .skin-indievisible .col-form-label {
