@@ -1505,4 +1505,8 @@
     <value>Uma nova vaga de emprego para {0} ({1}) está aceitando candidatos!</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="That Job Position is gone now!" xml:space="preserve">
+    <value>Essa vaga já era!</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>

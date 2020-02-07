@@ -7,6 +7,7 @@
     ViewData["Title"] = SharedLocalizer["{0} Job Position", (Model.Id == Guid.Empty ? "New" : "Edit")];
 }
 
+
 @if (!isAjax)
 {
     @section Scripts {
@@ -19,6 +20,13 @@
 
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
+}
+else
+{
+    <link rel="stylesheet" href="~/css/switch.css">
+    <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+
+    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 }
 
 <div class="col-lg-12 mb-2 px-4">
@@ -93,7 +101,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label asp-for="CompanyName" class="col-form-label"></label>
-                    <input asp-for="CompanyName"  class="form-control" data-date-orientation="bottom" placeholder="@SharedLocalizer["The name of the hiring company"]" />
+                    <input asp-for="CompanyName" class="form-control" data-date-orientation="bottom" placeholder="@SharedLocalizer["The name of the hiring company"]" />
                     <span asp-validation-for="CompanyName" class="text-danger"></span>
                 </div>
             </div>

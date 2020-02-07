@@ -130,7 +130,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo(true);
+                return new OperationResultVo(true, "That Job Position is gone now!");
             }
             catch (Exception ex)
             {

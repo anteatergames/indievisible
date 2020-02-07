@@ -1,0 +1,67 @@
+﻿@model JobPositionViewModel
+
+@{
+    Layout = null;
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+<div class="col-12 mt-2">
+    <div class="alert alert-warning">@SharedLocalizer["Start Date is set to {0}", (Model.StartDate.HasValue ? Model.StartDate.Value.ToShortDateString() : SharedLocalizer["ASAP"].ToString())]</div>
+
+    @if (Model.ClosingDate.HasValue)
+    {
+        if (Model.ClosingDate.Value.Date > DateTime.Today)
+        {
+            <div class="alert alert-success">@SharedLocalizer["Accepting applications until {0}", Model.ClosingDate.Value.ToShortDateString()]</div>
+        }
+        else if (Model.ClosingDate.Value.Date == DateTime.Today)
+        {
+            <div class="alert alert-warning">@SharedLocalizer["Today is the last day to apply for this position!"]</div>
+        }
+        else
+        {
+            <div class="alert alert-danger">@SharedLocalizer["Application phase is closed! Don't be sad, apply for another job position!"]</div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-success">@SharedLocalizer["Accepting applications"]</div>
+    }
+
+    @if (Model.Origin == JobPositionOrigin.Internal && Model.Permissions.CanEdit)
+    {
+        <partial name="_ListApplicants" model="Model.Applicants" />
+    }
+    else
+    {
+        if (!canInteract)
+        {
+            <div class="alert-info p-2">
+                @SharedLocalizer["You must be logged in to post and apply to job positions."]
+            </div>
+        }
+        else
+        {
+            if (Model.CurrentUserApplied)
+            {
+                <div class="alert alert-info">@SharedLocalizer["You have applied to this Job Position!"]</div>
+            }
+            else
+            {
+
+                if (Model.Origin == JobPositionOrigin.External && !String.IsNullOrWhiteSpace(Model.Url))
+                {
+                    <a href="@Model.Url" target="_blank" class="btn btn-primary btn-lg btn-block">@SharedLocalizer["Apply on the website"]</a>
+                }
+                else
+                {
+                    if (Model.Permissions.CanConnect)
+                    {
+                        <button type="button" id="btnApply" class="btn btn-success btn-lg btn-block" data-url="@Url.Action("Apply", "JobPosition", new { area = "Work", jobPositionId = Model.Id })">@SharedLocalizer["Apply"]</button>
+                    }
+                }
+            }
+        }
+
+    }
+</div>

@@ -45,7 +45,7 @@
         selectors.canInteract = '#caninteract';
         selectors.urls = '#urls';
         selectors.jobProfile = '#jobprofile';
-        selectors.container = '.content';
+        selectors.container = '#jobpositioncontainer';
         selectors.containerDetails = '#containerdetails';
         selectors.containerList = '#containerlist';
         selectors.list = '#divList';
@@ -179,7 +179,7 @@
 
 
     function bindEditJobPosition() {
-        objs.containerList.on('click', selectors.btnEditJobPosition, function (e) {
+        objs.container.on('click', selectors.btnEditJobPosition, function (e) {
             e.preventDefault();
             var url = $(this).data('url');
 
@@ -191,7 +191,7 @@
 
 
     function bindDeleteJobPosition() {
-        objs.containerList.on('click', selectors.btnDeleteJobPosition, function (e) {
+        objs.container.on('click', selectors.btnDeleteJobPosition, function (e) {
             e.preventDefault();
 
             var btn = $(this);
@@ -208,16 +208,26 @@
                 }).done(function (response) {
                     if (response.success) {
                         btn.closest(selectors.divListItem).remove();
-                        loadJobPositions(false, urlListDefault);
-
-                        loadMyJobPositionStats(urlMyPositionStats);
 
                         if (response.message) {
                             ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
                                 if (response.url) {
                                     window.location = response.url;
                                 }
+                                else {
+                                    loadJobPositions(false, urlListDefault);
+                                    loadMyJobPositionStats(urlMyPositionStats);
+                                }
                             });
+                        }
+                        else {
+                            if (response.url) {
+                                window.location = response.url;
+                            }
+                            else {
+                                loadJobPositions(false, urlListDefault);
+                                loadMyJobPositionStats(urlMyPositionStats);
+                            }
                         }
                     }
                     else {

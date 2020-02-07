@@ -22,9 +22,6 @@
 }
 
 @section ComponentStyles {
-
-    <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
-
     <environment include="Development">
         <link rel="stylesheet" href="~/css/switch.css">
         <link rel="stylesheet" href="~/css/jobposition.css">
@@ -52,7 +49,7 @@
     <span class="msg" data-msg-id="msgUrlMissing">@SharedLocalizer["The Url must not be empty!"]</span>
 }
 
-<div id="jobpositioncontainer container" class="col-12">
+<div id="jobpositioncontainer" class="col-12">
     <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
     <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
     <input type="hidden" id="jobprofile" value="@jobProfile" />

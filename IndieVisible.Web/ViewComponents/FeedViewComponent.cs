@@ -1,7 +1,9 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Content;
+using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Helpers;
 using IndieVisible.Web.ViewComponents.Base;
@@ -9,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,7 +63,7 @@ namespace IndieVisible.Web.ViewComponents
                 }
                 if (item.UserContentType == UserContentType.JobPosition)
                 {
-                    FormatJobPositionPost(item);
+                    FormatJobPositionPostForTheFeed(item);
                 }
                 else
                 {
@@ -119,30 +122,27 @@ namespace IndieVisible.Web.ViewComponents
             item.Language = SupportedLanguage.English;
         }
 
-        private void FormatJobPositionPost(UserContentViewModel item)
+        private void FormatJobPositionPostForTheFeed(UserContentViewModel item)
         {
-            string[] jobData = item.Content.Split('|');
-            string id = jobData[0];
-            string workType = jobData[1];
-            string remote = jobData[2];
-            string location = jobData[3];
+            JobPositionViewModel obj = JsonConvert.DeserializeObject<JobPositionViewModel>(item.Content);
+
             SupportedLanguage language = SupportedLanguage.English;
 
-            if (!string.IsNullOrEmpty(remote) && remote.ToLower().Equals("true"))
+            if (obj.Remote)
             {
-                location = SharedLocalizer["remote"];
+                obj.Location = SharedLocalizer["remote"];
             }
 
-            if (jobData.Length > 4)
+            if (obj.Language != 0)
             {
-                language = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), jobData[4]);
+                language = obj.Language;
             }
 
             string postTemplate = ContentHelper.FormatUrlContentToShow(item.UserContentType);
-            string translatedText = SharedLocalizer["A new job position for {0}({1}) is open for applications.", workType, location].ToString();
+            string translatedText = SharedLocalizer["A new job position for {0}({1}) is open for applications.", SharedLocalizer[obj.WorkType.ToDisplayName()], obj.Location].ToString();
 
-            item.Content = String.Format(postTemplate, translatedText, workType, location);
-            item.Url = Url.Action("Details", "JobPosition", new { area = "Work", id = id });
+            item.Content = String.Format(postTemplate, translatedText, SharedLocalizer[obj.WorkType.ToDisplayName()], obj.Location);
+            item.Url = Url.Action("Details", "JobPosition", new { area = "Work", id = obj.Id.ToString() });
             item.Language = language;
         }
     }

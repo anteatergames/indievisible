@@ -10,6 +10,7 @@ using IndieVisible.Web.Enums;
 using IndieVisible.Web.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -285,9 +286,32 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         [HttpDelete("work/jobposition/deletejobposition/{jobPositionId:guid}")]
         public IActionResult DeleteJobPosition(Guid jobPositionId)
         {
-            OperationResultVo serviceResult = jobPositionAppService.Remove(CurrentUserId, jobPositionId);
+            try
+            {
+                OperationResultVo serviceResult = jobPositionAppService.Remove(CurrentUserId, jobPositionId);
 
-            return Json(serviceResult);
+
+                var searchContentResult = userContentAppService.Search(CurrentUserId, jobPositionId.ToString());
+
+                if (searchContentResult.Success && searchContentResult.Value.Any())
+                {
+                    var existing = searchContentResult.Value.FirstOrDefault();
+
+                    if (existing != null)
+                    {
+                        userContentAppService.Remove(CurrentUserId, existing.ContentId);
+                    }
+                }
+
+
+                string url = Url.Action("Index", "JobPosition", new { area = "Work" });
+
+                return Json(new OperationResultRedirectVo(url, serviceResult.Message));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
         }
 
         [HttpPost("work/jobposition/changestatus/{jobPositionId:guid}")]
@@ -379,12 +403,27 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             if (vm != null && vm.Status == JobPositionStatus.OpenForApplication)
             {
+                var json = JsonConvert.SerializeObject(vm);
+
                 UserContentViewModel newContent = new UserContentViewModel
                 {
                     UserId = CurrentUserId,
                     UserContentType = UserContentType.JobPosition,
-                    Content = String.Format("{0}|{1}|{2}|{3}|{4}", vm.Id, vm.WorkType, vm.Remote, vm.Location, vm.Language)
+                    Content = json,
+                    Language = vm.Language
                 };
+
+                var searchContentResult = userContentAppService.Search(CurrentUserId, vm.Id.ToString());
+
+                if (searchContentResult.Success && searchContentResult.Value.Any())
+                {
+                    var existing = searchContentResult.Value.FirstOrDefault();
+
+                    if (existing != null)
+                    {
+                        newContent.Id = existing.ContentId;
+                    }
+                }
 
                 userContentAppService.Save(CurrentUserId, newContent);
             }
