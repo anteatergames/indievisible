@@ -40,6 +40,7 @@ namespace IndieVisible.Web.Middlewares
 
                 { "*", "edit" },
                 { "*", "delete" },
+                { "*", "details" },
 
                 { "account", "lockout" },
                 { "account", "externallogin" },
@@ -83,7 +84,9 @@ namespace IndieVisible.Web.Middlewares
                 { "team", "removemember" },
                 { "team", "listmyteams" },
 
-                { "userbadge", "listbyuser" }
+                { "userbadge", "listbyuser" },
+
+                { "jobposition", "list" }
             };
         }
 
@@ -145,9 +148,11 @@ namespace IndieVisible.Web.Middlewares
             isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>("*", actionName));
 
             bool isPost = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPostAttribute));
+            bool isDelete = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpDeleteAttribute));
+            bool isPut = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPutAttribute));
             bool areaForbidden = forbiddenAreas.Any(x => controller.Namespace.ToLower().Contains(".areas." + x));
 
-            if (!isPost && !areaForbidden && !isForbidden)
+            if (!isPost && !isDelete && !isPut && !areaForbidden && !isForbidden)
             {
                 sitemapContent += "<url>";
 
