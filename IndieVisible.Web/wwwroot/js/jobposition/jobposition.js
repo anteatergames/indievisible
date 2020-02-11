@@ -119,16 +119,26 @@
 
             url = encodeURI(url);
 
+
             if (provider === 'facebook') {
                 FB.ui({
                     method: 'share',
                     href: url
                 }, function (response) { });
             }
-            else {
-                url = 'http://www.reddit.com/submit?title=' + title + '&url=' + url;
+            else if (provider === 'reddit') {
+                url = 'https://www.reddit.com/submit?title=' + title + '&url=' + url;
 
                 window.open(url);
+            }
+            else if (provider === 'twitter') {
+                var text = $(this).data('text');
+                url = 'https://www.twitter.com/intent/tweet?text=' + text + ' ' + url;
+
+                window.open(url);
+            }
+            else {
+                console.log(provider);
             }
 
             return false;

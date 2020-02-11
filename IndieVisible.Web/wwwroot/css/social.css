@@ -166,7 +166,7 @@
     }
 
 .bg-facebook {
-    background: #1877f2 !important;
+    background: var(--facebook-color-bg) !important;
 }
 
     .bg-facebook i {
@@ -175,20 +175,17 @@
 
 .btn-facebook {
     color: #fff;
-    background: #1877f2;
-    width: 41px;
-    height: 41px;
+    background: var(--facebook-color-bg);
 }
 
     .btn-facebook i {
         top: 6px;
         font-size: 29px;
     }
-
-        .btn-facebook i:not(.rounded-circle) {
-            top: 8px;
-            font-size: 29px;
-        }
+    .btn-facebook i {
+        top: 5px !important;
+        font-size: 29px !important;
+    }
 
     .btn-facebook.active, .btn-facebook.focus, .btn-facebook:active, .btn-facebook:focus, .btn-facebook:hover, .show > .dropdown-toggle.btn-facebook {
         color: #fff;

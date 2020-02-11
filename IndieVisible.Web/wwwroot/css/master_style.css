@@ -783,11 +783,10 @@ ul.flexbox {
 }
 
 .dropdown-item {
-    color: #747e8e;
     font-weight: 300;
     padding: 4px 12px;
     width: auto;
-    margin: 4px;
+    padding: 4px;
     -webkit-transition: 0.15s linear;
     transition: 0.15s linear;
 }
@@ -2055,6 +2054,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     text-align: center;
     overflow: hidden;
     margin-bottom: 10px;
+    border: 1px solid transparent;
 }
 
     .flex-square:hover {

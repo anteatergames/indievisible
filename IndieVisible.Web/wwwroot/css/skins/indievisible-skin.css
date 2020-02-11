@@ -1,44 +1,39 @@
-/*
-    primary #E0E0E2
-    accent #7389AE
-    highlight #81D2C7
-    shade #B5BAD0
-    dark background #416788
-
-*/
-
 html {
     /*basic*/
     --color-primary: #E0E0E2;
     --color-accent: #7389AE;
     --color-highlight: #81D2C7;
     --color-shade: #B5BAD0;
+    --color-border: #89ad87;
+    --color-border-hover: #00ff21;
+    --color-bg-dark: #111;
     /*social*/
-    --reddit-color-bg: #545452;
+    --reddit-color-bg: #FF5700;
     --reddit-color-bg-hover: #1A1A1B;
     --reddit-color-fg: #fff;
-    --reddit-color-fg-hover: #FF5700;
+    --reddit-color-fg-hover: #fff;
+    --facebook-color-bg: #1877f2;
 }
 
 a {
-    color: #111;
+    color: var(--color-bg-dark);
 }
 
 .bordered {
-    border: 1px solid #89ad87;
+    border: 1px solid var(--color-border);
 }
 
     .bordered:hover {
-        border: 1px solid #00ff21;
+        border: 1px solid var(--color-border-hover);
         box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
     }
 
-.filled-stars {
-    color: #416788 !important;
+.rating-container .filled-stars {
+    color: var(--color-accent);
 }
 
 .bg-primary {
-    background-color: #E0E0E2 !important;
+    background-color: var(--color-primary) !important;
     color: white;
 }
 
@@ -58,6 +53,10 @@ a {
         color: #ffbf36;
         border: 1px solid #B5BAD0 !important;
     }
+
+.dropdown-item {
+    color: var(--color-accent);
+}
 
 .skin-indievisible .col-form-label {
     color: #7389AE;
@@ -94,12 +93,12 @@ a {
         }
 
 .skin-indievisible .box-header > .box-tools .dropdown-menu {
-    background-color: #eafff7;
+    background-color: var(--color-primary);
     border: 1px solid gray;
 }
 
     .skin-indievisible .box-header > .box-tools .dropdown-menu a:hover {
-        background-color: #0092ee !important;
+        background-color: var(--color-highlight);
     }
 
 @media (max-width: 767px) {
