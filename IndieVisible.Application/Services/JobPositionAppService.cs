@@ -18,14 +18,17 @@ namespace IndieVisible.Application.Services
     public class JobPositionAppService : ProfileBaseAppService, IJobPositionAppService
     {
         private readonly IJobPositionDomainService jobPositionDomainService;
+        private readonly IGamificationDomainService gamificationDomainService;
 
         public JobPositionAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
-            , IJobPositionDomainService jobPositionDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
+            , IJobPositionDomainService jobPositionDomainService
+            , IGamificationDomainService gamificationDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
             this.jobPositionDomainService = jobPositionDomainService;
+            this.gamificationDomainService = gamificationDomainService;
         }
 
         #region ICrudAPpService
@@ -160,6 +163,8 @@ namespace IndieVisible.Application.Services
                 {
                     jobPositionDomainService.Add(model);
                     viewModel.Id = model.Id;
+
+                    pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.JobPositionPost);
                 }
                 else
                 {

@@ -381,6 +381,7 @@
                 if (callback) {
                     callback();
                 }
+
                 ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
                     window.location = response.url;
                 });

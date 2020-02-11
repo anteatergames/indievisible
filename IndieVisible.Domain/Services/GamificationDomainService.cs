@@ -119,7 +119,13 @@ namespace IndieVisible.Domain.Services
 
         public int ProcessAction(Guid userId, PlatformAction action)
         {
+            int scoreValue = 5;
             GamificationAction actionToProcess = Task.Run(async () => await gamificationActionRepository.GetByAction(action)).Result;
+
+            if (actionToProcess != null)
+            {
+                scoreValue = actionToProcess.ScoreValue;
+            }
 
             Task<IEnumerable<Gamification>> userGamificationTask = gamificationRepository.GetByUserId(userId);
 
@@ -133,17 +139,17 @@ namespace IndieVisible.Domain.Services
 
                 userGamification = GenerateNewGamification(userId);
 
-                userGamification.XpCurrentLevel += actionToProcess.ScoreValue;
-                userGamification.XpTotal += actionToProcess.ScoreValue;
-                userGamification.XpToNextLevel = (newLevel.XpToAchieve - actionToProcess.ScoreValue);
+                userGamification.XpCurrentLevel += scoreValue;
+                userGamification.XpTotal += scoreValue;
+                userGamification.XpToNextLevel = (newLevel.XpToAchieve - scoreValue);
 
                 gamificationRepository.Add(userGamification);
             }
             else
             {
-                userGamification.XpCurrentLevel += actionToProcess.ScoreValue;
-                userGamification.XpTotal += actionToProcess.ScoreValue;
-                userGamification.XpToNextLevel -= actionToProcess.ScoreValue;
+                userGamification.XpCurrentLevel += scoreValue;
+                userGamification.XpTotal += scoreValue;
+                userGamification.XpToNextLevel -= scoreValue;
 
                 if (userGamification.XpToNextLevel <= 0)
                 {
@@ -161,7 +167,7 @@ namespace IndieVisible.Domain.Services
                 gamificationRepository.Update(userGamification);
             }
 
-            return actionToProcess.ScoreValue;
+            return scoreValue;
         }
 
         private Gamification GenerateNewGamification(Guid userId)

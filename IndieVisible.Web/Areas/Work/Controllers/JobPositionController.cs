@@ -4,6 +4,7 @@ using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
 using IndieVisible.Web.Areas.Work.Controllers.Base;
@@ -26,7 +27,8 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         private readonly IJobPositionAppService jobPositionAppService;
         private readonly IUserContentAppService userContentAppService;
 
-        public JobPositionController(IJobPositionAppService jobPositionAppService, IUserContentAppService userContentAppService)
+        public JobPositionController(IJobPositionAppService jobPositionAppService
+            , IUserContentAppService userContentAppService)
         {
             this.jobPositionAppService = jobPositionAppService;
             this.userContentAppService = userContentAppService;
@@ -189,7 +191,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         }
 
         [Route("work/jobposition/details/{id:guid}")]
-        public IActionResult Details(Guid id)
+        public IActionResult Details(Guid id, int? pointsEarned)
         {
             OperationResultVo<JobPositionViewModel> op = jobPositionAppService.GetById(CurrentUserId, id);
 
@@ -198,6 +200,8 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             SetLocalization(vm);
             SetAuthorDetails(vm);
             vm.Description = ContentHelper.FormatContentToShow(vm.Description);
+
+            SetGamificationMessage(pointsEarned);
 
             return View("_Details", vm);
         }
