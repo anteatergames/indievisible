@@ -67,6 +67,7 @@
         selectors.switchBenefit = '.switch-benefit';
         selectors.hdnBenefit = '.hdnBenefit';
         selectors.applicantRating = '.applicant-rating';
+        selectors.btnShare = '.btn-share';
     }
 
     function cacheObjects() {
@@ -106,6 +107,32 @@
 
     function bindDetails() {
         bindRatings();
+        bindShareButton();
+    }
+
+    function bindShareButton() {
+        objs.container.on('click', selectors.btnShare, function (e) {
+            e.preventDefault();
+            var url = $(this).prop('href');
+            var title = $(this).data('title');
+            var provider = $(this).data('provider');
+
+            url = encodeURI(url);
+
+            if (provider === 'facebook') {
+                FB.ui({
+                    method: 'share',
+                    href: url
+                }, function (response) { });
+            }
+            else {
+                url = 'http://www.reddit.com/submit?title=' + title + '&url=' + url;
+
+                window.open(url);
+            }
+
+            return false;
+        });
     }
 
     function bindRatings() {

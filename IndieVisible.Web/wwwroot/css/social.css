@@ -180,10 +180,15 @@
     height: 41px;
 }
 
-    .btn-facebook.rounded-circle i {
+    .btn-facebook i {
         top: 6px;
         font-size: 29px;
     }
+
+        .btn-facebook i:not(.rounded-circle) {
+            top: 8px;
+            font-size: 29px;
+        }
 
     .btn-facebook.active, .btn-facebook.focus, .btn-facebook:active, .btn-facebook:focus, .btn-facebook:hover, .show > .dropdown-toggle.btn-facebook {
         color: #fff;
@@ -348,16 +353,17 @@
         background-color: #fff;
     }
 
+
 .btn-reddit {
-    color: #000;
-    background-color: #eff7ff;
-    border-color: rgba(0, 0, 0, .2);
+    color: var(--reddit-color-fg);
+    background-color: var(--reddit-color-bg);
+    border-color: var(--reddit-color-bg);
 }
 
     .btn-reddit.active, .btn-reddit.focus, .btn-reddit:active, .btn-reddit:focus, .btn-reddit:hover, .show > .dropdown-toggle.btn-reddit {
-        color: #000;
-        background-color: #bcddff;
-        border-color: rgba(0, 0, 0, .2);
+        color: var(--reddit-color-fg-hover);
+        background-color: var(--reddit-color-bg-hover);
+        border-color: var(--reddit-color-bg-hover);
     }
 
     .btn-reddit .badge {

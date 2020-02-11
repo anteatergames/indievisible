@@ -64,4 +64,10 @@
         }
 
     }
+
+<div id="share" class="bg-light p-2">
+    <h5>@SharedLocalizer["Share"]</h5>
+    <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@Model.Id" title="Share on Facebook" class="btn btn-social-icon btn-share btn-facebook" data-provider="facebook" data-title="@Model.Title"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+    <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="work" asp-controller="jobposition" asp-action="details" title="Share on Reddit" class="btn btn-social-icon btn-share btn-reddit" data-provider="reddit" data-title="@Model.Title"><i class="fab fa-reddit-alien" aria-hidden="true"></i></a>
+</div>
 </div>

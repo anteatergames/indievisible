@@ -7,6 +7,19 @@
 
 */
 
+html {
+    /*basic*/
+    --color-primary: #E0E0E2;
+    --color-accent: #7389AE;
+    --color-highlight: #81D2C7;
+    --color-shade: #B5BAD0;
+    /*social*/
+    --reddit-color-bg: #545452;
+    --reddit-color-bg-hover: #1A1A1B;
+    --reddit-color-fg: #fff;
+    --reddit-color-fg-hover: #FF5700;
+}
+
 a {
     color: #111;
 }
