@@ -44,7 +44,10 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected void SetSessionValue(SessionValues key, string value)
         {
-            HttpContext.Session.SetString(key.ToString(), value);
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                HttpContext.Session.SetString(key.ToString(), value); 
+            }
         }
 
         private void TranslateResponse(OperationResultVo response)

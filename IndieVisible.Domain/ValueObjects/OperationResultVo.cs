@@ -95,14 +95,19 @@ namespace IndieVisible.Domain.ValueObjects
             Value = item;
         }
 
+        public OperationResultVo(string message) : base(message)
+        {
+        }
+
         public OperationResultVo(T item, int pointsEarned) : base(true)
         {
             Value = item;
             PointsEarned = pointsEarned;
         }
 
-        public OperationResultVo(string message) : base(message)
+        public OperationResultVo(T item, int pointsEarned, string message) : base(true, message, pointsEarned)
         {
+            Value = item;
         }
     }
 

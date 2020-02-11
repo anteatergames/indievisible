@@ -275,7 +275,7 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Apply(Guid currentUserId, Guid jobPositionId, string coverLetter)
+        public OperationResultVo Apply(Guid currentUserId, Guid jobPositionId, string email, string coverLetter)
         {
             try
             {
@@ -294,11 +294,11 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("You already applyed for this job position.");
                 }
 
-                jobPositionDomainService.AddApplicant(currentUserId, jobPositionId, coverLetter);
+                jobPositionDomainService.AddApplicant(currentUserId, jobPositionId, email, coverLetter);
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo(pointsEarned, "You have applyed to this Job Position!");
+                return new OperationResultVo<Guid>(jobPosition.UserId, pointsEarned, "You have applyed to this Job Position!");
             }
             catch (Exception ex)
             {

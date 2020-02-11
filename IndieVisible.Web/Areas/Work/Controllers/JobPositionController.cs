@@ -5,6 +5,7 @@ using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
+using IndieVisible.Infra.CrossCutting.Identity.Services;
 using IndieVisible.Web.Areas.Work.Controllers.Base;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Helpers;
@@ -16,6 +17,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Areas.Work.Controllers
 {
@@ -332,15 +334,23 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         }
 
         [HttpPost("work/jobposition/apply/{jobPositionId:guid}")]
-        public IActionResult Apply(Guid jobPositionId, string coverLetter)
+        public  async Task<IActionResult> Apply(Guid jobPositionId, string coverLetter)
         {
             try
             {
-                OperationResultVo serviceResult = jobPositionAppService.Apply(CurrentUserId, jobPositionId, coverLetter);
+
+                var user = await UserManager.GetUserAsync(User);
+
+                OperationResultVo serviceResult = jobPositionAppService.Apply(CurrentUserId, jobPositionId, user.Email, coverLetter);
 
                 if (serviceResult.Success)
                 {
                     string url = Url.Action("Details", "JobPosition", new { area = "Work", id = jobPositionId });
+
+                    var result = serviceResult as OperationResultVo<Guid>;
+                    var poster = await UserManager.FindByIdAsync(result.Value.ToString());
+
+                    await NotificationSender.SendEmailApplicationAsync(poster.Email, user.Email, Url.JobPositionDetailsCallbackLink(jobPositionId.ToString(), Request.Scheme));
 
                     return Json(new OperationResultRedirectVo(url, SharedLocalizer[serviceResult.Message]));
                 }

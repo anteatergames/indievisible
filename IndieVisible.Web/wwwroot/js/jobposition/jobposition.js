@@ -271,6 +271,7 @@
 
     function bindBtnApply() {
         objs.container.on('click', selectors.btnApply, function (e) {
+            console.log('meh');
             e.preventDefault();
 
             var btn = $(this);

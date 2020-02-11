@@ -7,5 +7,7 @@ namespace IndieVisible.Domain.Models
         public string CoverLetter { get; set; }
 
         public decimal Score { get; set; }
+
+        public string Email { get; set; }
     }
 }

@@ -6,7 +6,9 @@ namespace IndieVisible.Application.ViewModels.Jobs
     public class JobApplicantViewModel : BaseViewModel, IUserProfileBasic
     {        
         public Guid JobPositionId{ get; set; }
+        public string Email { get; set; }
         public string CoverLetter { get; set; }
+
         public string Name { get; set; }
         public string ProfileImageUrl { get; set; }
         public string CoverImageUrl { get; set; }

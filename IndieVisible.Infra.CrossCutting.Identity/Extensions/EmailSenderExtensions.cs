@@ -32,6 +32,20 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
 
             return notificationSender.SendEmailAsync(email, "d-d0224f347d57420bb39a025787b6443a", request);
         }
+        public static Task SendEmailApplicationAsync(this INotificationSender notificationSender, string emailPoster, string emailApplicant, string link)
+        {
+            EmailSendRequest request = new EmailSendRequest
+            {
+                ActionUrl = HtmlEncoder.Default.Encode(link),
+                ActionText = "Go to the job position",
+                Greeting = "Hi there",
+                TextBeforeAction = string.Format("We have great news! Recently you posted a job position on the INDIEVISIBLE Jobs and now someone applied to the job position you posted. The applicant's email is {0}", emailApplicant),
+                TextAfterAction = "Log in to the INDIEVISIBLE platform to evaluate the applicants.",
+                ByeText = "Thank you for helping the game development industry. We hope you find a good collaborator so we all can grow together."
+            };
+
+            return notificationSender.SendEmailAsync(emailPoster, "d-826fd97ae44d409f85408d64918c7be8", request);
+        }
 
         public class EmailSendRequest
         {

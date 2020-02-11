@@ -64,6 +64,7 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected void SetProfileOnSession(Guid userId, string userName)
         {
+
             string sessionUserName = GetSessionValue(SessionValues.Username);
 
             if (sessionUserName != null && !sessionUserName.Equals(userName))

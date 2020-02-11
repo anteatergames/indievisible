@@ -46,11 +46,12 @@ namespace IndieVisible.Domain.Services
             return all.ToDictionary(x => x.Status, y => y.Count);
         }
 
-        public void AddApplicant(Guid userId, Guid jobPositionId, string coverLetter)
+        public void AddApplicant(Guid userId, Guid jobPositionId, string email, string coverLetter)
         {
             JobApplicant applicant = new JobApplicant
             {
                 UserId = userId,
+                Email = email,
                 CoverLetter = coverLetter
             };
 
