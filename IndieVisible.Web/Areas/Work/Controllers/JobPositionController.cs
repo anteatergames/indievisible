@@ -415,7 +415,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
         private void SetLocalization(JobPositionViewModel item, bool editing)
         {
-            if (item != null && !editing)
+            if (item != null)
             {
                 if (item.Remote || string.IsNullOrWhiteSpace(item.Location))
                 {
@@ -431,7 +431,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 DisplayAttribute displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
                 item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
 
-                if (item.Id != Guid.Empty)
+                if (item.Id != Guid.Empty && !editing)
                 {
                     if ((!string.IsNullOrWhiteSpace(item.CompanyName) && item.CompanyName.Equals(JobPositionBenefit.NotInformed.ToDisplayName())) || string.IsNullOrWhiteSpace(item.CompanyName))
                     {
