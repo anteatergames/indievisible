@@ -23,7 +23,9 @@ else
             <div class="text-center"><a href="mailto:@applicant.Email" target="_blank"><i class="fas fa-envelope"></i> @applicant.Email</a></div>
             <div class="row">
                 <div class="col-12" style="min-height:50px">
-                    <input id="txtScore" name="Score" type="number" class="d-none applicant-rating" step="1"value="@applicant.Score.ToString(new System.Globalization.CultureInfo("en-US"))" data-url="@Url.Action("RateApplicant", "JobPosition", new { area = "Work", jobPositionId = applicant.JobPositionId, userId = applicant.UserId })" >
+                    <div class="px-2">
+                        <input id="txtScore" name="Score" type="number" class="d-none applicant-rating" step="1" value="@applicant.Score.ToString(new System.Globalization.CultureInfo("en-US"))" data-url="@Url.Action("RateApplicant", "JobPosition", new { area = "Work", jobPositionId = applicant.JobPositionId, userId = applicant.UserId })">
+                    </div>
                 </div>
             </div>
         </div>

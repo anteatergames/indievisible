@@ -29,7 +29,7 @@ namespace IndieVisible.Application.ViewModels.Jobs
         [Display(Name = "Reference")]
         public string Reference { get; set; }
 
-        [Display(Name = "Comapny Name")]
+        [Display(Name = "Company")]
         public string CompanyName { get; set; }
 
         [Display(Name = "Remote")]

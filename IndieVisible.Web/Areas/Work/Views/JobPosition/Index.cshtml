@@ -75,7 +75,7 @@
             else
             {
                 <div class="col-12">
-                    <button id="btn-jobposition-new-external" class="btn btn-outline-primary btn-block" data-url="@Url.Action("New", "JobPosition", new { area = "Work", origin = JobPositionOrigin.External })">@SharedLocalizer["New External Position"]</button>
+                    <button id="btn-jobposition-new-external" class="btn btn-primary btn-block" data-url="@Url.Action("New", "JobPosition", new { area = "Work", origin = JobPositionOrigin.External })">@SharedLocalizer["New External Position"]</button>
                 </div>
                 if (jobProfile == JobProfile.Company)
                 {
@@ -108,13 +108,13 @@
                             <div class="col-12">
                                 <p>@SharedLocalizer["Here you can see the job positions you have applied."]</p>
                             </div>
-                            @*<div class="col-12">
-                                    <h4>@SharedLocalizer["My Applications"]:</h4>
-                                    <div id="divApplicantActions">
-                                        <button id="btn-jobposition-myapplications" class="btn btn-outline-primary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })">@SharedLocalizer["Manage"]</button>
-                                    </div>
-                                    <div id="divMyApplications" class="mt-1"></div>
+                            <div class="col-12">
+                                <h4>@SharedLocalizer["My Applications"]</h4>
+                                @*<div id="divApplicantActions">
+                                    <button id="btn-jobposition-myapplications" class="btn btn-outline-primary btn-block" data-url="@Url.Action("List", "JobPosition", new { area = "Work", employerId = ViewBag.CurrentUserId })">@SharedLocalizer["See all mine"]</button>
                                 </div>*@
+                                <div id="divMyApplications" class="mt-1"></div>
+                            </div>
                         </div>
                     </div>
                 }

@@ -1509,4 +1509,40 @@
     <value>Essa vaga já era!</value>
     <comment>JobPosition</comment>
   </data>
+  <data name="Accepting applications" xml:space="preserve">
+    <value>Aceitando candidatos</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="ASAP" xml:space="preserve">
+    <value>IMEDIATO</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Empresa</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="New External Position" xml:space="preserve">
+    <value>Nova Vaga Externa</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Start Date is set to {0}" xml:space="preserve">
+    <value>Início definido para {0}</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="These are the job positions you posted." xml:space="preserve">
+    <value>Estas são as vagas de emprego que você anunciou.</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="apply" xml:space="preserve">
+    <value>candidatar-se</value>
+    <comment>JobPosition</comment>
+  </data>
+  <data name="Share it!" xml:space="preserve">
+    <value>Compartilha aê!</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="You haven't applied yet." xml:space="preserve">
+    <value>Você ainda não se candidatou.</value>
+    <comment>JobPosition</comment>
+  </data>
 </root>

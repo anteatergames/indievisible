@@ -46,6 +46,13 @@ namespace IndieVisible.Domain.Services
             return all.ToDictionary(x => x.Status, y => y.Count);
         }
 
+        public List<JobPositionApplicationVo> GetApplicationsByUserId(Guid userId)
+        {
+            var all = repository.Get(x => x.Applicants.Any(y => y.UserId == userId)).Select(x => new JobPositionApplicationVo { JobPositionId = x.Id, WorkType = x.WorkType, Location = (x.Remote ? "remote" : x.Location), ApplicationDate = x.Applicants.First(y => y.UserId == userId).CreateDate });
+
+            return all.ToList();
+        }
+
         public void AddApplicant(Guid userId, Guid jobPositionId, string email, string coverLetter)
         {
             JobApplicant applicant = new JobApplicant

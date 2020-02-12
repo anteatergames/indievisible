@@ -1,0 +1,18 @@
+﻿@model List<JobPositionApplicationVo>
+
+@{
+    Layout = null;
+}
+
+@if (!Model.Any())
+{
+    <p>@SharedLocalizer["You haven't applied yet."]</p>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <a asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@item.JobPositionId" title="@SharedLocalizer[item.Location]">@SharedLocalizer[item.WorkType.ToDisplayName()] (@item.ApplicationDate.ToShortDateString())</a>
+    }
+}
+

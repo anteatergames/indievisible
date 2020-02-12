@@ -190,6 +190,27 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             return PartialView("_MyPositionsStats", model);
         }
 
+        [Route("work/jobposition/myapplications")]
+        public PartialViewResult MyApplications()
+        {
+            List<JobPositionApplicationVo> model;
+
+            OperationResultVo serviceResult = jobPositionAppService.GetMyApplications(CurrentUserId);
+
+            if (serviceResult.Success)
+            {
+                OperationResultListVo<JobPositionApplicationVo> castResult = serviceResult as OperationResultListVo<JobPositionApplicationVo>;
+
+                model = castResult.Value.ToList();
+            }
+            else
+            {
+                model = new List<JobPositionApplicationVo>();
+            }
+
+            return PartialView("_MyApplications", model);
+        }
+
         [Route("work/jobposition/details/{id:guid}")]
         public IActionResult Details(Guid id, int? pointsEarned)
         {
@@ -243,7 +264,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 JobPositionViewModel model = castResult.Value;
                 model.ClosingDateText = model.ClosingDate.HasValue ? model.ClosingDate.Value.ToShortDateString() : string.Empty;
 
-                SetLocalization(model);
+                SetLocalization(model, true);
 
                 return PartialView("_CreateEdit", model);
             }
@@ -387,10 +408,14 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
-
         private void SetLocalization(JobPositionViewModel item)
         {
-            if (item != null)
+            SetLocalization(item, false);
+        }
+
+        private void SetLocalization(JobPositionViewModel item, bool editing)
+        {
+            if (item != null && !editing)
             {
                 if (item.Remote || string.IsNullOrWhiteSpace(item.Location))
                 {
@@ -406,9 +431,12 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 DisplayAttribute displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
                 item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
 
-                if (string.IsNullOrWhiteSpace(item.CompanyName) && item.Id != Guid.Empty)
+                if (item.Id != Guid.Empty)
                 {
-                    item.CompanyName = SharedLocalizer["Not Informed"];
+                    if ((!string.IsNullOrWhiteSpace(item.CompanyName) && item.CompanyName.Equals(JobPositionBenefit.NotInformed.ToDisplayName())) || string.IsNullOrWhiteSpace(item.CompanyName))
+                    {
+                        item.CompanyName = SharedLocalizer[JobPositionBenefit.NotInformed.ToDisplayName()];
+                    }
                 }
             }
         }

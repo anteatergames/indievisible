@@ -104,7 +104,8 @@ namespace IndieVisible.Application.AutoMapper
 
             #region Jobs
 
-            CreateMap<JobPositionViewModel, JobPosition>();
+            CreateMap<JobPositionViewModel, JobPosition>()
+                .ForMember(dest => dest.Applicants, opt => opt.Ignore());
             CreateMap<JobApplicantViewModel, JobApplicant>();
 
             #endregion Jobs

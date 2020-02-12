@@ -3,7 +3,8 @@
 
     var rootUrl = '/work/jobposition';
     var urlListDefault = rootUrl + '/list';
-    var urlMyPositionStats = rootUrl + '/myPositionsStats';
+    var urlMyPositionStats = rootUrl + '/mypositionsstats';
+    var urlMyApplications = rootUrl + '/myapplications';
 
     var selectors = {};
     var objs = {};
@@ -29,11 +30,12 @@
             if (isCompany) {
                 var url = objs.urls.data('urlMine');
                 loadJobPositions(false, url);
+                loadMyJobPositionStats(urlMyPositionStats);
             }
             else {
                 loadJobPositions(false, urlListDefault);
+                loadMyApplications(urlMyApplications);
             }
-            loadMyJobPositionStats(urlMyPositionStats);
         }
         else if (isDetails) {
             bindDetails();
@@ -63,6 +65,7 @@
         selectors.origin = '#Origin';
         selectors.url = '#Url';
         selectors.myPositionStats = '#divMyPositionStats';
+        selectors.myApplications = '#divMyApplications';
         selectors.datepicker = '.datepicker';
         selectors.switchBenefit = '.switch-benefit';
         selectors.hdnBenefit = '.hdnBenefit';
@@ -78,6 +81,7 @@
         objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
         objs.myPositionStats = $(selectors.myPositionStats);
+        objs.myApplications = $(selectors.myApplications);
         objs.btnApply = $(selectors.btnApply);
     }
 
@@ -199,6 +203,8 @@
 
     function bindBtnSaveForm() {
         objs.containerDetails.on('click', selectors.btnSave, function () {
+            var btn = $(this);
+            btn.html(MAINMODULE.Default.SpinnerBtn);
             var valid = objs.form.valid();
 
             var origin = objs.origin.val();
@@ -209,7 +215,7 @@
             }
 
             if (valid && canInteract) {
-                submitForm();
+                submitForm(btn);
             }
         });
     }
@@ -360,6 +366,15 @@
         });
     }
 
+
+    function loadMyApplications(url) {
+        objs.myApplications.html(MAINMODULE.Default.SpinnerTop);
+
+        $.get(url, function (data) {
+            objs.myApplications.html(data);
+        });
+    }
+
     function loadNewJobPositionForm(url) {
         objs.containerDetails.html(MAINMODULE.Default.Spinner);
         objs.containerList.hide();
@@ -408,13 +423,14 @@
         });
     }
 
-    function submitForm(callback) {
+    function submitForm(btn, callback) {
         var url = objs.form.attr('action');
 
         var data = objs.form.serialize();
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
+                btn.html('...');
                 if (callback) {
                     callback();
                 }

@@ -280,6 +280,20 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        public OperationResultVo GetMyApplications(Guid currentUserId)
+        {
+            try
+            {
+                List<JobPositionApplicationVo> positionIds = jobPositionDomainService.GetApplicationsByUserId(currentUserId);
+
+                return new OperationResultListVo<JobPositionApplicationVo>(positionIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo Apply(Guid currentUserId, Guid jobPositionId, string email, string coverLetter)
         {
             try
