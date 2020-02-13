@@ -2004,7 +2004,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
         height: 30px !important;
     }
 
-    .gamebox-description .gamebox-description-number, .gamebox-description .gamebox-description-text {
+    .gamebox-description .gamebox-description-number {
         margin-left: 10px;
     }
 

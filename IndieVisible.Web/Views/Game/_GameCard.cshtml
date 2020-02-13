@@ -11,9 +11,11 @@
         <div class="gamebox-description">
 
             <div class="row text-truncate">
-                <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
-                    <span class="gamebox-description-text">@Model.Title</span>
-                </a>
+                <div class="col-12">
+                    <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
+                        <span class="gamebox-description-text">@Model.Title</span>
+                    </a>
+                </div>
             </div>
             <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
                 <img class="rounded-circle img-sm" src="@Model.DeveloperImageUrl" alt="@Model.DeveloperName">
