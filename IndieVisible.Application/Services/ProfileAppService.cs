@@ -652,6 +652,10 @@ namespace IndieVisible.Application.Services
                     case ExternalLinkProvider.IndiExpo:
                         item.Value = UrlFormatter.IndiExpoProfile(item.Value);
                         break;
+
+                    case ExternalLinkProvider.Artstation:
+                        item.Value = UrlFormatter.ArtstationProfile(item.Value);
+                        break;
                 }
             }
         }
@@ -685,7 +689,7 @@ namespace IndieVisible.Application.Services
                 }
             }
 
-            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
+            vm.ExternalLinks = vm.ExternalLinks.OrderBy(x => x.Type).ThenBy(x => x.Provider).ToList();
         }
 
         public void SetCache(Guid key, ProfileViewModel viewModel)

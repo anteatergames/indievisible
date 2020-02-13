@@ -273,26 +273,29 @@ namespace IndieVisible.Web.Controllers
                 GameExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
                 ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
 
-                if (existingProvider == null)
+                if (uiInfo.Type != ExternalLinkType.ProfileOnly)
                 {
-                    GameExternalLinkViewModel placeHolder = new GameExternalLinkViewModel
+                    if (existingProvider == null)
                     {
-                        GameId = vm.Id,
-                        UserId = vm.UserId,
-                        Type = uiInfo.Type,
-                        Provider = provider,
-                        Display = uiInfo.Display,
-                        IconClass = uiInfo.Class,
-                        ColorClass = uiInfo.ColorClass,
-                        IsStore = uiInfo.IsStore
-                    };
+                        GameExternalLinkViewModel placeHolder = new GameExternalLinkViewModel
+                        {
+                            GameId = vm.Id,
+                            UserId = vm.UserId,
+                            Type = uiInfo.Type,
+                            Provider = provider,
+                            Display = uiInfo.Display,
+                            IconClass = uiInfo.Class,
+                            ColorClass = uiInfo.ColorClass,
+                            IsStore = uiInfo.IsStore
+                        };
 
-                    vm.ExternalLinks.Add(placeHolder);
-                }
-                else
-                {
-                    existingProvider.Display = uiInfo.Display;
-                    existingProvider.IconClass = uiInfo.Class;
+                        vm.ExternalLinks.Add(placeHolder);
+                    }
+                    else
+                    {
+                        existingProvider.Display = uiInfo.Display;
+                        existingProvider.IconClass = uiInfo.Class;
+                    } 
                 }
             }
 

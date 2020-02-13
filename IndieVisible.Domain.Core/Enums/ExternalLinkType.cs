@@ -2,7 +2,9 @@
 {
     public enum ExternalLinkType
     {
-        General = 1,
-        GameDev = 2
+        GameDev = 1,
+        ProfileAndGame = 2,
+        ProfileOnly = 3,
+        General = 4
     }
 }

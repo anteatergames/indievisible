@@ -103,7 +103,7 @@
                                 <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="@SharedLocalizer["Game Thumbnail"]" /></div>
 
                                 <div class="col-12 game-external-links text-center">
-                                    @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.General))
+                                    @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.ProfileAndGame))
                                     {
                                         <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
                                             <i class="@item.IconClass" aria-hidden="true"></i>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="col-xl-8 col-lg-7">
                     <div class="col-12 mb-2 text-center d-lg-none">
-                        @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.General))
+                        @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.ProfileAndGame))
                         {
                             <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
                                 <i class="@item.IconClass" aria-hidden="true"></i>

@@ -309,12 +309,25 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
-        internal static string IndiExpoProfile(string handler)
+        public static string IndiExpoProfile(string handler)
         {
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("indiexpo.net"))
             {
                 handler = ExternalUrlCommon(handler);
                 return String.Format("https://www.indiexpo.net/users/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string ArtstationProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("artstation.com"))
+            {
+                return String.Format("https://www.artstation.com/{0}", handler);
             }
             else
             {

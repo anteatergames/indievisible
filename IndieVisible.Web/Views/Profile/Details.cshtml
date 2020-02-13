@@ -29,7 +29,7 @@
                 <h2 class="user-profile-desc">@Model.Motto</h2>
 
                 <div class="user-social-acount">
-                    @foreach (var item in Model.ExternalLinks.Where(x => x.Type == ExternalLinkType.General))
+                    @foreach (var item in Model.ExternalLinks.Where(x => x.Type != ExternalLinkType.GameDev))
                     {
                         <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
                             <i class="@item.IconClass" aria-hidden="true"></i>
