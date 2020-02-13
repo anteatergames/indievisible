@@ -785,7 +785,6 @@ ul.flexbox {
 
 .dropdown-item {
     font-weight: 300;
-    padding: 4px 12px;
     width: auto;
     padding: 4px;
     -webkit-transition: 0.15s linear;
