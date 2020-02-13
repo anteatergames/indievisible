@@ -95,7 +95,6 @@
     function bindAll() {
         bindBtnSave();
 
-        console.log(isList);
         if (isList) {
             bindBtnNew();
             bindEditTeam();
@@ -112,7 +111,6 @@
 
     function bindSelect2() {
         $('.members select.select2').each(function (index, element) {
-            console.log(element);
             if ($(this).data('select2') === undefined) {
                 $(this).select2({
                     width: 'element'
@@ -144,12 +142,18 @@
     }
 
     function bindBtnSave() {
-        objs.container.on('click', selectors.btnSaveTeam, function () {
-            console.log('clickbtnSaveTeam');
+        objs.container.on('click', selectors.btnSaveTeam, function (e) {
+            e.preventDefault();
+            var btn = $(this);
+
+            MAINMODULE.Common.DisableSaveButton(btn);
+
             var valid = objs.form.valid();
             if (valid && canInteract) {
-                submitForm();
+                submitForm(btn);
             }
+
+            return false;
         });
     }
 
@@ -451,18 +455,16 @@
         });
     }
 
-    function submitForm(callback) {
+    function submitForm(btn) {
         var url = objs.form.attr('action');
 
         var data = objs.form.serialize();
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
-                if (callback) {
-                    callback();
-                }
+                MAINMODULE.Common.PostSaveCallback(response, btn);
 
-                ALERTSYSTEM.ShowSuccessMessage(response.message, function (isConfirm) {
+                ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
                     window.location = response.url;
                 });
             }

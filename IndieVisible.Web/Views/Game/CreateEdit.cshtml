@@ -151,7 +151,7 @@
                         {
                             var externalLink = Model.ExternalLinks.ElementAt(i);
 
-                            <div class="box p-3 col-12 col-12">
+                            <div class="bordered mb-1 p-2 p-md-3 col-12 col-12">
                                 <input type="hidden" asp-for="ExternalLinks[i].Id" />
                                 <input type="hidden" asp-for="ExternalLinks[i].UserId" />
                                 <input type="hidden" asp-for="ExternalLinks[i].GameId" />
@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="col-12 col-sm-10">
                                         <label>@externalLink.Display</label>
-                                        <div class="input-group">
+                                        <div class="input-group input-group-sm">
                                             <input asp-for="ExternalLinks[i].Value" class="form-control" placeholder="@SharedLocalizer["Type your {0} handler here.", externalLink.Display]" />
                                             <div class="input-group-append">
                                                 <btn class="btnClearExternalLink btn btn-warning input-group-text">@SharedLocalizer["clear"]</btn>
@@ -192,8 +192,10 @@
                     </div>
                 </div>
             </div>
-            <div class="text-right">
-                <button type="button" id="btnGameSave" class="btn btn-info"><i class="fas fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
+            <div class="row">
+                <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                    <button type="button" id="btnGameSave" class="btn btn-lg btn-primary btn-block"><i class="fas fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
+                </div>
             </div>
         </div>
     </form>

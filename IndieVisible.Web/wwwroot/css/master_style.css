@@ -321,19 +321,19 @@ a:active, a:focus, a:hover {
     border-color: #eee;
 }
 
-    .dropdown-menu.scale-up {
-        -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
-        -moz-box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
-        box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
-        border-color: rgba(120, 130, 140, .13);
-        display: inline-block;
-        -webkit-transition: all .3s ease;
-        transition: all .3s ease;
-        -webkit-transform: scale(0);
-        -ms-transform: scale(0);
-        transform: scale(0);
-        transform-origin: right 0;
-    }
+.dropdown-menu.scale-up {
+    -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
+    border-color: rgba(120, 130, 140, .13);
+    display: inline-block;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    transform-origin: right 0;
+}
 
 .show > .dropdown-menu.scale-up {
     -webkit-transform: scale(1);
@@ -556,6 +556,7 @@ select:-webkit-autofill:focus {
             margin-bottom: 10px;
             border: 0;
             border-radius: 4px 0 0 4px;
+            padding: 5px;
         }
 
             .vtabs .tabs-vertical li .nav-link.has-error {
@@ -602,7 +603,7 @@ select:-webkit-autofill:focus {
 
 @media (max-width: 767px) {
     .vtabs .tabs-vertical {
-        width: auto;
+        width: 30px;
     }
 }
 
@@ -1393,8 +1394,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 .nav-tabs-custom {
     margin-bottom: 20px;
-    -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
     border-radius: 3px;
 }
 
@@ -1451,6 +1450,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
                 .nav-tabs-custom > .nav-tabs > li:first-of-type > a.active {
                     border-left-color: transparent;
+                    border-top-left-radius: 3px;
                 }
 
         .nav-tabs-custom > .nav-tabs.float-right {

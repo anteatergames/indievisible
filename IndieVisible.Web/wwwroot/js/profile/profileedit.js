@@ -249,38 +249,30 @@
             e.preventDefault();
 
             var btn = $(this);
-            btn.button('loading');
-            var icon = btn.find('i');
-
-            icon.removeClass('fa-save');
-            icon.addClass('fa-circle-notch fa-spin');
+            MAINMODULE.Common.DisableSaveButton(btn);
 
             var valid = objs.form.valid();
             if (valid) {
-                var posSaveFunction = function () {
-                    icon.removeClass('fa-circle-notch fa-spin');
-                    icon.addClass('fa-save');
-                };
 
                 if (croppedAvatar && croppedCoverImage) {
                     uploadCoverImage(function () {
                         uploadAvatarCropped(function () {
-                            submitForm(posSaveFunction);
+                            submitForm(btn);
                         });
                     });
                 }
                 else if (croppedAvatar && !croppedCoverImage) {
                     uploadAvatarCropped(function () {
-                        submitForm(posSaveFunction);
+                        submitForm(btn);
                     });
                 }
                 else if (!croppedAvatar && croppedCoverImage) {
                     uploadCoverImage(function () {
-                        submitForm(posSaveFunction);
+                        submitForm(btn);
                     });
                 }
                 else {
-                    submitForm(posSaveFunction);
+                    submitForm(btn);
                 }
             }
 
@@ -288,7 +280,7 @@
         });
     }
 
-    function submitForm(callback) {
+    function submitForm(btn) {
         var url = objs.form.attr('action');
 
         var data = objs.form.serialize();
@@ -300,9 +292,8 @@
             enctype: 'multipart/form-data'
         }).done(function (response) {
             if (response.success === true) {
-                if (callback) {
-                    callback();
-                }
+                MAINMODULE.Common.PostSaveCallback(response, btn);
+
                 ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
                     window.location = response.url;
                 });

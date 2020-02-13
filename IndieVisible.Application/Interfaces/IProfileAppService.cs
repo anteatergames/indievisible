@@ -39,7 +39,7 @@ namespace IndieVisible.Application.Interfaces
 
         void SetCache(Guid key, ProfileViewModel viewModel);
 
-        ProfileViewModel GetWithCache(Guid userId);
+        ProfileViewModel GetUserProfileWithCache(Guid userId);
 
         #endregion Connections
     }

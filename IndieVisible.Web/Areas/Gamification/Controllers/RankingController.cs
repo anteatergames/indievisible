@@ -38,7 +38,7 @@ namespace IndieVisible.Web.Areas.Gamification.Controllers
 
             foreach (RankingViewModel obj in objs)
             {
-                Application.ViewModels.User.ProfileViewModel profile = profileAppService.GetWithCache(obj.UserId);
+                Application.ViewModels.User.ProfileViewModel profile = profileAppService.GetUserProfileWithCache(obj.UserId);
 
                 if (profile != null)
                 {

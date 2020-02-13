@@ -265,17 +265,16 @@
             e.preventDefault();
 
             var btn = $(this);
-            btn.button('loading');
-            var icon = btn.find('i');
+            btn.prop('disabled', true);
+            var originalText = btn.html();
+            btn.html(MAINMODULE.Default.SpinnerBtn);
 
-            icon.removeClass('fa-save');
-            icon.addClass('fa-circle-notch fa-spin');
 
             var valid = selectors.form.valid();
             if (valid) {
                 var posSaveFunction = function () {
-                    icon.removeClass('fa-circle-notch fa-spin');
-                    icon.addClass('fa-save');
+                    btn.html(originalText);
+                    btn.prop('disabled', false);
                 };
 
                 if (croppedGameThumbnail && croppedGameCoverImage) {

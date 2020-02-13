@@ -32,16 +32,7 @@
                     </label>
                 </div>
             </div>
-            <div class="box-footer bg-white">
-                <div class="row">
-                    <!-- /.col -->
-                    <div class="col-sm-12 description-block">
-                        <div class="float-right">
-                            <button type="button" id="btnProfileSave" class="btn btn-lg btn-default bg-info">@SharedLocalizer["Save my profile"]</button>
-                        </div>
-                    </div>
-                    <!-- /.col -->
-                </div>
+            <div class="box-footer square-top bg-white">
                 <div class="row">
                     <div class="col-12">
                         <div class="box-header">
@@ -53,14 +44,14 @@
                             <div class="vtabs customvtab col-12">
                                 <ul class="nav nav-tabs tabs-vertical text-capitalize" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active show" data-toggle="tab" href="#basicinfotab" role="tab" aria-selected="true">
-                                            <span class="d-sm-none"><i class="fas fa-home" aria-hidden="true"></i></span>
+                                        <a class="nav-link active show text-center" data-toggle="tab" href="#basicinfotab" role="tab" aria-selected="true">
+                                            <span class="d-sm-none"><i class="fas fa-fw fa-home" aria-hidden="true"></i></span>
                                             <span class="d-none d-sm-block">@SharedLocalizer["basic"]</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#externaltab" role="tab" aria-selected="false">
-                                            <span class="d-sm-none"><i class="fas fa-project-diagram" aria-hidden="true"></i></span>
+                                        <a class="nav-link text-center" data-toggle="tab" href="#externaltab" role="tab" aria-selected="false">
+                                            <span class="d-sm-none"><i class="fas fa-fw fa-project-diagram" aria-hidden="true"></i></span>
                                             <span class="d-none d-sm-block">@SharedLocalizer["external"]</span>
                                         </a>
                                     </li>
@@ -94,12 +85,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="tab-pane p-2" id="externaltab" role="tabpanel">
+                                    <div class="tab-pane" id="externaltab" role="tabpanel">
                                         @for (int i = 0; i < Model.ExternalLinks.Count; i++)
                                         {
                                             var externalLink = Model.ExternalLinks.ElementAt(i);
 
-                                            <div class="box p-3 col-12 col-12">
+                                            <div class="bordered mb-1 p-2 p-md-3 col-12 col-12">
                                                 <input type="hidden" asp-for="ExternalLinks[i].Id" />
                                                 <input type="hidden" asp-for="ExternalLinks[i].UserId" />
                                                 <input type="hidden" asp-for="ExternalLinks[i].UserProfileId" />
@@ -123,10 +114,10 @@
                                                     </div>
                                                     <div class="col-12 col-sm-10">
                                                         <label>@externalLink.Display</label>
-                                                        <div class="input-group">
+                                                        <div class="input-group input-group-sm">
                                                             <input asp-for="ExternalLinks[i].Value" class="form-control" placeholder="@SharedLocalizer["Type your {0} handler here.", externalLink.Display]" />
                                                             <div class="input-group-append">
-                                                                <btn class="btnClearExternalLink btn btn-warning input-group-text">@SharedLocalizer["clear"]</btn>
+                                                                <btn class="btnClearExternalLink btn form btn-warning input-group-text">@SharedLocalizer["clear"]</btn>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -139,7 +130,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.box-body -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                        <button type="button" id="btnProfileSave" class="btn btn-lg btn-primary btn-block"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save my profile"]</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>

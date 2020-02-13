@@ -8,6 +8,10 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface IGameAppService : ICrudAppService<GameViewModel>
     {
+        OperationResultVo<GameViewModel> GetById(Guid currentUserId, Guid id, bool forEdit);
+
+        OperationResultVo<GameViewModel> CreateNew(Guid currentUserId);
+
         IEnumerable<GameListItemViewModel> GetLatest(Guid currentUserId, int count, Guid userId, Guid? teamId, GameGenre genre);
 
         IEnumerable<SelectListItemVo> GetByUser(Guid userId);

@@ -5,11 +5,14 @@
 
     var spinnerTop = '<div class="bg-transparent"><div class="flex-square-inner"><div class="flex-square-inner-content text-dark"><i class="fa fa-spinner fa-3x fa-spin"></i></div></div></div>';
 
-    var spinnerBtn = '<span class="spinner-border" role="status" aria-hidden="true"></span>';
+    var spinnerBtn = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+
+    var doneBtn = '<i class="fas fa-check"></i>';
 
     var selectors = {};
     var objs = {};
     var translatedMessages = {};
+    var saveBtnOriginalText = '';
 
     function init() {
         setSelectors();
@@ -121,6 +124,22 @@
         $(selector).sticky({ topSpacing: minimumOffset });
     }
 
+    function disableSaveButton(btn) {
+        btn.prop('disabled', true);
+        saveBtnOriginalText = btn.html();
+        btn.html(MAINMODULE.Default.SpinnerBtn);
+    }
+
+    function postSaveCallback(response, btn) {
+        if (response.success === true) {
+            btn.html(MAINMODULE.Default.DoneBtn);
+        }
+        else {
+            btn.html(saveBtnOriginalText);
+            btn.prop('disabled', false);
+        }
+    }
+
     return {
         Init: init,
         Layout: {
@@ -128,12 +147,15 @@
         },
         Common: {
             HandlePointsEarned: handlePointsEarned,
-            TranslatedMessages: translatedMessages
+            TranslatedMessages: translatedMessages,
+            DisableSaveButton: disableSaveButton,
+            PostSaveCallback: postSaveCallback
         },
         Default: {
             Spinner: spinnerCenter,
             SpinnerTop: spinnerTop,
-            SpinnerBtn: spinnerBtn
+            SpinnerBtn: spinnerBtn,
+            DoneBtn: doneBtn
         }
     };
 }());

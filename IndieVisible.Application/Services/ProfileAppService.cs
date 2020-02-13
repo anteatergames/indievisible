@@ -246,10 +246,10 @@ namespace IndieVisible.Application.Services
 
             if (forEdit)
             {
-                FormatExternalLinksForEdit(vm);
+                FormatExternalLinksForEdit(ref vm);
             }
 
-            FormatExternaLinks(vm);
+            FormatExternalLinks(vm);
 
             return vm;
         }
@@ -578,7 +578,7 @@ namespace IndieVisible.Application.Services
             return newList;
         }
 
-        private void FormatExternaLinks(ProfileViewModel vm)
+        private void FormatExternalLinks(ProfileViewModel vm)
         {
             foreach (UserProfileExternalLinkViewModel item in vm.ExternalLinks)
             {
@@ -586,6 +586,7 @@ namespace IndieVisible.Application.Services
                 item.Display = uiInfo.Display;
                 item.IconClass = uiInfo.Class;
                 item.ColorClass = uiInfo.ColorClass;
+                item.Order = uiInfo.Order;
 
                 switch (item.Provider)
                 {
@@ -660,7 +661,7 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        private static void FormatExternalLinksForEdit(ProfileViewModel vm)
+        private static void FormatExternalLinksForEdit(ref ProfileViewModel vm)
         {
             foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
             {
@@ -675,6 +676,7 @@ namespace IndieVisible.Application.Services
                         UserId = vm.UserId,
                         Type = uiInfo.Type,
                         Provider = provider,
+                        Order = uiInfo.Order,
                         Display = uiInfo.Display,
                         IconClass = uiInfo.Class,
                         IsStore = uiInfo.IsStore
@@ -686,31 +688,11 @@ namespace IndieVisible.Application.Services
                 {
                     existingProvider.Display = uiInfo.Display;
                     existingProvider.IconClass = uiInfo.Class;
+                    existingProvider.Order = uiInfo.Order;
                 }
             }
 
-            vm.ExternalLinks = vm.ExternalLinks.OrderBy(x => x.Type).ThenBy(x => x.Provider).ToList();
-        }
-
-        public void SetCache(Guid key, ProfileViewModel viewModel)
-        {
-            UserProfile model = mapper.Map<UserProfile>(viewModel);
-
-            base.SetCache(viewModel.UserId, model);
-        }
-
-        public ProfileViewModel GetWithCache(Guid userId)
-        {
-            UserProfile model = base.GetFromCache(userId);
-
-            if (model == null)
-            {
-                model = profileDomainService.GetByUserId(userId).FirstOrDefault();
-            }
-
-            ProfileViewModel viewModel = mapper.Map<ProfileViewModel>(model);
-
-            return viewModel;
+            vm.ExternalLinks = vm.ExternalLinks.OrderBy(x => x.Order).ToList();
         }
     }
 }

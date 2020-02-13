@@ -7,7 +7,7 @@
 }
 
 .alert .close {
-    color: #000;
+    color: var(--color-black);
     opacity: .2;
     filter: alpha(opacity=20);
 }
@@ -18,12 +18,12 @@
     }
 
 .alert a {
-    color: #fff;
+    color: var(--color-white);
     text-decoration: underline;
 }
 
 .alert-danger, .alert-error {
-    border-color: #dc2d27;
+    border-color: var(--color-red-border);
 }
 
 .badge {
@@ -67,7 +67,7 @@
     }
 
 .btn-primary {
-    background-color: #45aef1;
+    background-color: var(--color-primary);
     border-color: #367fa9;
 }
 

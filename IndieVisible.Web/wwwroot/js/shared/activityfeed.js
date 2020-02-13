@@ -121,6 +121,15 @@ var ACTIVITYFEED = (function () {
 
     function loadOembeds() {
         if (typeof Embedo === 'function') {
+            var embedo = new Embedo({
+                youtube: true,
+                facebook: {
+                    appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK
+                    version: 'v3.2',
+                    width: "100%"
+                }
+            });
+
             var oembeds = $('oembed');
 
             oembeds.each(function (index, element) {

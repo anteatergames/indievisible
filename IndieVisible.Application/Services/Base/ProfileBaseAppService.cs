@@ -5,6 +5,7 @@ using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Interfaces;
 using System;
 using System.Linq;
+using IndieVisible.Application.ViewModels.User;
 
 namespace IndieVisible.Application.Services
 {
@@ -23,6 +24,13 @@ namespace IndieVisible.Application.Services
         public void SetCache(Guid key, UserProfile value)
         {
             cacheService.Set<Guid, UserProfile>(key, value);
+        }
+
+        public void SetCache(Guid key, ProfileViewModel viewModel)
+        {
+            UserProfile model = mapper.Map<UserProfile>(viewModel);
+
+            SetCache(viewModel.UserId, model);
         }
 
         protected UserProfile GetFromCache(Guid key)
@@ -48,6 +56,20 @@ namespace IndieVisible.Application.Services
             }
 
             return profile;
+        }
+
+        public ProfileViewModel GetUserProfileWithCache(Guid userId)
+        {
+            UserProfile model = this.GetFromCache(userId);
+
+            if (model == null)
+            {
+                model = profileDomainService.GetByUserId(userId).FirstOrDefault();
+            }
+
+            ProfileViewModel viewModel = mapper.Map<ProfileViewModel>(model);
+
+            return viewModel;
         }
     }
 }

@@ -49,8 +49,6 @@ namespace IndieVisible.Web.Controllers
 
             SetImages(vm);
 
-            FormatExternalLinks(vm);
-
             bool isAdmin = false;
 
             if (!CurrentUserId.Equals(Guid.Empty))
@@ -82,29 +80,24 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Add()
         {
-            GameViewModel vm = new GameViewModel
+            var serviceResult = gameAppService.CreateNew(CurrentUserId);
+
+            if (serviceResult.Success)
             {
-                Engine = GameEngine.Unity,
-                UserId = CurrentUserId,
-                CoverImageUrl = Constants.DefaultGameCoverImage,
-                ThumbnailUrl = Constants.DefaultGameThumbnail
-            };
-
-            FormatExternalLinksForEdit(vm);
-
-            SetMyTeamsSelectList();
-
-            return View("CreateEdit", vm);
+                return View(serviceResult.Value);
+            }
+            else
+            {
+                return View(new GameViewModel());
+            }
         }
 
         [Authorize]
         public IActionResult Edit(Guid id)
         {
-            OperationResultVo<GameViewModel> serviceResult = gameAppService.GetById(CurrentUserId, id);
+            OperationResultVo<GameViewModel> serviceResult = gameAppService.GetById(CurrentUserId, id, true);
 
             GameViewModel vm = serviceResult.Value;
-
-            FormatExternalLinksForEdit(vm);
 
             SetImages(vm);
 
@@ -263,124 +256,6 @@ namespace IndieVisible.Web.Controllers
             {
                 string[] split = url.Split('/');
                 return split[split.Length - 1];
-            }
-        }
-
-        private static void FormatExternalLinksForEdit(GameViewModel vm)
-        {
-            foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
-            {
-                GameExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
-                ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
-
-                if (uiInfo.Type != ExternalLinkType.ProfileOnly)
-                {
-                    if (existingProvider == null)
-                    {
-                        GameExternalLinkViewModel placeHolder = new GameExternalLinkViewModel
-                        {
-                            GameId = vm.Id,
-                            UserId = vm.UserId,
-                            Type = uiInfo.Type,
-                            Provider = provider,
-                            Display = uiInfo.Display,
-                            IconClass = uiInfo.Class,
-                            ColorClass = uiInfo.ColorClass,
-                            IsStore = uiInfo.IsStore
-                        };
-
-                        vm.ExternalLinks.Add(placeHolder);
-                    }
-                    else
-                    {
-                        existingProvider.Display = uiInfo.Display;
-                        existingProvider.IconClass = uiInfo.Class;
-                    } 
-                }
-            }
-
-            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
-        }
-
-        private void FormatExternalLinks(GameViewModel vm)
-        {
-            ProfileViewModel authorProfile = ProfileAppService.GetWithCache(vm.UserId);
-            UserProfileExternalLinkViewModel itchProfile = authorProfile.ExternalLinks.FirstOrDefault(x => x.Provider == ExternalLinkProvider.ItchIo);
-
-            foreach (GameExternalLinkViewModel item in vm.ExternalLinks)
-            {
-                ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
-                item.Display = uiInfo.Display;
-                item.IconClass = uiInfo.Class;
-                item.ColorClass = uiInfo.ColorClass;
-                item.IsStore = uiInfo.IsStore;
-
-                switch (item.Provider)
-                {
-                    case ExternalLinkProvider.Website:
-                        item.Value = UrlFormatter.Website(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.Facebook:
-                        item.Value = UrlFormatter.Facebook(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.Twitter:
-                        item.Value = UrlFormatter.Twitter(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.Instagram:
-                        item.Value = UrlFormatter.Instagram(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.Youtube:
-                        item.Value = UrlFormatter.Youtube(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.XboxLive:
-                        item.Value = UrlFormatter.XboxLiveGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.PlaystationStore:
-                        item.Value = UrlFormatter.PlayStationStoreGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.Steam:
-                        item.Value = UrlFormatter.SteamGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.GameJolt:
-                        item.Value = UrlFormatter.GameJoltGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.ItchIo:
-                        item.Value = UrlFormatter.ItchIoGame(itchProfile?.Value, item.Value);
-                        break;
-
-                    case ExternalLinkProvider.GamedevNet:
-                        item.Value = UrlFormatter.GamedevNetGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.IndieDb:
-                        item.Value = UrlFormatter.IndieDbGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.UnityConnect:
-                        item.Value = UrlFormatter.UnityConnectGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.GooglePlayStore:
-                        item.Value = UrlFormatter.GooglePlayStoreGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.AppleAppStore:
-                        item.Value = UrlFormatter.AppleAppStoreGame(item.Value);
-                        break;
-
-                    case ExternalLinkProvider.IndiExpo:
-                        item.Value = UrlFormatter.IndiExpoGame(item.Value);
-                        break;
-                }
             }
         }
 

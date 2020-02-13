@@ -3,15 +3,17 @@ using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Game;
+using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Core.Interfaces;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +74,11 @@ namespace IndieVisible.Application.Services
 
         public OperationResultVo<GameViewModel> GetById(Guid currentUserId, Guid id)
         {
+            return GetById(currentUserId, id, false);
+        }
+
+        public OperationResultVo<GameViewModel> GetById(Guid currentUserId, Guid id, bool forEdit)
+        {
             try
             {
                 Game model = gameDomainService.GetById(id);
@@ -87,12 +94,34 @@ namespace IndieVisible.Application.Services
                 UserProfile authorProfile = GetCachedProfileByUserId(vm.UserId);
                 vm.AuthorName = authorProfile.Name;
 
+                if (forEdit)
+                {
+                    FormatExternalLinksForEdit(ref vm);
+                }
+
+                FormatExternalLinks(vm);
+
                 return new OperationResultVo<GameViewModel>(vm);
             }
             catch (Exception ex)
             {
                 return new OperationResultVo<GameViewModel>(ex.Message);
             }
+        }
+
+        public OperationResultVo<GameViewModel> CreateNew(Guid currentUserId)
+        {
+            GameViewModel vm = new GameViewModel
+            {
+                Engine = GameEngine.Unity,
+                UserId = currentUserId,
+                CoverImageUrl = Constants.DefaultGameCoverImage,
+                ThumbnailUrl = Constants.DefaultGameThumbnail
+            };
+
+            FormatExternalLinksForEdit(ref vm);
+
+            return new OperationResultVo<GameViewModel>(vm);
         }
 
         public OperationResultVo<Guid> Save(Guid currentUserId, GameViewModel viewModel)
@@ -314,6 +343,128 @@ namespace IndieVisible.Application.Services
             catch (Exception ex)
             {
                 return new OperationResultVo(ex.Message);
+            }
+        }
+
+
+        private static void FormatExternalLinksForEdit(ref GameViewModel vm)
+        {
+            foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
+            {
+                GameExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
+                ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
+
+                if (uiInfo.Type != ExternalLinkType.ProfileOnly)
+                {
+                    if (existingProvider == null)
+                    {
+                        GameExternalLinkViewModel placeHolder = new GameExternalLinkViewModel
+                        {
+                            GameId = vm.Id,
+                            UserId = vm.UserId,
+                            Type = uiInfo.Type,
+                            Provider = provider,
+                            Order = uiInfo.Order,
+                            Display = uiInfo.Display,
+                            IconClass = uiInfo.Class,
+                            ColorClass = uiInfo.ColorClass,
+                            IsStore = uiInfo.IsStore
+                        };
+
+                        vm.ExternalLinks.Add(placeHolder);
+                    }
+                    else
+                    {
+                        existingProvider.Display = uiInfo.Display;
+                        existingProvider.IconClass = uiInfo.Class;
+                        existingProvider.Order = uiInfo.Order;
+                    }
+                }
+            }
+
+            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
+        }
+
+        private void FormatExternalLinks(GameViewModel vm)
+        {
+            ProfileViewModel authorProfile = GetUserProfileWithCache(vm.UserId);
+            UserProfileExternalLinkViewModel itchProfile = authorProfile.ExternalLinks.FirstOrDefault(x => x.Provider == ExternalLinkProvider.ItchIo);
+
+            foreach (GameExternalLinkViewModel item in vm.ExternalLinks)
+            {
+                ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
+                item.Display = uiInfo.Display;
+                item.IconClass = uiInfo.Class;
+                item.ColorClass = uiInfo.ColorClass;
+                item.IsStore = uiInfo.IsStore;
+                item.Order = uiInfo.Order;
+
+                switch (item.Provider)
+                {
+                    case ExternalLinkProvider.Website:
+                        item.Value = UrlFormatter.Website(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.Facebook:
+                        item.Value = UrlFormatter.Facebook(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.Twitter:
+                        item.Value = UrlFormatter.Twitter(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.Instagram:
+                        item.Value = UrlFormatter.Instagram(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.Youtube:
+                        item.Value = UrlFormatter.Youtube(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.XboxLive:
+                        item.Value = UrlFormatter.XboxLiveGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.PlaystationStore:
+                        item.Value = UrlFormatter.PlayStationStoreGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.Steam:
+                        item.Value = UrlFormatter.SteamGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.GameJolt:
+                        item.Value = UrlFormatter.GameJoltGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.ItchIo:
+                        item.Value = UrlFormatter.ItchIoGame(itchProfile?.Value, item.Value);
+                        break;
+
+                    case ExternalLinkProvider.GamedevNet:
+                        item.Value = UrlFormatter.GamedevNetGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.IndieDb:
+                        item.Value = UrlFormatter.IndieDbGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.UnityConnect:
+                        item.Value = UrlFormatter.UnityConnectGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.GooglePlayStore:
+                        item.Value = UrlFormatter.GooglePlayStoreGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.AppleAppStore:
+                        item.Value = UrlFormatter.AppleAppStoreGame(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.IndiExpo:
+                        item.Value = UrlFormatter.IndiExpoGame(item.Value);
+                        break;
+                }
             }
         }
     }

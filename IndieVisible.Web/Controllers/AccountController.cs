@@ -721,7 +721,7 @@ namespace IndieVisible.Web.Controllers
         private void SetCache(ApplicationUser user)
         {
             Guid key = new Guid(user.Id);
-            ProfileViewModel cachedProfile = profileAppService.GetWithCache(key);
+            ProfileViewModel cachedProfile = profileAppService.GetUserProfileWithCache(key);
 
             if (cachedProfile == null)
             {

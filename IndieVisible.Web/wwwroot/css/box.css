@@ -212,3 +212,12 @@
     border-top: 1px solid #f4f4f4;
     padding: 10px;
 }
+
+.square-top {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.square-bottom {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}

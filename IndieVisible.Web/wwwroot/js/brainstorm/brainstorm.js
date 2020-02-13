@@ -31,6 +31,7 @@
         selectors.toolbar = $("#divToolbar");
         selectors.list = $("#divList");
         selectors.btnPostVotingItem = $("#btnPostVotingItem");
+        selectors.btnPostBrainstormIdea = '#btnPostBrainstormIdea';
         selectors.form = $("#frmBrainstormIdeaSave");
         selectors.ddlStatus = '#ddlStatus';
     }
@@ -38,6 +39,7 @@
     function cacheObjects() {
         objs.container = $(selectors.container);
         objs.ddlStatus = $(selectors.ddlStatus);
+        objs.btnPostBrainstormIdea = $(selectors.btnPostBrainstormIdea);
     }
 
     function bindAll() {
@@ -90,20 +92,50 @@
     }
 
     function bindBtnSaveIdea() {
-        objs.container.on('click', '#btnPostBrainstormIdea', function () {
+        objs.container.on('click', selectors.btnPostBrainstormIdea, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+
             var valid = selectors.form.valid();
             if (valid && canInteract) {
-                submitForm();
+                btn.prop('disabled', true);
+                var originalText = btn.html();
+                btn.html(MAINMODULE.Default.SpinnerBtn);
+
+                var posSaveFunction = function () {
+                    btn.html(originalText);
+                    btn.prop('disabled', false);
+                };
+
+                submitForm(posSaveFunction);
             }
+
+            return false;
         });
     }
 
     function bindBtnSaveSession() {
-        objs.container.on('click', '#btnPostBrainstormSession', function () {
+        objs.container.on('click', '#btnPostBrainstormSession', function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+
             var valid = selectors.form.valid();
             if (valid && canInteract) {
-                submitForm();
+                btn.prop('disabled', true);
+                var originalText = btn.html();
+                btn.html(MAINMODULE.Default.SpinnerBtn);
+
+                var posSaveFunction = function () {
+                    btn.html(originalText);
+                    btn.prop('disabled', false);
+                };
+
+                submitForm(posSaveFunction);
             }
+
+            return false;
         });
     }
 

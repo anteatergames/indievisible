@@ -1,5 +1,4 @@
 ﻿@model GameViewModel
-@using System
 
 @inject SignInManager<ApplicationUser> SignInManager
 
@@ -9,6 +8,72 @@
     ViewData["Description"] = Model.Description;
     ViewData["Url"] = ViewBag.BaseUrl + Url.Action("details", "game", new { id = Model.Id });
     ViewData["OgImage"] = Model.ThumbnailUrl;
+}
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/gamedetails.css" />
+        <link rel="stylesheet" href="~/css/teamup.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/gamedetails.min.css" asp-append-version="true" />
+    </environment>
+}
+@section Scripts {
+
+    <environment include="Development">
+        <script src="~/js/shared/contentactions.js"></script>
+        <script src="~/js/game/gamedetails.js"></script>
+        <script src="~/lib/qrious/qrious.js"></script>
+        <script src="~/lib/embedo/embedo.js"></script>
+        <script src="~/js/shared/activityfeed.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/qrious/qrious.min.js"></script>
+        <script src="~/lib/embedo/embedo.min.js"></script>
+        <script src="~/js/game/gamedetails.min.js" asp-append-version="true" defer></script>
+    </environment>
+
+    <script type="text/javascript">
+        (function () {
+            $('.qrCode').each(function (index, element){
+                var qr = new QRious({
+                    element: element
+                });
+                qr.set({
+                    value: '@(string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Url.Action("details", "game", new { id = Model.Id,  area = string.Empty })))',
+                    size: 150
+                });
+            });
+        })();
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@@context":"http://schema.org",
+            "@@type":"SocialMediaPosting",
+            "@@id":"@ViewData["Url"]",
+            "datePublished": "@Model.CreateDate.ToString("yyyy-MM-dd")",
+            "image": "@(ViewBag.BaseUrl + Model.ThumbnailUrl)",
+            "author":{
+                "@@type":"Person",
+                "name":"@Model.AuthorName",
+                "url":"@(ViewBag.BaseUrl + "/profile/" + Model.UserId)",
+                "image": "@(ViewBag.BaseUrl + Model.AuthorPicture)"
+            },
+            "headline":"@Model.Title",
+            "sharedContent":{
+                "@@type":"WebPage",
+                "headline":"@Model.Title",
+                "url":"@ViewData["Url"]",
+                "author":{
+                    "@@type":"Person",
+                    "name":"@Model.AuthorName",
+                    "url":"@(ViewBag.BaseUrl + "/profile/" + Model.UserId)"
+                }
+            }
+        }
+    </script>
 }
 
 <div class="col-12">
@@ -48,15 +113,16 @@
                 }
             </div>
         </div>
-        <div class="box-footer pt-0">
+
+        <div class="box-footer square-top p-0 bg-white">
             <div class="row mb-4 mt-2">
-                <div class="col-6 col-md-4 border-right">
+                <div class="col-6 col-md-4 rounded-0 border-right">
                     <div class="description-block">
                         <h5 class="description-header follow-count">@Model.FollowerCount</h5>
                         <span class="description-text">@SharedLocalizer["followers"]</span>
                     </div>
                 </div>
-                <div class="col-md-4 border-right d-none d-md-block">
+                <div class="col-md-4 rounded-0 border-right d-none d-md-block">
                     <div class="description-block">
                         <h5 class="description-header">@Model.CommentCount</h5>
                         <span class="description-text">@SharedLocalizer["Comments"]</span>
@@ -95,97 +161,100 @@
                 </div>
             }
 
-            <div class="row">
-                <div class="col-xl-4 col-lg-5 d-none d-lg-block">
-                    <div class="box bg-white">
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="@SharedLocalizer["Game Thumbnail"]" /></div>
+        </div>
+    </div>
 
-                                <div class="col-12 game-external-links text-center">
-                                    @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.ProfileAndGame))
-                                    {
-                                        <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
-                                            <i class="@item.IconClass" aria-hidden="true"></i>
-                                        </a>
-                                    }
-                                </div>
+    <div class="mt-2">
+        <div class="row">
+            <div class="col-xl-4 col-lg-5 d-none d-lg-block">
+                <div class="box bg-white">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="@SharedLocalizer["Game Thumbnail"]" /></div>
+
+                            <div class="col-12 game-external-links text-center">
+                                @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && (x.Type == ExternalLinkType.General ||  x.Type == ExternalLinkType.ProfileAndGame)))
+                                {
+                                    <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
+                                        <i class="@item.IconClass" aria-hidden="true"></i>
+                                    </a>
+                                }
+                            </div>
+                            <div class="col-12">
+                                <partial name="_GameInfoPanel" model="Model" />
+                                <partial name="_GameStoreBadges" model="Model.ExternalLinks.OrderBy(x => x.Order).ToList()" />
                                 <div class="col-12">
-                                    <partial name="_GameInfoPanel" model="Model" />
-                                    <partial name="_GameStoreBadges" model="Model.ExternalLinks" />
-                                    <div class="col-12">
-                                        <div class="text-center" data-toggle="tooltip" data-placement="bottom" title="@SharedLocalizer["This QR Code leads to this page. Tell people to scan it with their phones."]">
-                                            <canvas class="qrCode"></canvas>
-                                        </div>
+                                    <div class="text-center" data-toggle="tooltip" data-placement="bottom" title="@SharedLocalizer["This QR Code leads to this page. Tell people to scan it with their phones."]">
+                                        <canvas class="qrCode"></canvas>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-7">
-                    <div class="col-12 mb-2 text-center d-lg-none">
-                        @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && x.Type == ExternalLinkType.ProfileAndGame))
-                        {
-                            <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
-                                <i class="@item.IconClass" aria-hidden="true"></i>
-                            </a>
-                        }
-                    </div>
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs text-capitalize">
-                            <li><a href="#tabactivity" class="active" data-toggle="tab">@SharedLocalizer["Activity"]</a></li>
-                            <li><a href="#about" data-toggle="tab">@SharedLocalizer["about"]</a></li>
-                        </ul>
+            </div>
+            <div class="col-xl-8 col-lg-7">
+                <div class="col-12 mb-2 text-center d-lg-none">
+                    @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && (x.Type == ExternalLinkType.General ||  x.Type == ExternalLinkType.ProfileAndGame)))
+                    {
+                        <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
+                            <i class="@item.IconClass" aria-hidden="true"></i>
+                        </a>
+                    }
+                </div>
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs text-capitalize">
+                        <li><a href="#tabactivity" class="active" data-toggle="tab">@SharedLocalizer["Activity"]</a></li>
+                        <li><a href="#about" data-toggle="tab">@SharedLocalizer["about"]</a></li>
+                    </ul>
 
-                        <div class="tab-content p-1">
-                            <div class="tab-pane active feed" id="tabactivity">
-                                <div class="tabtoolbar mt-2 mb-2">
-                                    @if (Model.Permissions.CanPostActivity)
-                                    {
-                                        <a asp-area="" asp-controller="content" asp-action="add" asp-route-gameId="@Model.Id" class="btn btn-success">Add Content</a>
-                                    }
-                                </div>
-                                <div class="tab-pane" id="tabactivity">
-                                    <div id="divActivityFeed"></div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane" id="about">
-                                @if (!string.IsNullOrEmpty(Model.Description))
+                    <div class="tab-content p-1">
+                        <div class="tab-pane active feed" id="tabactivity">
+                            <div class="tabtoolbar mt-2 mb-2">
+                                @if (Model.Permissions.CanPostActivity)
                                 {
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h6>
-                                                @SharedLocalizer["Description"]
-                                            </h6>
-                                            <div class="p-2 box bg-white">
-                                                @Model.Description
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a asp-area="" asp-controller="content" asp-action="add" asp-route-gameId="@Model.Id" class="btn btn-success">Add Content</a>
                                 }
+                            </div>
+                            <div class="tab-pane" id="tabactivity">
+                                <div id="divActivityFeed"></div>
+                            </div>
+                        </div>
 
+                        <div class="tab-pane" id="about">
+                            @if (!string.IsNullOrEmpty(Model.Description))
+                            {
                                 <div class="row">
                                     <div class="col-12">
                                         <h6>
-                                            @SharedLocalizer["Team"]
+                                            @SharedLocalizer["Description"]
                                         </h6>
-                                        <partial name="~/Views/Team/_TeamListItem.cshtml" model="Model.Team" />
+                                        <div class="p-2 box bg-white">
+                                            @Model.Description
+                                        </div>
                                     </div>
                                 </div>
+                            }
 
-                                <div class="col-12 d-block d-lg-none bg-white">
-                                    <partial name="_GameInfoPanel" model="Model" />
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6>
+                                        @SharedLocalizer["Team"]
+                                    </h6>
+                                    <partial name="~/Views/Team/_TeamListItem.cshtml" model="Model.Team" />
+                                </div>
+                            </div>
 
-                                    <div class="col-12 col-md-6 offset-md-3 mt-2 game-external-links-stores text-center">
-                                        <partial name="_GameStoreBadges" model="Model.ExternalLinks" />
-                                    </div>
+                            <div class="col-12 d-block d-lg-none bg-white">
+                                <partial name="_GameInfoPanel" model="Model" />
 
-                                    <div class="col-12">
-                                        <div class="text-center" data-toggle="tooltip" data-placement="bottom" title="@SharedLocalizer["This QR Code leads to this page. Tell people to scan it with their phones."]">
-                                            <canvas class="qrCode"></canvas>
-                                        </div>
+                                <div class="col-12 col-md-6 offset-md-3 mt-2 game-external-links-stores text-center">
+                                    <partial name="_GameStoreBadges" model="Model.ExternalLinks.OrderBy(x => x.Order).ToList()" />
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="text-center" data-toggle="tooltip" data-placement="bottom" title="@SharedLocalizer["This QR Code leads to this page. Tell people to scan it with their phones."]">
+                                        <canvas class="qrCode"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -196,68 +265,3 @@
         </div>
     </div>
 </div>
-
-@section Styles {
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/gamedetails.css" />
-        <link rel="stylesheet" href="~/css/teamup.css">
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/gamedetails.min.css" asp-append-version="true" />
-    </environment>
-}
-@section Scripts {
-
-    <environment include="Development">
-        <script src="~/js/shared/contentactions.js"></script>
-        <script src="~/js/game/gamedetails.js"></script>
-        <script src="~/lib/qrious/qrious.js"></script>
-        <script src="~/js/shared/activityfeed.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="~/lib/qrious/qrious.min.js"></script>
-        <script src="~/js/game/gamedetails.min.js" asp-append-version="true" defer></script>
-    </environment>
-    <script src="~/lib/embedo/embedo.min.js"></script>
-
-    <script type="text/javascript">
-        (function () {
-            $('.qrCode').each(function (index, element){
-                var qr = new QRious({
-                    element: element
-                });
-                qr.set({
-                    value: '@(string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Url.Action("details", "game", new { id = Model.Id,  area = string.Empty })))',
-                    size: 150
-                });
-            });
-        })();
-    </script>
-
-    <script type="application/ld+json">
-        {
-        "@@context":"http://schema.org",
-        "@@type":"SocialMediaPosting",
-        "@@id":"@ViewData["Url"]",
-        "datePublished": "@Model.CreateDate.ToString("yyyy-MM-dd")",
-        "image": "@(ViewBag.BaseUrl + Model.ThumbnailUrl)",
-        "author":{
-        "@@type":"Person",
-        "name":"@Model.AuthorName",
-        "url":"@(ViewBag.BaseUrl + "/profile/" + Model.UserId)",
-        "image": "@(ViewBag.BaseUrl + Model.AuthorPicture)"
-        },
-        "headline":"@Model.Title",
-        "sharedContent":{
-        "@@type":"WebPage",
-        "headline":"@Model.Title",
-        "url":"@ViewData["Url"]",
-        "author":{
-        "@@type":"Person",
-        "name":"@Model.AuthorName",
-        "url":"@(ViewBag.BaseUrl + "/profile/" + Model.UserId)"
-        }
-        }
-        }
-    </script>
-}

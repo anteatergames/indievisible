@@ -60,16 +60,6 @@ select.form-control {
     border-radius: 0;
 }
 
-.feed .box-content .box-comments {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.feed .box-game .box-body {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
 .feed .box-content .box-body {
     border-radius: 0;
 }
