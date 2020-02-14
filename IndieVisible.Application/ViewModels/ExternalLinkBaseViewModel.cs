@@ -1,9 +1,14 @@
 ﻿using IndieVisible.Domain.Core.Enums;
+using System;
 
 namespace IndieVisible.Application.ViewModels
 {
-    public class ExternalLinkBaseViewModel : BaseViewModel
+    public class ExternalLinkBaseViewModel
     {
+        public Guid EntityId { get; set; }
+
+        public int Order { get; set; }
+
         public ExternalLinkType Type { get; set; }
 
         public ExternalLinkProvider Provider { get; set; }

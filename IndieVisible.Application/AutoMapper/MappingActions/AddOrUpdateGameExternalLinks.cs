@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,23 +14,20 @@ namespace IndieVisible.Application.AutoMapper.MappingActions
     {
         public void Process(GameViewModel source, Game destination, ResolutionContext context)
         {
-            List<GameExternalLink> destinationExternalLinks = new List<GameExternalLink>();
+            List<ExternalLinkVo> destinationExternalLinks = new List<ExternalLinkVo>();
 
-            foreach (GameExternalLinkViewModel externalLink in source.ExternalLinks)
+            foreach (ExternalLinkBaseViewModel externalLink in source.ExternalLinks)
             {
-                if (externalLink.Id == Guid.Empty)
+                var existing = destination.ExternalLinks.FirstOrDefault(x => x.Provider == externalLink.Provider);
+                if (existing == null)
                 {
-                    GameExternalLink newExternalLink = context.Mapper.Map<GameExternalLink>(externalLink);
+                    ExternalLinkVo newExternalLink = context.Mapper.Map<ExternalLinkVo>(externalLink);
                     destinationExternalLinks.Add(newExternalLink);
                 }
                 else
                 {
-                    GameExternalLink destinationExternalLink = destination.ExternalLinks.FirstOrDefault(x => x.Id == externalLink.Id);
-                    if (destinationExternalLink != null)
-                    {
-                        context.Mapper.Map(externalLink, destinationExternalLink);
-                        destinationExternalLinks.Add(destinationExternalLink);
-                    }
+                    context.Mapper.Map(externalLink, existing);
+                    destinationExternalLinks.Add(existing);
                 }
             }
 

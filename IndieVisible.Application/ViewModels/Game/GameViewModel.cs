@@ -52,7 +52,7 @@ namespace IndieVisible.Application.ViewModels.Game
         [Display(Name = "Platforms")]
         public List<GamePlatforms> Platforms { get; set; }
 
-        public List<GameExternalLinkViewModel> ExternalLinks { get; set; }
+        public List<ExternalLinkBaseViewModel> ExternalLinks { get; set; }
 
         public List<GameFollowViewModel> Followers { get; set; }
 
@@ -68,7 +68,7 @@ namespace IndieVisible.Application.ViewModels.Game
 
         public GameViewModel()
         {
-            ExternalLinks = new List<GameExternalLinkViewModel>();
+            ExternalLinks = new List<ExternalLinkBaseViewModel>();
         }
     }
 }

@@ -2,19 +2,20 @@
 using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Core.Interfaces;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications;
 using IndieVisible.Domain.Specifications.Follow;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Domain.Interfaces;
-using IndieVisible.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -580,7 +581,7 @@ namespace IndieVisible.Application.Services
 
         private void FormatExternalLinks(ProfileViewModel vm)
         {
-            foreach (UserProfileExternalLinkViewModel item in vm.ExternalLinks)
+            foreach (ExternalLinkBaseViewModel item in vm.ExternalLinks)
             {
                 ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
                 item.Display = uiInfo.Display;
@@ -657,6 +658,34 @@ namespace IndieVisible.Application.Services
                     case ExternalLinkProvider.Artstation:
                         item.Value = UrlFormatter.ArtstationProfile(item.Value);
                         break;
+
+                    case ExternalLinkProvider.DeviantArt:
+                        item.Value = UrlFormatter.DeviantArtProfile(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.DevTo:
+                        item.Value = UrlFormatter.DevToProfile(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.GitHub:
+                        item.Value = UrlFormatter.GitHubProfile(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.HackerRank:
+                        item.Value = UrlFormatter.HackerRankProfile(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.LinkedIn:
+                        item.Value = UrlFormatter.LinkedInProfile(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.Patreon:
+                        item.Value = UrlFormatter.PatreonProfile(item.Value);
+                        break;
+
+                    case ExternalLinkProvider.Medium:
+                        item.Value = UrlFormatter.MediumProfile(item.Value);
+                        break;
                 }
             }
         }
@@ -665,15 +694,14 @@ namespace IndieVisible.Application.Services
         {
             foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
             {
-                UserProfileExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
+                ExternalLinkBaseViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
                 ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
 
                 if (existingProvider == null)
                 {
-                    UserProfileExternalLinkViewModel placeHolder = new UserProfileExternalLinkViewModel
+                    ExternalLinkBaseViewModel placeHolder = new ExternalLinkBaseViewModel
                     {
-                        UserProfileId = vm.Id,
-                        UserId = vm.UserId,
+                        EntityId = vm.Id,
                         Type = uiInfo.Type,
                         Provider = provider,
                         Order = uiInfo.Order,

@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Attributes;
@@ -347,50 +348,12 @@ namespace IndieVisible.Application.Services
         }
 
 
-        private static void FormatExternalLinksForEdit(ref GameViewModel vm)
-        {
-            foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
-            {
-                GameExternalLinkViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
-                ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
-
-                if (uiInfo.Type != ExternalLinkType.ProfileOnly)
-                {
-                    if (existingProvider == null)
-                    {
-                        GameExternalLinkViewModel placeHolder = new GameExternalLinkViewModel
-                        {
-                            GameId = vm.Id,
-                            UserId = vm.UserId,
-                            Type = uiInfo.Type,
-                            Provider = provider,
-                            Order = uiInfo.Order,
-                            Display = uiInfo.Display,
-                            IconClass = uiInfo.Class,
-                            ColorClass = uiInfo.ColorClass,
-                            IsStore = uiInfo.IsStore
-                        };
-
-                        vm.ExternalLinks.Add(placeHolder);
-                    }
-                    else
-                    {
-                        existingProvider.Display = uiInfo.Display;
-                        existingProvider.IconClass = uiInfo.Class;
-                        existingProvider.Order = uiInfo.Order;
-                    }
-                }
-            }
-
-            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
-        }
-
         private void FormatExternalLinks(GameViewModel vm)
         {
             ProfileViewModel authorProfile = GetUserProfileWithCache(vm.UserId);
-            UserProfileExternalLinkViewModel itchProfile = authorProfile.ExternalLinks.FirstOrDefault(x => x.Provider == ExternalLinkProvider.ItchIo);
+            ExternalLinkBaseViewModel itchProfile = authorProfile.ExternalLinks.FirstOrDefault(x => x.Provider == ExternalLinkProvider.ItchIo);
 
-            foreach (GameExternalLinkViewModel item in vm.ExternalLinks)
+            foreach (ExternalLinkBaseViewModel item in vm.ExternalLinks)
             {
                 ExternalLinkInfoAttribute uiInfo = item.Provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
                 item.Display = uiInfo.Display;
@@ -466,6 +429,43 @@ namespace IndieVisible.Application.Services
                         break;
                 }
             }
+        }
+
+        private static void FormatExternalLinksForEdit(ref GameViewModel vm)
+        {
+            foreach (ExternalLinkProvider provider in Enum.GetValues(typeof(ExternalLinkProvider)))
+            {
+                ExternalLinkBaseViewModel existingProvider = vm.ExternalLinks.FirstOrDefault(x => x.Provider == provider);
+                ExternalLinkInfoAttribute uiInfo = provider.GetAttributeOfType<ExternalLinkInfoAttribute>();
+
+                if (uiInfo.Type != ExternalLinkType.ProfileOnly)
+                {
+                    if (existingProvider == null)
+                    {
+                        ExternalLinkBaseViewModel placeHolder = new ExternalLinkBaseViewModel
+                        {
+                            EntityId = vm.Id,
+                            Type = uiInfo.Type,
+                            Provider = provider,
+                            Order = uiInfo.Order,
+                            Display = uiInfo.Display,
+                            IconClass = uiInfo.Class,
+                            ColorClass = uiInfo.ColorClass,
+                            IsStore = uiInfo.IsStore
+                        };
+
+                        vm.ExternalLinks.Add(placeHolder);
+                    }
+                    else
+                    {
+                        existingProvider.Display = uiInfo.Display;
+                        existingProvider.IconClass = uiInfo.Class;
+                        existingProvider.Order = uiInfo.Order;
+                    }
+                }
+            }
+
+            vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
         }
     }
 }

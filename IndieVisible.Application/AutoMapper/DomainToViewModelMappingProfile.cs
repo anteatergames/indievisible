@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.AutoMapper.Resolvers;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Brainstorm;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.FeaturedContent;
@@ -40,7 +41,7 @@ namespace IndieVisible.Application.AutoMapper
                     .ForMember(dest => dest.Platforms, opt => opt.MapFrom<GamePlatformFromDomainResolver>());
             CreateMap<Game, GameListItemViewModel>();
 
-            CreateMap<GameExternalLink, GameExternalLinkViewModel>();
+            CreateMap<ExternalLinkVo, ExternalLinkBaseViewModel>();
 
             #endregion Game
 
@@ -50,7 +51,7 @@ namespace IndieVisible.Application.AutoMapper
                     .ForMember(x => x.Counters, opt => opt.Ignore())
                     .ForMember(x => x.IndieXp, opt => opt.Ignore());
 
-            CreateMap<UserProfileExternalLink, UserProfileExternalLinkViewModel>();
+            CreateMap<ExternalLinkVo, ExternalLinkBaseViewModel>();
 
             #endregion Profile
 

@@ -25,7 +25,7 @@ namespace IndieVisible.Domain.Core.Enums
         [ExternalLinkInfo(Display = "PlayStation Store", Class = "fab fa-playstation", ColorClass = "bg-black-active", Order = 22, Type = ExternalLinkType.ProfileAndGame, IsStore = true)]
         PlaystationStore = 7,
 
-        [ExternalLinkInfo(Display = "Steam", Class = "fab fa-steam", ColorClass = "bg-black", Order = 23, Type = ExternalLinkType.ProfileAndGame, IsStore = true)]
+        [ExternalLinkInfo(Display = "Steam", Class = "fab fa-steam", ColorClass = "bg-steam text-white", Order = 23, Type = ExternalLinkType.ProfileAndGame, IsStore = true)]
         Steam = 8,
 
         [ExternalLinkInfo(Display = "Game Jolt", Class = "gamejolt", ColorClass = "btn-gamejolt", Order = 1, Type = ExternalLinkType.GameDev, IsStore = true)]
@@ -52,7 +52,28 @@ namespace IndieVisible.Domain.Core.Enums
         [ExternalLinkInfo(Display = "Indiexpo", Class = "fas fa-gamepad", ColorClass = "bg-black-active", Order = 33, Type = ExternalLinkType.ProfileAndGame, IsStore = true)]
         IndiExpo = 16,
 
-        [ExternalLinkInfo(Display = "Artstation", Class = "fab fa-artstation", ColorClass = "bg-black-active", Order = 34, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
-        Artstation = 17
+        [ExternalLinkInfo(Display = "Artstation", Class = "fab fa-artstation", ColorClass = "bg-artstation text-white", Order = 34, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        Artstation = 17,
+
+        [ExternalLinkInfo(Display = "DeviantArt", Class = "fab fa-deviantart", ColorClass = "bg-deviantart text-white", Order = 35, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        DeviantArt = 18,
+
+        [ExternalLinkInfo(Display = "Dev.to", Class = "fab fa-dev", ColorClass = "bg-black-active", Order = 36, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        DevTo = 19,
+
+        [ExternalLinkInfo(Display = "GitHub", Class = "fab fa-github", ColorClass = "bg-black-active", Order = 37, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        GitHub = 20,
+
+        [ExternalLinkInfo(Display = "HackerRank", Class = "fab fa-hackerrank", ColorClass = "bg-black-active", Order = 38, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        HackerRank = 21,
+
+        [ExternalLinkInfo(Display = "LinkedIn", Class = "fab fa-linkedin-in", ColorClass = "btn-linkedin", Order = 39, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        LinkedIn = 22,
+
+        [ExternalLinkInfo(Display = "Patreon", Class = "fab fa-patreon", ColorClass = "btn-patreon", Order = 40, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        Patreon = 23,
+
+        [ExternalLinkInfo(Display = "Medium", Class = "fab fa-medium-m", ColorClass = "bg-black text-white", Order = 41, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
+        Medium = 24
     }
 }

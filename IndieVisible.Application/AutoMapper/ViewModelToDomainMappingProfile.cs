@@ -13,6 +13,7 @@ using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Models;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using Profile = AutoMapper.Profile;
 
@@ -34,6 +35,8 @@ namespace IndieVisible.Application.AutoMapper
 
             CreateMap<NotificationItemViewModel, Domain.Models.Notification>();
 
+            CreateMap<ExternalLinkBaseViewModel, ExternalLinkVo>();
+
             #endregion General
 
             #region Game
@@ -44,8 +47,6 @@ namespace IndieVisible.Application.AutoMapper
                     .ForMember(dest => dest.ExternalLinks, opt => opt.Ignore())
                     .AfterMap<AddOrUpdateGameExternalLinks>();
 
-            CreateMap<GameExternalLinkViewModel, Domain.Models.GameExternalLink>();
-
             #endregion Game
 
             #region Profile
@@ -53,8 +54,6 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<ProfileViewModel, Domain.Models.UserProfile>()
                 .ForMember(dest => dest.Followers, opt => opt.Ignore())
                 .AfterMap<AddOrUpdateProfileExternalLinks>();
-
-            CreateMap<UserProfileExternalLinkViewModel, Domain.Models.UserProfileExternalLink>();
 
             #endregion Profile
 

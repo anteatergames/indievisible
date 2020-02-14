@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Models;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using System;
@@ -18,7 +19,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
                 map.MapMember(x => x.CreateDate).SetDefaultValue(DateTime.Now);
                 map.AddKnownType(typeof(UserProfile));
                 map.AddKnownType(typeof(Game));
-                map.AddKnownType(typeof(UserProfileExternalLink));
                 map.AddKnownType(typeof(UserContent));
                 map.AddKnownType(typeof(Gamification));
                 map.AddKnownType(typeof(GamificationLevel));

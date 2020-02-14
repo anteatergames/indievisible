@@ -490,3 +490,19 @@
 .bg-patreon {
     background-color: #f96854 !important;
 }
+.btn-patreon {
+    color: var(--color-white) !important;
+    background-color: #f96854 !important;
+}
+
+.bg-deviantart {
+    background-color: #05CC46 !important;
+}
+
+.bg-steam {
+    background-color: #171a21 !important;
+}
+
+.bg-artstation {
+    background-color: #089CE4 !important;
+}

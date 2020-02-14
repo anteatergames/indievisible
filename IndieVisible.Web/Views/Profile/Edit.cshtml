@@ -86,15 +86,15 @@
                                     </div>
 
                                     <div class="tab-pane" id="externaltab" role="tabpanel">
+                                        <p>
+                                            @SharedLocalizer["Fill in just the external links you want to show on your profile. The ones you leave empty will not be shown."]
+                                        </p>
+
                                         @for (int i = 0; i < Model.ExternalLinks.Count; i++)
                                         {
                                             var externalLink = Model.ExternalLinks.ElementAt(i);
 
                                             <div class="bordered mb-1 p-2 p-md-3 col-12 col-12">
-                                                <input type="hidden" asp-for="ExternalLinks[i].Id" />
-                                                <input type="hidden" asp-for="ExternalLinks[i].UserId" />
-                                                <input type="hidden" asp-for="ExternalLinks[i].UserProfileId" />
-                                                <input type="hidden" asp-for="ExternalLinks[i].CreateDate" />
                                                 <input type="hidden" asp-for="ExternalLinks[i].Type" />
                                                 <input type="hidden" asp-for="ExternalLinks[i].Provider" />
                                                 <div class="row">

@@ -213,7 +213,7 @@ namespace IndieVisible.Application.Formatters
 
         public static string ItchIoProfile(string handler)
         {
-            if (!string.IsNullOrWhiteSpace(handler) && !handler.EndsWith("itch.io"))
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("itch.io"))
             {
                 handler = ExternalUrlCommon(handler);
                 return String.Format("https://{0}.itch.io", handler);
@@ -328,6 +328,97 @@ namespace IndieVisible.Application.Formatters
             if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("artstation.com"))
             {
                 return String.Format("https://www.artstation.com/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string DeviantArtProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("deviantart.com"))
+            {
+                return String.Format("https://www.deviantart.com/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string DevToProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("dev.to"))
+            {
+                return String.Format("https://dev.to/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string GitHubProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("github.com"))
+            {
+                return String.Format("https://github.com/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string HackerRankProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("hackerrank.com"))
+            {
+                return String.Format("https://www.hackerrank.com/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string LinkedInProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("linkedin.com"))
+            {
+                return String.Format("https://www.linkedin.com/in/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string PatreonProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("patreon.com"))
+            {
+                return String.Format("https://www.patreon.com/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        public static string MediumProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("medium.com"))
+            {
+                return String.Format("https://medium.com/@{0}", handler);
             }
             else
             {

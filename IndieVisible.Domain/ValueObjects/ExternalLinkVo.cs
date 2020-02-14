@@ -2,12 +2,10 @@
 using IndieVisible.Domain.Core.Models;
 using System;
 
-namespace IndieVisible.Domain.Models
+namespace IndieVisible.Domain.ValueObjects
 {
-    public class UserProfileExternalLink : Entity
+    public class ExternalLinkVo
     {
-        public Guid UserProfileId { get; set; }
-
         public ExternalLinkType Type { get; set; }
 
         public ExternalLinkProvider Provider { get; set; }

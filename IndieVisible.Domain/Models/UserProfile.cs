@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Models;
+using IndieVisible.Domain.ValueObjects;
 using System.Collections.Generic;
 
 namespace IndieVisible.Domain.Models
@@ -20,8 +21,13 @@ namespace IndieVisible.Domain.Models
 
         public bool HasCoverImage { get; set; }
 
-        public List<UserProfileExternalLink> ExternalLinks { get; set; }
+        public List<ExternalLinkVo> ExternalLinks { get; set; }
 
         public List<UserFollow> Followers { get; set; }
+
+        public UserProfile()
+        {
+            ExternalLinks = new List<ExternalLinkVo>();
+        }
     }
 }

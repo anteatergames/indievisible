@@ -51,7 +51,7 @@ namespace IndieVisible.Application.ViewModels.User
 
         public IndieXpCounter IndieXp { get; set; }
 
-        public List<UserProfileExternalLinkViewModel> ExternalLinks { get; set; }
+        public List<ExternalLinkBaseViewModel> ExternalLinks { get; set; }
         public List<UserFollowViewModel> Followers { get; set; }
         public List<UserConnectionViewModel> Connections { get; set; }
 
@@ -61,7 +61,7 @@ namespace IndieVisible.Application.ViewModels.User
         {
             Counters = new UserCounters();
             IndieXp = new IndieXpCounter();
-            ExternalLinks = new List<UserProfileExternalLinkViewModel>();
+            ExternalLinks = new List<ExternalLinkBaseViewModel>();
             ConnectionControl = new ConnectionControlViewModel();
         }
     }
