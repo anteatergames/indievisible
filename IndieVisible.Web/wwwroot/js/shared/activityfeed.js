@@ -111,11 +111,28 @@ var ACTIVITYFEED = (function () {
                 selectors.divActivityFeed.html(response);
             }
 
+
+            loadShare();
             loadOembeds();
 
             if (callback) {
                 callback();
             }
+        });
+    }
+
+    function loadShare() {
+        $("[data-toggle='popover']").each(function (index, element) {
+            var btn = $(element);
+
+            var data = btn.data();
+            if (data.target) {
+                var contentElement = $(data.target);
+                var contentHtml = contentElement.html();
+                data.content = contentHtml;
+                data.html = true;
+            }
+            btn.popover(data);
         });
     }
 

@@ -2,14 +2,23 @@
     "use strict";
 
     var selectors = {};
+    var objs = {};
 
     function init() {
-        cacheSelectors();
+        setSelectors();
+        cacheObjects();
 
         bindAll();
     }
 
-    function cacheSelectors() {
+    function setSelectors() {
+        selectors.container = 'body';
+        selectors.btnShare = '.btn-share';
+    }
+
+    function cacheObjects() {
+        objs.container = $(selectors.container);
+        console.log(objs.container);
     }
 
     function bindAll() {
@@ -80,19 +89,63 @@
         });
     }
 
+    //function bindShare() {
+    //    $('body').on('click', '.btn-social-icon.btn-share.btn-facebook', function (e) {
+    //        e.preventDefault();
+
+    //        var btn = $(this);
+
+    //        var url = btn.prop('href');
+
+    //        console.log(url);
+
+    //        FB.ui({
+    //            method: 'share',
+    //            href: url
+    //        }, function (response) { });
+
+    //        $(this).popover('show');
+
+    //        return false;
+    //    });
+    //}
+
+
+
     function bindShare() {
-        $('body').on('click', '.btn-interaction-share', function (e) {
+        console.log('bindShare');
+        objs.container.on('click', selectors.btnShare, function (e) {
             e.preventDefault();
-            var urlElement = $(this).closest('.box').find('.contenturl');
+            console.log($(this));
+            var url = $(this).prop('href');
+            var title = $(this).data('title');
+            var provider = $(this).data('provider');
 
-            var url = urlElement.prop('href');
+            url = encodeURI(url);
 
-            console.log(url);
 
-            FB.ui({
-                method: 'share',
-                href: url
-            }, function (response) { });
+            if (provider === 'facebook') {
+                FB.ui({
+                    method: 'share',
+                    href: url
+                }, function (response) { });
+            }
+            else if (provider === 'reddit') {
+                url = 'https://www.reddit.com/submit?title=' + title + '&url=' + url;
+
+                window.open(url);
+            }
+            else if (provider === 'twitter') {
+                var text = $(this).data('text');
+                url = 'https://www.twitter.com/intent/tweet?text=' + text + ' ' + url;
+
+                window.open(url);
+            }
+            else {
+                console.log(provider);
+            }
+
+            return false;
         });
     }
 
