@@ -146,7 +146,7 @@
                         <h5>@SharedLocalizer["Share it!"]</h5>
                         <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-facebook" data-provider="facebook" data-title="@item.Title"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                         <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-reddit" data-provider="reddit" data-title="@item.Title" target="_blank"><i class="fab fa-reddit-alien" aria-hidden="true"></i></a>
-                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-twitter" data-provider="twitter" data-text="@SharedLocalizer["Check this job position: {0}", item.Title]" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-twitter" data-provider="twitter" data-text="@SharedLocalizer["Check this out! {0}", item.Title]" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 
