@@ -23,6 +23,8 @@ var ACTIVITYFEED = (function () {
         selectors.divActivityFeed = divActivityFeed;
         selectorText.btnMorePosts = '#btnMorePosts';
         selectorText.btnDeletePost = '.btnDeletePost';
+        selectors.btnInteractionShare = '.btn-interaction-share';
+        selectors.sharePopup = '.share-popup';
 
         bindAll();
     }
@@ -122,17 +124,33 @@ var ACTIVITYFEED = (function () {
     }
 
     function loadShare() {
-        $("[data-toggle='popover']").each(function (index, element) {
+        $(selectors.btnInteractionShare).each(function (index, element) {
             var btn = $(element);
-
             var data = btn.data();
+            var contentElement = $(data.target);
+
             if (data.target) {
-                var contentElement = $(data.target);
-                var contentHtml = contentElement.html();
-                data.content = contentHtml;
-                data.html = true;
+                $(btn).off('click');
+                $(btn).on('click', function (e) {
+
+                    contentElement.on('mouseleave', function () {
+                        setTimeout(function () {
+                            if (contentElement.is(':visible')) {
+                                contentElement.fadeOut();
+                            }
+                        }, 500);
+                    });
+
+                    $(selectors.sharePopup).fadeOut();
+
+                    if (contentElement.is(':visible')) {
+                        contentElement.fadeOut();
+                    }
+                    else {
+                        contentElement.fadeIn();
+                    }
+                });
             }
-            btn.popover(data);
         });
     }
 

@@ -35,6 +35,8 @@
         selectors.notificationsMenu = "#notificationsMenu";
         selectors.spanMessage = "#spanMessage";
         selectors.translatedJavascriptMessages = "#translatedJavascriptMessages";
+        selectors.sharePopup = '.share-popup';
+        selectors.btnInteractionShare = '.btn-interaction-share';
     }
 
     function cacheObjects() {
@@ -59,7 +61,6 @@
             clickedMenu.addClass('active');
         });
     }
-
     function loadTranslatedMessages() {
         objs.translatedJavascriptMessages.find('.msg').each(function (index, element) {
             var msgId = $(this).data('msgId');

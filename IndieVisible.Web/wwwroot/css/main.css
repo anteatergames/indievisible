@@ -152,3 +152,16 @@ select.form-control {
 .tilt-20 {
     transform: rotate(-20deg);
 }
+
+.share-popup {
+    display:none;
+    position: absolute;
+    right: 0;
+    bottom: 70px;
+    z-index: 999;
+    padding-bottom: 20px !important;
+}
+
+    .share-popup .share-popup-inner {
+        background-color: white;
+    }

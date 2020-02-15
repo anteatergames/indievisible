@@ -14,11 +14,11 @@
     function setSelectors() {
         selectors.container = 'body';
         selectors.btnShare = '.btn-share';
+        selectors.sharePopup = '.share-popup';
     }
 
     function cacheObjects() {
         objs.container = $(selectors.container);
-        console.log(objs.container);
     }
 
     function bindAll() {
@@ -89,34 +89,12 @@
         });
     }
 
-    //function bindShare() {
-    //    $('body').on('click', '.btn-social-icon.btn-share.btn-facebook', function (e) {
-    //        e.preventDefault();
-
-    //        var btn = $(this);
-
-    //        var url = btn.prop('href');
-
-    //        console.log(url);
-
-    //        FB.ui({
-    //            method: 'share',
-    //            href: url
-    //        }, function (response) { });
-
-    //        $(this).popover('show');
-
-    //        return false;
-    //    });
-    //}
-
-
-
     function bindShare() {
-        console.log('bindShare');
         objs.container.on('click', selectors.btnShare, function (e) {
             e.preventDefault();
-            console.log($(this));
+
+            $(selectors.sharePopup).fadeOut();
+
             var url = $(this).prop('href');
             var title = $(this).data('title');
             var provider = $(this).data('provider');
