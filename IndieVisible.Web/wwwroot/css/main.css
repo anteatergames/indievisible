@@ -157,7 +157,7 @@ select.form-control {
     display:none;
     position: absolute;
     right: 0;
-    bottom: 70px;
+    bottom: 20px;
     z-index: 999;
     padding-bottom: 20px !important;
 }

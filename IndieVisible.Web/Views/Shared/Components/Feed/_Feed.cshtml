@@ -140,16 +140,6 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-
-                <div id="divPopOverShare@(item.Id)" class="mr-3 share-popup">
-                    <div class="bordered p-2 share-popup-inner">
-                        <h5>@SharedLocalizer["Share it!"]</h5>
-                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-facebook" data-provider="facebook" data-title="@item.Title"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-reddit" data-provider="reddit" data-title="@item.Title" target="_blank"><i class="fab fa-reddit-alien" aria-hidden="true"></i></a>
-                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-twitter" data-provider="twitter" data-text="@SharedLocalizer["Check this out! {0}", item.Title]" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                
                 <div class="row no-gutters bb-1 mt-3">
                     <button type="button" class="col-4 btn btn-lg bg-transparent btn-interaction btn-interaction-like @(item.CurrentUserLiked ? "text-blue like-liked" : string.Empty)" data-id="@item.Id">
                         <i class="fa fa-thumbs-up" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Like"]
@@ -161,7 +151,17 @@
                         <i class="fa fa-share" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Share"]
                     </button>
                 </div>
-                <div class="box-commentsection mt-10">
+
+                <div id="divPopOverShare@(item.Id)" class="mr-3 share-popup">
+                    <div class="bordered p-2 share-popup-inner">
+                        <h5>@SharedLocalizer["Share it!"]</h5>
+                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-facebook" data-provider="facebook" data-title="@item.Title"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-reddit" data-provider="reddit" data-title="@item.Title" target="_blank"><i class="fab fa-reddit-alien" aria-hidden="true"></i></a>
+                        <a asp-protocol="@ViewData["protocol"]" asp-host="@ViewData["host"]" asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-social-icon btn-share btn-twitter" data-provider="twitter" data-text="@SharedLocalizer["Check this out! {0}", item.Title]" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="box-commentsection mt-10 d-none">
                     <div class="box-comment-template d-none">
                         <img class="rounded img-sm rounded-circle" src="#" alt="User Image">
 
@@ -196,7 +196,7 @@
                     }
                 </div>
 
-                <div class="align-middle pt-10 interaction-commentbox" data-fullname="@myFullName">
+                <div class="align-middle pt-10 interaction-commentbox d-none" data-fullname="@myFullName">
                     <form action="#" method="post">
                         <img class="img-fluid rounded-circle img-sm" src="@ViewBag.ProfileImage" alt="Alt Text">
                         <div class="img-push">

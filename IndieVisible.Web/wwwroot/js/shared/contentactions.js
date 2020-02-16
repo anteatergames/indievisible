@@ -12,9 +12,12 @@
     }
 
     function setSelectors() {
-        selectors.container = 'body';
+        selectors.container = '.content';
         selectors.btnShare = '.btn-share';
         selectors.sharePopup = '.share-popup';
+        selectors.btnInteractionComment = '.btn-interaction-comment';
+        selectors.commentBox = '.interaction-commentbox';
+        selectors.commentTextArea = '.commenttextarea';
     }
 
     function cacheObjects() {
@@ -30,7 +33,7 @@
     }
 
     function bindLikeBtn() {
-        $('.content').on('click', '.btn-interaction-like', function (e) {
+        objs.container.on('click', '.btn-interaction-like', function (e) {
             var btn = $(this);
             var likeCount = btn.closest('.box-content').find('.like-count');
             var targetId = btn.data('id');
@@ -45,8 +48,22 @@
     }
 
     function bindCommentBtn() {
-        $('.content').on('click', '.btn-interaction-comment', function (e) {
-            $(this).closest('.box-content').find('textarea.commentbox').val('').focus();
+        $('.content').on('click', selectors.btnInteractionComment, function (e) {
+            var btn = $(this);
+            var commentSection = btn.closest('.box-content').find('.box-commentsection');
+            var commentBox = btn.closest('.box-content').find(selectors.commentBox);
+            var commentTextArea = btn.closest('.box-content').find(selectors.commentTextArea);            
+
+            if (commentSection.is(':visible')) {
+                commentSection.addClass('d-none');
+                commentBox.addClass('d-none');
+            }
+            else {
+                commentSection.removeClass('d-none');
+                commentBox.removeClass('d-none');
+
+                commentTextArea.val('').focus();
+            }
         });
     }
 
