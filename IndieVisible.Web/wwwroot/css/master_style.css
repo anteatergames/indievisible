@@ -2096,7 +2096,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 .comment-send-button:focus {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    background-color: transparent !important;
+    /*background-color: transparent !important;*/
 }
 
 @media (max-width: 767px) {
