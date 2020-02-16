@@ -23,7 +23,7 @@
 }
 
 .alert-danger, .alert-error {
-    border-color: var(--color-red-border);
+    border-color: var(--color-red-fx);
 }
 
 .badge {
@@ -31,11 +31,6 @@
 }
 
 .btn {
-    /*-webkit-box-shadow: none;
-    box-shadow: none;
-    border: 1px solid transparent;
-    cursor: pointer;
-    overflow: hidden;*/
     font-size: 0.8rem;
 }
 
@@ -50,7 +45,6 @@
     }
 
     .btn, .btn:hover {
-        /*-webkit-transition: all .5s ease-in-out;*/
         -webkit-transition: none;
         -o-transition: none;
         -moz-transition: none;
@@ -69,11 +63,11 @@
 
 .btn-primary {
     background-color: var(--color-primary);
-    border-color: #367fa9;
+    border-color: var(--color-primary-fx);
 }
 
     .btn-primary.hover, .btn-primary:active, .btn-primary:hover {
-        background-color: #367fa9;
+        background-color: var(--color-primary-fx);
     }
 
     .btn-primary:focus, .btn-primary.focus {
@@ -81,21 +75,21 @@
     }
 
 .btn-success {
-    background-color: #22af47;
-    border-color: #1a943b;
+    background-color: var(--color-green);
+    border-color: var(--color-green-fx);
 }
 
     .btn-success.hover, .btn-success:active, .btn-success:hover {
-        background-color: #1a943b;
+        background-color: var(--color-green-fx);
     }
 
     .btn-success:focus, .btn-success.focus {
-        color: #fff;
+        color: var(--color-white);
     }
 
 .btn-info {
-    background-color: #0092ee;
-    border-color: #007ac7;
+    background-color: var(--color-info);
+    border-color: var(--color-info-border);
 }
 
     .btn-info.hover, .btn-info:active, .btn-info:hover {

@@ -127,11 +127,16 @@ var ACTIVITYFEED = (function () {
         $(selectors.btnInteractionShare).each(function (index, element) {
             var btn = $(element);
             var data = btn.data();
-            var contentElement = $(data.target);
 
             if (data.target) {
+
                 $(btn).off('click');
                 $(btn).on('click', function (e) {
+                    var contentElement = $(data.target);
+
+                    var btnOffset = btn.position();
+
+                    contentElement.css('top', btnOffset.top - 80);
 
                     contentElement.on('mouseleave', function () {
                         setTimeout(function () {

@@ -11,12 +11,16 @@ html {
     --color-white: #fff;
     --color-blue: #45aef1;
     --color-green: #22af47;
+    --color-green-fx: #1a943b;
     --color-yellow: #ffbf36;
     --color-red: #f83f37;
-    --color-red-border: #dc2d27;
+    --color-red-fx: #dc2d27;
     --color-purple: #ab26aa;
     /*boostrap*/
     --color-primary: #45aef1;
+    --color-primary-fx: #367fa9;
+    --color-info: #0092ee;
+    --color-info-border: #007ac7;
     /*social*/
     --reddit-color-bg: #FF5700;
     --reddit-color-bg-hover: #1A1A1B;
@@ -302,7 +306,7 @@ a {
 }
 
 .bg-light-blue, .bg-primary, .label-primary, .modal-primary .modal-body {
-    background-color: #45aef1 !important;
+    background-color: var(--color-primary) !important;
 }
 
 .alert-success, .bg-green, .bg-success, .label-success, .modal-success .modal-body {
