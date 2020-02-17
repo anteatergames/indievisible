@@ -1160,7 +1160,7 @@ ul.flexbox {
 
 /*-----------------*/
 .box-comments .box-comment, .box-comments .box-comment-template {
-    padding: 8px 0;
+    padding-top: 8px;
 }
 
     .box-comments .box-comment:after, .box-comments .box-comment:before {

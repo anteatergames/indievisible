@@ -1,11 +1,12 @@
-﻿using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels.Brainstorm
 {
-    public class BrainstormIdeaViewModel : UserGeneratedCommentBaseViewModel<BrainstormCommentViewModel>
+    public class BrainstormIdeaViewModel : UserGeneratedCommentBaseViewModel, ICommentableItem
     {
         public Guid SessionId { get; set; }
 

@@ -102,9 +102,13 @@ namespace IndieVisible.Application.Services
                     vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.LowQuality);
                 }
 
-                LoadAuthenticatedData(currentUserId, vm);
+                vm.LikeCount = vm.Likes.Count;
+
+                vm.CommentCount = vm.Comments.Count;
 
                 vm.Poll = SetPoll(currentUserId, vm.Id);
+
+                LoadAuthenticatedData(currentUserId, vm);
 
                 return new OperationResultVo<UserContentViewModel>(vm);
             }
@@ -355,13 +359,13 @@ namespace IndieVisible.Application.Services
             return pollVm;
         }
 
-        private void LoadAuthenticatedData(Guid currentUserId, UserGeneratedCommentBaseViewModel<UserContentCommentViewModel> item)
+        private void LoadAuthenticatedData(Guid currentUserId, UserGeneratedCommentBaseViewModel item)
         {
             if (currentUserId != Guid.Empty)
             {
                 item.CurrentUserLiked = item.Likes.Any(x => x == currentUserId);
 
-                foreach (UserContentCommentViewModel comment in item.Comments)
+                foreach (CommentViewModel comment in item.Comments)
                 {
                     UserProfile commenterProfile = GetCachedProfileByUserId(comment.UserId);
                     if (commenterProfile == null)
@@ -443,7 +447,7 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Comment(UserContentCommentViewModel vm)
+        public OperationResultVo Comment(CommentViewModel vm)
         {
             try
             {

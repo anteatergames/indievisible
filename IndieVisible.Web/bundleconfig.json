@@ -65,6 +65,7 @@
   {
     "outputFileName": "wwwroot/js/content/contentdetails.min.js",
     "inputFiles": [
+      "wwwroot/js/shared/contentactions.js",
       "wwwroot/js/content/contentdetails.js",
       "wwwroot/js/shared/polls.js"
     ]

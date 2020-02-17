@@ -1,6 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Brainstorm;
-using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
@@ -165,7 +165,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         [HttpPost("brainstorm/comment")]
-        public IActionResult Comment(UserContentCommentViewModel vm)
+        public IActionResult Comment(CommentViewModel vm)
         {
             OperationResultVo response;
 

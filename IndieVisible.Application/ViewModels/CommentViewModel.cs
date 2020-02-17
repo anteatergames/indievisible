@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace IndieVisible.Application.ViewModels.Content
+namespace IndieVisible.Application.ViewModels
 {
-    public class UserContentCommentViewModel : UserGeneratedBaseViewModel
+    public class CommentViewModel : UserGeneratedBaseViewModel
     {
         public Guid ParentCommentId { get; set; }
 

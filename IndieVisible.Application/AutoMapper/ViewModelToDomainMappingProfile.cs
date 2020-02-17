@@ -37,6 +37,10 @@ namespace IndieVisible.Application.AutoMapper
 
             CreateMap<ExternalLinkBaseViewModel, ExternalLinkVo>();
 
+            CreateMap<CommentViewModel, Domain.Models.UserContentComment>();
+
+            CreateMap<CommentViewModel, Domain.Models.BrainstormComment>();
+
             #endregion General
 
             #region Game
@@ -60,8 +64,6 @@ namespace IndieVisible.Application.AutoMapper
             #region Content
 
             CreateMap<UserContentViewModel, Domain.Models.UserContent>();
-
-            CreateMap<UserContentCommentViewModel, Domain.Models.UserContentComment>();
 
             #endregion Content
 

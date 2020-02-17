@@ -1,5 +1,7 @@
-﻿using IndieVisible.Application.ViewModels.Poll;
+﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +9,7 @@ using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.Content
 {
-    public class UserContentViewModel : UserGeneratedCommentBaseViewModel<UserContentCommentViewModel>
+    public class UserContentViewModel : UserGeneratedCommentBaseViewModel, ICommentableItem
     {
         [Display(Name = "Featured Image")]
         public string FeaturedImage { get; set; }
@@ -28,9 +30,6 @@ namespace IndieVisible.Application.ViewModels.Content
         //[Required(ErrorMessage = "The Content is required")]
         public string Content { get; set; }
 
-        [Display(Name = "Language")]
-        public SupportedLanguage Language { get; set; }
-
         [Display(Name = "Related Game")]
         public Guid? GameId { get; set; }
 
@@ -47,11 +46,6 @@ namespace IndieVisible.Application.ViewModels.Content
         public bool HasPoll { get { return Poll != null && Poll.PollOptions.Any(); } }
 
         public PollViewModel Poll { get; set; }
-        public string Url { get; set; }
-
-        public int LikeCount { get; set; }
-
-        public int CommentCount { get; set; }
 
         public bool IsArticle { get; set; }
     }

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using IndieVisible.Domain.Interfaces.Models;
+using System;
 
 namespace IndieVisible.Application.ViewModels.Brainstorm
 {
-    public class BrainstormCommentViewModel : BaseViewModel
+    public class BrainstormCommentViewModel : BaseViewModel, IComment
     {
         public Guid? ParentCommentId { get; set; }
 

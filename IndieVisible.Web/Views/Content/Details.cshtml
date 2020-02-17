@@ -6,100 +6,6 @@
     ViewData["OgImage"] = Model.FeaturedImage;
 }
 
-<div class="box p-0 bg-white">
-    <div class="col-12 p-2">
-        <h1 data-language="@Model.Language" class="float-left @(!Model.IsComplex ? "sr-only" : string.Empty)">
-            @Model.Title
-        </h1>
-        @if (Model.Permissions.CanEdit)
-        {
-            <span class="float-right">
-                <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-default bg-transparent"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
-            </span>
-        }
-    </div>
-    @if (Model.HasFeaturedImage)
-    {
-        <div class="box-body p-0 text-center">
-            @if (Model.FeaturedMediaType == MediaType.Youtube)
-            {
-                <div class="videoWrapper"><oembed>@Model.FeaturedImage</oembed></div>
-            }
-            else if (Model.FeaturedMediaType == MediaType.Video)
-            {
-                <video src="@Model.FeaturedImage" width="500" height="281" controls>
-                    <track kind="captions" src="~/default.vtt" srclang="en">
-                </video>
-            }
-            else
-            {
-                <img data-src="@Model.FeaturedImage" src="@Model.FeaturedImageLquip" class="img-fluid lazyload blur-up" style="width:100%" alt="@(String.IsNullOrWhiteSpace(Model.Title) ? SharedLocalizer["User Content"] : Model.Title)" />
-            }
-        </div>
-    }
-    <div class="box-body">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="user-block">
-                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
-                        <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
-                    </a>
-                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
-                        <span class="username">@Model.AuthorName</span>
-                    </a>
-                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id">
-                        <span class="description">@Model.CreateDate.ToString()</span>
-                    </a>
-                </div>
-            </div>
-            @if (Model.GameId.HasValue)
-            {
-                <div class="col-12 col-md-6 text-right">
-                    <div>
-                        <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.GameId">
-                            <span class="mr-2">@Model.GameTitle</span>
-                            <img src="@Model.GameThumbnail" height="50" class="float-right" alt="Game Thumbnail" />
-                        </a>
-                    </div>
-                </div>
-            }
-        </div>
-        @Html.Raw(Model.Introduction)
-    </div>
-    <hr />
-    <div class="box-body">
-        @Html.Raw(Model.Content)
-    </div>
-
-    @if (Model.HasPoll)
-    {
-        <div class="poll-wrapper">
-            @{
-                var pollName = String.Format("poll_{0}", Model.Id);
-                <ul class="poll @(User.Identity.IsAuthenticated ? "canvote" : " cannotvote")" id="@pollName">
-                    @for (int i = 0; i < Model.Poll.PollOptions.Count; i++)
-                    {
-                        var option = Model.Poll.PollOptions.ElementAt(i);
-                        var optionName = String.Format("poll_{0}_{1}", Model.Id, option.Id);
-                        <li class="@(option.CurrentUserVoted ? "voted" : "notvoted") ">
-                            <span class="perc-back" style="width: @(option.VotePercentageText)%"></span>
-                            <input type="radio" class="poll-option" name="@pollName" id="@optionName" value="@option.Id">
-                            <label for="@optionName">
-                                <span>@option.Text</span>
-                            </label>
-                            <span class="perc-number">@(option.VotePercentageText)%</span>
-                        </li>
-                    }
-                </ul>
-                <div class="col-12 px-3 text-right">
-                    <span class="poll-vote-count">@Model.Poll.TotalVotes</span>
-                    &nbsp;@SharedLocalizer["votes"]
-                </div>
-            }
-        </div>
-    }
-</div>
-
 @section Styles {
     <environment include="Development">
         <link rel="stylesheet" href="~/css/polls.css" />
@@ -108,10 +14,12 @@
         <link rel="stylesheet" href="~/css/contentdetails.min.css" asp-append-version="true" />
     </environment>
 }
+
 @section Scripts {
 
     <environment include="Development">
         <script src="~/js/shared/polls.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
         <script src="~/js/content/contentdetails.js"></script>
     </environment>
     <environment exclude="Development">
@@ -177,3 +85,104 @@
         }
     </script>
 }
+
+<div class="box box-content p-0 bg-white">
+    <div class="col-12 p-2">
+        <div class="row">
+            <div class="col-12">
+                <h1 data-language="@Model.Language" class="float-left @(!Model.IsComplex ? "sr-only" : string.Empty)">
+                    @Model.Title
+                </h1>
+                @if (Model.Permissions.CanEdit)
+                {
+                    <span class="float-right">
+                        <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-default bg-transparent"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+                    </span>
+                }
+            </div>
+        </div>
+    </div>
+    @if (Model.HasFeaturedImage)
+    {
+        <div class="box-body p-0 text-center">
+            @if (Model.FeaturedMediaType == MediaType.Youtube)
+            {
+                <div class="videoWrapper"><oembed>@Model.FeaturedImage</oembed></div>
+            }
+            else if (Model.FeaturedMediaType == MediaType.Video)
+            {
+                <video src="@Model.FeaturedImage" width="500" height="281" controls>
+                    <track kind="captions" src="~/default.vtt" srclang="en">
+                </video>
+            }
+            else
+            {
+                <img data-src="@Model.FeaturedImage" src="@Model.FeaturedImageLquip" class="img-fluid lazyload blur-up" style="width:100%" alt="@(String.IsNullOrWhiteSpace(Model.Title) ? SharedLocalizer["User Content"] : Model.Title)" />
+            }
+        </div>
+    }
+    <div class="box-body">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="user-block">
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                        <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                    </a>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                        <span class="username">@Model.AuthorName</span>
+                    </a>
+                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id">
+                        <span class="description">@Model.CreateDate.ToString()</span>
+                    </a>
+                </div>
+            </div>
+            @if (Model.GameId.HasValue)
+            {
+                <div class="col-12 col-md-6 text-right">
+                    <div>
+                        <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.GameId">
+                            <span class="mr-2">@Model.GameTitle</span>
+                            <img src="@Model.GameThumbnail" height="50" class="float-right" alt="Game Thumbnail" />
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+        @Html.Raw(Model.Introduction)
+    </div>
+    <hr />
+
+    <div class="box-body">
+        @Html.Raw(Model.Content)
+    </div>
+
+    @if (Model.HasPoll)
+    {
+        <div class="poll-wrapper">
+            @{
+                var pollName = String.Format("poll_{0}", Model.Id);
+                <ul class="poll @(User.Identity.IsAuthenticated ? "canvote" : " cannotvote")" id="@pollName">
+                    @for (int i = 0; i < Model.Poll.PollOptions.Count; i++)
+                    {
+                        var option = Model.Poll.PollOptions.ElementAt(i);
+                        var optionName = String.Format("poll_{0}_{1}", Model.Id, option.Id);
+                        <li class="@(option.CurrentUserVoted ? "voted" : "notvoted") ">
+                            <span class="perc-back" style="width: @(option.VotePercentageText)%"></span>
+                            <input type="radio" class="poll-option" name="@pollName" id="@optionName" value="@option.Id">
+                            <label for="@optionName">
+                                <span>@option.Text</span>
+                            </label>
+                            <span class="perc-number">@(option.VotePercentageText)%</span>
+                        </li>
+                    }
+                </ul>
+                <div class="col-12 px-3 text-right">
+                    <span class="poll-vote-count">@Model.Poll.TotalVotes</span>
+                    &nbsp;@SharedLocalizer["votes"]
+                </div>
+            }
+        </div>
+    }
+
+    <partial name="_CommentSection" model="Model" />
+</div>

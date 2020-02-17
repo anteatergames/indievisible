@@ -18,6 +18,8 @@
         selectors.btnInteractionComment = '.btn-interaction-comment';
         selectors.commentBox = '.interaction-commentbox';
         selectors.commentTextArea = '.commenttextarea';
+        selectors.btnInteractionShare = '.btn-interaction-share';
+        selectors.sharePopup = '.share-popup';
     }
 
     function cacheObjects() {
@@ -30,6 +32,7 @@
         bindCommentTextArea();
         bindCommentSendBtn();
         bindShare();
+        bindShareContent();
     }
 
     function bindLikeBtn() {
@@ -52,7 +55,7 @@
             var btn = $(this);
             var commentSection = btn.closest('.box-content').find('.box-commentsection');
             var commentBox = btn.closest('.box-content').find(selectors.commentBox);
-            var commentTextArea = btn.closest('.box-content').find(selectors.commentTextArea);            
+            var commentTextArea = btn.closest('.box-content').find(selectors.commentTextArea);
 
             if (commentSection.is(':visible')) {
                 commentSection.addClass('d-none');
@@ -144,6 +147,42 @@
         });
     }
 
+    function bindShareContent() {
+        $(selectors.btnInteractionShare).each(function (index, element) {
+            var btn = $(element);
+            var data = btn.data();
+
+            if (data.target) {
+                $(btn).off('click');
+                $(btn).on('click', function (e) {
+                    console.log('clickshare');
+                    var contentElement = $(data.target);
+
+                    var btnOffset = btn.position();
+
+                    contentElement.css('top', btnOffset.top - 80);
+
+                    contentElement.on('mouseleave', function () {
+                        setTimeout(function () {
+                            if (contentElement.is(':visible')) {
+                                contentElement.fadeOut();
+                            }
+                        }, 500);
+                    });
+
+                    $(selectors.sharePopup).fadeOut();
+
+                    if (contentElement.is(':visible')) {
+                        contentElement.fadeOut();
+                    }
+                    else {
+                        contentElement.fadeIn();
+                    }
+                });
+            }
+        });
+    }
+
     function like(targetId) {
         return $.post("/content/like", { targetId: targetId });
     }
@@ -206,7 +245,8 @@
 
     return {
         Init: init,
-        AutosizeTextArea: autosize
+        AutosizeTextArea: autosize,
+        BindShareContent: bindShareContent
     };
 }());
 

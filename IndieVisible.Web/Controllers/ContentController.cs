@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Application;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.Poll;
@@ -85,6 +86,8 @@ namespace IndieVisible.Web.Controllers
 
             vm.Permissions.CanEdit = vm.UserId == CurrentUserId || userIsAdmin;
             vm.Permissions.CanDelete = vm.UserId == CurrentUserId || userIsAdmin;
+
+            ViewData["IsDetails"] = true;
 
             return View(vm);
         }
@@ -234,7 +237,7 @@ namespace IndieVisible.Web.Controllers
 
         [HttpPost]
         [Route("content/comment")]
-        public IActionResult Comment(UserContentCommentViewModel vm)
+        public IActionResult Comment(CommentViewModel vm)
         {
             OperationResultVo response;
 

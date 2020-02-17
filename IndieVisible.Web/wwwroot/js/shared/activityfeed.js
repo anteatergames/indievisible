@@ -113,48 +113,11 @@ var ACTIVITYFEED = (function () {
                 selectors.divActivityFeed.html(response);
             }
 
-
-            loadShare();
+            CONTENTACTIONS.BindShareContent();
             loadOembeds();
 
             if (callback) {
                 callback();
-            }
-        });
-    }
-
-    function loadShare() {
-        $(selectors.btnInteractionShare).each(function (index, element) {
-            var btn = $(element);
-            var data = btn.data();
-
-            if (data.target) {
-
-                $(btn).off('click');
-                $(btn).on('click', function (e) {
-                    var contentElement = $(data.target);
-
-                    var btnOffset = btn.position();
-
-                    contentElement.css('top', btnOffset.top - 80);
-
-                    contentElement.on('mouseleave', function () {
-                        setTimeout(function () {
-                            if (contentElement.is(':visible')) {
-                                contentElement.fadeOut();
-                            }
-                        }, 500);
-                    });
-
-                    $(selectors.sharePopup).fadeOut();
-
-                    if (contentElement.is(':visible')) {
-                        contentElement.fadeOut();
-                    }
-                    else {
-                        contentElement.fadeIn();
-                    }
-                });
             }
         });
     }

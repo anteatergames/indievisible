@@ -1,5 +1,5 @@
-﻿using IndieVisible.Application.ViewModels.Brainstorm;
-using IndieVisible.Application.ViewModels.Content;
+﻿using IndieVisible.Application.ViewModels;
+using IndieVisible.Application.ViewModels.Brainstorm;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using System;
@@ -10,7 +10,7 @@ namespace IndieVisible.Application.Interfaces
     {
         OperationResultVo Vote(Guid userId, Guid ideaId, VoteValue vote);
 
-        OperationResultVo Comment(UserContentCommentViewModel vm);
+        OperationResultVo Comment(CommentViewModel vm);
 
         OperationResultVo<BrainstormSessionViewModel> GetSession(Guid sessionId);
 

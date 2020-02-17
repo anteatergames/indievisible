@@ -2,14 +2,14 @@
 using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Brainstorm;
-using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,11 +71,11 @@ namespace IndieVisible.Application.Services
 
                 vm.CommentCount = idea.Comments.Count;
 
-                IQueryable<BrainstormCommentViewModel> commentsVm = idea.Comments.AsQueryable().ProjectTo<BrainstormCommentViewModel>(mapper.ConfigurationProvider);
+                IQueryable<CommentViewModel> commentsVm = idea.Comments.AsQueryable().ProjectTo<CommentViewModel>(mapper.ConfigurationProvider);
 
                 vm.Comments = commentsVm.OrderBy(x => x.CreateDate).ToList();
 
-                foreach (BrainstormCommentViewModel comment in vm.Comments)
+                foreach (CommentViewModel comment in vm.Comments)
                 {
                     UserProfile commenterProfile = GetCachedProfileByUserId(comment.UserId);
                     if (commenterProfile == null)
@@ -192,7 +192,7 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Comment(UserContentCommentViewModel vm)
+        public OperationResultVo Comment(CommentViewModel vm)
         {
             try
             {

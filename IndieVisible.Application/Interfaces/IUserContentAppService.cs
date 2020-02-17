@@ -1,4 +1,5 @@
-﻿using IndieVisible.Application.ViewModels.Content;
+﻿using IndieVisible.Application.ViewModels;
+using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.ValueObjects;
 using System;
@@ -18,6 +19,6 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo ContentUnlike(Guid currentUserId, Guid targetId);
 
-        OperationResultVo Comment(UserContentCommentViewModel vm);
+        OperationResultVo Comment(CommentViewModel vm);
     }
 }

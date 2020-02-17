@@ -20,15 +20,57 @@ namespace IndieVisible.Application.ViewModels
         }
     }
 
-    public abstract class UserGeneratedCommentBaseViewModel<TComment> : UserGeneratedBaseViewModel
+    public abstract class UserGeneratedCommentBaseViewModel : UserGeneratedBaseViewModel
     {
-        public List<TComment> Comments { get; set; }
+        public List<CommentViewModel> Comments { get; set; }
 
         public List<Guid> Likes { get; set; }
 
+        public string Url { get; set; }
+
+
+        [Display(Name = "Language")]
+        public SupportedLanguage Language { get; set; }
+
+        private int likeCount;
+        public int LikeCount
+        {
+            get
+            {
+                if (likeCount == 0)
+                {
+                    return Likes.Count;
+                }
+
+                return likeCount;
+            }
+            set
+            {
+                likeCount = value;
+            }
+        }
+
+        private int commentCount;
+        public int CommentCount
+        {
+            get
+            {
+                if (commentCount == 0)
+                {
+                    return Comments.Count;
+                }
+
+                return commentCount;
+            }
+            set
+            {
+                commentCount = value;
+            }
+        }
+
         protected UserGeneratedCommentBaseViewModel() : base()
         {
-            Comments = new List<TComment>();
+            Comments = new List<CommentViewModel>();
             Likes = new List<Guid>();
         }
     }

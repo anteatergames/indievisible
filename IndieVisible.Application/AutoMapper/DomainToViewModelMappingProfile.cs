@@ -32,6 +32,13 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<UserPreferences, UserPreferencesViewModel>()
                 .ForMember(dest => dest.Languages, opt => opt.MapFrom<UserLanguagesFromDomainResolver>());
 
+
+
+            CreateMap<UserContentComment, CommentViewModel>();
+
+
+            CreateMap<BrainstormComment, CommentViewModel>();
+
             #endregion General
 
             #region Game
@@ -60,8 +67,6 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<UserContent, UserContentViewModel>()
                 .ForMember(x => x.Likes, opt => opt.MapFrom(x => x.Likes.Select(y => y.UserId)))
                 .ForMember(x => x.LikeCount, opt => opt.MapFrom(x => x.Likes.Count));
-
-            CreateMap<UserContentComment, UserContentCommentViewModel>();
 
             CreateMap<UserContent, UserContentToBeFeaturedViewModel>();
 

@@ -1,4 +1,5 @@
 ﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.UserPreferences;
@@ -70,7 +71,7 @@ namespace IndieVisible.Web.ViewComponents
                     item.Content = ContentHelper.FormatContentToShow(item.Content);
                 }
 
-                foreach (UserContentCommentViewModel comment in item.Comments)
+                foreach (CommentViewModel comment in item.Comments)
                 {
                     comment.Text = ContentHelper.FormatHashTagsToShow(comment.Text);
                 }
