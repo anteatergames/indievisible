@@ -1,6 +1,4 @@
 ﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Models;
-using System;
 
 namespace IndieVisible.Domain.ValueObjects
 {

@@ -21,9 +21,6 @@ namespace IndieVisible.Application.ViewModels.Brainstorm
         [Display(Name = "Vote Count")]
         public int VoteCount { get; set; }
 
-        [Display(Name = "Comment Count")]
-        public int CommentCount { get; set; }
-
         [Display(Name = "Score")]
         public int Score { get; internal set; }
 

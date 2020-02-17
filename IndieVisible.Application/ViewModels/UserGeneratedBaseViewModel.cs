@@ -51,6 +51,8 @@ namespace IndieVisible.Application.ViewModels
         }
 
         private int commentCount;
+
+        [Display(Name = "Comment Count")]
         public int CommentCount
         {
             get

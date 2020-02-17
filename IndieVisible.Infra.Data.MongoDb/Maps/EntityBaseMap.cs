@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Models;
 using IndieVisible.Domain.Models;
-using IndieVisible.Domain.ValueObjects;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using System;

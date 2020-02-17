@@ -1,4 +1,4 @@
-﻿using IndieVisible.Domain.Interfaces.Models;
+﻿using IndieVisible.Application.Interfaces;
 using System;
 
 namespace IndieVisible.Application.ViewModels.Brainstorm
