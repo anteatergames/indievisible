@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Game;
-using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +16,7 @@ namespace IndieVisible.Application.AutoMapper.MappingActions
 
             foreach (ExternalLinkBaseViewModel externalLink in source.ExternalLinks)
             {
-                var existing = destination.ExternalLinks.FirstOrDefault(x => x.Provider == externalLink.Provider);
+                ExternalLinkVo existing = destination.ExternalLinks.FirstOrDefault(x => x.Provider == externalLink.Provider);
                 if (existing == null)
                 {
                     ExternalLinkVo newExternalLink = context.Mapper.Map<ExternalLinkVo>(externalLink);

@@ -709,7 +709,7 @@ namespace IndieVisible.Web.Controllers
 
         private async Task<string> UploadProfilePicture(string userId, string pictureUrl)
         {
-            string imageUrl = Constants.DefaultAvatar;
+            string imageUrl;
             byte[] thumbnailBytes;
 
             using (HttpClient httpClient = new HttpClient())
@@ -718,6 +718,11 @@ namespace IndieVisible.Web.Controllers
                 thumbnailBytes = await httpClient.GetByteArrayAsync(pictureUrl);
 
                 imageUrl = base.UploadImage(new Guid(userId), BlobType.ProfileImage, filename, thumbnailBytes);
+            }
+
+            if (string.IsNullOrWhiteSpace(imageUrl))
+            {
+                imageUrl = Constants.DefaultAvatar;
             }
 
             return imageUrl;

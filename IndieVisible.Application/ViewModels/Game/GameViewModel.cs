@@ -1,5 +1,4 @@
 ﻿using IndieVisible.Application.ViewModels.Team;
-using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using System;
 using System.Collections.Generic;

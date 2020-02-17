@@ -60,7 +60,7 @@ namespace IndieVisible.Application.Services
             try
             {
                 BrainstormIdea idea = brainstormDomainService.GetIdea(id);
-                BrainstormSession session = brainstormDomainService.GetById(idea.SessionId); // TODO get just session userId
+                Guid sessionUserId = brainstormDomainService.GetUserId(idea.SessionId);
 
                 BrainstormIdeaViewModel vm = mapper.Map<BrainstormIdeaViewModel>(idea);
 
@@ -91,7 +91,7 @@ namespace IndieVisible.Application.Services
                     comment.Text = string.IsNullOrWhiteSpace(comment.Text) ? Constants.SoundOfSilence : comment.Text;
                 }
 
-                vm.Permissions.CanEdit = currentUserId == session.UserId;
+                vm.Permissions.CanEdit = currentUserId == sessionUserId;
 
                 return new OperationResultVo<BrainstormIdeaViewModel>(vm);
             }

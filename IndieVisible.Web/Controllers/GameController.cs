@@ -3,7 +3,6 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.User;
-using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
@@ -80,7 +79,7 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Add()
         {
-            var serviceResult = gameAppService.CreateNew(CurrentUserId);
+            OperationResultVo<GameViewModel> serviceResult = gameAppService.CreateNew(CurrentUserId);
 
             if (serviceResult.Success)
             {

@@ -1,5 +1,4 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using System;
+﻿using System;
 
 namespace IndieVisible.Application.Interfaces
 {

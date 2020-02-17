@@ -4,7 +4,6 @@ using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
-using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Services;
 using IndieVisible.Web.Areas.Work.Controllers.Base;
@@ -280,7 +279,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             try
             {
-                var isNew = vm.Id == Guid.Empty;
                 vm.UserId = CurrentUserId;
 
                 if (!string.IsNullOrWhiteSpace(vm.ClosingDateText))
@@ -318,11 +316,11 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 OperationResultVo serviceResult = jobPositionAppService.Remove(CurrentUserId, jobPositionId);
 
 
-                var searchContentResult = userContentAppService.Search(CurrentUserId, jobPositionId.ToString());
+                OperationResultListVo<Application.ViewModels.Search.UserContentSearchViewModel> searchContentResult = userContentAppService.Search(CurrentUserId, jobPositionId.ToString());
 
                 if (searchContentResult.Success && searchContentResult.Value.Any())
                 {
-                    var existing = searchContentResult.Value.FirstOrDefault();
+                    Application.ViewModels.Search.UserContentSearchViewModel existing = searchContentResult.Value.FirstOrDefault();
 
                     if (existing != null)
                     {
@@ -359,12 +357,12 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         }
 
         [HttpPost("work/jobposition/apply/{jobPositionId:guid}")]
-        public  async Task<IActionResult> Apply(Guid jobPositionId, string coverLetter)
+        public async Task<IActionResult> Apply(Guid jobPositionId, string coverLetter)
         {
             try
             {
 
-                var user = await UserManager.GetUserAsync(User);
+                Infra.CrossCutting.Identity.Models.ApplicationUser user = await UserManager.GetUserAsync(User);
 
                 OperationResultVo serviceResult = jobPositionAppService.Apply(CurrentUserId, jobPositionId, user.Email, coverLetter);
 
@@ -372,8 +370,8 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 {
                     string url = Url.Action("Details", "JobPosition", new { area = "Work", id = jobPositionId });
 
-                    var result = serviceResult as OperationResultVo<Guid>;
-                    var poster = await UserManager.FindByIdAsync(result.Value.ToString());
+                    OperationResultVo<Guid> result = serviceResult as OperationResultVo<Guid>;
+                    Infra.CrossCutting.Identity.Models.ApplicationUser poster = await UserManager.FindByIdAsync(result.Value.ToString());
 
                     await NotificationSender.SendEmailApplicationAsync(poster.Email, user.Email, Url.JobPositionDetailsCallbackLink(jobPositionId.ToString(), Request.Scheme));
 
@@ -431,12 +429,9 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 DisplayAttribute displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
                 item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
 
-                if (item.Id != Guid.Empty && !editing)
+                if (item.Id != Guid.Empty && !editing && (!string.IsNullOrWhiteSpace(item.CompanyName) && item.CompanyName.Equals(JobPositionBenefit.NotInformed.ToDisplayName())) || string.IsNullOrWhiteSpace(item.CompanyName))
                 {
-                    if ((!string.IsNullOrWhiteSpace(item.CompanyName) && item.CompanyName.Equals(JobPositionBenefit.NotInformed.ToDisplayName())) || string.IsNullOrWhiteSpace(item.CompanyName))
-                    {
-                        item.CompanyName = SharedLocalizer[JobPositionBenefit.NotInformed.ToDisplayName()];
-                    }
+                    item.CompanyName = SharedLocalizer[JobPositionBenefit.NotInformed.ToDisplayName()];
                 }
             }
         }
@@ -445,7 +440,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             if (vm != null && vm.Status == JobPositionStatus.OpenForApplication)
             {
-                var json = JsonConvert.SerializeObject(vm);
+                string json = JsonConvert.SerializeObject(vm);
 
                 UserContentViewModel newContent = new UserContentViewModel
                 {
@@ -455,11 +450,11 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                     Language = vm.Language
                 };
 
-                var searchContentResult = userContentAppService.Search(CurrentUserId, vm.Id.ToString());
+                OperationResultListVo<Application.ViewModels.Search.UserContentSearchViewModel> searchContentResult = userContentAppService.Search(CurrentUserId, vm.Id.ToString());
 
                 if (searchContentResult.Success && searchContentResult.Value.Any())
                 {
-                    var existing = searchContentResult.Value.FirstOrDefault();
+                    Application.ViewModels.Search.UserContentSearchViewModel existing = searchContentResult.Value.FirstOrDefault();
 
                     if (existing != null)
                     {

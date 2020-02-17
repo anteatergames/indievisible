@@ -1,7 +1,6 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

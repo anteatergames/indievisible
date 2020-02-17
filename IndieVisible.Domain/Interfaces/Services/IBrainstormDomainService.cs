@@ -22,5 +22,7 @@ namespace IndieVisible.Domain.Interfaces.Service
         void AddComment(BrainstormComment model);
 
         BrainstormSession Get(BrainstormSessionType type);
+
+        Guid GetUserId(Guid sessionId);
     }
 }

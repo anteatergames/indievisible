@@ -1,7 +1,7 @@
 ﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
-using IndieVisible.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +67,20 @@ namespace IndieVisible.Domain.Services
         public void UpdateVote(BrainstormVote model)
         {
             repository.UpdateVote(model);
+        }
+
+        public Guid GetUserId(Guid sessionId)
+        {
+            BrainstormSession obj = repository.Get().FirstOrDefault(x => x.Id == sessionId);
+
+            if (obj != null)
+            {
+                return obj.UserId;
+            }
+            else
+            {
+                return Guid.Empty;
+            }
         }
     }
 }

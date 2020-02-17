@@ -62,13 +62,9 @@ namespace IndieVisible.Web.Controllers
 
             try
             {
-                string storageBasePath = string.Empty;
+                string storageBasePath = FormatBasePath(type, userId, baseUrl);
 
-                storageBasePath = FormatBasePath(type, userId, baseUrl);
-
-                string fileName = String.Format("profileimage_{0}_Personal", userId);
-
-                var url = UrlFormatter.CdnCommon(userId, fileName);
+                var url = UrlFormatter.CdnCommon(userId, name);
 
                 if (!string.IsNullOrWhiteSpace(v))
                 {

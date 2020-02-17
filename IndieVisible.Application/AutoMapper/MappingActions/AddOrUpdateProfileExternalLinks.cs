@@ -3,7 +3,6 @@ using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
