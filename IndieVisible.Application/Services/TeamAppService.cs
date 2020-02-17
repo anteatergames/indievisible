@@ -90,18 +90,21 @@ namespace IndieVisible.Application.Services
                     member.WorkDictionary = member.Works.ToDisplayName();
                 }
 
-                vm.CurrentUserIsMember = model.Members.Any(x => x.UserId == currentUserId);
-
-                if (vm.Recruiting)
+                if (currentUserId != Guid.Empty)
                 {
-                    UserProfile myProfile = GetCachedProfileByUserId(currentUserId);
+                    vm.CurrentUserIsMember = model.Members.Any(x => x.UserId == currentUserId);
 
-                    vm.Candidate = new TeamMemberViewModel
+                    if (vm.Recruiting)
                     {
-                        UserId = currentUserId,
-                        InvitationStatus = InvitationStatus.Candidate,
-                        Name = myProfile.Name
-                    };
+                        UserProfile myProfile = GetCachedProfileByUserId(currentUserId);
+
+                        vm.Candidate = new TeamMemberViewModel
+                        {
+                            UserId = currentUserId,
+                            InvitationStatus = InvitationStatus.Candidate,
+                            Name = myProfile.Name
+                        };
+                    }
                 }
 
                 SetUiData(currentUserId, vm);
