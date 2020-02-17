@@ -446,6 +446,11 @@ namespace IndieVisible.Web.Controllers
 
                     await SetExternalProfilePicture(info, user, profile);
 
+                    if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl == Constants.DefaultAvatar)
+                    {
+                        UploadFirstAvatar(profile.UserId, ProfileType.Personal);
+                    }
+
                     profileAppService.Save(CurrentUserId, profile);
 
                     SetProfileOnSession(new Guid(user.Id), user.UserName);

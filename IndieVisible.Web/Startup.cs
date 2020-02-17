@@ -110,6 +110,17 @@ namespace IndieVisible.Web
                 {
                     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
                     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                    microsoftOptions.SaveTokens = true;
+                    microsoftOptions.Events = new OAuthEvents
+                    {
+                        OnCreatingTicket = context =>
+                        {
+                            var identity = (ClaimsIdentity)context.Principal.Identity;
+                            identity.AddClaim(new Claim("urn:microsoft:accesstoken", context.TokenResponse.AccessToken));
+                            
+                            return Task.FromResult(0);
+                        }
+                    };
                 })
                 .AddGithub(githubOptions =>
                 {
