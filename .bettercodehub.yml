@@ -1,0 +1,14 @@
+languages:
+- csharp
+- javascript
+
+
+exclude:
+# Lib directory
+- .*/wwwroot/lib/.*
+- .*/wwwroot/thirdparty/.*
+- .*/docs/.*
+- /docs/.*
+
+# Minified JavaScript and CSS
+- (\.|-)min\.(js|css)$
