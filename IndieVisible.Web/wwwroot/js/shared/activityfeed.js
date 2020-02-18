@@ -40,7 +40,7 @@ var ACTIVITYFEED = (function () {
             oldestGuid = btn.data('oldestid');
             oldestDate = btn.data('oldestdate');
 
-            btn.html(MAINMODULE.Default.SpinnerBtn);
+            MAINMODULE.Common.DisableButton(btn);
 
             ACTIVITYFEED.Methods.LoadActivityFeed(false);
         });

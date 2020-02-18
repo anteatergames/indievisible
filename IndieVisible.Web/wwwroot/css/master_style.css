@@ -568,6 +568,11 @@ select:-webkit-autofill:focus {
                     font-family: 'Font Awesome 5 Free';
                     font-weight: 900;
                     content: '\f06a';
+                    float: right;
+                    margin-top: -8px;
+                    margin-right: -13px;
+                    color: red;
+                    z-index: 9999;
                 }
 
     .vtabs .tab-content {

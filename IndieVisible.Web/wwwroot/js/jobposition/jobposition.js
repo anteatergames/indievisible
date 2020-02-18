@@ -204,7 +204,6 @@
     function bindBtnSaveForm() {
         objs.containerDetails.on('click', selectors.btnSave, function () {
             var btn = $(this);
-            btn.html(MAINMODULE.Default.SpinnerBtn);
             var valid = objs.form.valid();
 
             var origin = objs.origin.val();
@@ -215,6 +214,8 @@
             }
 
             if (valid && canInteract) {
+                MAINMODULE.Common.DisableButton(btn);
+
                 submitForm(btn);
             }
         });
@@ -314,25 +315,17 @@
 
     function bindBtnApply() {
         objs.container.on('click', selectors.btnApply, function (e) {
-            console.log('meh');
             e.preventDefault();
 
             var btn = $(this);
-            var originalText = btn.html();
-
-            btn.html(MAINMODULE.Default.SpinnerBtn);
-
-            var url = btn.data('url');
 
             if (canInteract) {
+                MAINMODULE.Common.DisableButton(btn);
+
+                var url = btn.data('url');
+
                 apply(url, function (response) {
-                    if (response.success === true) {
-                        btn.html('...');
-                    }
-                    else {
-                        btn.html(originalText);
-                    }
-                    console.log(response);
+                    MAINMODULE.Common.PostSaveCallback(response, btn);
                 });
             }
 
@@ -430,7 +423,8 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
-                btn.html('...');
+                MAINMODULE.Common.PostSaveCallback(btn);
+
                 if (callback) {
                     callback();
                 }

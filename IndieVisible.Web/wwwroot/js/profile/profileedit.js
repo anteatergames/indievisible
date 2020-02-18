@@ -249,7 +249,7 @@
             e.preventDefault();
 
             var btn = $(this);
-            MAINMODULE.Common.DisableSaveButton(btn);
+            MAINMODULE.Common.DisableButton(btn);
 
             var valid = objs.form.valid();
             if (valid) {

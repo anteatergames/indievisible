@@ -125,7 +125,7 @@
         $(selector).sticky({ topSpacing: minimumOffset });
     }
 
-    function disableSaveButton(btn) {
+    function disableButton(btn) {
         btn.prop('disabled', true);
         saveBtnOriginalText = btn.html();
         btn.html(MAINMODULE.Default.SpinnerBtn);
@@ -149,7 +149,7 @@
         Common: {
             HandlePointsEarned: handlePointsEarned,
             TranslatedMessages: translatedMessages,
-            DisableSaveButton: disableSaveButton,
+            DisableButton: disableButton,
             PostSaveCallback: postSaveCallback
         },
         Default: {

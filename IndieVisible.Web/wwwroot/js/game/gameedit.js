@@ -265,37 +265,31 @@
             e.preventDefault();
 
             var btn = $(this);
-            btn.prop('disabled', true);
-            var originalText = btn.html();
-            btn.html(MAINMODULE.Default.SpinnerBtn);
 
 
             var valid = selectors.form.valid();
             if (valid) {
-                var posSaveFunction = function () {
-                    btn.html(originalText);
-                    btn.prop('disabled', false);
-                };
+                MAINMODULE.Common.DisableButton(btn);
 
                 if (croppedGameThumbnail && croppedGameCoverImage) {
                     uploadGameCoverImage(function () {
                         uploadGameThumbnailCropped(function () {
-                            submitForm(posSaveFunction);
+                            submitForm(btn);
                         });
                     });
                 }
                 else if (croppedGameThumbnail && !croppedGameCoverImage) {
                     uploadGameThumbnailCropped(function () {
-                        submitForm(posSaveFunction);
+                        submitForm(btn);
                     });
                 }
                 else if (!croppedGameThumbnail && croppedGameCoverImage) {
                     uploadGameCoverImage(function () {
-                        submitForm(posSaveFunction);
+                        submitForm(btn);
                     });
                 }
                 else {
-                    submitForm(posSaveFunction);
+                    submitForm(btn);
                 }
             }
 
@@ -303,7 +297,7 @@
         });
     }
 
-    function submitForm(callback) {
+    function submitForm(btn, callback) {
         var url = selectors.form.attr('action');
 
         var data = selectors.form.serialize();
@@ -315,9 +309,12 @@
             enctype: 'multipart/form-data'
         }).done(function (response) {
             if (response.success === true) {
+                MAINMODULE.Common.PostSaveCallback(response, btn);
+
                 if (callback) {
                     callback();
                 }
+
                 ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
                     window.location = response.url;
                 });

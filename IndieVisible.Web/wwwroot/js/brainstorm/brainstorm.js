@@ -99,16 +99,9 @@
 
             var valid = selectors.form.valid();
             if (valid && canInteract) {
-                btn.prop('disabled', true);
-                var originalText = btn.html();
-                btn.html(MAINMODULE.Default.SpinnerBtn);
+                MAINMODULE.Common.DisableButton(btn);
 
-                var posSaveFunction = function () {
-                    btn.html(originalText);
-                    btn.prop('disabled', false);
-                };
-
-                submitForm(posSaveFunction);
+                submitForm(btn);
             }
 
             return false;
@@ -123,16 +116,9 @@
 
             var valid = selectors.form.valid();
             if (valid && canInteract) {
-                btn.prop('disabled', true);
-                var originalText = btn.html();
-                btn.html(MAINMODULE.Default.SpinnerBtn);
+                MAINMODULE.Common.DisableButton(btn);
 
-                var posSaveFunction = function () {
-                    btn.html(originalText);
-                    btn.prop('disabled', false);
-                };
-
-                submitForm(posSaveFunction);
+                submitForm(btn);
             }
 
             return false;
@@ -206,16 +192,19 @@
         });
     }
 
-    function submitForm(callback) {
+    function submitForm(btn, callback) {
         var url = selectors.form.attr('action');
 
         var data = selectors.form.serialize();
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
+                MAINMODULE.Common.PostSaveCallback(response, btn);
+
                 if (callback) {
                     callback();
                 }
+
                 ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
                     window.location = response.url;
                 });
