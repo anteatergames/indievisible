@@ -83,11 +83,11 @@ namespace IndieVisible.Web.Controllers
 
             if (serviceResult.Success)
             {
-                return View(serviceResult.Value);
+                return View("CreateEdit", serviceResult.Value);
             }
             else
             {
-                return View(new GameViewModel());
+                return View("CreateEdit", new GameViewModel());
             }
         }
 
