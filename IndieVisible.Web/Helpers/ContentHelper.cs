@@ -18,7 +18,7 @@ namespace IndieVisible.Web.Helpers
             //group 10 oembed ending
             //group 11 figure ending
 
-            string patternUrl = @"(<figure class=""image"">)?(<img(.?)?(data-)?src="")?(<figure class=""media""><oembed url=""|<figure class=""media""><div data-oembed-url=""|<oembed>)?(\()?([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))""?(\))?(<\/oembed>|><\/oembed><\/figure>)?(><\/figure>)?(.>)?";
+            string patternUrl = @"(<figure class=""image"">)?(<img(.?)?(data-)?src="")?(<figure class=""media""><oembed url=""|<figure class=""media""><div data-oembed-url=""|<oembed>)?(\()?([(http(s)?):\/\/(www\.)?a-zA-Z0-9\-@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)\/[\w|\?|\=|\&|\;|\-\%\.]+)""?(\))?(<\/oembed>|><\/oembed><\/figure>)?(><\/figure>)?(.>)?";
 
             Regex theRegex = new Regex(patternUrl);
 
@@ -71,7 +71,7 @@ namespace IndieVisible.Web.Helpers
 
         public static string FormatHashTagsToShow(string content)
         {
-            string patternHashtag = @"(\s#\w+)";
+            string patternHashtag = @"(\#\w+)";
 
             Regex regexHashtag = new Regex(patternHashtag);
 
@@ -79,7 +79,7 @@ namespace IndieVisible.Web.Helpers
 
             foreach (Match match in matchesHashtag)
             {
-                string toReplace = match.Groups[0].Value;
+                string toReplace = match.Groups[0].Value.Trim();
 
                 string formattedLink = String.Format(@"<a href=""/search/?q={0}"" class=""hashtag"">{1}</a>", HttpUtility.UrlEncode(toReplace), toReplace);
 
