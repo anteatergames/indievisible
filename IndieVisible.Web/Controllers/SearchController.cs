@@ -22,7 +22,7 @@ namespace IndieVisible.Web.Controllers
             return View();
         }
 
-        [Route("posts/{q?}")]
+        [Route("posts")]
         public IActionResult SearchPosts(string q)
         {
             if (string.IsNullOrWhiteSpace(q))
