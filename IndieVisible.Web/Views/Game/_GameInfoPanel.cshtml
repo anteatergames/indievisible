@@ -7,7 +7,7 @@
     <p>
         @SharedLocalizer["Genre"]
     </p>
-    <h6 class="margin-bottom">@Model.Genre.ToString()</h6>
+    <h6 class="margin-bottom">@SharedLocalizer[Model.Genre.ToUiInfo().Display]</h6>
     <p>
         @SharedLocalizer["Engine"]
     </p>
@@ -22,7 +22,7 @@
     <p>
         @SharedLocalizer["Main Language"]
     </p>
-    <h6 class="margin-bottom">@Model.Language</h6>
+    <h6 class="margin-bottom">@Model.Language.ToDisplayName()</h6>
     <p>
         @SharedLocalizer["Status"]
     </p>

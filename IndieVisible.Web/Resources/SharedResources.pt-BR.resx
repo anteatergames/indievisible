@@ -405,8 +405,8 @@
     <value>Compartilhar</value>
     <comment>Interactions</comment>
   </data>
-  <data name="More" xml:space="preserve">
-    <value>Mais</value>
+  <data name="more" xml:space="preserve">
+    <value>mais</value>
     <comment>Front Page</comment>
   </data>
   <data name="Add Content" xml:space="preserve">
