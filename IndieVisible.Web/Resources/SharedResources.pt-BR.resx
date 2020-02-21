@@ -669,7 +669,7 @@
     <value>{0} adora seu jogo {1}</value>
     <comment>Notification</comment>
   </data>
-  <data name="MotionComics" xml:space="preserve">
+  <data name="Motion Comics" xml:space="preserve">
     <value>Quadrinhos Animados</value>
     <comment>Genre</comment>
   </data>
@@ -1557,6 +1557,10 @@
     <value>{0} votos</value>
     <comment>Brainstorm</comment>
   </data>
+  <data name="I want to be a part of this team!" xml:space="preserve">
+    <value>Quero fazer parte desta equipe!</value>
+    <comment>Team</comment>
+  </data>
   <data name="members" xml:space="preserve">
     <value>membros</value>
     <comment>Team</comment>
@@ -1577,12 +1581,32 @@
     <value>Selecione as atividades</value>
     <comment>Team</comment>
   </data>
+  <data name="This team is recruiting. Apply now!" xml:space="preserve">
+    <value>Esta equipe está recrutando. Candidate-se agora!</value>
+    <comment>Team</comment>
+  </data>
   <data name="Type your quote here" xml:space="preserve">
     <value>Digite sua frase de efeito aqui</value>
+    <comment>Team</comment>
+  </data>
+  <data name="What would you call your role on this team?" xml:space="preserve">
+    <value>Como você chamaria sua função neste time?</value>
     <comment>Team</comment>
   </data>
   <data name="works" xml:space="preserve">
     <value>atividades</value>
     <comment>Team</comment>
+  </data>
+  <data name="Beat'em Up" xml:space="preserve">
+    <value>Porradaria</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Platformer" xml:space="preserve">
+    <value>Plataforma</value>
+    <comment>Genre</comment>
+  </data>
+  <data name="Shoot'em Up" xml:space="preserve">
+    <value>Navinha</value>
+    <comment>Genre</comment>
   </data>
 </root>

@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Home;
 using IndieVisible.Application.ViewModels.UserPreferences;
+using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Web.Controllers.Base;
@@ -35,7 +36,7 @@ namespace IndieVisible.Web.Controllers
             ViewBag.Carousel = featured;
 
             SetLanguage();
-            Dictionary<string, string> genreDict = new GameGenre().ToDictionary();
+            Dictionary<GameGenre, UiInfoAttribute> genreDict = Enum.GetValues(typeof(GameGenre)).Cast<GameGenre>().ToUiInfoList();
 
             ViewData["Genres"] = genreDict;
 

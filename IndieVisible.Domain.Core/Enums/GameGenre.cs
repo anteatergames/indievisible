@@ -4,52 +4,52 @@ namespace IndieVisible.Domain.Core.Enums
 {
     public enum GameGenre
     {
-        [UiInfo(Class = "red")]
+        [UiInfo(Display = "Strategy", Class = "red")]
         Strategy = 1,
 
-        [UiInfo(Class = "blue")]
+        [UiInfo(Display = "Racing", Class = "blue")]
         Racing = 2,
 
-        [UiInfo(Class = "yellow")]
+        [UiInfo(Display = "Fighting", Class = "yellow")]
         Fighting = 3,
 
-        [UiInfo(Class = "green")]
+        [UiInfo(Display = "Adventure", Class = "green")]
         Adventure = 4,
 
-        [UiInfo(Class = "navy")]
+        [UiInfo(Display = "RPG", Class = "navy")]
         Rpg = 5,
 
-        [UiInfo(Class = "orange")]
+        [UiInfo(Display = "Action", Class = "orange")]
         Action = 6,
 
-        [UiInfo(Class = "gray")]
+        [UiInfo(Display = "Simulation", Class = "gray")]
         Simulation = 7,
 
-        [UiInfo(Class = "purple")]
+        [UiInfo(Display = "Sports", Class = "purple")]
         Sports = 8,
 
-        [UiInfo(Class = "black")]
+        [UiInfo(Display = "Horror", Class = "black")]
         Horror = 9,
 
-        [UiInfo(Class = "aqua")]
+        [UiInfo(Display = "Roguelike", Class = "aqua")]
         Roguelike = 10,
 
-        [UiInfo(Class = "fuchsia")]
+        [UiInfo(Display = "Casual", Class = "fuchsia")]
         Casual = 11,
 
-        [UiInfo(Class = "lime")]
+        [UiInfo(Display = "Shoot'em Up", Class = "lime")]
         ShootEmUp = 12,
 
-        [UiInfo(Class = "maroon")]
+        [UiInfo(Display = "Beat'em Up", Class = "maroon")]
         BeatEmUp = 13,
 
-        [UiInfo(Class = "teal")]
+        [UiInfo(Display = "Motion Comics", Class = "teal")]
         MotionComics = 14,
 
-        [UiInfo(Class = "olive")]
+        [UiInfo(Display = "Platformer", Class = "olive")]
         Platformer = 15,
 
-        [UiInfo(Class = "red")]
+        [UiInfo(Display = "Metroidvania", Class = "red")]
         Metroidvania = 16
     }
 }

@@ -61,7 +61,7 @@ namespace IndieVisible.Domain.Core.Extensions
             return result;
         }
 
-        public static Dictionary<string, string> ToDisplayName<TEnum>(this IList<TEnum> enumeration) where TEnum : Enum
+        public static Dictionary<string, string> ToDisplayNameList<TEnum>(this IEnumerable<TEnum> enumeration) where TEnum : Enum
         {
             if (!typeof(TEnum).IsEnum)
             {
@@ -72,9 +72,7 @@ namespace IndieVisible.Domain.Core.Extensions
 
             enumeration.ToList().ForEach(x =>
             {
-                DisplayAttribute display = x.GetAttributeOfType<DisplayAttribute>();
-
-                dict.Add(new KeyValuePair<string, string>(x.ToString(), display.Name));
+                dict.Add(new KeyValuePair<string, string>(x.ToString(), x.ToDisplayName()));
             });
 
             Dictionary<string, string> result = dict.ToDictionary(x => x.Key, x => x.Value);
@@ -103,6 +101,23 @@ namespace IndieVisible.Domain.Core.Extensions
             }
         }
 
+        public static Dictionary<TEnum, UiInfoAttribute> ToUiInfoList<TEnum>(this IEnumerable<TEnum> enumeration) where TEnum : Enum
+        {
+            if (!typeof(TEnum).IsEnum)
+            {
+                throw new ArgumentException("Type must be an enum");
+            }
+
+            Dictionary<TEnum, UiInfoAttribute> dict = new Dictionary<TEnum, UiInfoAttribute>();
+
+            enumeration.ToList().ForEach(x =>
+            {
+                dict.Add(x, x.ToUiInfo());
+            });
+
+            return dict;
+        }
+
 
         public static UiInfoAttribute ToUiInfo<TEnum>(this TEnum enumeration) where TEnum : Enum
         {
@@ -112,7 +127,6 @@ namespace IndieVisible.Domain.Core.Extensions
             }
 
             UiInfoAttribute uiInfo = enumeration.GetAttributeOfType<UiInfoAttribute>();
-
 
             if (uiInfo == null)
             {

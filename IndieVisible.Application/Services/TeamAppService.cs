@@ -87,7 +87,7 @@ namespace IndieVisible.Application.Services
                     UserProfile profile = GetCachedProfileByUserId(member.UserId);
                     member.Name = profile.Name;
                     member.Permissions.IsMe = member.UserId == currentUserId;
-                    member.WorkDictionary = member.Works.ToDisplayName();
+                    member.WorkDictionary = member.Works.ToDisplayNameList();
                 }
 
                 if (currentUserId != Guid.Empty)

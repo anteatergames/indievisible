@@ -11,8 +11,23 @@ else
 {
     <div class="box p-0 bg-white col-12 team-item" data-id="@Model.Id">
         <div class="box-header with-border">
-            <a asp-area="" asp-controller="team" asp-action="details" asp-route-teamId="@Model.Id"><h2>@Model.Name</h2></a>
-            <h4>@Model.Motto</h4>
+            <a asp-area="" asp-controller="team" asp-action="details" asp-route-teamId="@Model.Id">
+                <div class="row">
+                    <div class="badges">
+                        @if (Model.Recruiting)
+                        {
+                            <span class="badge badge-success mb-1 p-2"><i class="fas fa-exclamation" aria-hidden="true"></i> @SharedLocalizer["recruiting"]</span>
+                        }
+                    </div>
+                    <div class="col">
+                        <h2>@Model.Name</h2>
+                    </div>
+                </div>
+            </a>
+            @if (!string.IsNullOrWhiteSpace(Model.Motto))
+            {
+                <h4>@Model.Motto</h4>
+            }
             <div class="box-tools">
                 @if (Model.Permissions.CanEdit || Model.Permissions.CanDelete)
                 {

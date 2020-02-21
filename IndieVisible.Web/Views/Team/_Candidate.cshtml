@@ -35,20 +35,20 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <label asp-for="Role"></label>
-                    <input asp-for="Role" class="form-control" placeholder="Role" />
+                    <label class="text-capitalize">@SharedLocalizer["role"]</label>
+                    <input asp-for="Role" class="form-control" placeholder="@SharedLocalizer["What would you call your role on this team?"]" />
                     <span asp-validation-for="Role" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Works"></label>
+                    <label class="text-capitalize">@SharedLocalizer["works"]</label>
                     <select asp-for="Works" asp-items="Html.GetEnumSelectList<WorkType>()" class="form-control select2" multiple="" data-placeholder="@SharedLocalizer["Select work types"]" tabindex="-1" aria-hidden="true"></select>
                     <span asp-validation-for="Works" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Quote"></label>
-            <input asp-for="Quote" class="form-control" placeholder="Quote" />
+            <label class="text-capitalize">@SharedLocalizer["quote"]</label>
+            <input asp-for="Quote" class="form-control" placeholder="@SharedLocalizer["Type your quote here"]" />
             <span asp-validation-for="Quote" class="text-danger"></span>
         </div>
 
