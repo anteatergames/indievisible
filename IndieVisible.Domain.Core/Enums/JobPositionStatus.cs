@@ -12,8 +12,8 @@ namespace IndieVisible.Domain.Core.Enums
         OpenForApplication = 3,
         [Display(Name = "Closed for Application")]
         ClosedForApplication = 4,
-        [Display(Name = "In Analisys")]
-        InAnalisys = 5,
+        [Display(Name = "In Analysis")]
+        InAnalysis = 5,
         [Display(Name = "Fulfilled")]
         Fulfilled = 6
     }

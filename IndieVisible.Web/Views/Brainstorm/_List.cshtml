@@ -34,7 +34,7 @@ else
                     <p>@item.Description</p>
                 </div>
                 <div class="col-12">
-                    <span class="badge badge-status badge-@(item.Status.ToString().ToLower()) p-2">@item.Status.ToString()</span>
+                    <span class="badge badge-status badge-@(item.Status.ToString().ToLower()) p-2">@SharedLocalizer[item.Status.ToDisplayName()]</span>
                 </div>
 
                 <div class="col-12 text-lowercase text-right">

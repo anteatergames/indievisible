@@ -190,7 +190,7 @@
     }
 
     .user-profile .user-profile-username {
-        font-size: 2rem;
+        font-size: 1rem;
     }
 
     .user-profile .user-profile-desc {
@@ -199,6 +199,26 @@
 
     .user-profile .nav-pills, .user-profile .nav-pills .nav-link {
         border-radius: 0 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .user-profile .user-profile-username {
+        font-size: 1.4rem;
+    }
+
+    .user-profile .user-profile-desc {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .user-profile .user-profile-username {
+        font-size: 1.6rem;
+    }
+
+    .user-profile .user-profile-desc {
+        font-size: 1rem;
     }
 }
 

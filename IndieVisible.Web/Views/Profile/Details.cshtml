@@ -98,7 +98,7 @@
                     <div class="active tab-pane" id="about">
                         <div class="row">
                             <div class="col-xl-4 col-lg-5 col-sm-12">
-                                <div class="box bg-white">
+                                <div class="bg-white p-2 mb-3">
                                     @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
                                     {
                                         if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
@@ -124,7 +124,7 @@
                                             </div>
                                         }
                                     }
-                                    <div class="box-body box-profile">
+                                    <div class="box-profile">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="user-profile-bio">

@@ -146,10 +146,10 @@
             e.preventDefault();
             var btn = $(this);
 
-            MAINMODULE.Common.DisableButton(btn);
-
             var valid = objs.form.valid();
             if (valid && canInteract) {
+                MAINMODULE.Common.DisableButton(btn);
+
                 submitForm(btn);
             }
 

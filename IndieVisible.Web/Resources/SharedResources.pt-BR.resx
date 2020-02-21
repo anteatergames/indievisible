@@ -1317,7 +1317,7 @@
     <value>Se você deseja contratar alguém, crie uma nova vaga, descreva o tipo de profissional que atenda às suas necessidades e aproveite a análise dos candidatos.</value>
     <comment>JobPosition</comment>
   </data>
-  <data name="In Analisys" xml:space="preserve">
+  <data name="In Analysis" xml:space="preserve">
     <value>Em Análise</value>
     <comment>Generic</comment>
   </data>
@@ -1544,5 +1544,45 @@
   <data name="You haven't applied yet." xml:space="preserve">
     <value>Você ainda não se candidatou.</value>
     <comment>JobPosition</comment>
+  </data>
+  <data name="Implemented" xml:space="preserve">
+    <value>Implementada</value>
+    <comment>Brainstorm</comment>
+  </data>
+  <data name="Proposed" xml:space="preserve">
+    <value>Proposta</value>
+    <comment>Brainstorm</comment>
+  </data>
+  <data name="{0} votes" xml:space="preserve">
+    <value>{0} votos</value>
+    <comment>Brainstorm</comment>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>membros</value>
+    <comment>Team</comment>
+  </data>
+  <data name="quote" xml:space="preserve">
+    <value>frase de efeito</value>
+    <comment>Team</comment>
+  </data>
+  <data name="role" xml:space="preserve">
+    <value>papel</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Search for Members" xml:space="preserve">
+    <value>Procurar integrantes</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Select work types" xml:space="preserve">
+    <value>Selecione as atividades</value>
+    <comment>Team</comment>
+  </data>
+  <data name="Type your quote here" xml:space="preserve">
+    <value>Digite sua frase de efeito aqui</value>
+    <comment>Team</comment>
+  </data>
+  <data name="works" xml:space="preserve">
+    <value>atividades</value>
+    <comment>Team</comment>
   </data>
 </root>
