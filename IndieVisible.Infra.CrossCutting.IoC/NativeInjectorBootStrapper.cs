@@ -117,6 +117,10 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             services.AddScoped<IJobPositionRepository, JobPositionRepository>();
             #endregion Jobs
 
+            #region Translations
+            services.AddScoped<ITranslationRepository, TranslationRepository>();
+            #endregion Translations
+
             // Infra
             services.AddTransient<INotificationSender, SendGridSlackNotificationService>();
 
