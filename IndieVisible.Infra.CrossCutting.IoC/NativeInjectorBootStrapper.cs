@@ -118,6 +118,8 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #endregion Jobs
 
             #region Translations
+            services.AddScoped<ITranslationAppService, TranslationAppService>();
+            services.AddScoped<ITranslationDomainService, TranslationDomainService>();
             services.AddScoped<ITranslationRepository, TranslationRepository>();
             #endregion Translations
 

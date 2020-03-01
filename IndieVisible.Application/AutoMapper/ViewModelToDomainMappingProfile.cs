@@ -9,6 +9,7 @@ using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Application.ViewModels.Team;
+using IndieVisible.Application.ViewModels.Translation;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Models;
@@ -102,7 +103,6 @@ namespace IndieVisible.Application.AutoMapper
 
             #endregion Team
 
-
             #region Jobs
 
             CreateMap<JobPositionViewModel, JobPosition>()
@@ -110,6 +110,16 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<JobApplicantViewModel, JobApplicant>();
 
             #endregion Jobs
+
+            #region Translation
+
+            CreateMap<TranslationProjectViewModel, TranslationProject>()
+                .ForMember(dest => dest.Terms, opt => opt.Ignore())
+                .ForMember(dest => dest.Entries, opt => opt.Ignore());
+            CreateMap<TranslationTermViewModel, TranslationTerm>();
+            CreateMap<TranslationEntryViewModel, TranslationEntry>();
+
+            #endregion Translation
         }
     }
 }

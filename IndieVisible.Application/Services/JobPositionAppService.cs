@@ -383,8 +383,8 @@ namespace IndieVisible.Application.Services
 
         private static void SetPermissions(Guid currentUserId, JobPositionViewModel vm)
         {
-            vm.Permissions.CanEdit = vm.UserId == currentUserId;
-            vm.Permissions.CanDelete = vm.UserId == currentUserId;
+            SetBasePermissions(currentUserId, vm);
+
             vm.Permissions.CanConnect = !string.IsNullOrWhiteSpace(vm.Url) || (vm.Status == JobPositionStatus.OpenForApplication && (!vm.ClosingDate.HasValue || DateTime.Today <= vm.ClosingDate.Value.Date));
         }
     }

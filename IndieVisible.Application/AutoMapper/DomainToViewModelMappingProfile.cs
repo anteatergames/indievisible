@@ -9,6 +9,7 @@ using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Application.ViewModels.Team;
+using IndieVisible.Application.ViewModels.Translation;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Models;
@@ -119,6 +120,14 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<JobApplicant, JobApplicantViewModel>();
 
             #endregion Jobs
+
+            #region Translation
+
+            CreateMap<TranslationProject, TranslationProjectViewModel>();
+            CreateMap<TranslationTerm, TranslationTermViewModel>();
+            CreateMap<TranslationEntry, TranslationEntryViewModel>();
+
+            #endregion Translation
         }
     }
 }
