@@ -60,6 +60,7 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #region Featuring
 
             services.AddScoped<IFeaturedContentAppService, FeaturedContentAppService>();
+            services.AddScoped<IFeaturedContentDomainService, FeaturedContentDomainService>();
             services.AddScoped<IFeaturedContentRepository, FeaturedContentRepository>();
 
             #endregion Featuring
@@ -67,13 +68,15 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #region Preferences
 
             services.AddScoped<IUserPreferencesAppService, UserPreferencesAppService>();
+            services.AddScoped<IUserPreferencesDomainService, UserPreferencesDomainService>();
             services.AddScoped<IUserPreferencesRepository, UserPreferencesRepository>();
 
             #endregion Preferences
 
             #region Notifications
 
-            services.AddScoped<INotificationAppService, NotificationAppService>();
+            services.AddScoped<INotificationAppService, NotificationAppService>();            
+            services.AddScoped<INotificationDomainService, NotificationDomainService>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
 
             #endregion Notifications

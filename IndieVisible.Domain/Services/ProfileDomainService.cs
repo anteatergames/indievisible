@@ -41,9 +41,9 @@ namespace IndieVisible.Domain.Services
             task.Wait();
         }
 
-        public bool CheckFollowing(Guid userId, Guid folloWedUserId)
+        public bool CheckFollowing(Guid userId, Guid followerId)
         {
-            Task<IQueryable<UserFollow>> task = repository.GetFollows(userId, folloWedUserId);
+            Task<IQueryable<UserFollow>> task = repository.GetFollows(userId, followerId);
 
             task.Wait();
 

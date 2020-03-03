@@ -14,7 +14,7 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         IEnumerable<UserFollow> GetFollows(Guid userId, Guid followerId);
 
-        bool CheckFollowing(Guid userId, Guid folloWedUserId);
+        bool CheckFollowing(Guid userId, Guid followerId);
 
         void AddFollow(UserFollow model);
 

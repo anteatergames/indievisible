@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.UserPreferences;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
+using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Domain.Interfaces;
-using IndieVisible.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +14,14 @@ namespace IndieVisible.Application.Services
 {
     public class UserPreferencesAppService : BaseAppService, IUserPreferencesAppService
     {
-        private readonly IUserPreferencesRepository userPreferencesRepository;
+        private readonly IUserPreferencesDomainService userPreferencesDomainService;
 
         public UserPreferencesAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
-            , IUserPreferencesRepository repository) : base(mapper, unitOfWork, cacheService)
+            , IUserPreferencesDomainService userPreferencesDomainService) : base(mapper, unitOfWork, cacheService)
         {
-            userPreferencesRepository = repository;
+            this.userPreferencesDomainService = userPreferencesDomainService;
         }
 
         #region ICrudAppService
@@ -30,11 +30,9 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                System.Threading.Tasks.Task<int> count = userPreferencesRepository.Count();
+                int count = userPreferencesDomainService.Count();
 
-                count.Wait();
-
-                return new OperationResultVo<int>(count.Result);
+                return new OperationResultVo<int>(count);
             }
             catch (Exception ex)
             {
@@ -46,7 +44,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IQueryable<UserPreferences> allModels = userPreferencesRepository.Get();
+                IEnumerable<UserPreferences> allModels = userPreferencesDomainService.GetAll();
 
                 IEnumerable<UserPreferencesViewModel> vms = mapper.Map<IEnumerable<UserPreferences>, IEnumerable<UserPreferencesViewModel>>(allModels);
 
@@ -62,9 +60,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                System.Threading.Tasks.Task<UserPreferences> model = userPreferencesRepository.GetById(id);
-
-                model.Wait();
+                UserPreferences model = userPreferencesDomainService.GetById(id);
 
                 UserPreferencesViewModel vm = mapper.Map<UserPreferencesViewModel>(model);
 
@@ -80,7 +76,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                userPreferencesRepository.Remove(id);
+                userPreferencesDomainService.Remove(id);
 
                 unitOfWork.Commit();
 
@@ -103,11 +99,7 @@ namespace IndieVisible.Application.Services
                     viewModel.Id = Guid.Empty;
                 }
 
-                System.Threading.Tasks.Task<UserPreferences> task = userPreferencesRepository.GetById(viewModel.Id);
-
-                task.Wait();
-
-                UserPreferences existing = task.Result;
+                UserPreferences existing = userPreferencesDomainService.GetById(viewModel.Id);
 
                 if (existing != null)
                 {
@@ -120,12 +112,12 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    userPreferencesRepository.Add(model);
+                    userPreferencesDomainService.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    userPreferencesRepository.Update(model);
+                    userPreferencesDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
@@ -142,11 +134,9 @@ namespace IndieVisible.Application.Services
 
         public UserPreferencesViewModel GetByUserId(Guid userId)
         {
-            System.Threading.Tasks.Task<IEnumerable<UserPreferences>> task = userPreferencesRepository.GetByUserId(userId);
+            IEnumerable<UserPreferences> list = userPreferencesDomainService.GetByUserId(userId);
 
-            task.Wait();
-
-            UserPreferences model = task.Result.FirstOrDefault();
+            UserPreferences model = list.FirstOrDefault();
 
             if (model == null)
             {

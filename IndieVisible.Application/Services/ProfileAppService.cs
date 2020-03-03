@@ -10,7 +10,6 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Core.Interfaces;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
-using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications;
@@ -27,17 +26,17 @@ namespace IndieVisible.Application.Services
     {
         private readonly IUserContentDomainService userContentDomainService;
 
-        private readonly IGameRepository gameRepository;
+        private readonly IGameDomainService gameDomainService;
 
         public ProfileAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
             , IUserContentDomainService userContentDomainService
-            , IGameRepository gameRepositoryMongo) : base(mapper, unitOfWork, cacheService, profileDomainService)
+            , IGameDomainService gameDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
             this.userContentDomainService = userContentDomainService;
-            gameRepository = gameRepositoryMongo;
+            this.gameDomainService = gameDomainService;
         }
 
         #region ICrudAppService
@@ -226,7 +225,7 @@ namespace IndieVisible.Application.Services
 
             SetImages(vm, model.HasCoverImage);
 
-            vm.Counters.Games = gameRepository.Count(x => x.UserId == vm.UserId).Result;
+            vm.Counters.Games = gameDomainService.Count(x => x.UserId == vm.UserId);
             vm.Counters.Posts = userContentDomainService.Count(x => x.UserId == vm.UserId);
             vm.Counters.Comments = userContentDomainService.CountComments(x => x.UserId == vm.UserId);
 
@@ -316,7 +315,7 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo(false, spec.ErrorMessage);
                 }
 
-                bool alreadyFollowing = profileDomainService.CheckFollowing(currentUserId, userId);
+                bool alreadyFollowing = profileDomainService.CheckFollowing(userId, currentUserId);
 
                 if (alreadyFollowing)
                 {
