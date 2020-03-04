@@ -2,11 +2,11 @@
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Notification;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
+using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Domain.Interfaces;
-using IndieVisible.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +16,14 @@ namespace IndieVisible.Application.Services
 {
     public class NotificationAppService : BaseAppService, INotificationAppService
     {
-        private readonly INotificationRepository notificationRepository;
+        private readonly INotificationDomainService notificationDomainService;
 
         public NotificationAppService(IMapper mapper
             , IUnitOfWork unitOfWork
             , ICacheService cacheService
-            , INotificationRepository notificationRepository) : base(mapper, unitOfWork, cacheService)
+            , INotificationDomainService notificationDomainService) : base(mapper, unitOfWork, cacheService)
         {
-            this.notificationRepository = notificationRepository;
+            this.notificationDomainService = notificationDomainService;
         }
 
         #region ICrudAppService
@@ -49,10 +49,7 @@ namespace IndieVisible.Application.Services
             {
                 Notification model;
 
-                Task<Notification> task = notificationRepository.GetById(viewModel.Id);
-                task.Wait();
-
-                Notification existing = task.Result;
+                var existing = notificationDomainService.GetById(viewModel.Id);
 
                 if (existing != null)
                 {
@@ -65,12 +62,12 @@ namespace IndieVisible.Application.Services
 
                 if (viewModel.Id == Guid.Empty)
                 {
-                    notificationRepository.Add(model);
+                    notificationDomainService.Add(model);
                     viewModel.Id = model.Id;
                 }
                 else
                 {
-                    notificationRepository.Update(model);
+                    notificationDomainService.Update(model);
                 }
 
                 unitOfWork.Commit();
@@ -92,7 +89,7 @@ namespace IndieVisible.Application.Services
 
         public OperationResultListVo<NotificationItemViewModel> GetByUserId(Guid userId, int count)
         {
-            List<Notification> notifications = notificationRepository.Get(x => x.UserId == userId).OrderByDescending(x => x.CreateDate).Take(count).ToList();
+            List<Notification> notifications = notificationDomainService.GetByUserId(userId).OrderByDescending(x => x.CreateDate).Take(count).ToList();
 
             List<NotificationItemViewModel> tempList = new List<NotificationItemViewModel>();
             foreach (Notification notification in notifications)
@@ -136,16 +133,12 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                Task<Notification> task = notificationRepository.GetById(id);
-
-                task.Wait();
-
-                Notification notification = task.Result;
+                Notification notification = notificationDomainService.GetById(id);
 
                 if (notification != null)
                 {
                     notification.IsRead = true;
-                    notificationRepository.Update(notification);
+                    notificationDomainService.Update(notification);
 
                     unitOfWork.Commit();
                 }
