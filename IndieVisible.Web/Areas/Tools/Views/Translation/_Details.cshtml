@@ -30,7 +30,7 @@
 
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<div id="translationcontainer">
+<div id="featurecontainer" class="col">
     <div id="containerdetails">
         <div class="row box bg-white no-gutters">
             <div class="col-lg-8">
@@ -43,7 +43,7 @@
                     <div data-id="@Model.Id">
                         <div class="box-header with-border">
                             <div class="float-left mr-2">
-                                <a asp-area="work" asp-controller="translation" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                                <a asp-area="tools" asp-controller="translation" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                             </div>
                             <div class="float-left">
                                 <h2 class="card-title">@ViewData["Title"]</h2>
@@ -74,8 +74,8 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body p-0 p-md-2">
-                            <div class="translation-item" data-id="@Model.Id">
-                                <div class="translation-details">
+                            <div class="feature-item" data-id="@Model.Id">
+                                <div class="feature-details">
                                     <div class="border mb-3 p-2 bg-light">
                                         <div class="row">
                                             <div class="col-6 col-md-4">
@@ -107,9 +107,9 @@
                     </div>
                 </div>
             </div>
-            @*<div class="col-lg-4">
+            <div class="col-lg-4">
                 <partial name="_DetailsSidebar" model="Model" />
-            </div>*@
+            </div>
         </div>
     </div>
 </div>

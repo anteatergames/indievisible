@@ -23,24 +23,6 @@
                     <span class="gamebox-description-number">@Model.DeveloperName</span>
                 </div>
             </a>
-
-            <div class="price-tag pull-right float-right">
-                <span class="badge badge-secondary">@Model.Price</span>
-            </div>
-
-            <div class="release-platforms">
-                @if (Model.PlatformList.Any())
-                {
-                    foreach (var platform in Model.PlatformList)
-                    {
-                        <i class="fab fa-2x fa-@platform" aria-hidden="true"></i>
-                    }
-                }
-                else
-                {
-                    <i class="far fa-2x fa-calendar" aria-hidden="true"></i>
-                }
-            </div>
         </div>
     </div>
 </div>

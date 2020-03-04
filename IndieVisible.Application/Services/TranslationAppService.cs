@@ -10,6 +10,7 @@ using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IndieVisible.Application.Services
 {
@@ -50,7 +51,14 @@ namespace IndieVisible.Application.Services
             {
                 IEnumerable<TranslationProject> allModels = translationDomainService.GetAll();
 
-                IEnumerable<TranslationProjectViewModel> vms = mapper.Map<IEnumerable<TranslationProject>, IEnumerable<TranslationProjectViewModel>>(allModels);
+                List<TranslationProjectViewModel> vms = mapper.Map<IEnumerable<TranslationProject>, IEnumerable<TranslationProjectViewModel>>(allModels).ToList();
+
+                foreach (var vm in vms)
+                {
+                    vm.TermCount = vm.Terms.Count;
+
+                    SetPermissions(currentUserId, vm);
+                }
 
                 return new OperationResultListVo<TranslationProjectViewModel>(vms);
             }

@@ -48,6 +48,7 @@
 <div id="featurecontainer" class="col-12 container">
     <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
     <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+    <input type="hidden" id="urls" value="urls" data-url-list="@Url.Action("list", "translation", new { area = "tools" })" />
     <input type="hidden" id="urls" value="urls" data-url-mine="@Url.Action("list", "translation", new { area = "tools", userId = ViewBag.CurrentUserId })" />
 
     <div id="containerdetails" class="row">

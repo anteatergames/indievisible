@@ -1494,7 +1494,7 @@
     <comment>JobPosition</comment>
   </data>
   <data name="You must be logged in to post and apply to job positions." xml:space="preserve">
-    <value>Você preisa estar autenticado para poder postar e se candidatar a vagas.</value>
+    <value>Você precisa estar autenticado para poder postar e se candidatar a vagas.</value>
     <comment>JobPosition</comment>
   </data>
   <data name="benefits" xml:space="preserve">

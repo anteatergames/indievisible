@@ -21,7 +21,9 @@ else
 {
     @foreach (var game in Model)
     {
-        <partial name="~/Views/Game/_GameCard.cshtml" model="game" />
+        <div class="box box-game bg-white">
+            <partial name="~/Views/Game/_GameCard.cshtml" model="game" />
+        </div>
     }
 
     @if (!userFiltered)

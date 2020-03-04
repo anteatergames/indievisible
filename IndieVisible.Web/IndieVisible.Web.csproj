@@ -158,6 +158,9 @@
     <Content Update="Views\Shared\_FacebookSdk.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\_GameCardShared.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\_TagManagerBody.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

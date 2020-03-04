@@ -50,6 +50,8 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 SetLocalization(item);
             }
 
+            ViewData["ListDescription"] = SharedLocalizer["These are translation projects available to help."].ToString();
+
             return PartialView("_List", model);
         }
 

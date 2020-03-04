@@ -15,5 +15,11 @@ namespace IndieVisible.Domain.Models
         public List<TranslationTerm> Terms { get; set; }
 
         public List<TranslationEntry> Entries { get; set; }
+
+        public TranslationProject()
+        {
+            Terms = new List<TranslationTerm>();
+            Entries = new List<TranslationEntry>();
+        }
     }
 }
