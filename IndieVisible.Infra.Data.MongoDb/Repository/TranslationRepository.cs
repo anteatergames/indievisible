@@ -19,14 +19,20 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public override void Add(TranslationProject obj)
         {
-            foreach (TranslationTerm term in obj.Terms)
+            if (obj.Terms != null)
             {
-                term.Id = Guid.NewGuid();
+                foreach (TranslationTerm term in obj.Terms)
+                {
+                    term.Id = Guid.NewGuid();
+                } 
             }
 
-            foreach (TranslationEntry entry in obj.Entries)
+            if (obj.Entries != null)
             {
-                entry.Id = Guid.NewGuid();
+                foreach (TranslationEntry entry in obj.Entries)
+                {
+                    entry.Id = Guid.NewGuid();
+                } 
             }
 
             base.Add(obj);

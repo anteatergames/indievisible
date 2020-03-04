@@ -8,5 +8,6 @@ namespace IndieVisible.Application.Interfaces
 {
     public interface ITranslationAppService : ICrudAppService<TranslationProjectViewModel>, IPermissionControl<TranslationProjectViewModel>
     {
+        OperationResultVo GenerateNew(Guid currentUserId);
     }
 }

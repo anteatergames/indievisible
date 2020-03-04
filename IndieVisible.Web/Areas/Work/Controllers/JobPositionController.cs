@@ -231,7 +231,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         [Route("work/jobposition/new/{origin}")]
         public IActionResult New(JobPositionOrigin origin)
         {
-            OperationResultVo serviceResult = jobPositionAppService.GenerateNewTeam(CurrentUserId, origin);
+            OperationResultVo serviceResult = jobPositionAppService.GenerateNew(CurrentUserId, origin);
 
             if (serviceResult.Success)
             {

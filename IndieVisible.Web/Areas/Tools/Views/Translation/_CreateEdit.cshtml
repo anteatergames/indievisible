@@ -1,0 +1,62 @@
+﻿@model TranslationProjectViewModel
+
+@{
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+
+    ViewData["Title"] = SharedLocalizer["{0} Translation Project", (Model.Id == Guid.Empty ? "New" : "Edit")];
+}
+
+
+@if (!isAjax)
+{
+    @section Scripts {
+        <environment include="Development">
+            <script src="~/js/translation/translation.js"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="~/js/translation/translation.min.js" asp-append-version="true"></script>
+        </environment>
+
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+}
+else
+{
+}
+
+<div class="col-lg-12 mb-2 px-4">
+    <h1>@ViewData["Title"]</h1>
+</div>
+<div class="box bg-white">
+    <form id="frmTranslationSave" asp-area="tools" asp-controller="translation" asp-action="save" method="post">
+        <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="CreateDate" />
+        <div class="col-12">
+            <div class="box-header with-border">
+                <div class="float-left mr-3">
+                    <a asp-area="work" asp-controller="jobposition" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                </div>
+                <h3 class="card-title">@SharedLocalizer["You are {0} a new Translation Project", (Model.Id == Guid.Empty ? "creating" : "editing")]</h3>
+                <span class="card-subtitle">
+                    @SharedLocalizer["Tell us about the translation you need."];
+                </span>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body p-md-10">
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="PrimaryLanguage"></label>
+                    <select asp-for="PrimaryLanguage" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the primary language"]" tabindex="-1" aria-hidden="true"></select>
+                    <span asp-validation-for="PrimaryLanguage" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save Translation Project"]</button>
+            </div>
+        </div>
+    </form>
+</div>

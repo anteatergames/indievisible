@@ -1,11 +1,7 @@
-﻿using IndieVisible.Domain.Core.Extensions;
+﻿using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
-using IndieVisible.Domain.Interfaces.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
@@ -13,6 +9,13 @@ namespace IndieVisible.Domain.Services
     {
         public TranslationDomainService(ITranslationRepository repository) : base(repository)
         {
+        }
+
+        public TranslationProject GenerateNewProject(Guid currentUserId)
+        {
+            TranslationProject model = new TranslationProject();
+
+            return model;
         }
     }
 }

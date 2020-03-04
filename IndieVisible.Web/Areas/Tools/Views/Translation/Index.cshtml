@@ -1,6 +1,93 @@
 ﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@{
+    //ViewData["ControlSidebarTitle"] = ViewData["Title"];
+    //ViewData["ControlSidebarUrl"] = Url.Action("Index", "JobPosition", new { area = "Work" });
 
-xxx
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
+
+    ViewData["Title"] = SharedLocalizer["Translation"];
+    ViewData["Description"] = SharedLocalizer["Help other gamedevs to translate their games."];
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("index", "translation", new { area = "tools" });
+    //ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
+    //ViewData["OgImageWidth"] = 1200;
+    //ViewData["OgImageHeight"] = 630;
+}
+
+@section ComponentStyles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/_feature.css">
+        <link rel="stylesheet" href="~/css/translation.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/translation.min.css" asp-append-version="true">
+    </environment>
+}
+
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/translation/translation.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/translation/translation.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@section TranslatedMessages {
+    <span class="msg" data-msg-id="msgUrlMissing">@SharedLocalizer["The Url must not be empty!"]</span>
+}
+
+<div id="featurecontainer" class="col-12 container">
+    <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
+    <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+    <input type="hidden" id="urls" value="urls" data-url-mine="@Url.Action("list", "translation", new { area = "tools", userId = ViewBag.CurrentUserId })" />
+
+    <div id="containerdetails" class="row">
+
+    </div>
+    <div id="containerlist" class="row">
+        <div class="col-lg-12 mb-2 px-4">
+            <h1><i class="fa fa-fw fa-language" aria-hidden="true"></i> @ViewData["Title"]</h1>
+        </div>
+        <div class="col-lg-8 mb-3">
+            <div id="divList"></div>
+        </div>
+        <div id="featuresidebar" class="col-lg-4 no-gutters">
+            @if (!canInteract)
+            {
+                <div class="alert-info p-2">
+                    @SharedLocalizer["You must be logged in to work on translations."]
+                </div>
+            }
+            else
+            {
+                <div class="feature-box">
+                    <h3>@SharedLocalizer["User Panel"]</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>@SharedLocalizer["blablabla"]</p>
+                        </div>
+                        <div class="col-12">
+                            <h4>@SharedLocalizer["My Projects"]:</h4>
+                            @if (canInteract)
+                            {
+                                <div id="divActions">
+                                    <button id="btn-new" class="btn btn-outline-primary btn-block" data-url="@Url.Action("new", "translation", new { area = "tools" })">@SharedLocalizer["New Translation"]</button>
+                                </div>
+                            }
+                            <div id="divMyPositionStats" class="mt-1 p-1"></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

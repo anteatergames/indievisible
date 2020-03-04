@@ -18,6 +18,14 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/template.js",
+      "wwwroot/js/main.js",
+      "wwwroot/js/shared/alertsystem.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/css/home.min.css",
     "inputFiles": [
       "wwwroot/css/home.css",
@@ -90,14 +98,6 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
-    "inputFiles": [
-      "wwwroot/js/template.js",
-      "wwwroot/js/main.js",
-      "wwwroot/js/shared/alertsystem.js"
-    ]
-  },
-  {
     "outputFileName": "wwwroot/css/brainstorm.min.css",
     "inputFiles": [
       "wwwroot/css/brainstorm.css"
@@ -107,20 +107,6 @@
     "outputFileName": "wwwroot/js/brainstorm/brainstorm.min.js",
     "inputFiles": [
       "wwwroot/js/brainstorm/brainstorm.js",
-      "wwwroot/js/shared/contentactions.js"
-    ]
-  },
-  {
-    "outputFileName": "wwwroot/css/jobposition.min.css",
-    "inputFiles": [
-      "wwwroot/css/switch.css",
-      "wwwroot/css/jobposition.css"
-    ]
-  },
-  {
-    "outputFileName": "wwwroot/js/jobposition/jobposition.min.js",
-    "inputFiles": [
-      "wwwroot/js/jobposition/jobposition.js",
       "wwwroot/js/shared/contentactions.js"
     ]
   },
@@ -162,6 +148,33 @@
     "inputFiles": [
       "wwwroot/js/home/articles.js",
       "wwwroot/js/shared/activityfeed.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/jobposition.min.css",
+    "inputFiles": [
+      "wwwroot/css/switch.css",
+      "wwwroot/css/jobposition.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/jobposition/jobposition.min.js",
+    "inputFiles": [
+      "wwwroot/js/jobposition/jobposition.js",
+      "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/translation.min.css",
+    "inputFiles": [
+      "wwwroot/css/_feature.css",
+      "wwwroot/css/translation.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/translation/translation.min.js",
+    "inputFiles": [
+      "wwwroot/js/translation/translation.js"
     ]
   }
 ]

@@ -422,8 +422,8 @@
         var data = objs.form.serialize();
 
         $.post(url, data).done(function (response) {
-            if (response.success === true) {
-                MAINMODULE.Common.PostSaveCallback(btn);
+            if (response.success === true) {                
+                MAINMODULE.Common.PostSaveCallback(response, btn);
 
                 if (callback) {
                     callback();

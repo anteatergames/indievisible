@@ -6,5 +6,6 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface ITranslationDomainService : IDomainService<TranslationProject>
     {
+        TranslationProject GenerateNewProject(Guid currentUserId);
     }
 }

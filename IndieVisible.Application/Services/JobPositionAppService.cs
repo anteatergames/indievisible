@@ -184,7 +184,7 @@ namespace IndieVisible.Application.Services
         }
         #endregion
 
-        public OperationResultVo GenerateNewTeam(Guid currentUserId, JobPositionOrigin origin)
+        public OperationResultVo GenerateNew(Guid currentUserId, JobPositionOrigin origin)
         {
             try
             {

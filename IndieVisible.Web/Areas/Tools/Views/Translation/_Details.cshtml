@@ -1,0 +1,115 @@
+﻿@model TranslationProjectViewModel
+@{
+    ViewData["Title"] = "xpto";
+    ViewData["Description"] = "tralala";
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("details", "translation", new { area = "tools", id = Model.Id });
+    //ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
+    //ViewData["OgImageWidth"] = 1200;
+    //ViewData["OgImageHeight"] = 630;
+
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+@section ComponentStyles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/_feature.css">
+        <link rel="stylesheet" href="~/css/translation.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/translation.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/translation/translation.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/translation/translation.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<div id="translationcontainer">
+    <div id="containerdetails">
+        <div class="row box bg-white no-gutters">
+            <div class="col-lg-8">
+                <h1 class="sr-only">
+                    @SharedLocalizer["translation project details"]
+                </h1>
+                <input type="hidden" asp-for="Id" />
+                <div id="translationcontainer" class="mx-0">
+                    <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+                    <div data-id="@Model.Id">
+                        <div class="box-header with-border">
+                            <div class="float-left mr-2">
+                                <a asp-area="work" asp-controller="translation" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="float-left">
+                                <h2 class="card-title">@ViewData["Title"]</h2>
+                            </div>
+
+                            <div class="box-tools">
+                                @if (Model.Permissions.CanEdit || Model.Permissions.CanDelete)
+                                {
+                                    <div class="btn-group">
+                                        <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                            @if (Model.Permissions.CanEdit)
+                                            {
+                                                <a class="btnEditTranslation dropdown-item" href="#" data-url="@Url.Action("Edit", "Translation", new { area = "Tools", jobPositionId = Model.Id })">@SharedLocalizer["edit"]</a>
+                                            }
+
+                                            @if (Model.Permissions.CanDelete)
+                                            {
+                                                <a class="btnDeleteTranslation dropdown-item" href="#" data-url="@Url.Action("DeleteTranslation", "Translation", new { area = "Tools", jobPositionId = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this job position?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body p-0 p-md-2">
+                            <div class="translation-item" data-id="@Model.Id">
+                                <div class="translation-details">
+                                    <div class="border mb-3 p-2 bg-light">
+                                        <div class="row">
+                                            <div class="col-6 col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="PrimaryLanguage" class="col-form-label"></label>
+                                                    <p>@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="author-details mt-2">
+                                    <div class="col-12">
+                                        <span>@SharedLocalizer["This position was posted by"]:</span>
+                                        <div class="user-block">
+                                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                                                <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                                            </a>
+                                            <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
+
+                                            <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
+                                                <span class="description">@Model.CreateDate.ToString()</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-lg-4">
+                <partial name="_DetailsSidebar" model="Model" />
+            </div>*@
+        </div>
+    </div>
+</div>

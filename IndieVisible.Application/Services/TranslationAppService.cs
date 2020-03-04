@@ -29,6 +29,7 @@ namespace IndieVisible.Application.Services
             this.gamificationDomainService = gamificationDomainService;
         }
 
+        #region ICrudAppService
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
@@ -149,6 +150,24 @@ namespace IndieVisible.Application.Services
             catch (Exception ex)
             {
                 return new OperationResultVo<Guid>(ex.Message);
+            }
+        }
+        #endregion
+
+
+        public OperationResultVo GenerateNew(Guid currentUserId)
+        {
+            try
+            {
+                TranslationProject newJobPosition = translationDomainService.GenerateNewProject(currentUserId);
+
+                TranslationProjectViewModel newVm = mapper.Map<TranslationProjectViewModel>(newJobPosition);
+
+                return new OperationResultVo<TranslationProjectViewModel>(newVm);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
             }
         }
 

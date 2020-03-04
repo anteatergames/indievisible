@@ -1,4 +1,4 @@
-﻿var MODULETEMPLATE = (function () {
+﻿var TRANSLATION = (function () {
     "use strict";
 
     var selectors = {};
@@ -18,8 +18,8 @@
         selectors.list = '#divList';
         selectors.divListItem = '.feature-item';
         selectors.btnNew = '#btn-new';
-        selectors.form = '#frmID';
-        selectors.btnSave = '#btnID';
+        selectors.form = '#frmTranslationSave';
+        selectors.btnSave = '#btnSaveTranslation';
     }
 
     function cacheObjs() {
@@ -100,6 +100,7 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
+                console.log(btn);
                 MAINMODULE.Common.PostSaveCallback(response, btn);
 
                 if (callback) {
@@ -122,5 +123,5 @@
 }());
 
 $(function () {
-    MODULETEMPLATE.Init();
+    TRANSLATION.Init();
 });
