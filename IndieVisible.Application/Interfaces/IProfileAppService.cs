@@ -37,7 +37,7 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GetConnectionsByUserId(Guid userId);
 
-        void SetCache(Guid key, ProfileViewModel viewModel);
+        void SetProfileCache(Guid key, ProfileViewModel viewModel);
 
         ProfileViewModel GetUserProfileWithCache(Guid userId);
 

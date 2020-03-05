@@ -123,7 +123,8 @@ namespace IndieVisible.Application.AutoMapper
 
             #region Translation
 
-            CreateMap<TranslationProject, TranslationProjectViewModel>();
+            CreateMap<TranslationProject, TranslationProjectViewModel>()
+                .ForPath(x => x.Game.Id, opt => opt.MapFrom(x => x.GameId));
             CreateMap<TranslationTerm, TranslationTermViewModel>();
             CreateMap<TranslationEntry, TranslationEntryViewModel>();
 

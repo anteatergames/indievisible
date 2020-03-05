@@ -1,30 +1,15 @@
 ﻿using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.Game
 {
-    public class GameListItemViewModel
+    public class GameListItemViewModel : GameBaseViewModel, IGameCardBasic
     {
-        public Guid Id { get; set; }
-
-        public Guid UserId { get; set; }
-
-        public string ThumbnailUrl { get; set; }
-
-        public string ThumbnailResponsive { get; set; }
-
-        public string ThumbnailLquip { get; set; }
-
-        public string DeveloperImageUrl { get; set; }
-
-        public string Title { get; set; }
-
-        public string DeveloperName { get; set; }
-
         public string Price { get; set; }
 
         public string Platforms { get; set; }

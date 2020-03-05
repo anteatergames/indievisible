@@ -8,35 +8,18 @@
 
 
 <div class="box bg-white feature-item list-item" data-id="@Model.Id">
-    <div class="box-header with-border">
-        <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btnViewTranslationProject"><h2>@Model.GameTitle</h2></a>
-        <span>@Model.GameTitle</span>
-        <div class="box-tools">
-            @if (Model.Permissions.CanEdit || Model.Permissions.CanDelete)
-            {
-                <div class="btn-group">
-                    <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
-                    </button>
-                    <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                        @if (Model.Permissions.CanEdit)
-                        {
-                            <a class="btnEditTranslationProject dropdown-item" href="#" data-url="@Url.Action("edit", "translation", new { area = "tools", id = Model.Id })">@SharedLocalizer["edit"]</a>
-                        }
-
-                        @if (Model.Permissions.CanDelete)
-                        {
-                            <a class="btnDeleteTranslationProject dropdown-item" href="#" data-url="@Url.Action("deleteTranslationProject", "translation", new { area = "tools", TranslationProjectId = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this translation project?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
-                        }
-                    </div>
-                </div>
-            }
+    <div class="box-body translation-details feature-details no-gutters">
+        <div class="float-left pr-2">
+            <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
+                <img data-sizes="auto" src="@Model.Game.ThumbnailLquip" data-src="@Model.Game.ThumbnailLquip" data-srcset="@Model.Game.ThumbnailResponsive" class="card-img-top img-fluid lazyload blur-up" style="width:100%" alt="@Model.Game.Title" />
+            </a>
         </div>
-    </div>
-    <div class="box-body feature-details no-gutters">
 
-        <div class="col-12">
-            <span class="badge badge-secondary mb-1 p-2">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</span>
+        <div class="col-12 text-center">
+            <span class="badge badge-secondary mb-1 p-2">@SharedLocalizer["From {0}", Model.PrimaryLanguage.ToDisplayName()]</span>
+        </div>
+
+        <div class="col-12 text-center align-items-center">
             <div class="c100 p90">
                 <span>60%</span>
                 <div class="slice">
@@ -45,6 +28,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-12 mt-2">
             <p>
                 @Html.Raw(Model.Introduction?.Replace(Environment.NewLine, "<br/>").Substring(0, limitMaxCharDescription))

@@ -62,17 +62,17 @@ namespace IndieVisible.Application.Services
                 List<UserProfile> profiles = new List<UserProfile>();
                 IEnumerable<Guid> allIds = profileDomainService.GetAllUserIds();
 
-                foreach (Guid id in allIds)
+                foreach (Guid userId in allIds)
                 {
-                    UserProfile profile = cacheService.Get<Guid, UserProfile>(id);
+                    UserProfile profile = GetCachedProfileByUserId(userId);
                     if (profile == null)
                     {
-                        UserProfile userProfile = profileDomainService.GetByUserId(id).FirstOrDefault();
+                        UserProfile userProfile = profileDomainService.GetByUserId(userId).FirstOrDefault();
 
                         if (userProfile != null)
                         {
                             profile = userProfile;
-                            cacheService.Set(id, profile);
+                            SetProfileCache(userId, profile);
                         }
                     }
                     profiles.Add(profile);
@@ -170,7 +170,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                cacheService.Set(viewModel.UserId, model);
+                SetProfileCache(viewModel.UserId, model);
 
                 return new OperationResultVo<Guid>(model.Id);
             }

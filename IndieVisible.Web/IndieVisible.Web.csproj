@@ -110,9 +110,6 @@
     <Content Update="Views\Brainstorm\_ViewImports.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Game\_GameCard.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Views\Game\_GameStoreBadges.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -158,7 +155,7 @@
     <Content Update="Views\Shared\_FacebookSdk.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Shared\_GameCardShared.cshtml">
+    <Content Update="Views\Shared\_GameCard.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Shared\_TagManagerBody.cshtml">

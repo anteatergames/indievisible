@@ -3,6 +3,7 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Translation;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
@@ -17,6 +18,7 @@ namespace IndieVisible.Application.Services
     public class TranslationAppService : ProfileBaseAppService, ITranslationAppService
     {
         private readonly ITranslationDomainService translationDomainService;
+        private readonly IGameDomainService gameDomainService;
         private readonly IGamificationDomainService gamificationDomainService;
 
         public TranslationAppService(IMapper mapper
@@ -24,9 +26,11 @@ namespace IndieVisible.Application.Services
             , ICacheService cacheService
             , IProfileDomainService profileDomainService
             , ITranslationDomainService translationDomainService
+            , IGameDomainService gameDomainService
             , IGamificationDomainService gamificationDomainService) : base(mapper, unitOfWork, cacheService, profileDomainService)
         {
             this.translationDomainService = translationDomainService;
+            this.gameDomainService = gameDomainService;
             this.gamificationDomainService = gamificationDomainService;
         }
 
@@ -53,11 +57,22 @@ namespace IndieVisible.Application.Services
 
                 List<TranslationProjectViewModel> vms = mapper.Map<IEnumerable<TranslationProject>, IEnumerable<TranslationProjectViewModel>>(allModels).ToList();
 
-                foreach (var vm in vms)
+                foreach (var item in vms)
                 {
-                    vm.TermCount = vm.Terms.Count;
+                    item.TermCount = item.Terms.Count;
 
-                    SetPermissions(currentUserId, vm);
+
+                    var game = GetGameWithCache(gameDomainService, item.Game.Id);
+
+                    item.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
+                    item.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
+                    item.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
+                    item.Game.DeveloperImageUrl = UrlFormatter.ProfileImage(game.UserId, 40);
+
+                    UserProfile authorProfile = GetCachedProfileByUserId(item.UserId);
+                    item.Game.DeveloperName = authorProfile.Name;
+
+                    SetPermissions(currentUserId, item);
                 }
 
                 return new OperationResultListVo<TranslationProjectViewModel>(vms);
@@ -182,6 +197,29 @@ namespace IndieVisible.Application.Services
         public void SetPermissions(Guid currentUserId, TranslationProjectViewModel vm)
         {
             SetBasePermissions(currentUserId, vm);
+        }
+
+        private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
+        {
+
+            if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
+            {
+                return Constants.DefaultGameThumbnail;
+            }
+            else
+            {
+
+                switch (imageType)
+                {
+                    case ImageType.LowQuality:
+                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278, 10);
+                    case ImageType.Responsive:
+                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 0, 0, true);
+                    case ImageType.Full:
+                    default:
+                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278);
+                }
+            }
         }
     }
 }

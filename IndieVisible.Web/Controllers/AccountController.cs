@@ -738,7 +738,7 @@ namespace IndieVisible.Web.Controllers
                 ProfileViewModel profile = profileAppService.GetByUserId(key, ProfileType.Personal);
                 if (profile != null)
                 {
-                    profileAppService.SetCache(key, profile);
+                    profileAppService.SetProfileCache(key, profile);
                 }
             }
         }

@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
+using IndieVisible.Application.ViewModels.Game;
+using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Models;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
-using IndieVisible.Domain.Interfaces;
 using System;
 using System.Linq;
-using IndieVisible.Application.ViewModels.User;
 
 namespace IndieVisible.Application.Services
 {
@@ -21,28 +23,29 @@ namespace IndieVisible.Application.Services
             this.profileDomainService = profileDomainService;
         }
 
-        public void SetCache(Guid key, UserProfile value)
+        #region Profile
+        public void SetProfileCache(Guid userId, UserProfile value)
         {
-            cacheService.Set<Guid, UserProfile>(key, value);
+            cacheService.Set<string, UserProfile>(FormatProfileCacheId(userId), value);
         }
 
-        public void SetCache(Guid key, ProfileViewModel viewModel)
+        public void SetProfileCache(Guid userId, ProfileViewModel viewModel)
         {
             UserProfile model = mapper.Map<UserProfile>(viewModel);
 
-            SetCache(viewModel.UserId, model);
+            SetProfileCache(viewModel.UserId, model);
         }
 
-        protected UserProfile GetFromCache(Guid key)
+        private UserProfile GetProfileFromCache(Guid userId)
         {
-            UserProfile fromCache = cacheService.Get<Guid, UserProfile>(key);
+            UserProfile fromCache = cacheService.Get<string, UserProfile>(FormatProfileCacheId(userId));
 
             return fromCache;
         }
 
         protected UserProfile GetCachedProfileByUserId(Guid userId)
         {
-            UserProfile profile = cacheService.Get<Guid, UserProfile>(userId);
+            UserProfile profile = GetProfileFromCache(userId);
 
             if (profile == null)
             {
@@ -50,7 +53,7 @@ namespace IndieVisible.Application.Services
 
                 if (profileFromDb != null)
                 {
-                    cacheService.Set(userId, profileFromDb);
+                    SetProfileCache(userId, profileFromDb);
                     profile = profileFromDb;
                 }
             }
@@ -60,7 +63,7 @@ namespace IndieVisible.Application.Services
 
         public ProfileViewModel GetUserProfileWithCache(Guid userId)
         {
-            UserProfile model = this.GetFromCache(userId);
+            UserProfile model = GetProfileFromCache(userId);
 
             if (model == null)
             {
@@ -70,6 +73,77 @@ namespace IndieVisible.Application.Services
             ProfileViewModel viewModel = mapper.Map<ProfileViewModel>(model);
 
             return viewModel;
+        }
+        #endregion
+
+        #region Generics
+        private void SetOjectOnCache<T>(Guid id, T value, string preffix)
+        {
+            cacheService.Set<string, T>(FormatObjectCacheId(preffix, id), value);
+        }
+
+        private T GetObjectFromCache<T>(Guid id, string preffix) where T : Entity
+        {
+            T fromCache = cacheService.Get<string, T>(FormatObjectCacheId(preffix, id));
+
+            return fromCache;
+        }
+
+        private T GetCachedObjectById<T>(IDomainService<T> domainService, Guid id, string preffix) where T : Entity
+        {
+            T obj = GetObjectFromCache<T>(id, preffix);
+
+            if (obj == null)
+            {
+                T objectFromDb = domainService.GetById(id);
+
+                if (objectFromDb != null)
+                {
+                    SetOjectOnCache(id, objectFromDb, preffix);
+                    obj = objectFromDb;
+                }
+            }
+
+            return obj;
+        }
+        #endregion
+
+        #region Game
+        public void SetGameCache(Guid id, Game value)
+        {
+            cacheService.Set<string, Game>(FormatObjectCacheId("game", id), value);
+        }
+
+        public void SetGameCache(Guid id, GameViewModel viewModel)
+        {
+            Game model = mapper.Map<Game>(viewModel);
+
+            SetGameCache(id, model);
+        }
+
+        public GameViewModel GetGameWithCache(IDomainService<Game> domainService, Guid id)
+        {
+            Game model = GetObjectFromCache<Game>(id, "game");
+
+            if (model == null)
+            {
+                model = domainService.GetById(id);
+            }
+
+            GameViewModel viewModel = mapper.Map<GameViewModel>(model);
+
+            return viewModel;
+        }
+        #endregion
+
+        private string FormatProfileCacheId(Guid userId)
+        {
+            return String.Format("profile_{0}", userId.ToString());
+        }
+
+        private string FormatObjectCacheId(string preffix, Guid id)
+        {
+            return String.Format("{0}_{1}", preffix, id.ToString());
         }
     }
 }

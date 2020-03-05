@@ -12,6 +12,8 @@ namespace IndieVisible.Domain.Models
         
         public SupportedLanguage PrimaryLanguage { get; set; }
 
+        public string Introduction { get; set; }
+
         public List<TranslationTerm> Terms { get; set; }
 
         public List<TranslationEntry> Entries { get; set; }
