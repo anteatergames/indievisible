@@ -15,8 +15,14 @@ else
 {
     <p>@SharedLocalizer[description]</p>
 
-    @foreach (var item in Model)
-    {
-        <partial name="_ListItem" model="item" />
-    }
+    <div class="row translation-list">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-6">
+                <div class="translation-item box bg-white">
+                    <partial name="_ListItem" model="item" />
+                </div>
+            </div>
+        }
+    </div>
 }

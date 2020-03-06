@@ -168,7 +168,8 @@
     "outputFileName": "wwwroot/css/translation.min.css",
     "inputFiles": [
       "wwwroot/css/_feature.css",
-      "wwwroot/css/translation.css"
+      "wwwroot/css/translation.css",
+      "wwwroot/css/circularpercentage.css"
     ]
   },
   {

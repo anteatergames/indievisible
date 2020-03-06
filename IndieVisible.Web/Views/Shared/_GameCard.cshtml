@@ -10,19 +10,25 @@
     <div class="box-body">
         <div class="gamebox-description">
 
-            <div class="row text-truncate">
-                <div class="col-12">
-                    <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
-                        <span class="gamebox-description-text">@Model.Title</span>
-                    </a>
+            @if (!string.IsNullOrWhiteSpace(Model.Title))
+            {
+                <div class="row text-truncate">
+                    <div class="col-12">
+                        <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
+                            <span class="gamebox-description-text">@Model.Title</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
-                <img class="rounded-circle img-sm" src="@Model.DeveloperImageUrl" alt="@Model.DeveloperName">
-                <div class="gamebox-description-text">
-                    <span class="gamebox-description-number">@Model.DeveloperName</span>
-                </div>
-            </a>
+            }
+            @if (!String.IsNullOrWhiteSpace(Model.DeveloperName))
+            {
+                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                    <img class="rounded-circle img-sm" src="@Model.DeveloperImageUrl" alt="@Model.DeveloperName">
+                    <div class="gamebox-description-text">
+                        <span class="gamebox-description-number">@Model.DeveloperName</span>
+                    </div>
+                </a>
+            }
         </div>
     </div>
 </div>

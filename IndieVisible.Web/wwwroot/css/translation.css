@@ -1,3 +1,11 @@
 .feature-details {
     padding: 0 !important;
 }
+
+.translation-item .box-body {
+    padding: 0;
+}
+
+.translation-progress-chart {
+    margin-top: -50px;
+}

@@ -63,17 +63,20 @@ namespace IndieVisible.Application.Services
 
 
                     var game = GetGameWithCache(gameDomainService, item.Game.Id);
-
+                    //item.Game.Title = game.Title;
                     item.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
                     item.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
                     item.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
-                    item.Game.DeveloperImageUrl = UrlFormatter.ProfileImage(game.UserId, 40);
 
-                    UserProfile authorProfile = GetCachedProfileByUserId(item.UserId);
-                    item.Game.DeveloperName = authorProfile.Name;
+                    //item.Game.DeveloperImageUrl = UrlFormatter.ProfileImage(game.UserId, 40);
+
+                    //UserProfile authorProfile = GetCachedProfileByUserId(game.UserId);
+                    //item.Game.DeveloperName = authorProfile.Name;
 
                     SetPermissions(currentUserId, item);
                 }
+
+                vms = vms.OrderByDescending(x => x.CreateDate).ToList();
 
                 return new OperationResultListVo<TranslationProjectViewModel>(vms);
             }

@@ -1,0 +1,41 @@
+﻿@keyframes donut-chart-fill {
+    to {
+        stroke-dasharray: 0 100;
+    }
+}
+
+.donut-ring {
+    stroke: #EBEBEB;
+}
+
+.donut-segment {
+    animation: donut-chart-fill 1s reverse ease-in;
+    transform-origin: center;
+    stroke: var(--color-accent);
+}
+
+.donut-text {
+    font-family: Arial, Helvetica, sans-serif;
+    fill: var(--color-accent);
+}
+
+.donut-label {
+    font-size: 0.28em;
+    font-weight: 700;
+    line-height: 1;
+    fill: #000;
+    transform: translateY(0.25em);
+}
+
+.donut-percent {
+    font-size: 0.5em;
+    fill: #FF6200;
+    line-height: 1;
+    transform: translateY(0.5em);
+}
+
+.circle-chart__info {
+    animation: circle-chart-appear 2s forwards;
+    opacity: 0;
+    transform: translateY(0.3em);
+}
