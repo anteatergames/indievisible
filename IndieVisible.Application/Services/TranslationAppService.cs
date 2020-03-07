@@ -177,6 +177,23 @@ namespace IndieVisible.Application.Services
                     model = mapper.Map<TranslationProject>(viewModel);
                 }
 
+                if (model.Id == Guid.Empty)
+                {
+                    model.Terms.Add(new TranslationTerm
+                    {
+                        Key = "menu_play",
+                        Value = "Jogar",
+                        Obs = "Menu item"
+                    });
+
+                    model.Terms.Add(new TranslationTerm
+                    {
+                        Key = "menu_quit",
+                        Value = "Sair",
+                        Obs = "Menu item"
+                    }); 
+                }
+
                 if (viewModel.Id == Guid.Empty)
                 {
                     translationDomainService.Add(model);

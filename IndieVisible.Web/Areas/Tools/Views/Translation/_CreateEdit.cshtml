@@ -5,7 +5,7 @@
     var canInteract = User.Identity.IsAuthenticated;
 
     ViewData["Title"] = SharedLocalizer["{0} Translation Project", (Model.Id == Guid.Empty ? "New" : "Edit")];
-    
+
     var userGames = ViewBag.UserGames as List<SelectListItem>;
 }
 
@@ -54,10 +54,18 @@ else
             <div class="col-md-12">
                 <div class="form-group">
                     <label>@SharedLocalizer["Game"]</label>
-                    <select asp-for="Game.Id" asp-items="@userGames" class="form-control select2">
-                        <option selected="selected" value="">@SharedLocalizer["Select"]</option>
-                    </select>
-                    <span asp-validation-for="Game.Id" class="text-danger"></span>
+                    @if (Model.Id != Guid.Empty)
+                    {
+                        <label class="form-control bg-gray">@Model.Game.Title</label>
+                        <input type="hidden" asp-for="Game.Id" />
+                    }
+                    else
+                    {
+                        <select asp-for="Game.Id" asp-items="@userGames" class="form-control select2">
+                            <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                        </select>
+                        <span asp-validation-for="Game.Id" class="text-danger"></span>
+                    }
                 </div>
             </div>
 
@@ -66,6 +74,14 @@ else
                     <label asp-for="PrimaryLanguage"></label>
                     <select asp-for="PrimaryLanguage" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the primary language"]" tabindex="-1" aria-hidden="true"></select>
                     <span asp-validation-for="PrimaryLanguage" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label asp-for="Introduction"></label>
+                    <textarea asp-for="Introduction" class="form-control"></textarea>
+                    <span asp-validation-for="Introduction" class="text-danger"></span>
                 </div>
             </div>
 

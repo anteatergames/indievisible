@@ -10,6 +10,6 @@ namespace IndieVisible.Application.ViewModels.Translation
 
         public string Value { get; set; }
 
-        public bool Fuzzy { get; set; }
+        public string Obs{ get; set; }
     }
 }

@@ -9,3 +9,9 @@
 .translation-progress-chart {
     margin-top: -40px;
 }
+
+@media (max-width: 767px) {
+    .border-right, .border-left {
+        border: 0 !important;
+    }
+}

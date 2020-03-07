@@ -129,6 +129,29 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             }
         }
 
+
+        [Authorize]
+        [Route("tools/translation/edit/{id:guid}")]
+        public IActionResult Edit(Guid id)
+        {
+            OperationResultVo serviceResult = translationAppService.GetById(CurrentUserId, id);
+
+            if (serviceResult.Success)
+            {
+                OperationResultVo<TranslationProjectViewModel> castResult = serviceResult as OperationResultVo<TranslationProjectViewModel>;
+
+                TranslationProjectViewModel model = castResult.Value;
+
+                SetLocalization(model, true);
+
+                return PartialView("_CreateEdit", model);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         [Authorize]
         [HttpPost("tools/translation/save")]
         public IActionResult Save(TranslationProjectViewModel vm)

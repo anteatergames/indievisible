@@ -77,7 +77,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             UpdateDefinition<TranslationProject> update = Builders<TranslationProject>.Update
                 .Set(c => c.Terms[-1].Key, term.Key)
                 .Set(c => c.Terms[-1].Value, term.Value)
-                .Set(c => c.Terms[-1].Fuzzy, term.Fuzzy);
+                .Set(c => c.Terms[-1].Obs, term.Obs);
 
             UpdateResult result = await DbSet.UpdateOneAsync(filter, update);
 

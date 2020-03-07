@@ -12,6 +12,6 @@ namespace IndieVisible.Domain.Models
 
         public string Value { get; set; }
 
-        public bool Fuzzy { get; set; }
+        public string Obs{ get; set; }
     }
 }

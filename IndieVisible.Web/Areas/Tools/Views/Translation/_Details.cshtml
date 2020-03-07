@@ -1,6 +1,6 @@
 ﻿@model TranslationProjectViewModel
 @{
-    ViewData["Title"] = SharedLocalizer["Translation for {0}", Model.Game.Title];
+    ViewData["Title"] = SharedLocalizer["Translate for {0}", Model.Game.Title];
     ViewData["Description"] = "tralala";
     ViewData["Url"] = ViewBag.BaseUrl + Url.Action("details", "translation", new { area = "tools", id = Model.Id });
     //ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
@@ -23,6 +23,7 @@
 @section Scripts {
     <environment include="Development">
         <script src="~/js/translation/translation.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/js/translation/translation.min.js" asp-append-version="true"></script>
@@ -59,12 +60,12 @@
                                         <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                                             @if (Model.Permissions.CanEdit)
                                             {
-                                                <a class="btnEditTranslation dropdown-item" href="#" data-url="@Url.Action("Edit", "Translation", new { area = "Tools", jobPositionId = Model.Id })">@SharedLocalizer["edit"]</a>
+                                                <a class="btnEditTranslationProject dropdown-item" href="#" data-url="@Url.Action("Edit", "Translation", new { area = "Tools", id = Model.Id })">@SharedLocalizer["edit"]</a>
                                             }
 
                                             @if (Model.Permissions.CanDelete)
                                             {
-                                                <a class="btnDeleteTranslation dropdown-item" href="#" data-url="@Url.Action("DeleteTranslation", "Translation", new { area = "Tools", jobPositionId = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this job position?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                                                <a class="btnDeleteTranslationProject dropdown-item" href="#" data-url="@Url.Action("DeleteTranslation", "Translation", new { area = "Tools", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this job position?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
                                             }
                                         </div>
                                     </div>
@@ -74,7 +75,7 @@
 
                         <div class="box-body p-0 px-md-2">
                             <div class="row">
-                                <div class="col-8" data-id="@Model.Id">
+                                <div class="col-lg-8" data-id="@Model.Id">
                                     <partial name="_GameCard" model="Model.Game" />
                                 </div>
                                 <div class="col-lg-4">
@@ -93,7 +94,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="border mb-3 p-2 bg-light">
+                                        <div class="border mt-3 mb-3 p-2 bg-light">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <p>@Model.Introduction</p>
@@ -106,13 +107,40 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" readonly value="@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]" />
+                            <div class="mt-2">
+                                <div class="text-center">
+                                    <h4 class="text-uppercase mb-0">@SharedLocalizer["translating"]</h4>
                                 </div>
-                                <div class="col">
-                                    @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>(), "Select a language", new { @class = "form-control" })
+                                <div class="row border-bottom mb-2">
+                                    <div class="col border-right rounded-0">
+                                        <label class="col-form-label text-uppercase">@SharedLocalizer["from"]</label>
+                                        <label class="form-control bg-gray">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</label>
+                                    </div>
+                                    <div class="col border-left rounded-0">
+                                        <label class="col-form-label text-uppercase" ">@SharedLocalizer["to"]</label>
+                                        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), "Select a language", new { @class = "form-control" })
+                                    </div>
                                 </div>
+
+                                @foreach (var term in Model.Terms)
+                                {
+                                    <div class="row pb-3 p-md-0 m-2 border bg-light">
+                                        <div class="col-12 col-md-6 border-right rounded-0">
+                                            <label class="col-form-label">@term.Key</label>
+
+                                            <div class="input-group mb-3">
+                                                <label class="form-control bg-gray">@term.Value</label>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" data-container="body" data-toggle="popover" data-placement="top" data-content="@term.Obs" title="@SharedLocalizer["Context"]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 border-left rounded-0">
+                                            <label class="col-form-label d-none d-md-block">@term.Key</label>
+                                            <input class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>

@@ -21,6 +21,8 @@
         selectors.btnNew = '#btn-new';
         selectors.form = '#frmTranslationSave';
         selectors.btnSave = '#btnSaveTranslation';
+        selectors.btnEdit = '.btnEditTranslationProject';
+        selectors.btnDelete = '.btnDeleteTranslationProject';
     }
 
     function cacheObjs() {
@@ -66,6 +68,7 @@
     function bindAll() {
         bindBtnNew();
         bindBtnSaveForm();
+        bindEdit();
     }
 
     function bindBtnNew() {
@@ -78,7 +81,12 @@
     }
 
     function bindDetails() {
+        bindPopOvers();
         CONTENTACTIONS.BindShareContent();
+    }
+
+    function bindPopOvers() {
+        $("[data-toggle='popover']").popover();
     }
 
     function bindBtnSaveForm() {
@@ -90,6 +98,18 @@
                 MAINMODULE.Common.DisableButton(btn);
 
                 submitForm(btn);
+            }
+        });
+    }
+
+
+    function bindEdit() {
+        objs.container.on('click', selectors.btnEdit, function (e) {
+            e.preventDefault();
+            var url = $(this).data('url');
+
+            if (canInteract) {
+                loadEditForm(url);
             }
         });
     }
@@ -137,6 +157,21 @@
             objs.form = $(selectors.form);
 
             $.validator.unobtrusive.parse(selectors.form);
+            setCreateEdit();
+        });
+    }
+
+    function loadEditForm(url) {
+        objs.containerDetails.html(MAINMODULE.Default.Spinner);
+        objs.containerList.hide();
+
+        $.get(url, function (data) {
+            objs.containerDetails.html(data);
+            objs.containerDetails.show();
+
+            objs.form = $(selectors.form);
+
+            $.validator.unobtrusive.parse(objs.form);
             setCreateEdit();
         });
     }

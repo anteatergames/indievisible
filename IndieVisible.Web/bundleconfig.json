@@ -175,7 +175,8 @@
   {
     "outputFileName": "wwwroot/js/translation/translation.min.js",
     "inputFiles": [
-      "wwwroot/js/translation/translation.js"
+      "wwwroot/js/translation/translation.js",
+      "wwwroot/js/shared/contentactions.js"
     ]
   }
 ]
