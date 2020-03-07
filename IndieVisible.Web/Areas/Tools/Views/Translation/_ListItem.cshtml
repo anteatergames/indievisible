@@ -4,11 +4,12 @@
     var limitMaxCharParam = 240;
     var needMore = limitMaxCharParam < Model.Introduction?.Length;
     var limitMaxCharDescription = needMore ? limitMaxCharParam : (int)(Model.Introduction?.Length ?? 0);
-    
-    var percentage = 75.3;
-    var rest = 100-percentage;
+
+    var percentage = 80.5;
     var strokeWidth = 3.5;
-    
+
+    var text = String.Format("Translate from {0}!", Model.PrimaryLanguage.ToDisplayName());
+
 
 }
 @*https://codepen.io/maoberlehner/pen/jwVWQz*@
@@ -17,26 +18,23 @@
 
 <div class="row">
     <div class="col-12">
-        <div class="translation-progress-chart svg-item text-center">
-            <svg width="50%" viewBox="0 0 40 40" class="donut img-fluid">
-                <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
-                <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="@strokeWidth"></circle>
-                <circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="@strokeWidth" stroke-dasharray="@String.Format("{0} {1}", percentage, rest)" stroke-dashoffset="25"></circle>
-                <g class="donut-text">
-                    <text class="circle-chart__percent" x="20" y="20" alignment-baseline="central" text-anchor="middle" font-size="8">@String.Format("{0}%", percentage)</text>
-                    <text class="circle-chart__subline" x="20" y="25" alignment-baseline="central" text-anchor="middle" font-size="2">@String.Format("Translated from {0}!", Model.PrimaryLanguage.ToDisplayName())</text>
-                </g>
-            </svg>
+        <div class="translation-progress-chart text-center">
+            <partial name="_DonutPercentageChart" model="new DonutChartViewModel(percentage, text, strokeWidth)" />
         </div>
     </div>
 </div>
 
-<div class="col-12 text-lowercase text-right">
-    <span class="text-muted"><span class="comment-count">@Model.TermCount</span> @(Model.TermCount == 1 ? SharedLocalizer["term"] : SharedLocalizer["terms"])</span>
+<div class="row p-2">
+    <div class="col p-2 text-left">
+        <span class="text-muted">@Model.PrimaryLanguage.ToDisplayName()</span>
+    </div>
+    <div class="col p-2 text-right">
+        <span class="text-muted"><span class="comment-count">@Model.TermCount</span> @(Model.TermCount == 1 ? SharedLocalizer["term"] : SharedLocalizer["terms"])</span>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-12">
-        <button type="button" class="btn btn-block btn-secondary">Help this one!</button>
+        <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btn btn-block btn-secondary">@SharedLocalizer["Help this one!"]</a>
     </div>
 </div>

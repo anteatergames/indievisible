@@ -7,18 +7,22 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Translation;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Tools.Controllers.Base;
+using IndieVisible.Web.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace IndieVisible.Web.Areas.Tools.Controllers
 {
     public class TranslationController : ToolsBaseController
     {
         private readonly ITranslationAppService translationAppService;
+        private readonly IGameAppService gameAppService;
 
-        public TranslationController(ITranslationAppService translationAppService)
+        public TranslationController(ITranslationAppService translationAppService, IGameAppService gameAppService)
         {
             this.translationAppService = translationAppService;
+            this.gameAppService = gameAppService;
         }
 
         public IActionResult Index()
@@ -55,6 +59,35 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             return PartialView("_List", model);
         }
 
+        [Route("tools/translation/listmine")]
+        public PartialViewResult ListMine()
+        {
+            IEnumerable<TranslationProjectViewModel> model;
+            OperationResultVo serviceResult;
+
+            serviceResult = translationAppService.GetByUserId(CurrentUserId, CurrentUserId);
+
+            if (serviceResult != null && serviceResult.Success)
+            {
+                OperationResultListVo<TranslationProjectViewModel> castResult = serviceResult as OperationResultListVo<TranslationProjectViewModel>;
+
+                model = castResult.Value;
+            }
+            else
+            {
+                model = new List<TranslationProjectViewModel>();
+            }
+
+            foreach (TranslationProjectViewModel item in model)
+            {
+                SetLocalization(item);
+            }
+
+            ViewData["ListDescription"] = SharedLocalizer["These are translation projects available to help."].ToString();
+
+            return PartialView("_ListByUser", model);
+        }
+
         [Route("tools/translation/details/{id:guid}")]
         public IActionResult Details(Guid id, int? pointsEarned)
         {
@@ -83,6 +116,10 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 TranslationProjectViewModel model = castResult.Value;
 
                 SetLocalization(model);
+
+                IEnumerable<SelectListItemVo> games = gameAppService.GetByUser(CurrentUserId);
+                List<SelectListItem> gamesDropDown = games.ToSelectList();
+                ViewBag.UserGames = gamesDropDown;
 
                 return PartialView("_CreateEdit", model);
             }

@@ -62,18 +62,38 @@ namespace IndieVisible.Application.Services
                     item.TermCount = item.Terms.Count;
 
 
-                    var game = GetGameWithCache(gameDomainService, item.Game.Id);
-                    //item.Game.Title = game.Title;
-                    item.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
-                    item.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
-                    item.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
-
-                    //item.Game.DeveloperImageUrl = UrlFormatter.ProfileImage(game.UserId, 40);
-
-                    //UserProfile authorProfile = GetCachedProfileByUserId(game.UserId);
-                    //item.Game.DeveloperName = authorProfile.Name;
+                    SetGameViewModel(item.Game.Id, item);
+                    item.Game.Title = string.Empty;
 
                     SetPermissions(currentUserId, item);
+                }
+
+                vms = vms.OrderByDescending(x => x.CreateDate).ToList();
+
+                return new OperationResultListVo<TranslationProjectViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultListVo<TranslationProjectViewModel>(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetByUserId(Guid currentUserId, Guid userId)
+        {
+            try
+            {
+                IEnumerable<TranslationProject> allModels = translationDomainService.GetByUserId(userId);
+
+                List<TranslationProjectViewModel> vms = mapper.Map<IEnumerable<TranslationProject>, IEnumerable<TranslationProjectViewModel>>(allModels).ToList();
+
+                foreach (var item in vms)
+                {
+                    item.TermCount = item.Terms.Count;
+
+                    var game = GetGameWithCache(gameDomainService, item.Game.Id);
+                    item.Game.Title = game.Title;
+
+                    SetPermissions(userId, item);
                 }
 
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();
@@ -98,6 +118,8 @@ namespace IndieVisible.Application.Services
                 }
 
                 TranslationProjectViewModel vm = mapper.Map<TranslationProjectViewModel>(model);
+
+                SetGameViewModel(model.GameId, vm);
 
                 foreach (TranslationTermViewModel term in vm.Terms)
                 {
@@ -223,6 +245,16 @@ namespace IndieVisible.Application.Services
                         return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278);
                 }
             }
+        }
+
+        private void SetGameViewModel(Guid gameId, TranslationProjectViewModel vm)
+        {
+            var game = GetGameWithCache(gameDomainService, gameId);
+            vm.Game.Title = game.Title;
+
+            vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
+            vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
+            vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model TranslationProjectViewModel
 @{
-    ViewData["Title"] = "xpto";
+    ViewData["Title"] = SharedLocalizer["Translation for {0}", Model.Game.Title];
     ViewData["Description"] = "tralala";
     ViewData["Url"] = ViewBag.BaseUrl + Url.Action("details", "translation", new { area = "tools", id = Model.Id });
     //ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
@@ -33,7 +33,7 @@
 <div id="featurecontainer" class="col">
     <div id="containerdetails">
         <div class="row box bg-white no-gutters">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <h1 class="sr-only">
                     @SharedLocalizer["translation project details"]
                 </h1>
@@ -70,45 +70,53 @@
                                     </div>
                                 }
                             </div>
-
                         </div>
-                        <!-- /.box-header -->
-                        <div class="box-body p-0 p-md-2">
-                            <div class="feature-item" data-id="@Model.Id">
-                                <div class="feature-details">
-                                    <div class="border mb-3 p-2 bg-light">
-                                        <div class="row">
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-group">
-                                                    <label asp-for="PrimaryLanguage" class="col-form-label"></label>
-                                                    <p>@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</p>
+
+                        <div class="box-body p-0 px-md-2">
+                            <div class="row">
+                                <div class="col-8" data-id="@Model.Id">
+                                    <partial name="_GameCard" model="Model.Game" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="author-details">
+                                        <div class="col-12">
+                                            <span>@SharedLocalizer["This translation was requested by"]:</span>
+                                            <div class="user-block">
+                                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                                                    <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                                                </a>
+                                                <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
+
+                                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
+                                                    <span class="description">@Model.CreateDate.ToString()</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="border mb-3 p-2 bg-light">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>@Model.Introduction</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="author-details mt-2">
-                                    <div class="col-12">
-                                        <span>@SharedLocalizer["This position was posted by"]:</span>
-                                        <div class="user-block">
-                                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
-                                                <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
-                                            </a>
-                                            <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
 
-                                            <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
-                                                <span class="description">@Model.CreateDate.ToString()</span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <partial name="_DetailsSidebar" model="Model" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" readonly value="@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]" />
+                                </div>
+                                <div class="col">
+                                    @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>(), "Select a language", new { @class = "form-control" })
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <partial name="_DetailsSidebar" model="Model" />
             </div>
         </div>
     </div>

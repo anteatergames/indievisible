@@ -49,8 +49,9 @@
 <div id="featurecontainer" class="col-12 container">
     <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
     <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
-    <input type="hidden" id="urls" value="urls" data-url-list="@Url.Action("list", "translation", new { area = "tools" })" />
-    <input type="hidden" id="urls" value="urls" data-url-mine="@Url.Action("list", "translation", new { area = "tools", userId = ViewBag.CurrentUserId })" />
+    <input type="hidden" id="urls" value="urls"
+           data-url-list="@Url.Action("list", "translation", new { area = "tools" })"
+           data-url-mine="@Url.Action("listMine", "translation", new { area = "tools" })" />
 
     <div id="containerdetails" class="row">
 
@@ -75,17 +76,19 @@
                     <h3>@SharedLocalizer["User Panel"]</h3>
                     <div class="row">
                         <div class="col-12">
-                            <p>@SharedLocalizer["blablabla"]</p>
+                            <p>@SharedLocalizer["Welcome to the IndieVisible Translation! Here you can request help from other users to translate the texts for your game or help others translating theirs."]</p>
                         </div>
                         <div class="col-12">
-                            <h4>@SharedLocalizer["My Projects"]:</h4>
                             @if (canInteract)
                             {
                                 <div id="divActions">
                                     <button id="btn-new" class="btn btn-outline-primary btn-block" data-url="@Url.Action("new", "translation", new { area = "tools" })">@SharedLocalizer["New Translation"]</button>
                                 </div>
                             }
-                            <div id="divMyPositionStats" class="mt-1 p-1"></div>
+                            <div class="mt-2">
+                                <h4>@SharedLocalizer["My Projects"]:</h4>
+                                <div id="divMyProjects" class="mt-1 p-1"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

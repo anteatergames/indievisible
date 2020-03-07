@@ -1,0 +1,20 @@
+﻿@model List<TranslationProjectViewModel>
+
+@{
+    Layout = null;
+}
+
+@if (!Model.Any())
+{
+    <p>@SharedLocalizer["You haven't asked for anyone's help, yet."]</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@item.Id" title="@SharedLocalizer[item.Game.Title]">@SharedLocalizer[item.Game.Title]</a></li>
+        }
+    </ul>
+}
+

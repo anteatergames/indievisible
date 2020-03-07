@@ -17,6 +17,7 @@
         selectors.containerList = '#containerlist';
         selectors.list = '#divList';
         selectors.divListItem = '.feature-item';
+        selectors.myProjects = '#divMyProjects';
         selectors.btnNew = '#btn-new';
         selectors.form = '#frmTranslationSave';
         selectors.btnSave = '#btnSaveTranslation';
@@ -29,6 +30,7 @@
         objs.containerDetails = $(selectors.containerDetails);
         objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
+        objs.myProjects = $(selectors.myProjects);
     }
 
     function cacheObjectsCreateEdit() {
@@ -51,8 +53,10 @@
         isIndex = !isNew && !isDetails;
 
         if (isIndex) {
-                var url = objs.urls.data('urlList');
-                loadTranslations(false, url);
+            var url = objs.urls.data('urlList');
+            var urlMine = objs.urls.data('urlMine');
+            loadTranslations(false, url);
+            loadMyProjects(false, urlMine);
         }
         else if (isDetails) {
             bindDetails();
@@ -103,6 +107,21 @@
             }
             else {
                 objs.list.html(data);
+            }
+        });
+    }
+
+    function loadMyProjects(fromControlSidebar, url) {
+        objs.myProjects.html(MAINMODULE.Default.SpinnerTop);
+
+        $.get(url, function (data) {
+            if (fromControlSidebar) {
+                objs.myProjects.html(data);
+                objs.containerList.show();
+                cacheObjects();
+            }
+            else {
+                objs.myProjects.html(data);
             }
         });
     }

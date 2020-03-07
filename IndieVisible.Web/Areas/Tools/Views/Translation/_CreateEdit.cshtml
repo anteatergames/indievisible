@@ -5,6 +5,8 @@
     var canInteract = User.Identity.IsAuthenticated;
 
     ViewData["Title"] = SharedLocalizer["{0} Translation Project", (Model.Id == Guid.Empty ? "New" : "Edit")];
+    
+    var userGames = ViewBag.UserGames as List<SelectListItem>;
 }
 
 
@@ -34,6 +36,7 @@ else
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="UserId" />
         <input type="hidden" asp-for="CreateDate" />
+
         <div class="col-12">
             <div class="box-header with-border">
                 <div class="float-left mr-3">
@@ -41,12 +44,23 @@ else
                 </div>
                 <h3 class="card-title">@SharedLocalizer["You are {0} a new Translation Project", (Model.Id == Guid.Empty ? "creating" : "editing")]</h3>
                 <span class="card-subtitle">
-                    @SharedLocalizer["Tell us about the translation you need."];
+                    @SharedLocalizer["Tell us about the translation you need."]
                 </span>
             </div>
         </div>
-        <!-- /.box-header -->
+
         <div class="box-body p-md-10">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>@SharedLocalizer["Game"]</label>
+                    <select asp-for="Game.Id" asp-items="@userGames" class="form-control select2">
+                        <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                    </select>
+                    <span asp-validation-for="Game.Id" class="text-danger"></span>
+                </div>
+            </div>
+
             <div class="col-12">
                 <div class="form-group">
                     <label asp-for="PrimaryLanguage"></label>
@@ -54,6 +68,7 @@ else
                     <span asp-validation-for="PrimaryLanguage" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
                 <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save Translation Project"]</button>
             </div>

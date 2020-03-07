@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Domain.Core.Interfaces;
 using IndieVisible.Domain.ValueObjects;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels
 {
