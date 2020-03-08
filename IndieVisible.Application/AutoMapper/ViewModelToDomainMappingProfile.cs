@@ -114,7 +114,6 @@ namespace IndieVisible.Application.AutoMapper
             #region Translation
 
             CreateMap<TranslationProjectViewModel, TranslationProject>()
-                .ForMember(dest => dest.Terms, opt => opt.Ignore())
                 .ForMember(dest => dest.Entries, opt => opt.Ignore());
             CreateMap<TranslationTermViewModel, TranslationTerm>();
             CreateMap<TranslationEntryViewModel, TranslationEntry>();

@@ -86,6 +86,9 @@
     <Content Update="Areas\Staff\Views\FeaturedContent\_List.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Areas\Tools\Views\Translation\_CreateEditWrapper.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Areas\Tools\Views\Translation\_Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

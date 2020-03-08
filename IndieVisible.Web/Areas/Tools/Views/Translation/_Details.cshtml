@@ -124,20 +124,27 @@
 
                                 @foreach (var term in Model.Terms)
                                 {
-                                    <div class="row pb-3 p-md-0 m-2 border bg-light">
-                                        <div class="col-12 col-md-6 border-right rounded-0">
-                                            <label class="col-form-label">@term.Key</label>
-
-                                            <div class="input-group mb-3">
-                                                <label class="form-control bg-gray">@term.Value</label>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text" data-container="body" data-toggle="popover" data-placement="top" data-content="@term.Obs" title="@SharedLocalizer["Context"]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
-                                                </div>
-                                            </div>
+                                    <div class="row pb-3 p-md-0 m-0 m-md-2 mb-2 border bg-light">
+                                        <div class="col-12">
+                                            <label class="col-form-label py-0">@term.Key</label>
                                         </div>
-                                        <div class="col-12 col-md-6 border-left rounded-0">
-                                            <label class="col-form-label d-none d-md-block">@term.Key</label>
-                                            <input class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+
+                                        <p class="mx-3">@term.Value</p>
+
+                                        <div class="col-12">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    @if (!string.IsNullOrWhiteSpace(term.Obs))
+                                                    {
+                                                        <span class="input-group-text" data-container="body" data-toggle="popover" data-placement="top" data-content="@term.Obs" title="@SharedLocalizer["Context"]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="input-group-text" data-container="body" data-toggle="popover" data-placement="top" data-content="@SharedLocalizer["No context provided for this term."]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                                                    }
+                                                </div>
+                                                <input class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+                                            </div>
                                         </div>
                                     </div>
                                 }

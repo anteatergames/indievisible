@@ -131,14 +131,79 @@
         btn.html(MAINMODULE.Default.SpinnerBtn);
     }
 
+    function setButtonWithError(btn) {
+        saveBtnOriginalText = btn.html();
+        var errMsg = btn.data('errorMsg');
+        btn.removeClass('btn-primary').addClass('btn-warning').html(errMsg);
+    }
+
+    function removeErrorFromButton(btn) {
+        btn.removeClass('btn-warning').addClass('btn-primary').html(saveBtnOriginalText);
+    }
+
     function postSaveCallback(response, btn) {
         if (response.success === true) {
-            btn.html(MAINMODULE.Default.DoneBtn);
+            btn.removeClass('btn-primary').addClass('btn-success').html(MAINMODULE.Default.DoneBtn);
         }
         else {
             btn.html(saveBtnOriginalText);
             btn.prop('disabled', false);
         }
+    }
+
+    function renameInputs(objContainer, itemSelector, propPreffix) {
+        var count = 0;
+
+        var idPreffix = propPreffix + "_0__";
+        var namePreffix = propPreffix + "[0].";
+
+        objContainer.find(itemSelector).each(function (index, element) {
+            var item = $(this);
+
+            item.find(':input').each(function (index2, element2) {
+                var inputId = $(this).attr('id');
+                var inputName = $(this).attr('name');
+
+                if (inputId !== undefined && inputName !== undefined) {
+                    var idProp = inputId.split('__')[1];
+                    var newId = idPreffix.replace('0', count) + idProp;
+                    $(this).attr('id', newId);
+
+                    var nameProp = inputName.split('].')[1];
+                    var newName = namePreffix.replace('0', count) + nameProp;
+                    $(this).attr('name', newName);
+
+
+                    var describedBy = $(this).attr('aria-describedby');
+                    if (describedBy !== undefined) {
+                        var describedByProp = describedBy.split('__')[1];
+                        var newdescribedBy = idPreffix.replace('0', count) + describedByProp;
+                        $(this).attr('aria-describedby', newdescribedBy);
+                    }
+                }
+            });
+
+            item.find('span[data-valmsg-for]').each(function (index2, element2) {
+                var msgFor = $(this).attr('data-valmsg-for');
+
+                if (msgFor !== undefined) {
+                    var msgForProp = msgFor.split('].')[1];
+                    var newMsgFor = namePreffix.replace('0', count) + msgForProp;
+                    $(this).attr('data-valmsg-for', newMsgFor);
+                }
+
+                var innerSpan = $(this).find('span');
+
+                if (innerSpan.length > 0) {
+                    var spanId = innerSpan.attr('id');
+                    var idProp = spanId.split('__')[1];
+                    var newId = idPreffix.replace('0', count) + idProp;
+                    innerSpan.attr('id', newId);
+                }
+            });
+
+            count++;
+        });
     }
 
     return {
@@ -150,7 +215,10 @@
             HandlePointsEarned: handlePointsEarned,
             TranslatedMessages: translatedMessages,
             DisableButton: disableButton,
-            PostSaveCallback: postSaveCallback
+            SetButtonWithError: setButtonWithError,
+            RemoveErrorFromButton: removeErrorFromButton,
+            PostSaveCallback: postSaveCallback,
+            RenameInputs: renameInputs
         },
         Default: {
             Spinner: spinnerCenter,

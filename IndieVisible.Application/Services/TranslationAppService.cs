@@ -66,6 +66,11 @@ namespace IndieVisible.Application.Services
                     item.Game.Title = string.Empty;
 
                     SetPermissions(currentUserId, item);
+
+
+                    var languageCount = item.Entries.Select(x => x.Language).Distinct().Count();
+
+                    item.TranslationPercentage = CalculatePercentage(item.Terms.Count, item.Entries.Count, languageCount);
                 }
 
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();
@@ -177,6 +182,7 @@ namespace IndieVisible.Application.Services
                     model = mapper.Map<TranslationProject>(viewModel);
                 }
 
+                #region REMOVER
                 if (model.Id == Guid.Empty)
                 {
                     model.Terms.Add(new TranslationTerm
@@ -191,7 +197,16 @@ namespace IndieVisible.Application.Services
                         Key = "menu_quit",
                         Value = "Sair",
                         Obs = "Menu item"
-                    }); 
+                    });
+                } 
+                #endregion
+
+                foreach (var term in model.Terms)
+                {
+                    if (term.UserId == Guid.Empty)
+                    {
+                        term.UserId = currentUserId;
+                    }
                 }
 
                 if (viewModel.Id == Guid.Empty)
@@ -218,6 +233,20 @@ namespace IndieVisible.Application.Services
             }
         }
         #endregion
+
+
+        public IEnumerable<SelectListItemVo> GetMyUntranslated(Guid currentUserId)
+        {
+            IEnumerable<Game> myGames = gameDomainService.GetByUserId(currentUserId);
+
+            var myTranslatedGames = translationDomainService.GetTranslatedGamesByUserId(currentUserId);
+
+            var availableGames = myGames.Where(x => !myTranslatedGames.Contains(x.Id));
+
+            List<SelectListItemVo> vms = mapper.Map<IEnumerable<Game>, IEnumerable<SelectListItemVo>>(availableGames).ToList();
+
+            return vms;
+        }
 
 
         public OperationResultVo GenerateNew(Guid currentUserId)
@@ -272,6 +301,15 @@ namespace IndieVisible.Application.Services
             vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
             vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
             vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
+        }
+
+        private double CalculatePercentage(int totalTerms, int translatedCount, int languageCount)
+        {
+            var totalTranslationsTarget = languageCount * totalTerms;
+
+            var percentage = (100 * translatedCount) / (totalTerms == 0 ? 1 : totalTerms);
+
+            return percentage;
         }
     }
 }

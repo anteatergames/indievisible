@@ -27,6 +27,10 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         public IActionResult Index()
         {
+            IEnumerable<SelectListItemVo> games = translationAppService.GetMyUntranslated(CurrentUserId);
+
+            ViewData["CanRequest"] = games.Any();
+
             return View();
         }
 
@@ -117,7 +121,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 SetLocalization(model);
 
-                IEnumerable<SelectListItemVo> games = gameAppService.GetByUser(CurrentUserId);
+                IEnumerable<SelectListItemVo> games = translationAppService.GetMyUntranslated(CurrentUserId);
                 List<SelectListItem> gamesDropDown = games.ToSelectList();
                 ViewBag.UserGames = gamesDropDown;
 
@@ -144,7 +148,15 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 SetLocalization(model, true);
 
-                return PartialView("_CreateEdit", model);
+                if (Request.IsAjaxRequest())
+                {
+                    return View("_CreateEdit", model);
+                }
+                else
+                {
+                    return View("_CreateEditWrapper", model);
+                }
+
             }
             else
             {
@@ -156,6 +168,8 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         [HttpPost("tools/translation/save")]
         public IActionResult Save(TranslationProjectViewModel vm)
         {
+            var isNew = vm.Id == Guid.Empty;
+
             try
             {
                 vm.UserId = CurrentUserId;
@@ -166,7 +180,12 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 {
                     //GenerateFeedPost(vm);
 
-                    string url = Url.Action("Details", "Translation", new { area = "tools", id = vm.Id, pointsEarned = saveResult.PointsEarned });
+                    string url = Url.Action("Details", "Translation", new { area = "tools", id = vm.Id });
+
+                    if (isNew)
+                    {
+                        url = Url.Action("Edit", "Translation", new { area = "tools", id = vm.Id, pointsEarned = saveResult.PointsEarned });
+                    }
 
                     return Json(new OperationResultRedirectVo(saveResult, url));
                 }

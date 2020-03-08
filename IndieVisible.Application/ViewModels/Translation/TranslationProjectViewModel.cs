@@ -9,6 +9,7 @@ namespace IndieVisible.Application.ViewModels.Translation
 {
     public class TranslationProjectViewModel : UserGeneratedBaseViewModel
     {
+        [Required(ErrorMessage = "You need to tell people a little about your translation!")]
         [Display(Name = "Introduction")]
         public string Introduction { get; set; }
 
@@ -31,5 +32,7 @@ namespace IndieVisible.Application.ViewModels.Translation
         {
             Game = new GameBaseViewModel();
         }
+
+        public double TranslationPercentage { get; set; }
     }
 }

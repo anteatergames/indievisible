@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +24,8 @@ namespace IndieVisible.Domain.Interfaces.Repository
         IQueryable<TranslationEntry> GetEntries(Guid translationProjectId);
 
         Task<bool> AddEntry(Guid translationProjectId, TranslationEntry entry);
+
+        IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId);
 
         Task<bool> RemoveEntry(Guid translationProjectId, Guid entryId);
 

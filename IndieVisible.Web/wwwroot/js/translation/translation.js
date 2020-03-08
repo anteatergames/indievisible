@@ -7,6 +7,9 @@
     var isIndex = false;
     var isNew = false;
     var isDetails = false;
+    var isEdit = false;
+
+    var propPrefix = 'Terms';
 
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
@@ -23,45 +26,75 @@
         selectors.btnSave = '#btnSaveTranslation';
         selectors.btnEdit = '.btnEditTranslationProject';
         selectors.btnDelete = '.btnDeleteTranslationProject';
+        selectors.divTerms = '#divTerms';
+        selectors.term = '.translation-term';
+        selectors.template = '.translation-term.template';
+        selectors.btnAddTerm = '#btn-translation-term-add';
     }
 
-    function cacheObjs() {
+    function cacheObjsCommon() {
+        console.log('cacheObjsCommon');
         objs.controlsidebar = $(selectors.controlsidebar);
         objs.container = $(selectors.container);
         objs.urls = $(selectors.urls);
+        objs.containerDetails = $(selectors.containerDetails);
+    }
+
+    function cacheObjsIndex() {
+        console.log('cacheObjsIndex');
         objs.containerDetails = $(selectors.containerDetails);
         objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
         objs.myProjects = $(selectors.myProjects);
     }
 
-    function cacheObjectsCreateEdit() {
-        //objs.xpto = $(selectors.xpto);
+    function cacheObjsDetails() {
+        //objs.form = $(selectors.form);
+    }
+
+    function cacheOBjsCreateEdit() {
+        objs.form = $(selectors.form);
+        objs.divTerms = $(selectors.divTerms);
     }
 
     function setCreateEdit() {
-        cacheObjectsCreateEdit();
+        cacheOBjsCreateEdit();
+        $.validator.unobtrusive.parse(objs.form);
+
+        bindPopOvers();
+        bindBtnAddTerm();
+    }
+
+    function setDetails() {
+        cacheObjsDetails();
+
+        bindDetails();
     }
 
     function init() {
         setSelectors();
-        cacheObjs();
+        cacheObjsCommon();
 
         bindAll();
 
         canInteract = objs.container.find(selectors.canInteract).val();
         isNew = window.location.href.indexOf('add') > -1;
         isDetails = window.location.href.indexOf('details') > -1;
-        isIndex = !isNew && !isDetails;
+        isEdit = window.location.href.indexOf('edit') > -1;
+        isIndex = !isNew && !isDetails && !isEdit;
 
         if (isIndex) {
+            cacheObjsIndex();
             var url = objs.urls.data('urlList');
             var urlMine = objs.urls.data('urlMine');
             loadTranslations(false, url);
             loadMyProjects(false, urlMine);
         }
         else if (isDetails) {
-            bindDetails();
+            setDetails();
+        }
+        else if (isEdit) {
+            setCreateEdit();
         }
     }
 
@@ -92,12 +125,32 @@
     function bindBtnSaveForm() {
         objs.containerDetails.on('click', selectors.btnSave, function () {
             var btn = $(this);
+            $.validator.unobtrusive.parse(objs.form);
             var valid = objs.form.valid();
 
             if (valid && canInteract) {
-                MAINMODULE.Common.DisableButton(btn);
+                var allRequiredFilled = true;
+                var allIlRequired = objs.form.find(':input[data-val-required]');
+                allIlRequired.each(function (index, element) {
+                    if (allRequiredFilled === true && $(this).val().length === 0) {
+                        allRequiredFilled = false;
+                    }
+                });
 
-                submitForm(btn);
+                if (!allRequiredFilled) {
+                    ALERTSYSTEM.ShowWarningMessage("All terms must have key and value!");
+                }
+                else {
+
+                    MAINMODULE.Common.RemoveErrorFromButton(btn);
+                    MAINMODULE.Common.DisableButton(btn);
+
+                    submitForm(btn);
+                }
+
+            }
+            else {
+                MAINMODULE.Common.SetButtonWithError(btn);
             }
         });
     }
@@ -111,6 +164,16 @@
             if (canInteract) {
                 loadEditForm(url);
             }
+        });
+    }
+
+    function bindBtnAddTerm() {
+        objs.container.on('click', selectors.btnAddTerm, function (e) {
+            e.preventDefault();
+
+            addNewTerm();
+
+            return false;
         });
     }
 
@@ -163,17 +226,33 @@
 
     function loadEditForm(url) {
         objs.containerDetails.html(MAINMODULE.Default.Spinner);
-        objs.containerList.hide();
+        if (objs.containerList) {
+            objs.containerList.hide();
+        }
 
         $.get(url, function (data) {
             objs.containerDetails.html(data);
             objs.containerDetails.show();
 
-            objs.form = $(selectors.form);
-
-            $.validator.unobtrusive.parse(objs.form);
             setCreateEdit();
         });
+    }
+
+    function addNewTerm() {
+        var newTermObj = $(selectors.template).first().clone();
+
+        newTermObj.find(':input').val('');
+
+        newTermObj.removeClass('template');
+
+        newTermObj.prependTo(selectors.divTerms);
+
+        newTermObj.find('input.form-control').first().focus();
+
+
+        MAINMODULE.Common.RenameInputs(objs.divTerms, selectors.term, propPrefix);
+
+        bindPopOvers();
     }
 
     function submitForm(btn, callback) {
@@ -183,7 +262,6 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
-                console.log(btn);
                 MAINMODULE.Common.PostSaveCallback(response, btn);
 
                 if (callback) {

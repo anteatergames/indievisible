@@ -131,6 +131,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
             return result.IsAcknowledged && result.ModifiedCount > 0;
         }
+
+        public IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId)
+        {
+            return DbSet.AsQueryable().Where(x => x.UserId == userId).Select(x => x.GameId).ToList();
+        }
         #endregion
     }
 }

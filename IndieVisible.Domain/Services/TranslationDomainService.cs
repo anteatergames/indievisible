@@ -2,6 +2,7 @@
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using System;
+using System.Collections.Generic;
 
 namespace IndieVisible.Domain.Services
 {
@@ -16,6 +17,13 @@ namespace IndieVisible.Domain.Services
             TranslationProject model = new TranslationProject();
 
             return model;
+        }
+
+        public IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId)
+        {
+            var gameIds = repository.GetTranslatedGamesByUserId(userId);
+
+            return gameIds;
         }
     }
 }

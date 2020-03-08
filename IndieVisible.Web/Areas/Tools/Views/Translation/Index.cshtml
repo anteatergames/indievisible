@@ -5,6 +5,7 @@
 
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
+    var canRequest = (bool)ViewData["CanRequest"];
 
     if (isAjax)
     {
@@ -79,11 +80,15 @@
                             <p>@SharedLocalizer["Welcome to the IndieVisible Translation! Here you can request help from other users to translate the texts for your game or help others translating theirs."]</p>
                         </div>
                         <div class="col-12">
-                            @if (canInteract)
+                            @if (canInteract && canRequest)
                             {
                                 <div id="divActions">
                                     <button id="btn-new" class="btn btn-outline-primary btn-block" data-url="@Url.Action("new", "translation", new { area = "tools" })">@SharedLocalizer["New Translation"]</button>
                                 </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-info">@SharedLocalizer["All your games are being translated."]</div>
                             }
                             <div class="mt-2">
                                 <h4>@SharedLocalizer["My Projects"]:</h4>

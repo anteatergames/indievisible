@@ -1,25 +1,17 @@
 ﻿@model TranslationProjectViewModel
 @{
     Layout = null;
-    var limitMaxCharParam = 240;
-    var needMore = limitMaxCharParam < Model.Introduction?.Length;
-    var limitMaxCharDescription = needMore ? limitMaxCharParam : (int)(Model.Introduction?.Length ?? 0);
-
-    var percentage = 80.5;
-    var strokeWidth = 3.5;
-
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
     var text = String.Format("Translate from {0}!", Model.PrimaryLanguage.ToDisplayName());
-
-
 }
-@*https://codepen.io/maoberlehner/pen/jwVWQz*@
 
 <partial name="_GameCard" model="Model.Game" />
 
 <div class="row">
     <div class="col-12">
         <div class="translation-progress-chart text-center">
-            <partial name="_DonutPercentageChart" model="new DonutChartViewModel(percentage, text, strokeWidth)" />
+            <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage, text)" />
         </div>
     </div>
 </div>
@@ -33,8 +25,11 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12">
-        <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btn btn-block btn-secondary">@SharedLocalizer["Help this one!"]</a>
+@if (canInteract)
+{
+    <div class="row">
+        <div class="col-12">
+            <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btn btn-block btn-secondary">@SharedLocalizer["Help this one!"]</a>
+        </div>
     </div>
-</div>
+}

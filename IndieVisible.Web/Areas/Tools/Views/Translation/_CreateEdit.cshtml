@@ -4,27 +4,15 @@
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     var canInteract = User.Identity.IsAuthenticated;
 
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
+
     ViewData["Title"] = SharedLocalizer["{0} Translation Project", (Model.Id == Guid.Empty ? "New" : "Edit")];
 
     var userGames = ViewBag.UserGames as List<SelectListItem>;
-}
-
-
-@if (!isAjax)
-{
-    @section Scripts {
-        <environment include="Development">
-            <script src="~/js/translation/translation.js"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="~/js/translation/translation.min.js" asp-append-version="true"></script>
-        </environment>
-
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
-}
-else
-{
 }
 
 <div class="col-lg-12 mb-2 px-4">
@@ -40,7 +28,7 @@ else
         <div class="col-12">
             <div class="box-header with-border">
                 <div class="float-left mr-3">
-                    <a asp-area="work" asp-controller="jobposition" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    <a asp-area="tools" asp-controller="translation" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
                 <h3 class="card-title">@SharedLocalizer["You are {0} a new Translation Project", (Model.Id == Guid.Empty ? "creating" : "editing")]</h3>
                 <span class="card-subtitle">
@@ -53,14 +41,21 @@ else
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>@SharedLocalizer["Game"]</label>
                     @if (Model.Id != Guid.Empty)
                     {
+                        <label class="col-form-label">@SharedLocalizer["Game"]</label>
+                        <span class="col-form-label">
+                            <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["You can't change the game. If this game is not the correct one, you'll need to recreate the translation project."]" aria-hidden="true"></i>
+                        </span>
                         <label class="form-control bg-gray">@Model.Game.Title</label>
                         <input type="hidden" asp-for="Game.Id" />
                     }
                     else
                     {
+                        <label class="col-form-label">@SharedLocalizer["Game"]</label>
+                        <span class="col-form-label">
+                            <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the game that you want help to translate.<br/>You won't be able to change this later."]" aria-hidden="true"></i>
+                        </span>
                         <select asp-for="Game.Id" asp-items="@userGames" class="form-control select2">
                             <option selected="selected" value="">@SharedLocalizer["Select"]</option>
                         </select>
@@ -71,23 +66,101 @@ else
 
             <div class="col-12">
                 <div class="form-group">
-                    <label asp-for="PrimaryLanguage"></label>
-                    <select asp-for="PrimaryLanguage" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the primary language"]" tabindex="-1" aria-hidden="true"></select>
-                    <span asp-validation-for="PrimaryLanguage" class="text-danger"></span>
+                    <label asp-for="PrimaryLanguage" class="col-form-label"></label>
+
+                    @if (Model.Id != Guid.Empty)
+                    {
+                        <label class="form-control bg-gray">@Model.PrimaryLanguage.ToDisplayName()</label>
+                        <input type="hidden" asp-for="PrimaryLanguage" />
+                    }
+                    else
+                    {
+                        <select asp-for="PrimaryLanguage" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the primary language"]" tabindex="-1" aria-hidden="true"></select>
+                        <span asp-validation-for="PrimaryLanguage" class="text-danger"></span>
+                    }
                 </div>
             </div>
 
             <div class="col-12">
                 <div class="form-group">
-                    <label asp-for="Introduction"></label>
+                    <label asp-for="Introduction" class="col-form-label"></label>
                     <textarea asp-for="Introduction" class="form-control"></textarea>
                     <span asp-validation-for="Introduction" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
-                <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save Translation Project"]</button>
+            @if (Model.Id != Guid.Empty)
+            {
+
+                <div class="col-12">
+                    <h2 class="text-capitalize">@SharedLocalizer["terms"] (<span id="term-count">@Model.Terms.Count</span>)</h2>
+                    <button type="button" class="btn btn-primary" id="btn-translation-term-add"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["Add term"]</button>
+
+                    <div id="divTerms">
+                        @for (int i = 0; i < Model.Terms.Count; i++)
+                        {
+                            if (i > 0)
+                            {
+                                <hr />
+                            }
+                            var term = Model.Terms[i];
+
+                            <div class="row mb-2 translation-term">
+                                <input type="hidden" asp-for="Terms[i].Id" />
+                                <input type="hidden" asp-for="Terms[i].CreateDate" />
+                                <input type="hidden" asp-for="Terms[i].UserId" />
+                                <div class="col-12 col-md-6 rounded-0">
+                                    <label asp-for="Terms[i].Key" class="col-form-label"></label> <span class="col-form-label">
+                                        <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
+                                    </span>
+                                    <input asp-for="Terms[i].Key" class="form-control" placeholder="@SharedLocalizer["Type here the key for your term"]" />
+                                    <span asp-validation-for="Terms[i].Key" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-md-6 rounded-0">
+                                    <label asp-for="Terms[i].Value" class="col-form-label"></label> <span class="col-form-label">(@SharedLocalizer["in {0}", Model.PrimaryLanguage.ToDisplayName()])</span>
+                                    <input asp-for="Terms[i].Value" class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+                                    <span asp-validation-for="Terms[i].Value" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 mt-1">
+                                    <label asp-for="Terms[i].Obs" class="col-form-label"></label>
+                                    <textarea asp-for="Terms[i].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of the term above."]"></textarea>
+                                    <span asp-validation-for="Terms[i].Obs" class="text-danger"></span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                    <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block" data-error-msg="<i class='fas fa-exclamation-circle' aria-hidden='true'></i> @SharedLocalizer["Something is missing!"]"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save Translation Project"]</button>
+                </div>
             </div>
         </div>
     </form>
+</div>
+
+<div class="row mb-2 translation-term template">
+    <input type="hidden" id="Placeholder_0__Id" name="Placeholder[0].Id" />
+    <input type="hidden" id="Placeholder_0__CreateDate" name="Placeholder[0].CreateDate" />
+    <input type="hidden" id="Placeholder_0__UserId" name="Placeholder[0].UserId" />
+    <div class="col-12 col-md-6 rounded-0">
+        <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Key)</label>
+        <span class="col-form-label">
+            <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
+        </span>
+        <input id="Placeholder_0__Key" name="Placeholder[0].Key" class="form-control" placeholder="@SharedLocalizer["Type here the key for your term"]" />
+        <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Key" data-valmsg-replace="true"></span>
+    </div>
+    <div class="col-12 col-md-6 rounded-0">
+        <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Value)</label> <span class="col-form-label">(@SharedLocalizer["in {0}", Model.PrimaryLanguage.ToDisplayName()])</span>
+        <input id="Placeholder_0__Value" name="Placeholder[0].Value" class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+        <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Value" data-valmsg-replace="true"></span>
+    </div>
+    <div class="col-12 mt-1">
+        <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Obs)</label>
+        <textarea id="Placeholder_0__Obs" name="Placeholder[0].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of the term above."]"></textarea>
+        <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Obs" data-valmsg-replace="true"></span>
+    </div>
 </div>

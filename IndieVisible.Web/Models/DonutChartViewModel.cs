@@ -15,6 +15,8 @@ namespace IndieVisible.Web.Models
 
         public DonutChartViewModel(double percentage, string text)
         {
+            this.Percentage = percentage;
+            this.Text = text;
             StrokeWidth = 3.5;
         }
 

@@ -6,6 +6,8 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface ITranslationDomainService : IDomainService<TranslationProject>
     {
-        TranslationProject GenerateNewProject(Guid currentUserId);
+        TranslationProject GenerateNewProject(Guid userId);
+
+        IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId);
     }
 }
