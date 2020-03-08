@@ -6,7 +6,6 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Repository
@@ -19,23 +18,16 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public override void Add(TranslationProject obj)
         {
-            if (obj.Terms != null)
-            {
-                foreach (TranslationTerm term in obj.Terms)
-                {
-                    term.Id = Guid.NewGuid();
-                } 
-            }
-
-            if (obj.Entries != null)
-            {
-                foreach (TranslationEntry entry in obj.Entries)
-                {
-                    entry.Id = Guid.NewGuid();
-                } 
-            }
+            SetChildIds(obj);
 
             base.Add(obj);
+        }
+
+        public override void Update(TranslationProject obj)
+        {
+            SetChildIds(obj);
+
+            base.Update(obj);
         }
 
         #region Terms
@@ -137,5 +129,30 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return DbSet.AsQueryable().Where(x => x.UserId == userId).Select(x => x.GameId).ToList();
         }
         #endregion
+
+        private void SetChildIds(TranslationProject obj)
+        {
+            if (obj.Terms != null)
+            {
+                foreach (TranslationTerm term in obj.Terms)
+                {
+                    if (term.Id == Guid.Empty)
+                    {
+                        term.Id = Guid.NewGuid();
+                    }
+                }
+            }
+
+            if (obj.Entries != null)
+            {
+                foreach (TranslationEntry entry in obj.Entries)
+                {
+                    if (entry.Id == Guid.Empty)
+                    {
+                        entry.Id = Guid.NewGuid();
+                    }
+                }
+            }
+        }
     }
 }
