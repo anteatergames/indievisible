@@ -72,11 +72,11 @@ namespace IndieVisible.Infra.CrossCutting.Notifications
 
         public Task SendTeamNotificationAsync(string message)
         {
-            var slackMessage = new SlackMessage(message);
+            SlackMessage slackMessage = new SlackMessage(message);
 
-            var client = new RestClient("https://hooks.slack.com/services/TEH1D2GF4/BT1HPBF4L");
+            RestClient client = new RestClient("https://hooks.slack.com/services/TEH1D2GF4/BT1HPBF4L");
 
-            var request = new RestRequest("/ARPPnjFWsGSAxMX1grwfLtRy", Method.POST);
+            RestRequest request = new RestRequest("/ARPPnjFWsGSAxMX1grwfLtRy", Method.POST);
 
             DefaultContractResolver contractResolver = new DefaultContractResolver
             {
@@ -102,7 +102,7 @@ namespace IndieVisible.Infra.CrossCutting.Notifications
                     }
                     else
                     {
-                        var jsonResponse = JsonConvert.SerializeObject(response);
+                        string jsonResponse = JsonConvert.SerializeObject(response);
                         logger.LogWarning(jsonResponse);
                     }
                 });

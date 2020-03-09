@@ -57,7 +57,7 @@ namespace IndieVisible.Application.Services
 
                 List<TranslationProjectViewModel> vms = mapper.Map<IEnumerable<TranslationProject>, IEnumerable<TranslationProjectViewModel>>(allModels).ToList();
 
-                foreach (var item in vms)
+                foreach (TranslationProjectViewModel item in vms)
                 {
                     item.TermCount = item.Terms.Count;
 
@@ -68,7 +68,7 @@ namespace IndieVisible.Application.Services
                     SetPermissions(currentUserId, item);
 
 
-                    var languageCount = item.Entries.Select(x => x.Language).Distinct().Count();
+                    int languageCount = item.Entries.Select(x => x.Language).Distinct().Count();
 
                     item.TranslationPercentage = CalculatePercentage(item.Terms.Count, item.Entries.Count, languageCount);
                 }
@@ -91,11 +91,11 @@ namespace IndieVisible.Application.Services
 
                 List<TranslationProjectViewModel> vms = mapper.Map<IEnumerable<TranslationProject>, IEnumerable<TranslationProjectViewModel>>(allModels).ToList();
 
-                foreach (var item in vms)
+                foreach (TranslationProjectViewModel item in vms)
                 {
                     item.TermCount = item.Terms.Count;
 
-                    var game = GetGameWithCache(gameDomainService, item.Game.Id);
+                    ViewModels.Game.GameViewModel game = GetGameWithCache(gameDomainService, item.Game.Id);
                     item.Game.Title = game.Title;
 
                     SetPermissions(userId, item);
@@ -213,7 +213,7 @@ namespace IndieVisible.Application.Services
                 }
                 #endregion
 
-                foreach (var term in model.Terms)
+                foreach (TranslationTerm term in model.Terms)
                 {
                     if (term.UserId == Guid.Empty)
                     {
@@ -253,9 +253,9 @@ namespace IndieVisible.Application.Services
             {
                 IEnumerable<Game> myGames = gameDomainService.GetByUserId(currentUserId);
 
-                var myTranslatedGames = translationDomainService.GetTranslatedGamesByUserId(currentUserId);
+                IEnumerable<Guid> myTranslatedGames = translationDomainService.GetTranslatedGamesByUserId(currentUserId);
 
-                var availableGames = myGames.Where(x => !myTranslatedGames.Contains(x.Id));
+                IEnumerable<Game> availableGames = myGames.Where(x => !myTranslatedGames.Contains(x.Id));
 
                 List<SelectListItemVo> vms = mapper.Map<IEnumerable<Game>, IEnumerable<SelectListItemVo>>(availableGames).ToList();
 
@@ -329,7 +329,7 @@ namespace IndieVisible.Application.Services
 
         private void SetGameViewModel(Guid gameId, TranslationProjectViewModel vm)
         {
-            var game = GetGameWithCache(gameDomainService, gameId);
+            ViewModels.Game.GameViewModel game = GetGameWithCache(gameDomainService, gameId);
             vm.Game.Title = game.Title;
 
             vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
@@ -339,9 +339,9 @@ namespace IndieVisible.Application.Services
 
         private double CalculatePercentage(int totalTerms, int translatedCount, int languageCount)
         {
-            var totalTranslationsTarget = languageCount * totalTerms;
+            int totalTranslationsTarget = languageCount * totalTerms;
 
-            var percentage = (100 * translatedCount) / (totalTerms == 0 ? 1 : totalTerms);
+            int percentage = (100 * translatedCount) / (totalTerms == 0 ? 1 : totalTerms);
 
             return percentage;
         }

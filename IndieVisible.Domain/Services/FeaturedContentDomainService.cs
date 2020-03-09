@@ -1,12 +1,8 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Repository;
+﻿using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
-using IndieVisible.Domain.ValueObjects;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
@@ -18,9 +14,9 @@ namespace IndieVisible.Domain.Services
 
         public IQueryable<FeaturedContent> GetFeaturedNow()
         {
-            var now = DateTime.Now;
+            DateTime now = DateTime.Now;
 
-            var objs = repository.Get(x => x.StartDate <= now && (!x.EndDate.HasValue || x.EndDate > now));
+            IQueryable<FeaturedContent> objs = repository.Get(x => x.StartDate <= now && (!x.EndDate.HasValue || x.EndDate > now));
 
             return objs;
         }

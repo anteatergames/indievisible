@@ -907,7 +907,7 @@ ul.flexbox {
 /*---media---*/
 .media {
     display: block;
-    padding: 10px 10px;
+    padding: 10px;
     -webkit-transition: background-color .2s linear;
     transition: background-color .2s linear;
 }

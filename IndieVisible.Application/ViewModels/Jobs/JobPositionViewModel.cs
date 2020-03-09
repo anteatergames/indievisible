@@ -53,7 +53,7 @@ namespace IndieVisible.Application.ViewModels.Jobs
 
         [Display(Name = "Language")]
         public SupportedLanguage Language { get; set; }
-        
+
         [Display(Name = "Origin")]
         public JobPositionOrigin Origin { get; set; }
 

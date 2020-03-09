@@ -99,7 +99,7 @@ namespace IndieVisible.Web
                     {
                         OnCreatingTicket = context =>
                         {
-                            var identity = (ClaimsIdentity)context.Principal.Identity;
+                            ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
                             string profileImg = ((Newtonsoft.Json.Linq.JValue)context.User["picture"]).Value.ToString();
                             identity.AddClaim(new Claim("urn:google:picture", profileImg));
                             return Task.FromResult(0);
@@ -115,9 +115,9 @@ namespace IndieVisible.Web
                     {
                         OnCreatingTicket = context =>
                         {
-                            var identity = (ClaimsIdentity)context.Principal.Identity;
+                            ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
                             identity.AddClaim(new Claim("urn:microsoft:accesstoken", context.TokenResponse.AccessToken));
-                            
+
                             return Task.FromResult(0);
                         }
                     };
@@ -250,7 +250,7 @@ namespace IndieVisible.Web
 
             app.UseSession();
 
-            var rewriteOptions = new RewriteOptions()
+            RewriteOptions rewriteOptions = new RewriteOptions()
                 .AddRedirectToHttps()
                 .Add(new NonWwwRule())
                 .AddRedirectToWwwPermanent();

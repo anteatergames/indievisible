@@ -1,11 +1,6 @@
-﻿using IndieVisible.Domain.Core.Attributes;
-using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Extensions;
-using IndieVisible.Domain.Interfaces.Models;
+﻿using IndieVisible.Domain.Interfaces.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace IndieVisible.Application.ViewModels.Game
 {

@@ -98,9 +98,9 @@ namespace IndieVisible.Application.Services
                 {
                     vm.Benefits = new List<JobPositionBenefitVo>();
                 }
-                var allBenefits = Enum.GetValues(typeof(JobPositionBenefit)).Cast<JobPositionBenefit>().Where(x => x != JobPositionBenefit.NotInformed).ToList();
+                List<JobPositionBenefit> allBenefits = Enum.GetValues(typeof(JobPositionBenefit)).Cast<JobPositionBenefit>().Where(x => x != JobPositionBenefit.NotInformed).ToList();
 
-                foreach (var benefit in allBenefits)
+                foreach (JobPositionBenefit benefit in allBenefits)
                 {
                     if (!vm.Benefits.Any(x => x.Benefit == benefit))
                     {
@@ -204,11 +204,11 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var allModels = jobPositionDomainService.GetAllAvailable();
+                IEnumerable<JobPosition> allModels = jobPositionDomainService.GetAllAvailable();
 
                 List<JobPositionViewModel> vms = mapper.Map<IEnumerable<JobPosition>, IEnumerable<JobPositionViewModel>>(allModels).ToList();
 
-                foreach (var vm in vms)
+                foreach (JobPositionViewModel vm in vms)
                 {
                     SetPermissions(currentUserId, vm);
                     vm.ApplicantCount = vm.Applicants.Count;
@@ -229,11 +229,11 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var allModels = jobPositionDomainService.GetByUserId(currentUserId);
+                IEnumerable<JobPosition> allModels = jobPositionDomainService.GetByUserId(currentUserId);
 
                 List<JobPositionViewModel> vms = mapper.Map<IEnumerable<JobPosition>, IEnumerable<JobPositionViewModel>>(allModels).ToList();
 
-                foreach (var vm in vms)
+                foreach (JobPositionViewModel vm in vms)
                 {
                     SetPermissions(currentUserId, vm);
                     vm.ApplicantCount = vm.Applicants.Count;
@@ -255,15 +255,15 @@ namespace IndieVisible.Application.Services
             {
                 Dictionary<JobPositionStatus, int> stats = jobPositionDomainService.GetPositionsStats(currentUserId);
 
-                var model = new Dictionary<string, int>();
+                Dictionary<string, int> model = new Dictionary<string, int>();
 
-                var allStatus = Enum.GetValues(typeof(JobPositionStatus)).Cast<JobPositionStatus>().ToList();
+                List<JobPositionStatus> allStatus = Enum.GetValues(typeof(JobPositionStatus)).Cast<JobPositionStatus>().ToList();
 
                 foreach (JobPositionStatus status in allStatus)
                 {
                     if (stats.ContainsKey(status))
                     {
-                        var statusStats = stats[status];
+                        int statusStats = stats[status];
                         model.Add(status.ToDisplayName(), statusStats);
                     }
                     else
@@ -300,14 +300,14 @@ namespace IndieVisible.Application.Services
             {
                 int pointsEarned = 0;
 
-                var jobPosition = jobPositionDomainService.GetById(jobPositionId);
+                JobPosition jobPosition = jobPositionDomainService.GetById(jobPositionId);
 
                 if (jobPosition == null)
                 {
                     return new OperationResultVo("Unable to identify the job position you are applying for.");
                 }
 
-                var alreadyApplyed = jobPosition.Applicants.Any(x => x.UserId == currentUserId);
+                bool alreadyApplyed = jobPosition.Applicants.Any(x => x.UserId == currentUserId);
                 if (alreadyApplyed)
                 {
                     return new OperationResultVo("You already applyed for this job position.");
@@ -361,7 +361,7 @@ namespace IndieVisible.Application.Services
                     return new OperationResultVo("Idea not found!");
                 }
 
-                foreach (var applicant in jobPosition.Applicants)
+                foreach (JobApplicant applicant in jobPosition.Applicants)
                 {
                     if (applicant.UserId == userId)
                     {

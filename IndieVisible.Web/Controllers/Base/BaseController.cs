@@ -46,7 +46,7 @@ namespace IndieVisible.Web.Controllers.Base
         {
             if (!string.IsNullOrWhiteSpace(value))
             {
-                HttpContext.Session.SetString(key.ToString(), value); 
+                HttpContext.Session.SetString(key.ToString(), value);
             }
         }
 

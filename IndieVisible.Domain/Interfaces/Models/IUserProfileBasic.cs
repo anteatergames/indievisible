@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IndieVisible.Domain.Interfaces.Models
+﻿namespace IndieVisible.Domain.Interfaces.Models
 {
     public interface IUserProfileBasic : IEntityBase
     {

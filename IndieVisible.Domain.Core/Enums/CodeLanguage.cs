@@ -4,7 +4,7 @@ namespace IndieVisible.Domain.Core.Enums
 {
     public enum CodeLanguage
     {
-        [Display(Name= "C#")]
+        [Display(Name = "C#")]
         Csharp,
         [Display(Name = "Java")]
         Java,

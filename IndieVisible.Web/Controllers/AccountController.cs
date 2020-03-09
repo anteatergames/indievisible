@@ -96,7 +96,7 @@ namespace IndieVisible.Web.Controllers
                         SetCache(user);
                     }
 
-                    var logMessage = String.Format("User {0} logged in.", model.UserName);
+                    string logMessage = String.Format("User {0} logged in.", model.UserName);
 
                     if (!model.UserName.Equals("programad"))
                     {
@@ -282,8 +282,7 @@ namespace IndieVisible.Web.Controllers
 
                     SetPreferences(user);
 
-
-                    var logMessage = String.Format("User {0} created a new account with password.", model.UserName);
+                    string logMessage = String.Format("User {0} created a new account with password.", model.UserName);
 
                     await NotificationSender.SendTeamNotificationAsync(logMessage);
 
@@ -343,14 +342,12 @@ namespace IndieVisible.Web.Controllers
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (result.Succeeded)
             {
-
                 string email = info.Principal.FindFirstValue(ClaimTypes.Email);
                 ApplicationUser existingUser = await _userManager.FindByEmailAsync(email);
 
                 if (existingUser != null)
                 {
-
-                    var logMessage = String.Format("User {0} logged in with {1} provider.", existingUser.UserName, info.LoginProvider);
+                    string logMessage = String.Format("User {0} logged in with {1} provider.", existingUser.UserName, info.LoginProvider);
 
                     await NotificationSender.SendTeamNotificationAsync(logMessage);
 
@@ -457,7 +454,7 @@ namespace IndieVisible.Web.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
-                    var logMessage = String.Format("User {0} linked a {1} account.", user.UserName, info.LoginProvider);
+                    string logMessage = String.Format("User {0} linked a {1} account.", user.UserName, info.LoginProvider);
                     if (existingUser == null)
                     {
                         logMessage = String.Format("User {0} registered with a {1} account.", user.UserName, info.LoginProvider);
@@ -641,9 +638,9 @@ namespace IndieVisible.Web.Controllers
         // HACK replace by default admin user
         private async Task SetStaffRoles(ApplicationUser user)
         {
-            var userRoles = await _userManager.GetRolesAsync(user);
+            System.Collections.Generic.IList<string> userRoles = await _userManager.GetRolesAsync(user);
 
-            var userIsMember = userRoles.Contains(Roles.Member.ToString());
+            bool userIsMember = userRoles.Contains(Roles.Member.ToString());
 
             if (!userIsMember)
             {
@@ -652,7 +649,7 @@ namespace IndieVisible.Web.Controllers
 
             if (user.UserName.Equals("programad") || user.UserName.Equals("cadko"))
             {
-                var userIsAdmin = userRoles.Contains(Roles.Administrator.ToString());
+                bool userIsAdmin = userRoles.Contains(Roles.Administrator.ToString());
 
                 if (!userIsAdmin)
                 {
@@ -695,7 +692,7 @@ namespace IndieVisible.Web.Controllers
                 }
                 else if (info.LoginProvider == "Google" && info.Principal.HasClaim(x => x.Type == "urn:google:picture"))
                 {
-                    var pictureUrl = info.Principal.FindFirstValue("urn:google:picture");
+                    string pictureUrl = info.Principal.FindFirstValue("urn:google:picture");
                     imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
                 }
                 else

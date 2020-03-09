@@ -1,9 +1,7 @@
 ﻿using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Domain.Core.Enums;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace IndieVisible.Application.ViewModels.Translation
 {

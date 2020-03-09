@@ -1,8 +1,4 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using IndieVisible.Domain.Core.Models;
 
 namespace IndieVisible.Domain.Models
 {
@@ -12,6 +8,6 @@ namespace IndieVisible.Domain.Models
 
         public string Value { get; set; }
 
-        public string Obs{ get; set; }
+        public string Obs { get; set; }
     }
 }

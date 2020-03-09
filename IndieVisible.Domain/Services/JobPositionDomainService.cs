@@ -28,7 +28,7 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<JobPosition> GetAllAvailable()
         {
-            var all = repository.Get(x => x.Status == JobPositionStatus.OpenForApplication);
+            IQueryable<JobPosition> all = repository.Get(x => x.Status == JobPositionStatus.OpenForApplication);
 
             return all;
         }
@@ -48,7 +48,7 @@ namespace IndieVisible.Domain.Services
 
         public List<JobPositionApplicationVo> GetApplicationsByUserId(Guid userId)
         {
-            var all = repository.Get(x => x.Applicants.Any(y => y.UserId == userId)).Select(x => new JobPositionApplicationVo { JobPositionId = x.Id, WorkType = x.WorkType, Location = (x.Remote ? "remote" : x.Location), ApplicationDate = x.Applicants.First(y => y.UserId == userId).CreateDate });
+            IQueryable<JobPositionApplicationVo> all = repository.Get(x => x.Applicants.Any(y => y.UserId == userId)).Select(x => new JobPositionApplicationVo { JobPositionId = x.Id, WorkType = x.WorkType, Location = (x.Remote ? "remote" : x.Location), ApplicationDate = x.Applicants.First(y => y.UserId == userId).CreateDate });
 
             return all.ToList();
         }
@@ -69,7 +69,7 @@ namespace IndieVisible.Domain.Services
 
         public JobPosition GenerateNewJobPosition(Guid currentUserId, JobPositionOrigin origin)
         {
-            var model = new JobPosition();
+            JobPosition model = new JobPosition();
 
             model.Remote = true;
             model.Origin = origin;

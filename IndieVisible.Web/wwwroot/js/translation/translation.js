@@ -139,7 +139,6 @@
             $.post(url, data).done(function (response) {
                 if (response.success === true) {
 
-
                     for (var i = 0; i < response.value.length; i++) {
                         var translation = response.value[i];
 

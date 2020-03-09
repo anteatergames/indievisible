@@ -1,10 +1,10 @@
 ﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
-using IndieVisible.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

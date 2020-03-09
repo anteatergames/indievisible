@@ -135,7 +135,6 @@ namespace IndieVisible.Application.Services
                 Team newTeam = null;
                 bool createTeam = viewModel.TeamId == Guid.Empty;
 
-
                 ISpecification<GameViewModel> spec = new UserMustBeAuthenticatedSpecification<GameViewModel>(currentUserId)
                     .And(new UserIsOwnerSpecification<GameViewModel>(currentUserId));
 
@@ -235,14 +234,12 @@ namespace IndieVisible.Application.Services
 
         private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
         {
-
             if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
             {
                 return Constants.DefaultGameThumbnail;
             }
             else
             {
-
                 switch (imageType)
                 {
                     case ImageType.LowQuality:
@@ -346,7 +343,6 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo(ex.Message);
             }
         }
-
 
         private void FormatExternalLinks(GameViewModel vm)
         {

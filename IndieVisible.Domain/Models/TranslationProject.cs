@@ -2,14 +2,13 @@
 using IndieVisible.Domain.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Domain.Models
 {
     public class TranslationProject : Entity
     {
         public Guid GameId { get; set; }
-        
+
         public SupportedLanguage PrimaryLanguage { get; set; }
 
         public string Introduction { get; set; }

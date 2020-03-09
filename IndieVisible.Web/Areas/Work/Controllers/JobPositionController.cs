@@ -102,7 +102,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             }
         }
 
-
         [Route("work/jobposition/list/{employerId:guid?}")]
         [Route("work/jobposition/list")]
         public PartialViewResult List(Guid? employerId)
@@ -112,13 +111,11 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
             if (employerId.HasValue)
             {
-
                 ViewData["ListDescription"] = "These are the job positions you posted.";
                 serviceResult = jobPositionAppService.GetAllMine(employerId.Value);
             }
             else
             {
-
                 ViewData["ListDescription"] = "Here you can see the currently available job positions.";
                 serviceResult = jobPositionAppService.GetAllAvailable(CurrentUserId);
             }
@@ -381,8 +378,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 {
                     return Json(new OperationResultVo(SharedLocalizer[serviceResult.Message]));
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -429,7 +424,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 DisplayAttribute displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
                 item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
 
-                if (item.Id != Guid.Empty && !editing && (!string.IsNullOrWhiteSpace(item.CompanyName) && item.CompanyName.Equals(JobPositionBenefit.NotInformed.ToDisplayName())) || string.IsNullOrWhiteSpace(item.CompanyName))
+                if ((item.Id != Guid.Empty && !editing && (!string.IsNullOrWhiteSpace(item.CompanyName) && item.CompanyName.Equals(JobPositionBenefit.NotInformed.ToDisplayName()))) || string.IsNullOrWhiteSpace(item.CompanyName))
                 {
                     item.CompanyName = SharedLocalizer[JobPositionBenefit.NotInformed.ToDisplayName()];
                 }

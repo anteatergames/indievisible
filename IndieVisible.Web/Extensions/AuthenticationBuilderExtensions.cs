@@ -34,14 +34,14 @@ namespace IndieVisible.Web.Extensions
                         OnCreatingTicket = async context =>
                         {
                             // Get the GitHub user
-                            var request = new HttpRequestMessage(HttpMethod.Get, context.Options.UserInformationEndpoint);
+                            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, context.Options.UserInformationEndpoint);
                             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", context.AccessToken);
                             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                            var response = await context.Backchannel.SendAsync(request, context.HttpContext.RequestAborted);
+                            HttpResponseMessage response = await context.Backchannel.SendAsync(request, context.HttpContext.RequestAborted);
                             response.EnsureSuccessStatusCode();
 
-                            var user = JObject.Parse(await response.Content.ReadAsStringAsync());
+                            JObject user = JObject.Parse(await response.Content.ReadAsStringAsync());
 
                             context.RunClaimActions(user);
                         }

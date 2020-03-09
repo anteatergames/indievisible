@@ -4,8 +4,8 @@ using System;
 namespace IndieVisible.Application.ViewModels.Jobs
 {
     public class JobApplicantViewModel : BaseViewModel, IUserProfileBasic
-    {        
-        public Guid JobPositionId{ get; set; }
+    {
+        public Guid JobPositionId { get; set; }
         public string Email { get; set; }
         public string CoverLetter { get; set; }
 

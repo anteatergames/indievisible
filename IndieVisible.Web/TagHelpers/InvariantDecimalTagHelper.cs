@@ -26,7 +26,7 @@ namespace IndieVisible.Web.TagHelpers
             if (IsInvariant && output.TagName == "input" && For.Model != null && For.Model is decimal)
             {
                 decimal value = (decimal)(For.Model);
-                var invariantValue = value.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                string invariantValue = value.ToString(System.Globalization.CultureInfo.InvariantCulture);
                 output.Attributes.SetAttribute(new TagHelperAttribute("value", invariantValue));
             }
         }

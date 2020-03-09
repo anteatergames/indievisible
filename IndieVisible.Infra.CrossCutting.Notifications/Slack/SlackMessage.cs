@@ -4,7 +4,7 @@
     {
         public SlackMessage(string text)
         {
-            this.Text = text;
+            Text = text;
         }
 
         public string Text { get; set; }

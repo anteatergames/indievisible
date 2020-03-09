@@ -3,7 +3,7 @@ using System;
 
 namespace IndieVisible.Domain.Specifications
 {
-    public class IdNotEmptySpecification<T> : ISpecification<T>  where T : IEntity
+    public class IdNotEmptySpecification<T> : ISpecification<T> where T : IEntity
     {
         public IdNotEmptySpecification()
         {

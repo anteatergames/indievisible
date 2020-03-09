@@ -6,7 +6,7 @@ namespace IndieVisible.Application.ViewModels.Team
     public class TeamViewModel : BaseViewModel
     {
         [Required]
-        [Display(Name="Name")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         [Display(Name = "Description")]

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace IndieVisible.Web.Models
+﻿namespace IndieVisible.Web.Models
 {
     public class DonutChartViewModel
     {
@@ -15,16 +10,16 @@ namespace IndieVisible.Web.Models
 
         public DonutChartViewModel(double percentage, string text)
         {
-            this.Percentage = percentage;
-            this.Text = text;
+            Percentage = percentage;
+            Text = text;
             StrokeWidth = 3.5;
         }
 
         public DonutChartViewModel(double percentage, string text, double strokeWidth)
         {
-            this.Percentage = percentage;
-            this.Text = text;
-            this.StrokeWidth = strokeWidth;
+            Percentage = percentage;
+            Text = text;
+            StrokeWidth = strokeWidth;
         }
     }
 }

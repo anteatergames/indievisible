@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IndieVisible.Application.Helpers;
-using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Translation;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
@@ -12,6 +7,9 @@ using IndieVisible.Web.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IndieVisible.Web.Areas.Tools.Controllers
 {
@@ -28,12 +26,12 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         public IActionResult Index()
         {
-            var gamesResult = translationAppService.GetMyUntranslatedGames(CurrentUserId);
+            OperationResultVo gamesResult = translationAppService.GetMyUntranslatedGames(CurrentUserId);
             if (gamesResult.Success)
             {
                 OperationResultListVo<SelectListItemVo> castResultGames = gamesResult as OperationResultListVo<SelectListItemVo>;
 
-                var games = castResultGames.Value;
+                IEnumerable<SelectListItemVo> games = castResultGames.Value;
 
                 List<SelectListItem> gamesDropDown = games.ToSelectList();
                 ViewData["CanRequest"] = games.Any();
@@ -139,7 +137,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                     OperationResultListVo<SelectListItemVo> castResultGames = gamesResult as OperationResultListVo<SelectListItemVo>;
 
-                    var games = castResultGames.Value;
+                    IEnumerable<SelectListItemVo> games = castResultGames.Value;
 
                     List<SelectListItem> gamesDropDown = games.ToSelectList();
                     ViewBag.UserGames = gamesDropDown;
@@ -192,7 +190,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         [HttpPost("tools/translation/save")]
         public IActionResult Save(TranslationProjectViewModel vm)
         {
-            var isNew = vm.Id == Guid.Empty;
+            bool isNew = vm.Id == Guid.Empty;
 
             try
             {

@@ -64,7 +64,7 @@ namespace IndieVisible.Web.Controllers
             {
                 string storageBasePath = FormatBasePath(type, userId, baseUrl);
 
-                var url = UrlFormatter.CdnCommon(userId, name);
+                string url = UrlFormatter.CdnCommon(userId, name);
 
                 if (!string.IsNullOrWhiteSpace(v))
                 {

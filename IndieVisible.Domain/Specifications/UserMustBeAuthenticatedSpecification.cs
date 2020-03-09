@@ -18,7 +18,7 @@ namespace IndieVisible.Domain.Specifications
 
         public bool IsSatisfiedBy(T item)
         {
-            IsSatisfied = this.currentUserId != Guid.Empty;
+            IsSatisfied = currentUserId != Guid.Empty;
 
             return IsSatisfied;
         }

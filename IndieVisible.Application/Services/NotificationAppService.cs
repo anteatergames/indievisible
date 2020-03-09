@@ -10,7 +10,6 @@ using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
@@ -49,7 +48,7 @@ namespace IndieVisible.Application.Services
             {
                 Notification model;
 
-                var existing = notificationDomainService.GetById(viewModel.Id);
+                Notification existing = notificationDomainService.GetById(viewModel.Id);
 
                 if (existing != null)
                 {

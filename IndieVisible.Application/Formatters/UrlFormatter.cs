@@ -96,7 +96,6 @@ namespace IndieVisible.Application.Formatters
             return url;
         }
 
-
         public static string Image(Guid userId, BlobType type, string fileName)
         {
             return Image(userId, type, fileName, 0);
@@ -111,7 +110,7 @@ namespace IndieVisible.Application.Formatters
         }
         public static string Image(Guid userId, BlobType type, string fileName, int width, int quality, bool responsive)
         {
-            var url = CdnCommon(userId, fileName, responsive, width, quality);
+            string url = CdnCommon(userId, fileName, responsive, width, quality);
 
             return url;
         }
@@ -158,7 +157,7 @@ namespace IndieVisible.Application.Formatters
             }
             else
             {
-                var transformation = new Transformation().FetchFormat("auto");
+                Transformation transformation = new Transformation().FetchFormat("auto");
 
                 if (width > 0)
                 {
@@ -179,7 +178,6 @@ namespace IndieVisible.Application.Formatters
                 return url2;
             }
         }
-
 
         #endregion Internal
 

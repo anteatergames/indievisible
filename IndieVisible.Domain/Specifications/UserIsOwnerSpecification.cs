@@ -3,7 +3,7 @@ using System;
 
 namespace IndieVisible.Domain.Specifications
 {
-    public class UserIsOwnerSpecification<T> : ISpecification<T>  where T : IEntity
+    public class UserIsOwnerSpecification<T> : ISpecification<T> where T : IEntity
     {
         private Guid userId;
 
@@ -18,7 +18,7 @@ namespace IndieVisible.Domain.Specifications
 
         public bool IsSatisfiedBy(T item)
         {
-            IsSatisfied = item.UserId == this.userId;
+            IsSatisfied = item.UserId == userId;
 
             return IsSatisfied;
         }

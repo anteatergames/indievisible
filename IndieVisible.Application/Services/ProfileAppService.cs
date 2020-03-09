@@ -415,7 +415,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                int newCount = profileDomainService.CountConnections(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+                int newCount = profileDomainService.CountConnections(x => (x.TargetUserId == userId || x.UserId == userId) && x.ApprovalDate.HasValue);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -481,7 +481,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                int newCount = profileDomainService.CountConnections(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+                int newCount = profileDomainService.CountConnections(x => (x.TargetUserId == userId || x.UserId == userId) && x.ApprovalDate.HasValue);
 
                 return new OperationResultVo<int>(newCount);
             }
@@ -508,7 +508,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                int newCount = profileDomainService.CountConnections(x => x.TargetUserId == userId || x.UserId == userId && x.ApprovalDate.HasValue);
+                int newCount = profileDomainService.CountConnections(x => (x.TargetUserId == userId || x.UserId == userId) && x.ApprovalDate.HasValue);
 
                 return new OperationResultVo<int>(newCount);
             }
