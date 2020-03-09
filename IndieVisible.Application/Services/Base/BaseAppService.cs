@@ -56,6 +56,7 @@ namespace IndieVisible.Application.Services
 
             return MediaType.Image;
         }
+
         protected static void SetBasePermissions(Guid currentUserId, UserGeneratedBaseViewModel vm)
         {
             vm.Permissions.CanEdit = vm.UserId == currentUserId;

@@ -32,6 +32,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         }
 
         #region Terms
+
         public int CountTerms(Func<TranslationTerm, bool> where)
         {
             return DbSet.AsQueryable().SelectMany(x => x.Terms).Count();
@@ -61,6 +62,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
+
         public async Task<bool> UpdateTerm(Guid translationProjectId, TranslationTerm term)
         {
             FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.And(
@@ -76,10 +78,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
             return result.IsAcknowledged && result.ModifiedCount > 0;
         }
-        #endregion
 
+        #endregion Terms
 
         #region Entries
+
         public int CountEntries(Func<TranslationEntry, bool> where)
         {
             return DbSet.AsQueryable().SelectMany(x => x.Entries).Count();
@@ -129,7 +132,8 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         {
             return DbSet.AsQueryable().Where(x => x.UserId == userId).Select(x => x.GameId).ToList();
         }
-        #endregion
+
+        #endregion Entries
 
         private void SetChildIds(TranslationProject obj)
         {

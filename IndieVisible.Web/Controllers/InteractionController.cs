@@ -28,9 +28,5 @@ namespace IndieVisible.Web.Controllers
         }
 
         #endregion Poll
-
-        #region Private Methods
-
-        #endregion Private Methods
     }
 }

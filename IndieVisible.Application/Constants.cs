@@ -9,6 +9,7 @@
                 return "Unknown soul";
             }
         }
+
         public static string SoundOfSilence
         {
             get

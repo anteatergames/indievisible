@@ -17,7 +17,6 @@
     }
 
     function init() {
-
         setSelectors();
         cacheObjects();
 

@@ -9,6 +9,7 @@ namespace IndieVisible.Application.ViewModels.Jobs
     public class JobPositionViewModel : UserGeneratedBaseViewModel
     {
         #region Entity Properties
+
         public DateTime? ClosingDate { get; set; }
 
         [Display(Name = "Status")]
@@ -64,7 +65,8 @@ namespace IndieVisible.Application.ViewModels.Jobs
         public List<JobApplicantViewModel> Applicants { get; set; }
 
         public List<JobPositionBenefitVo> Benefits { get; set; }
-        #endregion
+
+        #endregion Entity Properties
 
         [Display(Name = "Current User Applied")]
         public bool CurrentUserApplied { get; set; }

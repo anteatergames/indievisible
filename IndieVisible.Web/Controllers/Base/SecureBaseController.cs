@@ -22,7 +22,6 @@ namespace IndieVisible.Web.Controllers.Base
 {
     public class SecureBaseController : BaseController
     {
-
         private INotificationSender notificationSender;
         public INotificationSender NotificationSender => notificationSender ?? (notificationSender = HttpContext?.RequestServices.GetService<INotificationSender>());
 
@@ -64,7 +63,6 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected void SetProfileOnSession(Guid userId, string userName)
         {
-
             string sessionUserName = GetSessionValue(SessionValues.Username);
 
             if (sessionUserName != null && !sessionUserName.Equals(userName))

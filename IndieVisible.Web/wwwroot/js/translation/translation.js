@@ -138,7 +138,6 @@
 
             $.post(url, data).done(function (response) {
                 if (response.success === true) {
-
                     for (var i = 0; i < response.value.length; i++) {
                         var translation = response.value[i];
 
@@ -173,20 +172,17 @@
                     ALERTSYSTEM.ShowWarningMessage("All terms must have key and value!");
                 }
                 else {
-
                     MAINMODULE.Common.RemoveErrorFromButton(btn);
                     MAINMODULE.Common.DisableButton(btn);
 
                     submitForm(btn);
                 }
-
             }
             else {
                 MAINMODULE.Common.SetButtonWithError(btn);
             }
         });
     }
-
 
     function bindEdit() {
         objs.container.on('click', selectors.btnEdit, function (e) {
@@ -280,7 +276,6 @@
         newTermObj.prependTo(selectors.divTerms);
 
         newTermObj.find('input.form-control').first().focus();
-
 
         MAINMODULE.Common.RenameInputs(objs.divTerms, selectors.term, propPrefix);
 

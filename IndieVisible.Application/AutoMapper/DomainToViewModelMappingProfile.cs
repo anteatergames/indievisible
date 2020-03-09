@@ -33,10 +33,7 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<UserPreferences, UserPreferencesViewModel>()
                 .ForMember(dest => dest.Languages, opt => opt.MapFrom<UserLanguagesFromDomainResolver>());
 
-
-
             CreateMap<UserContentComment, CommentViewModel>();
-
 
             CreateMap<BrainstormComment, CommentViewModel>();
 

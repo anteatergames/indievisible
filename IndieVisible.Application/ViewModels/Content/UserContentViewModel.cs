@@ -12,6 +12,7 @@ namespace IndieVisible.Application.ViewModels.Content
     {
         [Display(Name = "Featured Image")]
         public string FeaturedImage { get; set; }
+
         public string FeaturedImageResponsive { get; set; }
         public string FeaturedImageLquip { get; set; }
 

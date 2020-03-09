@@ -18,7 +18,6 @@ namespace IndieVisible.Application.ViewModels.UserPreferences
         [Display(Name = "Job Profile")]
         public JobProfile JobProfile { get; set; }
 
-
         public string StatusMessage { get; set; }
     }
 }

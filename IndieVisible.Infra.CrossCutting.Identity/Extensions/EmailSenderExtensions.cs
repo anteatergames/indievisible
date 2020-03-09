@@ -32,6 +32,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
 
             return notificationSender.SendEmailAsync(email, "d-d0224f347d57420bb39a025787b6443a", request);
         }
+
         public static Task SendEmailApplicationAsync(this INotificationSender notificationSender, string emailPoster, string emailApplicant, string link)
         {
             EmailSendRequest request = new EmailSendRequest

@@ -1,10 +1,10 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [ "delegate_permission/common.handle_all_urls" ],
     "target": {
       "namespace": "android_app",
       "package_name": "xyz.appmaker.xtfyrq",
-      "sha256_cert_fingerprints": ["55:C8:A7:31:69:2D:DA:30:CF:F1:5F:A8:C1:E4:42:17:F2:6A:80:0D:F3:4D:40:99:BA:37:5A:3F:8A:E0:5E:70"]
+      "sha256_cert_fingerprints": [ "55:C8:A7:31:69:2D:DA:30:CF:F1:5F:A8:C1:E4:42:17:F2:6A:80:0D:F3:4D:40:99:BA:37:5A:3F:8A:E0:5E:70" ]
     }
   }
 ]

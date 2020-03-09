@@ -8,7 +8,6 @@
     //ViewData["OgImageHeight"] = 630;
     Model.Game.Title = string.Empty;
 
-
     var canInteract = User.Identity.IsAuthenticated;
 }
 
@@ -120,7 +119,7 @@
                                     </div>
                                     <div class="col border-left rounded-0">
                                         <label class="col-form-label text-uppercase" ">@SharedLocalizer["to"]</label>
-                                        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), "Select a language", new { @class = "form-control", data_url= Url.Action("gettranslation", "translation", new { projectId = Model.Id }) })
+                                        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), "Select a language", new { @class = "form-control", data_url = Url.Action("gettranslation", "translation", new { projectId = Model.Id }) })
                                     </div>
                                 </div>
 

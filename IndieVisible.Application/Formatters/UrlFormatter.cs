@@ -9,6 +9,7 @@ namespace IndieVisible.Application.Formatters
     public static class UrlFormatter
     {
         #region Internal
+
         public static string GetDefaultImage(BlobType type)
         {
             string defaultImageNotRooted = string.Empty;
@@ -53,14 +54,17 @@ namespace IndieVisible.Application.Formatters
         {
             return ProfileImage(userId, null, 0);
         }
+
         public static string ProfileImage(Guid userId, int width)
         {
             return ProfileImage(userId, null, width);
         }
+
         public static string ProfileImage(Guid userId, DateTime? lastUpdateDate)
         {
             return ProfileImage(userId, lastUpdateDate, 0);
         }
+
         public static string ProfileImage(Guid userId, DateTime? lastUpdateDate, int width)
         {
             string fileName = String.Format("profileimage_{0}_Personal", userId);
@@ -74,10 +78,12 @@ namespace IndieVisible.Application.Formatters
         {
             return ProfileCoverImage(userId, profileId, null, false, 0);
         }
+
         public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage)
         {
             return ProfileCoverImage(userId, profileId, lastUpdateDate, hasCoverImage, 0);
         }
+
         public static string ProfileCoverImage(Guid userId, Guid profileId, DateTime? lastUpdateDate, bool hasCoverImage, int width)
         {
             long v = lastUpdateDate.HasValue ? lastUpdateDate.Value.Ticks : 1;
@@ -100,14 +106,17 @@ namespace IndieVisible.Application.Formatters
         {
             return Image(userId, type, fileName, 0);
         }
+
         public static string Image(Guid userId, BlobType type, string fileName, int width)
         {
             return Image(userId, type, fileName, width, 0);
         }
+
         public static string Image(Guid userId, BlobType type, string fileName, int width, int quality)
         {
             return Image(userId, type, fileName, width, quality, false);
         }
+
         public static string Image(Guid userId, BlobType type, string fileName, int width, int quality, bool responsive)
         {
             string url = CdnCommon(userId, fileName, responsive, width, quality);

@@ -50,6 +50,5 @@ namespace IndieVisible.Web.Extensions
                 });
             return builder;
         }
-
     }
 }

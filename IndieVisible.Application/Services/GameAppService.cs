@@ -244,8 +244,10 @@ namespace IndieVisible.Application.Services
                 {
                     case ImageType.LowQuality:
                         return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278, 10);
+
                     case ImageType.Responsive:
                         return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 0, 0, true);
+
                     case ImageType.Full:
                     default:
                         return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278);

@@ -253,7 +253,6 @@
 
             var valid = objs.form.valid();
             if (valid) {
-
                 if (croppedAvatar && croppedCoverImage) {
                     uploadCoverImage(function () {
                         uploadAvatarCropped(function () {

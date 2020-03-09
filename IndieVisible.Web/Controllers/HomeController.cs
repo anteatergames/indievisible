@@ -391,7 +391,6 @@ namespace IndieVisible.Web.Controllers
                 }
             });
 
-
             model.Items.Add(new TimeLineItemViewModel
             {
                 Date = new DateTime(2019, 12, 01),

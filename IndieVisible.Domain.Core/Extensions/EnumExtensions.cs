@@ -80,7 +80,6 @@ namespace IndieVisible.Domain.Core.Extensions
             return result;
         }
 
-
         public static string ToDisplayName<TEnum>(this TEnum enumeration) where TEnum : Enum
         {
             if (!typeof(TEnum).IsEnum)
@@ -89,7 +88,6 @@ namespace IndieVisible.Domain.Core.Extensions
             }
 
             DisplayAttribute display = enumeration.GetAttributeOfType<DisplayAttribute>();
-
 
             if (display == null)
             {
@@ -117,7 +115,6 @@ namespace IndieVisible.Domain.Core.Extensions
 
             return dict;
         }
-
 
         public static UiInfoAttribute ToUiInfo<TEnum>(this TEnum enumeration) where TEnum : Enum
         {

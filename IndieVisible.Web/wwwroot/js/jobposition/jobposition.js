@@ -108,7 +108,6 @@
         bindSwitchBenefitChange();
     }
 
-
     function bindDetails() {
         bindRatings();
         bindShareButton();
@@ -122,7 +121,6 @@
             var provider = $(this).data('provider');
 
             url = encodeURI(url);
-
 
             if (provider === 'facebook') {
                 FB.ui({
@@ -221,7 +219,6 @@
         });
     }
 
-
     function bindEditJobPosition() {
         objs.container.on('click', selectors.btnEditJobPosition, function (e) {
             e.preventDefault();
@@ -232,7 +229,6 @@
             }
         });
     }
-
 
     function bindDeleteJobPosition() {
         objs.container.on('click', selectors.btnDeleteJobPosition, function (e) {
@@ -282,7 +278,6 @@
         });
     }
 
-
     function bindRemoteChange() {
         objs.containerDetails.on('change', selectors.chkRemote, function (e) {
             var isRemote = $(this).is(':checked');
@@ -295,7 +290,6 @@
             }
         });
     }
-
 
     function bindSwitchBenefitChange() {
         objs.containerDetails.on('change', selectors.switchBenefit, function (e) {
@@ -350,7 +344,6 @@
         });
     }
 
-
     function loadMyJobPositionStats(url) {
         objs.myPositionStats.html(MAINMODULE.Default.SpinnerTop);
 
@@ -358,7 +351,6 @@
             objs.myPositionStats.html(data);
         });
     }
-
 
     function loadMyApplications(url) {
         objs.myApplications.html(MAINMODULE.Default.SpinnerTop);
@@ -422,7 +414,7 @@
         var data = objs.form.serialize();
 
         $.post(url, data).done(function (response) {
-            if (response.success === true) {                
+            if (response.success === true) {
                 MAINMODULE.Common.PostSaveCallback(response, btn);
 
                 if (callback) {

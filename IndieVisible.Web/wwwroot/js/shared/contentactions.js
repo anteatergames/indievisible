@@ -121,7 +121,6 @@
 
             url = encodeURI(url);
 
-
             if (provider === 'facebook') {
                 FB.ui({
                     method: 'share',

@@ -346,7 +346,6 @@
         background-color: #fff;
     }
 
-
 .btn-reddit {
     color: var(--reddit-color-fg);
     background-color: var(--reddit-color-bg);
@@ -486,6 +485,7 @@
 .bg-patreon {
     background-color: #f96854 !important;
 }
+
 .btn-patreon {
     color: var(--color-white) !important;
     background-color: #f96854 !important;

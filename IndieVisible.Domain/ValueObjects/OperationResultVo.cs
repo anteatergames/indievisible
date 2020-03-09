@@ -70,6 +70,7 @@ namespace IndieVisible.Domain.ValueObjects
         {
             Url = url;
         }
+
         public OperationResultRedirectVo(string url, string message) : base(true, message)
         {
             Url = url;

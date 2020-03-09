@@ -9,9 +9,13 @@ namespace IndieVisible.Domain.Interfaces.Service
     public interface IJobPositionDomainService : IDomainService<JobPosition>
     {
         void AddApplicant(Guid userId, Guid jobPositionId, string email, string coverLetter);
+
         IEnumerable<JobPosition> GetAllAvailable();
+
         JobPosition GenerateNewJobPosition(Guid currentUserId, JobPositionOrigin origin);
+
         Dictionary<JobPositionStatus, int> GetPositionsStats(Guid userId);
+
         List<JobPositionApplicationVo> GetApplicationsByUserId(Guid userId);
     }
 }

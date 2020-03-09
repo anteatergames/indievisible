@@ -19,7 +19,6 @@ namespace IndieVisible.Domain.Interfaces.Repository
 
         Task<bool> UpdateTerm(Guid translationProjectId, TranslationTerm term);
 
-
         int CountEntries(Func<TranslationEntry, bool> where);
 
         IQueryable<TranslationEntry> GetEntries(Guid translationProjectId);

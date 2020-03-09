@@ -6,7 +6,6 @@
     var limitMaxCharDescription = needMore ? limitMaxCharParam : Model.Description.Length;
 }
 
-
 <div class="col-12 box bg-white jobposition-item list-item" data-id="@Model.Id" data-currentuservote="@Model.CurrentUserApplied">
     <div class="box-header with-border">
         <a asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@Model.Id" class="btnViewJobPosition"><h2>@Model.Title</h2></a>
@@ -66,7 +65,7 @@
         </div>
         <div class="col-12 mt-2">
             <p>
-                @Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>").Substring(0, limitMaxCharDescription))
+                @Html.Raw(Model.Description.Replace(Environment.NewLine, "<br />").Substring(0, limitMaxCharDescription))
                 @if (needMore)
                 {
                     <span>... <a asp-area="work" asp-controller="jobposition" asp-action="details" asp-route-id="@Model.Id" class="btnViewJobPosition btn btn-sm badge badge-info">@SharedLocalizer["read more"]</a></span>

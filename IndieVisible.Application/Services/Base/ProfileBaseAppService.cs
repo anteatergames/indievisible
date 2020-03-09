@@ -24,6 +24,7 @@ namespace IndieVisible.Application.Services
         }
 
         #region Profile
+
         public void SetProfileCache(Guid userId, UserProfile value)
         {
             cacheService.Set<string, UserProfile>(FormatProfileCacheId(userId), value);
@@ -74,9 +75,11 @@ namespace IndieVisible.Application.Services
 
             return viewModel;
         }
-        #endregion
+
+        #endregion Profile
 
         #region Generics
+
         private void SetOjectOnCache<T>(Guid id, T value, string preffix)
         {
             cacheService.Set<string, T>(FormatObjectCacheId(preffix, id), value);
@@ -106,9 +109,11 @@ namespace IndieVisible.Application.Services
 
             return obj;
         }
-        #endregion
+
+        #endregion Generics
 
         #region Game
+
         public void SetGameCache(Guid id, Game value)
         {
             cacheService.Set<string, Game>(FormatObjectCacheId("game", id), value);
@@ -134,7 +139,8 @@ namespace IndieVisible.Application.Services
 
             return viewModel;
         }
-        #endregion
+
+        #endregion Game
 
         private string FormatProfileCacheId(Guid userId)
         {

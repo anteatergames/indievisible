@@ -266,7 +266,6 @@
 
             var btn = $(this);
 
-
             var valid = selectors.form.valid();
             if (valid) {
                 MAINMODULE.Common.DisableButton(btn);

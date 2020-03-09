@@ -6,6 +6,7 @@ namespace IndieVisible.Domain.Core.Enums
     {
         [Display(Name = "Company")]
         Company = 1,
+
         [Display(Name = "Applicant")]
         Applicant = 2
     }

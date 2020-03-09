@@ -35,7 +35,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
         public IActionResult Index()
         {
-
             string jobProfile = JobProfile.Applicant.ToString();
 
             if (User.Identity.IsAuthenticated)
@@ -88,9 +87,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                     return Json(new OperationResultVo(false, saveResult.Message));
                 }
 
-
                 SetSessionValue(SessionValues.JobProfile, userPreferences.JobProfile.ToString());
-
 
                 string url = Url.Action("Index", "JobPosition", new { area = "Work" });
 
@@ -223,7 +220,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             return View("_Details", vm);
         }
 
-
         [Authorize]
         [Route("work/jobposition/new/{origin}")]
         public IActionResult New(JobPositionOrigin origin)
@@ -245,7 +241,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 return PartialView("_CreateEdit", new JobPositionViewModel());
             }
         }
-
 
         [Authorize]
         [Route("work/jobposition/edit/{jobPositionId:guid}")]
@@ -303,7 +298,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
-
 
         [HttpDelete("work/jobposition/deletejobposition/{jobPositionId:guid}")]
         public IActionResult DeleteJobPosition(Guid jobPositionId)
@@ -398,6 +392,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
+
         private void SetLocalization(JobPositionViewModel item)
         {
             SetLocalization(item, false);

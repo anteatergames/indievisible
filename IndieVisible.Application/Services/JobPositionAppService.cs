@@ -182,7 +182,8 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo<Guid>(ex.Message);
             }
         }
-        #endregion
+
+        #endregion ICrudAPpService
 
         public OperationResultVo GenerateNew(Guid currentUserId, JobPositionOrigin origin)
         {

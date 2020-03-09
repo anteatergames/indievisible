@@ -6,8 +6,10 @@ namespace IndieVisible.Domain.Core.Enums
     {
         [Display(Name = "Not Informed")]
         NotInformed = 0,
+
         [Display(Name = "Permanent")]
         Permanent = 1,
+
         [Display(Name = "Temporary")]
         Temporary = 2
     }

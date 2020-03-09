@@ -173,7 +173,6 @@
                     var newName = namePreffix.replace('0', count) + nameProp;
                     $(this).attr('name', newName);
 
-
                     var describedBy = $(this).attr('aria-describedby');
                     if (describedBy !== undefined) {
                         var describedByProp = describedBy.split('__')[1];

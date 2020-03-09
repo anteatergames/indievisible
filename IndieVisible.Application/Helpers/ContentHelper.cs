@@ -18,8 +18,10 @@ namespace IndieVisible.Application.Helpers
                 {
                     case ImageType.LowQuality:
                         return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 10);
+
                     case ImageType.Responsive:
                         return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 0, 0, true);
+
                     case ImageType.Full:
                     default:
                         return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);

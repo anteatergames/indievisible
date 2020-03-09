@@ -85,7 +85,6 @@ namespace IndieVisible.Web.Controllers
                 }
                 httpContextAccessor.HttpContext.Response.Headers.Add(HeaderNames.ETag, new[] { etag });
 
-
                 return File(new MemoryStream(data), "image/jpeg");
             }
             catch (Exception ex)

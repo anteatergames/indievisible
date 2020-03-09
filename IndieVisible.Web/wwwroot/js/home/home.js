@@ -386,7 +386,6 @@ $(function () {
     HOMEPAGE.Init();
 });
 
-
 if (typeof Embedo === 'function') {
     var embedo = new Embedo({
         youtube: true,

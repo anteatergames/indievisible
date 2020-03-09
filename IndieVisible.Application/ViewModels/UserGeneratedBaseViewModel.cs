@@ -28,11 +28,11 @@ namespace IndieVisible.Application.ViewModels
 
         public string Url { get; set; }
 
-
         [Display(Name = "Language")]
         public SupportedLanguage Language { get; set; }
 
         private int likeCount;
+
         public int LikeCount
         {
             get

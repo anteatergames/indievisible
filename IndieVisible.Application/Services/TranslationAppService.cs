@@ -35,6 +35,7 @@ namespace IndieVisible.Application.Services
         }
 
         #region ICrudAppService
+
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
@@ -61,12 +62,10 @@ namespace IndieVisible.Application.Services
                 {
                     item.TermCount = item.Terms.Count;
 
-
                     SetGameViewModel(item.Game.Id, item);
                     item.Game.Title = string.Empty;
 
                     SetPermissions(currentUserId, item);
-
 
                     int languageCount = item.Entries.Select(x => x.Language).Distinct().Count();
 
@@ -183,6 +182,7 @@ namespace IndieVisible.Application.Services
                 }
 
                 #region REMOVER
+
                 if (model.Id == Guid.Empty)
                 {
                     model.Terms.Add(new TranslationTerm
@@ -211,7 +211,8 @@ namespace IndieVisible.Application.Services
                         UserId = currentUserId
                     });
                 }
-                #endregion
+
+                #endregion REMOVER
 
                 foreach (TranslationTerm term in model.Terms)
                 {
@@ -244,8 +245,8 @@ namespace IndieVisible.Application.Services
                 return new OperationResultVo<Guid>(ex.Message);
             }
         }
-        #endregion
 
+        #endregion ICrudAppService
 
         public OperationResultVo GetMyUntranslatedGames(Guid currentUserId)
         {
@@ -306,20 +307,20 @@ namespace IndieVisible.Application.Services
 
         private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
         {
-
             if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
             {
                 return Constants.DefaultGameThumbnail;
             }
             else
             {
-
                 switch (imageType)
                 {
                     case ImageType.LowQuality:
                         return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278, 10);
+
                     case ImageType.Responsive:
                         return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 0, 0, true);
+
                     case ImageType.Full:
                     default:
                         return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278);

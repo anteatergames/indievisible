@@ -134,7 +134,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 OperationResultVo gamesResult = translationAppService.GetMyUntranslatedGames(CurrentUserId);
                 if (gamesResult.Success)
                 {
-
                     OperationResultListVo<SelectListItemVo> castResultGames = gamesResult as OperationResultListVo<SelectListItemVo>;
 
                     IEnumerable<SelectListItemVo> games = castResultGames.Value;
@@ -154,7 +153,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 return PartialView("_CreateEdit", new TranslationProjectViewModel());
             }
         }
-
 
         [Authorize]
         [Route("tools/translation/edit/{id:guid}")]
@@ -178,7 +176,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 {
                     return View("_CreateEditWrapper", model);
                 }
-
             }
             else
             {
@@ -232,7 +229,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 if (result.Success)
                 {
-
                     OperationResultListVo<TranslationEntryViewModel> castResult = result as OperationResultListVo<TranslationEntryViewModel>;
 
                     return Json(castResult);

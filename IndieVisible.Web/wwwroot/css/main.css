@@ -110,7 +110,6 @@ select.form-control {
         filter: blur(0);
     }
 
-
 .btn-benefit-icon {
     position: relative;
     text-align: left;
@@ -158,7 +157,7 @@ select.form-control {
 }
 
 .share-popup {
-    display:none;
+    display: none;
     position: absolute;
     right: 0;
     z-index: 999;

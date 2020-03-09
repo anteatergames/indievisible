@@ -115,15 +115,19 @@ namespace IndieVisible.Infra.CrossCutting.IoC
             #endregion Team
 
             #region Jobs
+
             services.AddScoped<IJobPositionAppService, JobPositionAppService>();
             services.AddScoped<IJobPositionDomainService, JobPositionDomainService>();
             services.AddScoped<IJobPositionRepository, JobPositionRepository>();
+
             #endregion Jobs
 
             #region Translations
+
             services.AddScoped<ITranslationAppService, TranslationAppService>();
             services.AddScoped<ITranslationDomainService, TranslationDomainService>();
             services.AddScoped<ITranslationRepository, TranslationRepository>();
+
             #endregion Translations
 
             // Infra
