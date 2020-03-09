@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Interfaces.Repository;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Models;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
@@ -153,6 +154,13 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
                     }
                 }
             }
+        }
+
+        public IQueryable<TranslationEntry> GetTranslations(Guid projectId, SupportedLanguage language)
+        {
+            IQueryable<TranslationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language);
+
+            return translations;
         }
     }
 }

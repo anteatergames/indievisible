@@ -7,28 +7,32 @@
     <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
         <img data-sizes="auto" src="@Model.ThumbnailLquip" data-src="@Model.ThumbnailLquip" data-srcset="@Model.ThumbnailResponsive" class="card-img-top img-fluid lazyload blur-up" style="width:100%" alt="@Model.Title" />
     </a>
-    <div class="box-body">
-        <div class="gamebox-description">
 
-            @if (!string.IsNullOrWhiteSpace(Model.Title))
-            {
-                <div class="row text-truncate">
-                    <div class="col-12">
-                        <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
-                            <span class="gamebox-description-text">@Model.Title</span>
-                        </a>
+    @if (!string.IsNullOrWhiteSpace(Model.Title))
+    {
+        <div class="box-body">
+            <div class="gamebox-description">
+
+                @if (!string.IsNullOrWhiteSpace(Model.Title))
+                {
+                    <div class="row text-truncate">
+                        <div class="col-12">
+                            <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
+                                <span class="gamebox-description-text">@Model.Title</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            }
-            @if (!String.IsNullOrWhiteSpace(Model.DeveloperName))
-            {
-                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
-                    <img class="rounded-circle img-sm" src="@Model.DeveloperImageUrl" alt="@Model.DeveloperName">
-                    <div class="gamebox-description-text">
-                        <span class="gamebox-description-number">@Model.DeveloperName</span>
-                    </div>
-                </a>
-            }
+                }
+                @if (!String.IsNullOrWhiteSpace(Model.DeveloperName))
+                {
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                        <img class="rounded-circle img-sm" src="@Model.DeveloperImageUrl" alt="@Model.DeveloperName">
+                        <div class="gamebox-description-text">
+                            <span class="gamebox-description-number">@Model.DeveloperName</span>
+                        </div>
+                    </a>
+                }
+            </div>
         </div>
-    </div>
+    }
 </div>

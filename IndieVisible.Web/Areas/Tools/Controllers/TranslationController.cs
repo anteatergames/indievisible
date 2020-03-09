@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using IndieVisible.Application.Helpers;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Translation;
+using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Tools.Controllers.Base;
 using IndieVisible.Web.Extensions;
@@ -27,9 +28,20 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<SelectListItemVo> games = translationAppService.GetMyUntranslated(CurrentUserId);
+            var gamesResult = translationAppService.GetMyUntranslatedGames(CurrentUserId);
+            if (gamesResult.Success)
+            {
+                OperationResultListVo<SelectListItemVo> castResultGames = gamesResult as OperationResultListVo<SelectListItemVo>;
 
-            ViewData["CanRequest"] = games.Any();
+                var games = castResultGames.Value;
+
+                List<SelectListItem> gamesDropDown = games.ToSelectList();
+                ViewData["CanRequest"] = games.Any();
+            }
+            else
+            {
+                ViewData["CanRequest"] = false;
+            }
 
             return View();
         }
@@ -121,9 +133,21 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 SetLocalization(model);
 
-                IEnumerable<SelectListItemVo> games = translationAppService.GetMyUntranslated(CurrentUserId);
-                List<SelectListItem> gamesDropDown = games.ToSelectList();
-                ViewBag.UserGames = gamesDropDown;
+                OperationResultVo gamesResult = translationAppService.GetMyUntranslatedGames(CurrentUserId);
+                if (gamesResult.Success)
+                {
+
+                    OperationResultListVo<SelectListItemVo> castResultGames = gamesResult as OperationResultListVo<SelectListItemVo>;
+
+                    var games = castResultGames.Value;
+
+                    List<SelectListItem> gamesDropDown = games.ToSelectList();
+                    ViewBag.UserGames = gamesDropDown;
+                }
+                else
+                {
+                    ViewBag.UserGames = new List<SelectListItem>();
+                }
 
                 return PartialView("_CreateEdit", model);
             }
@@ -188,6 +212,32 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                     }
 
                     return Json(new OperationResultRedirectVo(saveResult, url));
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [Authorize]
+        [HttpPost("tools/translation/gettranslation/{projectId:guid}")]
+        public IActionResult GetTranslation(Guid projectId, SupportedLanguage language)
+        {
+            try
+            {
+                OperationResultVo result = translationAppService.GetTranslations(CurrentUserId, projectId, language);
+
+                if (result.Success)
+                {
+
+                    OperationResultListVo<TranslationEntryViewModel> castResult = result as OperationResultListVo<TranslationEntryViewModel>;
+
+                    return Json(castResult);
                 }
                 else
                 {

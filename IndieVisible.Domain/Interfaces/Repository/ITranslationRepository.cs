@@ -1,4 +1,5 @@
-﻿using IndieVisible.Domain.Models;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,5 +31,7 @@ namespace IndieVisible.Domain.Interfaces.Repository
         Task<bool> RemoveEntry(Guid translationProjectId, Guid entryId);
 
         Task<bool> UpdateEntry(Guid translationProjectId, TranslationEntry entry);
+
+        IQueryable<TranslationEntry> GetTranslations(Guid projectId, SupportedLanguage language);
     }
 }

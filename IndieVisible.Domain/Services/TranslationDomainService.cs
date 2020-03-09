@@ -1,8 +1,10 @@
-﻿using IndieVisible.Domain.Interfaces.Repository;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IndieVisible.Domain.Services
 {
@@ -21,9 +23,16 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId)
         {
-            var gameIds = repository.GetTranslatedGamesByUserId(userId);
+            IEnumerable<Guid> gameIds = repository.GetTranslatedGamesByUserId(userId);
 
             return gameIds;
+        }
+
+        public IEnumerable<TranslationEntry> GetTranslations(Guid projectId, SupportedLanguage language)
+        {
+            List<TranslationEntry> entries = repository.GetTranslations(projectId, language).ToList();
+
+            return entries;
         }
     }
 }

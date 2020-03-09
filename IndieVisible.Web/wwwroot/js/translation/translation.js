@@ -30,6 +30,7 @@
         selectors.term = '.translation-term';
         selectors.template = '.translation-term.template';
         selectors.btnAddTerm = '#btn-translation-term-add';
+        selectors.ddlLanguage = '#Language';
     }
 
     function cacheObjsCommon() {
@@ -115,11 +116,43 @@
 
     function bindDetails() {
         bindPopOvers();
+        bindLanguageChange();
         CONTENTACTIONS.BindShareContent();
     }
 
     function bindPopOvers() {
         $("[data-toggle='popover']").popover();
+    }
+
+    function bindLanguageChange() {
+        objs.containerDetails.on('change', selectors.ddlLanguage, function () {
+            var ddl = $(this);
+            var url = ddl.data('url');
+            var language = ddl.val();
+
+            var data = {
+                language: language
+            };
+
+            objs.containerDetails.find('input.translation-input').val('');
+
+            $.post(url, data).done(function (response) {
+                if (response.success === true) {
+
+
+                    for (var i = 0; i < response.value.length; i++) {
+                        var translation = response.value[i];
+
+                        var termInput = objs.containerDetails.find('input.translation-input[data-termid=' + translation.termId + ']');
+
+                        termInput.val(translation.value);
+                    }
+                }
+                else {
+                    ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+                }
+            });
+        });
     }
 
     function bindBtnSaveForm() {

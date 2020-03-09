@@ -12,6 +12,9 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GenerateNew(Guid currentUserId);
 
         OperationResultVo GetByUserId(Guid currentUserId, Guid userId);
-        IEnumerable<SelectListItemVo> GetMyUntranslated(Guid currentUserId);
+
+        OperationResultVo GetMyUntranslatedGames(Guid currentUserId);
+
+        OperationResultVo GetTranslations(Guid currentUserId, Guid projectId, SupportedLanguage language);
     }
 }

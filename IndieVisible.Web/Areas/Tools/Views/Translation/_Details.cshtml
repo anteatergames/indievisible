@@ -6,6 +6,8 @@
     //ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
     //ViewData["OgImageWidth"] = 1200;
     //ViewData["OgImageHeight"] = 630;
+    Model.Game.Title = string.Empty;
+
 
     var canInteract = User.Identity.IsAuthenticated;
 }
@@ -97,7 +99,7 @@
                                         <div class="border mt-3 mb-3 p-2 bg-light">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <p>@Model.Introduction</p>
+                                                    <p class="m-0">@Model.Introduction</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -118,7 +120,7 @@
                                     </div>
                                     <div class="col border-left rounded-0">
                                         <label class="col-form-label text-uppercase" ">@SharedLocalizer["to"]</label>
-                                        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), "Select a language", new { @class = "form-control" })
+                                        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), "Select a language", new { @class = "form-control", data_url= Url.Action("gettranslation", "translation", new { projectId = Model.Id }) })
                                     </div>
                                 </div>
 
@@ -143,7 +145,7 @@
                                                         <span class="input-group-text" data-container="body" data-toggle="popover" data-placement="top" data-content="@SharedLocalizer["No context provided for this term."]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
                                                     }
                                                 </div>
-                                                <input class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+                                                <input class="form-control translation-input" data-termid="@term.Id" placeholder="@SharedLocalizer["Type here your translation"]" />
                                             </div>
                                         </div>
                                     </div>

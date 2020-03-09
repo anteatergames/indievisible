@@ -198,7 +198,19 @@ namespace IndieVisible.Application.Services
                         Value = "Sair",
                         Obs = "Menu item"
                     });
-                } 
+                }
+
+                if (model.Entries.Count == 0)
+                {
+                    model.Entries.Add(new TranslationEntry
+                    {
+                        TermId = new Guid("0fb7bd45-33d6-466a-8d18-4414e4e01344"),
+                        Language = SupportedLanguage.Portuguese,
+                        Value = "Sair",
+                        CreateDate = DateTime.Now,
+                        UserId = currentUserId
+                    });
+                }
                 #endregion
 
                 foreach (var term in model.Terms)
@@ -235,19 +247,41 @@ namespace IndieVisible.Application.Services
         #endregion
 
 
-        public IEnumerable<SelectListItemVo> GetMyUntranslated(Guid currentUserId)
+        public OperationResultVo GetMyUntranslatedGames(Guid currentUserId)
         {
-            IEnumerable<Game> myGames = gameDomainService.GetByUserId(currentUserId);
+            try
+            {
+                IEnumerable<Game> myGames = gameDomainService.GetByUserId(currentUserId);
 
-            var myTranslatedGames = translationDomainService.GetTranslatedGamesByUserId(currentUserId);
+                var myTranslatedGames = translationDomainService.GetTranslatedGamesByUserId(currentUserId);
 
-            var availableGames = myGames.Where(x => !myTranslatedGames.Contains(x.Id));
+                var availableGames = myGames.Where(x => !myTranslatedGames.Contains(x.Id));
 
-            List<SelectListItemVo> vms = mapper.Map<IEnumerable<Game>, IEnumerable<SelectListItemVo>>(availableGames).ToList();
+                List<SelectListItemVo> vms = mapper.Map<IEnumerable<Game>, IEnumerable<SelectListItemVo>>(availableGames).ToList();
 
-            return vms;
+                return new OperationResultListVo<SelectListItemVo>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
 
+        public OperationResultVo GetTranslations(Guid currentUserId, Guid projectId, SupportedLanguage language)
+        {
+            try
+            {
+                IEnumerable<TranslationEntry> entries = translationDomainService.GetTranslations(projectId, language);
+
+                List<TranslationEntryViewModel> vms = mapper.Map<IEnumerable<TranslationEntry>, IEnumerable<TranslationEntryViewModel>>(entries).ToList();
+
+                return new OperationResultListVo<TranslationEntryViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
 
         public OperationResultVo GenerateNew(Guid currentUserId)
         {
