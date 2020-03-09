@@ -54,18 +54,6 @@
     border: 0;
 }
 
-.user-profile .avatar-wrapper, .game-page .avatar-wrapper {
-    display: inline-flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-
 .badge-wrapper {
     display: inline-flex;
     align-items: center;

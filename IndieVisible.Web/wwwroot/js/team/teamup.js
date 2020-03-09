@@ -110,7 +110,7 @@
     }
 
     function bindSelect2() {
-        $('.members select.select2').each(function (index, element) {
+        $('.members select.select2').each(function () {
             if ($(this).data('select2') === undefined) {
                 $(this).select2({
                     width: 'element'
@@ -185,7 +185,7 @@
             var url = $(this).data('url');
 
             $.post(url)
-                .done(function (response) {
+                .done(function () {
                     btn.closest(selectors.teamMember).remove();
                 });
         });
@@ -247,7 +247,7 @@
             var url = $(this).data('url');
 
             $.post(url)
-                .done(function (response) {
+                .done(function () {
                     btn.closest(selectors.teamMember).remove();
                 });
         });
@@ -337,7 +337,7 @@
         objs.divListTeams.html(MAINMODULE.Default.SpinnerTop);
 
         $.get('/team/list/', function (data) { objs.divListTeams.html(data); })
-            .done(function (response) {
+            .done(function () {
                 setPopOvers();
             });
     }
@@ -345,10 +345,7 @@
     function loadMyTeams() {
         objs.divListMyTeams.html(MAINMODULE.Default.SpinnerTop);
 
-        $.get('/team/list/mine', function (data) { objs.divListMyTeams.html(data); })
-            .done(function (response) {
-                console.info('my teams loaded');
-            });
+        $.get('/team/list/mine', function (data) { objs.divListMyTeams.html(data); });
     }
 
     function loadNewForm() {
@@ -476,8 +473,8 @@
 
     function renameInputs() {
         var count = 0;
-        objs.divMembers.find(selectors.teamMember).each(function (index, element) {
-            $(this).find(':input').each(function (index2, element2) {
+        objs.divMembers.find(selectors.teamMember).each(function () {
+            $(this).find(':input').each(function () {
                 var inputId = $(this).attr('id');
                 var inputName = $(this).attr('name');
 

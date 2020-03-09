@@ -126,7 +126,9 @@
                 FB.ui({
                     method: 'share',
                     href: url
-                }, function (response) { });
+                }, function (response) {
+                        console.log(response);
+                });
             }
             else if (provider === 'reddit') {
                 url = 'https://www.reddit.com/submit?title=' + title + '&url=' + url;
@@ -173,7 +175,8 @@
         objs.container.on('rating:change', selectors.applicantRating, function (event, value, caption) {
             var url = $(this).data('url');
 
-            console.log(value);
+            console.log(event);
+            console.log(caption);
 
             var data = { score: value };
 
@@ -279,7 +282,7 @@
     }
 
     function bindRemoteChange() {
-        objs.containerDetails.on('change', selectors.chkRemote, function (e) {
+        objs.containerDetails.on('change', selectors.chkRemote, function () {
             var isRemote = $(this).is(':checked');
 
             if (isRemote) {
@@ -292,7 +295,7 @@
     }
 
     function bindSwitchBenefitChange() {
-        objs.containerDetails.on('change', selectors.switchBenefit, function (e) {
+        objs.containerDetails.on('change', selectors.switchBenefit, function () {
             var obj = $(this);
             var isChecked = obj.is(':checked');
 
@@ -421,7 +424,7 @@
                     callback();
                 }
 
-                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
+                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
                     window.location = response.url;
                 });
             }

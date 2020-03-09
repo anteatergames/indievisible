@@ -342,7 +342,7 @@ namespace IndieVisible.Application.Services
         {
             int totalTranslationsTarget = languageCount * totalTerms;
 
-            int percentage = (100 * translatedCount) / (totalTerms == 0 ? 1 : totalTerms);
+            int percentage = (100 * translatedCount) / (totalTranslationsTarget == 0 ? 1 : totalTranslationsTarget);
 
             return percentage;
         }

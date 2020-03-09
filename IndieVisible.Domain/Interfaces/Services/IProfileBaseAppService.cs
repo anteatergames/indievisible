@@ -5,6 +5,6 @@ namespace IndieVisible.Domain.Interfaces.Service
 {
     public interface IProfileBaseAppService
     {
-        void SetProfileCache(Guid key, UserProfile value);
+        void SetProfileCache(Guid userId, UserProfile value);
     }
 }
