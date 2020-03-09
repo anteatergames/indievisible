@@ -312,7 +312,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
             {
                 OperationResultVo serviceResult = jobPositionAppService.Remove(CurrentUserId, jobPositionId);
 
-
                 OperationResultListVo<Application.ViewModels.Search.UserContentSearchViewModel> searchContentResult = userContentAppService.Search(CurrentUserId, jobPositionId.ToString());
 
                 if (searchContentResult.Success && searchContentResult.Value.Any())
@@ -324,7 +323,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                         userContentAppService.Remove(CurrentUserId, existing.ContentId);
                     }
                 }
-
 
                 string url = Url.Action("Index", "JobPosition", new { area = "Work" });
 
@@ -358,7 +356,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             try
             {
-
                 Infra.CrossCutting.Identity.Models.ApplicationUser user = await UserManager.GetUserAsync(User);
 
                 OperationResultVo serviceResult = jobPositionAppService.Apply(CurrentUserId, jobPositionId, user.Email, coverLetter);
@@ -419,7 +416,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                 Microsoft.Extensions.Localization.LocalizedString localizedWorkType = SharedLocalizer[displayWorkType != null ? displayWorkType.Name : item.WorkType.ToString()];
 
                 item.Title = SharedLocalizer["{0} at {1}", localizedWorkType, item.Location];
-
 
                 DisplayAttribute displayStatus = item.Status.GetAttributeOfType<DisplayAttribute>();
                 item.StatusLocalized = SharedLocalizer[displayStatus != null ? displayStatus.Name : item.WorkType.ToString()];
