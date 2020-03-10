@@ -4,6 +4,34 @@
     Layout = null;
 
     var rest = 100 - Model.Percentage;
+
+    if (String.IsNullOrWhiteSpace(Model.Text))
+    {
+        if (Model.Percentage >= 100)
+        {
+            Model.Text = SharedLocalizer["Yes! All done!"];
+        }
+        else if (Model.Percentage >= 80)
+        {
+            Model.Text = SharedLocalizer["Almost there!"];
+        }
+        else if (Model.Percentage >= 60)
+        {
+            Model.Text = SharedLocalizer["We can do better!"];
+        }
+        else if (Model.Percentage >= 40)
+        {
+            Model.Text = SharedLocalizer["C'mon, help it!"];
+        }
+        else if (Model.Percentage >= 20)
+        {
+            Model.Text = SharedLocalizer["It is a good start!"];
+        }
+        else if (Model.Percentage >= 0)
+        {
+            Model.Text = SharedLocalizer["Let's help!"];
+        }
+    }
 }
 
 <svg width="50%" viewBox="0 0 40 40" class="donut img-fluid">

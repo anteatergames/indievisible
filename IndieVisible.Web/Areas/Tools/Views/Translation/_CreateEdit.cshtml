@@ -29,7 +29,7 @@
                 <div class="float-left mr-3">
                     <a asp-area="tools" asp-controller="translation" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
-                <h3 class="card-title">@SharedLocalizer["You are {0} a new Translation Project", (Model.Id == Guid.Empty ? "creating" : "editing")]</h3>
+                <h3 class="card-title">@SharedLocalizer["You are {0} a Translation Project", (Model.Id == Guid.Empty ? "creating" : "editing")]</h3>
                 <span class="card-subtitle">
                     @SharedLocalizer["Tell us about the translation you need."]
                 </span>
@@ -42,7 +42,7 @@
                 <div class="form-group">
                     @if (Model.Id != Guid.Empty)
                     {
-                        <label class="col-form-label">@SharedLocalizer["Game"]</label>
+                        <label class="col-form-label text-capitalize">@SharedLocalizer["game"]</label>
                         <span class="col-form-label">
                             <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["You can't change the game. If this game is not the correct one, you'll need to recreate the translation project."]" aria-hidden="true"></i>
                         </span>
@@ -51,7 +51,7 @@
                     }
                     else
                     {
-                        <label class="col-form-label">@SharedLocalizer["Game"]</label>
+                        <label class="col-form-label text-capitalize">@SharedLocalizer["game"]</label>
                         <span class="col-form-label">
                             <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the game that you want help to translate.<br />You won't be able to change this later."]" aria-hidden="true"></i>
                         </span>

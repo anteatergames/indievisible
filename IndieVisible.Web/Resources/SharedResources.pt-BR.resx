@@ -361,17 +361,17 @@
     <value>O que você está pensando?</value>
     <comment>Home</comment>
   </data>
-  <data name="Terms" xml:space="preserve">
+  <data name="terms" xml:space="preserve">
     <value>Termos</value>
-    <comment>Register</comment>
+    <comment>Register, Translation</comment>
   </data>
   <data name="and" xml:space="preserve">
     <value>e</value>
     <comment>Generic</comment>
   </data>
-  <data name="Policies" xml:space="preserve">
-    <value>Políticas</value>
-    <comment>Layout</comment>
+  <data name="policies" xml:space="preserve">
+    <value>políticas</value>
+    <comment>Generic</comment>
   </data>
   <data name="Read our" xml:space="preserve">
     <value>Leia nossos</value>
@@ -1608,5 +1608,181 @@
   <data name="Shoot'em Up" xml:space="preserve">
     <value>Navinha</value>
     <comment>Genre</comment>
+  </data>
+  <data name="Add or update your translation for this term." xml:space="preserve">
+    <value>Adicione ou atualize sua tradução para este termo.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Add term" xml:space="preserve">
+    <value>Adicionar termo</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="All your games are being translated." xml:space="preserve">
+    <value>Todos os seus jogos estão sendo traduzidos.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Almost there!" xml:space="preserve">
+    <value>Quase lá!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="C'mon, help it!" xml:space="preserve">
+    <value>Vamo lá, ajuda aê!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="creating" xml:space="preserve">
+    <value>criando</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="editing" xml:space="preserve">
+    <value>editando</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>de</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="game" xml:space="preserve">
+    <value>jogo</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>Alemão</value>
+    <comment>Language</comment>
+  </data>
+  <data name="Help other gamedevs to translate their games." xml:space="preserve">
+    <value>Ajude outros gamedevs a traduzirem seus jogos.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Help this one!" xml:space="preserve">
+    <value>Ajudar esse aqui!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Help this translation project!" xml:space="preserve">
+    <value>Ajude esse projeto de tradução!</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="It is a good start!" xml:space="preserve">
+    <value>Um bom começo!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Chave</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Let's help!" xml:space="preserve">
+    <value>Vamos ajudar!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="My Projects" xml:space="preserve">
+    <value>Meus projetos</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="new" xml:space="preserve">
+    <value>novo</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="New Translation" xml:space="preserve">
+    <value>Nova Tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Primary Language" xml:space="preserve">
+    <value>Idioma Principal</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Save Translation Project" xml:space="preserve">
+    <value>Salvar Projeto de Tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Selecione um idioma</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Share on Facebook" xml:space="preserve">
+    <value>Compartilhe no Facebook</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Share on Reddit" xml:space="preserve">
+    <value>Compartilhe no Reddit</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Something is missing!" xml:space="preserve">
+    <value>Tá faltando algo!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Spanish" xml:space="preserve">
+    <value>Espanhol</value>
+    <comment>Language</comment>
+  </data>
+  <data name="Tell us about the translation you need." xml:space="preserve">
+    <value>Conte um pouco sobre a tradução que você precisa.</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="These are translation projects available to help." xml:space="preserve">
+    <value>Estes são os projetos de tradução disponíveis para ajudar.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="This translation was requested by" xml:space="preserve">
+    <value>Esta tradução foi solicitada por</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>para</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Translate for {0}" xml:space="preserve">
+    <value>Traduza para {0}</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="translating" xml:space="preserve">
+    <value>traduzindo</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Translation" xml:space="preserve">
+    <value>Tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Tweet this!" xml:space="preserve">
+    <value>Tuíte isso!</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="Type here your translation" xml:space="preserve">
+    <value>Digite aqui sua tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="User Panel" xml:space="preserve">
+    <value>Painel do Usuário</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valor</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="We can do better!" xml:space="preserve">
+    <value>Podemos melhorar isso!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Welcome to the IndieVisible Translation! Here you can request help from other users to translate the texts for your game or help others translating theirs." xml:space="preserve">
+    <value>Bem vindo ao sistema de traduções do IndieVisible! Aqui você pode pedir ajuda da comunidade para traduzir os textos de seus jogos e ajudar outros a traduzir os jogos deles.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="What? We have no translation projects here! Go ahead, create one!" xml:space="preserve">
+    <value>O que? Não tem nenhum projeto de tradução aqui! Vai em frente, cria um!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Yes! All done!" xml:space="preserve">
+    <value>Boa! Tudo OK!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="You are {0} a Translation Project" xml:space="preserve">
+    <value>Você está {0} um projeto de tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="You must be logged in to work on translations." xml:space="preserve">
+    <value>Você deve estar autenticado para traduzir.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="{0} Translation Project" xml:space="preserve">
+    <value>{0} Projeto de Tradução</value>
+    <comment>Translation</comment>
   </data>
 </root>

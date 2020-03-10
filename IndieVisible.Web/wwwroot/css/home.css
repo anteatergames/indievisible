@@ -13,7 +13,7 @@
     }
 
     .commentmodal .modal {
-        padding: 0px;
+        padding: 0;
         padding-right: 0 !important;
         position: absolute !important;
         overflow: hidden;
@@ -22,7 +22,7 @@
     .commentmodal .modal-dialog {
         width: 100%;
         max-width: none;
-        margin: 0px;
+        margin: 0;
     }
 
         .commentmodal .modal-dialog .modal-content {
@@ -34,7 +34,7 @@
             }
 
             .commentmodal .modal-dialog .modal-content .modal-footer {
-                border: 0px;
+                border: 0;
             }
 
 .modal-backdrop {

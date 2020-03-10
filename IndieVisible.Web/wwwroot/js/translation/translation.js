@@ -42,7 +42,6 @@
     }
 
     function cacheObjsCommon() {
-        console.log('cacheObjsCommon');
         objs.controlsidebar = $(selectors.controlsidebar);
         objs.container = $(selectors.container);
         objs.urls = $(selectors.urls);
@@ -50,7 +49,6 @@
     }
 
     function cacheObjsIndex() {
-        console.log('cacheObjsIndex');
         objs.containerDetails = $(selectors.containerDetails);
         objs.containerList = $(selectors.containerList);
         objs.list = $(selectors.list);
@@ -178,7 +176,7 @@
 
                 $.post(url, data).done(function (response) {
                     if (response.success === true) {
-                        deleteEntryAuthorButton(response.value.termId, response.value.userId, response.value.value);
+                        deleteEntryAuthorButton(response.value.termId, response.value.userId);
 
                         loadSingleTranslation(response.value);
 
@@ -213,7 +211,7 @@
             if (valid && canInteract) {
                 var allRequiredFilled = true;
                 var allIlRequired = objs.form.find(':input[data-val-required]');
-                allIlRequired.each(function (index, element) {
+                allIlRequired.each(function () {
                     if (allRequiredFilled === true && $(this).val().length === 0) {
                         allRequiredFilled = false;
                     }
@@ -350,7 +348,7 @@
         $(container).html('');
     }
 
-    function deleteEntryAuthorButton(termId, userId, value) {
+    function deleteEntryAuthorButton(termId, userId) {
         var termInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + termId + ']');
 
         var entry = termInput.closest(selectors.entry);
@@ -381,7 +379,7 @@
                     callback();
                 }
 
-                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (isConfirm) {
+                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
                     window.location = response.url;
                 });
             }

@@ -278,9 +278,9 @@ namespace IndieVisible.Application.Services
 
                 List<TranslationEntryViewModel> vms = mapper.Map<IEnumerable<TranslationEntry>, IEnumerable<TranslationEntryViewModel>>(entries).ToList();
 
-                foreach (var entry in vms)
+                foreach (TranslationEntryViewModel entry in vms)
                 {
-                    var profile = GetCachedProfileByUserId(entry.UserId);
+                    UserProfile profile = GetCachedProfileByUserId(entry.UserId);
                     entry.AuthorName = profile.Name;
                     entry.AuthorPicture = UrlFormatter.ProfileImage(entry.UserId);
                 }
@@ -297,15 +297,14 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var entry = mapper.Map<TranslationEntry>(vm);
+                TranslationEntry entry = mapper.Map<TranslationEntry>(vm);
 
                 translationDomainService.SetTranslationEntry(projectId, entry);
                 vm.Id = entry.Id;
 
                 unitOfWork.Commit();
 
-
-                var profile = GetCachedProfileByUserId(entry.UserId);
+                UserProfile profile = GetCachedProfileByUserId(entry.UserId);
                 vm.AuthorName = profile.Name;
 
                 return new OperationResultVo<TranslationEntryViewModel>(vm);
@@ -378,6 +377,5 @@ namespace IndieVisible.Application.Services
 
             return percentage;
         }
-
     }
 }

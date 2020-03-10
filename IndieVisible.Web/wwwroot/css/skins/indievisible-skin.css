@@ -39,7 +39,7 @@ a {
 
     .bordered:hover {
         border: 1px solid var(--color-border-hover);
-        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 3px 15px rgba(0,0,0,0.2);
     }
 
 .rating-container .filled-stars {
@@ -151,7 +151,7 @@ a {
 .skin-indievisible .main-sidebar,
 .skin-indievisible .left-side {
     background-color: #dedada;
-    box-shadow: 1px 0px 20px rgba(0,0,0,0.08);
+    box-shadow: 1px 0 20px rgba(0,0,0,0.08);
 }
 
 .skin-indievisible .main-sidebar {

@@ -8,6 +8,12 @@
 
         public string Text { get; set; }
 
+        public DonutChartViewModel(double percentage)
+        {
+            Percentage = percentage;
+            StrokeWidth = 3.5;
+        }
+
         public DonutChartViewModel(double percentage, string text)
         {
             Percentage = percentage;
