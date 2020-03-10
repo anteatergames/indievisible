@@ -67,9 +67,11 @@ namespace IndieVisible.Application.Services
 
                     SetPermissions(currentUserId, item);
 
+                    int totalTermCount = item.Terms.Count;
+                    int distinctEntriesCount = item.Entries.Select(x => x.TermId).Distinct().Count();
                     int languageCount = item.Entries.Select(x => x.Language).Distinct().Count();
 
-                    item.TranslationPercentage = CalculatePercentage(item.Terms.Count, item.Entries.Count, languageCount);
+                    item.TranslationPercentage = CalculatePercentage(totalTermCount, distinctEntriesCount, languageCount);
                 }
 
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();
