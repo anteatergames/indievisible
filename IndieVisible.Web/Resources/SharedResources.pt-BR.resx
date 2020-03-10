@@ -1785,4 +1785,8 @@
     <value>{0} Projeto de Tradução</value>
     <comment>Translation</comment>
   </data>
+  <data name="There are no terms to translate yet!" xml:space="preserve">
+    <value>Não existem termos para traduzir no momento!</value>
+    <comment>Translation</comment>
+  </data>
 </root>

@@ -1,0 +1,54 @@
+﻿@model TranslationProjectViewModel
+@{
+    Layout = null;
+}
+
+<div class="text-center">
+    <h4 class="text-uppercase mb-0">@SharedLocalizer["translating"]</h4>
+</div>
+<div class="row border-bottom mb-2">
+    <div class="col pr-0 pr-md-2 border-right rounded-0">
+        <label class="col-form-label text-uppercase">@SharedLocalizer["from"]</label>
+        <label class="form-control bg-gray">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</label>
+    </div>
+    <div class="col pl-0 pl-md-2 border-left rounded-0">
+        <label class="col-form-label text-uppercase" ">@SharedLocalizer["to"]</label>
+        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), SharedLocalizer["Select a language"], new { @class = "form-control", data_url_get = Url.Action("gettranslation", "translation", new { projectId = Model.Id }), data_url_set = Url.Action("settranslation", "translation", new { projectId = Model.Id }) })
+    </div>
+</div>
+
+@foreach (var term in Model.Terms)
+{
+    <div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 m-md-2 mb-2 border bg-light no-gutters">
+        <div class="col-12 px-1 px-sm-2 px-md-3 no-gutters">
+            <div class="col-12">
+                <label class="col-form-label py-0">
+                    @if (!string.IsNullOrWhiteSpace(term.Obs))
+                    {
+                        @term.Key <span data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@term.Obs"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                    }
+                    else
+                    {
+                        @term.Key
+                    }
+                </label>
+            </div>
+
+            <span class="mx-3">@term.Value</span>
+
+            <div class="col-12 mb-3 translation-entry">
+                <div class="input-group mt-1">
+                    <input class="form-control entry-input" data-termid="@term.Id" placeholder="@SharedLocalizer["Type here your translation"]" />
+                </div>
+                <div class="translation-entry-actions float-right mt-1">
+                    <div class="btn-group" role="group" aria-label="Translation Entry Actions">
+                        <button type="button" class="btn btn-sm btn-default text-success entry-save" title="@SharedLocalizer["Add or update your translation for this term."]"><i class="fas fa-fw fa-check" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <div class="entry-authors">
+                </div>
+            </div>
+        </div>
+    </div>
+}
