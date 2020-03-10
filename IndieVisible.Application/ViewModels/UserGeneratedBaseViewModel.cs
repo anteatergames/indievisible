@@ -1,11 +1,12 @@
 ﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels
 {
-    public abstract class UserGeneratedBaseViewModel : BaseViewModel
+    public abstract class UserGeneratedBaseViewModel : BaseViewModel, IUserGeneratedContent
     {
         [Display(Name = "Author Picture")]
         public string AuthorPicture { get; set; }

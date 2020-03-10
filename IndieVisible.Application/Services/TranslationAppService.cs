@@ -227,7 +227,7 @@ namespace IndieVisible.Application.Services
                     translationDomainService.Add(model);
                     viewModel.Id = model.Id;
 
-                    pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.JobPositionPost);
+                    pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.TranslationRequest);
                 }
                 else
                 {
@@ -272,11 +272,41 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<TranslationEntry> entries = translationDomainService.GetTranslations(projectId, language);
+                IEnumerable<TranslationEntry> entries = translationDomainService.GetEntries(projectId, language);
 
                 List<TranslationEntryViewModel> vms = mapper.Map<IEnumerable<TranslationEntry>, IEnumerable<TranslationEntryViewModel>>(entries).ToList();
 
+                foreach (var entry in vms)
+                {
+                    var profile = GetCachedProfileByUserId(entry.UserId);
+                    entry.AuthorName = profile.Name;
+                    entry.AuthorPicture = UrlFormatter.ProfileImage(entry.UserId);
+                }
+
                 return new OperationResultListVo<TranslationEntryViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo SetTranslationEntry(Guid currentUserId, Guid projectId, TranslationEntryViewModel vm)
+        {
+            try
+            {
+                var entry = mapper.Map<TranslationEntry>(vm);
+
+                translationDomainService.SetTranslationEntry(projectId, entry);
+                vm.Id = entry.Id;
+
+                unitOfWork.Commit();
+
+
+                var profile = GetCachedProfileByUserId(entry.UserId);
+                vm.AuthorName = profile.Name;
+
+                return new OperationResultVo<TranslationEntryViewModel>(vm);
             }
             catch (Exception ex)
             {
@@ -346,5 +376,6 @@ namespace IndieVisible.Application.Services
 
             return percentage;
         }
+
     }
 }

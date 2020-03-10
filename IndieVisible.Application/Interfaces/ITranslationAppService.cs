@@ -14,5 +14,7 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GetMyUntranslatedGames(Guid currentUserId);
 
         OperationResultVo GetTranslations(Guid currentUserId, Guid projectId, SupportedLanguage language);
+
+        OperationResultVo SetTranslationEntry(Guid currentUserId, Guid projectId, TranslationEntryViewModel vm);
     }
 }

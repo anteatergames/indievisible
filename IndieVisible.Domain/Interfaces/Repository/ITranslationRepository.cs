@@ -31,6 +31,8 @@ namespace IndieVisible.Domain.Interfaces.Repository
 
         Task<bool> UpdateEntry(Guid translationProjectId, TranslationEntry entry);
 
-        IQueryable<TranslationEntry> GetTranslations(Guid projectId, SupportedLanguage language);
+        IQueryable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language);
+
+        IQueryable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId);
     }
 }

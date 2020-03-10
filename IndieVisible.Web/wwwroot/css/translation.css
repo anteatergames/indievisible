@@ -10,6 +10,11 @@
     margin-top: -40px;
 }
 
+.translation-entry-actions {
+    margin-top: -5px;
+    margin-right: 10px;
+}
+
 @media (max-width: 767px) {
     .border-right, .border-left {
         border: 0 !important;

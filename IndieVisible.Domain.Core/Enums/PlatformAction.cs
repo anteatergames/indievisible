@@ -15,6 +15,7 @@
         TeamAdd = 11,
         TeamJoin = 12,
         TeamApply = 13,
-        JobPositionPost = 14
+        JobPositionPost = 14,
+        TranslationRequest = 15
     }
 }

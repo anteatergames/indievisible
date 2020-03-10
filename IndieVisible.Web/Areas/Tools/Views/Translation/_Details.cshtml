@@ -82,24 +82,16 @@
                                 <div class="col-lg-4">
                                     <div class="author-details">
                                         <div class="col-12">
-                                            <span>@SharedLocalizer["This translation was requested by"]:</span>
-                                            <div class="user-block">
-                                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
-                                                    <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
-                                                </a>
-                                                <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@Model.AuthorName</a></span>
+                                            <span>@SharedLocalizer["This translation was requested by"]</span>
 
-                                                <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@Model.Id" class="contenturl">
-                                                    <span class="description">@Model.CreateDate.ToString()</span>
-                                                </a>
-                                            </div>
+                                            <partial name="_AuthorDetails" model="Model" />
                                         </div>
+                                    </div>
 
-                                        <div class="border mt-3 mb-3 p-2 bg-light">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <p class="m-0">@Model.Introduction</p>
-                                                </div>
+                                    <div class="border mt-3 mb-3 p-2 bg-light">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="m-0">@Model.Introduction</p>
                                             </div>
                                         </div>
                                     </div>
@@ -119,7 +111,7 @@
                                     </div>
                                     <div class="col border-left rounded-0">
                                         <label class="col-form-label text-uppercase" ">@SharedLocalizer["to"]</label>
-                                        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), "Select a language", new { @class = "form-control", data_url = Url.Action("gettranslation", "translation", new { projectId = Model.Id }) })
+                                        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), "Select a language", new { @class = "form-control", data_url_get = Url.Action("gettranslation", "translation", new { projectId = Model.Id }), data_url_set = Url.Action("settranslation", "translation", new { projectId = Model.Id }) })
                                     </div>
                                 </div>
 
@@ -127,24 +119,32 @@
                                 {
                                     <div class="row pb-3 p-md-0 m-0 m-md-2 mb-2 border bg-light">
                                         <div class="col-12">
-                                            <label class="col-form-label py-0">@term.Key</label>
+                                            <label class="col-form-label py-0">
+                                                @if (!string.IsNullOrWhiteSpace(term.Obs))
+                                                {
+                                                    @term.Key <span data-container="body" data-toggle="popover" data-placement="top" data-content="@term.Obs" title="@SharedLocalizer["Context"]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                                                }
+                                                else
+                                                {
+                                                    @term.Key
+                                                }
+                                            </label>
                                         </div>
 
-                                        <p class="mx-3">@term.Value</p>
+                                        <span class="mx-3">@term.Value</span>
 
-                                        <div class="col-12">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    @if (!string.IsNullOrWhiteSpace(term.Obs))
-                                                    {
-                                                        <span class="input-group-text" data-container="body" data-toggle="popover" data-placement="top" data-content="@term.Obs" title="@SharedLocalizer["Context"]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="input-group-text" data-container="body" data-toggle="popover" data-placement="top" data-content="@SharedLocalizer["No context provided for this term."]"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
-                                                    }
+                                        <div class="col-12 mb-3 translation-entry">
+                                            <div class="input-group mt-1">
+                                                <input class="form-control entry-input" data-termid="@term.Id" placeholder="@SharedLocalizer["Type here your translation"]" />
+                                            </div>
+                                            <div class="translation-entry-actions float-right">
+                                                <div class="btn-group" role="group" aria-label="Translation Entry Actions">
+                                                    <button type="button" class="btn btn-sm btn-default text-success entry-save" title="@SharedLocalizer["Add or update your translation for this term."]"><i class="fas fa-fw fa-check" aria-hidden="true"></i></button>
+                                                    @*<button type="button" class="btn btn-sm btn-default text-danger entry-cancel"><i class="fas fa-fw fa-times" aria-hidden="true"></i></button>*@
                                                 </div>
-                                                <input class="form-control translation-input" data-termid="@term.Id" placeholder="@SharedLocalizer["Type here your translation"]" />
+                                            </div>
+
+                                            <div class="entry-authors">
                                             </div>
                                         </div>
                                     </div>
@@ -156,4 +156,9 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="float-left mt-1 entry-author template">
+    <button class="btn btn-sm btn-default mr-1 entry-author-btn"><i class="fas fa-fw fa-user" aria-hidden="true"></i></button>
 </div>

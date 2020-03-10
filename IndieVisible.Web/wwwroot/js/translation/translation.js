@@ -31,6 +31,14 @@
         selectors.template = '.translation-term.template';
         selectors.btnAddTerm = '#btn-translation-term-add';
         selectors.ddlLanguage = '#Language';
+        selectors.entry = '.translation-entry';
+        selectors.entryInput = 'input.entry-input';
+        selectors.entryActions = '.translation-entry-actions';
+        selectors.entrySave = selectors.entryActions + ' .entry-save';
+        selectors.entryCancel = selectors.entryActions + ' .entry-cancel';
+        selectors.entryAuthors = '.entry-authors';
+        selectors.entryAuthorTemplate = '.entry-author.template';
+        selectors.entryAuthorButton = '.entry-author-btn';
     }
 
     function cacheObjsCommon() {
@@ -50,7 +58,8 @@
     }
 
     function cacheObjsDetails() {
-        //objs.form = $(selectors.form);
+        objs.ddlLanguage = $(selectors.ddlLanguage);
+        objs.entryAuthors = $(selectors.entryAuthors);
     }
 
     function cacheOBjsCreateEdit() {
@@ -117,6 +126,8 @@
     function bindDetails() {
         bindPopOvers();
         bindLanguageChange();
+        bindEntrySave();
+        bindAuthorChange();
         CONTENTACTIONS.BindShareContent();
     }
 
@@ -127,29 +138,69 @@
     function bindLanguageChange() {
         objs.containerDetails.on('change', selectors.ddlLanguage, function () {
             var ddl = $(this);
-            var url = ddl.data('url');
+            var url = ddl.data('urlGet');
             var language = ddl.val();
 
             var data = {
                 language: language
             };
 
-            objs.containerDetails.find('input.translation-input').val('');
+            objs.containerDetails.find(selectors.entryInput).val('');
+            removeAllAuthors(selectors.entryAuthors);
 
             $.post(url, data).done(function (response) {
                 if (response.success === true) {
                     for (var i = 0; i < response.value.length; i++) {
-                        var translation = response.value[i];
-
-                        var termInput = objs.containerDetails.find('input.translation-input[data-termid=' + translation.termId + ']');
-
-                        termInput.val(translation.value);
+                        loadSingleTranslation(response.value[i]);
                     }
                 }
                 else {
                     ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
                 }
             });
+        });
+    }
+
+    function bindEntrySave() {
+        objs.containerDetails.on('click', selectors.entrySave, function () {
+            var btn = $(this);
+            var input = btn.closest(selectors.entry).find(selectors.entryInput);
+            var termId = input.data('termid');
+            var url = objs.ddlLanguage.data('urlSet');
+            var language = objs.ddlLanguage.val();
+
+            if (language && input.val().length > 0) {
+                var data = {
+                    termId: termId,
+                    language: language,
+                    value: input.val()
+                };
+
+                $.post(url, data).done(function (response) {
+                    if (response.success === true) {
+                        deleteEntryAuthorButton(response.value.termId, response.value.userId, response.value.value);
+
+                        loadSingleTranslation(response.value);
+
+                        if (response.message) {
+                            ALERTSYSTEM.Toastr.ShowWarning(response.message);
+                        }
+                    }
+                    else {
+                        ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+                    }
+                });
+
+            }
+        });
+    }
+
+    function bindAuthorChange() {
+        objs.containerDetails.on('click', selectors.entryAuthorButton, function () {
+            var btn = $(this);
+            var input = btn.closest(selectors.entry).find(selectors.entryInput);
+            var v = btn.data('value');
+            input.val(v);
         });
     }
 
@@ -280,6 +331,41 @@
         MAINMODULE.Common.RenameInputs(objs.divTerms, selectors.term, propPrefix);
 
         bindPopOvers();
+    }
+
+    function addNewAuthor(container, translation) {
+        var newAuthorObj = $(selectors.entryAuthorTemplate).first().clone();
+        var btn = newAuthorObj.find('button');
+
+        btn.attr('data-userid', translation.userId);
+        btn.attr('title', translation.authorName);
+        btn.attr('data-value', translation.value);
+
+        newAuthorObj.removeClass('template');
+
+        newAuthorObj.appendTo(container);
+    }
+
+    function removeAllAuthors(container) {
+        $(container).html('');
+    }
+
+    function deleteEntryAuthorButton(termId, userId, value) {
+        var termInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + termId + ']');
+
+        var entry = termInput.closest(selectors.entry);
+
+        var authorBtn = entry.find(selectors.entryAuthorButton + '[data-userId=' + userId + ']');
+
+        authorBtn.parent().remove();
+    }
+
+    function loadSingleTranslation(translation) {
+        var termInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + translation.termId + ']');
+
+        termInput.val(translation.value);
+
+        addNewAuthor(termInput.closest(selectors.entry).find(selectors.entryAuthors), translation);
     }
 
     function submitForm(btn, callback) {

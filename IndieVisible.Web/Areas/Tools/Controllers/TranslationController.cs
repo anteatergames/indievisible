@@ -244,6 +244,34 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             }
         }
 
+        [Authorize]
+        [HttpPost("tools/translation/settranslation/{projectId:guid}")]
+        public IActionResult SetTranslation(Guid projectId, TranslationEntryViewModel vm)
+        {
+            try
+            {
+                vm.UserId = CurrentUserId;
+
+                OperationResultVo result = translationAppService.SetTranslationEntry(CurrentUserId, projectId, vm);
+
+                if (result.Success)
+                {
+
+                    OperationResultVo<TranslationEntryViewModel> castResult = result as OperationResultVo<TranslationEntryViewModel>;
+
+                    return Json(castResult);
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
         private void SetLocalization(TranslationProjectViewModel item)
         {
             SetLocalization(item, false);

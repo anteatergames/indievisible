@@ -28,11 +28,27 @@ namespace IndieVisible.Domain.Services
             return gameIds;
         }
 
-        public IEnumerable<TranslationEntry> GetTranslations(Guid projectId, SupportedLanguage language)
+        public IEnumerable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language)
         {
-            List<TranslationEntry> entries = repository.GetTranslations(projectId, language).ToList();
+            List<TranslationEntry> entries = repository.GetEntries(projectId, language).ToList();
 
             return entries;
+        }
+
+        public void SetTranslationEntry(Guid projectId, TranslationEntry entry)
+        {
+            var existing = repository.GetEntries(projectId, entry.Language, entry.TermId);
+            var oneIsMine = existing.Any(x => x.UserId == entry.UserId);
+
+            if (!existing.Any() || !oneIsMine)
+            {
+                repository.AddEntry(projectId, entry);
+            }
+            else
+            {
+                entry.Id = existing.First(x => x.UserId == entry.UserId).Id;
+                repository.UpdateEntry(projectId, entry);
+            }
         }
     }
 }
