@@ -133,16 +133,6 @@ namespace IndieVisible.Application.Services
 
                 SetGameViewModel(model.GameId, vm);
 
-                foreach (TranslationTermViewModel term in vm.Terms)
-                {
-                    UserProfile profile = GetCachedProfileByUserId(term.UserId);
-                    if (profile != null)
-                    {
-                        term.AuthorName = profile.Name;
-                        term.AuthorPicture = UrlFormatter.ProfileImage(term.UserId, 84);
-                    }
-                }
-
                 SetPermissions(currentUserId, vm);
 
                 return new OperationResultVo<TranslationProjectViewModel>(vm);
@@ -188,39 +178,6 @@ namespace IndieVisible.Application.Services
                 {
                     model = mapper.Map<TranslationProject>(viewModel);
                 }
-
-                //#region REMOVER
-
-                //if (model.Id == Guid.Empty)
-                //{
-                //    model.Terms.Add(new TranslationTerm
-                //    {
-                //        Key = "menu_play",
-                //        Value = "Jogar",
-                //        Obs = "Menu item"
-                //    });
-
-                //    model.Terms.Add(new TranslationTerm
-                //    {
-                //        Key = "menu_quit",
-                //        Value = "Sair",
-                //        Obs = "Menu item"
-                //    });
-                //}
-
-                //if (model.Entries.Count == 0)
-                //{
-                //    model.Entries.Add(new TranslationEntry
-                //    {
-                //        TermId = new Guid("0fb7bd45-33d6-466a-8d18-4414e4e01344"),
-                //        Language = SupportedLanguage.Portuguese,
-                //        Value = "Sair",
-                //        CreateDate = DateTime.Now,
-                //        UserId = currentUserId
-                //    });
-                //}
-
-                //#endregion REMOVER
 
                 foreach (TranslationTerm term in model.Terms)
                 {
