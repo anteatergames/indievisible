@@ -34,11 +34,11 @@
                 </label>
             </div>
 
-            <span class="mx-3">@term.Value</span>
+            <p class="mx-3 mb-0">@Html.Raw(term.Value.Replace("\n", "<br />"))</p>
 
             <div class="col-12 mb-3 translation-entry">
                 <div class="input-group mt-1">
-                    <input class="form-control entry-input" data-termid="@term.Id" placeholder="@SharedLocalizer["Type here your translation"]" />
+                    <textarea class="form-control entry-input" data-termid="@term.Id" placeholder="@SharedLocalizer["Type here your translation"]"></textarea>
                 </div>
                 <div class="translation-entry-actions float-right mt-1">
                     <div class="btn-group" role="group" aria-label="Translation Entry Actions">

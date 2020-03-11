@@ -34,7 +34,7 @@
         selectors.btnAddTerm = '#btn-translation-term-add';
         selectors.ddlLanguage = '#Language';
         selectors.entry = '.translation-entry';
-        selectors.entryInput = 'input.entry-input';
+        selectors.entryInput = ':input.entry-input';
         selectors.entryActions = '.translation-entry-actions';
         selectors.entrySave = selectors.entryActions + ' .entry-save';
         selectors.entryCancel = selectors.entryActions + ' .entry-cancel';
