@@ -5,11 +5,14 @@ using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Tools.Controllers.Base;
 using IndieVisible.Web.Extensions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Areas.Tools.Controllers
 {
@@ -206,7 +209,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                         url = Url.Action("Edit", "Translation", new { area = "tools", id = vm.Id, pointsEarned = saveResult.PointsEarned });
                     }
 
-                    return Json(new OperationResultRedirectVo(saveResult, url));
+                    return Json(new OperationResultRedirectVo<Guid>(saveResult, url));
                 }
                 else
                 {
@@ -269,6 +272,27 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             catch (Exception ex)
             {
                 return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [Authorize]
+        [HttpPost("tools/translation/uploadterms/{projectId:guid}")]
+        public async Task<IActionResult> UploadTerms(Guid projectId, IFormFile termsFile)
+        {
+            try
+            {
+                OperationResultVo result = await translationAppService.ReadTermsSheet(CurrentUserId, projectId, termsFile);
+                
+                return Json(termsFile);
+            }
+            catch (Exception ex)
+            {
+                var json = new
+                {
+                    error = ex.Message
+                };
+
+                return Json(json);
             }
         }
 

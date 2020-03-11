@@ -58,10 +58,6 @@
         border-left: 1px solid #ced4da;
     }
 
-.template {
-    visibility: hidden;
-}
-
 @media (max-width:575px) {
     #divToolbar button, #divListTeams, #divListTeams div, #teamsidebar div {
         border-radius: 0;

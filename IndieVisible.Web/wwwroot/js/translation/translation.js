@@ -11,6 +11,8 @@
 
     var propPrefix = 'Terms';
 
+    var termsUploadDropZone = null;
+
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
         selectors.canInteract = '#caninteract';
@@ -39,6 +41,7 @@
         selectors.entryAuthors = '.entry-authors';
         selectors.entryAuthorTemplate = '.entry-author.template';
         selectors.entryAuthorButton = '.entry-author-btn';
+        selectors.divUploadTerms = 'div#divUploadTerms';
     }
 
     function cacheObjsCommon() {
@@ -62,6 +65,7 @@
 
     function cacheOBjsCreateEdit() {
         objs.form = $(selectors.form);
+        objs.divUploadTerms = $(selectors.divUploadTerms);
         objs.divTerms = $(selectors.divTerms);
     }
 
@@ -71,6 +75,8 @@
 
         bindPopOvers();
         bindBtnAddTerm();
+
+        instantiateDropZone();
     }
 
     function setDetails() {
@@ -379,6 +385,28 @@
                     callback();
                 }
 
+                if (window.Dropzone) {
+                    if (termsUploadDropZone.getQueuedFiles().length > 0) {
+                        console.log(termsUploadDropZone.getQueuedFiles());
+                    }
+
+                    termsUploadDropZone.on("sending", function (file, xhr, formData) {
+                        formData.append("projectId", response.value);
+                    });
+
+
+                    termsUploadDropZone.processQueue();
+
+                    termsUploadDropZone.on("success", function (file) {
+                        var response = JSON.parse(file.xhr.response);
+                        console.log(response);
+                    });
+
+                    termsUploadDropZone.on("queuecomplete", function (file) {
+                        console.log(file);
+                    });
+                }
+
                 ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
                     window.location = response.url;
                 });
@@ -389,6 +417,30 @@
         });
     }
 
+
+
+    function instantiateDropZone() {
+        if (window.Dropzone) {
+            var url = objs.divUploadTerms.data('url');
+
+
+            if (termsUploadDropZone) {
+                console.log('destroying dropzone');
+                termsUploadDropZone.destroy();
+                termsUploadDropZone = null;
+            }
+
+            termsUploadDropZone = new Dropzone(selectors.divUploadTerms, {
+                url: url,
+                paramName: 'termsFile',
+                addRemoveLinks: true,
+                autoProcessQueue: false,
+                maxFiles: 1
+                //resizeWidth
+            });
+        }
+    }
+
     return {
         Init: init
     };
@@ -397,3 +449,7 @@
 $(function () {
     TRANSLATION.Init();
 });
+
+if (window.Dropzone !== undefined) {
+    Dropzone.autoDiscover = false;
+}

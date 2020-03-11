@@ -13,7 +13,7 @@
     </div>
     <div class="col pl-0 pl-md-2 border-left rounded-0">
         <label class="col-form-label text-uppercase" ">@SharedLocalizer["to"]</label>
-        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), SharedLocalizer["Select a language"], new { @class = "form-control", data_url_get = Url.Action("gettranslation", "translation", new { projectId = Model.Id }), data_url_set = Url.Action("settranslation", "translation", new { projectId = Model.Id }) })
+        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), SharedLocalizer["Select a language"], new { @class = "form-control", data_url_get = Url.Action("gettranslation", "translation", new { area = "tools", projectId = Model.Id }), data_url_set = Url.Action("settranslation", "translation", new { area = "tools", projectId = Model.Id }) })
     </div>
 </div>
 

@@ -9,9 +9,15 @@ using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
+using Microsoft.AspNetCore.Http;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
@@ -183,38 +189,38 @@ namespace IndieVisible.Application.Services
                     model = mapper.Map<TranslationProject>(viewModel);
                 }
 
-                #region REMOVER
+                //#region REMOVER
 
-                if (model.Id == Guid.Empty)
-                {
-                    model.Terms.Add(new TranslationTerm
-                    {
-                        Key = "menu_play",
-                        Value = "Jogar",
-                        Obs = "Menu item"
-                    });
+                //if (model.Id == Guid.Empty)
+                //{
+                //    model.Terms.Add(new TranslationTerm
+                //    {
+                //        Key = "menu_play",
+                //        Value = "Jogar",
+                //        Obs = "Menu item"
+                //    });
 
-                    model.Terms.Add(new TranslationTerm
-                    {
-                        Key = "menu_quit",
-                        Value = "Sair",
-                        Obs = "Menu item"
-                    });
-                }
+                //    model.Terms.Add(new TranslationTerm
+                //    {
+                //        Key = "menu_quit",
+                //        Value = "Sair",
+                //        Obs = "Menu item"
+                //    });
+                //}
 
-                if (model.Entries.Count == 0)
-                {
-                    model.Entries.Add(new TranslationEntry
-                    {
-                        TermId = new Guid("0fb7bd45-33d6-466a-8d18-4414e4e01344"),
-                        Language = SupportedLanguage.Portuguese,
-                        Value = "Sair",
-                        CreateDate = DateTime.Now,
-                        UserId = currentUserId
-                    });
-                }
+                //if (model.Entries.Count == 0)
+                //{
+                //    model.Entries.Add(new TranslationEntry
+                //    {
+                //        TermId = new Guid("0fb7bd45-33d6-466a-8d18-4414e4e01344"),
+                //        Language = SupportedLanguage.Portuguese,
+                //        Value = "Sair",
+                //        CreateDate = DateTime.Now,
+                //        UserId = currentUserId
+                //    });
+                //}
 
-                #endregion REMOVER
+                //#endregion REMOVER
 
                 foreach (TranslationTerm term in model.Terms)
                 {
@@ -315,6 +321,52 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        public async Task<OperationResultVo> ReadTermsSheet(Guid currentUserId, Guid projectId, IFormFile termsFile)
+        {
+            try
+            {
+                List<TranslationTerm> loadedTerms = new List<TranslationTerm>();
+                List<TranslationEntry> loadedEntries = new List<TranslationEntry>();
+
+                if (termsFile != null && termsFile.Length > 0)
+                {
+                    var dataTable = await LoadExcel(termsFile);
+
+                    FillTerms(dataTable, loadedTerms, loadedEntries);
+
+                    TranslationProject model = translationDomainService.GetById(projectId);
+
+                    if (model != null)
+                    {
+                        foreach (var loadedTerm in loadedTerms)
+                        {
+                            var modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm));
+                            if (modelTerm == null)
+                            {
+                                model.Terms.Add(loadedTerm);
+                            }
+                            else
+                            {
+                                loadedTerm.Id = modelTerm.Id;
+                                loadedTerm.CreateDate = modelTerm.CreateDate;
+                                loadedTerm.UserId = modelTerm.UserId;
+                            }
+                        }
+
+                        translationDomainService.Update(model);
+
+                        unitOfWork.Commit();
+                    }
+                }
+
+                return new OperationResultVo(true);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo GenerateNew(Guid currentUserId)
         {
             try
@@ -376,6 +428,89 @@ namespace IndieVisible.Application.Services
             int percentage = (100 * translatedCount) / (totalTranslationsTarget == 0 ? 1 : totalTranslationsTarget);
 
             return percentage;
+        }
+
+        private async Task<DataTable> LoadExcel(IFormFile termsFile)
+        {
+            DataTable dtTable = new DataTable();
+            List<string> rowList = new List<string>();
+            ISheet sheet;
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                await termsFile.CopyToAsync(stream);
+                stream.Position = 0;
+
+                XSSFWorkbook xssWorkbook = new XSSFWorkbook(stream);
+                sheet = xssWorkbook.GetSheetAt(0);
+
+                IRow headerRow = sheet.GetRow(0);
+                int cellCount = headerRow.LastCellNum;
+
+                for (int j = 0; j < cellCount; j++)
+                {
+                    ICell cell = headerRow.GetCell(j);
+                    if (cell == null || string.IsNullOrWhiteSpace(cell.ToString())) continue;
+                    {
+                        dtTable.Columns.Add(cell.ToString());
+                    }
+                }
+
+                for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++)
+                {
+                    IRow row = sheet.GetRow(i);
+                    if (row == null || row.Cells.All(d => d.CellType == CellType.Blank))
+                    {
+                        continue;
+                    }
+
+                    for (int j = row.FirstCellNum; j < cellCount; j++)
+                    {
+                        if (row.GetCell(j) != null)
+                        {
+                            if (!string.IsNullOrEmpty(row.GetCell(j).ToString()) && !string.IsNullOrWhiteSpace(row.GetCell(j).ToString()))
+                            {
+                                rowList.Add(row.GetCell(j).ToString());
+                            }
+                        }
+                    }
+
+                    if (rowList.Count > 0)
+                    {
+                        dtTable.Rows.Add(rowList.ToArray());
+                    }
+
+                    rowList.Clear();
+                }
+            }
+
+            return dtTable;
+        }
+
+        private static void FillTerms(DataTable dataTable, List<TranslationTerm> terms, List<TranslationEntry> entries)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                var term = row.ItemArray[0];
+                var termValue = row.ItemArray[1];
+
+                if (term == null || string.IsNullOrWhiteSpace(term.ToString()) || termValue == null || string.IsNullOrWhiteSpace(termValue.ToString()))
+                {
+                    continue;
+                }
+
+                var termExists = terms.Any(x => x.Key.Equals(term));
+                if (!termExists)
+                {
+                    var newTerm = new TranslationTerm
+                    {
+                        Key = term.ToString().Trim(),
+                        Value = termValue.ToString().Trim()
+                    };
+
+                    terms.Add(newTerm);
+                }
+            }
         }
     }
 }

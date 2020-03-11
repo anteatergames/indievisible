@@ -69,11 +69,17 @@
 
                     @if (Model.Id != Guid.Empty)
                     {
+                        <span class="col-form-label">
+                            <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["You can't change the langage. If this language is not the correct one, you'll need to recreate the translation project."]" aria-hidden="true"></i>
+                        </span>
                         <label class="form-control bg-gray">@Model.PrimaryLanguage.ToDisplayName()</label>
                         <input type="hidden" asp-for="PrimaryLanguage" />
                     }
                     else
                     {
+                        <span class="col-form-label">
+                            <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the language that you are writing your terms.<br />You won't be able to change this later."]" aria-hidden="true"></i>
+                        </span>
                         <select asp-for="PrimaryLanguage" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control select2" data-placeholder="@SharedLocalizer["Set the primary language"]" tabindex="-1" aria-hidden="true"></select>
                         <span asp-validation-for="PrimaryLanguage" class="text-danger"></span>
                     }
@@ -83,60 +89,75 @@
             <div class="col-12">
                 <div class="form-group">
                     <label asp-for="Introduction" class="col-form-label"></label>
-                    <textarea asp-for="Introduction" class="form-control"></textarea>
+                    <textarea asp-for="Introduction" class="form-control" rows="5"></textarea>
                     <span asp-validation-for="Introduction" class="text-danger"></span>
                 </div>
-            </div>
 
-            @if (Model.Id != Guid.Empty)
-            {
 
-                <div class="col-12">
-                    <h2 class="text-capitalize">@SharedLocalizer["terms"] (<span id="term-count">@Model.Terms.Count</span>)</h2>
-                    <button type="button" class="btn btn-primary" id="btn-translation-term-add"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["Add term"]</button>
+                @if (Model.Id != Guid.Empty)
+                {
+                    <div class="row">
+                        <div class="col-12 mt-2">
+                            <h2 class="text-capitalize">@SharedLocalizer["terms"] (<span id="term-count">@Model.Terms.Count</span>)</h2>
 
-                    <div id="divTerms">
-                        @for (int i = 0; i < Model.Terms.Count; i++)
-                        {
-                            if (i > 0)
-                            {
-                                <hr />
-                            }
-                            var term = Model.Terms[i];
-
-                            <div class="row mb-2 translation-term">
-                                <input type="hidden" asp-for="Terms[i].Id" />
-                                <input type="hidden" asp-for="Terms[i].CreateDate" />
-                                <input type="hidden" asp-for="Terms[i].UserId" />
-                                <div class="col-12 col-md-6 rounded-0">
-                                    <label asp-for="Terms[i].Key" class="col-form-label"></label> <span class="col-form-label">
-                                        <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
+                            <div id="divUploadTerms" class="dropzone" data-url="@Url.Action("uploadterms", "translation", new { Area = "tools", projectId = Model.Id })">
+                                <div class="dz-message needsclick">
+                                    @SharedLocalizer["Drop a xlsx file here or click to upload."]<br>
+                                    <span class="note needsclick text-uppercase">
+                                        (@SharedLocalizer["xlsx only!"])
                                     </span>
-                                    <input asp-for="Terms[i].Key" class="form-control" placeholder="@SharedLocalizer["Type here the key for your term"]" />
-                                    <span asp-validation-for="Terms[i].Key" class="text-danger"></span>
-                                </div>
-                                <div class="col-12 col-md-6 rounded-0">
-                                    <label asp-for="Terms[i].Value" class="col-form-label"></label> <span class="col-form-label">(@SharedLocalizer["in {0}", Model.PrimaryLanguage.ToDisplayName()])</span>
-                                    <input asp-for="Terms[i].Value" class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
-                                    <span asp-validation-for="Terms[i].Value" class="text-danger"></span>
-                                </div>
-                                <div class="col-12 mt-1">
-                                    <label asp-for="Terms[i].Obs" class="col-form-label"></label>
-                                    <textarea asp-for="Terms[i].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of the term above."]"></textarea>
-                                    <span asp-validation-for="Terms[i].Obs" class="text-danger"></span>
                                 </div>
                             </div>
-                        }
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <button type="button" class="btn btn-primary" id="btn-translation-term-add"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["Add term"]</button>
+                        </div>
+
+                        <div class="col-12">
+                            <div id="divTerms col">
+                                @for (int i = 0; i < Model.Terms.Count; i++)
+                                {
+                                    if (i > 0)
+                                    {
+                                        <hr />
+                                    }
+                                    var term = Model.Terms[i];
+
+                                    <div class="row mb-2 translation-term">
+                                        <input type="hidden" asp-for="Terms[i].Id" />
+                                        <input type="hidden" asp-for="Terms[i].CreateDate" />
+                                        <input type="hidden" asp-for="Terms[i].UserId" />
+                                        <div class="col-12 col-md-6 rounded-0">
+                                            <label asp-for="Terms[i].Key" class="col-form-label"></label> <span class="col-form-label">
+                                                <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
+                                            </span>
+                                            <input asp-for="Terms[i].Key" class="form-control" placeholder="@SharedLocalizer["Type here the key for your term"]" />
+                                            <span asp-validation-for="Terms[i].Key" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-12 col-md-6 rounded-0">
+                                            <label asp-for="Terms[i].Value" class="col-form-label"></label> <span class="col-form-label">(@SharedLocalizer["in {0}", Model.PrimaryLanguage.ToDisplayName()])</span>
+                                            <input asp-for="Terms[i].Value" class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+                                            <span asp-validation-for="Terms[i].Value" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-12 mt-1">
+                                            <label asp-for="Terms[i].Obs" class="col-form-label"></label>
+                                            <textarea asp-for="Terms[i].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of the term above."]"></textarea>
+                                            <span asp-validation-for="Terms[i].Obs" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                }EDSSSS
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                        <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block" data-error-msg="<i class='fas fa-exclamation-circle' aria-hidden='true'></i> @SharedLocalizer["Something is missing!"]"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save Translation Project"]</button>
                     </div>
                 </div>
-            }
-
-            <div class="row">
-                <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
-                    <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block" data-error-msg="<i class='fas fa-exclamation-circle' aria-hidden='true'></i> @SharedLocalizer["Something is missing!"]"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save Translation Project"]</button>
-                </div>
             </div>
-        </div>
     </form>
 </div>
 

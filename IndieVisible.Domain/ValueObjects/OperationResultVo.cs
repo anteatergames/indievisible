@@ -87,6 +87,20 @@ namespace IndieVisible.Domain.ValueObjects
         }
     }
 
+    public class OperationResultRedirectVo<T> : OperationResultVo
+    {
+        public string Url { get; set; }
+
+        public T Value { get; set; }
+
+        public OperationResultRedirectVo(OperationResultVo<T> serviceResult, string url) : base(serviceResult.Success, serviceResult.Message)
+        {
+            Value = serviceResult.Value;
+            PointsEarned = serviceResult.PointsEarned;
+            Url = url;
+        }
+    }
+
     public class OperationResultVo<T> : OperationResultVo
     {
         public T Value { get; set; }

@@ -170,4 +170,5 @@ select.form-control {
 
 .template {
     visibility: hidden;
+    display: none;
 }

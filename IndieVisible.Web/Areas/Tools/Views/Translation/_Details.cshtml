@@ -18,18 +18,32 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/css/_feature.css">
         <link rel="stylesheet" href="~/css/translation.css">
+        <link rel="stylesheet" href="~/lib/dropzone/dropzone.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/translation.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css"
+              asp-fallback-href="~/lib/dropzone/min/dropzone.min.css"
+              asp-fallback-test-class="dropzone"
+              asp-fallback-test-property="box-sizing"
+              asp-fallback-test-value="border-box"
+              integrity="sha384-AivDrv68J7248ZXpmMCs62ZQTUW01XQSEfpkiQokZq0MMGgfSd+QpUTdVSnxrxSz" crossorigin="anonymous">
     </environment>
 }
 
 @section Scripts {
     <environment include="Development">
+        <script src="~/lib/dropzone/dropzone.js"></script>
         <script src="~/js/translation/translation.js"></script>
         <script src="~/js/shared/contentactions.js"></script>
     </environment>
     <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"
+                asp-fallback-src="~/lib/dropzone/min/dropzone.min.js"
+                asp-fallback-test="window.Dropzone"
+                integrity="sha384-5qyOiYJgKPoDVonZt/IkdfcqPm0VQBCywCEYHcyNTLuS9AYWk1yN8L69o07+T864"
+                crossorigin="anonymous">
+        </script>
         <script src="~/js/translation/translation.min.js" asp-append-version="true"></script>
     </environment>
 
