@@ -1789,4 +1789,8 @@
     <value>Não existem termos para traduzir no momento!</value>
     <comment>Translation</comment>
   </data>
+  <data name="There are {0} terms to be translated." xml:space="preserve">
+    <value>Existem {0} termos para serem traduzidos.</value>
+    <comment>Translation</comment>
+  </data>
 </root>

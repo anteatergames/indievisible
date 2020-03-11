@@ -126,9 +126,13 @@
     }
 
     function disableButton(btn) {
-        btn.prop('disabled', true);
+        btn.addClass('disabled');
         saveBtnOriginalText = btn.html();
         btn.html(MAINMODULE.Default.SpinnerBtn);
+    }
+
+    function enableButton(btn) {
+        btn.removeClass('disabled');
     }
 
     function setButtonWithError(btn) {
@@ -138,16 +142,16 @@
     }
 
     function removeErrorFromButton(btn) {
-        btn.removeClass('btn-warning').addClass('btn-primary').html(saveBtnOriginalText);
+        btn.removeClass('disabled').removeClass('btn-warning').addClass('btn-primary').html(saveBtnOriginalText);
     }
 
     function postSaveCallback(response, btn) {
         if (response.success === true) {
-            btn.removeClass('btn-primary').addClass('btn-success').html(MAINMODULE.Default.DoneBtn);
+            btn.removeClass('disabled').removeClass('btn-primary').addClass('btn-success').html(MAINMODULE.Default.DoneBtn);
         }
         else {
             btn.html(saveBtnOriginalText);
-            btn.prop('disabled', false);
+            btn.removeClass('disabled');
         }
     }
 
@@ -214,6 +218,7 @@
             HandlePointsEarned: handlePointsEarned,
             TranslatedMessages: translatedMessages,
             DisableButton: disableButton,
+            EnableButton: enableButton,
             SetButtonWithError: setButtonWithError,
             RemoveErrorFromButton: removeErrorFromButton,
             PostSaveCallback: postSaveCallback,

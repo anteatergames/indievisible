@@ -188,6 +188,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         [Authorize]
         [HttpPost("tools/translation/save")]
+        [RequestFormLimits(ValueCountLimit = int.MaxValue)]
         public IActionResult Save(TranslationProjectViewModel vm)
         {
             bool isNew = vm.Id == Guid.Empty;

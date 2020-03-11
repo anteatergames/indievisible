@@ -297,7 +297,7 @@ namespace IndieVisible.Application.Services
                     {
                         foreach (var loadedTerm in loadedTerms)
                         {
-                            var modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm));
+                            var modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm.Key.Replace("\n", string.Empty)));
                             if (modelTerm == null)
                             {
                                 model.Terms.Add(loadedTerm);
@@ -307,12 +307,13 @@ namespace IndieVisible.Application.Services
                                 loadedTerm.Id = modelTerm.Id;
                                 loadedTerm.CreateDate = modelTerm.CreateDate;
                                 loadedTerm.UserId = modelTerm.UserId;
+                                loadedTerm.Value = modelTerm.Value;
                             }
                         }
 
                         translationDomainService.Update(model);
 
-                        unitOfWork.Commit();
+                        await unitOfWork.Commit();
                     }
                 }
 
