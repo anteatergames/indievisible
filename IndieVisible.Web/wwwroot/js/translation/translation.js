@@ -210,7 +210,6 @@
 
     function bindBtnSaveForm() {
         objs.containerDetails.on('click', selectors.btnSave, function (e) {
-            console.log('1');
             e.preventDefault();
             var btn = $(this);
 
@@ -218,10 +217,8 @@
             MAINMODULE.Common.DisableButton(btn);
 
             var valid = objs.form.valid();
-            console.log('2');
 
             if (valid && canInteract) {
-                console.log('3');
                 var allRequiredFilled = true;
                 var allIlRequired = objs.form.find(':input[data-val-required]');
                 allIlRequired.each(function () {

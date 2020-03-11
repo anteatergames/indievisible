@@ -307,7 +307,7 @@ namespace IndieVisible.Application.Services
                                 loadedTerm.Id = modelTerm.Id;
                                 loadedTerm.CreateDate = modelTerm.CreateDate;
                                 loadedTerm.UserId = modelTerm.UserId;
-                                loadedTerm.Value = modelTerm.Value;
+                                modelTerm.Value = loadedTerm.Value;
                             }
                         }
 

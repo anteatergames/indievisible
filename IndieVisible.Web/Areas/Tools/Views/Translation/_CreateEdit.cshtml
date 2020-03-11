@@ -94,9 +94,9 @@
                 </div>
 
 
-                @if (Model.Id != Guid.Empty)
-                {
-                    <div class="row">
+                <div class="row">
+                    @if (Model.Id != Guid.Empty)
+                    {
                         <div class="col-12 mt-2">
                             <h2 class="text-capitalize">@SharedLocalizer["terms"] (<span id="term-count">@Model.Terms.Count</span>)</h2>
 
@@ -113,9 +113,17 @@
                         <div class="col-12 mt-2">
                             <button type="button" class="btn btn-primary" id="btn-translation-term-add"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["Add term"]</button>
                         </div>
+                    }
+
+                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8 mt-2">
+                        <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block" data-error-msg="<i class='fas fa-exclamation-circle' aria-hidden='true'></i> @SharedLocalizer["Something is missing!"]"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save Translation Project"]</button>
+                    </div>
+
+                    @if (Model.Id != Guid.Empty)
+                    {
 
                         <div class="col-12">
-                            <div id="divTerms col">
+                            <div id="divTerms">
                                 @for (int i = 0; i < Model.Terms.Count; i++)
                                 {
                                     if (i > 0)
@@ -149,13 +157,7 @@
                                 }
                             </div>
                         </div>
-                    </div>
-                }
-
-                <div class="row">
-                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
-                        <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block" data-error-msg="<i class='fas fa-exclamation-circle' aria-hidden='true'></i> @SharedLocalizer["Something is missing!"]"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save Translation Project"]</button>
-                    </div>
+                    }
                 </div>
             </div>
     </form>
