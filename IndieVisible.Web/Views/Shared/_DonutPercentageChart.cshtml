@@ -5,6 +5,14 @@
 
     var rest = 100 - Model.Percentage;
 
+    var percentageText = (Model.Percentage == 100 ? Model.Percentage.ToString("N0") : Model.Percentage.ToString("N1"));
+
+    var lastTwoChars = percentageText.Substring(percentageText.Length - 2);
+    if (lastTwoChars.Equals(".0") || lastTwoChars.Equals(",0"))
+    {
+        percentageText = percentageText.Substring(0, 2);
+    }
+
     if (String.IsNullOrWhiteSpace(Model.Text))
     {
         if (Model.Percentage >= 100)
@@ -39,7 +47,7 @@
     <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="@Model.StrokeWidth.ToInvariant()"></circle>
     <circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="@Model.StrokeWidth.ToInvariant()" stroke-dasharray="@String.Format("{0} {1}", Model.Percentage.ToInvariant(), rest.ToInvariant())" stroke-dashoffset="25"></circle>
     <g class="donut-text">
-        <text class="circle-chart__percent" x="20" y="20" alignment-baseline="central" text-anchor="middle" font-size="8">@String.Format("{0}%", (Model.Percentage == 100 ? Model.Percentage.ToString("N0") : Model.Percentage.ToString("N1")))</text>
+        <text class="circle-chart__percent" x="20" y="20" alignment-baseline="central" text-anchor="middle" font-size="8">@String.Format("{0}%", percentageText)</text>
         <text class="circle-chart__subline" x="20" y="25" alignment-baseline="central" text-anchor="middle" font-size="2">@Model.Text</text>
     </g>
 </svg>
