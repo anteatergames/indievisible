@@ -295,6 +295,7 @@ namespace IndieVisible.Application.Services
 
                     if (model != null)
                     {
+                        var termsUpdated = false;
                         foreach (var loadedTerm in loadedTerms)
                         {
                             if (loadedTerm.UserId == Guid.Empty)
@@ -306,6 +307,7 @@ namespace IndieVisible.Application.Services
                             if (modelTerm == null)
                             {
                                 model.Terms.Add(loadedTerm);
+                                termsUpdated = true;
                             }
                             else
                             {
@@ -313,39 +315,49 @@ namespace IndieVisible.Application.Services
                                 loadedTerm.CreateDate = modelTerm.CreateDate;
                                 loadedTerm.UserId = modelTerm.UserId;
                                 modelTerm.Value = loadedTerm.Value;
+                                termsUpdated = true;
                             }
                         }
 
-                        translationDomainService.Update(model);
-
-                        await unitOfWork.Commit();
-
-                        FillEntries(dataTable, model.Terms, loadedEntries, columns);
-
-                        foreach (var loadedEntry in loadedEntries)
+                        if (termsUpdated)
                         {
-                            if (loadedEntry.UserId == Guid.Empty)
+                            translationDomainService.Update(model);
+
+                            await unitOfWork.Commit();
+
+                            FillEntries(dataTable, model.Terms, loadedEntries, columns);
+
+                            var entriesUpdated = false;
+                            foreach (var loadedEntry in loadedEntries)
                             {
-                                loadedEntry.UserId = currentUserId;
+                                if (loadedEntry.UserId == Guid.Empty)
+                                {
+                                    loadedEntry.UserId = currentUserId;
+                                }
+
+                                var modelEntry = model.Entries.FirstOrDefault(x => x.TermId == loadedEntry.TermId && x.UserId == currentUserId && x.Language == loadedEntry.Language);
+                                if (modelEntry == null)
+                                {
+                                    model.Entries.Add(loadedEntry);
+                                    entriesUpdated = true;
+                                }
+                                else
+                                {
+                                    loadedEntry.Id = modelEntry.Id;
+                                    loadedEntry.CreateDate = modelEntry.CreateDate;
+                                    loadedEntry.UserId = modelEntry.UserId;
+                                    modelEntry.Value = loadedEntry.Value;
+                                    entriesUpdated = true;
+                                }
                             }
 
-                            var modelEntry = model.Entries.FirstOrDefault(x => x.TermId == loadedEntry.TermId && x.UserId == currentUserId && x.Language == loadedEntry.Language);
-                            if (modelEntry == null)
+                            if (entriesUpdated)
                             {
-                                model.Entries.Add(loadedEntry);
-                            }
-                            else
-                            {
-                                loadedEntry.Id = modelEntry.Id;
-                                loadedEntry.CreateDate = modelEntry.CreateDate;
-                                loadedEntry.UserId = modelEntry.UserId;
-                                modelEntry.Value = loadedEntry.Value;
+                                translationDomainService.Update(model);
+
+                                await unitOfWork.Commit();
                             }
                         }
-
-                        translationDomainService.Update(model);
-
-                        await unitOfWork.Commit();
                     }
                 }
 
@@ -539,9 +551,16 @@ namespace IndieVisible.Application.Services
             {
                 var term = row.ItemArray[0];
 
-                foreach (var item in columns)
+                foreach (var col in columns)
                 {
-                    var translation = row.ItemArray[item.Key - 1];
+                    var colNumber = col.Key - 1;
+
+                    if (col.Key > row.ItemArray.Length)
+                    {
+                        break;
+                    }
+
+                    var translation = row.ItemArray[colNumber];
 
                     if (term == null || string.IsNullOrWhiteSpace(term.ToString()) || translation == null || string.IsNullOrWhiteSpace(translation.ToString()))
                     {
@@ -555,7 +574,7 @@ namespace IndieVisible.Application.Services
                         {
                             TermId = existingTerm.Id,
                             Value = translation.ToString().Trim(),
-                            Language = item.Value
+                            Language = col.Value
                         };
 
                         entries.Add(newEntry);
