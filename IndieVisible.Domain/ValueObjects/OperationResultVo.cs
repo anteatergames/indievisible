@@ -99,6 +99,12 @@ namespace IndieVisible.Domain.ValueObjects
             PointsEarned = serviceResult.PointsEarned;
             Url = url;
         }
+
+        public OperationResultRedirectVo(T value, string url) : base(true)
+        {
+            Value = value;
+            Url = url;
+        }
     }
 
     public class OperationResultVo<T> : OperationResultVo

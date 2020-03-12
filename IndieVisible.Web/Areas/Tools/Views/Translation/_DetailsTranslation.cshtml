@@ -12,7 +12,7 @@
         <label class="form-control bg-gray">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</label>
     </div>
     <div class="col pl-0 pl-md-2 border-left rounded-0">
-        <label class="col-form-label text-uppercase" ">@SharedLocalizer["to"]</label>
+        <label class="col-form-label text-uppercase">@SharedLocalizer["to"]</label>
         @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), SharedLocalizer["Select a language"], new { @class = "form-control", data_url_get = Url.Action("gettranslation", "translation", new { area = "tools", projectId = Model.Id }), data_url_set = Url.Action("settranslation", "translation", new { area = "tools", projectId = Model.Id }) })
     </div>
 </div>

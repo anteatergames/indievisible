@@ -4,13 +4,13 @@ using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Tools.Controllers.Base;
 using IndieVisible.Web.Extensions;
+using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -278,13 +278,22 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         [Authorize]
         [HttpPost("tools/translation/uploadterms/{projectId:guid}")]
-        public async Task<IActionResult> UploadTerms(Guid projectId, IFormFile termsFile)
+        public async Task<IActionResult> UploadTerms(Guid projectId, IEnumerable<ExcelColumnViewModel> columns, IFormFile termsFile)
         {
             try
             {
-                OperationResultVo result = await translationAppService.ReadTermsSheet(CurrentUserId, projectId, termsFile);
-                
-                return Json(termsFile);
+                IEnumerable<KeyValuePair<int, SupportedLanguage>> kvList = columns.ToKeyValuePairs();
+
+                OperationResultVo result = await translationAppService.ReadTermsSheet(CurrentUserId, projectId, kvList, termsFile);
+
+                if (result.Success)
+                {
+                    string url = Url.Action("Edit", "Translation", new { area = "tools", id = projectId });
+
+                    return Json(new OperationResultRedirectVo<Guid>(projectId, url));
+                }
+
+                return Json(new OperationResultVo(false));
             }
             catch (Exception ex)
             {

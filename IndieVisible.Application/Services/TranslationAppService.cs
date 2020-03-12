@@ -278,7 +278,7 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public async Task<OperationResultVo> ReadTermsSheet(Guid currentUserId, Guid projectId, IFormFile termsFile)
+        public async Task<OperationResultVo> ReadTermsSheet(Guid currentUserId, Guid projectId, IEnumerable<KeyValuePair<int, SupportedLanguage>> columns, IFormFile termsFile)
         {
             try
             {
@@ -289,7 +289,7 @@ namespace IndieVisible.Application.Services
                 {
                     var dataTable = await LoadExcel(termsFile);
 
-                    FillTerms(dataTable, loadedTerms, loadedEntries);
+                    FillTerms(dataTable, loadedTerms);
 
                     TranslationProject model = translationDomainService.GetById(projectId);
 
@@ -297,6 +297,11 @@ namespace IndieVisible.Application.Services
                     {
                         foreach (var loadedTerm in loadedTerms)
                         {
+                            if (loadedTerm.UserId == Guid.Empty)
+                            {
+                                loadedTerm.UserId = currentUserId;
+                            }
+
                             var modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm.Key.Replace("\n", string.Empty)));
                             if (modelTerm == null)
                             {
@@ -308,6 +313,33 @@ namespace IndieVisible.Application.Services
                                 loadedTerm.CreateDate = modelTerm.CreateDate;
                                 loadedTerm.UserId = modelTerm.UserId;
                                 modelTerm.Value = loadedTerm.Value;
+                            }
+                        }
+
+                        translationDomainService.Update(model);
+
+                        await unitOfWork.Commit();
+
+                        FillEntries(dataTable, model.Terms, loadedEntries, columns);
+
+                        foreach (var loadedEntry in loadedEntries)
+                        {
+                            if (loadedEntry.UserId == Guid.Empty)
+                            {
+                                loadedEntry.UserId = currentUserId;
+                            }
+
+                            var modelEntry = model.Entries.FirstOrDefault(x => x.TermId == loadedEntry.TermId && x.UserId == currentUserId && x.Language == loadedEntry.Language);
+                            if (modelEntry == null)
+                            {
+                                model.Entries.Add(loadedEntry);
+                            }
+                            else
+                            {
+                                loadedEntry.Id = modelEntry.Id;
+                                loadedEntry.CreateDate = modelEntry.CreateDate;
+                                loadedEntry.UserId = modelEntry.UserId;
+                                modelEntry.Value = loadedEntry.Value;
                             }
                         }
 
@@ -417,35 +449,41 @@ namespace IndieVisible.Application.Services
                 for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++)
                 {
                     IRow row = sheet.GetRow(i);
+                    var firstCell = row.GetCell(0);
+                    var secondCell = row.GetCell(1);
+
                     if (row == null || row.Cells.All(d => d.CellType == CellType.Blank))
                     {
                         continue;
                     }
 
-                    for (int j = row.FirstCellNum; j < cellCount; j++)
+                    if (firstCell != null && secondCell != null && !string.IsNullOrWhiteSpace(firstCell.ToString()) && !string.IsNullOrWhiteSpace(secondCell.ToString()))
                     {
-                        if (row.GetCell(j) != null)
+                        for (int j = row.FirstCellNum; j < cellCount; j++)
                         {
-                            if (!string.IsNullOrEmpty(row.GetCell(j).ToString()) && !string.IsNullOrWhiteSpace(row.GetCell(j).ToString()))
+                            if (row.GetCell(j) != null)
                             {
-                                rowList.Add(row.GetCell(j).ToString());
+                                if (!string.IsNullOrEmpty(row.GetCell(j).ToString()) && !string.IsNullOrWhiteSpace(row.GetCell(j).ToString()))
+                                {
+                                    rowList.Add(row.GetCell(j).ToString());
+                                }
                             }
                         }
-                    }
 
-                    if (rowList.Count > 0)
-                    {
-                        dtTable.Rows.Add(rowList.ToArray());
-                    }
+                        if (rowList.Count > 0)
+                        {
+                            dtTable.Rows.Add(rowList.ToArray());
+                        }
 
-                    rowList.Clear();
+                        rowList.Clear();
+                    }
                 }
             }
 
             return dtTable;
         }
 
-        private static void FillTerms(DataTable dataTable, List<TranslationTerm> terms, List<TranslationEntry> entries)
+        private static void FillTerms(DataTable dataTable, List<TranslationTerm> terms)
         {
             foreach (DataRow row in dataTable.Rows)
             {
@@ -462,11 +500,66 @@ namespace IndieVisible.Application.Services
                 {
                     var newTerm = new TranslationTerm
                     {
-                        Key = term.ToString().Trim(),
+                        Key = term.ToString().Trim().Replace("\n", "_"),
                         Value = termValue.ToString().Trim()
                     };
 
+                    newTerm.Key = SanitizeKey(newTerm.Key);
+
                     terms.Add(newTerm);
+                }
+            }
+        }
+        private static string SanitizeKey(string key)
+        {
+            if (key.EndsWith("\n") || key.StartsWith("\n"))
+            {
+                key = key.Replace("\n", string.Empty);
+            }
+            if (key.EndsWith("_") || key.StartsWith("_"))
+            {
+                key = key.Replace("_", string.Empty);
+            }
+            if (key.EndsWith(".") || key.StartsWith("."))
+            {
+                key = key.Replace(".", string.Empty);
+            }
+
+            key = key.Replace("\n", "_");
+            key = key.Replace("__", "_");
+            key = key.Replace("__", "_");
+            key = key.Replace("__", "_");
+
+            return key;
+        }
+
+        private static void FillEntries(DataTable dataTable, List<TranslationTerm> terms, List<TranslationEntry> entries, IEnumerable<KeyValuePair<int, SupportedLanguage>> columns)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                var term = row.ItemArray[0];
+
+                foreach (var item in columns)
+                {
+                    var translation = row.ItemArray[item.Key - 1];
+
+                    if (term == null || string.IsNullOrWhiteSpace(term.ToString()) || translation == null || string.IsNullOrWhiteSpace(translation.ToString()))
+                    {
+                        continue;
+                    }
+
+                    var existingTerm = terms.FirstOrDefault(x => SanitizeKey(x.Key).Equals(SanitizeKey(term.ToString())));
+                    if (existingTerm != null)
+                    {
+                        var newEntry = new TranslationEntry
+                        {
+                            TermId = existingTerm.Id,
+                            Value = translation.ToString().Trim(),
+                            Language = item.Value
+                        };
+
+                        entries.Add(newEntry);
+                    }
                 }
             }
         }

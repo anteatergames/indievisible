@@ -42,6 +42,8 @@
         selectors.entryAuthorTemplate = '.entry-author.template';
         selectors.entryAuthorButton = '.entry-author-btn';
         selectors.divUploadTerms = 'div#divUploadTerms';
+        selectors.btnUploadTerms = '#btnUploadTerms';
+        selectors.ddlColumn = '.ddlcolumn';
     }
 
     function cacheObjsCommon() {
@@ -67,6 +69,7 @@
         objs.form = $(selectors.form);
         objs.divUploadTerms = $(selectors.divUploadTerms);
         objs.divTerms = $(selectors.divTerms);
+        objs.btnUploadTerms = $(selectors.btnUploadTerms);
     }
 
     function setCreateEdit() {
@@ -75,6 +78,7 @@
 
         bindPopOvers();
         bindBtnAddTerm();
+        bindBtnUploadTerms();
 
         instantiateDropZone();
     }
@@ -242,6 +246,33 @@
             return false;
         });
     }
+
+    function bindBtnUploadTerms() {
+        objs.containerDetails.on('click', selectors.btnUploadTerms, function (e) {
+            e.preventDefault();
+            var btn = $(this);
+
+            if (window.Dropzone) {
+                if (termsUploadDropZone.getQueuedFiles().length === 0) {
+                    ALERTSYSTEM.Toastr.ShowWarning('You must select a XLSX file to upload!');
+                }
+                else {
+                    MAINMODULE.Common.RemoveErrorFromButton(btn);
+                    MAINMODULE.Common.DisableButton(btn);
+
+                    uploadTerms(btn, function (response) {
+                        console.log(response);
+                        ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
+                            window.location = response.url;
+                        });
+                    });
+                }
+            }
+
+            return false;
+        });
+    }
+
 
     function bindEdit() {
         objs.container.on('click', selectors.btnEdit, function (e) {
@@ -419,6 +450,44 @@
                 ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
             }
         });
+    }
+
+    function uploadTerms(btn, callback) {
+        if (window.Dropzone) {
+            var id = btn.data('projectId');
+
+            var columns = $(selectors.ddlColumn);
+
+
+            termsUploadDropZone.on("sending", function (file, xhr, formData) {
+                formData.append("projectId", id);
+
+                var i = 0;
+                columns.each(function (index, element) {
+                    var ddl = $(element);
+                    var column = ddl.data('column');
+                    var language = ddl.val();
+                    if (column !== undefined && language !== undefined && language.length > 0) {
+                        formData.append('columns[' + i + '].Column', column);
+                        formData.append('columns[' + i + '].Language', language);
+                        i++;
+                    }
+                });
+            });
+
+            termsUploadDropZone.processQueue();
+
+            termsUploadDropZone.on("success", function (file, response) {
+                console.log('success');
+                if (callback) {
+                    callback(response);
+                }
+            });
+
+            termsUploadDropZone.on("queuecomplete", function (file) {
+                console.log('queuecomplete');
+            });
+        }
     }
 
 
