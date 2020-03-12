@@ -18,3 +18,8 @@
         border: 0 !important;
     }
 }
+
+#divTranslationSelector {
+    z-index: 51 !important;
+    border-radius: 0;
+}

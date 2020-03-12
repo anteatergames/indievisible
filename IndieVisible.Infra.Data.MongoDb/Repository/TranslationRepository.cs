@@ -17,6 +17,22 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         {
         }
 
+        public TranslationProject GetBasicInfoById(Guid id)
+        {
+            var obj = DbSet.Find(x => x.Id == id).Project(x => new TranslationProject
+            {
+                Id = x.Id,
+                UserId = x.UserId,
+                CreateDate = x.CreateDate,
+                LastUpdateDate = x.LastUpdateDate,
+                GameId = x.GameId,
+                PrimaryLanguage = x.PrimaryLanguage,
+                Introduction = x.Introduction
+            });
+
+            return obj.FirstOrDefault();
+        }
+
         public override void Add(TranslationProject obj)
         {
             SetChildIds(obj);

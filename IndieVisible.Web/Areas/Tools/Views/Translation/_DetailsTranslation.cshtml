@@ -6,7 +6,7 @@
 <div class="text-center">
     <h4 class="text-uppercase mb-0">@SharedLocalizer["translating"]</h4>
 </div>
-<div class="row border-bottom mb-2">
+<div id="divTranslationSelector" class="row border-bottom mb-2 mx-1 bg-white">
     <div class="col pr-0 pr-md-2 border-right rounded-0">
         <label class="col-form-label text-uppercase">@SharedLocalizer["from"]</label>
         <label class="form-control bg-gray">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</label>
@@ -19,7 +19,7 @@
 
 @foreach (var term in Model.Terms)
 {
-    <div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 m-md-2 mb-2 border bg-light no-gutters">
+    <div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 mt-2 m-md-2 mb-2 border bg-light no-gutters">
         <div class="col-12 px-1 px-sm-2 px-md-3 no-gutters">
             <div class="col-12">
                 <label class="col-form-label py-0">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="translation-entry-actions float-right mt-1">
                     <div class="btn-group" role="group" aria-label="Translation Entry Actions">
-                        <button type="button" class="btn btn-sm btn-default text-success entry-save" title="@SharedLocalizer["Add or update your translation for this term."]"><i class="fas fa-fw fa-check" aria-hidden="true"></i></button>
+                        <button type="button" class="btn btn-sm btn-default text-success entry-save" tabindex="-1" title="@SharedLocalizer["Add or update your translation for this term."]"><i class="fas fa-fw fa-check" aria-hidden="true"></i></button>
                     </div>
                 </div>
 

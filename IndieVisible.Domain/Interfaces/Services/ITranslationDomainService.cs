@@ -11,8 +11,14 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId);
 
+        TranslationProject GetBasicInfoById(Guid id);
+
         IEnumerable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language);
 
-        void SetTranslationEntry(Guid projectId, TranslationEntry entry);
+        void SetEntry(Guid projectId, TranslationEntry entry);
+
+        IEnumerable<TranslationTerm> GetTerms(Guid projectId);
+
+        void SetTerms(Guid projectId, IEnumerable<TranslationTerm> terms);
     }
 }

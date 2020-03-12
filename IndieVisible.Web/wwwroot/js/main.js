@@ -120,9 +120,18 @@
         }
     }
 
-    function setStickyElement(selector) {
+    function setStickyElement(selector, offset, getWidthFrom) {
         var minimumOffset = 60;
-        $(selector).sticky({ topSpacing: minimumOffset });
+
+        if (offset !== undefined) {
+            minimumOffset = offset;
+        }
+
+        $(selector).sticky({
+            topSpacing: minimumOffset,
+            widthFromWrapper: getWidthFrom === undefined ? true : false,
+            getWidthFrom: getWidthFrom === undefined ? '' : getWidthFrom
+        });
     }
 
     function disableButton(btn) {

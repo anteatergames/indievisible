@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using IndieVisible.Domain.Core.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels.Translation
 {
@@ -14,5 +15,7 @@ namespace IndieVisible.Application.ViewModels.Translation
 
         [Display(Name = "Context")]
         public string Obs { get; set; }
+
+        public SupportedLanguage PrimaryLanguage { get; set; }
     }
 }

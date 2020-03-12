@@ -35,7 +35,7 @@ namespace IndieVisible.Domain.Services
             return entries;
         }
 
-        public void SetTranslationEntry(Guid projectId, TranslationEntry entry)
+        public void SetEntry(Guid projectId, TranslationEntry entry)
         {
             var existing = repository.GetEntries(projectId, entry.Language, entry.TermId);
             var oneIsMine = existing.Any(x => x.UserId == entry.UserId);
@@ -49,6 +49,43 @@ namespace IndieVisible.Domain.Services
                 entry.Id = existing.First(x => x.UserId == entry.UserId).Id;
                 repository.UpdateEntry(projectId, entry);
             }
+        }
+
+        public IEnumerable<TranslationTerm> GetTerms(Guid projectId)
+        {
+            List<TranslationTerm> terms = repository.GetTerms(projectId).ToList();
+
+            return terms;
+        }
+
+        public void SetTerms(Guid projectId, IEnumerable<TranslationTerm> terms)
+        {
+            List<TranslationTerm> existingTerms = repository.GetTerms(projectId).ToList();
+
+            foreach (var term in terms)
+            {
+                var existing = existingTerms.FirstOrDefault(x => x.Id == term.Id);
+                if (existing == null)
+                {
+                    repository.AddTerm(projectId, term);
+                }
+                else
+                {
+                    existing.Key = term.Key;
+                    existing.Value = term.Value;
+                    existing.Obs = term.Obs;
+                    existing.LastUpdateDate = DateTime.Now;
+
+                    repository.UpdateTerm(projectId, existing);
+                }
+            }
+        }
+
+        public TranslationProject GetBasicInfoById(Guid id)
+        {
+            var obj = repository.GetBasicInfoById(id);
+
+            return obj;
         }
     }
 }

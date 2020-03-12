@@ -43,7 +43,10 @@
         selectors.entryAuthorButton = '.entry-author-btn';
         selectors.divUploadTerms = 'div#divUploadTerms';
         selectors.btnUploadTerms = '#btnUploadTerms';
+        selectors.btnSaveTerms = '#btnSaveTerms';
         selectors.ddlColumn = '.ddlcolumn';
+        selectors.id = '#Id';
+        selectors.termItem = '.translation-term';
     }
 
     function cacheObjsCommon() {
@@ -70,23 +73,34 @@
         objs.divUploadTerms = $(selectors.divUploadTerms);
         objs.divTerms = $(selectors.divTerms);
         objs.btnUploadTerms = $(selectors.btnUploadTerms);
+        objs.id = $(selectors.id);
     }
 
     function setCreateEdit() {
         cacheOBjsCreateEdit();
-        $.validator.unobtrusive.parse(objs.form);
 
         bindPopOvers();
         bindBtnAddTerm();
         bindBtnUploadTerms();
+        bindBtnSaveTerms();
 
         instantiateDropZone();
+
+        loadTerms(function (response) {
+            objs.btnSaveTerms = $(selectors.btnSaveTerms);
+
+            objs.form.removeData("validator").removeData("unobtrusiveValidation");
+
+            $.validator.unobtrusive.parse(objs.form);
+        });
     }
 
     function setDetails() {
         cacheObjsDetails();
 
         bindDetails();
+
+        setStickyElements();
     }
 
     function init() {
@@ -172,6 +186,7 @@
     function bindEntrySave() {
         objs.containerDetails.on('click', selectors.entrySave, function () {
             var btn = $(this);
+
             var input = btn.closest(selectors.entry).find(selectors.entryInput);
             var termId = input.data('termid');
             var url = objs.ddlLanguage.data('urlSet');
@@ -273,6 +288,29 @@
         });
     }
 
+    function bindBtnSaveTerms() {
+        objs.containerDetails.on('click', selectors.btnSaveTerms, function (e) {
+            console.log('clicou');
+            e.preventDefault();
+            var btn = $(this);
+
+            MAINMODULE.Common.RemoveErrorFromButton(btn);
+            MAINMODULE.Common.DisableButton(btn);
+
+            var valid = objs.form.valid();
+
+            if (valid && canInteract) {
+                saveTerms(btn, function (response) {
+                    if (response.message) {
+                        ALERTSYSTEM.Toastr.ShowWarning(response.message);
+                    }
+                });
+            }
+
+            return false;
+        });
+    }
+
 
     function bindEdit() {
         objs.container.on('click', selectors.btnEdit, function (e) {
@@ -308,6 +346,24 @@
             }
             else {
                 objs.list.html(data);
+            }
+        });
+    }
+
+    function loadTerms(callback) {
+        var urlTerms = objs.urls.data('urlTerms');
+
+        var id = objs.id.val();
+
+        urlTerms = urlTerms + id;
+
+        objs.divTerms.html(MAINMODULE.Default.SpinnerTop);
+
+        $.get(urlTerms, function (response) {
+            objs.divTerms.html(response);
+
+            if (callback) {
+                callback(response);
             }
         });
     }
@@ -490,7 +546,33 @@
         }
     }
 
+    function saveTerms(btn, callback) {
+        var url = objs.urls.data('urlTermsSave');
 
+        var id = objs.id.val();
+
+        url = url + id;
+
+        var terms = $(selectors.termItem);
+        var data = terms.find(':input, :hidden').serializeArray();
+
+        $.post(url, data).done(function (response) {
+            if (response.success === true) {
+                MAINMODULE.Common.PostSaveCallback(response, btn);
+
+                if (callback) {
+                    callback(response);
+                }
+
+                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
+                    loadTerms();
+                });
+            }
+            else {
+                ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+            }
+        });
+    }
 
     function instantiateDropZone() {
         if (window.Dropzone) {
@@ -514,6 +596,10 @@
         }
     }
 
+    function setStickyElements() {
+        MAINMODULE.Layout.SetStickyElement('#divTranslationSelector', 50, '#divTranslationSelector');
+    }
+
     return {
         Init: init
     };
@@ -521,6 +607,13 @@
 
 $(function () {
     TRANSLATION.Init();
+
+
+    $.validator.setDefaults({
+        onfocusout: function (element) {
+            $(element).valid();
+        }
+    });
 });
 
 if (window.Dropzone !== undefined) {

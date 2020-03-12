@@ -108,16 +108,32 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         [Route("tools/translation/details/{id:guid}")]
         public IActionResult Details(Guid id, int? pointsEarned)
         {
-            OperationResultVo<TranslationProjectViewModel> op = translationAppService.GetById(CurrentUserId, id);
+            OperationResultVo result = translationAppService.GetById(CurrentUserId, id);
 
-            TranslationProjectViewModel vm = op.Value;
+            if (result.Success)
+            {
+                OperationResultVo<TranslationProjectViewModel> castRestult = result as OperationResultVo<TranslationProjectViewModel>;
 
-            SetLocalization(vm);
-            SetAuthorDetails(vm);
+                var model = castRestult.Value;
 
-            SetGamificationMessage(pointsEarned);
+                SetLocalization(model);
+                SetAuthorDetails(model);
 
-            return View("_Details", vm);
+                SetGamificationMessage(pointsEarned);
+
+                if (Request.IsAjaxRequest())
+                {
+                    return View("_Details", model);
+                }
+                else
+                {
+                    return View("_DetailsWrapper", model);
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [Authorize]
@@ -277,6 +293,61 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         }
 
         [Authorize]
+        [HttpGet("tools/translation/getterms/{projectId:guid}")]
+        public IActionResult GetTerms(Guid projectId)
+        {
+            try
+            {
+                OperationResultVo result = translationAppService.GetTerms(CurrentUserId, projectId);
+
+                if (result.Success)
+                {
+                    OperationResultListVo<TranslationTermViewModel> castResult = result as OperationResultListVo<TranslationTermViewModel>;
+
+                    var model = new TranslationProjectViewModel
+                    {
+                        Id = projectId,
+                        Terms = castResult.Value.ToList()
+                    };
+
+                    return PartialView("_Terms", model);
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [Authorize]
+        [HttpPost("tools/translation/setterms/{projectId:guid}")]
+        public IActionResult SetTerms(Guid projectId, IEnumerable<TranslationTermViewModel> terms)
+        {
+            try
+            {
+                OperationResultVo result = translationAppService.SetTerms(CurrentUserId, projectId, terms);
+
+                if (result.Success)
+                {
+
+                    return Json(result);
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [Authorize]
         [HttpPost("tools/translation/uploadterms/{projectId:guid}")]
         public async Task<IActionResult> UploadTerms(Guid projectId, IEnumerable<ExcelColumnViewModel> columns, IFormFile termsFile)
         {
@@ -309,6 +380,11 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         private void SetLocalization(TranslationProjectViewModel item)
         {
             SetLocalization(item, false);
+
+            if (string.IsNullOrWhiteSpace(item.Introduction))
+            {
+                item.Introduction = SharedLocalizer["No extra information."];
+            }
         }
 
         private void SetLocalization(TranslationProjectViewModel item, bool editing)

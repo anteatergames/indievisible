@@ -9,6 +9,8 @@ namespace IndieVisible.Domain.Interfaces.Repository
 {
     public interface ITranslationRepository : IRepository<TranslationProject>
     {
+        TranslationProject GetBasicInfoById(Guid id);
+
         int CountTerms(Func<TranslationTerm, bool> where);
 
         IQueryable<TranslationTerm> GetTerms(Guid translationProjectId);

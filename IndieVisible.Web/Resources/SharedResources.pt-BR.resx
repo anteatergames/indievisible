@@ -1793,4 +1793,32 @@
     <value>Existem {0} termos para serem traduzidos.</value>
     <comment>Translation</comment>
   </data>
+  <data name="Column {0}" xml:space="preserve">
+    <value>Coluna {0}</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Drop a xlsx file here or click to upload." xml:space="preserve">
+    <value>Arraste e solte um arquivo xlsx aqui para enviar.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="No extra information." xml:space="preserve">
+    <value>Sem maiores informações.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Nothing" xml:space="preserve">
+    <value>Nada</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Option 1: Upload File" xml:space="preserve">
+    <value>Opção 1: Envie um arquivo</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Option 2: Add terms manually" xml:space="preserve">
+    <value>Opção 2: Adicionar termos manualmente</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="xlsx only!" xml:space="preserve">
+    <value>apenas xlsx!</value>
+    <comment>Translation</comment>
+  </data>
 </root>

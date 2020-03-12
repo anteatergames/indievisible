@@ -143,6 +143,31 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        public OperationResultVo GetBasicInfoById(Guid currentUserId, Guid id)
+        {
+            try
+            {
+                TranslationProject model = translationDomainService.GetBasicInfoById(id);
+
+                if (model == null)
+                {
+                    return new OperationResultVo<TranslationProjectViewModel>("Translation Project not found!");
+                }
+
+                TranslationProjectViewModel vm = mapper.Map<TranslationProjectViewModel>(model);
+
+                SetGameViewModel(model.GameId, vm);
+
+                SetPermissions(currentUserId, vm);
+
+                return new OperationResultVo<TranslationProjectViewModel>(vm);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo<TranslationProjectViewModel>(ex.Message);
+            }
+        }
+
         public OperationResultVo Remove(Guid currentUserId, Guid id)
         {
             try
@@ -262,7 +287,7 @@ namespace IndieVisible.Application.Services
             {
                 TranslationEntry entry = mapper.Map<TranslationEntry>(vm);
 
-                translationDomainService.SetTranslationEntry(projectId, entry);
+                translationDomainService.SetEntry(projectId, entry);
                 vm.Id = entry.Id;
 
                 unitOfWork.Commit();
@@ -271,6 +296,47 @@ namespace IndieVisible.Application.Services
                 vm.AuthorName = profile.Name;
 
                 return new OperationResultVo<TranslationEntryViewModel>(vm);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetTerms(Guid currentUserId, Guid projectId)
+        {
+            try
+            {
+                IEnumerable<TranslationTerm> entries = translationDomainService.GetTerms(projectId);
+
+                List<TranslationTermViewModel> vms = mapper.Map<IEnumerable<TranslationTerm>, IEnumerable<TranslationTermViewModel>>(entries).ToList();
+
+                foreach (TranslationTermViewModel entry in vms)
+                {
+                    UserProfile profile = GetCachedProfileByUserId(entry.UserId);
+                    entry.AuthorName = profile.Name;
+                    entry.AuthorPicture = UrlFormatter.ProfileImage(entry.UserId);
+                }
+
+                return new OperationResultListVo<TranslationTermViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo SetTerms(Guid currentUserId, Guid projectId, IEnumerable<TranslationTermViewModel> terms)
+        {
+            try
+            {
+                IEnumerable<TranslationTerm> entries = mapper.Map<IEnumerable<TranslationTermViewModel>, IEnumerable<TranslationTerm>>(terms);
+
+                translationDomainService.SetTerms(projectId, entries);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "Terms Updated!");
             }
             catch (Exception ex)
             {
