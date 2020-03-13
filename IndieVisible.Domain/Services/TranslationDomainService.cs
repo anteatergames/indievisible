@@ -50,6 +50,27 @@ namespace IndieVisible.Domain.Services
                 repository.UpdateEntry(projectId, entry);
             }
         }
+        public void SaveEntries(Guid projectId, IEnumerable<TranslationEntry> entries)
+        {
+            List<TranslationEntry> existingEntrys = repository.GetEntries(projectId).ToList();
+
+            foreach (var entry in entries)
+            {
+                var existing = existingEntrys.FirstOrDefault(x => x.Id == entry.Id);
+                if (existing == null)
+                {
+                    entry.CreateDate = DateTime.Now;
+                    repository.AddEntry(projectId, entry);
+                }
+                else
+                {
+                    existing.Value = entry.Value;
+                    existing.LastUpdateDate = DateTime.Now;
+
+                    repository.UpdateEntry(projectId, existing);
+                }
+            }
+        }
 
         public IEnumerable<TranslationTerm> GetTerms(Guid projectId)
         {

@@ -6,14 +6,19 @@
 <div class="text-center">
     <h4 class="text-uppercase mb-0">@SharedLocalizer["translating"]</h4>
 </div>
-<div id="divTranslationSelector" class="row border-bottom mb-2 mx-1 bg-white">
-    <div class="col pr-0 pr-md-2 border-right rounded-0">
-        <label class="col-form-label text-uppercase">@SharedLocalizer["from"]</label>
-        <label class="form-control bg-gray">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</label>
-    </div>
-    <div class="col pl-0 pl-md-2 border-left rounded-0">
-        <label class="col-form-label text-uppercase">@SharedLocalizer["to"]</label>
-        @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), SharedLocalizer["Select a language"], new { @class = "form-control", data_url_get = Url.Action("gettranslation", "translation", new { area = "tools", projectId = Model.Id }), data_url_set = Url.Action("settranslation", "translation", new { area = "tools", projectId = Model.Id }) })
+<div id="divTranslationSelector" class="border-bottom mb-2 pb-1 bg-white">
+    <div class="row">
+        <div class="col pr-0 pr-md-2 border-right rounded-0">
+            <label class="col-form-label text-uppercase">@SharedLocalizer["from"]</label>
+            <label class="form-control form-control-sm bg-gray">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</label>
+        </div>
+        <div class="col pl-0 pl-md-2 border-left rounded-0">
+            <label class="col-form-label text-uppercase">@SharedLocalizer["to"]</label>
+            @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), SharedLocalizer["Select a language"], new { @class = "form-control form-control-sm" })
+        </div>
+        <div class="col-12">
+            <button type="button" id="btnSaveTranslationChanges" class="btn btn-sm btn-block btn-outline-primary">@SharedLocalizer["Save Translations"] <span id="changedtranslationscounter" data-count="0">0</span></button>
+        </div>
     </div>
 </div>
 
@@ -38,7 +43,7 @@
 
             <div class="col-12 mb-3 translation-entry">
                 <div class="input-group mt-1">
-                    <textarea class="form-control entry-input" data-termid="@term.Id" placeholder="@SharedLocalizer["Type here your translation"]"></textarea>
+                    <textarea class="form-control entry-input" data-termid="@term.Id" data-originalval="@string.Empty" placeholder="@SharedLocalizer["Type here your translation"]"></textarea>
                 </div>
                 <div class="translation-entry-actions float-right mt-1">
                     <div class="btn-group" role="group" aria-label="Translation Entry Actions">

@@ -303,6 +303,31 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        public OperationResultVo SaveEntries(Guid currentUserId, Guid projectId, IEnumerable<TranslationEntryViewModel> entries)
+        {
+            try
+            {
+                var entriesUpdated = entries.ToList();
+
+                foreach (var item in entriesUpdated)
+                {
+                    item.UserId = currentUserId;
+                }
+
+                IEnumerable<TranslationEntry> vms = mapper.Map<IEnumerable<TranslationEntryViewModel>, IEnumerable<TranslationEntry>>(entries);
+
+                translationDomainService.SaveEntries(projectId, vms);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "Entries Updated!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo GetTerms(Guid currentUserId, Guid projectId)
         {
             try

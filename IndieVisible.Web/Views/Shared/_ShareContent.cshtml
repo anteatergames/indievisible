@@ -1,0 +1,15 @@
+﻿@model ShareModel
+
+@{
+    Layout = null;
+    var canInteract = User.Identity.IsAuthenticated;
+
+    var url = String.IsNullOrWhiteSpace(Model.Url) ? String.Format("{0}://{1}/", ViewData["protocol"], ViewData["host"]) : Model.Url;
+
+    var shareText = string.IsNullOrWhiteSpace(Model.Text) ? "Help this translation project!" : Model.Text;
+}
+
+<h5>@SharedLocalizer["Share it!"]</h5>
+<a href=@url target="_blank" title="@SharedLocalizer["Share on Facebook"]" class="btn btn-social-icon btn-share btn-facebook" data-provider="facebook" data-title="title"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+<a href=@url target="_blank" title="@SharedLocalizer["Share on Reddit"]" class="btn btn-social-icon btn-share btn-reddit" data-provider="reddit" data-title="title"><i class="fab fa-reddit-alien" aria-hidden="true"></i></a>
+<a href=@url target="_blank" title="@SharedLocalizer["Tweet this!"]" class="btn btn-social-icon btn-share btn-twitter" data-provider="twitter" data-text="@shareText"><i class="fab fa-twitter" aria-hidden="true"></i></a>

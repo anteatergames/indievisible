@@ -9,6 +9,8 @@
     var isDetails = false;
     var isEdit = false;
 
+    var changedEntries = [];
+
     var propPrefix = 'Terms';
 
     var termsUploadDropZone = null;
@@ -47,6 +49,8 @@
         selectors.ddlColumn = '.ddlcolumn';
         selectors.id = '#Id';
         selectors.termItem = '.translation-term';
+        selectors.changedCounter = '#changedtranslationscounter';
+        selectors.btnSaveTranslationChanges = '#btnSaveTranslationChanges';
     }
 
     function cacheObjsCommon() {
@@ -66,6 +70,7 @@
     function cacheObjsDetails() {
         objs.ddlLanguage = $(selectors.ddlLanguage);
         objs.entryAuthors = $(selectors.entryAuthors);
+        objs.changedCounter = $(selectors.changedCounter);
     }
 
     function cacheOBjsCreateEdit() {
@@ -150,6 +155,8 @@
         bindLanguageChange();
         bindEntrySave();
         bindAuthorChange();
+        bindEntryInputBlur();
+        bindSaveTranslationChanges();
         CONTENTACTIONS.BindShareContent();
     }
 
@@ -160,7 +167,7 @@
     function bindLanguageChange() {
         objs.containerDetails.on('change', selectors.ddlLanguage, function () {
             var ddl = $(this);
-            var url = ddl.data('urlGet');
+            var url = objs.urls.data('urlEntriesGet');
             var language = ddl.val();
 
             var data = {
@@ -168,6 +175,9 @@
             };
 
             objs.containerDetails.find(selectors.entryInput).val('');
+            $(selectors.entryInput).data('originalval', '');
+
+
             removeAllAuthors(selectors.entryAuthors);
 
             $.post(url, data).done(function (response) {
@@ -189,7 +199,7 @@
 
             var input = btn.closest(selectors.entry).find(selectors.entryInput);
             var termId = input.data('termid');
-            var url = objs.ddlLanguage.data('urlSet');
+            var url = objs.urls.data('urlEntrySave');
             var language = objs.ddlLanguage.val();
 
             if (language && input.val().length > 0) {
@@ -215,6 +225,76 @@
                 });
 
             }
+        });
+    }
+
+    function bindSaveTranslationChanges() {
+        objs.containerDetails.on('click', selectors.btnSaveTranslationChanges, function () {
+            var btn = $(this);
+            var url = objs.urls.data('urlEntriesSave');
+            var language = objs.ddlLanguage.val();
+
+            if (language) {
+                var data = [];
+
+                for (var i = 0; i < changedEntries.length; i++) {
+                    var input = $(selectors.entryInput + '[data-termid=' + changedEntries[i] + ']');
+
+                    var item = {
+                        termId: changedEntries[i],
+                        language: language,
+                        value: input.val()
+                    };
+
+                    data.push(item);
+                }
+
+                console.log(data);
+                $.post(url, { entries: data }).done(function (response) {
+                    if (response.success === true) {
+                        if (response.message) {
+                            ALERTSYSTEM.Toastr.ShowWarning(response.message);
+                        }
+                    }
+                    else {
+                        ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+                    }
+                });
+            }
+        });
+    }
+
+    function bindEntryInputBlur() {
+        objs.containerDetails.on('blur', selectors.entryInput, function () {
+            var input = $(this);
+            var originalVal = input.data('originalval');
+            var termid = input.data('termid');
+            var currentVal = input.val();
+            var currentCount = objs.changedCounter.data('count');
+            var different = originalVal !== currentVal;
+
+            if (different) {
+                if (!input.data('changed')) {
+                    changedEntries.push(termid);
+                    currentCount++;
+                    input.data('changed', true);
+                }
+            }
+            else {
+                if (input.data('changed')) {
+                    const index = changedEntries.indexOf(termid);
+                    changedEntries.splice(index, 1);
+                    currentCount--;
+                    input.data('changed', false);
+                }
+            }
+
+            if (currentCount < 0) {
+                currentCount = 0;
+            }
+
+            objs.changedCounter.data('count', currentCount);
+            objs.changedCounter.html(currentCount);
         });
     }
 
@@ -459,6 +539,7 @@
         var termInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + translation.termId + ']');
 
         termInput.val(translation.value);
+        termInput.data('originalval', translation.value);
 
         addNewAuthor(termInput.closest(selectors.entry).find(selectors.entryAuthors), translation);
     }

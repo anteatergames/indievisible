@@ -16,6 +16,10 @@ namespace IndieVisible.Application.ViewModels
 
         public UserContentType UserContentType { get; set; }
 
+        public string ShareUrl { get; set; }
+
+        public string ShareText { get; set; }
+
         protected UserGeneratedBaseViewModel() : base()
         {
         }

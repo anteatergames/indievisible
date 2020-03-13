@@ -20,5 +20,7 @@ namespace IndieVisible.Domain.Interfaces.Service
         IEnumerable<TranslationTerm> GetTerms(Guid projectId);
 
         void SetTerms(Guid projectId, IEnumerable<TranslationTerm> terms);
+
+        void SaveEntries(Guid projectId, IEnumerable<TranslationEntry> entries);
     }
 }

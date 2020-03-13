@@ -4,6 +4,7 @@ using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Tools.Controllers.Base;
 using IndieVisible.Web.Extensions;
+using IndieVisible.Web.Extensions.ViewModelExtensions;
 using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -114,7 +115,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             {
                 OperationResultVo<TranslationProjectViewModel> castRestult = result as OperationResultVo<TranslationProjectViewModel>;
 
-                var model = castRestult.Value;
+                TranslationProjectViewModel model = castRestult.Value;
 
                 SetLocalization(model);
                 SetAuthorDetails(model);
@@ -293,6 +294,32 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         }
 
         [Authorize]
+        [HttpPost("tools/translation/saveentries/{projectId:guid}")]
+        public IActionResult SaveEntries(Guid projectId, IEnumerable<TranslationEntryViewModel> entries)
+        {
+            try
+            {
+                OperationResultVo result = translationAppService.SaveEntries(CurrentUserId, projectId, entries);
+
+                if (result.Success)
+                {
+
+                    return Json(result);
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+
+                return Json(entries);
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [Authorize]
         [HttpGet("tools/translation/getterms/{projectId:guid}")]
         public IActionResult GetTerms(Guid projectId)
         {
@@ -304,7 +331,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 {
                     OperationResultListVo<TranslationTermViewModel> castResult = result as OperationResultListVo<TranslationTermViewModel>;
 
-                    var model = new TranslationProjectViewModel
+                    TranslationProjectViewModel model = new TranslationProjectViewModel
                     {
                         Id = projectId,
                         Terms = castResult.Value.ToList()
@@ -377,14 +404,18 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             }
         }
 
-        private void SetLocalization(TranslationProjectViewModel item)
+        private void SetLocalization(TranslationProjectViewModel model)
         {
-            SetLocalization(item, false);
+            SetLocalization(model, false);
 
-            if (string.IsNullOrWhiteSpace(item.Introduction))
+            if (string.IsNullOrWhiteSpace(model.Introduction))
             {
-                item.Introduction = SharedLocalizer["No extra information."];
+                model.Introduction = SharedLocalizer["No extra information."];
             }
+
+            model.SetShareText(SharedLocalizer["Help translate {0}", model.Game.Title]);
+
+            model.SetShareUrl(Url.Action("details", "translation", new { area = "tools", id = model.Id }));
         }
 
         private void SetLocalization(TranslationProjectViewModel item, bool editing)

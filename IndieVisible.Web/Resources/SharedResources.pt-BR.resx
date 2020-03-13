@@ -1821,4 +1821,8 @@
     <value>apenas xlsx!</value>
     <comment>Translation</comment>
   </data>
+  <data name="Help translate {0}" xml:space="preserve">
+    <value>Ajude a traduzir {0}</value>
+    <comment>Translation</comment>
+  </data>
 </root>

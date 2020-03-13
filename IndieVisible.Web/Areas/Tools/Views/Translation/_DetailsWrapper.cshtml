@@ -50,7 +50,10 @@
 
 <input type="hidden" id="urls" value="urls"
        data-url-terms="@Url.Action("getterms", "translation", new { area = "tools" })"
-       data-url-terms-save="@Url.Action("setterms", "translation", new { area = "tools" })" />
+       data-url-terms-save="@Url.Action("setterms", "translation", new { area = "tools" })" 
+       data-url-entry-save="@Url.Action("settranslation", "translation", new { area = "tools", projectId = Model.Id })" 
+       data-url-entries-get="@Url.Action("gettranslation", "translation", new { area = "tools", projectId = Model.Id })"
+       data-url-entries-save="@Url.Action("saveentries", "translation", new { area = "tools", projectId = Model.Id })"/>
 
 <div id="featurecontainer" class="col">
     <div id="containerdetails">
