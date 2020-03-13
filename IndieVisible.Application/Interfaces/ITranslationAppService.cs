@@ -22,12 +22,12 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GetTerms(Guid currentUserId, Guid projectId);
 
-        OperationResultVo SetTranslationEntry(Guid currentUserId, Guid projectId, TranslationEntryViewModel vm);
+        OperationResultVo SaveEntry(Guid currentUserId, Guid projectId, TranslationEntryViewModel vm);
         
         Task<OperationResultVo> ReadTermsSheet(Guid currentUserId, Guid projectId, IEnumerable<KeyValuePair<int, SupportedLanguage>> columns, IFormFile termsFile);
 
         OperationResultVo SetTerms(Guid currentUserId, Guid projectId, IEnumerable<TranslationTermViewModel> terms);
 
-        OperationResultVo SaveEntries(Guid currentUserId, Guid projectId, IEnumerable<TranslationEntryViewModel> entries);
+        OperationResultVo SaveEntries(Guid currentUserId, Guid projectId, SupportedLanguage language, IEnumerable<TranslationEntryViewModel> entries);
     }
 }

@@ -1825,4 +1825,12 @@
     <value>Ajude a traduzir {0}</value>
     <comment>Translation</comment>
   </data>
+  <data name="Translation saved!" xml:space="preserve">
+    <value>Tradução salva!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Translations saved!" xml:space="preserve">
+    <value>Traduções salvas!</value>
+    <comment>Translation</comment>
+  </data>
 </root>

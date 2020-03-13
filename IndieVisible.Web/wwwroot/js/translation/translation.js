@@ -177,6 +177,7 @@
             objs.containerDetails.find(selectors.entryInput).val('');
             $(selectors.entryInput).data('originalval', '');
 
+            resetChangeCounter();
 
             removeAllAuthors(selectors.entryAuthors);
 
@@ -215,6 +216,10 @@
 
                         loadSingleTranslation(response.value);
 
+                        decreaseChangeCounter();
+
+                        removeFromArray(changedEntries, termId);
+
                         if (response.message) {
                             ALERTSYSTEM.Toastr.ShowWarning(response.message);
                         }
@@ -242,15 +247,19 @@
 
                     var item = {
                         termId: changedEntries[i],
-                        language: language,
                         value: input.val()
                     };
 
                     data.push(item);
                 }
 
-                $.post(url, { entries: data }).done(function (response) {
+                $.post(url, { language: language, entries: data }).done(function (response) {
                     if (response.success === true) {
+
+                        changedEntries = [];
+
+                        resetChangeCounter();
+
                         if (response.message) {
                             ALERTSYSTEM.Toastr.ShowWarning(response.message);
                         }
@@ -266,34 +275,28 @@
     function bindEntryInputBlur() {
         objs.containerDetails.on('blur', selectors.entryInput, function () {
             var input = $(this);
+            var language = objs.ddlLanguage.val();
             var originalVal = input.data('originalval');
-            var termid = input.data('termid');
+            var termId = input.data('termid');
             var currentVal = input.val();
-            var currentCount = objs.changedCounter.data('count');
             var different = originalVal !== currentVal;
 
-            if (different) {
-                if (!input.data('changed')) {
-                    changedEntries.push(termid);
-                    currentCount++;
-                    input.data('changed', true);
+            if (language) {
+                if (different) {
+                    if (!input.data('changed')) {
+                        changedEntries.push(termId);
+                        input.data('changed', true);
+                        increaseChangeCounter();
+                    }
+                }
+                else {
+                    if (input.data('changed')) {
+                        removeFromArray(changedEntries, termId);
+                        input.data('changed', false);
+                        decreaseChangeCounter();
+                    }
                 }
             }
-            else {
-                if (input.data('changed')) {
-                    const index = changedEntries.indexOf(termid);
-                    changedEntries.splice(index, 1);
-                    currentCount--;
-                    input.data('changed', false);
-                }
-            }
-
-            if (currentCount < 0) {
-                currentCount = 0;
-            }
-
-            objs.changedCounter.data('count', currentCount);
-            objs.changedCounter.html(currentCount);
         });
     }
 
@@ -674,6 +677,44 @@
                 //resizeWidth
             });
         }
+    }
+
+    function increaseChangeCounter() {
+        var currentCount = objs.changedCounter.data('count');
+
+        currentCount++;
+
+        objs.changedCounter.data('count', currentCount);
+
+        objs.changedCounter.html(currentCount);
+
+        return currentCount;
+    }
+
+    function decreaseChangeCounter() {
+        var currentCount = objs.changedCounter.data('count');
+
+        currentCount--;
+
+        if (currentCount < 0) {
+            currentCount = 0;
+        }
+
+        objs.changedCounter.data('count', currentCount);
+
+        objs.changedCounter.html(currentCount);
+
+        return currentCount;
+    }
+
+    function resetChangeCounter() {
+        objs.changedCounter.data('count', 0);
+        objs.changedCounter.html(0);
+    }
+
+    function removeFromArray(array, element) {
+        const index = array.indexOf(element);
+        array.splice(index, 1);
     }
 
     function setStickyElements() {

@@ -273,14 +273,14 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             {
                 vm.UserId = CurrentUserId;
 
-                OperationResultVo result = translationAppService.SetTranslationEntry(CurrentUserId, projectId, vm);
+                OperationResultVo result = translationAppService.SaveEntry(CurrentUserId, projectId, vm);
 
                 if (result.Success)
                 {
 
                     OperationResultVo<TranslationEntryViewModel> castResult = result as OperationResultVo<TranslationEntryViewModel>;
 
-                    return Json(castResult);
+                    return Json(result);
                 }
                 else
                 {
@@ -295,15 +295,14 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         [Authorize]
         [HttpPost("tools/translation/saveentries/{projectId:guid}")]
-        public IActionResult SaveEntries(Guid projectId, IEnumerable<TranslationEntryViewModel> entries)
+        public IActionResult SaveEntries(Guid projectId, SupportedLanguage language, IEnumerable<TranslationEntryViewModel> entries)
         {
             try
             {
-                OperationResultVo result = translationAppService.SaveEntries(CurrentUserId, projectId, entries);
+                OperationResultVo result = translationAppService.SaveEntries(CurrentUserId, projectId, language, entries);
 
                 if (result.Success)
                 {
-
                     return Json(result);
                 }
                 else
@@ -360,7 +359,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 if (result.Success)
                 {
-
                     return Json(result);
                 }
                 else

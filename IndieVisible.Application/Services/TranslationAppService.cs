@@ -281,13 +281,13 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo SetTranslationEntry(Guid currentUserId, Guid projectId, TranslationEntryViewModel vm)
+        public OperationResultVo SaveEntry(Guid currentUserId, Guid projectId, TranslationEntryViewModel vm)
         {
             try
             {
                 TranslationEntry entry = mapper.Map<TranslationEntry>(vm);
 
-                translationDomainService.SetEntry(projectId, entry);
+                translationDomainService.SaveEntry(projectId, entry);
                 vm.Id = entry.Id;
 
                 unitOfWork.Commit();
@@ -295,7 +295,7 @@ namespace IndieVisible.Application.Services
                 UserProfile profile = GetCachedProfileByUserId(entry.UserId);
                 vm.AuthorName = profile.Name;
 
-                return new OperationResultVo<TranslationEntryViewModel>(vm);
+                return new OperationResultVo<TranslationEntryViewModel>(vm, "Translation saved!");
             }
             catch (Exception ex)
             {
@@ -303,15 +303,16 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo SaveEntries(Guid currentUserId, Guid projectId, IEnumerable<TranslationEntryViewModel> entries)
+        public OperationResultVo SaveEntries(Guid currentUserId, Guid projectId, SupportedLanguage language, IEnumerable<TranslationEntryViewModel> entries)
         {
             try
             {
-                var entriesUpdated = entries.ToList();
+                List<TranslationEntryViewModel> entriesUpdated = entries.ToList();
 
-                foreach (var item in entriesUpdated)
+                foreach (TranslationEntryViewModel item in entriesUpdated)
                 {
                     item.UserId = currentUserId;
+                    item.Language = language;
                 }
 
                 IEnumerable<TranslationEntry> vms = mapper.Map<IEnumerable<TranslationEntryViewModel>, IEnumerable<TranslationEntry>>(entries);
@@ -320,7 +321,7 @@ namespace IndieVisible.Application.Services
 
                 unitOfWork.Commit();
 
-                return new OperationResultVo(true, "Entries Updated!");
+                return new OperationResultVo(true, "Translations saved!");
             }
             catch (Exception ex)
             {
@@ -355,9 +356,14 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<TranslationTerm> entries = mapper.Map<IEnumerable<TranslationTermViewModel>, IEnumerable<TranslationTerm>>(terms);
+                List<TranslationTerm> vms = mapper.Map<IEnumerable<TranslationTermViewModel>, IEnumerable<TranslationTerm>>(terms).ToList();
 
-                translationDomainService.SetTerms(projectId, entries);
+                foreach (var term in vms)
+                {
+                    term.UserId = currentUserId;
+                }
+
+                translationDomainService.SetTerms(projectId, vms);
 
                 unitOfWork.Commit();
 
@@ -378,7 +384,7 @@ namespace IndieVisible.Application.Services
 
                 if (termsFile != null && termsFile.Length > 0)
                 {
-                    var dataTable = await LoadExcel(termsFile);
+                    DataTable dataTable = await LoadExcel(termsFile);
 
                     FillTerms(dataTable, loadedTerms);
 
@@ -386,15 +392,15 @@ namespace IndieVisible.Application.Services
 
                     if (model != null)
                     {
-                        var termsUpdated = false;
-                        foreach (var loadedTerm in loadedTerms)
+                        bool termsUpdated = false;
+                        foreach (TranslationTerm loadedTerm in loadedTerms)
                         {
                             if (loadedTerm.UserId == Guid.Empty)
                             {
                                 loadedTerm.UserId = currentUserId;
                             }
 
-                            var modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm.Key.Replace("\n", string.Empty)));
+                            TranslationTerm modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm.Key.Replace("\n", string.Empty)));
                             if (modelTerm == null)
                             {
                                 model.Terms.Add(loadedTerm);
@@ -418,15 +424,15 @@ namespace IndieVisible.Application.Services
 
                             FillEntries(dataTable, model.Terms, loadedEntries, columns);
 
-                            var entriesUpdated = false;
-                            foreach (var loadedEntry in loadedEntries)
+                            bool entriesUpdated = false;
+                            foreach (TranslationEntry loadedEntry in loadedEntries)
                             {
                                 if (loadedEntry.UserId == Guid.Empty)
                                 {
                                     loadedEntry.UserId = currentUserId;
                                 }
 
-                                var modelEntry = model.Entries.FirstOrDefault(x => x.TermId == loadedEntry.TermId && x.UserId == currentUserId && x.Language == loadedEntry.Language);
+                                TranslationEntry modelEntry = model.Entries.FirstOrDefault(x => x.TermId == loadedEntry.TermId && x.UserId == currentUserId && x.Language == loadedEntry.Language);
                                 if (modelEntry == null)
                                 {
                                     model.Entries.Add(loadedEntry);
@@ -552,8 +558,8 @@ namespace IndieVisible.Application.Services
                 for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++)
                 {
                     IRow row = sheet.GetRow(i);
-                    var firstCell = row.GetCell(0);
-                    var secondCell = row.GetCell(1);
+                    ICell firstCell = row.GetCell(0);
+                    ICell secondCell = row.GetCell(1);
 
                     if (row == null || row.Cells.All(d => d.CellType == CellType.Blank))
                     {
@@ -590,18 +596,18 @@ namespace IndieVisible.Application.Services
         {
             foreach (DataRow row in dataTable.Rows)
             {
-                var term = row.ItemArray[0];
-                var termValue = row.ItemArray[1];
+                object term = row.ItemArray[0];
+                object termValue = row.ItemArray[1];
 
                 if (term == null || string.IsNullOrWhiteSpace(term.ToString()) || termValue == null || string.IsNullOrWhiteSpace(termValue.ToString()))
                 {
                     continue;
                 }
 
-                var termExists = terms.Any(x => x.Key.Equals(term));
+                bool termExists = terms.Any(x => x.Key.Equals(term));
                 if (!termExists)
                 {
-                    var newTerm = new TranslationTerm
+                    TranslationTerm newTerm = new TranslationTerm
                     {
                         Key = term.ToString().Trim().Replace("\n", "_"),
                         Value = termValue.ToString().Trim()
@@ -640,28 +646,28 @@ namespace IndieVisible.Application.Services
         {
             foreach (DataRow row in dataTable.Rows)
             {
-                var term = row.ItemArray[0];
+                object term = row.ItemArray[0];
 
-                foreach (var col in columns)
+                foreach (KeyValuePair<int, SupportedLanguage> col in columns)
                 {
-                    var colNumber = col.Key - 1;
+                    int colNumber = col.Key - 1;
 
                     if (col.Key > row.ItemArray.Length)
                     {
                         break;
                     }
 
-                    var translation = row.ItemArray[colNumber];
+                    object translation = row.ItemArray[colNumber];
 
                     if (term == null || string.IsNullOrWhiteSpace(term.ToString()) || translation == null || string.IsNullOrWhiteSpace(translation.ToString()))
                     {
                         continue;
                     }
 
-                    var existingTerm = terms.FirstOrDefault(x => SanitizeKey(x.Key).Equals(SanitizeKey(term.ToString())));
+                    TranslationTerm existingTerm = terms.FirstOrDefault(x => SanitizeKey(x.Key).Equals(SanitizeKey(term.ToString())));
                     if (existingTerm != null)
                     {
-                        var newEntry = new TranslationEntry
+                        TranslationEntry newEntry = new TranslationEntry
                         {
                             TermId = existingTerm.Id,
                             Value = translation.ToString().Trim(),

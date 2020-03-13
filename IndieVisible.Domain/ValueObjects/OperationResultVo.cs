@@ -126,6 +126,11 @@ namespace IndieVisible.Domain.ValueObjects
             PointsEarned = pointsEarned;
         }
 
+        public OperationResultVo(T item, string message) : base(true, message)
+        {
+            Value = item;
+        }
+
         public OperationResultVo(T item, int pointsEarned, string message) : base(true, message, pointsEarned)
         {
             Value = item;

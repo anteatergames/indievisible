@@ -35,7 +35,7 @@ namespace IndieVisible.Domain.Services
             return entries;
         }
 
-        public void SetEntry(Guid projectId, TranslationEntry entry)
+        public void SaveEntry(Guid projectId, TranslationEntry entry)
         {
             var existing = repository.GetEntries(projectId, entry.Language, entry.TermId);
             var oneIsMine = existing.Any(x => x.UserId == entry.UserId);
@@ -56,7 +56,7 @@ namespace IndieVisible.Domain.Services
 
             foreach (var entry in entries)
             {
-                var existing = existingEntrys.FirstOrDefault(x => x.TermId == entry.TermId && x.UserId == entry.UserId);
+                var existing = existingEntrys.FirstOrDefault(x => x.TermId == entry.TermId && x.UserId == entry.UserId && x.Language == entry.Language);
                 if (existing == null)
                 {
                     entry.CreateDate = DateTime.Now;
