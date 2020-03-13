@@ -98,6 +98,8 @@
 
             $.validator.unobtrusive.parse(objs.form);
         });
+
+        setStickyElementsEdit();
     }
 
     function setDetails() {
@@ -105,7 +107,7 @@
 
         bindDetails();
 
-        setStickyElements();
+        setStickyElementsDetails();
     }
 
     function init() {
@@ -161,7 +163,7 @@
     }
 
     function bindPopOvers() {
-        $("[data-toggle='popover']").popover();
+        $("[data-toggle='popover']").popover({ html: true});
     }
 
     function bindLanguageChange() {
@@ -372,7 +374,6 @@
 
     function bindBtnSaveTerms() {
         objs.containerDetails.on('click', selectors.btnSaveTerms, function (e) {
-            console.log('clicou');
             e.preventDefault();
             var btn = $(this);
 
@@ -619,14 +620,14 @@
             termsUploadDropZone.processQueue();
 
             termsUploadDropZone.on("success", function (file, response) {
-                console.log('success');
+                console.log(file);
                 if (callback) {
                     callback(response);
                 }
             });
 
             termsUploadDropZone.on("queuecomplete", function (file) {
-                console.log('queuecomplete');
+                console.log(file);
             });
         }
     }
@@ -665,7 +666,6 @@
 
 
             if (termsUploadDropZone) {
-                console.log('destroying dropzone');
                 termsUploadDropZone.destroy();
                 termsUploadDropZone = null;
             }
@@ -719,8 +719,12 @@
         array.splice(index, 1);
     }
 
-    function setStickyElements() {
+    function setStickyElementsDetails() {
         MAINMODULE.Layout.SetStickyElement('#divTranslationSelector', 50, '#divTranslationSelector');
+    }
+
+    function setStickyElementsEdit() {
+        MAINMODULE.Layout.SetStickyElement('#divManualTerms', 50, '#divManualTerms');
     }
 
     return {

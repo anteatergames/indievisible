@@ -149,7 +149,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 TranslationProjectViewModel model = castResult.Value;
 
-                SetLocalization(model);
+                SetLocalization(model, true);
 
                 OperationResultVo gamesResult = translationAppService.GetMyUntranslatedGames(CurrentUserId);
                 if (gamesResult.Success)
@@ -400,20 +400,22 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         {
             SetLocalization(model, false);
 
-            if (string.IsNullOrWhiteSpace(model.Introduction))
-            {
-                model.Introduction = SharedLocalizer["No extra information."];
-            }
-
             model.SetShareText(SharedLocalizer["Help translate {0}", model.Game.Title]);
 
             model.SetShareUrl(Url.Action("details", "translation", new { area = "tools", id = model.Id }));
         }
 
-        private void SetLocalization(TranslationProjectViewModel item, bool editing)
+        private void SetLocalization(TranslationProjectViewModel model, bool editing)
         {
-            if (item != null)
+            if (model != null)
             {
+                if (!editing)
+                {
+                    if (string.IsNullOrWhiteSpace(model.Introduction))
+                    {
+                        model.Introduction = SharedLocalizer["No extra information."];
+                    }
+                }
             }
         }
     }

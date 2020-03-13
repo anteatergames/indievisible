@@ -6,9 +6,11 @@
 
 @section ComponentStyles {
     <environment include="Development">
+        <link rel="stylesheet" href="~/css/translation.css">
         <link rel="stylesheet" href="~/lib/dropzone/dropzone.css" />
     </environment>
     <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/translation.min.css" asp-append-version="true">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css"
               asp-fallback-href="~/lib/dropzone/min/dropzone.min.css"
               asp-fallback-test-class="dropzone"

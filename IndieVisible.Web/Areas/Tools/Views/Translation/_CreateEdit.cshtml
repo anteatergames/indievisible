@@ -97,20 +97,23 @@
 
 
                 <div class="row">
-                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8 mt-1">
+                    <div class="col-12 col-lg-6 offset-lg-6 col-xl-4 offset-xl-8 mt-1">
                         <button type="button" id="btnSaveTranslation" class="btn btn-lg btn-primary btn-block" data-error-msg="<i class='fas fa-exclamation-circle' aria-hidden='true'></i> @SharedLocalizer["Something is missing!"]"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save Translation Project"]</button>
                     </div>
                 </div>
 
-                <div class="row">
-                    @if (Model.Id != Guid.Empty)
-                    {
+                @if (Model.Id != Guid.Empty)
+                {
+                    <div class="row">
                         <div class="col-12">
                             <hr />
                             <h2 class="text-capitalize">@SharedLocalizer["terms"] (<span id="term-count">@Model.Terms.Count</span>)</h2>
                         </div>
                         <div class="col-12 text-center">
-                            <h3 class="text-uppercase">@SharedLocalizer["Option 1: Upload File"]</h3>
+                            <h3 class="text-uppercase">
+                                @SharedLocalizer["Option 1: Upload File"]
+                                <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["Here you can upload a XLSX file with: <br /> - headers on the first row;<br /> - the term on the first column; <br /> - The primary language values on the second column; <br /><br />  Optionally, you can add up to 4 additional languages up to the 6th column."]" aria-hidden="true"></i>
+                            </h3>
                         </div>
                         <div class="col-12 col-md-4">
                             <div id="divUploadTerms" class="dropzone" data-url="@Url.Action("uploadterms", "translation", new { Area = "tools", projectId = Model.Id })">
@@ -151,46 +154,59 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8 mt-1">
+                        <div class="col-12 col-lg-6 offset-lg-6 col-xl-4 offset-xl-8 mt-1">
                             <button type="button" id="btnUploadTerms" class="btn btn-lg btn-warning btn-block" data-project-id="@Model.Id"><i class="fas fa-upload" aria-hidden="true"></i> @SharedLocalizer["Upload file"]</button>
                         </div>
+                    </div>
 
+                    <div class="row">
                         <div class="col-12">
-                            <div class="col-12 text-center">
-                                <hr />
-                                <h3 class="text-uppercase">@SharedLocalizer["Option 2: Add terms manually"]</h3>
-                                <button type="button" class="btn btn-success" id="btn-translation-term-add"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["Add term"]</button>
-                            </div>
+                            <hr />
+                            <div id="divManualTerms" class="border-bottom mb-2 pb-1 bg-white sticky">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <h3 class="text-uppercase">@SharedLocalizer["Option 2: Add terms manually"]</h3>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <button type="button" class="btn btn-sm btn-success" id="btn-translation-term-add"><i class="fas fa-plus" aria-hidden="true"></i> @SharedLocalizer["Add term"]</button>
+                                    </div>
 
-                            <div id="divTerms" class="mt-2">                                
+                                    <div class="col-6 col-lg-6 col-xl-4 offset-xl-2">
+                                        <button type="button" id="btnSaveTerms" class="btn btn-sm btn-secondary btn-block"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save All Terms"]</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    }
-                </div>
-            </div>
+                    </div>
+
+                    <div id="divTerms" class=" col-12 mt-2">
+                    </div>
+                }
     </form>
 </div>
 
-<div class="row mb-2 translation-term template">
-    <input type="hidden" id="Placeholder_0__Id" name="Placeholder[0].Id" />
-    <input type="hidden" id="Placeholder_0__CreateDate" name="Placeholder[0].CreateDate" />
-    <input type="hidden" id="Placeholder_0__UserId" name="Placeholder[0].UserId" />
-    <div class="col-12 col-md-6 rounded-0">
-        <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Key)</label>
-        <span class="col-form-label">
-            <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
-        </span>
-        <input id="Placeholder_0__Key" name="Placeholder[0].Key" class="form-control" placeholder="@SharedLocalizer["Type here the key for your term"]" />
-        <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Key" data-valmsg-replace="true"></span>
-    </div>
-    <div class="col-12 col-md-6 rounded-0">
-        <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Value)</label> <span class="col-form-label">(@SharedLocalizer["in {0}", Model.PrimaryLanguage.ToDisplayName()])</span>
-        <input id="Placeholder_0__Value" name="Placeholder[0].Value" class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
-        <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Value" data-valmsg-replace="true"></span>
-    </div>
-    <div class="col-12 mt-1">
-        <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Obs)</label>
-        <textarea id="Placeholder_0__Obs" name="Placeholder[0].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of the term above."]"></textarea>
-        <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Obs" data-valmsg-replace="true"></span>
+<div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 mt-2 m-md-2 mb-2 translation-term border bg-light no-gutters template">
+    <div class="col-12 px-1 px-sm-2 px-md-3 no-gutters">
+        <input type="hidden" id="Placeholder_0__Id" name="Placeholder[0].Id" />
+        <input type="hidden" id="Placeholder_0__CreateDate" name="Placeholder[0].CreateDate" />
+        <input type="hidden" id="Placeholder_0__UserId" name="Placeholder[0].UserId" />
+        <div class="col-12 rounded-0">
+            <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Key)</label>
+            <span class="col-form-label">
+                <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
+            </span>
+            <input id="Placeholder_0__Key" name="Placeholder[0].Key" class="form-control" placeholder="@SharedLocalizer["Type here a key for the term"]" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Key" data-valmsg-replace="true"></span>
+        </div>
+        <div class="col-12 rounded-0">
+            <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Value)</label> <span class="col-form-label">(@SharedLocalizer["in {0}", SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]])</span>
+            <input id="Placeholder_0__Value" name="Placeholder[0].Value" class="form-control" placeholder="@SharedLocalizer["Type here your translation"]" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Value" data-valmsg-replace="true"></span>
+        </div>
+        <div class="col-12 mt-1">
+            <label class="col-form-label">@Html.LabelFor(x => x.Terms.First().Obs)</label>
+            <textarea id="Placeholder_0__Obs" name="Placeholder[0].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of this term."]"></textarea>
+            <span class="text-danger field-validation-valid" data-valmsg-for="Placeholder[0].Obs" data-valmsg-replace="true"></span>
+        </div>
     </div>
 </div>

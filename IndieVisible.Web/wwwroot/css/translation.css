@@ -19,7 +19,7 @@
     }
 }
 
-#divTranslationSelector {
+.sticky {
     z-index: 51 !important;
     border-radius: 0;
 }
