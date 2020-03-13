@@ -444,6 +444,8 @@
         $.get(urlTerms, function (response) {
             objs.divTerms.html(response);
 
+            bindPopOvers();
+
             if (callback) {
                 callback(response);
             }

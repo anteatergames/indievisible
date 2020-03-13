@@ -333,6 +333,8 @@ namespace IndieVisible.Application.Services
         {
             try
             {
+                var basicData = translationDomainService.GetBasicInfoById(projectId);
+
                 IEnumerable<TranslationTerm> entries = translationDomainService.GetTerms(projectId);
 
                 List<TranslationTermViewModel> vms = mapper.Map<IEnumerable<TranslationTerm>, IEnumerable<TranslationTermViewModel>>(entries).ToList();
@@ -344,7 +346,15 @@ namespace IndieVisible.Application.Services
                     entry.AuthorPicture = UrlFormatter.ProfileImage(entry.UserId);
                 }
 
-                return new OperationResultListVo<TranslationTermViewModel>(vms);
+                TranslationProjectViewModel projectVm = new TranslationProjectViewModel
+                {
+                    Id = projectId,
+                    PrimaryLanguage = basicData.PrimaryLanguage,
+                    Terms = vms
+                };
+
+
+                return new OperationResultVo<TranslationProjectViewModel>(projectVm);
             }
             catch (Exception ex)
             {

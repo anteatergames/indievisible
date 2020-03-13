@@ -1833,4 +1833,28 @@
     <value>Traduções salvas!</value>
     <comment>Translation</comment>
   </data>
+  <data name="Upload file" xml:space="preserve">
+    <value>Enviar arquivo</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Context" xml:space="preserve">
+    <value>Contexto</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Explain here the context of this term." xml:space="preserve">
+    <value>Explique aqui o contexto deste termo.</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="in {0}" xml:space="preserve">
+    <value>em {0}</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Type here a key for the term" xml:space="preserve">
+    <value>Digite aqui uma chave para o termo</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="We recommend that you choose a key without spaces and all lowercase." xml:space="preserve">
+    <value>Recomendamos que você escolha uma chave sem espaços e toda em letras minúsculas</value>
+    <comment>Translation</comment>
+  </data>
 </root>

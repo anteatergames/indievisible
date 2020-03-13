@@ -328,15 +328,9 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 if (result.Success)
                 {
-                    OperationResultListVo<TranslationTermViewModel> castResult = result as OperationResultListVo<TranslationTermViewModel>;
+                    OperationResultVo<TranslationProjectViewModel> castResult = result as OperationResultVo<TranslationProjectViewModel>;
 
-                    TranslationProjectViewModel model = new TranslationProjectViewModel
-                    {
-                        Id = projectId,
-                        Terms = castResult.Value.ToList()
-                    };
-
-                    return PartialView("_Terms", model);
+                    return PartialView("_Terms", castResult.Value);
                 }
                 else
                 {

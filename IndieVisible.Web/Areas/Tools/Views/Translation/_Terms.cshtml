@@ -19,17 +19,17 @@
                 <label asp-for="Terms[i].Key" class="col-form-label"></label> <span class="col-form-label">
                     <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
                 </span>
-                <input asp-for="Terms[i].Key" class="form-control" placeholder="@SharedLocalizer["Type here the key for your term"]" />
+                <input asp-for="Terms[i].Key" class="form-control" placeholder="@SharedLocalizer["Type here a key for the term"]" />
                 <span asp-validation-for="Terms[i].Key" class="text-danger"></span>
             </div>
             <div class="col-12">
-                <label asp-for="Terms[i].Value" class="col-form-label"></label> <span class="col-form-label">(@SharedLocalizer["in {0}", @Model.PrimaryLanguage.ToDisplayName()])</span>
+                <label asp-for="Terms[i].Value" class="col-form-label"></label> <span class="col-form-label">(@SharedLocalizer["in {0}", SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]])</span>
                 <textarea asp-for="Terms[i].Value" class="form-control" placeholder="@SharedLocalizer["Type here your translation"]"></textarea>
                 <span asp-validation-for="Terms[i].Value" class="text-danger"></span>
             </div>
             <div class="col-12">
                 <label asp-for="Terms[i].Obs" class="col-form-label"></label>
-                <textarea asp-for="Terms[i].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of the term above."]"></textarea>
+                <textarea asp-for="Terms[i].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of this term."]"></textarea>
                 <span asp-validation-for="Terms[i].Obs" class="text-danger"></span>
             </div>
         </div>
