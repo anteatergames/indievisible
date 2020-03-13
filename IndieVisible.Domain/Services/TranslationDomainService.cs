@@ -56,7 +56,7 @@ namespace IndieVisible.Domain.Services
 
             foreach (var entry in entries)
             {
-                var existing = existingEntrys.FirstOrDefault(x => x.Id == entry.Id);
+                var existing = existingEntrys.FirstOrDefault(x => x.TermId == entry.TermId && x.UserId == entry.UserId);
                 if (existing == null)
                 {
                     entry.CreateDate = DateTime.Now;

@@ -249,7 +249,6 @@
                     data.push(item);
                 }
 
-                console.log(data);
                 $.post(url, { entries: data }).done(function (response) {
                     if (response.success === true) {
                         if (response.message) {
