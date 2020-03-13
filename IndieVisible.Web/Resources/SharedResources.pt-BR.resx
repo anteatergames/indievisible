@@ -1865,4 +1865,8 @@
     <value>Aqui você pode enviar um arquivo XLSX com: &lt;br /&gt; - cabeçalhos na primeira linha; &lt;br /&gt; - O termo na primeria coluna; &lt;br /&gt; - Os valores do idioma principal na segunda coluna; &lt;br /&gt; Opcionalmente, você pode adicionar até 4 idiomas adicionais até a  6ª coluna.</value>
     <comment>Translate</comment>
   </data>
+  <data name="No terms found for this translation project. Go ahead, start adding some or upload a XLSX file!" xml:space="preserve">
+    <value>Não existem termos para este projeto de tradução. Vamos lá, adicione alguns termos manualmente ou envie um arquivo XLSX!</value>
+    <comment>Translation</comment>
+  </data>
 </root>
