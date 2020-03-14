@@ -6,6 +6,12 @@
     padding: 0;
 }
 
+.translation-term .term-item-actions {
+    margin-top: -5px;
+    right: -5px;
+    z-index: 1000;
+}
+
 .translation-progress-chart {
     margin-top: -40px;
 }

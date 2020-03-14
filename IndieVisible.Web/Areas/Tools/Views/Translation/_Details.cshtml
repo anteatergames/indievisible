@@ -37,7 +37,7 @@
 
                                         @if (Model.Permissions.CanDelete)
                                         {
-                                            <a class="btnDeleteTranslationProject dropdown-item" href="#" data-url="@Url.Action("DeleteTranslation", "Translation", new { area = "Tools", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this job position?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                                            <a class="btnDeleteTranslationProject dropdown-item" href="#" data-url="@Url.Action("Delete", "Translation", new { area = "Tools", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this Translation Project?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
                                         }
                                     </div>
                                 </div>

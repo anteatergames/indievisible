@@ -31,9 +31,9 @@
         selectors.btnEdit = '.btnEditTranslationProject';
         selectors.btnDelete = '.btnDeleteTranslationProject';
         selectors.divTerms = '#divTerms';
-        selectors.term = '.translation-term';
         selectors.template = '.translation-term.template';
         selectors.btnAddTerm = '#btn-translation-term-add';
+        selectors.btnDeleteTerm = '.btn-term-delete';
         selectors.ddlLanguage = '#Language';
         selectors.entry = '.translation-entry';
         selectors.entryInput = ':input.entry-input';
@@ -51,6 +51,7 @@
         selectors.termItem = '.translation-term';
         selectors.changedCounter = '#changedtranslationscounter';
         selectors.btnSaveTranslationChanges = '#btnSaveTranslationChanges';
+        selectors.divNoItems = '#divNoItems';
     }
 
     function cacheObjsCommon() {
@@ -86,6 +87,7 @@
 
         bindPopOvers();
         bindBtnAddTerm();
+        bindBtnDeleteTerm();
         bindBtnUploadTerms();
         bindBtnSaveTerms();
 
@@ -93,10 +95,11 @@
 
         loadTerms(function (response) {
             objs.btnSaveTerms = $(selectors.btnSaveTerms);
+            objs.divNoItems = $(selectors.divNoItems);
 
-            objs.form.removeData("validator").removeData("unobtrusiveValidation");
+            checkNoItems();
 
-            $.validator.unobtrusive.parse(objs.form);
+            resetValidator();
         });
 
         setStickyElementsEdit();
@@ -140,7 +143,6 @@
     function bindAll() {
         bindBtnNew();
         bindBtnSaveForm();
-        bindEdit();
     }
 
     function bindBtnNew() {
@@ -153,6 +155,8 @@
     }
 
     function bindDetails() {
+        bindEdit();
+        bindDeleteProject();
         bindPopOvers();
         bindLanguageChange();
         bindEntrySave();
@@ -163,7 +167,7 @@
     }
 
     function bindPopOvers() {
-        $("[data-toggle='popover']").popover({ html: true});
+        $("[data-toggle='popover']").popover({ html: true });
     }
 
     function bindLanguageChange() {
@@ -377,17 +381,21 @@
             e.preventDefault();
             var btn = $(this);
 
-            MAINMODULE.Common.RemoveErrorFromButton(btn);
             MAINMODULE.Common.DisableButton(btn);
 
             var valid = objs.form.valid();
 
-            if (valid && canInteract) {
+            var requiredTermInputs = $(selectors.termItem + ':not(.template)').find(':input.required');
+
+            if (requiredTermInputs.length > 0 && valid && canInteract) {
                 saveTerms(btn, function (response) {
                     if (response.message) {
                         ALERTSYSTEM.Toastr.ShowWarning(response.message);
                     }
                 });
+            }
+            else {
+                MAINMODULE.Common.RemoveErrorFromButton(btn);
             }
 
             return false;
@@ -406,11 +414,38 @@
         });
     }
 
+
+    function bindDeleteProject() {
+        objs.container.on('click', selectors.btnDelete, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+
+            if (canInteract) {
+                deleteProject(btn);
+            }
+
+            return false;
+        });
+    }
+
     function bindBtnAddTerm() {
         objs.container.on('click', selectors.btnAddTerm, function (e) {
             e.preventDefault();
 
             addNewTerm();
+
+            return false;
+        });
+    }
+
+    function bindBtnDeleteTerm() {
+        objs.containerDetails.on('click', selectors.btnDeleteTerm, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+
+            deleteTerm(btn);
 
             return false;
         });
@@ -438,19 +473,22 @@
 
         var id = objs.id.val();
 
-        urlTerms = urlTerms + id;
+        if (id !== '000000-0000-0000-0000-000000000000') {
+            urlTerms = urlTerms + id;
 
-        objs.divTerms.html(MAINMODULE.Default.SpinnerTop);
+            objs.divTerms.html(MAINMODULE.Default.SpinnerTop);
 
-        $.get(urlTerms, function (response) {
-            objs.divTerms.html(response);
+            $.get(urlTerms, function (response) {
+                objs.divTerms.html(response);
 
-            bindPopOvers();
+                if (callback) {
+                    callback(response);
+                }
 
-            if (callback) {
-                callback(response);
-            }
-        });
+                bindPopOvers();
+            });
+
+        }
     }
 
     function loadMyProjects(fromControlSidebar, url) {
@@ -478,7 +516,6 @@
 
             objs.form = $(selectors.form);
 
-            $.validator.unobtrusive.parse(selectors.form);
             setCreateEdit();
         });
     }
@@ -497,6 +534,37 @@
         });
     }
 
+    function deleteProject(btn, callback) {
+        var url = btn.data('url');
+
+        var msgs = MAINMODULE.Common.GetDeleteMessages(btn);
+
+        ALERTSYSTEM.ShowConfirmMessage(msgs.confirmationTitle, msgs.msg, msgs.confirmationButtonText, msgs.cancelButtonText, function () {
+            $.ajax({
+                url: url,
+                type: 'DELETE'
+            }).done(function (response) {
+                if (response.success) {
+                    if (response.message) {
+                        ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                            if (response.url) {
+                                window.location = response.url;
+                            }
+                        });
+                    }
+                    else {
+                        if (response.url) {
+                            window.location = response.url;
+                        }
+                    }
+                }
+                else {
+                    ALERTSYSTEM.ShowWarningMessage(response.message);
+                }
+            });
+        });
+    }
+
     function addNewTerm() {
         var newTermObj = $(selectors.template).first().clone();
 
@@ -508,9 +576,25 @@
 
         newTermObj.find('input.form-control').first().focus();
 
-        MAINMODULE.Common.RenameInputs(objs.divTerms, selectors.term, propPrefix);
+        MAINMODULE.Common.RenameInputs(objs.divTerms, selectors.termItem, propPrefix);
+
+        checkNoItems();
 
         bindPopOvers();
+
+        resetValidator();
+    }
+
+    function deleteTerm(btn) {
+        var term = btn.closest(selectors.termItem);
+
+        term.remove();
+
+        MAINMODULE.Common.RenameInputs(objs.divTerms, selectors.termItem, propPrefix);
+
+        checkNoItems();
+
+        resetValidator();
     }
 
     function addNewAuthor(container, translation) {
@@ -531,9 +615,9 @@
     }
 
     function deleteEntryAuthorButton(termId, userId) {
-        var termInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + termId + ']');
+        var entryInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + termId + ']');
 
-        var entry = termInput.closest(selectors.entry);
+        var entry = entryInput.closest(selectors.entry);
 
         var authorBtn = entry.find(selectors.entryAuthorButton + '[data-userId=' + userId + ']');
 
@@ -541,12 +625,12 @@
     }
 
     function loadSingleTranslation(translation) {
-        var termInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + translation.termId + ']');
+        var entryInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + translation.termId + ']');
 
-        termInput.val(translation.value);
-        termInput.data('originalval', translation.value);
+        entryInput.val(translation.value);
+        entryInput.data('originalval', translation.value);
 
-        addNewAuthor(termInput.closest(selectors.entry).find(selectors.entryAuthors), translation);
+        addNewAuthor(entryInput.closest(selectors.entry).find(selectors.entryAuthors), translation);
     }
 
     function submitForm(btn, callback) {
@@ -650,7 +734,8 @@
                     callback(response);
                 }
 
-                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function () {
+                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (result) {
+                    console.log(result);
                     loadTerms();
                 });
             }
@@ -727,6 +812,23 @@
         MAINMODULE.Layout.SetStickyElement('#divManualTerms', 50, '#divManualTerms');
     }
 
+    function checkNoItems() {
+        var termCount = $(selectors.termItem + ':not(.template)').length;
+
+        if (termCount === 0) {
+            objs.divNoItems.show();
+        }
+        else {
+            objs.divNoItems.hide();
+        }
+    }
+
+    function resetValidator() {
+        objs.form.removeData("validator").removeData("unobtrusiveValidation");
+
+        $.validator.unobtrusive.parse(objs.form);
+    }
+
     return {
         Init: init
     };
@@ -734,13 +836,6 @@
 
 $(function () {
     TRANSLATION.Init();
-
-
-    $.validator.setDefaults({
-        onfocusout: function (element) {
-            $(element).valid();
-        }
-    });
 });
 
 if (window.Dropzone !== undefined) {

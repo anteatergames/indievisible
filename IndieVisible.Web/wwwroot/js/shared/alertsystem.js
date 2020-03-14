@@ -22,15 +22,15 @@
     function bindAll() {
     }
 
-    function showWarningAlert(text) {
-        showAlert(text, 'warning');
+    function showWarningAlert(text, callback) {
+        showAlert(text, 'warning', callback);
     }
 
-    function showPointsEarned(text) {
-        showAlert(text, 'info');
+    function showPointsEarned(text, callback) {
+        showAlert(text, 'info', callback);
     }
 
-    function showAlert(text, type) {
+    function showAlert(text, type, callback) {
         swal({
             toast: true,
             position: 'top-end',
@@ -38,7 +38,13 @@
             showConfirmButton: false,
             title: text,
             timer: 3000
-        });
+        }).then(
+            function (result) {
+                if (callback) {
+                    callback(result);
+                }
+            }
+        );
     }
 
     function showSuccessMessage(msg, callback) {

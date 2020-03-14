@@ -147,16 +147,16 @@
     function setButtonWithError(btn) {
         saveBtnOriginalText = btn.html();
         var errMsg = btn.data('errorMsg');
-        btn.removeClass('btn-primary').addClass('btn-warning').html(errMsg);
+        btn.html(errMsg);
     }
 
     function removeErrorFromButton(btn) {
-        btn.removeClass('disabled').removeClass('btn-warning').addClass('btn-primary').html(saveBtnOriginalText);
+        btn.removeClass('disabled').html(saveBtnOriginalText);
     }
 
     function postSaveCallback(response, btn) {
         if (response.success === true) {
-            btn.removeClass('disabled').removeClass('btn-primary').addClass('btn-success').html(MAINMODULE.Default.DoneBtn);
+            btn.removeClass('disabled').html(MAINMODULE.Default.DoneBtn);
         }
         else {
             btn.html(saveBtnOriginalText);
@@ -218,6 +218,36 @@
         });
     }
 
+    function getDeleteMessages(btn) {
+        var msg = btn.data('confirmationmessage');
+        var confirmationTitle = btn.data('confirmationtitle');
+        var confirmationButtonText = btn.data('confirmationbuttontext');
+        var cancelButtonText = btn.data('cancelbuttontext');
+
+        if (msg === undefined) {
+            msg = 'Are you sure you want to delete this?';
+        }
+
+        if (confirmationTitle === undefined) {
+            confirmationTitle = 'Are you sure?';
+        }
+
+        if (confirmationButtonText === undefined) {
+            confirmationButtonText = 'Yes, delete it!';
+        }
+
+        if (cancelButtonText === undefined) {
+            cancelButtonText = 'Cancel';
+        }
+
+        return {
+            msg: msg,
+            confirmationTitle: confirmationTitle,
+            confirmationButtonText: confirmationButtonText,
+            cancelButtonText: cancelButtonText
+        };
+    }
+
     return {
         Init: init,
         Layout: {
@@ -231,7 +261,8 @@
             SetButtonWithError: setButtonWithError,
             RemoveErrorFromButton: removeErrorFromButton,
             PostSaveCallback: postSaveCallback,
-            RenameInputs: renameInputs
+            RenameInputs: renameInputs,
+            GetDeleteMessages: getDeleteMessages
         },
         Default: {
             Spinner: spinnerCenter,

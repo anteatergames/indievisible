@@ -81,6 +81,8 @@ namespace IndieVisible.Web.Controllers
         {
             OperationResultVo<GameViewModel> serviceResult = gameAppService.CreateNew(CurrentUserId);
 
+            SetMyTeamsSelectList();
+
             if (serviceResult.Success)
             {
                 return View("CreateEdit", serviceResult.Value);

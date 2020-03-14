@@ -241,6 +241,31 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         }
 
         [Authorize]
+        [HttpDelete("tools/translation/delete/{id:guid}")]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                OperationResultVo saveResult = translationAppService.Remove(CurrentUserId, id);
+
+                if (saveResult.Success)
+                {
+                    string url = Url.Action("Index", "Translation", new { area = "tools" });
+
+                    return Json(new OperationResultRedirectVo(saveResult, url));
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        [Authorize]
         [HttpPost("tools/translation/gettranslation/{projectId:guid}")]
         public IActionResult GetTranslation(Guid projectId, SupportedLanguage language)
         {
