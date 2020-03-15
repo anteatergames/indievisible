@@ -52,6 +52,7 @@
         selectors.changedCounter = '#changedtranslationscounter';
         selectors.btnSaveTranslationChanges = '#btnSaveTranslationChanges';
         selectors.divNoItems = '#divNoItems';
+        selectors.termCounter = '#termCounter';
     }
 
     function cacheObjsCommon() {
@@ -80,6 +81,7 @@
         objs.divTerms = $(selectors.divTerms);
         objs.btnUploadTerms = $(selectors.btnUploadTerms);
         objs.id = $(selectors.id);
+        objs.termCounter = $(selectors.termCounter);
     }
 
     function setCreateEdit() {
@@ -93,14 +95,7 @@
 
         instantiateDropZone();
 
-        loadTerms(function (response) {
-            objs.btnSaveTerms = $(selectors.btnSaveTerms);
-            objs.divNoItems = $(selectors.divNoItems);
-
-            checkNoItems();
-
-            resetValidator();
-        });
+        loadTerms();
 
         setStickyElementsEdit();
     }
@@ -262,6 +257,13 @@
                 $.post(url, { language: language, entries: data }).done(function (response) {
                     if (response.success === true) {
 
+                        for (var i = 0; i < changedEntries.length; i++) {
+                            var input = $(selectors.entryInput + '[data-termid=' + changedEntries[i] + ']');
+
+                            input.data('changed', false);
+                            input.data('originalval', input.val());
+                        }
+
                         changedEntries = [];
 
                         resetChangeCounter();
@@ -289,14 +291,14 @@
 
             if (language) {
                 if (different) {
-                    if (!input.data('changed')) {
+                    if (input.data('changed') !== true) {
                         changedEntries.push(termId);
                         input.data('changed', true);
                         increaseChangeCounter();
                     }
                 }
                 else {
-                    if (input.data('changed')) {
+                    if (input.data('changed') === true) {
                         removeFromArray(changedEntries, termId);
                         input.data('changed', false);
                         decreaseChangeCounter();
@@ -385,9 +387,7 @@
 
             var valid = objs.form.valid();
 
-            var requiredTermInputs = $(selectors.termItem + ':not(.template)').find(':input.required');
-
-            if (requiredTermInputs.length > 0 && valid && canInteract) {
+            if (valid && canInteract) {
                 saveTerms(btn, function (response) {
                     if (response.message) {
                         ALERTSYSTEM.Toastr.ShowWarning(response.message);
@@ -469,6 +469,8 @@
     }
 
     function loadTerms(callback) {
+        objs.termCounter.html('...');
+
         var urlTerms = objs.urls.data('urlTerms');
 
         var id = objs.id.val();
@@ -480,6 +482,13 @@
 
             $.get(urlTerms, function (response) {
                 objs.divTerms.html(response);
+
+                objs.btnSaveTerms = $(selectors.btnSaveTerms);
+                objs.divNoItems = $(selectors.divNoItems);
+
+                checkNoItems();
+
+                resetValidator();
 
                 if (callback) {
                     callback(response);
@@ -545,18 +554,7 @@
                 type: 'DELETE'
             }).done(function (response) {
                 if (response.success) {
-                    if (response.message) {
-                        ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
-                            if (response.url) {
-                                window.location = response.url;
-                            }
-                        });
-                    }
-                    else {
-                        if (response.url) {
-                            window.location = response.url;
-                        }
-                    }
+                    MAINMODULE.Common.HandleSuccessDefault(response);
                 }
                 else {
                     ALERTSYSTEM.ShowWarningMessage(response.message);
@@ -724,18 +722,16 @@
         url = url + id;
 
         var terms = $(selectors.termItem);
-        var data = terms.find(':input, :hidden').serializeArray();
+        var data = terms.find(':input, :hidden').serializeObject();
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
                 MAINMODULE.Common.PostSaveCallback(response, btn);
 
-                if (callback) {
-                    callback(response);
-                }
-
-                ALERTSYSTEM.ShowSuccessMessage("Awesome!", function (result) {
+                MAINMODULE.Common.HandleSuccessDefault(response, callback, function (result) {
                     console.log(result);
+                    MAINMODULE.Common.RemoveErrorFromButton(btn);
+
                     loadTerms();
                 });
             }
@@ -814,6 +810,8 @@
 
     function checkNoItems() {
         var termCount = $(selectors.termItem + ':not(.template)').length;
+
+        objs.termCounter.html(termCount);
 
         if (termCount === 0) {
             objs.divNoItems.show();

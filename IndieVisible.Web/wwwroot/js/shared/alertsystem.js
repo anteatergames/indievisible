@@ -53,9 +53,9 @@
             text: msg,
             type: "success"
         }).then(
-            function () {
+            function (result) {
                 if (callback) {
-                    callback();
+                    callback(result);
                 }
             }
         );

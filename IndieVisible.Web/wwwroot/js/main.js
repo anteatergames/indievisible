@@ -248,6 +248,29 @@
         };
     }
 
+    function handleSuccessDefault(response, callback, successCallback) {
+        if (callback) {
+            callback(response);
+        }
+
+        if (response.message) {
+            ALERTSYSTEM.ShowSuccessMessage(response.message, function (result) {
+                if (successCallback) {
+                    successCallback(result);
+                }
+
+                if (response.url) {
+                    window.location = response.url;
+                }
+            });
+        }
+        else {
+            if (response.url) {
+                window.location = response.url;
+            }
+        }
+    }
+
     return {
         Init: init,
         Layout: {
@@ -255,6 +278,7 @@
         },
         Common: {
             HandlePointsEarned: handlePointsEarned,
+            HandleSuccessDefault: handleSuccessDefault,
             TranslatedMessages: translatedMessages,
             DisableButton: disableButton,
             EnableButton: enableButton,
@@ -276,3 +300,19 @@
 $(function () {
     MAINMODULE.Init();
 });
+
+$.fn.serializeObject = function () {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (o[this.name]) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};

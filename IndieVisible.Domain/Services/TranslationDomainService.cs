@@ -100,6 +100,13 @@ namespace IndieVisible.Domain.Services
                     repository.UpdateTerm(projectId, existing);
                 }
             }
+
+            var deleteTerms = existingTerms.Where(x => !terms.Contains(x));
+
+            foreach (var term in deleteTerms)
+            {
+                repository.RemoveTerm(projectId, term.Id);
+            }
         }
 
         public TranslationProject GetBasicInfoById(Guid id)

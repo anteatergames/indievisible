@@ -291,8 +291,8 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         }
 
         [Authorize]
-        [HttpPost("tools/translation/settranslation/{projectId:guid}")]
-        public IActionResult SetTranslation(Guid projectId, TranslationEntryViewModel vm)
+        [HttpPost("tools/translation/savetranslation/{projectId:guid}")]
+        public IActionResult SaveTranslation(Guid projectId, TranslationEntryViewModel vm)
         {
             try
             {
@@ -320,6 +320,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         [Authorize]
         [HttpPost("tools/translation/saveentries/{projectId:guid}")]
+        [RequestFormLimits(ValueCountLimit = int.MaxValue)]
         public IActionResult SaveEntries(Guid projectId, SupportedLanguage language, IEnumerable<TranslationEntryViewModel> entries)
         {
             try
@@ -369,8 +370,10 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         }
 
         [Authorize]
-        [HttpPost("tools/translation/setterms/{projectId:guid}")]
-        public IActionResult SetTerms(Guid projectId, IEnumerable<TranslationTermViewModel> terms)
+        [HttpPost("tools/translation/saveterms/{projectId:guid}")]
+        [RequestFormLimits(ValueCountLimit = int.MaxValue)]
+        [RequestSizeLimit(int.MaxValue)]
+        public IActionResult SaveTerms(Guid projectId, IEnumerable<TranslationTermViewModel> terms)
         {
             try
             {

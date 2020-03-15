@@ -6,12 +6,12 @@
 
 @for (int i = 0; i < Model.Terms.Count; i++)
 {
-    if (i > 0)
-    {
-        <hr />
-    }
 
     <div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 mt-2 m-md-2 mb-2 border bg-light no-gutters translation-term">
+        @if (i > 0)
+        {
+            <hr />
+        }
         <div class="col-12 px-1 px-sm-2 px-md-3 no-gutters">
             <input type="hidden" asp-for="Terms[i].Id" />
             <input type="hidden" asp-for="Terms[i].CreateDate" />

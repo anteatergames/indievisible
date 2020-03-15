@@ -19,7 +19,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public TranslationProject GetBasicInfoById(Guid id)
         {
-            var obj = DbSet.Find(x => x.Id == id).Project(x => new TranslationProject
+            IFindFluent<TranslationProject, TranslationProject> obj = DbSet.Find(x => x.Id == id).Project(x => new TranslationProject
             {
                 Id = x.Id,
                 UserId = x.UserId,
