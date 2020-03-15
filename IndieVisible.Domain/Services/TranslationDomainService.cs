@@ -103,9 +103,20 @@ namespace IndieVisible.Domain.Services
 
             var deleteTerms = existingTerms.Where(x => !terms.Contains(x));
 
-            foreach (var term in deleteTerms)
+
+            if (deleteTerms.Any())
             {
-                repository.RemoveTerm(projectId, term.Id);
+                List<TranslationEntry> existingEntries = repository.GetEntries(projectId).ToList();
+                foreach (var term in deleteTerms)
+                {
+                    var entries = existingEntries.Where(x => x.TermId == term.Id);
+                    repository.RemoveTerm(projectId, term.Id);
+
+                    foreach (var entry in entries)
+                    {
+                        repository.RemoveEntry(projectId, entry.Id);
+                    }
+                }
             }
         }
 
