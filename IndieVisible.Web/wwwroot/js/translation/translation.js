@@ -236,7 +236,6 @@
 
     function bindSaveTranslationChanges() {
         objs.containerDetails.on('click', selectors.btnSaveTranslationChanges, function () {
-            var btn = $(this);
             var url = objs.urls.data('urlEntriesSave');
             var language = objs.ddlLanguage.val();
 
@@ -554,6 +553,10 @@
                 type: 'DELETE'
             }).done(function (response) {
                 if (response.success) {
+                    if (callback) {
+                        callback(response);
+                    }
+
                     MAINMODULE.Common.HandleSuccessDefault(response);
                 }
                 else {

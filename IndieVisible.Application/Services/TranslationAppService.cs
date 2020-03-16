@@ -353,7 +353,6 @@ namespace IndieVisible.Application.Services
                     Terms = vms
                 };
 
-
                 return new OperationResultVo<TranslationProjectViewModel>(projectVm);
             }
             catch (Exception ex)
