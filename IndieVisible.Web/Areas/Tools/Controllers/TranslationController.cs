@@ -20,12 +20,10 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
     public class TranslationController : ToolsBaseController
     {
         private readonly ITranslationAppService translationAppService;
-        private readonly IGameAppService gameAppService;
 
-        public TranslationController(ITranslationAppService translationAppService, IGameAppService gameAppService)
+        public TranslationController(ITranslationAppService translationAppService)
         {
             this.translationAppService = translationAppService;
-            this.gameAppService = gameAppService;
         }
 
         public IActionResult Index()
@@ -36,8 +34,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 OperationResultListVo<SelectListItemVo> castResultGames = gamesResult as OperationResultListVo<SelectListItemVo>;
 
                 IEnumerable<SelectListItemVo> games = castResultGames.Value;
-
-                List<SelectListItem> gamesDropDown = games.ToSelectList();
                 ViewData["CanRequest"] = games.Any();
             }
             else
@@ -130,6 +126,28 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 {
                     return View("_DetailsWrapper", model);
                 }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [Route("tools/translation/stats/{id:guid}")]
+        public IActionResult Stats(Guid id)
+        {
+            OperationResultVo result = translationAppService.GetStatsById(CurrentUserId, id);
+
+            if (result.Success)
+            {
+                OperationResultVo<TranslationStatsViewModel> castRestult = result as OperationResultVo<TranslationStatsViewModel>;
+
+                TranslationStatsViewModel model = castRestult.Value;
+
+                SetLocalization(model);
+                SetAuthorDetails(model);
+
+                return View("_Stats", model);
             }
             else
             {
@@ -335,8 +353,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 {
                     return Json(new OperationResultVo(false));
                 }
-
-                return Json(entries);
             }
             catch (Exception ex)
             {

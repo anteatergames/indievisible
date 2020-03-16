@@ -32,5 +32,23 @@ namespace IndieVisible.Application.ViewModels.Translation
         }
 
         public double TranslationPercentage { get; set; }
+
+
+        public string TranslationPercentageText
+        {
+            get
+            {
+                var text = TranslationPercentage.ToString("N1");
+
+                if (TranslationPercentage == 0 || TranslationPercentage == 100 || text.Substring(text.Length - 1).Equals("0"))
+                {
+                    return TranslationPercentage.ToString("N0");
+                }
+                else
+                {
+                    return text;
+                }
+            }
+        }
     }
 }

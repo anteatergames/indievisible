@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
+using IndieVisible.Application.ViewModels;
+using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.Translation;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
@@ -333,7 +335,7 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var basicData = translationDomainService.GetBasicInfoById(projectId);
+                TranslationProject basicData = translationDomainService.GetBasicInfoById(projectId);
 
                 IEnumerable<TranslationTerm> entries = translationDomainService.GetTerms(projectId);
 
@@ -367,7 +369,7 @@ namespace IndieVisible.Application.Services
             {
                 List<TranslationTerm> vms = mapper.Map<IEnumerable<TranslationTermViewModel>, IEnumerable<TranslationTerm>>(terms).ToList();
 
-                foreach (var term in vms)
+                foreach (TranslationTerm term in vms)
                 {
                     term.UserId = currentUserId;
                 }
@@ -377,6 +379,51 @@ namespace IndieVisible.Application.Services
                 unitOfWork.Commit();
 
                 return new OperationResultVo(true, "Terms Updated!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetStatsById(Guid currentUserId, Guid id)
+        {
+            try
+            {
+                TranslationProject model = translationDomainService.GetById(id);
+
+                if (model == null)
+                {
+                    return new OperationResultVo("Translation Project not found!");
+                }
+
+                TranslationStatsViewModel vm = mapper.Map<TranslationStatsViewModel>(model);
+
+                vm.TermCount = model.Terms.Count;
+
+                var languages = model.Entries.GroupBy(x => x.Language);
+
+                foreach (var language in languages)
+                {
+                    var languageEntry = new TranslationStatsLanguageViewModel
+                    {
+                        Language = language.Key,
+                        EntryCount = language.Count(),
+                        Percentage =  CalculatePercentage(vm.TermCount, language.Count(), 1)
+                    };
+
+                    vm.Languages.Add(languageEntry);
+                }
+
+                SetPercentage(model, vm);
+
+                SetContributors(model, vm);
+
+                SetGameViewModel(model.GameId, vm);
+
+                SetPermissions(currentUserId, vm);
+
+                return new OperationResultVo<TranslationStatsViewModel>(vm);
             }
             catch (Exception ex)
             {
@@ -496,6 +543,33 @@ namespace IndieVisible.Application.Services
             SetBasePermissions(currentUserId, vm);
         }
 
+        private void SetContributors(TranslationProject model, TranslationStatsViewModel vm)
+        {
+            var contributors = model.Entries.GroupBy(x => x.UserId);
+
+            foreach (var contributorGroup in contributors)
+            {
+                var contributor = new ContributorViewModel();
+                UserProfile profile = GetCachedProfileByUserId(contributorGroup.Key);
+                contributor.UserId = contributorGroup.Key;
+                contributor.AuthorName = profile.Name;
+                contributor.AuthorPicture = UrlFormatter.ProfileImage(contributorGroup.Key);
+                contributor.EntryCount = contributorGroup.Count();
+                vm.Contributors.Add(contributor);
+            }
+
+            vm.Contributors = vm.Contributors.OrderByDescending(x => x.EntryCount).ToList();
+        }
+
+        private void SetPercentage(TranslationProject model, TranslationStatsViewModel vm)
+        {
+            int totalTermCount = model.Terms.Count;
+            int distinctEntriesCount = model.Entries.Select(x => new { x.TermId, x.Language }).Distinct().Count();
+            int languageCount = model.Entries.Select(x => x.Language).Distinct().Count();
+
+            vm.TranslationPercentage = CalculatePercentage(totalTermCount, distinctEntriesCount, languageCount);
+        }
+
         private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
         {
             if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
@@ -521,7 +595,7 @@ namespace IndieVisible.Application.Services
 
         private void SetGameViewModel(Guid gameId, TranslationProjectViewModel vm)
         {
-            ViewModels.Game.GameViewModel game = GetGameWithCache(gameDomainService, gameId);
+            GameViewModel game = GetGameWithCache(gameDomainService, gameId);
             vm.Game.Title = game.Title;
 
             vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
@@ -535,7 +609,7 @@ namespace IndieVisible.Application.Services
 
             double percentage = (100 * translatedCount) / (double)(totalTranslationsTarget == 0 ? 1 : totalTranslationsTarget);
 
-            return percentage;
+            return percentage > 100 ? 100 : percentage;
         }
 
         private async Task<DataTable> LoadExcel(IFormFile termsFile)

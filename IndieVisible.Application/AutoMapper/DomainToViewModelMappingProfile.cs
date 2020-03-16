@@ -122,6 +122,8 @@ namespace IndieVisible.Application.AutoMapper
 
             CreateMap<TranslationProject, TranslationProjectViewModel>()
                 .ForPath(x => x.Game.Id, opt => opt.MapFrom(x => x.GameId));
+            CreateMap<TranslationProject, TranslationStatsViewModel>()
+                .ForPath(x => x.Game.Id, opt => opt.MapFrom(x => x.GameId));
             CreateMap<TranslationTerm, TranslationTermViewModel>();
             CreateMap<TranslationEntry, TranslationEntryViewModel>();
 
