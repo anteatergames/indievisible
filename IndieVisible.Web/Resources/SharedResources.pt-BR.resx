@@ -1901,4 +1901,24 @@
     <value>Você deve definir um valor para esta chave no idioma principal!</value>
     <comment>Translation</comment>
   </data>
+  <data name="contributors" xml:space="preserve">
+    <value>contribuintes</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="No one translated anything yet!" xml:space="preserve">
+    <value>Ninguém traduziu nada ainda!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="overall" xml:space="preserve">
+    <value>geral</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Translation Progress" xml:space="preserve">
+    <value>Progresso da Tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Translation Stats for {0}" xml:space="preserve">
+    <value>Estatísticas de tradução para {0}</value>
+    <comment>Translation</comment>
+  </data>
 </root>

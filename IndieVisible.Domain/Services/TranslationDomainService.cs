@@ -14,9 +14,10 @@ namespace IndieVisible.Domain.Services
         {
         }
 
-        public TranslationProject GenerateNewProject(Guid currentUserId)
+        public TranslationProject GenerateNewProject(Guid userId)
         {
             TranslationProject model = new TranslationProject();
+            model.UserId = userId;
 
             return model;
         }

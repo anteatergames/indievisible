@@ -29,5 +29,7 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo SetTerms(Guid currentUserId, Guid projectId, IEnumerable<TranslationTermViewModel> terms);
 
         OperationResultVo SaveEntries(Guid currentUserId, Guid projectId, SupportedLanguage language, IEnumerable<TranslationEntryViewModel> entries);
+
+        OperationResultVo GetStatsById(Guid currentUserId, Guid id);
     }
 }
