@@ -23,7 +23,7 @@
 
     <div class="box-header with-border">
         <div class="float-left mr-3">
-            <a asp-area="tools" asp-controller="translation" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            <a asp-area="tools" asp-controller="translation" asp-action="index" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
         </div>
         <h3 class="card-title">@SharedLocalizer["You are {0} a Translation Project", (Model.Id == Guid.Empty ? SharedLocalizer["creating"] : SharedLocalizer["editing"])]</h3>
         <span class="card-subtitle">

@@ -45,7 +45,7 @@
                 <div data-id="@Model.Id">
                     <div class="box-header with-border">
                         <div class="float-left mr-2">
-                            <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                            <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                         </div>
                         <div class="float-left">
                             <h2 class="card-title">@ViewData["Title"]</h2>
@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 text-center">
                                 <hr />
                                 <h3>@SharedLocalizer["Translation Progress"]</h3>
                             </div>
@@ -112,24 +112,28 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 text-center">
                                 <hr />
                                 <h3 class="text-capitalize">@SharedLocalizer["Who helped"]</h3>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 text-center">
                                 @if (Model.Contributors.Any())
                                 {
-                                    for (int i = 0; i < Model.Contributors.Count; i++)
-                                    {
-                                        var contributor = Model.Contributors.ElementAt(i);
+                                    <div class="col-12">
+                                        <div class="row d-inline-flex">
+                                            @for (int i = 0; i < Model.Contributors.Count; i++)
+                                            {
+                                                var contributor = Model.Contributors.ElementAt(i);
 
-                                        <div class="col-12 bg-light border mt-1 p-2">
-                                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@contributor.UserId">
-                                                <img class="rounded-circle lazyload avatar" src="@contributor.AuthorPicture" alt="@contributor.AuthorName">
-                                            </a>
-                                            <span>@contributor.AuthorName</span> (<span>@contributor.EntryCount.ToString()</span>)
+                                                <div class="bg-light border mt-1 mx-1 p-2">
+                                                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@contributor.UserId">
+                                                        <img class="rounded-circle lazyload avatar" src="@contributor.AuthorPicture" alt="@contributor.AuthorName">
+                                                        <span>@contributor.AuthorName</span> (<span>@contributor.EntryCount.ToString()</span>)
+                                                    </a>
+                                                </div>
+                                            }
                                         </div>
-                                    }
+                                    </div>
                                 }
                                 else
                                 {
