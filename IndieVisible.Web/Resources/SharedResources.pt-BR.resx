@@ -1921,4 +1921,8 @@
     <value>Estatísticas de tradução para {0}</value>
     <comment>Translation</comment>
   </data>
+  <data name="Who helped" xml:space="preserve">
+    <value>Quem ajudou</value>
+    <comment>Translation</comment>
+  </data>
 </root>

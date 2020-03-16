@@ -22,6 +22,23 @@ namespace IndieVisible.Application.ViewModels.Translation
 
         public double Percentage { get; set; }
 
+        public string PercentageText
+        {
+            get
+            {
+                var text = Percentage.ToString("N1");
+
+                if (Percentage == 0 || Percentage == 100 || text.Substring(text.Length-1).Equals("0"))
+                {
+                    return Percentage.ToString("N0");
+                }
+                else
+                {
+                    return text;
+                }
+            }
+        }
+
         public TranslationStatsLanguageViewModel() : base()
         {
         }
