@@ -22,6 +22,17 @@
     </environment>
 }
 
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/shared/contentactions.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/shared/contentactions.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
 <div id="featurecontainer" class="col-12">
     <div id="containerdetails">
         <div class="box bg-white no-gutters">
@@ -82,26 +93,18 @@
                                 <h3>@SharedLocalizer["Translation Progress"]</h3>
                             </div>
                             <div class="col-12">
-                                <h5 class="col-form-label text-uppercase">@SharedLocalizer["overall"]</h5>
+                                <h3 class="text-uppercase">@SharedLocalizer["overall"] <span class="badge badge-secondary align-top">@(Model.TranslationPercentageText)%</span></h3>
                                 <div class="progress">
-                                    <div class="progress-bar bg-success" style="width: @(Model.TranslationPercentage.ToInvariant())%;">
-                                        @if (Model.TranslationPercentage >= 10)
-                                        {
-                                            <div class="progress-value">@(Model.TranslationPercentageText)%</div>
-                                        }
-                                    </div>
+                                    <div class="progress-bar bg-success" style="width: @(Model.TranslationPercentage.ToInvariant())%;"></div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 @foreach (var language in Model.Languages)
                                 {
-                                    <h5 class="col-form-label text-uppercase">@SharedLocalizer[language.Language.ToDisplayName()] - @language.EntryCount</h5>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" style="width: @(language.Percentage.ToInvariant())%;">
-                                            @if (language.Percentage >= 10)
-                                            {
-                                                <div class="progress-value">@(language.PercentageText)%</div>
-                                            }
+                                    <div class="mt-1">
+                                        <h5 class="text-uppercase">@SharedLocalizer[language.Language.ToDisplayName()] - @language.EntryCount <span class="badge badge-secondary align-top">@(language.PercentageText)%</span></h5>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" style="width: @(language.Percentage.ToInvariant())%;"></div>
                                         </div>
                                     </div>
                                 }

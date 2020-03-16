@@ -32,34 +32,18 @@
 
 
 
-
-
-.progress-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #000;
-    margin: 0 0 10px 0;
-}
-
 .progress {
-    height: 20px;
-    line-height: 15px;
-    border-radius: 20px;
-    background: #f0f0f0;
-    margin-bottom: 30px;
+    height: 8px;
     box-shadow: none;
     overflow: visible;
 }
 
     .progress .progress-bar {
         position: relative;
-        border-radius: 5px;
         animation: animate-positive 2s;
     }
 
     .progress .progress-value {
-        display: block;
-        font-size: 13px;
         color: #fff;
         position: absolute;
         right: 8px;

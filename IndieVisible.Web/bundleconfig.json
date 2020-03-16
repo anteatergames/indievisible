@@ -42,6 +42,12 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/js/shared/contentactions.min.js",
+    "inputFiles": [
+      "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/css/gamedetails.min.css",
     "inputFiles": [
       "wwwroot/css/gamedetails.css",
