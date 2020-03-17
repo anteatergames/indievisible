@@ -1925,4 +1925,20 @@
     <value>Quem ajudou</value>
     <comment>Translation</comment>
   </data>
+  <data name="Export all languages" xml:space="preserve">
+    <value>Exportar todos os idiomas</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Export Single Language" xml:space="preserve">
+    <value>Exportar um único idioma</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Fill gaps" xml:space="preserve">
+    <value>Preencher vazios</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="If you check this, the exported file will fill the non translated terms with the default language values." xml:space="preserve">
+    <value>Se você marcar isso, o arquivo exportado preencherá os termos não traduzidos com os valores do idioma principal.</value>
+    <comment>Translation</comment>
+  </data>
 </root>

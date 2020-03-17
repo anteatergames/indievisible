@@ -12,6 +12,8 @@
         selectors.container = '#featurecontainer';
         selectors.containerDetails = '#containerdetails';
         selectors.btnExportLanguage = '.export-language';
+        selectors.fillGaps = '#fillGaps';
+        selectors.exportProject = '#exportProject';
     }
 
     function cacheObjs() {
@@ -19,6 +21,8 @@
         objs.container = $(selectors.container);
         objs.urls = $(selectors.urls);
         objs.containerDetails = $(selectors.containerDetails);
+        objs.fillGaps = $(selectors.fillGaps);
+        objs.exportProject = $(selectors.exportProject);
     }
 
     function init() {
@@ -32,12 +36,34 @@
     }
 
     function bindAll() {
+        bindPopOvers();
+        bindBtnExportProject();
         bindBtnExportSingleLanguage();
+    }
+
+    function bindPopOvers() {
+        $("[data-toggle='popover']").popover({ html: true });
+    }
+
+    function bindBtnExportProject() {
+        objs.container.on('click', selectors.exportProject, function () {
+            var url = $(this).data('url');
+
+            url += '&fillGaps=' + objs.fillGaps.is(':checked');
+
+            console.log(url);
+
+            window.location.href = url;
+        });
     }
 
     function bindBtnExportSingleLanguage() {
         objs.container.on('click', selectors.btnExportLanguage, function () {
             var url = $(this).data('url');
+
+            url += '&fillGaps=' + objs.fillGaps.is(':checked');
+
+            console.log(url);
 
             window.location.href = url;
         });

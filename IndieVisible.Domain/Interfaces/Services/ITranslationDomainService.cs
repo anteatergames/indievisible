@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         void SaveEntries(Guid projectId, IEnumerable<TranslationEntry> entries);
 
-        Task<string> GetXmlById(Guid projectId, SupportedLanguage language);
+        Task<List<InMemoryFileVo>> GetXmlById(Guid projectId, bool fillGaps);
+
+        Task<InMemoryFileVo> GetXmlById(Guid projectId, SupportedLanguage language, bool fillGaps);
     }
 }

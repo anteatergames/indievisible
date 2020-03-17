@@ -30,8 +30,6 @@
     <environment exclude="Development">
         <script src="~/js/translation/translationexport.min.js" asp-append-version="true"></script>
     </environment>
-
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
 <div id="featurecontainer" class="col-12">
@@ -91,15 +89,18 @@
                                 </div>
 
                                 <div class="col-12 my-2 bordered bg-light text-center hover">
-                                    <a href="#">
+                                    <a href="#" id="exportProject" data-url="@Url.Action("exportxml", "translation", new { area = "tools", projectId = Model.Id, x = 1 })">
                                         <h3>@SharedLocalizer["Export all languages"]</h3>
                                         <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage)" />
                                     </a>
                                 </div>
                                 <div class="col-12 my-2 p-2 border bg-light switch-div">
                                     <label class="col-form-label">@SharedLocalizer["Fill gaps"]</label>
+                                    <span class="col-form-label">
+                                        <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["If you check this, the exported file will fill the non translated terms with the default language values."]" aria-hidden="true"></i>
+                                    </span>
                                     <label class="switch">
-                                        <input type="checkbox" class="default" />
+                                        <input id="fillGaps" type="checkbox" class="default" checked />
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
@@ -114,10 +115,10 @@
                             @foreach (var language in Model.Languages)
                             {
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3">
-                                    <a href="#" class="export-language" data-url="@Url.Action("exportxml", "translation", new { area = "tools", projectId = Model.Id, language = language.Language })">
+                                    <a href="#" class="export-language" data-url="@Url.Action("exportxml", "translation", new { area = "tools", projectId = Model.Id, x = 1, language = language.Language })">
                                         <div class="p-1 bordered bg-light text-center">
                                             <h5 class="text-uppercase">@SharedLocalizer[language.Language.ToDisplayName()] - @language.EntryCount</h5>
-                                            <partial name="_DonutPercentageChart" model="new DonutChartViewModel(language.Percentage)" />
+                                            <partial name="_DonutPercentageChart" model="new DonutChartViewModel(language.Percentage, string.Empty)" />
                                         </div>
                                     </a>
                                 </div>
@@ -127,24 +128,47 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 <hr />
-                                <h3 class="text-capitalize">@SharedLocalizer["Export contributors"]</h3>
+                                <h3 class="text-capitalize">@SharedLocalizer["Export contributors"] (@Model.Contributors.Count)</h3>
                             </div>
                             <div class="col-12 text-center">
                                 @if (Model.Contributors.Any())
                                 {
                                     <div class="col-12">
                                         <div class="row d-inline-flex">
-                                            @for (int i = 0; i < Model.Contributors.Count; i++)
-                                            {
-                                                var contributor = Model.Contributors.ElementAt(i);
-
-                                                <div class="bg-light border mt-1 mx-1 p-2">
-                                                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@contributor.UserId">
-                                                        <img class="rounded-circle lazyload avatar" src="@contributor.AuthorPicture" alt="@contributor.AuthorName">
-                                                        <span>@contributor.AuthorName</span> (<span>@contributor.EntryCount.ToString()</span>)
-                                                    </a>
-                                                </div>
-                                            }
+                                            <div class="bg-light bordered mt-1 mx-1 p-2">
+                                                <a href="#">
+                                                    <div class="col-12">
+                                                        <i class="fas fa-3x fa-id-badge" aria-hidden="true"></i>
+                                                    </div>
+                                                    <span>@SharedLocalizer["Export profile URL"]</span>
+                                                </a>
+                                            </div>
+                                            <div class="bg-light bordered mt-1 mx-1 p-2">
+                                                <a href="#">
+                                                    <div class="col-12">
+                                                        <i class="fas fa-3x fa-signature" aria-hidden="true"></i>
+                                                    </div>
+                                                    <span>@SharedLocalizer["Export name only"]</span>
+                                                </a>
+                                            </div>
+                                            <div class="bg-light bordered mt-1 mx-1 p-2">
+                                                <a href="#">
+                                                    <div class="col-12">
+                                                        <i class="fas fa-3x fa-at" aria-hidden="true"></i>
+                                                    </div>
+                                                    <span>@SharedLocalizer["Export email only"]</span>
+                                                </a>
+                                            </div>
+                                            <div class="bg-light bordered mt-1 mx-1 p-2">
+                                                <a href="#">
+                                                    <div class="col-12">
+                                                        <i class="fas fa-3x fa-signature" aria-hidden="true"></i>
+                                                        <i class="fas fa-1x fa-plus" aria-hidden="true"></i>
+                                                        <i class="fas fa-3x fa-at" aria-hidden="true"></i>
+                                                    </div>
+                                                    <span>@SharedLocalizer["Export name + email"]</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 }

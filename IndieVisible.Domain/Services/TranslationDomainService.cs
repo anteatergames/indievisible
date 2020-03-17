@@ -3,6 +3,7 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -133,10 +134,44 @@ namespace IndieVisible.Domain.Services
             return obj;
         }
 
-        public async Task<string> GetXmlById(Guid projectId, SupportedLanguage language)
+        public async Task<List<InMemoryFileVo>> GetXmlById(Guid projectId, bool fillGaps)
+        {
+            List<InMemoryFileVo> xmlTexts = new List<InMemoryFileVo>();
+
+            var project = await repository.GetById(projectId);
+
+            var languages = project.Entries.Select(x => x.Language).Distinct().ToList();
+            languages.Add(project.PrimaryLanguage);
+
+            foreach (var language in languages)
+            {
+                var xmlText = GenerateLanguageXml(project, language, fillGaps);
+
+                xmlTexts.Add(new InMemoryFileVo
+                {
+                    FileName = String.Format("{0}.xml", language.ToString().ToLower()),
+                    Contents = Encoding.UTF8.GetBytes(xmlText)
+                });
+            }
+
+            return xmlTexts;
+        }
+
+        public async Task<InMemoryFileVo> GetXmlById(Guid projectId, SupportedLanguage language, bool fillGaps)
         {
             var project = await repository.GetById(projectId);
 
+            var xmlText = GenerateLanguageXml(project, language, fillGaps);
+
+            return new InMemoryFileVo
+            {
+                FileName = String.Format("{0}.xml", language.ToString().ToLower()),
+                Contents = Encoding.UTF8.GetBytes(xmlText)
+            };
+        }
+
+        private static string GenerateLanguageXml(TranslationProject project, SupportedLanguage language, bool fillGaps)
+        {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<resources>");
             sb.AppendLine();
@@ -147,7 +182,7 @@ namespace IndieVisible.Domain.Services
 
             for (int i = 0; i < project.Terms.Count; i++)
             {
-                string langValue;
+                string langValue = null;
                 var term = project.Terms.ElementAt(i);
                 var entry = project.Entries.FirstOrDefault(x => x.TermId == term.Id && x.Language == language);
 
@@ -157,10 +192,16 @@ namespace IndieVisible.Domain.Services
                 }
                 else
                 {
-                    langValue = term.Value;
+                    if (fillGaps)
+                    {
+                        langValue = term.Value;
+                    }
                 }
 
-                sb.AppendLine(String.Format("<string id=\"{0}\">{1}</string>", term.Key, langValue));
+                if (!string.IsNullOrWhiteSpace(langValue))
+                {
+                    sb.AppendLine(String.Format("<string id=\"{0}\">{1}</string>", term.Key, langValue));
+                }
             }
 
             sb.AppendLine();

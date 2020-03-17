@@ -432,17 +432,33 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo GetXml(Guid currentUserId, Guid projectId, SupportedLanguage language)
+        public OperationResultVo GetXml(Guid currentUserId, Guid projectId, SupportedLanguage? language, bool fillGaps)
         {
             try
             {
-                var task = translationDomainService.GetXmlById(projectId, language);
+                if (language.HasValue)
+                {
+                    var task = translationDomainService.GetXmlById(projectId, language.Value, fillGaps);
 
-                task.Wait();
+                    task.Wait();
 
-                byte[] buffer = Encoding.UTF8.GetBytes(task.Result);
+                    return new OperationResultVo<InMemoryFileVo>(task.Result);
+                }
+                else
+                {
+                    var list = new List<InMemoryFileVo>();
 
-                return new OperationResultVo<byte[]>(buffer);
+                    var task = translationDomainService.GetXmlById(projectId, fillGaps);
+
+                    task.Wait();
+
+                    foreach (var item in task.Result)
+                    {
+                        list.Add(item);
+                    }
+
+                    return new OperationResultVo<List<InMemoryFileVo>>(list);
+                }
 
             }
             catch (Exception ex)

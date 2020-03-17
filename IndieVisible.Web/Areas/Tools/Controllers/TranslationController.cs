@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -178,19 +180,30 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
         }
 
         [Route("tools/translation/exportxml/{projectId:guid}")]
-        public IActionResult ExportXml(Guid projectId, SupportedLanguage language)
+        public IActionResult ExportXml(Guid projectId, SupportedLanguage? language, bool fillGaps)
         {
-            OperationResultVo result = translationAppService.GetXml(CurrentUserId, projectId, language);
+            OperationResultVo result = translationAppService.GetXml(CurrentUserId, projectId, language, fillGaps);
 
             if (result.Success)
             {
-                OperationResultVo<byte[]> castRestult = result as OperationResultVo<byte[]>;
+                if (language.HasValue)
+                {
+                    OperationResultVo<InMemoryFileVo> castRestult = result as OperationResultVo<InMemoryFileVo>;
 
-                byte[] model = castRestult.Value;
+                    InMemoryFileVo model = castRestult.Value;
 
-                var fileName = string.Format("{0}.xml", language.ToString().ToLower());
+                    return File(model.Contents, "application/xml", model.FileName);
+                }
+                else
+                {
+                    OperationResultVo<List<InMemoryFileVo>> castRestult = result as OperationResultVo<List<InMemoryFileVo>>;
 
-                return File(model, "application/xml", fileName);
+                    List<InMemoryFileVo> list = castRestult.Value;
+
+                    byte[] zip = GetZipArchive(list);
+
+                    return File(zip, "application/xml", string.Format("{0}.zip", projectId));
+                }
             }
             else
             {
@@ -504,6 +517,27 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                     }
                 }
             }
+        }
+
+        public static byte[] GetZipArchive(List<InMemoryFileVo> files)
+        {
+            byte[] archiveFile;
+            using (MemoryStream archiveStream = new MemoryStream())
+            {
+                using (ZipArchive archive = new ZipArchive(archiveStream, ZipArchiveMode.Create, true))
+                {
+                    foreach (InMemoryFileVo file in files)
+                    {
+                        ZipArchiveEntry zipArchiveEntry = archive.CreateEntry(file.FileName, CompressionLevel.Fastest);
+                        using (Stream zipStream = zipArchiveEntry.Open())
+                            zipStream.Write(file.Contents, 0, file.Contents.Length);
+                    }
+                }
+
+                archiveFile = archiveStream.ToArray();
+            }
+
+            return archiveFile;
         }
     }
 }
