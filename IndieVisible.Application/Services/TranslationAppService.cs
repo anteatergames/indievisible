@@ -467,6 +467,34 @@ namespace IndieVisible.Application.Services
             }
         }
 
+
+        public OperationResultVo GetContributorsFile(Guid currentUserId, Guid projectId, ExportContributorsType type)
+        {
+            try
+            {
+                var task = translationDomainService.GetContributors(projectId, type);
+
+                task.Wait();
+
+                var contributorsIds = task.Result;
+
+                List<KeyValuePair<Guid, string>> dict = new List<KeyValuePair<Guid, string>>();
+
+                foreach (var contributorId in contributorsIds)
+                {
+                    UserProfile profile = GetCachedProfileByUserId(contributorId);
+                    dict.Add(new KeyValuePair<Guid, string>(contributorId, profile.Name));
+                }
+
+                return new OperationResultVo<List<KeyValuePair<Guid, string>>>(dict);
+
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public async Task<OperationResultVo> ReadTermsSheet(Guid currentUserId, Guid projectId, IEnumerable<KeyValuePair<int, SupportedLanguage>> columns, IFormFile termsFile)
         {
             try

@@ -32,5 +32,6 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GetStatsById(Guid currentUserId, Guid id);
         OperationResultVo GetXml(Guid currentUserId, Guid projectId, SupportedLanguage? language, bool fillGaps);
+        OperationResultVo GetContributorsFile(Guid currentUserId, Guid projectId, ExportContributorsType type);
     }
 }

@@ -170,6 +170,13 @@ namespace IndieVisible.Domain.Services
             };
         }
 
+        public async Task<List<Guid>> GetContributors(Guid projectId, ExportContributorsType type)
+        {
+            var contributorsIds = repository.GetEntries(projectId).Select(x => x.UserId).Distinct().ToList();
+
+            return contributorsIds;
+        }
+
         private static string GenerateLanguageXml(TranslationProject project, SupportedLanguage language, bool fillGaps)
         {
             StringBuilder sb = new StringBuilder();

@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Areas.Tools.Controllers
@@ -204,6 +205,43 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                     return File(zip, "application/xml", string.Format("{0}.zip", projectId));
                 }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [Route("tools/translation/exportcontributors/{projectId:guid}")]
+        public IActionResult ExportContributors(Guid projectId, ExportContributorsType type)
+        {
+            OperationResultVo result = translationAppService.GetContributorsFile(CurrentUserId, projectId, type);
+
+            if (result.Success)
+            {
+                OperationResultVo<List<KeyValuePair<Guid, string>>> castRestult = result as OperationResultVo<List<KeyValuePair<Guid, string>>>;
+
+                List<KeyValuePair<Guid, string>> model = castRestult.Value;
+
+                StringBuilder sb = new StringBuilder();
+
+                sb.AppendLine("UserId;User Name;Profile URL");
+
+
+                foreach (var item in model)
+                {
+                    var url = Url.Action("details", "profile", new { area = string.Empty, id = item.Key }, "https", Request.Host.Value);
+                    var newLine = String.Format("{0};{1};{2}", item.Key, item.Value, url);
+                    sb.AppendLine(newLine);
+                }
+
+                var file = new InMemoryFileVo
+                {
+                    FileName = String.Format("contributors_{0}.csv", type.ToString().ToLower()),
+                    Contents = Encoding.UTF8.GetBytes(sb.ToString())
+                };
+
+                return File(file.Contents, "text/csv", file.FileName);
             }
             else
             {

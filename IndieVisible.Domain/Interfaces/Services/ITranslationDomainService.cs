@@ -28,5 +28,7 @@ namespace IndieVisible.Domain.Interfaces.Service
         Task<List<InMemoryFileVo>> GetXmlById(Guid projectId, bool fillGaps);
 
         Task<InMemoryFileVo> GetXmlById(Guid projectId, SupportedLanguage language, bool fillGaps);
+
+        Task<List<Guid>> GetContributors(Guid projectId, ExportContributorsType type);
     }
 }

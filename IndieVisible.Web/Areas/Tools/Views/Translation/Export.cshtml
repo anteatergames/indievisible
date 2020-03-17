@@ -136,14 +136,16 @@
                                     <div class="col-12">
                                         <div class="row d-inline-flex">
                                             <div class="bg-light bordered mt-1 mx-1 p-2">
-                                                <a href="#">
+                                                <a href="#" id="btnExportNameProfile" data-url="@Url.Action("exportcontributors", "translation", new { area = "tools", projectId = Model.Id, x = 1, type = ExportContributorsType.NameProfile })">
                                                     <div class="col-12">
+                                                        <i class="fas fa-3x fa-signature" aria-hidden="true"></i>
+                                                        <i class="fas fa-1x fa-plus" aria-hidden="true"></i>
                                                         <i class="fas fa-3x fa-id-badge" aria-hidden="true"></i>
                                                     </div>
-                                                    <span>@SharedLocalizer["Export profile URL"]</span>
+                                                    <span>@SharedLocalizer["Export name + profile"]</span>
                                                 </a>
                                             </div>
-                                            <div class="bg-light bordered mt-1 mx-1 p-2">
+                                            @*<div class="bg-light bordered mt-1 mx-1 p-2">
                                                 <a href="#">
                                                     <div class="col-12">
                                                         <i class="fas fa-3x fa-signature" aria-hidden="true"></i>
@@ -168,7 +170,7 @@
                                                     </div>
                                                     <span>@SharedLocalizer["Export name + email"]</span>
                                                 </a>
-                                            </div>
+                                            </div>*@
                                         </div>
                                     </div>
                                 }

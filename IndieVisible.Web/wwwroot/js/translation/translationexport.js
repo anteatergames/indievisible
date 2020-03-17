@@ -14,6 +14,7 @@
         selectors.btnExportLanguage = '.export-language';
         selectors.fillGaps = '#fillGaps';
         selectors.exportProject = '#exportProject';
+        selectors.btnExportNameProfile = '#btnExportNameProfile';
     }
 
     function cacheObjs() {
@@ -23,10 +24,10 @@
         objs.containerDetails = $(selectors.containerDetails);
         objs.fillGaps = $(selectors.fillGaps);
         objs.exportProject = $(selectors.exportProject);
+        objs.btnExportNameProfile = $(selectors.btnExportNameProfile);
     }
 
     function init() {
-        console.log('TRANSLATIONEXPORT.init');
         setSelectors();
         cacheObjs();
 
@@ -39,6 +40,7 @@
         bindPopOvers();
         bindBtnExportProject();
         bindBtnExportSingleLanguage();
+        bindBtnExportContributorsNameProfile();
     }
 
     function bindPopOvers() {
@@ -51,8 +53,6 @@
 
             url += '&fillGaps=' + objs.fillGaps.is(':checked');
 
-            console.log(url);
-
             window.location.href = url;
         });
     }
@@ -63,7 +63,13 @@
 
             url += '&fillGaps=' + objs.fillGaps.is(':checked');
 
-            console.log(url);
+            window.location.href = url;
+        });
+    }
+
+    function bindBtnExportContributorsNameProfile() {
+        objs.container.on('click', selectors.btnExportNameProfile, function () {
+            var url = $(this).data('url');
 
             window.location.href = url;
         });
