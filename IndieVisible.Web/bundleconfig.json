@@ -184,5 +184,12 @@
       "wwwroot/js/translation/translation.js",
       "wwwroot/js/shared/contentactions.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/translation/translationexport.min.js",
+    "inputFiles": [
+      "wwwroot/js/translation/translationexport.js",
+      "wwwroot/js/shared/contentactions.js"
+    ]
   }
 ]

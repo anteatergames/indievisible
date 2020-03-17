@@ -16,9 +16,8 @@
     var languages = Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString());
 }
 
-<div class="col-lg-12 mb-2 px-4">
-    <h1>@ViewData["Title"]</h1>
-</div>
+<h1 class="sr-only">@ViewData["Title"]</h1>
+
 <div class="box bg-white">
 
     <div class="box-header with-border">
@@ -29,6 +28,20 @@
         <span class="card-subtitle">
             @SharedLocalizer["Tell us about the translation you need."]
         </span>
+        <div class="box-tools">
+            <div class="btn-group">
+                <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a asp-area="tools" asp-controller="translation" asp-action="stats" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["stats"]</a>
+                    @if (Model.Permissions.CanEdit)
+                    {
+                        <a asp-area="tools" asp-controller="translation" asp-action="export" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["export"]</a>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="box-body p-0 px-md-2">

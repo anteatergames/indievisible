@@ -2,6 +2,7 @@
 using IndieVisible.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Interfaces.Service
 {
@@ -22,5 +23,7 @@ namespace IndieVisible.Domain.Interfaces.Service
         void SetTerms(Guid projectId, IEnumerable<TranslationTerm> terms);
 
         void SaveEntries(Guid projectId, IEnumerable<TranslationEntry> entries);
+
+        Task<string> GetXmlById(Guid projectId, SupportedLanguage language);
     }
 }

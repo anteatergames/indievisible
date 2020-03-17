@@ -8,6 +8,10 @@
     margin-left: 5px;
 }
 
+    .switch-div {
+        line-height: 38px;
+    }
+
     /* Hide default HTML checkbox */
     .switch input {
         display: none;

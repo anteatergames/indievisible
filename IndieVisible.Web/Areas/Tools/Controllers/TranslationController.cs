@@ -147,7 +147,50 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 SetLocalization(model);
                 SetAuthorDetails(model);
 
-                return View("_Stats", model);
+                return View("Stats", model);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [Route("tools/translation/export/{id:guid}")]
+        public IActionResult Export(Guid id)
+        {
+            OperationResultVo result = translationAppService.GetStatsById(CurrentUserId, id);
+
+            if (result.Success)
+            {
+                OperationResultVo<TranslationStatsViewModel> castRestult = result as OperationResultVo<TranslationStatsViewModel>;
+
+                TranslationStatsViewModel model = castRestult.Value;
+
+                SetLocalization(model);
+                SetAuthorDetails(model);
+
+                return View("Export", model);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [Route("tools/translation/exportxml/{projectId:guid}")]
+        public IActionResult ExportXml(Guid projectId, SupportedLanguage language)
+        {
+            OperationResultVo result = translationAppService.GetXml(CurrentUserId, projectId, language);
+
+            if (result.Success)
+            {
+                OperationResultVo<byte[]> castRestult = result as OperationResultVo<byte[]>;
+
+                byte[] model = castRestult.Value;
+
+                var fileName = string.Format("{0}.xml", language.ToString().ToLower());
+
+                return File(model, "application/xml", fileName);
             }
             else
             {

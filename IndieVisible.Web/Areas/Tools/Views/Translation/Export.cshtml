@@ -1,0 +1,162 @@
+﻿@model TranslationStatsViewModel
+@{
+    ViewData["Title"] = SharedLocalizer["Export Translation for {0}", Model.Game.Title];
+    ViewData["Description"] = "tralala";
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("export", "translation", new { area = "tools", id = Model.Id });
+    Model.Game.Title = string.Empty;
+
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+    var noContributorsModel = new ListNoItemsViewModel("fas fa-dizzy", "No one translated anything yet!");
+}
+
+@section ComponentStyles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/translation.css">
+        <link rel="stylesheet" href="~/css/circularpercentage.css">
+        <link rel="stylesheet" href="~/css/switch.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/translation.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/switch.css">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/translation/translationexport.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/translation/translationexport.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<div id="featurecontainer" class="col-12">
+    <div id="containerdetails">
+        <div class="box bg-white no-gutters">
+            <h1 class="sr-only">
+                @SharedLocalizer["translation project details"]
+            </h1>
+            <input type="hidden" asp-for="Id" />
+            <div id="translationcontainer" class="mx-0">
+                <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+                <div data-id="@Model.Id">
+                    <div class="box-header with-border">
+                        <div class="float-left mr-2">
+                            <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="float-left">
+                            <h2 class="card-title">@ViewData["Title"]</h2>
+                        </div>
+                        <div class="box-tools">
+                            <div class="btn-group">
+                                <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                </button>
+                                <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                    <a asp-area="tools" asp-controller="translation" asp-action="stats" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["stats"]</a>
+                                    @if (Model.Permissions.CanEdit)
+                                    {
+                                        <a asp-area="tools" asp-controller="translation" asp-action="edit" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["edit"]</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body p-0 px-md-2">
+                        <div class="row">
+                            <div class="col-lg-8" data-id="@Model.Id">
+                                <partial name="_GameCard" model="Model.Game" />
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="border my-2 p-2 bg-light">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="col-form-label">@SharedLocalizer["Primary Language"]</label>
+                                                <h5>@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="col-form-label">@SharedLocalizer["terms"]</label>
+                                                <h5>@Model.TermCount</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 my-2 bordered bg-light text-center hover">
+                                    <a href="#">
+                                        <h3>@SharedLocalizer["Export all languages"]</h3>
+                                        <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage)" />
+                                    </a>
+                                </div>
+                                <div class="col-12 my-2 p-2 border bg-light switch-div">
+                                    <label class="col-form-label">@SharedLocalizer["Fill gaps"]</label>
+                                    <label class="switch">
+                                        <input type="checkbox" class="default" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <hr />
+                            <h3>@SharedLocalizer["Export Single Language"]</h3>
+                        </div>
+                        <div class="row mx-3">
+                            @foreach (var language in Model.Languages)
+                            {
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3">
+                                    <a href="#" class="export-language" data-url="@Url.Action("exportxml", "translation", new { area = "tools", projectId = Model.Id, language = language.Language })">
+                                        <div class="p-1 bordered bg-light text-center">
+                                            <h5 class="text-uppercase">@SharedLocalizer[language.Language.ToDisplayName()] - @language.EntryCount</h5>
+                                            <partial name="_DonutPercentageChart" model="new DonutChartViewModel(language.Percentage)" />
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <hr />
+                                <h3 class="text-capitalize">@SharedLocalizer["Export contributors"]</h3>
+                            </div>
+                            <div class="col-12 text-center">
+                                @if (Model.Contributors.Any())
+                                {
+                                    <div class="col-12">
+                                        <div class="row d-inline-flex">
+                                            @for (int i = 0; i < Model.Contributors.Count; i++)
+                                            {
+                                                var contributor = Model.Contributors.ElementAt(i);
+
+                                                <div class="bg-light border mt-1 mx-1 p-2">
+                                                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@contributor.UserId">
+                                                        <img class="rounded-circle lazyload avatar" src="@contributor.AuthorPicture" alt="@contributor.AuthorName">
+                                                        <span>@contributor.AuthorName</span> (<span>@contributor.EntryCount.ToString()</span>)
+                                                    </a>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <partial name="_ListNoItems" model="noContributorsModel" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

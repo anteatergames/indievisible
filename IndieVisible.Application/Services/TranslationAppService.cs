@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
@@ -408,8 +409,8 @@ namespace IndieVisible.Application.Services
                     var languageEntry = new TranslationStatsLanguageViewModel
                     {
                         Language = language.Key,
-                        EntryCount = language.Count(),
-                        Percentage =  CalculatePercentage(vm.TermCount, language.Count(), 1)
+                        EntryCount = language.Select(x => x.TermId).Distinct().Count(),
+                        Percentage = CalculatePercentage(vm.TermCount, language.Count(), 1)
                     };
 
                     vm.Languages.Add(languageEntry);
@@ -424,6 +425,25 @@ namespace IndieVisible.Application.Services
                 SetPermissions(currentUserId, vm);
 
                 return new OperationResultVo<TranslationStatsViewModel>(vm);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetXml(Guid currentUserId, Guid projectId, SupportedLanguage language)
+        {
+            try
+            {
+                var task = translationDomainService.GetXmlById(projectId, language);
+
+                task.Wait();
+
+                byte[] buffer = Encoding.UTF8.GetBytes(task.Result);
+
+                return new OperationResultVo<byte[]>(buffer);
+
             }
             catch (Exception ex)
             {
