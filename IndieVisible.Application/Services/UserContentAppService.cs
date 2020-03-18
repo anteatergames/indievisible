@@ -7,6 +7,7 @@ using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.Search;
+using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;

@@ -14,6 +14,39 @@
     var canFollowAndConnect = currentUserId != null ? !currentUserId.Equals(Model.UserId.ToString()) : false;
 }
 
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.css" />
+        <link rel="stylesheet" href="~/css/progress.css" />
+        <link rel="stylesheet" href="~/css/polls.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
+    </environment>
+}
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/shared/contentactions.js"></script>
+        <script src="~/lib/embedo/embedo.min.js"></script>
+        <script src="~/js/shared/polls.js"></script>
+        <script src="~/js/shared/activityfeed.js"></script>
+        <script src="~/js/profile/profiledetails.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/profile/profiledetails.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Person",
+        "name": "@Model.Name",
+        "image": "@(ViewBag.BaseUrl + Model.ProfileImageUrl)",
+        "url": "@Url.Action("profile", "index", new { id = Model.Id })"
+        }
+    </script>
+}
+
 <div class="col-12">
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="UserId" />
@@ -305,36 +338,3 @@
         </div>
     </div>
 </div>
-
-@section Styles {
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/profiledetails.css" />
-        <link rel="stylesheet" href="~/css/progress.css" />
-        <link rel="stylesheet" href="~/css/polls.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
-    </environment>
-}
-@section Scripts {
-    <environment include="Development">
-        <script src="~/js/shared/contentactions.js"></script>
-        <script src="~/lib/embedo/embedo.min.js"></script>
-        <script src="~/js/shared/polls.js"></script>
-        <script src="~/js/shared/activityfeed.js"></script>
-        <script src="~/js/profile/profiledetails.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="~/js/profile/profiledetails.min.js" asp-append-version="true"></script>
-    </environment>
-
-    <script type="application/ld+json">
-        {
-        "@@context": "http://schema.org",
-        "@@type": "Person",
-        "name": "@Model.Name",
-        "image": "@(ViewBag.BaseUrl + Model.ProfileImageUrl)",
-        "url": "@Url.Action("profile", "index", new { id = Model.Id })"
-        }
-    </script>
-}

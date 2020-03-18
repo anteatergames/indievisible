@@ -29,6 +29,8 @@
         selectors.profileImageUrl = "#ProfileImageUrl";
         selectors.coverImage = "#CoverImageUrl";
         selectors.btnClearExternalLink = '.btnClearExternalLink';
+        selectors.country = '#Country';
+        selectors.location = '#Location';
     }
 
     function cacheObjects() {
@@ -38,6 +40,8 @@
         objs.modalCropCoverImage = $(selectors.modalCropCoverImage);
         objs.profileImageUrl = $(selectors.profileImageUrl);
         objs.coverImage = $(selectors.coverImage);
+        objs.country = $(selectors.country);
+        objs.location = $(selectors.location);
     }
 
     function bindAll() {
@@ -47,11 +51,45 @@
         bindSave();
 
         bindClearExternalLink();
+        bindLocation();
     }
 
     function bindClearExternalLink() {
         objs.form.on('click', selectors.btnClearExternalLink, function (e) {
             $(this).closest('.input-group').find('input[type=text]').val('');
+        });
+    }
+
+    function bindLocation() {
+        var url = objs.location.data('url');
+        var country = objs.country.val();
+
+        objs.location.select2({
+            ajax: {
+                minimumInputLength: 3,
+                url: url,
+                dataType: 'json',
+                data: function (params) {
+                    var query = {
+                        q: params.term,
+                        country: objs.country.val()
+                    };
+                    return query;
+                },
+                processResults: function (data) {
+                    var results = [];
+                    $.each(data, function (index, account) {
+                        results.push({
+                            id: account.value,
+                            text: account.text
+                        });
+                    });
+
+                    return {
+                        results: results
+                    };
+                }
+            }
         });
     }
 

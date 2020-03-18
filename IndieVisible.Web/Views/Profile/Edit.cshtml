@@ -7,6 +7,42 @@
     var countries = ViewBag.Countries as List<SelectListItem>;
 }
 
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
+    </environment>
+
+    <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
+    <style>
+        .avatar-wrapper label {
+            margin-bottom: 0px;
+        }
+
+        .externallink-icon {
+            border-radius: 50%;
+        }
+
+            .externallink-icon img {
+                width: 32px;
+                height: 32px;
+            }
+    </style>
+
+    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
+}
+@section Scripts {
+    <script src="~/lib/cropperjs/cropper.js"></script>
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+
+    <script src="~/js/profile/profileedit.js"></script>
+}
+
 <div class="col-12">
     <form id="frmProfileSave" asp-controller="Profile" asp-action="Save" method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="Id" />
@@ -81,7 +117,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label asp-for="Location"></label>
-                                                <input asp-for="Location" class="form-control" placeholder="@SharedLocalizer["Where are you from?"]">
+                                                <select asp-for="Location" class="form-control" placeholder="@SharedLocalizer["Where are you from?"]" data-url="@Url.Action("getcities", "search", new { area = string.Empty })">
+                                                    @if (!string.IsNullOrWhiteSpace(Model.Location))
+                                                    {
+                                                        <option value="@Model.Location" selected="selected">@Model.Location</option>
+                                                    }
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label asp-for="Motto"></label>
@@ -196,35 +237,3 @@
         </div>
     </div>
 </div>
-
-@section Styles {
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/profiledetails.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
-    </environment>
-
-    <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
-    <style>
-        .avatar-wrapper label {
-            margin-bottom: 0px;
-        }
-
-        .externallink-icon {
-            border-radius: 50%;
-        }
-
-            .externallink-icon img {
-                width: 32px;
-                height: 32px;
-            }
-    </style>
-}
-@section Scripts {
-    <script src="~/lib/cropperjs/cropper.js"></script>
-
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-
-    <script src="~/js/profile/profileedit.js"></script>
-}

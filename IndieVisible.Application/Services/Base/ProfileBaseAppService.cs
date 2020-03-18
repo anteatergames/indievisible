@@ -117,9 +117,31 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                IEnumerable<SelectListItemVo> countries = CountryLoader.CountryInfo.Select(x => new SelectListItemVo(x.Name, x.Name));
+                IEnumerable<SelectListItemVo> countries = CountryLoader.CountryInfo.Select(x => new SelectListItemVo(x.Name, x.Name)).OrderBy(x => x.Text);
 
                 return new OperationResultListVo<SelectListItemVo>(countries);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetCities(Guid currentUserId, string country, string q)
+        {
+            try
+            {
+                var countryData = LoadCountryData(country);
+                if (countryData == null)
+                {
+                    return new OperationResultVo("meh");
+                }
+
+                var community = countryData.Communities().FirstOrDefault();
+
+                var cities = countryData.Communities().SelectMany(x => x.Places).Where(x => x.Name.ToLower().Contains(q.ToLower())).Select(x => new SelectListItemVo(String.Format("{0} ({1})", x.Name, x.PostCode), x.Name));
+
+                return new OperationResultListVo<SelectListItemVo>(cities);
             }
             catch (Exception ex)
             {
@@ -167,6 +189,21 @@ namespace IndieVisible.Application.Services
         private string FormatObjectCacheId(string preffix, Guid id)
         {
             return String.Format("{0}_{1}", preffix, id.ToString());
+        }
+
+        private static ICountry LoadCountryData(string country)
+        {
+            switch (country)
+            {
+                case "Brazil":
+                    return CountryLoader.LoadBrazilLocationData();
+                case "United Kingdom":
+                    return CountryLoader.LoadUnitedKingdomLocationData();
+                case "United States":
+                    return CountryLoader.LoadUnitedStatesLocationData();
+                default:
+                    return null;
+            }
         }
     }
 }
