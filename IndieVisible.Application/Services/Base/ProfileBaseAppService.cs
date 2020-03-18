@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CountryData;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Models;
@@ -6,7 +7,9 @@ using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace IndieVisible.Application.Services
@@ -108,6 +111,20 @@ namespace IndieVisible.Application.Services
             }
 
             return obj;
+        }
+
+        public OperationResultVo GetCountries(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<SelectListItemVo> countries = CountryLoader.CountryInfo.Select(x => new SelectListItemVo(x.Name, x.Name));
+
+                return new OperationResultListVo<SelectListItemVo>(countries);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
         }
 
         #endregion Generics

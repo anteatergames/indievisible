@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using CountryData;
 using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels;
@@ -22,7 +23,7 @@ using System.Security.Cryptography;
 
 namespace IndieVisible.Application.Services
 {
-    public class ProfileAppService : ProfileBaseAppService, IProfileAppService
+    public class ProfileAppService : ProfileBaseAppService, IProfileAppService, IProfileBaseAppService
     {
         private readonly IUserContentDomainService userContentDomainService;
 

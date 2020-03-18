@@ -32,6 +32,9 @@ namespace IndieVisible.Application.ViewModels.User
         [Display(Name = "Studio Name")]
         public string StudioName { get; set; }
 
+        [Display(Name = "country")]
+        public string Country { get; set; }
+
         [Display(Name = "location")]
         public string Location { get; set; }
 

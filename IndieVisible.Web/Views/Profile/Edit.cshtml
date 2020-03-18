@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = Model.Name + " - Edit profile";
+
+
+    var countries = ViewBag.Countries as List<SelectListItem>;
 }
 
 <div class="col-12">
@@ -38,9 +41,8 @@
                         <div class="box-header">
                             <h3 class="card-title">@SharedLocalizer["Edit my awesomeness"]</h3>
                         </div>
-                        <!-- /.box-header -->
                         <div class="box-body p-0 no-gutters">
-                            <!-- Nav tabs -->
+
                             <div class="vtabs customvtab col-12">
                                 <ul class="nav nav-tabs tabs-vertical text-capitalize" role="tablist">
                                     <li class="nav-item">
@@ -56,7 +58,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <!-- Tab panes -->
+
                                 <div class="tab-content">
 
                                     <div class="tab-pane active show" id="basicinfotab" role="tabpanel">
@@ -65,6 +67,17 @@
                                             <div class="form-group">
                                                 <label asp-for="Name"></label>
                                                 <input asp-for="Name" class="form-control" placeholder="@SharedLocalizer["Type it, here!"]">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="Country" class="text-capitalize"></label>
+                                                <span class="col-form-label">
+                                                    <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the The country you live in."]" aria-hidden="true"></i>
+                                                </span>
+                                                <select asp-for="Country" asp-items="@countries" class="form-control select2">
+                                                    <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                                                </select>
+                                                <span asp-validation-for="Country" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
                                                 <label asp-for="Location"></label>

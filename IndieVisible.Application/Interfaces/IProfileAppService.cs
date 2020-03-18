@@ -1,11 +1,12 @@
 ﻿using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Service;
 using IndieVisible.Domain.ValueObjects;
 using System;
 
 namespace IndieVisible.Application.Interfaces
 {
-    public interface IProfileAppService : ICrudAppService<ProfileViewModel>
+    public interface IProfileAppService : ICrudAppService<ProfileViewModel>, IProfileBaseAppService
     {
         UserProfileEssentialVo GetBasicDataByUserId(Guid userId);
 

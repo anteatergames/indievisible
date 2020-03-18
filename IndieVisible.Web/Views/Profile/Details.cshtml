@@ -138,6 +138,13 @@
                                                         @SharedLocalizer["Studio"]
                                                     </p>
                                                     <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
+                                                    @if (!string.IsNullOrWhiteSpace(Model.Country))
+                                                    {
+                                                        <p class="text-capitalize">
+                                                            @SharedLocalizer["country"]
+                                                        </p>
+                                                        <h6 class="margin-bottom">@Model.Country</h6>
+                                                    }
                                                     <p>
                                                         @SharedLocalizer["location"]
                                                     </p>

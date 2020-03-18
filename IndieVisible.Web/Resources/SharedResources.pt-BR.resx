@@ -1945,4 +1945,8 @@
     <value>Exportar contribuintes</value>
     <comment>Translation</comment>
   </data>
+  <data name="country" xml:space="preserve">
+    <value>país</value>
+    <comment>Generic</comment>
+  </data>
 </root>

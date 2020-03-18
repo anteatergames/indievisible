@@ -4,9 +4,12 @@ using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
+using IndieVisible.Web.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Controllers
@@ -75,6 +78,25 @@ namespace IndieVisible.Web.Controllers
         public IActionResult Edit(Guid userId)
         {
             ProfileViewModel vm = profileAppService.GetByUserId(userId, ProfileType.Personal, true);
+
+            OperationResultVo countriesResult = profileAppService.GetCountries(CurrentUserId);
+            if (countriesResult.Success)
+            {
+                OperationResultListVo<SelectListItemVo> castResultCountries = countriesResult as OperationResultListVo<SelectListItemVo>;
+
+                IEnumerable<SelectListItemVo> countries = castResultCountries.Value;
+
+                List<SelectListItem> countriesDropDown = countries.ToSelectList();
+                if (!string.IsNullOrWhiteSpace(vm.Country))
+                {
+                    countriesDropDown.ForEach(x => x.Selected = x.Value.Equals(vm.Country));
+                }
+                ViewBag.Countries = countriesDropDown;
+            }
+            else
+            {
+                ViewBag.Countries = new List<SelectListItem>();
+            }
 
             return View(vm);
         }

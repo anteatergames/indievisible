@@ -17,6 +17,8 @@ namespace IndieVisible.Domain.Models
 
         public string StudioName { get; set; }
 
+        public string Country { get; set; }
+
         public string Location { get; set; }
 
         public bool HasCoverImage { get; set; }
