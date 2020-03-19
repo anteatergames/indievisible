@@ -9,38 +9,25 @@
 
 @section Styles {
     <environment include="Development">
+        <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
+        <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
         <link rel="stylesheet" href="~/css/profiledetails.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/profiledetails.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/profileedit.min.css" asp-append-version="true" />
     </environment>
-
-    <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
-    <style>
-        .avatar-wrapper label {
-            margin-bottom: 0px;
-        }
-
-        .externallink-icon {
-            border-radius: 50%;
-        }
-
-            .externallink-icon img {
-                width: 32px;
-                height: 32px;
-            }
-    </style>
-
-    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
 }
 @section Scripts {
-    <script src="~/lib/cropperjs/cropper.js"></script>
+    <environment include="Development">
+        <script src="~/lib/cropperjs/cropper.js"></script>
+        <script src="~/lib/select2/js/select2.full.min.js"></script>
+        <script src="~/js/profile/profileedit.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/profile/profileedit.min.js" asp-append-version="true"></script>
+    </environment>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")
-
-    <script src="~/lib/select2/js/select2.full.min.js"></script>
-
-    <script src="~/js/profile/profileedit.js"></script>
 }
 
 <div class="col-12">

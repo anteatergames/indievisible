@@ -51,6 +51,7 @@
         bindSave();
 
         bindClearExternalLink();
+        bindCountry();
         bindLocation();
     }
 
@@ -60,11 +61,16 @@
         });
     }
 
+    function bindCountry() {
+
+        objs.country.select2();
+    }
+
     function bindLocation() {
         var url = objs.location.data('url');
-        var country = objs.country.val();
 
         objs.location.select2({
+            tags:true,
             ajax: {
                 minimumInputLength: 3,
                 url: url,

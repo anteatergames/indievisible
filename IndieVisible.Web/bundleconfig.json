@@ -87,9 +87,9 @@
   {
     "outputFileName": "wwwroot/css/profiledetails.min.css",
     "inputFiles": [
-      "wwwroot/css/profiledetails.css",
       "wwwroot/css/progress.css",
-      "wwwroot/css/polls.css"
+      "wwwroot/css/polls.css",
+      "wwwroot/css/profiledetails.css"
     ]
   },
   {
@@ -100,6 +100,25 @@
       "wwwroot/js/shared/polls.js",
       "wwwroot/js/shared/activityfeed.js",
       "wwwroot/js/profile/profiledetails.js"
+
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/profileedit.min.css",
+    "inputFiles": [
+      "wwwroot/lib/cropperjs/cropper.css",
+      "wwwroot/lib/select2/css/select2.min.css",
+      "wwwroot/css/profiledetails.css",
+      "wwwroot/css/progress.css",
+      "wwwroot/css/polls.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/profile/profileedit.min.js",
+    "inputFiles": [
+      "wwwroot/lib/cropperjs/cropper.js",
+      "wwwroot/lib/select2/js/select2.full.min.js",
+      "wwwroot/js/profile/profileedit.js"
 
     ]
   },
