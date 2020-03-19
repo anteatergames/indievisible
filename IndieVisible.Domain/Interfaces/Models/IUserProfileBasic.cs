@@ -8,6 +8,8 @@
 
         string Name { get; set; }
 
+        string Country { get; set; }
+
         string Location { get; set; }
     }
 }

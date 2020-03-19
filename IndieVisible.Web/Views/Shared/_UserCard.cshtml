@@ -4,6 +4,8 @@
     Layout = null;
     var nameLimitParam = 20;
     var nameLimit = nameLimitParam < Model.Name.Length ? nameLimitParam : Model.Name.Length;
+
+    var location = SharedLocalizer[string.IsNullOrWhiteSpace(Model.Location) ? (string.IsNullOrWhiteSpace(Model.Country) ? SharedLocalizer["Earth"] : Model.Country) : Model.Location];
 }
 
 <div class="box-widget widget-user">
@@ -24,7 +26,7 @@
                     <span class="description-text">
                         @SharedLocalizer["location"]
                     </span>
-                    <h5 class="description-header text-truncate">@Model.Location</h5>
+                    <h5 class="description-header text-truncate">@location</h5>
                 </div>
             </div>
             <div class="col-6">

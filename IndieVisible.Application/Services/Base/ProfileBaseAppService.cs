@@ -24,6 +24,11 @@ namespace IndieVisible.Application.Services
             , IProfileDomainService profileDomainService) : base(mapper, unitOfWork, cacheService)
         {
             this.profileDomainService = profileDomainService;
+
+            if (CountryLoader.LoadedLocationData.Count == 0)
+            {
+                CountryLoader.LoadAll();
+            }
         }
 
         #region Profile
@@ -131,15 +136,11 @@ namespace IndieVisible.Application.Services
         {
             try
             {
-                var countryData = LoadCountryData(country);
-                if (countryData == null)
-                {
-                    return new OperationResultVo("meh");
-                }
+                var countryInfo = CountryLoader.CountryInfo.FirstOrDefault(x => x.Name.Equals(country));
 
-                var community = countryData.Communities().FirstOrDefault();
+                var countryData = CountryLoader.LoadedLocationData;
 
-                var cities = countryData.Communities().SelectMany(x => x.Places).Where(x => x.Name.ToLower().Contains(q.ToLower())).Select(x => new SelectListItemVo(String.Format("{0} ({1})", x.Name, x.PostCode), x.Name));
+                var cities = countryData[countryInfo.Iso].States.SelectMany(x => x.Provinces).SelectMany(x => x.Communities).SelectMany(x => x.Places).Where(x => x.Name.ToLower().Contains(q.ToLower())).Select(x => new SelectListItemVo(String.Format("{0} ({1} - {2})", x.Name, x.Community?.Province?.State?.Name, x.PostCode), x.Name));
 
                 return new OperationResultListVo<SelectListItemVo>(cities);
             }
@@ -189,21 +190,6 @@ namespace IndieVisible.Application.Services
         private string FormatObjectCacheId(string preffix, Guid id)
         {
             return String.Format("{0}_{1}", preffix, id.ToString());
-        }
-
-        private static ICountry LoadCountryData(string country)
-        {
-            switch (country)
-            {
-                case "Brazil":
-                    return CountryLoader.LoadBrazilLocationData();
-                case "United Kingdom":
-                    return CountryLoader.LoadUnitedKingdomLocationData();
-                case "United States":
-                    return CountryLoader.LoadUnitedStatesLocationData();
-                default:
-                    return null;
-            }
         }
     }
 }

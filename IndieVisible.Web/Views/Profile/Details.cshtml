@@ -178,10 +178,13 @@
                                                         </p>
                                                         <h6 class="margin-bottom">@Model.Country</h6>
                                                     }
-                                                    <p>
-                                                        @SharedLocalizer["location"]
-                                                    </p>
-                                                    <h6 class="margin-bottom">@Model.Location</h6>
+                                                    @if (!string.IsNullOrWhiteSpace(Model.Location))
+                                                    {
+                                                        <p>
+                                                            @SharedLocalizer["location"]
+                                                        </p>
+                                                        <h6 class="margin-bottom">@Model.Location</h6>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>

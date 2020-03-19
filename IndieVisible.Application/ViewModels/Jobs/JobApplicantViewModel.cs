@@ -12,6 +12,7 @@ namespace IndieVisible.Application.ViewModels.Jobs
         public string Name { get; set; }
         public string ProfileImageUrl { get; set; }
         public string CoverImageUrl { get; set; }
+        public string Country { get; set; }
         public string Location { get; set; }
         public decimal Score { get; set; }
     }
