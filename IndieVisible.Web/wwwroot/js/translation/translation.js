@@ -152,17 +152,13 @@
     function bindDetails() {
         bindEdit();
         bindDeleteProject();
-        bindPopOvers();
         bindLanguageChange();
         bindEntrySave();
         bindAuthorChange();
         bindEntryInputBlur();
         bindSaveTranslationChanges();
         CONTENTACTIONS.BindShareContent();
-    }
-
-    function bindPopOvers() {
-        $("[data-toggle='popover']").popover({ html: true });
+        MAINMODULE.Common.BindPopOvers();
     }
 
     function bindLanguageChange() {

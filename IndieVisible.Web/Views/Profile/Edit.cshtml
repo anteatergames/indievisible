@@ -95,7 +95,7 @@
                                             <div class="form-group">
                                                 <label asp-for="Country" class="text-capitalize"></label>
                                                 <span class="col-form-label">
-                                                    <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the The country you live in."]" aria-hidden="true"></i>
+                                                    <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the the country you live in."]" aria-hidden="true"></i>
                                                 </span>
                                                 <select asp-for="Country" asp-items="@countries" class="form-control select2">
                                                     <option selected="selected" value="">@SharedLocalizer["Select"]</option>
@@ -104,12 +104,10 @@
                                             </div>
                                             <div class="form-group">
                                                 <label asp-for="Location"></label>
-                                                <select asp-for="Location" class="form-control" placeholder="@SharedLocalizer["Where are you from?"]" data-url="@Url.Action("getcities", "search", new { area = string.Empty })">
-                                                    @if (!string.IsNullOrWhiteSpace(Model.Location))
-                                                    {
-                                                        <option value="@Model.Location" selected="selected">@Model.Location</option>
-                                                    }
-                                                </select>
+                                                <span class="col-form-label">
+                                                    <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Enter your city, any fictional place you want or leave it blank to show only your country."]" aria-hidden="true"></i>
+                                                </span>
+                                                <input asp-for="Location" class="form-control" placeholder="@SharedLocalizer["Where are you from?"]" />
                                             </div>
                                             <div class="form-group">
                                                 <label asp-for="Motto"></label>

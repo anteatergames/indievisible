@@ -1949,4 +1949,12 @@
     <value>país</value>
     <comment>Generic</comment>
   </data>
+  <data name="Enter your city, any fictional place you want or leave it blank to show only your country." xml:space="preserve">
+    <value>Digite sua cidade, um lugar fictício ou deixe em branco para mostrar apenas seu país.</value>
+    <comment>Profile</comment>
+  </data>
+  <data name="Select the the country you live in." xml:space="preserve">
+    <value>Selecione o país em que você vive.</value>
+    <comment>Profile</comment>
+  </data>
 </root>

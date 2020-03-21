@@ -9,7 +9,5 @@ namespace IndieVisible.Domain.Interfaces.Service
         void SetProfileCache(Guid userId, UserProfile value);
         
         OperationResultVo GetCountries(Guid currentUserId);
-
-        OperationResultVo GetCities(Guid currentUserId, string country, string q);
     }
 }

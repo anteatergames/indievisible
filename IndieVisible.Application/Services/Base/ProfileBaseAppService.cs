@@ -24,11 +24,6 @@ namespace IndieVisible.Application.Services
             , IProfileDomainService profileDomainService) : base(mapper, unitOfWork, cacheService)
         {
             this.profileDomainService = profileDomainService;
-
-            if (CountryLoader.LoadedLocationData.Count == 0)
-            {
-                CountryLoader.LoadAll();
-            }
         }
 
         #region Profile
@@ -125,24 +120,6 @@ namespace IndieVisible.Application.Services
                 IEnumerable<SelectListItemVo> countries = CountryLoader.CountryInfo.Select(x => new SelectListItemVo(x.Name, x.Name)).OrderBy(x => x.Text);
 
                 return new OperationResultListVo<SelectListItemVo>(countries);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResultVo(ex.Message);
-            }
-        }
-
-        public OperationResultVo GetCities(Guid currentUserId, string country, string q)
-        {
-            try
-            {
-                var countryInfo = CountryLoader.CountryInfo.FirstOrDefault(x => x.Name.Equals(country));
-
-                var countryData = CountryLoader.LoadedLocationData;
-
-                var cities = countryData[countryInfo.Iso].States.SelectMany(x => x.Provinces).SelectMany(x => x.Communities).SelectMany(x => x.Places).Where(x => x.Name.ToLower().Contains(q.ToLower())).Select(x => new SelectListItemVo(String.Format("{0} ({1} - {2})", x.Name, x.Community?.Province?.State?.Name, x.PostCode), x.Name));
-
-                return new OperationResultListVo<SelectListItemVo>(cities);
             }
             catch (Exception ex)
             {

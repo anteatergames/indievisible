@@ -36,27 +36,5 @@ namespace IndieVisible.Web.Controllers
                 return View("_SearchPostsResult", result.Value);
             }
         }
-
-        [HttpGet("getcities")]
-        public IActionResult SearchCities(string q, string country)
-        {
-            if (string.IsNullOrWhiteSpace(q))
-            {
-                return Json(new List<SelectListItemVo>());
-            }
-            else
-            {
-                var result = userContentAppService.GetCities(CurrentUserId, country, q);
-
-                if (result.Success)
-                {
-                    OperationResultListVo<SelectListItemVo> castResult = result as OperationResultListVo<SelectListItemVo>;
-
-                    return Json(castResult.Value);
-                }
-
-                return Json(new List<SelectListItemVo>());
-            }
-        }
     }
 }

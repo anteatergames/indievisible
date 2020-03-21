@@ -271,6 +271,10 @@
         }
     }
 
+    function bindPopOvers() {
+        $("[data-toggle='popover']").popover({ html: true });
+    }
+
     return {
         Init: init,
         Layout: {
@@ -286,7 +290,8 @@
             RemoveErrorFromButton: removeErrorFromButton,
             PostSaveCallback: postSaveCallback,
             RenameInputs: renameInputs,
-            GetDeleteMessages: getDeleteMessages
+            GetDeleteMessages: getDeleteMessages,
+            BindPopOvers: bindPopOvers
         },
         Default: {
             Spinner: spinnerCenter,

@@ -52,7 +52,8 @@
 
         bindClearExternalLink();
         bindCountry();
-        bindLocation();
+
+        MAINMODULE.Common.BindPopOvers();
     }
 
     function bindClearExternalLink() {
@@ -64,39 +65,6 @@
     function bindCountry() {
 
         objs.country.select2();
-    }
-
-    function bindLocation() {
-        var url = objs.location.data('url');
-
-        objs.location.select2({
-            tags:true,
-            ajax: {
-                minimumInputLength: 3,
-                url: url,
-                dataType: 'json',
-                data: function (params) {
-                    var query = {
-                        q: params.term,
-                        country: objs.country.val()
-                    };
-                    return query;
-                },
-                processResults: function (data) {
-                    var results = [];
-                    $.each(data, function (index, account) {
-                        results.push({
-                            id: account.value,
-                            text: account.text
-                        });
-                    });
-
-                    return {
-                        results: results
-                    };
-                }
-            }
-        });
     }
 
     function bindCropAvatar() {
