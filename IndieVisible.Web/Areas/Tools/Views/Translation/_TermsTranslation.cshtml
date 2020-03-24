@@ -1,6 +1,12 @@
 ﻿@model TranslationProjectViewModel
 @{
     Layout = null;
+
+    string lang = (string)ViewData["language"];
+
+    var languages = Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()).ToList();
+
+    languages.ForEach(x => x.Selected = (x.Value.Equals(lang)));
 }
 
 <div class="text-center">
@@ -14,7 +20,7 @@
         </div>
         <div class="col pl-0 pl-md-2 border-left rounded-0">
             <label class="col-form-label text-uppercase">@SharedLocalizer["to"]</label>
-            @Html.DropDownList("Language", Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()), SharedLocalizer["Select a language"], new { @class = "form-control form-control-sm" })
+            @Html.DropDownList("Language", languages, SharedLocalizer["Select a language"], new { @class = "form-control form-control-sm" })
         </div>
         <div class="col-12">
             <button type="button" id="btnSaveTranslationChanges" class="btn btn-sm btn-block btn-outline-primary">@SharedLocalizer["Save Translations"] <span id="changedtranslationscounter" data-count="0">0</span></button>

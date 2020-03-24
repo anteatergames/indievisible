@@ -89,10 +89,10 @@
     <Content Update="Areas\Tools\Views\Translation\Export.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\Stats.cshtml">
+    <Content Update="Areas\Tools\Views\Translation\Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_DetailsWrapper.cshtml">
+    <Content Update="Areas\Tools\Views\Translation\_TranslateWrapper.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Tools\Views\Translation\_CreateEditWrapper.cshtml">
@@ -101,10 +101,10 @@
     <Content Update="Areas\Tools\Views\Translation\_Terms.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_DetailsTranslation.cshtml">
+    <Content Update="Areas\Tools\Views\Translation\_TermsTranslation.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_Details.cshtml">
+    <Content Update="Areas\Tools\Views\Translation\_Translate.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Tools\Views\_ViewImports.cshtml">

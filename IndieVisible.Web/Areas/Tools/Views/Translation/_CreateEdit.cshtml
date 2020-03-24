@@ -34,7 +34,7 @@
                     <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
                 </button>
                 <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                    <a asp-area="tools" asp-controller="translation" asp-action="stats" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["stats"]</a>
+                    <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["details"]</a>
                     @if (Model.Permissions.CanEdit)
                     {
                         <a asp-area="tools" asp-controller="translation" asp-action="export" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["export"]</a>

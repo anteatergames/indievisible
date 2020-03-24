@@ -6,7 +6,7 @@
     var canInteract = false;
     var isIndex = false;
     var isNew = false;
-    var isDetails = false;
+    var isTranslate = false;
     var isEdit = false;
 
     var changedEntries = [];
@@ -87,11 +87,12 @@
     function setCreateEdit() {
         cacheOBjsCreateEdit();
 
-        bindPopOvers();
         bindBtnAddTerm();
         bindBtnDeleteTerm();
         bindBtnUploadTerms();
         bindBtnSaveTerms();
+
+        MAINMODULE.Common.BindPopOvers();
 
         instantiateDropZone();
 
@@ -106,6 +107,8 @@
         bindDetails();
 
         setStickyElementsDetails();
+
+        loadSelectedLanguage(objs.ddlLanguage);
     }
 
     function init() {
@@ -116,9 +119,9 @@
 
         canInteract = objs.container.find(selectors.canInteract).val();
         isNew = window.location.href.indexOf('add') > -1;
-        isDetails = window.location.href.indexOf('details') > -1;
+        isTranslate = window.location.href.indexOf('translate') > -1;
         isEdit = window.location.href.indexOf('edit') > -1;
-        isIndex = !isNew && !isDetails && !isEdit;
+        isIndex = !isNew && !isTranslate && !isEdit;
 
         if (isIndex) {
             cacheObjsIndex();
@@ -127,7 +130,7 @@
             loadTranslations(false, url);
             loadMyProjects(false, urlMine);
         }
-        else if (isDetails) {
+        else if (isTranslate) {
             setDetails();
         }
         else if (isEdit) {
@@ -164,12 +167,6 @@
     function bindLanguageChange() {
         objs.containerDetails.on('change', selectors.ddlLanguage, function () {
             var ddl = $(this);
-            var url = objs.urls.data('urlEntriesGet');
-            var language = ddl.val();
-
-            var data = {
-                language: language
-            };
 
             objs.containerDetails.find(selectors.entryInput).val('');
             $(selectors.entryInput).data('originalval', '');
@@ -178,16 +175,7 @@
 
             removeAllAuthors(selectors.entryAuthors);
 
-            $.post(url, data).done(function (response) {
-                if (response.success === true) {
-                    for (var i = 0; i < response.value.length; i++) {
-                        loadSingleTranslation(response.value[i]);
-                    }
-                }
-                else {
-                    ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
-                }
-            });
+            loadSelectedLanguage(ddl);
         });
     }
 
@@ -489,7 +477,7 @@
                     callback(response);
                 }
 
-                bindPopOvers();
+                MAINMODULE.Common.BindPopOvers();
             });
 
         }
@@ -577,7 +565,7 @@
 
         checkNoItems();
 
-        bindPopOvers();
+        MAINMODULE.Common.BindPopOvers();
 
         resetValidator();
     }
@@ -619,6 +607,28 @@
         var authorBtn = entry.find(selectors.entryAuthorButton + '[data-userId=' + userId + ']');
 
         authorBtn.parent().remove();
+    }
+
+    function loadSelectedLanguage(ddl) {
+        var url = objs.urls.data('urlEntriesGet');
+        var language = ddl.val();
+
+        console.log(language);
+
+        var data = {
+            language: language
+        };
+
+        $.post(url, data).done(function (response) {
+            if (response.success === true) {
+                for (var i = 0; i < response.value.length; i++) {
+                    loadSingleTranslation(response.value[i]);
+                }
+            }
+            else {
+                ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+            }
+        });
     }
 
     function loadSingleTranslation(translation) {

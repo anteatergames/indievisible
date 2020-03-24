@@ -42,6 +42,12 @@ a {
         box-shadow: 0 3px 15px rgba(0,0,0,0.2);
     }
 
+
+
+.hover:hover {
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+}
+
 .rating-container .filled-stars {
     color: var(--color-accent);
 }

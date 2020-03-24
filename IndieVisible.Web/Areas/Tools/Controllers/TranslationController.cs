@@ -105,8 +105,30 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             return PartialView("_ListByUser", model);
         }
 
-        [Route("tools/translation/details/{id:guid}")]
-        public IActionResult Details(Guid id, int? pointsEarned)
+        [Route("tools/translation/{id:guid}")]
+        public IActionResult Details(Guid id)
+        {
+            OperationResultVo result = translationAppService.GetStatsById(CurrentUserId, id);
+
+            if (result.Success)
+            {
+                OperationResultVo<TranslationStatsViewModel> castRestult = result as OperationResultVo<TranslationStatsViewModel>;
+
+                TranslationStatsViewModel model = castRestult.Value;
+
+                SetLocalization(model);
+                SetAuthorDetails(model);
+
+                return View("Details", model);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [Route("tools/translation/translate/{id:guid}/{language?}")]
+        public IActionResult Translate(Guid id, SupportedLanguage language, int? pointsEarned)
         {
             OperationResultVo result = translationAppService.GetById(CurrentUserId, id);
 
@@ -121,36 +143,16 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 SetGamificationMessage(pointsEarned);
 
+                ViewData["language"] = language.ToString();
+
                 if (Request.IsAjaxRequest())
                 {
-                    return View("_Details", model);
+                    return View("_Translate", model);
                 }
                 else
                 {
-                    return View("_DetailsWrapper", model);
+                    return View("_TranslateWrapper", model);
                 }
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        [Route("tools/translation/stats/{id:guid}")]
-        public IActionResult Stats(Guid id)
-        {
-            OperationResultVo result = translationAppService.GetStatsById(CurrentUserId, id);
-
-            if (result.Success)
-            {
-                OperationResultVo<TranslationStatsViewModel> castRestult = result as OperationResultVo<TranslationStatsViewModel>;
-
-                TranslationStatsViewModel model = castRestult.Value;
-
-                SetLocalization(model);
-                SetAuthorDetails(model);
-
-                return View("Stats", model);
             }
             else
             {

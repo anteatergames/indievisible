@@ -1921,8 +1921,8 @@
     <value>Estatísticas de tradução para {0}</value>
     <comment>Translation</comment>
   </data>
-  <data name="Who helped" xml:space="preserve">
-    <value>Quem ajudou</value>
+  <data name="Who already helped" xml:space="preserve">
+    <value>Quem já ajudou</value>
     <comment>Translation</comment>
   </data>
   <data name="Export all languages" xml:space="preserve">
@@ -1956,5 +1956,17 @@
   <data name="Select the the country you live in." xml:space="preserve">
     <value>Selecione o país em que você vive.</value>
     <comment>Profile</comment>
+  </data>
+  <data name="details" xml:space="preserve">
+    <value>detalhes</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="translate" xml:space="preserve">
+    <value>traduzir</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="export" xml:space="preserve">
+    <value>exportar</value>
+    <comment>Translation</comment>
   </data>
 </root>
