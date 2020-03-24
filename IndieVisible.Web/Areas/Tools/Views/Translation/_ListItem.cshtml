@@ -9,26 +9,29 @@
 
 <div class="row">
     <div class="col-12">
-        <div class="translation-progress-chart text-center">
-            <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage)" />
-        </div>
+
+        @if (canInteract)
+        {
+            <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" title="@SharedLocalizer["Help this one!"]">
+                <div class="translation-progress-chart text-center">
+                    <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage)" />
+                </div>
+            </a>
+        }
+        else
+        {
+            <div class="translation-progress-chart text-center">
+                <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage)" />
+            </div>
+        }
     </div>
 </div>
 
-<div class="row p-2">
-    <div class="col p-2 text-left">
+<div class="row">
+    <div class="col text-left">
         <span class="text-muted">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</span>
     </div>
-    <div class="col p-2 text-right">
+    <div class="col text-right">
         <span class="text-muted"><span class="comment-count">@Model.TermCount</span> @(Model.TermCount == 1 ? SharedLocalizer["term"] : SharedLocalizer["terms"])</span>
     </div>
 </div>
-
-@if (canInteract)
-{
-    <div class="row">
-        <div class="col-12">
-            <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="btn btn-block btn-secondary">@SharedLocalizer["Help this one!"]</a>
-        </div>
-    </div>
-}
