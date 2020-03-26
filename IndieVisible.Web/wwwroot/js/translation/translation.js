@@ -35,6 +35,7 @@
         selectors.btnAddTerm = '#btn-translation-term-add';
         selectors.btnDeleteTerm = '.btn-term-delete';
         selectors.ddlLanguage = '#Language';
+        selectors.btnFilter = '.btn-filter';
         selectors.entry = '.translation-entry';
         selectors.entryInput = ':input.entry-input';
         selectors.entryActions = '.translation-entry-actions';
@@ -101,10 +102,10 @@
         setStickyElementsEdit();
     }
 
-    function setDetails() {
+    function setTranslate() {
         cacheObjsDetails();
 
-        bindDetails();
+        bindTranslate();
 
         setStickyElementsDetails();
 
@@ -131,7 +132,7 @@
             loadMyProjects(false, urlMine);
         }
         else if (isTranslate) {
-            setDetails();
+            setTranslate();
         }
         else if (isEdit) {
             setCreateEdit();
@@ -152,9 +153,10 @@
         });
     }
 
-    function bindDetails() {
+    function bindTranslate() {
         bindEdit();
         bindDeleteProject();
+        bindFilter();
         bindLanguageChange();
         bindEntrySave();
         bindAuthorChange();
@@ -173,9 +175,20 @@
 
             resetChangeCounter();
 
-            removeAllAuthors(selectors.entryAuthors);
-
             loadSelectedLanguage(ddl);
+        });
+    }
+
+    function bindFilter() {
+        objs.containerDetails.on('click', selectors.btnFilter, function () {
+            var btn = $(this);
+            var filter = btn.data('filter');
+
+            ALERTSYSTEM.Toastr.ShowWarning(filter + " (filter not implemented yet!)");
+
+            if (filter !== 'Untranslated') {
+                loadSelectedLanguage(objs.ddlLanguage);
+            }
         });
     }
 
@@ -613,14 +626,14 @@
         var url = objs.urls.data('urlEntriesGet');
         var language = ddl.val();
 
-        console.log(language);
-
         var data = {
             language: language
         };
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
+                removeAllAuthors(selectors.entryAuthors);
+
                 for (var i = 0; i < response.value.length; i++) {
                     loadSingleTranslation(response.value[i]);
                 }

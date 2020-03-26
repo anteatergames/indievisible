@@ -12,17 +12,45 @@
 <div class="text-center">
     <h4 class="text-uppercase mb-0">@SharedLocalizer["translating"]</h4>
 </div>
-<div id="divTranslationSelector" class="border-bottom mb-2 pb-1 bg-white sticky">
+<div class="bg-white">
     <div class="row">
-        <div class="col pr-0 pr-md-2 border-right rounded-0">
+        <div class="col-6 col-xl-3">
             <label class="col-form-label text-uppercase">@SharedLocalizer["from"]</label>
+        </div>
+        <div class="col-6 col-xl-3">
+            <label class="col-form-label text-uppercase">@SharedLocalizer["to"]</label>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3 mb-2 mb-md-0">
+            <label class="col-form-label text-uppercase d-none d-xl-block">&nbsp;</label>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <label class="col-form-label text-uppercase d-none d-xl-block">&nbsp;</label>
+        </div>
+    </div>
+</div>
+<div id="divTranslationSelector" class="border-bottom pt-1 pb-0 pb-1 bg-white sticky">
+    <div class="row">
+        <div class="col-6 col-xl-4">
             <label class="form-control form-control-sm bg-gray">@SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]</label>
         </div>
-        <div class="col pl-0 pl-md-2 border-left rounded-0">
-            <label class="col-form-label text-uppercase">@SharedLocalizer["to"]</label>
+        <div class="col-6 col-xl-4">
             @Html.DropDownList("Language", languages, SharedLocalizer["Select a language"], new { @class = "form-control form-control-sm" })
         </div>
-        <div class="col-12">
+        <div class="col-12 col-md-6 col-xl-4 mb-2 mb-md-0">
+            <div class="btn-group btn-group-toggle btn-block" role="group" data-toggle="buttons" aria-label="@SharedLocalizer["Translation Filter"]">
+
+                <label class="btn btn-default btn-filter active" data-filter="@TranslationFilter.All">
+                    <input type="radio" name="options" id="option1" checked> @SharedLocalizer["all"]
+                </label>
+                <label class="btn btn-default btn-filter" data-filter="@TranslationFilter.Translated">
+                    <input type="radio" name="options" id="option2"> @SharedLocalizer["translated"]
+                </label>
+                <label class="btn btn-default btn-filter" data-filter="@TranslationFilter.Untranslated">
+                    <input type="radio" name="options" id="option3"> @SharedLocalizer["untranslated"]
+                </label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-12">
             <button type="button" id="btnSaveTranslationChanges" class="btn btn-sm btn-block btn-outline-primary">@SharedLocalizer["Save Translations"] <span id="changedtranslationscounter" data-count="0">0</span></button>
         </div>
     </div>

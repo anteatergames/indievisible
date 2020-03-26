@@ -1969,4 +1969,20 @@
     <value>exportar</value>
     <comment>Translation</comment>
   </data>
+  <data name="all" xml:space="preserve">
+    <value>todos</value>
+    <comment>Generic</comment>
+  </data>
+  <data name="translated" xml:space="preserve">
+    <value>traduzidos</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Translation Filter" xml:space="preserve">
+    <value>Filtro de Tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="untranslated" xml:space="preserve">
+    <value>não traduzidos</value>
+    <comment>Translation</comment>
+  </data>
 </root>
