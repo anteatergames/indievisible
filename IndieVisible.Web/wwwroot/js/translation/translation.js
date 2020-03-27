@@ -184,8 +184,6 @@
             var btn = $(this);
             var filter = btn.data('filter');
 
-            ALERTSYSTEM.Toastr.ShowWarning(filter + " (filter not implemented yet!)");
-
             if (filter !== 'Untranslated') {
                 loadSelectedLanguage(objs.ddlLanguage);
             }
@@ -194,20 +192,17 @@
             var inputs = objs.containerDetails.find(selectors.entryInput);
 
             var showTranslated = filter === 'All' || filter === 'Translated';
-            var showUntranslated = filter === 'All' || filter === 'Unranslated';
+            var showUntranslated = filter === 'All' || filter === 'Untranslated';
 
             inputs.each(function (index, element) {
                 var input = $(element);
                 var translated = input.data('translated');
 
-                if (translated && showTranslated) {
-                    input.show();
-                }
-                else if (!translated && showUntranslated) {
-                    input.closest('.translation-entry').show();
+                if ((translated && showTranslated) || (!translated && showUntranslated)) {
+                    input.closest(selectors.entry).show();
                 }
                 else {
-                    input.closest('.translation-entry').hide();
+                    input.closest(selectors.entry).hide();
                 }
             });
         });
@@ -649,7 +644,7 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
-                clearTranslationStatus();
+                resetTranslationStatus();
 
                 for (var i = 0; i < response.value.length; i++) {
                     loadSingleTranslation(response.value[i]);
@@ -661,7 +656,7 @@
         });
     }
 
-    function clearTranslationStatus() {
+    function resetTranslationStatus() {
         var entryInputs = objs.containerDetails.find(selectors.entryInput);
 
         entryInputs.each(function (index, element) {

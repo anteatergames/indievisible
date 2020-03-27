@@ -1985,4 +1985,8 @@
     <value>não traduzidos</value>
     <comment>Translation</comment>
   </data>
+  <data name="Save changed" xml:space="preserve">
+    <value>Salvar alterados</value>
+    <comment>Generic</comment>
+  </data>
 </root>
