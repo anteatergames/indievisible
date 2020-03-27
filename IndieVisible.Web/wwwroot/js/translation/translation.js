@@ -189,6 +189,27 @@
             if (filter !== 'Untranslated') {
                 loadSelectedLanguage(objs.ddlLanguage);
             }
+
+
+            var inputs = objs.containerDetails.find(selectors.entryInput);
+
+            var showTranslated = filter === 'All' || filter === 'Translated';
+            var showUntranslated = filter === 'All' || filter === 'Unranslated';
+
+            inputs.each(function (index, element) {
+                var input = $(element);
+                var translated = input.data('translated');
+
+                if (translated && showTranslated) {
+                    input.show();
+                }
+                else if (!translated && showUntranslated) {
+                    input.closest('.translation-entry').show();
+                }
+                else {
+                    input.closest('.translation-entry').hide();
+                }
+            });
         });
     }
 
@@ -608,10 +629,6 @@
         newAuthorObj.appendTo(container);
     }
 
-    function removeAllAuthors(container) {
-        $(container).html('');
-    }
-
     function deleteEntryAuthorButton(termId, userId) {
         var entryInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + termId + ']');
 
@@ -632,7 +649,7 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
-                removeAllAuthors(selectors.entryAuthors);
+                clearTranslationStatus();
 
                 for (var i = 0; i < response.value.length; i++) {
                     loadSingleTranslation(response.value[i]);
@@ -644,11 +661,23 @@
         });
     }
 
+    function clearTranslationStatus() {
+        var entryInputs = objs.containerDetails.find(selectors.entryInput);
+
+        entryInputs.each(function (index, element) {
+            $(element).data('translated', false);
+        });
+
+        $(selectors.entryAuthors).html('');
+    }
+
     function loadSingleTranslation(translation) {
         var entryInput = objs.containerDetails.find(selectors.entryInput + '[data-termid=' + translation.termId + ']');
 
         entryInput.val(translation.value);
         entryInput.data('originalval', translation.value);
+
+        entryInput.data('translated', true);
 
         addNewAuthor(entryInput.closest(selectors.entry).find(selectors.entryAuthors), translation);
     }

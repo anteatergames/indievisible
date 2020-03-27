@@ -58,7 +58,7 @@
 
 @foreach (var term in Model.Terms)
 {
-    <div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 mt-2 m-md-2 mb-2 border bg-light no-gutters">
+    <div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 mt-2 m-md-2 mb-2 border bg-light no-gutters translation-entry">
         <div class="col-12 px-1 px-sm-2 px-md-3 no-gutters">
             <div class="col-12">
                 <label class="col-form-label py-0">
@@ -75,7 +75,7 @@
 
             <p class="mx-3 mb-0">@Html.Raw(term.Value.Replace("\n", "<br />"))</p>
 
-            <div class="col-12 mb-3 translation-entry">
+            <div class="col-12 mb-3">
                 <div class="input-group mt-1">
                     <textarea class="form-control entry-input" data-termid="@term.Id" data-originalval="@string.Empty" placeholder="@SharedLocalizer["Type here your translation"]"></textarea>
                 </div>
