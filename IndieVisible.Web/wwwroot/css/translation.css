@@ -1,3 +1,4 @@
+
 .feature-details {
     padding: 0 !important;
 }
@@ -26,7 +27,7 @@
 }
 
 .sticky {
-    z-index: 51 !important;
+    z-index: 1500 !important;
     border-radius: 0;
 }
 
