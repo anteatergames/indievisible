@@ -1,19 +1,16 @@
 ﻿@model TranslationProjectViewModel
 
 @{
-    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    Layout = null;
     var canInteract = User.Identity.IsAuthenticated;
-
-    if (isAjax)
-    {
-        Layout = null;
-    }
 
     ViewData["Title"] = SharedLocalizer["{0} Translation Project", (Model.Id == Guid.Empty ? "New" : "Edit")];
 
     var userGames = ViewBag.UserGames as List<SelectListItem>;
 
     var languages = Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString());
+
+    var isNew = Model.Id == Guid.Empty;
 }
 
 <h1 class="sr-only">@ViewData["Title"]</h1>
@@ -28,20 +25,29 @@
         <span class="card-subtitle">
             @SharedLocalizer["Tell us about the translation you need."]
         </span>
-        <div class="box-tools">
-            <div class="btn-group">
-                <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
-                </button>
-                <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                    <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["details"]</a>
-                    @if (Model.Permissions.CanEdit)
-                    {
-                        <a asp-area="tools" asp-controller="translation" asp-action="export" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["export"]</a>
-                    }
+        @if (!isNew)
+        {
+            <div class="box-tools">
+                <div class="btn-group">
+                    <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <a asp-area="tools" asp-controller="translation" asp-action="translate" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["translate"]</a>
+                        <a asp-area="tools" asp-controller="translation" asp-action="details" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["details"]</a>
+                        @if (Model.Permissions.CanEdit)
+                        {
+                            <a asp-area="tools" asp-controller="translation" asp-action="export" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["export"]</a>
+                        }
+
+                        @if (Model.Permissions.CanDelete)
+                        {
+                            <a class="btnDeleteTranslationProject dropdown-item" href="#" data-url="@Url.Action("Delete", "Translation", new { area = "Tools", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this Translation Project?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 
     <div class="box-body p-0 px-md-2">

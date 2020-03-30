@@ -30,7 +30,7 @@
                             @if (Model.Permissions.CanEdit)
                             {
                                 <a asp-area="tools" asp-controller="translation" asp-action="export" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["export"]</a>
-                                <a class="btnEditTranslationProject dropdown-item" href="#" data-url="@Url.Action("Edit", "Translation", new { area = "Tools", id = Model.Id })">@SharedLocalizer["edit"]</a>
+                                <a asp-area="tools" asp-controller="translation" asp-action="edit" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["edit"]</a>
                             }
 
                             @if (Model.Permissions.CanDelete)

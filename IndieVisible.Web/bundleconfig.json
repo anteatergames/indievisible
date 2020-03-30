@@ -205,6 +205,20 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/js/translation/translationedit.min.js",
+    "inputFiles": [
+      "wwwroot/js/translation/translationedit.js",
+      "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/translation/translationtranslate.min.js",
+    "inputFiles": [
+      "wwwroot/js/translation/translationtranslate.js",
+      "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/js/translation/translationexport.min.js",
     "inputFiles": [
       "wwwroot/js/translation/translationexport.js",

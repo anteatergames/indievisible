@@ -50,12 +50,8 @@
     <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
     <input type="hidden" id="urls" value="urls"
            data-url-list="@Url.Action("list", "translation", new { area = "tools" })"
-           data-url-mine="@Url.Action("listMine", "translation", new { area = "tools" })"
-           data-url-terms="@Url.Action("getterms", "translation", new { area = "tools" })"
-           data-url-terms-save="@Url.Action("saveterms", "translation", new { area = "tools" })" />
+           data-url-mine="@Url.Action("listMine", "translation", new { area = "tools" })"/>
 
-    <div id="containerdetails" class="row">
-    </div>
     <div id="containerlist" class="row">
         <div class="col-lg-12 mb-2 px-4">
             <h1><i class="fa fa-fw fa-language" aria-hidden="true"></i> @ViewData["Title"]</h1>
@@ -82,7 +78,7 @@
                             @if (canInteract && canRequest)
                             {
                                 <div id="divActions">
-                                    <button id="btn-new" class="btn btn-outline-primary btn-block" data-url="@Url.Action("new", "translation", new { area = "tools" })">@SharedLocalizer["New Translation"]</button>
+                                    <a asp-area="tools" asp-controller="translation" asp-action="new" class="btn btn-outline-primary btn-block">@SharedLocalizer["New Translation"]</a>
                                 </div>
                             }
                             else

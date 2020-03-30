@@ -145,14 +145,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 ViewData["language"] = language.ToString();
 
-                if (Request.IsAjaxRequest())
-                {
-                    return View("_Translate", model);
-                }
-                else
-                {
-                    return View("_TranslateWrapper", model);
-                }
+                return View("_TranslateWrapper", model);
             }
             else
             {
@@ -280,11 +273,11 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                     ViewBag.UserGames = new List<SelectListItem>();
                 }
 
-                return PartialView("_CreateEdit", model);
+                return View("_CreateEditWrapper", model);
             }
             else
             {
-                return PartialView("_CreateEdit", new TranslationProjectViewModel());
+                return View("_CreateEditWrapper", new TranslationProjectViewModel());
             }
         }
 
@@ -302,14 +295,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 SetLocalization(model, true);
 
-                if (Request.IsAjaxRequest())
-                {
-                    return View("_CreateEdit", model);
-                }
-                else
-                {
-                    return View("_CreateEditWrapper", model);
-                }
+                return View("_CreateEditWrapper", model);
             }
             else
             {
