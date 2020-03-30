@@ -167,10 +167,13 @@
                                                     @Model.Bio
                                                 </div>
                                                 <div class="profile-user-info">
-                                                    <p>
-                                                        @SharedLocalizer["Studio"]
-                                                    </p>
-                                                    <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
+                                                    @if (!string.IsNullOrWhiteSpace(Model.StudioName))
+                                                    {
+                                                        <p>
+                                                            @SharedLocalizer["Studio"]
+                                                        </p>
+                                                        <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
+                                                    }
                                                     @if (!string.IsNullOrWhiteSpace(Model.Country))
                                                     {
                                                         <p class="text-capitalize">

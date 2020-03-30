@@ -29,7 +29,7 @@ namespace IndieVisible.Web.Controllers
 
         public IActionResult Index()
         {
-            ProfileViewModel model = FakeData.FakeProfile();
+            ProfileViewModel model = profileAppService.GenerateNewOne(ProfileType.Personal);
 
             return View(model);
         }
