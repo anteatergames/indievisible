@@ -28,110 +28,112 @@
     }
 }
 
-<div class="box bg-white">
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="UserId" />
-    <input type="hidden" asp-for="CreateDate" />
-    <div class="box-header with-border">
-        <div class="float-left mr-3 mb-3">
-            <a href="javascript: location.replace(document.referrer);" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-        </div>
-        <h1>@ViewData["Title"]</h1>
-        <h3 class="card-subtitle">
-            @Model.Motto
-        </h3>
-    </div>
-    <div class="box-body">
-        <p>@Model.Description</p>
-
-        @if (Model.Recruiting && !Model.CurrentUserIsMember && Model.Candidate != null)
-        {
-            <div id="divApplication" class="members">
-                <partial name="_Candidate" model="Model.Candidate" />
+<section class="content container">
+    <div class="box bg-white">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="CreateDate" />
+        <div class="box-header with-border">
+            <div class="float-left mr-3 mb-3">
+                <a href="javascript: location.replace(document.referrer);" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
             </div>
-        }
-        <div id="divMembers">
-            @foreach (var member in Model.Members)
+            <h1>@ViewData["Title"]</h1>
+            <h3 class="card-subtitle">
+                @Model.Motto
+            </h3>
+        </div>
+        <div class="box-body">
+            <p>@Model.Description</p>
+
+            @if (Model.Recruiting && !Model.CurrentUserIsMember && Model.Candidate != null)
             {
-                var iWasInvited = member.Permissions.IsMe && member.InvitationStatus == InvitationStatus.Invited;
-
-                <div class="row m-3 team-member @(member.InvitationStatus == InvitationStatus.Invited && !member.Permissions.IsMe ? " convidado" : string.Empty)">
-                    <div class="div-avatar">
-                        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId">
-                            <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" src="~/images/profileimages/developer.png" alt="@member.Quote">
-                        </a>
-                        @if (member.Leader)
-                        {
-                            <h5 class="text-center team-member-isleader">@SharedLocalizer["Team Leader"]</h5>
-                        }
-                        else
-                        {
-                            if (member.InvitationStatus != InvitationStatus.Accepted)
-                            {
-                                <div class="col-12 text-center">
-                                    <span class="text-capitalize">@SharedLocalizer[member.InvitationStatus.ToString().ToLower()]</span>
-                                </div>
-                            }
-                        }
-                    </div>
-                    <div class="div-details col">
-                        @if (!string.IsNullOrWhiteSpace(member.Name))
-                        {
-                            <h5 class="text-center team-member-name">@member.Name</h5>
-                        }
-                        <div class="form-group">
-                            <span>@member.Role</span>
-                        </div>
-                        <div class="form-group">
-                            @foreach (var workType in member.WorkDictionary)
-                            {
-                                <span class="badge badge-primary p-2 mt-2">@SharedLocalizer[workType.Value]</span>
-                            }
-                        </div>
-                        <div class="form-group @(iWasInvited ? "d-none" : string.Empty) quote">
-                            <span>@(string.IsNullOrWhiteSpace(member.Quote) ? "-" : member.Quote)</span>
-                        </div>
-
-                        @if (iWasInvited)
-                        {
-                            <div id="divInvitation">
-                                <div class="form-group">
-                                    <input type="text" id="txtMyQuote" class="form-control" placeholder="@SharedLocalizer["Type here your quote."]" />
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button id="btnAcceptInvitation" class="btn btn-block btn-success text-capitalize" data-url="@Url.Action("AcceptInvitation", "Team", new { teamId = Model.Id })">@SharedLocalizer["accept"]</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button id="btnRejectInvitation" class="btn btn-block btn-danger text-capitalize" data-url="@Url.Action("RejectInvitation", "Team", new { teamId = Model.Id })">@SharedLocalizer["reject"]</button>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-
-                        @if (Model.Permissions.CanEdit && member.InvitationStatus == InvitationStatus.Candidate)
-                        {
-                            <div class="candidate">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button class="btn btn-block btn-success text-capitalize btnAcceptCandidate" data-url="@Url.Action("AcceptCandidate", "Team", new { teamId = Model.Id, userId = member.UserId })">@SharedLocalizer["accept"]</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn btn-block btn-danger text-capitalize btnRejectCandidate" data-url="@Url.Action("RejectCandidate", "Team", new { teamId = Model.Id, userId = member.UserId })">@SharedLocalizer["reject"]</button>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
+                <div id="divApplication" class="members">
+                    <partial name="_Candidate" model="Model.Candidate" />
                 </div>
             }
-        </div>
-        <div id="divGames" class="col-12 pt-5 border-top rounded-0" data-id="@Model.Id">
-            <div class="text-center">
-                <h3>@SharedLocalizer["Games"]</h3>
+            <div id="divMembers">
+                @foreach (var member in Model.Members)
+                {
+                    var iWasInvited = member.Permissions.IsMe && member.InvitationStatus == InvitationStatus.Invited;
+
+                    <div class="row m-3 team-member @(member.InvitationStatus == InvitationStatus.Invited && !member.Permissions.IsMe ? " convidado" : string.Empty)">
+                        <div class="div-avatar">
+                            <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId">
+                                <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" src="~/images/profileimages/developer.png" alt="@member.Quote">
+                            </a>
+                            @if (member.Leader)
+                            {
+                                <h5 class="text-center team-member-isleader">@SharedLocalizer["Team Leader"]</h5>
+                            }
+                            else
+                            {
+                                if (member.InvitationStatus != InvitationStatus.Accepted)
+                                {
+                                    <div class="col-12 text-center">
+                                        <span class="text-capitalize">@SharedLocalizer[member.InvitationStatus.ToString().ToLower()]</span>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="div-details col">
+                            @if (!string.IsNullOrWhiteSpace(member.Name))
+                            {
+                                <h5 class="text-center team-member-name">@member.Name</h5>
+                            }
+                            <div class="form-group">
+                                <span>@member.Role</span>
+                            </div>
+                            <div class="form-group">
+                                @foreach (var workType in member.WorkDictionary)
+                                {
+                                    <span class="badge badge-primary p-2 mt-2">@SharedLocalizer[workType.Value]</span>
+                                }
+                            </div>
+                            <div class="form-group @(iWasInvited ? "d-none" : string.Empty) quote">
+                                <span>@(string.IsNullOrWhiteSpace(member.Quote) ? "-" : member.Quote)</span>
+                            </div>
+
+                            @if (iWasInvited)
+                            {
+                                <div id="divInvitation">
+                                    <div class="form-group">
+                                        <input type="text" id="txtMyQuote" class="form-control" placeholder="@SharedLocalizer["Type here your quote."]" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button id="btnAcceptInvitation" class="btn btn-block btn-success text-capitalize" data-url="@Url.Action("AcceptInvitation", "Team", new { teamId = Model.Id })">@SharedLocalizer["accept"]</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button id="btnRejectInvitation" class="btn btn-block btn-danger text-capitalize" data-url="@Url.Action("RejectInvitation", "Team", new { teamId = Model.Id })">@SharedLocalizer["reject"]</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            @if (Model.Permissions.CanEdit && member.InvitationStatus == InvitationStatus.Candidate)
+                            {
+                                <div class="candidate">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn-block btn-success text-capitalize btnAcceptCandidate" data-url="@Url.Action("AcceptCandidate", "Team", new { teamId = Model.Id, userId = member.UserId })">@SharedLocalizer["accept"]</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn btn-block btn-danger text-capitalize btnRejectCandidate" data-url="@Url.Action("RejectCandidate", "Team", new { teamId = Model.Id, userId = member.UserId })">@SharedLocalizer["reject"]</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
             </div>
-            <div id="divGamesList" class="row">
+            <div id="divGames" class="col-12 pt-5 border-top rounded-0" data-id="@Model.Id">
+                <div class="text-center">
+                    <h3>@SharedLocalizer["Games"]</h3>
+                </div>
+                <div id="divGamesList" class="row">
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>

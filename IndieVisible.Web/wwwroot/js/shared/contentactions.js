@@ -13,13 +13,16 @@
 
     function setSelectors() {
         selectors.container = '.content';
+        selectors.item = '.box-content';
         selectors.btnShare = '.btn-share';
         selectors.sharePopup = '.share-popup';
         selectors.btnInteractionComment = '.btn-interaction-comment';
         selectors.commentBox = '.interaction-commentbox';
         selectors.commentTextArea = '.commenttextarea';
+        selectors.btnLike = '.btn-interaction-like';
         selectors.btnInteractionShare = '.btn-interaction-share';
         selectors.sharePopup = '.share-popup';
+        selectors.likeCounter = '.like-count';
     }
 
     function cacheObjects() {
@@ -36,9 +39,9 @@
     }
 
     function bindLikeBtn() {
-        objs.container.on('click', '.btn-interaction-like', function (e) {
+        objs.container.on('click', selectors.btnLike, function (e) {
             var btn = $(this);
-            var likeCount = btn.closest('.box-content').find('.like-count');
+            var likeCount = btn.closest(selectors.item).find(selectors.likeCounter);
             var targetId = btn.data('id');
 
             if (btn.hasClass("like-liked")) {
@@ -51,11 +54,11 @@
     }
 
     function bindCommentBtn() {
-        $('.content').on('click', selectors.btnInteractionComment, function (e) {
+        objs.container.on('click', selectors.btnInteractionComment, function (e) {
             var btn = $(this);
-            var commentSection = btn.closest('.box-content').find('.box-commentsection');
-            var commentBox = btn.closest('.box-content').find(selectors.commentBox);
-            var commentTextArea = btn.closest('.box-content').find(selectors.commentTextArea);
+            var commentSection = btn.closest(selectors.item).find('.box-commentsection');
+            var commentBox = btn.closest(selectors.item).find(selectors.commentBox);
+            var commentTextArea = btn.closest(selectors.item).find(selectors.commentTextArea);
 
             if (commentSection.is(':visible')) {
                 commentSection.addClass('d-none');
@@ -71,13 +74,13 @@
     }
 
     function bindCommentTextArea() {
-        $('.content').on('keyup', 'textarea.commentbox', function (e) {
+        objs.container.on('keyup', 'textarea.commentbox', function (e) {
             var btn = $(this);
 
             if ((e.keyCode === 10 || e.keyCode === 13) && e.ctrlKey) {
-                var txtArea = btn.closest('.interaction-commentbox').find('.commenttextarea');
+                var txtArea = btn.closest(selectors.commentBox).find('.commenttextarea');
                 var url = txtArea.data('url');
-                var commentCount = btn.closest('.box-content').find('.comment-count');
+                var commentCount = btn.closest(selectors.item).find('.comment-count');
                 var id = txtArea.data('usercontentid');
                 var text = txtArea.val().replace(/\n/g, '<br>\n');
                 var type = txtArea.data('usercontenttype');
@@ -92,12 +95,12 @@
     }
 
     function bindCommentSendBtn() {
-        $('.content').on('click', '.btn-interaction-comment-send', function (e) {
+        objs.container.on('click', '.btn-interaction-comment-send', function (e) {
             var btn = $(this);
-            var txtArea = btn.closest('.interaction-commentbox').find('.commenttextarea');
+            var txtArea = btn.closest(selectors.commentBox).find('.commenttextarea');
             var url = txtArea.data('url');
 
-            var box = txtArea.closest('.box-content');
+            var box = txtArea.closest(selectors.item);
             var commentCount = box.find('.comment-count');
             var id = txtArea.data('usercontentid');
             var text = txtArea.val().replace(/\n/g, '<br>\n');
@@ -215,7 +218,7 @@
     }
     function commentCallback(response, commentCount, txtArea) {
         if (response.success === true) {
-            var commentBox = txtArea.closest('.interaction-commentbox');
+            var commentBox = txtArea.closest(selectors.commentBox);
             var text = txtArea.val().replace(/\n/g, '<br>\n');
             txtArea.val('');
             $(commentCount).text(response.value);

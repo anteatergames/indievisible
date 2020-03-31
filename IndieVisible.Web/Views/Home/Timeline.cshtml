@@ -6,7 +6,11 @@
     var count = 0;
 }
 
-<div class="container">
+@section Styles{
+    <link rel="stylesheet" href="~/css/timeline.css" />
+}
+
+<section class="content container">
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
     </div>
@@ -51,8 +55,4 @@
             }
         </ul>
     </div>
-</div>
-
-@section Styles{
-    <link rel="stylesheet" href="~/css/timeline.css" />
-}
+</section>

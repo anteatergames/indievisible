@@ -17,7 +17,7 @@
         ACTIVITYFEED.Init(objs.divActivityFeed, FEEDTYPE.USER, objs.Id.val());
     }
     function setSelectors() {
-        selectors.content = '.content';
+        selectors.container = '.content';
         selectors.divListUserTeams = '#divListUserTeams';
         selectors.tabActivity = '#tabactivity';
         selectors.divActivityFeed = '#tabactivity #divActivityFeed';
@@ -30,7 +30,7 @@
     }
 
     function cacheObjects() {
-        objs.content = $(selectors.content);
+        objs.content = $(selectors.container);
         objs.divListUserTeams = $(selectors.divListUserTeams);
         objs.tabActivity = $(selectors.tabActivity);
         objs.divActivityFeed = $(selectors.divActivityFeed);

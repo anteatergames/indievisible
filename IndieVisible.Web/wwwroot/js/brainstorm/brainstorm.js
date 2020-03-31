@@ -27,7 +27,7 @@
     }
 
     function setSelectors() {
-        selectors.container = '.content';
+        selectors.container = '.content-wrapper';
         selectors.toolbar = $("#divToolbar");
         selectors.list = $("#divList");
         selectors.btnPostVotingItem = $("#btnPostVotingItem");

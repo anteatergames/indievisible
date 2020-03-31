@@ -1989,4 +1989,8 @@
     <value>Salvar alterados</value>
     <comment>Generic</comment>
   </data>
+  <data name="You haven't asked for anyone's help, yet." xml:space="preserve">
+    <value>Você não pediu ajuda pra ninguém, ainda.</value>
+    <comment>Translation</comment>
+  </data>
 </root>

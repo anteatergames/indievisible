@@ -4,38 +4,40 @@
     ViewData["Title"] = SharedLocalizer["New Brainstorm Session"];
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="box bg-white">
-    <form id="frmBrainstormSessionSave" asp-controller="brainstorm" asp-action="savesession" method="post">
-        <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="UserId" />
-        <input type="hidden" asp-for="CreateDate" />
-        <div class="box-header with-border">
-            <div class="float-left mr-3 mb-3">
-                <a asp-area="" asp-controller="brainstorm" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+<section class="content container">
+    <h1>@ViewData["Title"]</h1>
+    <div class="box bg-white">
+        <form id="frmBrainstormSessionSave" asp-controller="brainstorm" asp-action="savesession" method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="CreateDate" />
+            <div class="box-header with-border">
+                <div class="float-left mr-3 mb-3">
+                    <a asp-area="" asp-controller="brainstorm" asp-action="index" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                </div>
+                <h3 class="card-title">@SharedLocalizer["You are creating a new Brainstorm Session"]</h3>
+                <h4 class="card-subtitle">
+                    @SharedLocalizer["Speak your mind!"]
+                </h4>
             </div>
-            <h3 class="card-title">@SharedLocalizer["You are creating a new Brainstorm Session"]</h3>
-            <h4 class="card-subtitle">
-                @SharedLocalizer["Speak your mind!"]
-            </h4>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body p-md-10">
-            <div class="form-group">
-                <label asp-for="Title" class="col-form-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="col-form-label"></label>
-                <textarea asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="row">
-                <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
-                    <button type="button" id="btnPostBrainstormSession" class="btn btn-lg btn-primary btn-block"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
+            <!-- /.box-header -->
+            <div class="box-body p-md-10">
+                <div class="form-group">
+                    <label asp-for="Title" class="col-form-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="col-form-label"></label>
+                    <textarea asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                        <button type="button" id="btnPostBrainstormSession" class="btn btn-lg btn-primary btn-block"><i class="fa fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
+</section>

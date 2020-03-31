@@ -30,154 +30,156 @@
     @await Html.PartialAsync("_ValidationScriptsPartial")
 }
 
-<div class="col-12">
-    <form id="frmProfileSave" asp-controller="Profile" asp-action="Save" method="post" enctype="multipart/form-data">
-        <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="UserId" />
-        <input type="hidden" asp-for="Type" />
-        <input type="hidden" asp-for="ProfileImageUrl" />
-        <input type="hidden" asp-for="CreateDate" />
-        <input type="hidden" asp-for="CoverImageUrl" />
+<section class="content container">
+    <div class="col-12">
+        <form id="frmProfileSave" asp-controller="Profile" asp-action="Save" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="Type" />
+            <input type="hidden" asp-for="ProfileImageUrl" />
+            <input type="hidden" asp-for="CreateDate" />
+            <input type="hidden" asp-for="CoverImageUrl" />
 
-        <div class="box box-widget user-profile">
-            <div class="user-profile-header bg-dark" id="imgCoverImage" style="background-image: url('@Model.CoverImageUrl'); background-size:cover;">
-                <div class="overlay dark">
-                    <div class="user-profile-image">
-                        <div class="avatar-wrapper">
-                            <label class="label" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Change the Avatar"] (512x512)">
-                                <img class="rounded-circle" id="imgAvatar" src="@Model.ProfileImageUrl" alt="User Avatar">
-                                <input id="avatar" name="avatar" type="file" class="sr-only">
-                            </label>
+            <div class="box box-widget user-profile">
+                <div class="user-profile-header bg-dark" id="imgCoverImage" style="background-image: url('@Model.CoverImageUrl'); background-size:cover;">
+                    <div class="overlay dark">
+                        <div class="user-profile-image">
+                            <div class="avatar-wrapper">
+                                <label class="label" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Change the Avatar"] (512x512)">
+                                    <img class="rounded-circle" id="imgAvatar" src="@Model.ProfileImageUrl" alt="User Avatar">
+                                    <input id="avatar" name="avatar" type="file" class="sr-only">
+                                </label>
+                            </div>
                         </div>
                     </div>
+                    <div class="user-profile-cover-topright">
+                        <label class="label btn btn-default bg-transparent" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Change Cover Image"] (1110x300)">
+                            @SharedLocalizer["Change Cover Image"]
+                            <input id="coverImage" name="coverImage" type="file" class="sr-only">
+                        </label>
+                    </div>
                 </div>
-                <div class="user-profile-cover-topright">
-                    <label class="label btn btn-default bg-transparent" data-toggle="tooltip" title="" data-original-title="@SharedLocalizer["Change Cover Image"] (1110x300)">
-                        @SharedLocalizer["Change Cover Image"]
-                        <input id="coverImage" name="coverImage" type="file" class="sr-only">
-                    </label>
-                </div>
-            </div>
-            <div class="box-footer square-top bg-white">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="box-header">
-                            <h3 class="card-title">@SharedLocalizer["Edit my awesomeness"]</h3>
-                        </div>
-                        <div class="box-body p-0 no-gutters">
+                <div class="box-footer square-top bg-white">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="box-header">
+                                <h3 class="card-title">@SharedLocalizer["Edit my awesomeness"]</h3>
+                            </div>
+                            <div class="box-body p-0 no-gutters">
 
-                            <div class="vtabs customvtab col-12">
-                                <ul class="nav nav-tabs tabs-vertical text-capitalize" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active show text-center" data-toggle="tab" href="#basicinfotab" role="tab" aria-selected="true">
-                                            <span class="d-sm-none"><i class="fas fa-fw fa-home" aria-hidden="true"></i></span>
-                                            <span class="d-none d-sm-block">@SharedLocalizer["basic"]</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-center" data-toggle="tab" href="#externaltab" role="tab" aria-selected="false">
-                                            <span class="d-sm-none"><i class="fas fa-fw fa-project-diagram" aria-hidden="true"></i></span>
-                                            <span class="d-none d-sm-block">@SharedLocalizer["external"]</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <div class="vtabs customvtab col-12">
+                                    <ul class="nav nav-tabs tabs-vertical text-capitalize" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active show text-center" data-toggle="tab" href="#basicinfotab" role="tab" aria-selected="true">
+                                                <span class="d-sm-none"><i class="fas fa-fw fa-home" aria-hidden="true"></i></span>
+                                                <span class="d-none d-sm-block">@SharedLocalizer["basic"]</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-center" data-toggle="tab" href="#externaltab" role="tab" aria-selected="false">
+                                                <span class="d-sm-none"><i class="fas fa-fw fa-project-diagram" aria-hidden="true"></i></span>
+                                                <span class="d-none d-sm-block">@SharedLocalizer["external"]</span>
+                                            </a>
+                                        </li>
+                                    </ul>
 
-                                <div class="tab-content">
+                                    <div class="tab-content">
 
-                                    <div class="tab-pane active show" id="basicinfotab" role="tabpanel">
+                                        <div class="tab-pane active show" id="basicinfotab" role="tabpanel">
 
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label asp-for="Name"></label>
-                                                <input asp-for="Name" class="form-control" placeholder="@SharedLocalizer["Type it, here!"]">
-                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label asp-for="Name"></label>
+                                                    <input asp-for="Name" class="form-control" placeholder="@SharedLocalizer["Type it, here!"]">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label asp-for="Country" class="text-capitalize"></label>
-                                                <span class="col-form-label">
-                                                    <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the the country you live in."]" aria-hidden="true"></i>
-                                                </span>
-                                                <select asp-for="Country" asp-items="@countries" class="form-control select2">
-                                                    <option selected="selected" value="">@SharedLocalizer["Select"]</option>
-                                                </select>
-                                                <span asp-validation-for="Country" class="text-danger"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label asp-for="Location"></label>
-                                                <span class="col-form-label">
-                                                    <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Enter your city, any fictional place you want or leave it blank to show only your country."]" aria-hidden="true"></i>
-                                                </span>
-                                                <input asp-for="Location" class="form-control" placeholder="@SharedLocalizer["Where are you from?"]" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label asp-for="Motto"></label>
-                                                <input asp-for="Motto" class="form-control" placeholder="@SharedLocalizer["Any punchline you like?"]">
-                                            </div>
-                                            <div class="form-group">
-                                                <label asp-for="StudioName"></label>
-                                                <input asp-for="StudioName" class="form-control" placeholder="@SharedLocalizer["What your is studio is called?"]">
-                                            </div>
-                                            <div class="form-group">
-                                                <label asp-for="Bio"></label>
-                                                <textarea asp-for="Bio" class="form-control" placeholder="@SharedLocalizer["Tell us who you are."]"></textarea>
+                                                <div class="form-group">
+                                                    <label asp-for="Country" class="text-capitalize"></label>
+                                                    <span class="col-form-label">
+                                                        <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Select the the country you live in."]" aria-hidden="true"></i>
+                                                    </span>
+                                                    <select asp-for="Country" asp-items="@countries" class="form-control select2">
+                                                        <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                                                    </select>
+                                                    <span asp-validation-for="Country" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="Location"></label>
+                                                    <span class="col-form-label">
+                                                        <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="@SharedLocalizer["Enter your city, any fictional place you want or leave it blank to show only your country."]" aria-hidden="true"></i>
+                                                    </span>
+                                                    <input asp-for="Location" class="form-control" placeholder="@SharedLocalizer["Where are you from?"]" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="Motto"></label>
+                                                    <input asp-for="Motto" class="form-control" placeholder="@SharedLocalizer["Any punchline you like?"]">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="StudioName"></label>
+                                                    <input asp-for="StudioName" class="form-control" placeholder="@SharedLocalizer["What your is studio is called?"]">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="Bio"></label>
+                                                    <textarea asp-for="Bio" class="form-control" placeholder="@SharedLocalizer["Tell us who you are."]"></textarea>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="tab-pane" id="externaltab" role="tabpanel">
-                                        <p>
-                                            @SharedLocalizer["Fill in just the external links you want to show on your profile. The ones you leave empty will not be shown."]
-                                        </p>
+                                        <div class="tab-pane" id="externaltab" role="tabpanel">
+                                            <p>
+                                                @SharedLocalizer["Fill in just the external links you want to show on your profile. The ones you leave empty will not be shown."]
+                                            </p>
 
-                                        @for (int i = 0; i < Model.ExternalLinks.Count; i++)
-                                        {
-                                            var externalLink = Model.ExternalLinks.ElementAt(i);
+                                            @for (int i = 0; i < Model.ExternalLinks.Count; i++)
+                                            {
+                                                var externalLink = Model.ExternalLinks.ElementAt(i);
 
-                                            <div class="bordered mb-1 p-2 p-md-3 col-12 col-12">
-                                                <input type="hidden" asp-for="ExternalLinks[i].Type" />
-                                                <input type="hidden" asp-for="ExternalLinks[i].Provider" />
-                                                <div class="row">
-                                                    <div class="col-12 col-sm-2 text-center">
-                                                        @if (externalLink.Type == ExternalLinkType.GameDev)
-                                                        {
-                                                            <span class="externallink-icon">
-                                                                <img src="@String.Format("/images/otherprofiles/{0}32.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
-                                                            </span>
-                                                        }
-                                                        else
-                                                        {
-                                                            <span class="externallink-icon btn bg-dark btn-social-icon text-white">
-                                                                <i class="@externalLink.IconClass" aria-hidden="true"></i>
-                                                            </span>
-                                                        }
-                                                    </div>
-                                                    <div class="col-12 col-sm-10">
-                                                        <label>@externalLink.Display</label>
-                                                        <div class="input-group input-group-sm">
-                                                            <input asp-for="ExternalLinks[i].Value" class="form-control" placeholder="@SharedLocalizer["Type your {0} handler here.", externalLink.Display]" />
-                                                            <div class="input-group-append">
-                                                                <btn class="btnClearExternalLink btn form btn-warning input-group-text">@SharedLocalizer["clear"]</btn>
+                                                <div class="bordered mb-1 p-2 p-md-3 col-12 col-12">
+                                                    <input type="hidden" asp-for="ExternalLinks[i].Type" />
+                                                    <input type="hidden" asp-for="ExternalLinks[i].Provider" />
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-2 text-center">
+                                                            @if (externalLink.Type == ExternalLinkType.GameDev)
+                                                            {
+                                                                <span class="externallink-icon">
+                                                                    <img src="@String.Format("/images/otherprofiles/{0}32.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
+                                                                </span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="externallink-icon btn bg-dark btn-social-icon text-white">
+                                                                    <i class="@externalLink.IconClass" aria-hidden="true"></i>
+                                                                </span>
+                                                            }
+                                                        </div>
+                                                        <div class="col-12 col-sm-10">
+                                                            <label>@externalLink.Display</label>
+                                                            <div class="input-group input-group-sm">
+                                                                <input asp-for="ExternalLinks[i].Value" class="form-control" placeholder="@SharedLocalizer["Type your {0} handler here.", externalLink.Display]" />
+                                                                <div class="input-group-append">
+                                                                    <btn class="btnClearExternalLink btn form btn-warning input-group-text">@SharedLocalizer["clear"]</btn>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        }
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
-                        <button type="button" id="btnProfileSave" class="btn btn-lg btn-primary btn-block"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save my profile"]</button>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                            <button type="button" id="btnProfileSave" class="btn btn-lg btn-primary btn-block"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save my profile"]</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
+</section>
 
 <div class="modal fade" id="modalCropAvatar" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

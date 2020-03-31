@@ -47,300 +47,302 @@
     </script>
 }
 
-<div class="col-12">
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="UserId" />
-    <div class="box box-widget user-profile">
-        <div class="user-profile-header" style="background-image: url('@Model.CoverImageUrl'); background-size:cover;">
-            <div class="overlay dark">
-                <div class="user-profile-image">
-                    <div class="avatar-wrapper">
-                        <img class="rounded-circle" src="@Model.ProfileImageUrl" alt="User Avatar">
+<section class="content container">
+    <div class="col-12">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="UserId" />
+        <div class="box box-widget user-profile">
+            <div class="user-profile-header" style="background-image: url('@Model.CoverImageUrl'); background-size:cover;">
+                <div class="overlay dark">
+                    <div class="user-profile-image">
+                        <div class="avatar-wrapper">
+                            <img class="rounded-circle" src="@Model.ProfileImageUrl" alt="User Avatar">
+                        </div>
+                    </div>
+                    <h1 class="user-profile-username">@Model.Name</h1>
+                    <h2 class="user-profile-desc">@Model.Motto</h2>
+
+                    <div class="user-social-acount">
+                        @foreach (var item in Model.ExternalLinks.Where(x => x.Type != ExternalLinkType.GameDev))
+                        {
+                            <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
+                                <i class="@item.IconClass" aria-hidden="true"></i>
+                            </a>
+                        }
                     </div>
                 </div>
-                <h1 class="user-profile-username">@Model.Name</h1>
-                <h2 class="user-profile-desc">@Model.Motto</h2>
 
-                <div class="user-social-acount">
-                    @foreach (var item in Model.ExternalLinks.Where(x => x.Type != ExternalLinkType.GameDev))
-                    {
-                        <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
-                            <i class="@item.IconClass" aria-hidden="true"></i>
-                        </a>
-                    }
+                @if (Model.Permissions.CanEdit)
+                {
+                    <div class="user-profile-cover-topright">
+                        <div class="btn-group">
+                            <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@userId" class="btn btn-default bg-transparent">
+                                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                                @SharedLocalizer["Edit Profile"]
+                            </a>
+                        </div>
+                    </div>
+                }
+
+                <div class="profileactions">
+                    <div class="">
+                        @if (Model.Permissions.CanFollow)
+                        {
+                            <button type="button" id="btn-profile-follow" class="btn btn-lg btn-default bg-transparent btn-follow text-capitalize @(Model.CurrentUserFollowing ? "btn-follow-following" : string.Empty)" data-id="@Model.UserId" data-type="@Model.Type">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                @SharedLocalizer["Follow"]
+                            </button>
+                        }
+                        @if (Model.Permissions.CanConnect)
+                        {
+                            <button type="button" id="btn-profile-connect" class="btn btn-lg btn-default bg-transparent btn-connect text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "btn-connect-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToFollowMe || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
+                                    data-id="@Model.UserId" data-type="@Model.Type" data-text-pending="@SharedLocalizer["pending"]" data-text-connected="@SharedLocalizer["connected"]" data-text-connect="@SharedLocalizer["connect"]">
+                                <i class="fas fa-user-friends" aria-hidden="true"></i>
+                                @if (Model.ConnectionControl.ConnectionIsPending)
+                                {
+                                    @SharedLocalizer["pending"]
+                                }
+                                else if (Model.ConnectionControl.CurrentUserConnected)
+                                {
+                                    @SharedLocalizer["connected"]
+                                }
+                                else
+                                {
+                                    @SharedLocalizer["connect"]
+                                }
+                            </button>
+                        }
+                    </div>
                 </div>
             </div>
 
-            @if (Model.Permissions.CanEdit)
-            {
-                <div class="user-profile-cover-topright">
-                    <div class="btn-group">
-                        <a asp-controller="Profile" asp-action="Edit" asp-route-userId="@userId" class="btn btn-default bg-transparent">
-                            <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                            @SharedLocalizer["Edit Profile"]
-                        </a>
-                    </div>
-                </div>
-            }
+            <div class="box-footer pt-0 px-0">
+                <div class="nav-tabs-custom">
+                    <nav class="nav nav-pills flex-column flex-sm-row">
+                        <a class="flex-sm-fill text-sm-center nav-link active" data-toggle="tab" href="#about">@SharedLocalizer["Profile"]</a>
+                        <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabactivity">@SharedLocalizer["Activity"]</a>
+                        <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabgames">@SharedLocalizer["Games"]</a>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabconnections">@SharedLocalizer["connections"]</a>
+                        }
+                    </nav>
 
-            <div class="profileactions">
-                <div class="">
-                    @if (Model.Permissions.CanFollow)
-                    {
-                        <button type="button" id="btn-profile-follow" class="btn btn-lg btn-default bg-transparent btn-follow text-capitalize @(Model.CurrentUserFollowing ? "btn-follow-following" : string.Empty)" data-id="@Model.UserId" data-type="@Model.Type">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                            @SharedLocalizer["Follow"]
-                        </button>
-                    }
-                    @if (Model.Permissions.CanConnect)
-                    {
-                        <button type="button" id="btn-profile-connect" class="btn btn-lg btn-default bg-transparent btn-connect text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "btn-connect-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToFollowMe || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
-                                data-id="@Model.UserId" data-type="@Model.Type" data-text-pending="@SharedLocalizer["pending"]" data-text-connected="@SharedLocalizer["connected"]" data-text-connect="@SharedLocalizer["connect"]">
-                            <i class="fas fa-user-friends" aria-hidden="true"></i>
-                            @if (Model.ConnectionControl.ConnectionIsPending)
-                            {
-                                @SharedLocalizer["pending"]
-                            }
-                            else if (Model.ConnectionControl.CurrentUserConnected)
-                            {
-                                @SharedLocalizer["connected"]
-                            }
-                            else
-                            {
-                                @SharedLocalizer["connect"]
-                            }
-                        </button>
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="box-footer pt-0 px-0">
-            <div class="nav-tabs-custom">
-                <nav class="nav nav-pills flex-column flex-sm-row">
-                    <a class="flex-sm-fill text-sm-center nav-link active" data-toggle="tab" href="#about">@SharedLocalizer["Profile"]</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabactivity">@SharedLocalizer["Activity"]</a>
-                    <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabgames">@SharedLocalizer["Games"]</a>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab" href="#tabconnections">@SharedLocalizer["connections"]</a>
-                    }
-                </nav>
-
-                <div class="tab-content pt-2">
-                    <div class="active tab-pane" id="about">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-5 col-sm-12">
-                                <div class="bg-white p-2 mb-3">
-                                    @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
-                                    {
-                                        if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
+                    <div class="tab-content pt-2">
+                        <div class="active tab-pane" id="about">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-5 col-sm-12">
+                                    <div class="bg-white p-2 mb-3">
+                                        @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
                                         {
-                                            <div class="text-center connectionalertbox">
-                                                <div class="col-12 alert alert-secondary">
-                                                    <div class="col-12">
-                                                        <p>@SharedLocalizer["This user wants to connect with you."]</p>
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                                                    @SharedLocalizer["allow"]
-                                                                </button>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                                                    @SharedLocalizer["deny"]
-                                                                </button>
+                                            if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
+                                            {
+                                                <div class="text-center connectionalertbox">
+                                                    <div class="col-12 alert alert-secondary">
+                                                        <div class="col-12">
+                                                            <p>@SharedLocalizer["This user wants to connect with you."]</p>
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                                                        @SharedLocalizer["allow"]
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                                                        @SharedLocalizer["deny"]
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            }
                                         }
-                                    }
-                                    <div class="box-profile">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="user-profile-bio">
-                                                    <h6>
-                                                        @SharedLocalizer["Bio"]
-                                                    </h6>
-                                                    @Model.Bio
-                                                </div>
-                                                <div class="profile-user-info">
-                                                    @if (!string.IsNullOrWhiteSpace(Model.StudioName))
-                                                    {
-                                                        <p>
-                                                            @SharedLocalizer["Studio"]
-                                                        </p>
-                                                        <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
-                                                    }
-                                                    @if (!string.IsNullOrWhiteSpace(Model.Country))
-                                                    {
-                                                        <p class="text-capitalize">
-                                                            @SharedLocalizer["country"]
-                                                        </p>
-                                                        <h6 class="margin-bottom">@Model.Country</h6>
-                                                    }
-                                                    @if (!string.IsNullOrWhiteSpace(Model.Location))
-                                                    {
-                                                        <p>
-                                                            @SharedLocalizer["location"]
-                                                        </p>
-                                                        <h6 class="margin-bottom">@Model.Location</h6>
-                                                    }
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="user-profile-xp">
-                                        <h6>
-                                            @SharedLocalizer["Rank"]
-                                            <a asp-area="gamification" asp-controller="ranking" asp-action="help">
-                                                <i class="fas fa-question-circle" aria-hidden="true"></i>
-                                            </a>
-                                        </h6>
-                                        <div class="info-box bg-purple">
-                                            <span class="info-box-icon push-bottom">@Model.IndieXp.CurrentLevelNumber</span>
-
-                                            <div class="info-box-content">
-                                                <span class="info-box-text">@Model.IndieXp.LevelName</span>
-                                                <span class="info-box-number">@Model.IndieXp.XpCurrentLevel</span>
-
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-white" style="width: @(Model.IndieXp.PercentageToNextLevel)%"></div>
-                                                </div>
-                                                <span class="progress-description">
-                                                    @SharedLocalizer["{0} to the next level", Model.IndieXp.XpToNextLevel]
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="user-profile-badges">
-                                        <h6>
-                                            @SharedLocalizer["Badges"]
-                                            <a asp-area="gamification" asp-controller="userbadge" asp-action="help">
-                                                <i class="fas fa-question-circle" aria-hidden="true"></i>
-                                            </a>
-                                        </h6>
-                                        <div class="col-12">
-                                            <div id="divBadges"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-8 col-lg-7">
-                                <div class="row status-primary">
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-green">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Games</h3>
-
-                                                <p>@SharedLocalizer["Games"]</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa fa-gamepad" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-yellow">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Posts</h3>
-
-                                                <p>@SharedLocalizer["Posts"]</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa fa-sticky-note" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-blue">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Comments</h3>
-
-                                                <p>@SharedLocalizer["Comments"]</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa fa-comment" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-6">
-                                        <div class="small-box bg-red">
-                                            <div class="inner">
-                                                <h3>@Model.Counters.Jams</h3>
-
-                                                <p>@SharedLocalizer["Jams"]</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa fa-shapes" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row status-secondary">
-                                    <div class="col-6 col-md-4 border-right">
-                                        <div class="description-block">
-                                            <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
-                                            <span class="description-text">@SharedLocalizer["followers"]</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 border-right d-none d-md-block">
-                                        <div class="description-block">
-                                            <h5 class="description-header">@Model.Counters.Following</h5>
-                                            <span class="description-text">@SharedLocalizer["following"]</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-4">
-                                        <div class="description-block">
-                                            <h5 class="description-header connection-count">@Model.Counters.Connections</h5>
-                                            <span class="description-text">@SharedLocalizer["connections"]</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @if (Model.HasOtherProfiles)
-                                {
-                                    <div class="row mt-3 text-center">
-                                        <div class="col-12">
-
-                                            @foreach (var externalLink in Model.ExternalLinks.Where(x => x.Type == ExternalLinkType.GameDev))
-                                            {
-                                                <div class="user-profile-others">
-                                                    <div class="centered">
-                                                        <a href="@externalLink.Value" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@externalLink.Provider">
-                                                            <div class="other-icon">
-                                                                <img src="@String.Format("/images/external/{0}64.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
-                                                            </div>
-                                                        </a>
+                                        <div class="box-profile">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="user-profile-bio">
+                                                        <h6>
+                                                            @SharedLocalizer["Bio"]
+                                                        </h6>
+                                                        @Model.Bio
+                                                    </div>
+                                                    <div class="profile-user-info">
+                                                        @if (!string.IsNullOrWhiteSpace(Model.StudioName))
+                                                        {
+                                                            <p>
+                                                                @SharedLocalizer["Studio"]
+                                                            </p>
+                                                            <h6 class="margin-bottom"><a href="#">@Model.StudioName</a></h6>
+                                                        }
+                                                        @if (!string.IsNullOrWhiteSpace(Model.Country))
+                                                        {
+                                                            <p class="text-capitalize">
+                                                                @SharedLocalizer["country"]
+                                                            </p>
+                                                            <h6 class="margin-bottom">@Model.Country</h6>
+                                                        }
+                                                        @if (!string.IsNullOrWhiteSpace(Model.Location))
+                                                        {
+                                                            <p>
+                                                                @SharedLocalizer["location"]
+                                                            </p>
+                                                            <h6 class="margin-bottom">@Model.Location</h6>
+                                                        }
                                                     </div>
                                                 </div>
-                                            }
+                                            </div>
+                                        </div>
+                                        <div class="user-profile-xp">
+                                            <h6>
+                                                @SharedLocalizer["Rank"]
+                                                <a asp-area="gamification" asp-controller="ranking" asp-action="help">
+                                                    <i class="fas fa-question-circle" aria-hidden="true"></i>
+                                                </a>
+                                            </h6>
+                                            <div class="info-box bg-purple">
+                                                <span class="info-box-icon push-bottom">@Model.IndieXp.CurrentLevelNumber</span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">@Model.IndieXp.LevelName</span>
+                                                    <span class="info-box-number">@Model.IndieXp.XpCurrentLevel</span>
+
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-white" style="width: @(Model.IndieXp.PercentageToNextLevel)%"></div>
+                                                    </div>
+                                                    <span class="progress-description">
+                                                        @SharedLocalizer["{0} to the next level", Model.IndieXp.XpToNextLevel]
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="user-profile-badges">
+                                            <h6>
+                                                @SharedLocalizer["Badges"]
+                                                <a asp-area="gamification" asp-controller="userbadge" asp-action="help">
+                                                    <i class="fas fa-question-circle" aria-hidden="true"></i>
+                                                </a>
+                                            </h6>
+                                            <div class="col-12">
+                                                <div id="divBadges"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                }
-                                <div class="status-teams">
-                                    <h6>
-                                        @SharedLocalizer["Teams"]
-                                    </h6>
-                                    <div id="divListUserTeams"></div>
+                                </div>
+                                <div class="col-xl-8 col-lg-7">
+                                    <div class="row status-primary">
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-green">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Games</h3>
+
+                                                    <p>@SharedLocalizer["Games"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-gamepad" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-yellow">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Posts</h3>
+
+                                                    <p>@SharedLocalizer["Posts"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-blue">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Comments</h3>
+
+                                                    <p>@SharedLocalizer["Comments"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-6">
+                                            <div class="small-box bg-red">
+                                                <div class="inner">
+                                                    <h3>@Model.Counters.Jams</h3>
+
+                                                    <p>@SharedLocalizer["Jams"]</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-shapes" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row status-secondary">
+                                        <div class="col-6 col-md-4 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header follow-count">@Model.Counters.Followers</h5>
+                                                <span class="description-text">@SharedLocalizer["followers"]</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 border-right d-none d-md-block">
+                                            <div class="description-block">
+                                                <h5 class="description-header">@Model.Counters.Following</h5>
+                                                <span class="description-text">@SharedLocalizer["following"]</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="description-block">
+                                                <h5 class="description-header connection-count">@Model.Counters.Connections</h5>
+                                                <span class="description-text">@SharedLocalizer["connections"]</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @if (Model.HasOtherProfiles)
+                                    {
+                                        <div class="row mt-3 text-center">
+                                            <div class="col-12">
+
+                                                @foreach (var externalLink in Model.ExternalLinks.Where(x => x.Type == ExternalLinkType.GameDev))
+                                                {
+                                                    <div class="user-profile-others">
+                                                        <div class="centered">
+                                                            <a href="@externalLink.Value" target="_blank" data-toggle="tooltip" data-placement="bottom" title="@externalLink.Provider">
+                                                                <div class="other-icon">
+                                                                    <img src="@String.Format("/images/external/{0}64.png", externalLink.Provider.ToString().ToLower())" alt="@externalLink.Provider" />
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                    <div class="status-teams">
+                                        <h6>
+                                            @SharedLocalizer["Teams"]
+                                        </h6>
+                                        <div id="divListUserTeams"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane feed" id="tabactivity">
-                        <div id="divActivityFeed" class="offset-lg-2 col-lg-8 px-0 pr-lg-2 pl-lg-2"></div>
-                    </div>
+                        <div class="tab-pane feed" id="tabactivity">
+                            <div id="divActivityFeed" class="offset-lg-2 col-lg-8 px-0 pr-lg-2 pl-lg-2"></div>
+                        </div>
 
-                    <div class="tab-pane feed1" id="tabgames">
-                        <div id="tabgamescontainer" class="offset-lg-2 col-lg-8 px-0"></div>
-                    </div>
+                        <div class="tab-pane feed1" id="tabgames">
+                            <div id="tabgamescontainer" class="offset-lg-2 col-lg-8 px-0"></div>
+                        </div>
 
-                    <div class="tab-pane" id="tabconnections">
+                        <div class="tab-pane" id="tabconnections">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>

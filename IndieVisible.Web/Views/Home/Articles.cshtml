@@ -6,32 +6,6 @@
     var whatIsAnArticle = new HomeSquareViewModel("help", "articles", "bg-purple", "far fa-3x fa-newspaper", "What is an article?");
 }
 
-<h1 class="sr-only">INDIEVISIBLE - @ViewData["Title"]</h1>
-
-<div class="col-lg-2 d-none d-lg-block">
-    <div class="row">
-        <div class="col-12">
-            <partial name="_HomeSquare" model="whatIsAnArticle" />
-        </div>
-    </div>
-</div>
-
-<div class="col-12 col-lg-10 col-xl-10 pl-md-2">
-    <div class="row">
-        <div class="col-12">
-            <div id="divActivityFeed"></div>
-        </div>
-    </div>
-</div>
-
-<div class="col-12 d-lg-none">
-    <div class="row">
-        <div class="col-12">
-            <partial name="_HomeSquare" model="whatIsAnArticle" />
-        </div>
-    </div>
-</div>
-
 @section Styles {
     <environment include="Development">
         <link rel="stylesheet" href="~/css/articles.css" />
@@ -51,3 +25,33 @@
         <script src="~/js/home/articles.min.js" asp-append-version="true"></script>
     </environment>
 }
+
+<section class="content container">
+    <h1 class="sr-only">INDIEVISIBLE - @ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-lg-2 d-none d-lg-block">
+            <div class="row">
+                <div class="col-12">
+                    <partial name="_HomeSquare" model="whatIsAnArticle" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-10 col-xl-10 pl-md-2">
+            <div class="row">
+                <div class="col-12">
+                    <div id="divActivityFeed"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 d-lg-none">
+            <div class="row">
+                <div class="col-12">
+                    <partial name="_HomeSquare" model="whatIsAnArticle" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

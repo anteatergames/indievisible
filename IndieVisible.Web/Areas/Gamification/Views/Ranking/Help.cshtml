@@ -58,27 +58,29 @@
     </script>
 }
 
-<div class="col-12">
-    <h1 class="sr-only">@ViewData["Title"]</h1>
+<section class="content container">
+    <div class="col-12">
+        <h1 class="sr-only">@ViewData["Title"]</h1>
 
-    <div class="p-3">
-        <h2 class="display-4">@SharedLocalizer["Climb the ranks!"]</h2>
-        <p>@SharedLocalizer["You can earn XP fro executing some actions and level up to the top ranks!"]</p>
-    </div>
+        <div class="p-3">
+            <h2 class="display-4">@SharedLocalizer["Climb the ranks!"]</h2>
+            <p>@SharedLocalizer["You can earn XP fro executing some actions and level up to the top ranks!"]</p>
+        </div>
 
-    @foreach (var rank in Model)
-    {
-        <div class="row col-12">
-            <div class="col-3 col-md-2 col-lg-1">
-                <div class="ranking-number-big">
-                    <a>@rank.Number</a>
+        @foreach (var rank in Model)
+        {
+            <div class="row col-12">
+                <div class="col-3 col-md-2 col-lg-1">
+                    <div class="ranking-number-big">
+                        <a>@rank.Number</a>
+                    </div>
+                </div>
+                <div class="col-9 col-md-10 col-lg-11 p-x-2">
+                    <h3 class="display-5">"@SharedLocalizer[rank.Name]"</h3>
+                    <p>Max @SharedLocalizer[rank.XpToAchieve.ToString()] XP</p>
                 </div>
             </div>
-            <div class="col-9 col-md-10 col-lg-11 p-x-2">
-                <h3 class="display-5">"@SharedLocalizer[rank.Name]"</h3>
-                <p>Max @SharedLocalizer[rank.XpToAchieve.ToString()] XP</p>
-            </div>
-        </div>
-        <hr />
-    }
-</div>
+            <hr />
+        }
+    </div>
+</section>

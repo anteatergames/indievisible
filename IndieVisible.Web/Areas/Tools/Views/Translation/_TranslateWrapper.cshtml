@@ -53,6 +53,8 @@
        data-url-entries-get="@Url.Action("gettranslation", "translation", new { area = "tools", x = 1, projectId = Model.Id })"
        data-url-entries-save="@Url.Action("saveentries", "translation", new { area = "tools", x = 1, projectId = Model.Id })" />
 
-<div id="featurecontainer" class="col">
-    <partial name="_Translate" model="Model" />
-</div>
+<section class="content container">
+    <div id="featurecontainer" class="col">
+        <partial name="_Translate" model="Model" />
+    </div>
+</section>

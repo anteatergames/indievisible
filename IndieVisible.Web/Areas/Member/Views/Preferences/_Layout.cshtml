@@ -2,27 +2,6 @@
     Layout = "/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = SharedLocalizer["Manage your preferences"];
 }
-<div class="col-xl-12">
-    <div class="box box-default  bg-white">
-        <div class="box-header with-border">
-            <h2>@ViewData["Title"]</h2>
-            <h3 class="text-capitalize">@ViewData["SubTitle"]</h3>
-        </div>
-
-        <div class="box-body">
-            <div>
-                <div class="row">
-                    <div class="col-md-3">
-                        @await Html.PartialAsync("_ManageNav")
-                    </div>
-                    <div class="col-md-9">
-                        @RenderBody()
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 @section ComponentStyles {
     @RenderSection("ComponentStyles", required: false)
@@ -30,3 +9,27 @@
 @section Scripts {
     @RenderSection("Scripts", required: false)
 }
+
+<section class="content container">
+    <div class="col-xl-12">
+        <div class="box box-default  bg-white">
+            <div class="box-header with-border">
+                <h2>@ViewData["Title"]</h2>
+                <h3 class="text-capitalize">@ViewData["SubTitle"]</h3>
+            </div>
+
+            <div class="box-body">
+                <div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            @await Html.PartialAsync("_ManageNav")
+                        </div>
+                        <div class="col-md-9">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

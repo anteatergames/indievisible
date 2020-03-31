@@ -5,49 +5,6 @@
     ViewData["Description"] = SharedLocalizer["Climb our ranks to reach to the top. Every little action you take earn you points."];
 }
 
-<h1 class="sr-only">@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-12 mx-1">
-        <h2>@SharedLocalizer["Top {0} users", Model.Count()]</h2>
-    </div>
-    @foreach (var item in Model)
-    {
-        <div class="col-12">
-            <div class="box box-widget widget-ranking">
-                <div class="widget-user-image">
-                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
-                        <img class="rounded-circle lazyload" data-src="@item.ProfileImageUrl" src="~/images/profileimages/developer.png" alt="User Avatar">
-                    </a>
-                </div>
-                <div class="widget-user-header bg-black" style="background-image: url('@item.CoverImageUrl')">
-                </div>
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="info-box">
-                                <h3 class="info-box-text">@item.Name</h3>
-                                <span class="info-box-icon push-bottom" data-toggle="tooltip" title="@item.CurrentLevelName">@item.CurrentLevelNumber</span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-number">@item.XpCurrentLevel</span>
-
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" style="width: @(item.PercentageToNextLevel)%"></div>
-                                    </div>
-                                    <span class="progress-description">
-                                        @SharedLocalizer["{0} to the next level", item.XpToNextLevel]
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-</div>
-
 @section Styles {
     <environment include="Development">
         <link rel="stylesheet" href="~/css/ranking.css" />
@@ -56,3 +13,49 @@
         <link rel="stylesheet" href="~/css/ranking.min.css" asp-append-version="true" />
     </environment>
 }
+
+
+<section class="content container">
+    <h1 class="sr-only">@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-12 mx-1">
+            <h2>@SharedLocalizer["Top {0} users", Model.Count()]</h2>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="col-12">
+                <div class="box box-widget widget-ranking">
+                    <div class="widget-user-image">
+                        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@item.UserId">
+                            <img class="rounded-circle lazyload" data-src="@item.ProfileImageUrl" src="~/images/profileimages/developer.png" alt="User Avatar">
+                        </a>
+                    </div>
+                    <div class="widget-user-header bg-black" style="background-image: url('@item.CoverImageUrl')">
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="info-box">
+                                    <h3 class="info-box-text">@item.Name</h3>
+                                    <span class="info-box-icon push-bottom" data-toggle="tooltip" title="@item.CurrentLevelName">@item.CurrentLevelNumber</span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-number">@item.XpCurrentLevel</span>
+
+                                        <div class="progress">
+                                            <div class="progress-bar bg-dark" style="width: @(item.PercentageToNextLevel)%"></div>
+                                        </div>
+                                        <span class="progress-description">
+                                            @SharedLocalizer["{0} to the next level", item.XpToNextLevel]
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

@@ -44,10 +44,10 @@
 
             <div class="box-body p-0 px-md-2">
                 <div class="row">
-                    <div class="col-lg-8" data-id="@Model.Id">
+                    <div class="col-lg-6" data-id="@Model.Id">
                         <partial name="_GameCard" model="Model.Game" />
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="author-details">
                             <div class="col-12">
                                 <span>@SharedLocalizer["This translation was requested by"]</span>
@@ -83,7 +83,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="float-left mt-1 entry-author template">
     <button class="btn btn-sm btn-default mr-1 entry-author-btn" tabindex="-1"><i class="fas fa-fw fa-user" aria-hidden="true"></i></button>

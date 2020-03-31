@@ -6,102 +6,6 @@
     var userGames = ViewBag.UserGames as List<SelectListItem>;
 }
 
-<div class="box bg-white">
-    <form id="frmContentSave" asp-controller="content" asp-action="save" method="post" enctype="multipart/form-data">
-        <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="UserId" />
-        <input type="hidden" asp-for="CreateDate" />
-        <input type="hidden" asp-for="FeaturedImage" />
-        <input type="hidden" asp-for="AuthorName" />
-        <input type="hidden" asp-for="AuthorPicture" />
-        <div class="box-header with-border">
-            <h3 class="card-title">@ViewData["Title"]</h3>
-            <h6 class="card-subtitle">@SharedLocalizer["Fill in with the content you want to post"]</h6>
-        </div>
-        <div class="box-body no-gutters px-md-10">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="Title"></label>
-                    <input asp-for="Title" type="text" class="form-control" placeholder="@SharedLocalizer["Type the title you want to post here"]">
-                    <span asp-validation-for="Title" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="Introduction"></label> (@SharedLocalizer["The Introduction will be shown on the feed"])
-                    <textarea asp-for="Introduction" class="form-control" rows="3" placeholder="@SharedLocalizer["Type a brief introduction to post here"]"></textarea>
-                    <span asp-validation-for="Introduction" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="FeaturedImage"></label>
-                </div>
-                <div class="mx-auto d-block" style="max-width:400px;">
-                    <label class="label" data-toggle="tooltip" title="" data-original-title="Change the featured image">
-                        <img class="rounded img-fluid" id="imgFeaturedImage" src="@Model.FeaturedImage" alt="Featured Image">
-                        <input type="file" class="sr-only" id="featuredimage" name="featuredimage" accept="image/*">
-                    </label>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="Content"></label>
-                    <textarea asp-for="Content" class="form-control wysiwygeditor d-none" rows="3" placeholder="@SharedLocalizer["Type a award winning text here"]"></textarea>
-                    <span asp-validation-for="Content" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="GameId"></label>
-                    <select asp-for="GameId" asp-items="@userGames" class="form-control select2">
-                        <option selected="selected" value="">@SharedLocalizer["Select"]</option>
-                    </select>
-                    <span asp-validation-for="GameId" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="Language"></label>
-                    <select asp-for="Language" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control"></select>
-                    <span asp-validation-for="Language" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-right">
-            <button type="button" id="btnSave" class="btn btn-info"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save"]</button>
-        </div>
-    </form>
-</div>
-
-<div class="modal fade" id="modalCrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="img-container p-10">
-                    <img id="image" src="@Model.FeaturedImage" class="img-fluid" alt="@Model.Title">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="crop">Crop</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 @section Styles {
     <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
 
@@ -127,3 +31,101 @@
     @*<script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js"></script>*@
     <script src="~/js/content/contentedit.js"></script>
 }
+
+<section class="content container">
+    <div class="box bg-white">
+        <form id="frmContentSave" asp-controller="content" asp-action="save" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="CreateDate" />
+            <input type="hidden" asp-for="FeaturedImage" />
+            <input type="hidden" asp-for="AuthorName" />
+            <input type="hidden" asp-for="AuthorPicture" />
+            <div class="box-header with-border">
+                <h3 class="card-title">@ViewData["Title"]</h3>
+                <h6 class="card-subtitle">@SharedLocalizer["Fill in with the content you want to post"]</h6>
+            </div>
+            <div class="box-body no-gutters px-md-10">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Title"></label>
+                        <input asp-for="Title" type="text" class="form-control" placeholder="@SharedLocalizer["Type the title you want to post here"]">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Introduction"></label> (@SharedLocalizer["The Introduction will be shown on the feed"])
+                        <textarea asp-for="Introduction" class="form-control" rows="3" placeholder="@SharedLocalizer["Type a brief introduction to post here"]"></textarea>
+                        <span asp-validation-for="Introduction" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="FeaturedImage"></label>
+                    </div>
+                    <div class="mx-auto d-block" style="max-width:400px;">
+                        <label class="label" data-toggle="tooltip" title="" data-original-title="Change the featured image">
+                            <img class="rounded img-fluid" id="imgFeaturedImage" src="@Model.FeaturedImage" alt="Featured Image">
+                            <input type="file" class="sr-only" id="featuredimage" name="featuredimage" accept="image/*">
+                        </label>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Content"></label>
+                        <textarea asp-for="Content" class="form-control wysiwygeditor d-none" rows="3" placeholder="@SharedLocalizer["Type a award winning text here"]"></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="GameId"></label>
+                        <select asp-for="GameId" asp-items="@userGames" class="form-control select2">
+                            <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+                        </select>
+                        <span asp-validation-for="GameId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Language"></label>
+                        <select asp-for="Language" asp-items="Html.GetEnumSelectList<SupportedLanguage>()" class="form-control"></select>
+                        <span asp-validation-for="Language" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-right">
+                <button type="button" id="btnSave" class="btn btn-info"><i class="fas fa-save" aria-hidden="true"></i> @SharedLocalizer["Save"]</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div class="modal fade" id="modalCrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container p-10">
+                    <img id="image" src="@Model.FeaturedImage" class="img-fluid" alt="@Model.Title">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="crop">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
