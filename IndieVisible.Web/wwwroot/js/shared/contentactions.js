@@ -12,7 +12,7 @@
     }
 
     function setSelectors() {
-        selectors.container = '.content';
+        selectors.container = '.content-wrapper';
         selectors.item = '.box-content';
         selectors.btnShare = '.btn-share';
         selectors.sharePopup = '.share-popup';

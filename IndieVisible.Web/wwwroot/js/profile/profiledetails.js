@@ -17,7 +17,7 @@
         ACTIVITYFEED.Init(objs.divActivityFeed, FEEDTYPE.USER, objs.Id.val());
     }
     function setSelectors() {
-        selectors.container = '.content';
+        selectors.container = '.content-wrapper';
         selectors.divListUserTeams = '#divListUserTeams';
         selectors.tabActivity = '#tabactivity';
         selectors.divActivityFeed = '#tabactivity #divActivityFeed';

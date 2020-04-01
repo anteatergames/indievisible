@@ -7,7 +7,7 @@
     var canInteract = false;
 
     function setSelectors() {
-        selectors.container = '.content';
+        selectors.container = '.content-wrapper';
         selectors.canInteract = '#caninteract';
         selectors.btnSetJobProfile = '.btnsetjobprofile';
     }
