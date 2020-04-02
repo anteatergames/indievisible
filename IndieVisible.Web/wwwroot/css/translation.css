@@ -61,3 +61,8 @@
         width: 0%;
     }
 }
+
+.entry-authors .avatar {
+    width:30px;
+    height:30px;
+}

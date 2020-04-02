@@ -84,6 +84,8 @@
     </div>
 </div>
 
-<div class="float-left mt-1 entry-author template">
-    <button class="btn btn-sm btn-default mr-1 entry-author-btn" tabindex="-1"><i class="fas fa-fw fa-user" aria-hidden="true"></i></button>
+<div class="float-left mt-1 mr-1 entry-author template">
+    <a asp-area="" asp-controller="profile" asp-action="details" class="entry-author-btn">
+        <img class="rounded-circle lazyload avatar" data-src="@ConstantHelper.DefaultAvatar"  src="@ConstantHelper.DefaultAvatar" alt="@SharedLocalizer["translator"]">
+    </a>
 </div>

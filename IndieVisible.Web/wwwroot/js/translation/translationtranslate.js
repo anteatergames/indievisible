@@ -233,11 +233,15 @@
     }
 
     function bindAuthorChange() {
-        objs.container.on('click', selectors.entryAuthorButton, function () {
+        objs.container.on('click', selectors.entryAuthorButton, function (e) {
+            e.preventDefault();
+
             var btn = $(this);
             var input = btn.closest(selectors.entry).find(selectors.entryInput);
             var v = btn.data('value');
             input.val(v);
+
+            return false;
         });
     }
 
@@ -281,14 +285,17 @@
 
     function addNewAuthor(container, translation) {
         var newAuthorObj = $(selectors.entryAuthorTemplate).first().clone();
-        var btn = newAuthorObj.find('button');
+        var btn = newAuthorObj.find('a');
+
+        var urlAvatar = objs.urls.data('urlAvatar').replace(/xpto/g, translation.userId);
+        btn.find('img').attr('data-src', urlAvatar);
 
         btn.attr('data-userid', translation.userId);
         btn.attr('title', translation.authorName);
         btn.attr('data-value', translation.value);
 
         newAuthorObj.removeClass('template');
-
+            
         newAuthorObj.appendTo(container);
     }
 
