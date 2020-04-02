@@ -92,13 +92,22 @@
     <Content Update="Areas\Tools\Views\Translation\Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_TranslateWrapper.cshtml">
+    <Content Update="Areas\Tools\Views\Translation\ReviewWrapper.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_CreateEditWrapper.cshtml">
+    <Content Update="Areas\Tools\Views\Translation\_Review.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Tools\Views\Translation\TranslateWrapper.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Tools\Views\Translation\CreateEditWrapper.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Tools\Views\Translation\_Terms.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Tools\Views\Translation\_ReviewTranslations.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Tools\Views\Translation\_TermsTranslation.cshtml">

@@ -1,4 +1,4 @@
-﻿var TRANSLATION = (function () {
+﻿var TRANSLATIONREVIEW = (function () {
     "use strict";
 
     var selectors = {};
@@ -400,5 +400,5 @@
 }());
 
 $(function () {
-    TRANSLATION.Init();
+    TRANSLATIONREVIEW.Init();
 });

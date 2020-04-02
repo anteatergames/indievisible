@@ -145,7 +145,33 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 ViewData["language"] = language.ToString();
 
-                return View("_TranslateWrapper", model);
+                return View("TranslateWrapper", model);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [Route("tools/translation/review/{id:guid}/{language?}")]
+        public IActionResult Review(Guid id, SupportedLanguage language, int? pointsEarned)
+        {
+            OperationResultVo result = translationAppService.GetById(CurrentUserId, id);
+
+            if (result.Success)
+            {
+                OperationResultVo<TranslationProjectViewModel> castRestult = result as OperationResultVo<TranslationProjectViewModel>;
+
+                TranslationProjectViewModel model = castRestult.Value;
+
+                SetLocalization(model);
+                SetAuthorDetails(model);
+
+                SetGamificationMessage(pointsEarned);
+
+                ViewData["language"] = language.ToString();
+
+                return View("ReviewWrapper", model);
             }
             else
             {
@@ -273,11 +299,11 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                     ViewBag.UserGames = new List<SelectListItem>();
                 }
 
-                return View("_CreateEditWrapper", model);
+                return View("CreateEditWrapper", model);
             }
             else
             {
-                return View("_CreateEditWrapper", new TranslationProjectViewModel());
+                return View("CreateEditWrapper", new TranslationProjectViewModel());
             }
         }
 
@@ -295,7 +321,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 SetLocalization(model, true);
 
-                return View("_CreateEditWrapper", model);
+                return View("CreateEditWrapper", model);
             }
             else
             {
