@@ -15,12 +15,7 @@
 
         selectors.form = '#frmTranslationSave';
         selectors.btnSave = '#btnSaveTranslation';
-        selectors.btnEdit = '.btnEditTranslationProject';
-        selectors.btnDelete = '.btnDeleteTranslationProject';
-        selectors.divTerms = '#divTerms';
-        selectors.template = '.translation-term.template';
-        selectors.btnAddTerm = '#btn-translation-term-add';
-        selectors.btnDeleteTerm = '.btn-term-delete';
+
         selectors.ddlLanguage = '#Language';
         selectors.btnFilter = '.btn-filter';
         selectors.entry = '.translation-entry';
@@ -67,15 +62,12 @@
     }
 
     function bindTranslate() {
-        bindDeleteProject();
         bindFilter();
         bindLanguageChange();
         bindEntrySave();
         bindAuthorChange();
         bindEntryInputBlur();
         bindSaveTranslationChanges();
-        CONTENTACTIONS.BindShareContent();
-        MAINMODULE.Common.BindPopOvers();
     }
 
     function bindLanguageChange() {
@@ -242,44 +234,6 @@
             input.val(v);
 
             return false;
-        });
-    }
-
-    function bindDeleteProject() {
-        objs.container.on('click', selectors.btnDelete, function (e) {
-            e.preventDefault();
-
-            var btn = $(this);
-
-            if (canInteract) {
-                deleteProject(btn);
-            }
-
-            return false;
-        });
-    }
-
-    function deleteProject(btn, callback) {
-        var url = btn.data('url');
-
-        var msgs = MAINMODULE.Common.GetDeleteMessages(btn);
-
-        ALERTSYSTEM.ShowConfirmMessage(msgs.confirmationTitle, msgs.msg, msgs.confirmationButtonText, msgs.cancelButtonText, function () {
-            $.ajax({
-                url: url,
-                type: 'DELETE'
-            }).done(function (response) {
-                if (response.success) {
-                    if (callback) {
-                        callback(response);
-                    }
-
-                    MAINMODULE.Common.HandleSuccessDefault(response);
-                }
-                else {
-                    ALERTSYSTEM.ShowWarningMessage(response.message);
-                }
-            });
         });
     }
 

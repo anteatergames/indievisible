@@ -36,31 +36,35 @@
 @foreach (var term in Model.Terms)
 {
     <div class="row pb-1 pb-sm-2 m-0 mt-2 m-md-2 mb-2 border bg-light translation-entry">
-        <div class="col-6">
-            <label class="col-form-label">
+        <div class="col-6 border-right rounded-0">
+            <div class="row">
+                <div class="col-12">
+                    <label class="col-form-label">@term.Key</label>
+                </div>
+
+                <div class="col-12">
+                    <span>@Html.Raw(term.Value.Replace("\n", "<br />"))</span>
+                </div>
                 @if (!string.IsNullOrWhiteSpace(term.Obs))
                 {
-                    @term.Key <span data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@term.Obs"><i class="fas fa-question-circle" aria-hidden="true"></i></span>
+                    <div class="col-12">
+                        <label class="col-form-label text-capitalize">@SharedLocalizer["context"]</label>
+                        <p>@term.Obs</p>
+                    </div>
                 }
-                else
-                {
-                    @term.Key
-                }
-            </label>
-
-            <p class="mx-3 mb-0">@Html.Raw(term.Value.Replace("\n", "<br />"))</p>
+            </div>
         </div>
 
         <div class="col-6 pt-2">
             <label class="col-form-label">
-                @SharedLocalizer["Translation by "]<span class="translator-name"></span>
+                @SharedLocalizer["Selected translator"]: <span class="translator-name" data-nobody="@SharedLocalizer["nobody"]">@SharedLocalizer["nobody"]</span>
             </label>
 
             <div class="entry-authors">
             </div>
 
             <div class="input-group pt-2">
-                <textarea class="form-control entry-input" data-termid="@term.Id" data-originalval="@string.Empty" placeholder="@SharedLocalizer["Select a language and an author to load the translation"]" readonly></textarea>
+                <textarea class="form-control entry-input" data-termid="@term.Id" data-entryid="x" data-originalval="@string.Empty" placeholder="@SharedLocalizer["Select a language and an author to load the translation"]" readonly></textarea>
             </div>
 
             <div class="translation-entry-actions float-right pt-1">

@@ -3,9 +3,6 @@
 
     var selectors = {};
     var objs = {};
-    var canInteract = false;
-
-    var changedEntries = [];
 
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
@@ -13,33 +10,19 @@
         selectors.urls = '#urls';
         selectors.container = '#featurecontainer';
 
-        selectors.form = '#frmTranslationSave';
-        selectors.btnSave = '#btnSaveTranslation';
-        selectors.btnEdit = '.btnEditTranslationProject';
-        selectors.btnDelete = '.btnDeleteTranslationProject';
-        selectors.divTerms = '#divTerms';
-        selectors.template = '.translation-term.template';
-        selectors.btnAddTerm = '#btn-translation-term-add';
-        selectors.btnDeleteTerm = '.btn-term-delete';
         selectors.ddlLanguage = '#Language';
-        selectors.btnFilter = '.btn-filter';
+
         selectors.entry = '.translation-entry';
         selectors.entryInput = ':input.entry-input';
         selectors.entryActions = '.translation-entry-actions';
-        selectors.entrySave = selectors.entryActions + ' .entry-save';
-        selectors.entryCancel = selectors.entryActions + ' .entry-cancel';
+        selectors.entryAccept = selectors.entryActions + ' .entry-accept';
+        selectors.entryReject = selectors.entryActions + ' .entry-reject';
         selectors.entryAuthors = '.entry-authors';
         selectors.entryAuthorTemplate = '.entry-author.template';
         selectors.entryAuthorButton = '.entry-author-btn';
-        selectors.divUploadTerms = 'div#divUploadTerms';
-        selectors.btnUploadTerms = '#btnUploadTerms';
-        selectors.btnSaveTerms = '#btnSaveTerms';
-        selectors.ddlColumn = '.ddlcolumn';
+        selectors.entryAuthorName = '.translator-name';
+
         selectors.id = '#Id';
-        selectors.termItem = '.translation-term';
-        selectors.changedCounter = '#changedtranslationscounter';
-        selectors.btnSaveTranslationChanges = '#btnSaveTranslationChanges';
-        selectors.divNoItems = '#divNoItems';
     }
 
     function cacheObjsTranslate() {
@@ -50,14 +33,11 @@
 
         objs.ddlLanguage = $(selectors.ddlLanguage);
         objs.entryAuthors = $(selectors.entryAuthors);
-        objs.changedCounter = $(selectors.changedCounter);
     }
 
     function init() {
         setSelectors();
         cacheObjsTranslate();
-
-        canInteract = objs.container.find(selectors.canInteract).val();
 
         bindTranslate();
 
@@ -67,15 +47,10 @@
     }
 
     function bindTranslate() {
-        bindDeleteProject();
-        bindFilter();
         bindLanguageChange();
-        bindEntrySave();
         bindAuthorChange();
-        bindEntryInputBlur();
-        bindSaveTranslationChanges();
-        CONTENTACTIONS.BindShareContent();
-        MAINMODULE.Common.BindPopOvers();
+        bindEntryAccept();
+        bindEntryReject();
     }
 
     function bindLanguageChange() {
@@ -85,55 +60,26 @@
             objs.container.find(selectors.entryInput).val('');
             $(selectors.entryInput).data('originalval', '');
 
-            resetChangeCounter();
-
             loadSelectedLanguage(ddl);
         });
     }
 
-    function bindFilter() {
-        objs.container.on('click', selectors.btnFilter, function () {
-            var btn = $(this);
-            var filter = btn.data('filter');
+    function bindEntryAccept() {
+        objs.container.on('click', selectors.entryAccept, function (e) {
+            e.preventDefault();
 
-            if (filter !== 'Untranslated') {
-                loadSelectedLanguage(objs.ddlLanguage);
-            }
+            ALERTSYSTEM.Toastr.ShowWarning("This is not implemented yet");
 
-
-            var inputs = objs.container.find(selectors.entryInput);
-
-            var showTranslated = filter === 'All' || filter === 'Translated';
-            var showUntranslated = filter === 'All' || filter === 'Untranslated';
-
-            inputs.each(function (index, element) {
-                var input = $(element);
-                var translated = input.data('translated');
-
-                if ((translated && showTranslated) || (!translated && showUntranslated)) {
-                    input.closest(selectors.entry).show();
-                }
-                else {
-                    input.closest(selectors.entry).hide();
-                }
-            });
-        });
-    }
-
-    function bindEntrySave() {
-        objs.container.on('click', selectors.entrySave, function () {
             var btn = $(this);
 
             var input = btn.closest(selectors.entry).find(selectors.entryInput);
-            var termId = input.data('termid');
-            var url = objs.urls.data('urlEntrySave');
+            var entryId = input.data('entryid');
+            var url = objs.urls.data('urlEntryAccept');
             var language = objs.ddlLanguage.val();
 
             if (language && input.val().length > 0) {
                 var data = {
-                    termId: termId,
-                    language: language,
-                    value: input.val()
+                    entryId: entryId
                 };
 
                 $.post(url, data).done(function (response) {
@@ -142,56 +88,6 @@
 
                         loadSingleTranslation(response.value);
 
-                        decreaseChangeCounter();
-
-                        removeFromArray(changedEntries, termId);
-
-                        if (response.message) {
-                            ALERTSYSTEM.Toastr.ShowWarning(response.message);
-                        }
-                    }
-                    else {
-                        ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
-                    }
-                });
-
-            }
-        });
-    }
-
-    function bindSaveTranslationChanges() {
-        objs.container.on('click', selectors.btnSaveTranslationChanges, function () {
-            var url = objs.urls.data('urlEntriesSave');
-            var language = objs.ddlLanguage.val();
-
-            if (language) {
-                var data = [];
-
-                for (var i = 0; i < changedEntries.length; i++) {
-                    var input = $(selectors.entryInput + '[data-termid=' + changedEntries[i] + ']');
-
-                    var item = {
-                        termId: changedEntries[i],
-                        value: input.val()
-                    };
-
-                    data.push(item);
-                }
-
-                $.post(url, { language: language, entries: data }).done(function (response) {
-                    if (response.success === true) {
-
-                        for (var i = 0; i < changedEntries.length; i++) {
-                            var input = $(selectors.entryInput + '[data-termid=' + changedEntries[i] + ']');
-
-                            input.data('changed', false);
-                            input.data('originalval', input.val());
-                        }
-
-                        changedEntries = [];
-
-                        resetChangeCounter();
-
                         if (response.message) {
                             ALERTSYSTEM.Toastr.ShowWarning(response.message);
                         }
@@ -201,34 +97,18 @@
                     }
                 });
             }
+
+            return false;
         });
     }
 
-    function bindEntryInputBlur() {
-        objs.container.on('blur', selectors.entryInput, function () {
-            var input = $(this);
-            var language = objs.ddlLanguage.val();
-            var originalVal = input.data('originalval');
-            var termId = input.data('termid');
-            var currentVal = input.val();
-            var different = originalVal !== currentVal;
+    function bindEntryReject() {
+        objs.container.on('click', selectors.entryReject, function (e) {
+            e.preventDefault();
 
-            if (language) {
-                if (different) {
-                    if (input.data('changed') !== true) {
-                        changedEntries.push(termId);
-                        input.data('changed', true);
-                        increaseChangeCounter();
-                    }
-                }
-                else {
-                    if (input.data('changed') === true) {
-                        removeFromArray(changedEntries, termId);
-                        input.data('changed', false);
-                        decreaseChangeCounter();
-                    }
-                }
-            }
+            ALERTSYSTEM.Toastr.ShowWarning("This is not implemented yet");
+
+            return false;
         });
     }
 
@@ -240,47 +120,20 @@
             var input = btn.closest(selectors.entry).find(selectors.entryInput);
             var v = btn.data('value');
             input.val(v);
+            input.data('entryid', btn.data('entryid'));
+
+            setSelectedTranslator(btn);
 
             return false;
         });
     }
 
-    function bindDeleteProject() {
-        objs.container.on('click', selectors.btnDelete, function (e) {
-            e.preventDefault();
+    function setSelectedTranslator(btn) {
+        btn.closest(selectors.entry).find(selectors.entryAuthorButton + ' img').addClass('grayscale');
 
-            var btn = $(this);
+        btn.find('img').removeClass('grayscale');
 
-            if (canInteract) {
-                deleteProject(btn);
-            }
-
-            return false;
-        });
-    }
-
-    function deleteProject(btn, callback) {
-        var url = btn.data('url');
-
-        var msgs = MAINMODULE.Common.GetDeleteMessages(btn);
-
-        ALERTSYSTEM.ShowConfirmMessage(msgs.confirmationTitle, msgs.msg, msgs.confirmationButtonText, msgs.cancelButtonText, function () {
-            $.ajax({
-                url: url,
-                type: 'DELETE'
-            }).done(function (response) {
-                if (response.success) {
-                    if (callback) {
-                        callback(response);
-                    }
-
-                    MAINMODULE.Common.HandleSuccessDefault(response);
-                }
-                else {
-                    ALERTSYSTEM.ShowWarningMessage(response.message);
-                }
-            });
-        });
+        btn.closest(selectors.entry).find(selectors.entryAuthorName).html(btn.attr('title'));
     }
 
     function addNewAuthor(container, translation) {
@@ -293,10 +146,13 @@
         btn.attr('data-userid', translation.userId);
         btn.attr('title', translation.authorName);
         btn.attr('data-value', translation.value);
+        btn.data('entryid', translation.id);
 
         newAuthorObj.removeClass('template');
-            
+
         newAuthorObj.appendTo(container);
+
+        setSelectedTranslator(btn);
     }
 
     function deleteEntryAuthorButton(termId, userId) {
@@ -332,11 +188,8 @@
     }
 
     function resetTranslationStatus() {
-        var entryInputs = objs.container.find(selectors.entryInput);
-
-        entryInputs.each(function (index, element) {
-            $(element).data('translated', false);
-        });
+        var names = $(selectors.entryAuthorName);
+        names.html(names.data('nobody'));
 
         $(selectors.entryAuthors).html('');
     }
@@ -347,47 +200,9 @@
         entryInput.val(translation.value);
         entryInput.data('originalval', translation.value);
 
-        entryInput.data('translated', true);
+        entryInput.data('entryid', translation.id);
 
         addNewAuthor(entryInput.closest(selectors.entry).find(selectors.entryAuthors), translation);
-    }
-
-    function increaseChangeCounter() {
-        var currentCount = objs.changedCounter.data('count');
-
-        currentCount++;
-
-        objs.changedCounter.data('count', currentCount);
-
-        objs.changedCounter.html(currentCount);
-
-        return currentCount;
-    }
-
-    function decreaseChangeCounter() {
-        var currentCount = objs.changedCounter.data('count');
-
-        currentCount--;
-
-        if (currentCount < 0) {
-            currentCount = 0;
-        }
-
-        objs.changedCounter.data('count', currentCount);
-
-        objs.changedCounter.html(currentCount);
-
-        return currentCount;
-    }
-
-    function resetChangeCounter() {
-        objs.changedCounter.data('count', 0);
-        objs.changedCounter.html(0);
-    }
-
-    function removeFromArray(array, element) {
-        const index = array.indexOf(element);
-        array.splice(index, 1);
     }
 
     function setStickyElements() {

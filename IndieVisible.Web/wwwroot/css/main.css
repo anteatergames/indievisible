@@ -187,3 +187,8 @@ select.form-control {
         height: 34px !important;
         right: 8px !important;
     }
+
+
+img.grayscale {
+    filter: grayscale(100%) contrast(50%) blur(1px);
+}

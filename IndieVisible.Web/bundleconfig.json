@@ -214,7 +214,16 @@
   {
     "outputFileName": "wwwroot/js/translation/translationtranslate.min.js",
     "inputFiles": [
+      "wwwroot/js/translation/translationcommon.js",
       "wwwroot/js/translation/translationtranslate.js",
+      "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/translation/translationreview.min.js",
+    "inputFiles": [
+      "wwwroot/js/translation/translationcommon.js",
+      "wwwroot/js/translation/translationreview.js",
       "wwwroot/js/shared/contentactions.js"
     ]
   },
