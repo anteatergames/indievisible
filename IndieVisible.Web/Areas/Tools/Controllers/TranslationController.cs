@@ -551,11 +551,11 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         [Authorize]
         [HttpPost("tools/translation/entryreview/{projectId:guid}")]
-        public IActionResult EntryReview(Guid projectId, Guid entryId, bool reject)
+        public IActionResult EntryReview(Guid projectId, Guid entryId, bool accept)
         {
             try
             {
-                OperationResultVo result = translationAppService.EntryReview(CurrentUserId, projectId, entryId, reject);
+                OperationResultVo result = translationAppService.EntryReview(CurrentUserId, projectId, entryId, accept);
 
                 return Json(result);
             }

@@ -75,7 +75,7 @@
             var entryId = $(this).closest(selectors.entry).data('entryid');
             var url = objs.urls.data('urlEntryReview');
 
-            entryReview(url, entryId, false, function () {
+            entryReview(url, entryId, true, function () {
                 acceptVisualAction(btn, otherBtn);
                 alternateText(otherBtn);
             });
@@ -93,7 +93,7 @@
             var entryId = $(this).closest(selectors.entry).data('entryid');
             var url = objs.urls.data('urlEntryReview');
 
-            entryReview(url, entryId, true, function () {
+            entryReview(url, entryId, false, function () {
                 rejectVisualAction(btn, otherBtn);
                 alternateText(otherBtn);
             });
@@ -102,13 +102,13 @@
         });
     }
 
-    function entryReview(url, entryId, reject, callback) {
+    function entryReview(url, entryId, accept, callback) {
         var language = objs.ddlLanguage.val();
 
         if (language) {
             var data = {
                 entryId: entryId,
-                reject: reject
+                accept: accept
             };
 
             $.post(url, data).done(function (response) {
@@ -182,10 +182,10 @@
         var rejectBtn = newEntryObj.find(selectors.entryReject);
         var acceptBtn = newEntryObj.find(selectors.entryAccept);
 
-        if (entry.rejected === true) {
+        if (entry.accepted === false) {
             rejectVisualAction(rejectBtn, acceptBtn);
         }
-        else if (entry.rejected === false) {
+        else if (entry.accepted === true) {
             acceptVisualAction(acceptBtn, rejectBtn);
         }
         else {

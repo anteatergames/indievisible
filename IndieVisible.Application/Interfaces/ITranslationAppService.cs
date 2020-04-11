@@ -36,6 +36,6 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GetContributorsFile(Guid currentUserId, Guid projectId, ExportContributorsType type);
 
-        OperationResultVo EntryReview(Guid currentUserId, Guid projectId, Guid entryId, bool rejected);
+        OperationResultVo EntryReview(Guid currentUserId, Guid projectId, Guid entryId, bool accept);
     }
 }

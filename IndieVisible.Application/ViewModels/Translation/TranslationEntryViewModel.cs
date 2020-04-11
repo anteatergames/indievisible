@@ -11,6 +11,6 @@ namespace IndieVisible.Application.ViewModels.Translation
 
         public string Value { get; set; }
 
-        public bool? Rejected { get; set; }
+        public bool? Accepted { get; set; }
     }
 }

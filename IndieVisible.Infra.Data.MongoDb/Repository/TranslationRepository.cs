@@ -142,7 +142,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             UpdateDefinition<TranslationProject> update = Builders<TranslationProject>.Update
                 .Set(c => c.Entries[-1].Value, entry.Value)
                 .Set(c => c.Entries[-1].Language, entry.Language)
-                .Set(c => c.Entries[-1].Rejected, entry.Rejected);
+                .Set(c => c.Entries[-1].Accepted, entry.Accepted);
 
             Context.AddCommand(() => DbSet.UpdateOneAsync(filter, update));
         }

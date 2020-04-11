@@ -602,11 +602,11 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo EntryReview(Guid currentUserId, Guid projectId, Guid entryId, bool rejected)
+        public OperationResultVo EntryReview(Guid currentUserId, Guid projectId, Guid entryId, bool accept)
         {
             try
             {
-                if (!rejected)
+                if (accept)
                 {
                     translationDomainService.AcceptEntry(projectId, entryId);
                 }

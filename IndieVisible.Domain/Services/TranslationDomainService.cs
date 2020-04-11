@@ -139,7 +139,7 @@ namespace IndieVisible.Domain.Services
             var entry = repository.GetEntry(projectId, entryId);
             if (entry != null)
             {
-                entry.Rejected = false;
+                entry.Accepted = true;
                 repository.UpdateEntry(projectId, entry);
             }
         }
@@ -149,7 +149,7 @@ namespace IndieVisible.Domain.Services
             var entry = repository.GetEntry(projectId, entryId);
             if (entry != null)
             {
-                entry.Rejected = true;
+                entry.Accepted = false;
                 repository.UpdateEntry(projectId, entry);
             }
         }
@@ -211,18 +211,14 @@ namespace IndieVisible.Domain.Services
             {
                 string langValue = null;
                 var term = project.Terms.ElementAt(i);
-                var entries = project.Entries.Where(x => x.TermId == term.Id && x.Language == language);
+                var entries = project.Entries.Where(x => x.TermId == term.Id && x.Language == language).OrderBy(x => x.Accepted);
 
                 if (entries.Any())
                 {
-                    var accepted = entries.LastOrDefault(x => !x.Rejected.HasValue || x.Rejected == false);
-                    if (accepted != null)
+                    var lastAccepted = entries.LastOrDefault(x => !x.Accepted.HasValue || x.Accepted == true);
+                    if (lastAccepted != null)
                     {
-                        langValue = accepted.Value;
-                    }
-                    else
-                    {
-                        langValue = entries.Last().Value;
+                        langValue = lastAccepted.Value;
                     }
                 }
                 else
