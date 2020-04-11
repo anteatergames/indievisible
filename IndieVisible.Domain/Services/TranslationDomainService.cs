@@ -134,6 +134,26 @@ namespace IndieVisible.Domain.Services
             return obj;
         }
 
+        public void AcceptEntry(Guid projectId, Guid entryId)
+        {
+            var entry = repository.GetEntry(projectId, entryId);
+            if (entry != null)
+            {
+                entry.Rejected = false;
+                repository.UpdateEntry(projectId, entry);
+            }
+        }
+
+        public void RejectEntry(Guid projectId, Guid entryId)
+        {
+            var entry = repository.GetEntry(projectId, entryId);
+            if (entry != null)
+            {
+                entry.Rejected = true;
+                repository.UpdateEntry(projectId, entry);
+            }
+        }
+
         public async Task<List<InMemoryFileVo>> GetXmlById(Guid projectId, bool fillGaps)
         {
             List<InMemoryFileVo> xmlTexts = new List<InMemoryFileVo>();
@@ -191,11 +211,19 @@ namespace IndieVisible.Domain.Services
             {
                 string langValue = null;
                 var term = project.Terms.ElementAt(i);
-                var entry = project.Entries.FirstOrDefault(x => x.TermId == term.Id && x.Language == language);
+                var entries = project.Entries.Where(x => x.TermId == term.Id && x.Language == language);
 
-                if (entry != null)
+                if (entries.Any())
                 {
-                    langValue = entry.Value;
+                    var accepted = entries.LastOrDefault(x => !x.Rejected.HasValue || x.Rejected == false);
+                    if (accepted != null)
+                    {
+                        langValue = accepted.Value;
+                    }
+                    else
+                    {
+                        langValue = entries.Last().Value;
+                    }
                 }
                 else
                 {

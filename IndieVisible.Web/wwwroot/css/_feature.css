@@ -21,6 +21,10 @@
     color: lightgray;
 }
 
+    .noitems .noitems-icon.norotate {
+        transform: rotate(0);
+    }
+
 .feature-item {
     padding: 10px;
     min-height: 140px;

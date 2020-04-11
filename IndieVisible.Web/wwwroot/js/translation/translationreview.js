@@ -12,15 +12,19 @@
 
         selectors.ddlLanguage = '#Language';
 
-        selectors.entry = '.translation-entry';
+        selectors.item = '.translation-item';
+        selectors.entry = '.entry';
         selectors.entryInput = ':input.entry-input';
-        selectors.entryActions = '.translation-entry-actions';
-        selectors.entryAccept = selectors.entryActions + ' .entry-accept';
-        selectors.entryReject = selectors.entryActions + ' .entry-reject';
-        selectors.entryAuthors = '.entry-authors';
-        selectors.entryAuthorTemplate = '.entry-author.template';
+        selectors.entryActions = '.review-actions';
+        selectors.entryAccept = '.entry-accept';
+        selectors.entryReject = '.entry-reject';
+        selectors.entryAuthor = '.entry-author';
+        selectors.entryTemplate = '.entry.template';
         selectors.entryAuthorButton = '.entry-author-btn';
         selectors.entryAuthorName = '.translator-name';
+        selectors.entryTranslationDate = '.translation-date';
+        selectors.entryTranslationPlace = '.entry-translations-place';
+        selectors.noTranslationTemplate = '.notranslation';
 
         selectors.id = '#Id';
     }
@@ -32,7 +36,6 @@
         objs.container = $(selectors.container);
 
         objs.ddlLanguage = $(selectors.ddlLanguage);
-        objs.entryAuthors = $(selectors.entryAuthors);
     }
 
     function init() {
@@ -48,7 +51,6 @@
 
     function bindTranslate() {
         bindLanguageChange();
-        bindAuthorChange();
         bindEntryAccept();
         bindEntryReject();
     }
@@ -67,36 +69,16 @@
     function bindEntryAccept() {
         objs.container.on('click', selectors.entryAccept, function (e) {
             e.preventDefault();
-
-            ALERTSYSTEM.Toastr.ShowWarning("This is not implemented yet");
-
             var btn = $(this);
+            var otherBtn = btn.closest(selectors.entryActions).find(selectors.entryReject);
 
-            var input = btn.closest(selectors.entry).find(selectors.entryInput);
-            var entryId = input.data('entryid');
-            var url = objs.urls.data('urlEntryAccept');
-            var language = objs.ddlLanguage.val();
+            var entryId = $(this).closest(selectors.entry).data('entryid');
+            var url = objs.urls.data('urlEntryReview');
 
-            if (language && input.val().length > 0) {
-                var data = {
-                    entryId: entryId
-                };
-
-                $.post(url, data).done(function (response) {
-                    if (response.success === true) {
-                        deleteEntryAuthorButton(response.value.termId, response.value.userId);
-
-                        loadSingleTranslation(response.value);
-
-                        if (response.message) {
-                            ALERTSYSTEM.Toastr.ShowWarning(response.message);
-                        }
-                    }
-                    else {
-                        ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
-                    }
-                });
-            }
+            entryReview(url, entryId, false, function () {
+                acceptVisualAction(btn, otherBtn);
+                alternateText(otherBtn);
+            });
 
             return false;
         });
@@ -105,64 +87,46 @@
     function bindEntryReject() {
         objs.container.on('click', selectors.entryReject, function (e) {
             e.preventDefault();
-
-            ALERTSYSTEM.Toastr.ShowWarning("This is not implemented yet");
-
-            return false;
-        });
-    }
-
-    function bindAuthorChange() {
-        objs.container.on('click', selectors.entryAuthorButton, function (e) {
-            e.preventDefault();
-
             var btn = $(this);
-            var input = btn.closest(selectors.entry).find(selectors.entryInput);
-            var v = btn.data('value');
-            input.val(v);
-            input.data('entryid', btn.data('entryid'));
+            var otherBtn = btn.closest(selectors.entryActions).find(selectors.entryAccept);
 
-            setSelectedTranslator(btn);
+            var entryId = $(this).closest(selectors.entry).data('entryid');
+            var url = objs.urls.data('urlEntryReview');
+
+            entryReview(url, entryId, true, function () {
+                rejectVisualAction(btn, otherBtn);
+                alternateText(otherBtn);
+            });
 
             return false;
         });
     }
 
-    function setSelectedTranslator(btn) {
-        btn.closest(selectors.entry).find(selectors.entryAuthorButton + ' img').addClass('grayscale');
+    function entryReview(url, entryId, reject, callback) {
+        var language = objs.ddlLanguage.val();
 
-        btn.find('img').removeClass('grayscale');
+        if (language) {
+            var data = {
+                entryId: entryId,
+                reject: reject
+            };
 
-        btn.closest(selectors.entry).find(selectors.entryAuthorName).html(btn.attr('title'));
-    }
+            $.post(url, data).done(function (response) {
+                if (response.success === true) {
 
-    function addNewAuthor(container, translation) {
-        var newAuthorObj = $(selectors.entryAuthorTemplate).first().clone();
-        var btn = newAuthorObj.find('a');
+                    if (callback) {
+                        callback();
+                    }
 
-        var urlAvatar = objs.urls.data('urlAvatar').replace(/xpto/g, translation.userId);
-        btn.find('img').attr('data-src', urlAvatar);
-
-        btn.attr('data-userid', translation.userId);
-        btn.attr('title', translation.authorName);
-        btn.attr('data-value', translation.value);
-        btn.data('entryid', translation.id);
-
-        newAuthorObj.removeClass('template');
-
-        newAuthorObj.appendTo(container);
-
-        setSelectedTranslator(btn);
-    }
-
-    function deleteEntryAuthorButton(termId, userId) {
-        var entryInput = objs.container.find(selectors.entryInput + '[data-termid=' + termId + ']');
-
-        var entry = entryInput.closest(selectors.entry);
-
-        var authorBtn = entry.find(selectors.entryAuthorButton + '[data-userId=' + userId + ']');
-
-        authorBtn.parent().remove();
+                    if (response.message) {
+                        ALERTSYSTEM.Toastr.ShowWarning(response.message);
+                    }
+                }
+                else {
+                    ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+                }
+            });
+        }
     }
 
     function loadSelectedLanguage(ddl) {
@@ -175,7 +139,7 @@
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
-                resetTranslationStatus();
+                resetTranslationPlaces();
 
                 for (var i = 0; i < response.value.length; i++) {
                     loadSingleTranslation(response.value[i]);
@@ -187,22 +151,77 @@
         });
     }
 
-    function resetTranslationStatus() {
-        var names = $(selectors.entryAuthorName);
-        names.html(names.data('nobody'));
+    function resetTranslationPlaces() {
+        var noTranslationTemplate = $(selectors.noTranslationTemplate).first().clone();
 
-        $(selectors.entryAuthors).html('');
+        var places = objs.container.find(selectors.item).find(selectors.entryTranslationPlace);
+
+        places.html('');
+
+        noTranslationTemplate.appendTo(places).removeClass('template');
     }
 
-    function loadSingleTranslation(translation) {
-        var entryInput = objs.container.find(selectors.entryInput + '[data-termid=' + translation.termId + ']');
+    function loadSingleTranslation(entry) {
+        var div = objs.container.find(selectors.item + '[data-termid=' + entry.termId + ']');
+        var place = div.find(selectors.entryTranslationPlace);
 
-        entryInput.val(translation.value);
-        entryInput.data('originalval', translation.value);
+        place.find(selectors.noTranslationTemplate).remove();
 
-        entryInput.data('entryid', translation.id);
+        var newEntryObj = $(selectors.entryTemplate).first().clone();
+        var entryAuthorButton = newEntryObj.find(selectors.entryAuthorButton);
+        var urlAvatar = objs.urls.data('urlAvatar').replace(/xpto/g, entry.userId);
 
-        addNewAuthor(entryInput.closest(selectors.entry).find(selectors.entryAuthors), translation);
+        newEntryObj.attr('data-entryid', entry.id);
+
+        entryAuthorButton.find('img').attr('data-src', urlAvatar);
+        entryAuthorButton.attr('title', entry.authorName);
+        entryAuthorButton.closest(selectors.entryAuthor).find(selectors.entryAuthorName).html(entry.authorName);
+        entryAuthorButton.closest(selectors.entryAuthor).find(selectors.entryTranslationDate).html(entry.createDateText);
+        entryAuthorButton.attr('href', objs.urls.data('urlProfile') + entry.userId);
+
+        var rejectBtn = newEntryObj.find(selectors.entryReject);
+        var acceptBtn = newEntryObj.find(selectors.entryAccept);
+
+        if (entry.rejected === true) {
+            rejectVisualAction(rejectBtn, acceptBtn);
+        }
+        else if (entry.rejected === false) {
+            acceptVisualAction(acceptBtn, rejectBtn);
+        }
+        else {
+            acceptBtn.removeAttr('disabled');
+            acceptBtn.addClass('text-success');
+
+            rejectBtn.removeAttr('disabled');
+            rejectBtn.addClass('text-danger');
+        }
+
+
+        var entryInput = newEntryObj.find(selectors.entryInput);
+
+        entryInput.val(entry.value);
+
+        newEntryObj.appendTo(place).removeClass('template');
+    }
+
+    function acceptVisualAction(acceptBtn, rejectBtn) {
+        rejectBtn.removeAttr('disabled').removeClass('text-white btn-danger').addClass('text-danger');
+        acceptBtn.attr('disabled', true).removeClass('text-success').addClass('text-white btn-success');
+
+        alternateText(acceptBtn);
+    }
+
+    function rejectVisualAction(rejectBtn, acceptBtn) {
+        acceptBtn.removeAttr('disabled').removeClass('text-white btn-success').addClass('text-success');
+        rejectBtn.attr('disabled', true).removeClass('text-danger').addClass('text-white btn-danger');
+
+        alternateText(rejectBtn);
+    }
+
+    function alternateText(btn) {
+        var oldText = btn.attr('title');
+        btn.attr('title', btn.data('textAlternative'));
+        btn.data('textAlternative', oldText);
     }
 
     function setStickyElements() {

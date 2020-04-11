@@ -20,6 +20,12 @@ namespace IndieVisible.Application.ViewModels
 
         public PermissionsVo Permissions { get; set; }
 
+        public string CreateDateText { get
+            {
+                return CreateDate.ToString();
+            }
+        }
+
         protected BaseViewModel()
         {
             Permissions = new PermissionsVo();

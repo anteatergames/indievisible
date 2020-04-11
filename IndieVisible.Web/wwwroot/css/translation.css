@@ -17,9 +17,6 @@
     margin-top: -40px;
 }
 
-.translation-entry-actions {
-}
-
 @media (max-width: 767px) {
     .border-right, .border-left {
         border: 0 !important;
@@ -65,4 +62,9 @@
 .entry-authors .avatar {
     width:30px;
     height:30px;
+}
+
+.review-actions {
+    float: right;
+    margin-top: -40px;
 }

@@ -7,6 +7,8 @@
     var languages = Html.GetEnumSelectList<SupportedLanguage>().Where(x => x.Text != Model.PrimaryLanguage.ToString()).ToList();
 
     languages.ForEach(x => x.Selected = (x.Value.Equals(lang)));
+
+    var noTranslationModel = new ListNoItemsViewModel("fas fa-sad-cry", "No translation!", false);
 }
 
 <div class="text-center">
@@ -33,13 +35,19 @@
     </div>
 </div>
 
+
+@SharedLocalizer["Select a language to load the available translations."]
+
 @foreach (var term in Model.Terms)
 {
-    <div class="row pb-1 pb-sm-2 m-0 mt-2 m-md-2 mb-2 border bg-light translation-entry">
+    <div class="row pb-1 pb-sm-2 m-0 mt-2 m-md-2 mb-2 border translation-item" data-termid="@term.Id">
+        <div class="col-12 text-center bg-light rounded-0">
+            <label class="col-form-label">@term.Key</label>
+        </div>
         <div class="col-6 border-right rounded-0">
             <div class="row">
-                <div class="col-12">
-                    <label class="col-form-label">@term.Key</label>
+                <div class="col-12 text-capitalize">
+                    <label class="col-form-label">@SharedLocalizer["original value"]</label>
                 </div>
 
                 <div class="col-12">
@@ -48,31 +56,39 @@
                 @if (!string.IsNullOrWhiteSpace(term.Obs))
                 {
                     <div class="col-12">
-                        <label class="col-form-label text-capitalize">@SharedLocalizer["context"]</label>
+                        <label class="col-form-label text-capitalize">@SharedLocalizer["Context"]</label>
                         <p>@term.Obs</p>
                     </div>
                 }
             </div>
         </div>
 
-        <div class="col-6 pt-2">
-            <label class="col-form-label">
-                @SharedLocalizer["Selected translator"]: <span class="translator-name" data-nobody="@SharedLocalizer["nobody"]">@SharedLocalizer["nobody"]</span>
-            </label>
-
-            <div class="entry-authors">
-            </div>
-
-            <div class="input-group pt-2">
-                <textarea class="form-control entry-input" data-termid="@term.Id" data-entryid="x" data-originalval="@string.Empty" placeholder="@SharedLocalizer["Select a language and an author to load the translation"]" readonly></textarea>
-            </div>
-
-            <div class="translation-entry-actions float-right pt-1">
-                <div class="btn-group" role="group" aria-label="Translation Entry Actions">
-                    <button type="button" class="btn btn-sm btn-default text-danger entry-reject" tabindex="-1" title="@SharedLocalizer["Reject this translation"]"><i class="fas fa-fw fa-times" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-sm btn-default text-success entry-accept" tabindex="-1" title="@SharedLocalizer["Accept this translation"]"><i class="fas fa-fw fa-check" aria-hidden="true"></i></button>
-                </div>
-            </div>
+        <div class="col-6 pt-2 entry-translations-place" data-termid="@term.Id">
         </div>
     </div>
 }
+
+<div class="notranslation template">
+    <partial name="_ListNoItems" model="noTranslationModel" />
+</div>
+
+
+<div class="col-12 mt-2 border-bottom rounded-0 entry template">
+    <div class="input-group pt-2">
+        <textarea class="form-control entry-input" data-termid="x" data-entryid="x" placeholder="xpto" readonly></textarea>
+    </div>
+    <div class=" mt-1 mr-1 entry-author user-block">
+        <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="" class="entry-author-btn">
+            <img class="rounded-circle lazyload avatar" data-src="@ConstantHelper.DefaultAvatar" src="@ConstantHelper.DefaultAvatar" alt="@SharedLocalizer["translator"]">
+            <span class="username translator-name">@SharedLocalizer["nobody"]</span>
+            <span class="description translation-date">...</span>
+        </a>
+    </div>
+
+    <div class="review-actions text-right pt-1">
+        <div class="btn-group" role="group" aria-label="Translation Entry Actions">
+            <button type="button" class="btn btn-sm btn-default text-danger entry-reject" tabindex="-1" title="@SharedLocalizer["Reject this translation"]" data-text-alternative="@SharedLocalizer["This translation is rejected!"]"><i class="fas fa-fw fa-times" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-sm btn-default text-success entry-accept" tabindex="-1" title="@SharedLocalizer["Accept this translation"]" data-text-alternative="@SharedLocalizer["This translation is accepted!"]"><i class="fas fa-fw fa-check" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>

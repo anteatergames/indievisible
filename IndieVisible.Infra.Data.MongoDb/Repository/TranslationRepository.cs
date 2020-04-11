@@ -133,7 +133,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
-        public async Task<bool> UpdateEntry(Guid translationProjectId, TranslationEntry entry)
+        public void UpdateEntry(Guid translationProjectId, TranslationEntry entry)
         {
             FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.And(
                 Builders<TranslationProject>.Filter.Eq(x => x.Id, translationProjectId),
@@ -141,11 +141,10 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
             UpdateDefinition<TranslationProject> update = Builders<TranslationProject>.Update
                 .Set(c => c.Entries[-1].Value, entry.Value)
-                .Set(c => c.Entries[-1].Language, entry.Language);
+                .Set(c => c.Entries[-1].Language, entry.Language)
+                .Set(c => c.Entries[-1].Rejected, entry.Rejected);
 
-            UpdateResult result = await DbSet.UpdateOneAsync(filter, update);
-
-            return result.IsAcknowledged && result.ModifiedCount > 0;
+            Context.AddCommand(() => DbSet.UpdateOneAsync(filter, update));
         }
 
         public IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId)
@@ -192,6 +191,13 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             IQueryable<TranslationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language && x.TermId == termId);
 
             return translations;
+        }
+
+        public TranslationEntry GetEntry(Guid projectId, Guid entryId)
+        {
+            var entry = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).FirstOrDefault(x => x.Id == entryId);
+
+            return entry;
         }
     }
 }

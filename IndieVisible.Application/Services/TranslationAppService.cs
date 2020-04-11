@@ -602,6 +602,29 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        public OperationResultVo EntryReview(Guid currentUserId, Guid projectId, Guid entryId, bool rejected)
+        {
+            try
+            {
+                if (!rejected)
+                {
+                    translationDomainService.AcceptEntry(projectId, entryId);
+                }
+                else
+                {
+                    translationDomainService.RejectEntry(projectId, entryId);
+                }
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "Translation Updated!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public void SetPermissions(Guid currentUserId, TranslationProjectViewModel vm)
         {
             SetBasePermissions(currentUserId, vm);

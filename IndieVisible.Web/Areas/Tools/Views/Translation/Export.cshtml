@@ -60,6 +60,7 @@
                                         @if (Model.Permissions.CanEdit)
                                         {
                                             <a asp-area="tools" asp-controller="translation" asp-action="edit" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["edit"]</a>
+                                            <a asp-area="tools" asp-controller="translation" asp-action="review" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["review"]</a>
                                         }
                                     </div>
                                 </div>

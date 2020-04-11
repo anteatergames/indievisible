@@ -10,5 +10,7 @@ namespace IndieVisible.Application.ViewModels.Translation
         public SupportedLanguage Language { get; set; }
 
         public string Value { get; set; }
+
+        public bool? Rejected { get; set; }
     }
 }

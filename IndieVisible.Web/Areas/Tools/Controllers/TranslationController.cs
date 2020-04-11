@@ -548,6 +548,23 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             }
         }
 
+
+        [Authorize]
+        [HttpPost("tools/translation/entryreview/{projectId:guid}")]
+        public IActionResult EntryReview(Guid projectId, Guid entryId, bool reject)
+        {
+            try
+            {
+                OperationResultVo result = translationAppService.EntryReview(CurrentUserId, projectId, entryId, reject);
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
         private void SetLocalization(TranslationProjectViewModel model)
         {
             SetLocalization(model, false);

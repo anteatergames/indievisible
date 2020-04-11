@@ -1993,4 +1993,40 @@
     <value>Você não pediu ajuda pra ninguém, ainda.</value>
     <comment>Translation</comment>
   </data>
+  <data name="Accept this translation" xml:space="preserve">
+    <value>Aceitar esta tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="No translation!" xml:space="preserve">
+    <value>Sem tradução!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="original value" xml:space="preserve">
+    <value>valor original</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Reject this translation" xml:space="preserve">
+    <value>Rejeitar esta tradução</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="review" xml:space="preserve">
+    <value>revisão</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Select a language to load the available translations." xml:space="preserve">
+    <value>Selecione um idioma para carregar as traduções disponíveis</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="This translation is accepted!" xml:space="preserve">
+    <value>Esta tradução está aprovada!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="This translation is rejected!" xml:space="preserve">
+    <value>Esta tradução está rejeitada!</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="Translation Updated!" xml:space="preserve">
+    <value>Tradução atualizada!</value>
+    <comment>Translation</comment>
+  </data>
 </root>

@@ -31,10 +31,12 @@ namespace IndieVisible.Domain.Interfaces.Repository
 
         Task<bool> RemoveEntry(Guid translationProjectId, Guid entryId);
 
-        Task<bool> UpdateEntry(Guid translationProjectId, TranslationEntry entry);
+        void UpdateEntry(Guid translationProjectId, TranslationEntry entry);
 
         IQueryable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language);
 
         IQueryable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId);
+
+        TranslationEntry GetEntry(Guid projectId, Guid entryId);
     }
 }
