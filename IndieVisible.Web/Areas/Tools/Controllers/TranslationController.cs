@@ -431,11 +431,11 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                     OperationResultVo<TranslationEntryViewModel> castResult = result as OperationResultVo<TranslationEntryViewModel>;
 
-                    return Json(result);
+                    return Json(castResult);
                 }
                 else
                 {
-                    return Json(new OperationResultVo(false));
+                    return Json(result);
                 }
             }
             catch (Exception ex)

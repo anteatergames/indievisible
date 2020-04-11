@@ -2029,4 +2029,8 @@
     <value>Tradução atualizada!</value>
     <comment>Translation</comment>
   </data>
+  <data name="Another user already sent that translation!" xml:space="preserve">
+    <value>Outro usuário já enviou esta tradução!</value>
+    <comment>Translation</comment>
+  </data>
 </root>

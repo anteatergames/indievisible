@@ -42,20 +42,30 @@ namespace IndieVisible.Domain.Services
             return entries;
         }
 
-        public void SaveEntry(Guid projectId, TranslationEntry entry)
+        public bool AddEntry(Guid projectId, TranslationEntry entry)
         {
             IQueryable<TranslationEntry> existing = repository.GetEntries(projectId, entry.Language, entry.TermId);
             bool oneIsMine = existing.Any(x => x.UserId == entry.UserId);
 
-            if (!existing.Any() || !oneIsMine)
-            {
-                repository.AddEntry(projectId, entry);
-            }
-            else
+            if (oneIsMine)
             {
                 entry.Id = existing.First(x => x.UserId == entry.UserId).Id;
                 repository.UpdateEntry(projectId, entry);
+                return true;
             }
+            else
+            {
+                entry.Value = entry.Value.Trim();
+
+                var existsWithSameValue = existing.Any(x => x.Value.Equals(entry.Value));
+                if (!existing.Any() || !existsWithSameValue)
+                {
+                    repository.AddEntry(projectId, entry);
+                    return true;
+                }
+            }
+
+            return false;
         }
         public void SaveEntries(Guid projectId, IEnumerable<TranslationEntry> entries)
         {

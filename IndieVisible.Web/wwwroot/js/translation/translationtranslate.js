@@ -137,13 +137,13 @@
                         decreaseChangeCounter();
 
                         removeFromArray(changedEntries, termId);
-
-                        if (response.message) {
-                            ALERTSYSTEM.Toastr.ShowWarning(response.message);
-                        }
                     }
                     else {
                         ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+                    }
+
+                    if (response.message) {
+                        ALERTSYSTEM.Toastr.ShowWarning(response.message);
                     }
                 });
 

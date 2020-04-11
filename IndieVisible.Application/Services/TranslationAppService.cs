@@ -290,10 +290,15 @@ namespace IndieVisible.Application.Services
             {
                 TranslationEntry entry = mapper.Map<TranslationEntry>(vm);
 
-                translationDomainService.SaveEntry(projectId, entry);
-                vm.Id = entry.Id;
+                var addedOrUpdated = translationDomainService.AddEntry(projectId, entry);
+
+                if (!addedOrUpdated)
+                {
+                    return new OperationResultVo("Another user already sent that translation!");
+                }
 
                 unitOfWork.Commit();
+                vm.Id = entry.Id;
 
                 UserProfile profile = GetCachedProfileByUserId(entry.UserId);
                 vm.AuthorName = profile.Name;
