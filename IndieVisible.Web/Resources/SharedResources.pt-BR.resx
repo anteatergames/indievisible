@@ -2033,4 +2033,12 @@
     <value>Outro usuário já enviou esta tradução!</value>
     <comment>Translation</comment>
   </data>
+  <data name="Review translations for {0}" xml:space="preserve">
+    <value>Revise traduções para {0}</value>
+    <comment>Translation</comment>
+  </data>
+  <data name="reviewing" xml:space="preserve">
+    <value>revisando</value>
+    <comment>Translation</comment>
+  </data>
 </root>

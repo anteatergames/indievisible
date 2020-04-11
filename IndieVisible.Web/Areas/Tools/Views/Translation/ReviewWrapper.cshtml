@@ -1,6 +1,6 @@
 ﻿@model TranslationProjectViewModel
 @{
-    ViewData["Title"] = SharedLocalizer["Translate for {0}", Model.Game.Title];
+    ViewData["Title"] = SharedLocalizer["Review translations for {0}", Model.Game.Title];
     ViewData["Description"] = "tralala";
     ViewData["Url"] = ViewBag.BaseUrl + Url.Action("details", "translation", new { area = "tools", id = Model.Id });
     //ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogwork.png";
