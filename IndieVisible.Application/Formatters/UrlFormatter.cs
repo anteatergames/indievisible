@@ -672,6 +672,32 @@ namespace IndieVisible.Application.Formatters
             }
         }
 
+        public static string DiscordGame(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("discord.gg"))
+            {
+                return String.Format("https://discord.gg/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
+        internal static string DiscordProfile(string handler)
+        {
+            if (!string.IsNullOrWhiteSpace(handler) && !handler.Contains("discord.gg"))
+            {
+                return String.Format("https://discord.gg/{0}", handler);
+            }
+            else
+            {
+                handler = CompleteUrlCommon(handler);
+                return handler;
+            }
+        }
+
         #endregion ExternalUrls
     }
 }

@@ -425,6 +425,10 @@ namespace IndieVisible.Application.Services
                     case ExternalLinkProvider.IndiExpo:
                         item.Value = UrlFormatter.IndiExpoGame(item.Value);
                         break;
+
+                    case ExternalLinkProvider.Discord:
+                        item.Value = UrlFormatter.DiscordGame(item.Value);
+                        break;
                 }
             }
         }

@@ -2100,6 +2100,9 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 
 .comment-send-button {
     margin-top: -38px;
+    z-index: 99999;
+    position: absolute;
+    right: 5px;
 }
 
 .control-buttons {

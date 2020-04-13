@@ -686,6 +686,10 @@ namespace IndieVisible.Application.Services
                     case ExternalLinkProvider.Medium:
                         item.Value = UrlFormatter.MediumProfile(item.Value);
                         break;
+
+                    case ExternalLinkProvider.Discord:
+                        item.Value = UrlFormatter.DiscordProfile(item.Value);
+                        break;
                 }
             }
         }

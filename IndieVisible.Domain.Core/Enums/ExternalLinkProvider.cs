@@ -74,6 +74,9 @@ namespace IndieVisible.Domain.Core.Enums
         Patreon = 23,
 
         [ExternalLinkInfo(Display = "Medium", Class = "fab fa-medium-m", ColorClass = "bg-black text-white", Order = 41, Type = ExternalLinkType.ProfileOnly, IsStore = false)]
-        Medium = 24
+        Medium = 24,
+
+        [ExternalLinkInfo(Display = "Discord", Class = "fab fa-discord", ColorClass = "bg-purple text-white", Order = 6, Type = ExternalLinkType.ProfileAndGame, IsStore = false)]
+        Discord = 25
     }
 }
