@@ -39,5 +39,10 @@ namespace IndieVisible.Web.Controllers
         {
             return View();
         }
+
+        public IActionResult SpecialThanks()
+        {
+            return View();
+        }
     }
 }

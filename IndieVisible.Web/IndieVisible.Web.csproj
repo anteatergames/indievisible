@@ -146,6 +146,9 @@
     <Content Update="Views\Help\Contributing.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Help\SpecialThanks.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Help\Partners.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

@@ -1,11 +1,14 @@
 ﻿@{
     Layout = null;
+
+    var activeTab = ViewData["HelpActive"] == null ? "none" : (string)ViewData["HelpActive"];
 }
 
-<ul class="list-group text-capitalize">
-    <li class="list-group-item shadow"><a asp-area="" asp-controller="help" asp-action="start">@SharedLocalizer["start"]</a></li>
-    <li class="list-group-item shadow"><a asp-area="" asp-controller="help" asp-action="press">@SharedLocalizer["press"]</a></li>
-    <li class="list-group-item shadow"><a asp-area="" asp-controller="help" asp-action="partners">@SharedLocalizer["partners"]</a></li>
-    <li class="list-group-item shadow"><a asp-area="" asp-controller="help" asp-action="advertising">@SharedLocalizer["advertising"]</a></li>
-    <li class="list-group-item shadow"><a asp-area="" asp-controller="help" asp-action="contributing">@SharedLocalizer["contributing"]</a></li>
-</ul>
+    <ul class="list-group text-capitalize">
+        <li class="list-group-item shadow@(activeTab.Equals("start") ? " active" : string.Empty)"><a asp-area="" asp-controller="help" asp-action="start">@SharedLocalizer["start"]</a></li>
+        <li class="list-group-item shadow@(activeTab.Equals("press") ? " active" : string.Empty)"><a asp-area="" asp-controller="help" asp-action="press">@SharedLocalizer["press"]</a></li>
+        <li class="list-group-item shadow@(activeTab.Equals("partners") ? " active" : string.Empty)"><a asp-area="" asp-controller="help" asp-action="partners">@SharedLocalizer["partners"]</a></li>
+        <li class="list-group-item shadow@(activeTab.Equals("advertising") ? " active" : string.Empty)"><a asp-area="" asp-controller="help" asp-action="advertising">@SharedLocalizer["advertising"]</a></li>
+        <li class="list-group-item shadow@(activeTab.Equals("contributing") ? " active" : string.Empty)"><a asp-area="" asp-controller="help" asp-action="contributing">@SharedLocalizer["contributing"]</a></li>
+        <li class="list-group-item shadow@(activeTab.Equals("specialthanks") ? " active" : string.Empty)"><a asp-area="" asp-controller="help" asp-action="specialthanks">@SharedLocalizer["special thanks"]</a></li>
+    </ul>

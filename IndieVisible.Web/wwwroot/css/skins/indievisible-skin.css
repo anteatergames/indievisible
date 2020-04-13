@@ -471,3 +471,17 @@ a {
     .badge-status.badge-implemented, .badge-status.badge-openforapplication {
         background-color: #01921f;
     }
+
+
+.list-group .list-group-item.active {
+    background-color: var(--color-bg-dark);
+    border-color: var(--color-bg-dark);
+}
+
+.list-group .list-group-item.active a {
+    color: white;
+}
+
+    .list-group .list-group-item.active a:hover {
+        color: var(--color-highlight);
+    }

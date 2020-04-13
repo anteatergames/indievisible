@@ -417,6 +417,35 @@ namespace IndieVisible.Web.Controllers
                 }
             });
 
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2020, 03, 01),
+                Icon = "fas fa-heart",
+                Color = "danger",
+                Title = "March 2020",
+                Subtitle = "Thank you all!",
+                Description = "We reached the mark of 300 users and  100 games. Thank you all for your love!",
+                Items = {
+                    "A Special Thanks page"
+                }
+            });
+
+            model.Items.Add(new TimeLineItemViewModel
+            {
+                Date = new DateTime(2020, 04, 01),
+                Icon = "fas fa-language",
+                Color = "primary",
+                Title = "April 2020",
+                Subtitle = "Localize your games!",
+                Description = "The localization tool has arrived!",
+                Items = {
+                    "Ask for translation from the community",
+                    "Help others, translating terms to your own language",
+                    "Import and export files",
+                    "Review translations"
+                }
+            });
+
             // Future
             model.Items.Add(new TimeLineItemViewModel
             {

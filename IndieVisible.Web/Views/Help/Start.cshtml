@@ -2,6 +2,7 @@
     Layout = "~/Views/Help/_HelpLayout.cshtml";
     ViewData["Title"] = SharedLocalizer["help"].Value.ToUpper();
     var iconModel = new ListNoItemsViewModel("fas fa-question-circle", "This is the main help page. Select a topic on the right side menu.");
+    ViewData["HelpActive"] = "start";
 }
 
 <div class="col-12 d-none d-xl-block">

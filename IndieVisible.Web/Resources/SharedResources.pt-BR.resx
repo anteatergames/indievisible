@@ -2041,4 +2041,20 @@
     <value>revisando</value>
     <comment>Translation</comment>
   </data>
+  <data name="people" xml:space="preserve">
+    <value>pessoas</value>
+    <comment>Help</comment>
+  </data>
+  <data name="special thanks" xml:space="preserve">
+    <value>agradecimentos</value>
+    <comment>Help</comment>
+  </data>
+  <data name="what" xml:space="preserve">
+    <value>o que</value>
+    <comment>Help</comment>
+  </data>
+  <data name="who" xml:space="preserve">
+    <value>quem</value>
+    <comment>Help</comment>
+  </data>
 </root>
