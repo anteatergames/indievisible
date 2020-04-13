@@ -1,6 +1,12 @@
 ﻿@{
     Layout = "~/Views/Help/_HelpLayout.cshtml";
     ViewData["Title"] = SharedLocalizer["special thanks"].Value.ToUpper();
+    ViewData["Description"] = SharedLocalizer["We want to thank everyone that at some point helped us. Thank you all! You are awesome!"];
+    ViewData["Url"] = ViewBag.BaseUrl + Url.Action("specialthanks", "help", new { area = string.Empty });
+    ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/oglove.png";
+    ViewData["OgImageWidth"] = 1200;
+    ViewData["OgImageHeight"] = 630;
+
     ViewData["HelpActive"] = "specialthanks";
 }
 
