@@ -3,6 +3,8 @@
     ViewData["Title"] = SharedLocalizer["Export Translation for {0}", Model.Game.Title];
     ViewData["Description"] = "tralala";
     ViewData["Url"] = ViewBag.BaseUrl + Url.Action("export", "translation", new { area = "tools", id = Model.Id });
+    ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/oglocalization.png";
+
     Model.Game.Title = string.Empty;
 
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
