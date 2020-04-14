@@ -1,0 +1,92 @@
+﻿@model LocalizationViewModel
+@{
+    var canInteract = User.Identity.IsAuthenticated;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "There are no terms to translate yet!");
+}
+
+<div class="box bg-white no-gutters">
+    <h1 class="sr-only">
+        @SharedLocalizer["translation project details"]
+    </h1>
+    <input type="hidden" asp-for="Id" />
+    <div id="translationcontainer" class="mx-0">
+        <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+        <div data-id="@Model.Id">
+            <div class="box-header with-border">
+                <div class="float-left mr-2">
+                    <a asp-area="tools" asp-controller="localization" asp-action="details" asp-route-id="@Model.Id" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                </div>
+                <div class="float-left">
+                    <h2 class="card-title">@ViewData["Title"]</h2>
+                </div>
+
+                <div class="box-tools">
+                    <div class="btn-group">
+                        <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a asp-area="tools" asp-controller="localization" asp-action="details" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["details"]</a>
+                            @if (Model.Permissions.CanEdit)
+                            {
+                                <a asp-area="tools" asp-controller="localization" asp-action="export" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["export"]</a>
+                                <a asp-area="tools" asp-controller="localization" asp-action="edit" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["edit"]</a>
+                                <a asp-area="tools" asp-controller="localization" asp-action="review" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["review"]</a>
+                            }
+
+                            @if (Model.Permissions.CanDelete)
+                            {
+                                <a class="btnDeleteTranslationProject dropdown-item" href="#" data-url="@Url.Action("delete", "localization", new { area = "tools", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this Translation Project?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-body p-0 px-md-2">
+                <div class="row">
+                    <div class="col-lg-6" data-id="@Model.Id">
+                        <partial name="_GameCard" model="Model.Game" />
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="author-details">
+                            <div class="col-12">
+                                <span>@SharedLocalizer["This translation was requested by"]</span>
+
+                                <partial name="_AuthorDetails" model="Model" />
+                            </div>
+                        </div>
+
+                        <div class="border mt-3 mb-3 p-2 bg-light">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="m-0">@Model.Introduction</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <partial name="_ShareContent" model="new ShareModel(Model.ShareUrl, Model.ShareText)" />
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    @if (!Model.Terms.Any())
+                    {
+                        <partial name="_ListNoItems" model="noItemsModel" />
+                    }
+                    else
+                    {
+                        <span>@SharedLocalizer["There are {0} terms to be translated.", Model.Terms.Count]</span>
+                        <partial name="_TermsTranslation" model="Model" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="float-left mt-1 mr-1 entry-author template">
+    <a asp-area="" asp-controller="profile" asp-action="details" class="entry-author-btn">
+        <img class="rounded-circle lazyload avatar" data-src="@ConstantHelper.DefaultAvatar"  src="@ConstantHelper.DefaultAvatar" alt="@SharedLocalizer["translator"]">
+    </a>
+</div>

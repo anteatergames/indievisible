@@ -9,7 +9,7 @@ using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Application.ViewModels.Team;
-using IndieVisible.Application.ViewModels.Translation;
+using IndieVisible.Application.ViewModels.Localization;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Models;
@@ -118,14 +118,14 @@ namespace IndieVisible.Application.AutoMapper
 
             #endregion Jobs
 
-            #region Translation
+            #region Localization
 
-            CreateMap<TranslationProject, TranslationProjectViewModel>()
+            CreateMap<Localization, LocalizationViewModel>()
                 .ForPath(x => x.Game.Id, opt => opt.MapFrom(x => x.GameId));
-            CreateMap<TranslationProject, TranslationStatsViewModel>()
+            CreateMap<Localization, TranslationStatsViewModel>()
                 .ForPath(x => x.Game.Id, opt => opt.MapFrom(x => x.GameId));
-            CreateMap<TranslationTerm, TranslationTermViewModel>();
-            CreateMap<TranslationEntry, TranslationEntryViewModel>();
+            CreateMap<LocalizationTerm, LocalizationTermViewModel>();
+            CreateMap<LocalizationEntry, LocalizationEntryViewModel>();
 
             #endregion Translation
         }

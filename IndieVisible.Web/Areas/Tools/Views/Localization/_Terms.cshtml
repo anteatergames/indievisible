@@ -1,0 +1,47 @@
+﻿@model LocalizationViewModel
+@{
+    Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "No terms found for this translation project. Go ahead, start adding some or upload a XLSX file!");
+}
+
+@for (int i = 0; i < Model.Terms.Count; i++)
+{
+
+    <div class="row pb-1 pb-sm-2 pb-md-3 p-md-0 m-0 mt-2 m-md-2 mb-2 border bg-light no-gutters translation-term">
+        @if (i > 0)
+        {
+            <hr />
+        }
+        <div class="col-12 px-1 px-sm-2 px-md-3 no-gutters">
+            <input type="hidden" asp-for="Terms[i].Id" />
+            <input type="hidden" asp-for="Terms[i].CreateDate" />
+            <input type="hidden" asp-for="Terms[i].UserId" />
+            <div class="col-12 position-absolute text-right term-item-actions">
+                <button class="btn btn-sm btn-danger btn-term-delete"><i class="fas fa-fw fa-times" aria-hidden="true"></i></button>
+            </div>
+            <div class="col-12 no-gutters">
+                <div class="col-12">
+                    <label asp-for="Terms[i].Key" class="col-form-label"></label> <span class="col-form-label">
+                        <i class="fas fa-exclamation-circle" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="@SharedLocalizer["We recommend that you choose a key without spaces and all lowercase."]" aria-hidden="true"></i>
+                    </span>
+                    <input asp-for="Terms[i].Key" class="form-control required" placeholder="@SharedLocalizer["Type here a key for the term"]" />
+                    <span asp-validation-for="Terms[i].Key" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Terms[i].Value" class="col-form-label"></label> <span class="col-form-label">(@SharedLocalizer["in {0}", SharedLocalizer[Model.PrimaryLanguage.ToDisplayName()]])</span>
+                    <textarea asp-for="Terms[i].Value" class="form-control required" placeholder="@SharedLocalizer["Type here your translation"]"></textarea>
+                    <span asp-validation-for="Terms[i].Value" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Terms[i].Obs" class="col-form-label"></label>
+                    <textarea asp-for="Terms[i].Obs" class="form-control" placeholder="@SharedLocalizer["Explain here the context of this term."]"></textarea>
+                    <span asp-validation-for="Terms[i].Obs" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div id="divNoItems">
+    <partial name="_ListNoItems" model="noItemsModel" />
+</div>

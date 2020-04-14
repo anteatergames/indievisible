@@ -12,15 +12,15 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Domain.Services
 {
-    public class TranslationDomainService : BaseDomainMongoService<TranslationProject, ITranslationRepository>, ITranslationDomainService
+    public class TranslationDomainService : BaseDomainMongoService<Localization, ILocalizationRepository>, ILocalizationDomainService
     {
-        public TranslationDomainService(ITranslationRepository repository) : base(repository)
+        public TranslationDomainService(ILocalizationRepository repository) : base(repository)
         {
         }
 
-        public TranslationProject GenerateNewProject(Guid userId)
+        public Localization GenerateNewProject(Guid userId)
         {
-            TranslationProject model = new TranslationProject
+            Localization model = new Localization
             {
                 UserId = userId
             };
@@ -35,16 +35,16 @@ namespace IndieVisible.Domain.Services
             return gameIds;
         }
 
-        public IEnumerable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language)
+        public IEnumerable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language)
         {
-            List<TranslationEntry> entries = repository.GetEntries(projectId, language).ToList();
+            List<LocalizationEntry> entries = repository.GetEntries(projectId, language).ToList();
 
             return entries;
         }
 
-        public bool AddEntry(Guid projectId, TranslationEntry entry)
+        public bool AddEntry(Guid projectId, LocalizationEntry entry)
         {
-            IQueryable<TranslationEntry> existing = repository.GetEntries(projectId, entry.Language, entry.TermId);
+            IQueryable<LocalizationEntry> existing = repository.GetEntries(projectId, entry.Language, entry.TermId);
             bool oneIsMine = existing.Any(x => x.UserId == entry.UserId);
 
             if (oneIsMine)
@@ -67,13 +67,13 @@ namespace IndieVisible.Domain.Services
 
             return false;
         }
-        public void SaveEntries(Guid projectId, IEnumerable<TranslationEntry> entries)
+        public void SaveEntries(Guid projectId, IEnumerable<LocalizationEntry> entries)
         {
-            List<TranslationEntry> existingEntrys = repository.GetEntries(projectId).ToList();
+            List<LocalizationEntry> existingEntrys = repository.GetEntries(projectId).ToList();
 
-            foreach (TranslationEntry entry in entries)
+            foreach (LocalizationEntry entry in entries)
             {
-                TranslationEntry existing = existingEntrys.FirstOrDefault(x => x.TermId == entry.TermId && x.UserId == entry.UserId && x.Language == entry.Language);
+                LocalizationEntry existing = existingEntrys.FirstOrDefault(x => x.TermId == entry.TermId && x.UserId == entry.UserId && x.Language == entry.Language);
                 if (existing == null)
                 {
                     entry.CreateDate = DateTime.Now;
@@ -89,20 +89,20 @@ namespace IndieVisible.Domain.Services
             }
         }
 
-        public IEnumerable<TranslationTerm> GetTerms(Guid projectId)
+        public IEnumerable<LocalizationTerm> GetTerms(Guid projectId)
         {
-            List<TranslationTerm> terms = repository.GetTerms(projectId).ToList();
+            List<LocalizationTerm> terms = repository.GetTerms(projectId).ToList();
 
             return terms;
         }
 
-        public void SetTerms(Guid projectId, IEnumerable<TranslationTerm> terms)
+        public void SetTerms(Guid projectId, IEnumerable<LocalizationTerm> terms)
         {
-            List<TranslationTerm> existingTerms = repository.GetTerms(projectId).ToList();
+            List<LocalizationTerm> existingTerms = repository.GetTerms(projectId).ToList();
 
-            foreach (TranslationTerm term in terms)
+            foreach (LocalizationTerm term in terms)
             {
-                TranslationTerm existing = existingTerms.FirstOrDefault(x => x.Id == term.Id);
+                LocalizationTerm existing = existingTerms.FirstOrDefault(x => x.Id == term.Id);
                 if (existing == null)
                 {
                     repository.AddTerm(projectId, term);
@@ -118,18 +118,18 @@ namespace IndieVisible.Domain.Services
                 }
             }
 
-            IEnumerable<TranslationTerm> deleteTerms = existingTerms.Where(x => !terms.Contains(x));
+            IEnumerable<LocalizationTerm> deleteTerms = existingTerms.Where(x => !terms.Contains(x));
 
 
             if (deleteTerms.Any())
             {
-                List<TranslationEntry> existingEntries = repository.GetEntries(projectId).ToList();
-                foreach (TranslationTerm term in deleteTerms)
+                List<LocalizationEntry> existingEntries = repository.GetEntries(projectId).ToList();
+                foreach (LocalizationTerm term in deleteTerms)
                 {
-                    IEnumerable<TranslationEntry> entries = existingEntries.Where(x => x.TermId == term.Id);
+                    IEnumerable<LocalizationEntry> entries = existingEntries.Where(x => x.TermId == term.Id);
                     repository.RemoveTerm(projectId, term.Id);
 
-                    foreach (TranslationEntry entry in entries)
+                    foreach (LocalizationEntry entry in entries)
                     {
                         repository.RemoveEntry(projectId, entry.Id);
                     }
@@ -137,9 +137,9 @@ namespace IndieVisible.Domain.Services
             }
         }
 
-        public TranslationProject GetBasicInfoById(Guid id)
+        public Localization GetBasicInfoById(Guid id)
         {
-            TranslationProject obj = repository.GetBasicInfoById(id);
+            Localization obj = repository.GetBasicInfoById(id);
 
             return obj;
         }
@@ -207,7 +207,7 @@ namespace IndieVisible.Domain.Services
             return contributorsIds;
         }
 
-        private static string GenerateLanguageXml(TranslationProject project, SupportedLanguage language, bool fillGaps)
+        private static string GenerateLanguageXml(Localization project, SupportedLanguage language, bool fillGaps)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<resources>");

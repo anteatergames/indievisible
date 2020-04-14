@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LocalizationViewModel>
+
+@{
+    Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "What? We have no translation projects here! Go ahead, create one!");
+
+    var description = ViewData["ListDescription"] == null ? SharedLocalizer["Translations"] : (string)ViewData["ListDescription"];
+}
+
+@if (!Model.Any())
+{
+    <partial name="_ListNoItems" model="noItemsModel" />
+}
+else
+{
+    <div class="col-12">
+        <p>@SharedLocalizer[description]</p>
+    </div>
+
+    <div class="row translation-list">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="translation-item box bg-light mb-4 hover">
+                    <partial name="_ListItem" model="item" />
+                </div>
+            </div>
+        }
+    </div>
+}

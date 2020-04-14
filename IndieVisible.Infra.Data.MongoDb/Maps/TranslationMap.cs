@@ -7,17 +7,17 @@ namespace IndieVisible.Infra.Data.MongoDb.Maps
     {
         public static void Configure()
         {
-            BsonClassMap.RegisterClassMap<TranslationProject>(map =>
+            BsonClassMap.RegisterClassMap<Localization>(map =>
             {
                 map.AutoMap();
             });
 
-            BsonClassMap.RegisterClassMap<TranslationTerm>(map =>
+            BsonClassMap.RegisterClassMap<LocalizationTerm>(map =>
             {
                 map.AutoMap();
             });
 
-            BsonClassMap.RegisterClassMap<TranslationEntry>(map =>
+            BsonClassMap.RegisterClassMap<LocalizationEntry>(map =>
             {
                 map.AutoMap();
             });

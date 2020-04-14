@@ -1737,7 +1737,7 @@
     <value>traduzindo</value>
     <comment>Translation</comment>
   </data>
-  <data name="Translation" xml:space="preserve">
+  <data name="Localization" xml:space="preserve">
     <value>Tradução</value>
     <comment>Translation</comment>
   </data>
@@ -1913,7 +1913,7 @@
     <value>geral</value>
     <comment>Translation</comment>
   </data>
-  <data name="Translation Progress" xml:space="preserve">
+  <data name="Localization Progress" xml:space="preserve">
     <value>Progresso da Tradução</value>
     <comment>Translation</comment>
   </data>
@@ -1977,7 +1977,7 @@
     <value>traduzidos</value>
     <comment>Translation</comment>
   </data>
-  <data name="Translation Filter" xml:space="preserve">
+  <data name="Localization Filter" xml:space="preserve">
     <value>Filtro de Tradução</value>
     <comment>Translation</comment>
   </data>

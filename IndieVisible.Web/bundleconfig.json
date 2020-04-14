@@ -190,47 +190,47 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/css/translation.min.css",
+    "outputFileName": "wwwroot/css/localization.min.css",
     "inputFiles": [
       "wwwroot/css/_feature.css",
-      "wwwroot/css/translation.css",
+      "wwwroot/css/localization.css",
       "wwwroot/css/circularpercentage.css"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/translation/translation.min.js",
+    "outputFileName": "wwwroot/js/localization/localization.min.js",
     "inputFiles": [
-      "wwwroot/js/translation/translation.js",
+      "wwwroot/js/localization/localization.js",
       "wwwroot/js/shared/contentactions.js"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/translation/translationedit.min.js",
+    "outputFileName": "wwwroot/js/localization/localizationedit.min.js",
     "inputFiles": [
-      "wwwroot/js/translation/translationedit.js",
+      "wwwroot/js/localization/localizationedit.js",
       "wwwroot/js/shared/contentactions.js"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/translation/translationtranslate.min.js",
+    "outputFileName": "wwwroot/js/localization/localizationtranslate.min.js",
     "inputFiles": [
-      "wwwroot/js/translation/translationcommon.js",
-      "wwwroot/js/translation/translationtranslate.js",
+      "wwwroot/js/localization/localizationcommon.js",
+      "wwwroot/js/localization/localizationtranslate.js",
       "wwwroot/js/shared/contentactions.js"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/translation/translationreview.min.js",
+    "outputFileName": "wwwroot/js/localization/localizationreview.min.js",
     "inputFiles": [
-      "wwwroot/js/translation/translationcommon.js",
-      "wwwroot/js/translation/translationreview.js",
+      "wwwroot/js/localization/localizationcommon.js",
+      "wwwroot/js/localization/localizationreview.js",
       "wwwroot/js/shared/contentactions.js"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/translation/translationexport.min.js",
+    "outputFileName": "wwwroot/js/localization/localizationexport.min.js",
     "inputFiles": [
-      "wwwroot/js/translation/translationexport.js",
+      "wwwroot/js/localization/localizationexport.js",
       "wwwroot/js/shared/contentactions.js"
     ]
   }

@@ -86,34 +86,34 @@
     <Content Update="Areas\Staff\Views\FeaturedContent\_List.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\Export.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\Export.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\Details.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\ReviewWrapper.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\ReviewWrapper.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_Review.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\_Review.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\TranslateWrapper.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\TranslateWrapper.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\CreateEditWrapper.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\CreateEditWrapper.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_Terms.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\_Terms.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_ReviewTranslations.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\_ReviewTranslations.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_TermsTranslation.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\_TermsTranslation.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Tools\Views\Translation\_Translate.cshtml">
+    <Content Update="Areas\Tools\Views\Localization\_Translate.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Tools\Views\_ViewImports.cshtml">

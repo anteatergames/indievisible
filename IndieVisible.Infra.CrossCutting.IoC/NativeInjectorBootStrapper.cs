@@ -124,9 +124,9 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #region Translations
 
-            services.AddScoped<ITranslationAppService, TranslationAppService>();
-            services.AddScoped<ITranslationDomainService, TranslationDomainService>();
-            services.AddScoped<ITranslationRepository, TranslationRepository>();
+            services.AddScoped<ILocalizationAppService, LocalizationAppService>();
+            services.AddScoped<ILocalizationDomainService, TranslationDomainService>();
+            services.AddScoped<ILocalizationRepository, TranslationRepository>();
 
             #endregion Translations
 

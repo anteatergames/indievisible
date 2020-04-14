@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace IndieVisible.Infra.Data.MongoDb.Repository
 {
-    public class TranslationRepository : BaseRepository<TranslationProject>, ITranslationRepository
+    public class TranslationRepository : BaseRepository<Localization>, ILocalizationRepository
     {
         public TranslationRepository(IMongoContext context) : base(context)
         {
         }
 
-        public TranslationProject GetBasicInfoById(Guid id)
+        public Localization GetBasicInfoById(Guid id)
         {
-            IFindFluent<TranslationProject, TranslationProject> obj = DbSet.Find(x => x.Id == id).Project(x => new TranslationProject
+            IFindFluent<Localization, Localization> obj = DbSet.Find(x => x.Id == id).Project(x => new Localization
             {
                 Id = x.Id,
                 UserId = x.UserId,
@@ -33,14 +33,14 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return obj.FirstOrDefault();
         }
 
-        public override void Add(TranslationProject obj)
+        public override void Add(Localization obj)
         {
             SetChildIds(obj);
 
             base.Add(obj);
         }
 
-        public override void Update(TranslationProject obj)
+        public override void Update(Localization obj)
         {
             SetChildIds(obj);
 
@@ -49,22 +49,22 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         #region Terms
 
-        public int CountTerms(Func<TranslationTerm, bool> where)
+        public int CountTerms(Func<LocalizationTerm, bool> where)
         {
             return DbSet.AsQueryable().SelectMany(x => x.Terms).Count();
         }
 
-        public IQueryable<TranslationTerm> GetTerms(Guid translationProjectId)
+        public IQueryable<LocalizationTerm> GetTerms(Guid translationProjectId)
         {
             return DbSet.AsQueryable().Where(x => x.Id == translationProjectId).SelectMany(x => x.Terms);
         }
 
-        public async Task<bool> AddTerm(Guid translationProjectId, TranslationTerm term)
+        public async Task<bool> AddTerm(Guid translationProjectId, LocalizationTerm term)
         {
             term.Id = Guid.NewGuid();
 
-            FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.Where(x => x.Id == translationProjectId);
-            UpdateDefinition<TranslationProject> add = Builders<TranslationProject>.Update.AddToSet(c => c.Terms, term);
+            FilterDefinition<Localization> filter = Builders<Localization>.Filter.Where(x => x.Id == translationProjectId);
+            UpdateDefinition<Localization> add = Builders<Localization>.Update.AddToSet(c => c.Terms, term);
 
             UpdateResult result = await DbSet.UpdateOneAsync(filter, add);
 
@@ -73,21 +73,21 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public async Task<bool> RemoveTerm(Guid translationProjectId, Guid termId)
         {
-            FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.Where(x => x.Id == translationProjectId);
-            UpdateDefinition<TranslationProject> remove = Builders<TranslationProject>.Update.PullFilter(c => c.Terms, m => m.Id == termId);
+            FilterDefinition<Localization> filter = Builders<Localization>.Filter.Where(x => x.Id == translationProjectId);
+            UpdateDefinition<Localization> remove = Builders<Localization>.Update.PullFilter(c => c.Terms, m => m.Id == termId);
 
             UpdateResult result = await DbSet.UpdateOneAsync(filter, remove);
 
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
-        public async Task<bool> UpdateTerm(Guid translationProjectId, TranslationTerm term)
+        public async Task<bool> UpdateTerm(Guid translationProjectId, LocalizationTerm term)
         {
-            FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.And(
-                Builders<TranslationProject>.Filter.Eq(x => x.Id, translationProjectId),
-                Builders<TranslationProject>.Filter.ElemMatch(x => x.Terms, x => x.Id == term.Id));
+            FilterDefinition<Localization> filter = Builders<Localization>.Filter.And(
+                Builders<Localization>.Filter.Eq(x => x.Id, translationProjectId),
+                Builders<Localization>.Filter.ElemMatch(x => x.Terms, x => x.Id == term.Id));
 
-            UpdateDefinition<TranslationProject> update = Builders<TranslationProject>.Update
+            UpdateDefinition<Localization> update = Builders<Localization>.Update
                 .Set(c => c.Terms[-1].Key, term.Key)
                 .Set(c => c.Terms[-1].Value, term.Value)
                 .Set(c => c.Terms[-1].Obs, term.Obs);
@@ -101,22 +101,22 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         #region Entries
 
-        public int CountEntries(Func<TranslationEntry, bool> where)
+        public int CountEntries(Func<LocalizationEntry, bool> where)
         {
             return DbSet.AsQueryable().SelectMany(x => x.Entries).Count();
         }
 
-        public IQueryable<TranslationEntry> GetEntries(Guid translationProjectId)
+        public IQueryable<LocalizationEntry> GetEntries(Guid translationProjectId)
         {
             return DbSet.AsQueryable().Where(x => x.Id == translationProjectId).SelectMany(x => x.Entries);
         }
 
-        public async Task<bool> AddEntry(Guid translationProjectId, TranslationEntry entry)
+        public async Task<bool> AddEntry(Guid translationProjectId, LocalizationEntry entry)
         {
             entry.Id = Guid.NewGuid();
 
-            FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.Where(x => x.Id == translationProjectId);
-            UpdateDefinition<TranslationProject> add = Builders<TranslationProject>.Update.AddToSet(c => c.Entries, entry);
+            FilterDefinition<Localization> filter = Builders<Localization>.Filter.Where(x => x.Id == translationProjectId);
+            UpdateDefinition<Localization> add = Builders<Localization>.Update.AddToSet(c => c.Entries, entry);
 
             UpdateResult result = await DbSet.UpdateOneAsync(filter, add);
 
@@ -125,21 +125,21 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public async Task<bool> RemoveEntry(Guid translationProjectId, Guid entryId)
         {
-            FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.Where(x => x.Id == translationProjectId);
-            UpdateDefinition<TranslationProject> remove = Builders<TranslationProject>.Update.PullFilter(c => c.Entries, m => m.Id == entryId);
+            FilterDefinition<Localization> filter = Builders<Localization>.Filter.Where(x => x.Id == translationProjectId);
+            UpdateDefinition<Localization> remove = Builders<Localization>.Update.PullFilter(c => c.Entries, m => m.Id == entryId);
 
             UpdateResult result = await DbSet.UpdateOneAsync(filter, remove);
 
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
 
-        public void UpdateEntry(Guid translationProjectId, TranslationEntry entry)
+        public void UpdateEntry(Guid translationProjectId, LocalizationEntry entry)
         {
-            FilterDefinition<TranslationProject> filter = Builders<TranslationProject>.Filter.And(
-                Builders<TranslationProject>.Filter.Eq(x => x.Id, translationProjectId),
-                Builders<TranslationProject>.Filter.ElemMatch(x => x.Entries, x => x.Id == entry.Id));
+            FilterDefinition<Localization> filter = Builders<Localization>.Filter.And(
+                Builders<Localization>.Filter.Eq(x => x.Id, translationProjectId),
+                Builders<Localization>.Filter.ElemMatch(x => x.Entries, x => x.Id == entry.Id));
 
-            UpdateDefinition<TranslationProject> update = Builders<TranslationProject>.Update
+            UpdateDefinition<Localization> update = Builders<Localization>.Update
                 .Set(c => c.Entries[-1].Value, entry.Value)
                 .Set(c => c.Entries[-1].Language, entry.Language)
                 .Set(c => c.Entries[-1].Accepted, entry.Accepted);
@@ -154,11 +154,11 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         #endregion Entries
 
-        private void SetChildIds(TranslationProject obj)
+        private void SetChildIds(Localization obj)
         {
             if (obj.Terms != null)
             {
-                foreach (TranslationTerm term in obj.Terms)
+                foreach (LocalizationTerm term in obj.Terms)
                 {
                     if (term.Id == Guid.Empty)
                     {
@@ -169,7 +169,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
             if (obj.Entries != null)
             {
-                foreach (TranslationEntry entry in obj.Entries)
+                foreach (LocalizationEntry entry in obj.Entries)
                 {
                     if (entry.Id == Guid.Empty)
                     {
@@ -179,21 +179,21 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             }
         }
 
-        public IQueryable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language)
+        public IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language)
         {
-            IQueryable<TranslationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language);
+            IQueryable<LocalizationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language);
 
             return translations;
         }
 
-        public IQueryable<TranslationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId)
+        public IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId)
         {
-            IQueryable<TranslationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language && x.TermId == termId);
+            IQueryable<LocalizationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language && x.TermId == termId);
 
             return translations;
         }
 
-        public TranslationEntry GetEntry(Guid projectId, Guid entryId)
+        public LocalizationEntry GetEntry(Guid projectId, Guid entryId)
         {
             var entry = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).FirstOrDefault(x => x.Id == entryId);
 
