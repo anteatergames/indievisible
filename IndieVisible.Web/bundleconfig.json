@@ -51,7 +51,8 @@
     "outputFileName": "wwwroot/css/gamedetails.min.css",
     "inputFiles": [
       "wwwroot/css/gamedetails.css",
-      "wwwroot/css/teamup.css"
+      "wwwroot/css/teamup.css",
+      "wwwroot/css/circularpercentage.css"
     ]
   },
   {
