@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Repository.Base;
 using MongoDB.Driver;
@@ -198,6 +199,18 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             var entry = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).FirstOrDefault(x => x.Id == entryId);
 
             return entry;
+        }
+
+        public LocalizationStatsVo GetStatsByGameId(Guid gameId)
+        {
+            var obj = DbSet.AsQueryable().Where(x => x.GameId == gameId).Select(x => new LocalizationStatsVo
+            {
+                LocalizationId = x.Id,
+                TermCount = x.Terms.Count,
+                Entries = x.Entries
+            });
+
+            return obj.FirstOrDefault();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,5 +39,7 @@ namespace IndieVisible.Domain.Interfaces.Repository
         IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId);
 
         LocalizationEntry GetEntry(Guid projectId, Guid entryId);
+
+        LocalizationStatsVo GetStatsByGameId(Guid gameId);
     }
 }

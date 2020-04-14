@@ -1,5 +1,6 @@
 ﻿using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -62,6 +63,8 @@ namespace IndieVisible.Application.ViewModels.Game
         public int FollowerCount { get; set; }
         public int CommentCount { get; set; }
         public int LikeCount { get; set; }
+        public double? LocalizationPercentage { get; set; }
+        public Guid LocalizationId { get; set; }
 
         #endregion Counters
 

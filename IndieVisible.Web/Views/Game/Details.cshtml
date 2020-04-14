@@ -14,6 +14,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/css/gamedetails.css" />
         <link rel="stylesheet" href="~/css/teamup.css">
+        <link rel="stylesheet" href="~/css/circularpercentage.css">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/gamedetails.min.css" asp-append-version="true" />
@@ -222,28 +223,44 @@
                             </div>
 
                             <div class="tab-pane" id="about">
-                                @if (!string.IsNullOrEmpty(Model.Description))
-                                {
-                                    <div class="row">
+                                <div class="row">
+                                    @if (!string.IsNullOrEmpty(Model.Description))
+                                    {
                                         <div class="col-12">
                                             <h6>
                                                 @SharedLocalizer["Description"]
                                             </h6>
-                                            <div class="p-2 box bg-white">
+                                            <div class="p-2 bg-white">
                                                 @Model.Description
                                             </div>
                                         </div>
-                                    </div>
-                                }
-
-                                <div class="row">
-                                    <div class="col-12">
+                                    }
+                                    <div class="col-12 mt-3">
                                         <h6>
                                             @SharedLocalizer["Team"]
                                         </h6>
                                         <partial name="~/Views/Team/_TeamListItem.cshtml" model="Model.Team" />
                                     </div>
+
+                                    @if (Model.LocalizationPercentage.HasValue)
+                                    {
+                                        <div class="col-12 mt-3">
+                                            <h6 class="text-capitalize">
+                                                @SharedLocalizer["Localization"]
+                                            </h6>
+
+                                            <div class="bg-white p-2">
+                                                <p>@SharedLocalizer["This game is using the localization tool. Belo you can see the translation progress."]</p>
+                                                <a asp-area="tools" asp-controller="localization" asp-action="details" asp-route-id="@Model.LocalizationId" title="@SharedLocalizer["Help this one!"]">
+                                                    <div class="translation-progress-chart text-center">
+                                                        <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.LocalizationPercentage.Value)" />
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
+
 
                                 <div class="col-12 d-block d-lg-none bg-white">
                                     <partial name="_GameInfoPanel" model="Model" />

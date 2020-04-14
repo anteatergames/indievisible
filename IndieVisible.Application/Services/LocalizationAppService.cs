@@ -78,7 +78,7 @@ namespace IndieVisible.Application.Services
                     int distinctEntriesCount = item.Entries.Select(x => new { x.TermId, x.Language }).Distinct().Count();
                     int languageCount = item.Entries.Select(x => x.Language).Distinct().Count();
 
-                    item.TranslationPercentage = CalculatePercentage(totalTermCount, distinctEntriesCount, languageCount);
+                    item.TranslationPercentage = translationDomainService.CalculatePercentage(totalTermCount, distinctEntriesCount, languageCount);
                 }
 
                 vms = vms.OrderByDescending(x => x.CreateDate).ToList();
@@ -413,7 +413,7 @@ namespace IndieVisible.Application.Services
                     {
                         Language = language.Key,
                         EntryCount = language.Select(x => x.TermId).Distinct().Count(),
-                        Percentage = CalculatePercentage(vm.TermCount, language.Count(), 1)
+                        Percentage = translationDomainService.CalculatePercentage(vm.TermCount, language.Count(), 1)
                     };
 
                     vm.Languages.Add(languageEntry);
@@ -428,6 +428,25 @@ namespace IndieVisible.Application.Services
                 SetPermissions(currentUserId, vm);
 
                 return new OperationResultVo<TranslationStatsViewModel>(vm);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetPercentageByGameId(Guid currentUserId, Guid gameId)
+        {
+            try
+            {
+                LocalizationStatsVo model = translationDomainService.GetPercentageByGameId(gameId);
+
+                if (model == null)
+                {
+                    return new OperationResultVo("Localization Project not found!");
+                }
+
+                return new OperationResultVo<LocalizationStatsVo>(model);
             }
             catch (Exception ex)
             {
@@ -657,7 +676,7 @@ namespace IndieVisible.Application.Services
             int distinctEntriesCount = model.Entries.Select(x => new { x.TermId, x.Language }).Distinct().Count();
             int languageCount = model.Entries.Select(x => x.Language).Distinct().Count();
 
-            vm.TranslationPercentage = CalculatePercentage(totalTermCount, distinctEntriesCount, languageCount);
+            vm.TranslationPercentage = translationDomainService.CalculatePercentage(totalTermCount, distinctEntriesCount, languageCount);
         }
 
         private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
@@ -691,15 +710,6 @@ namespace IndieVisible.Application.Services
             vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
             vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
             vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
-        }
-
-        private double CalculatePercentage(int totalTerms, int translatedCount, int languageCount)
-        {
-            int totalTranslationsTarget = languageCount * totalTerms;
-
-            double percentage = (100 * translatedCount) / (double)(totalTranslationsTarget == 0 ? 1 : totalTranslationsTarget);
-
-            return percentage > 100 ? 100 : percentage;
         }
 
         private async Task<DataTable> LoadExcel(IFormFile termsFile)

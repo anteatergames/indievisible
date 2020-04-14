@@ -96,6 +96,28 @@ namespace IndieVisible.Domain.Services
             return terms;
         }
 
+
+        public LocalizationStatsVo GetPercentageByGameId(Guid gameId)
+        {
+            LocalizationStatsVo model = repository.GetStatsByGameId(gameId);
+
+            if (model == null)
+            {
+                return null;
+            }
+
+            IEnumerable<IGrouping<SupportedLanguage, LocalizationEntry>> languages = model.Entries.GroupBy(x => x.Language);
+
+            int distinctEntriesCount = model.Entries.Select(x => new { x.TermId, x.Language }).Distinct().Count();
+            int languageCount = model.Entries.Select(x => x.Language).Distinct().Count();
+
+            var percentage = CalculatePercentage(model.TermCount, distinctEntriesCount, languageCount);
+            model.LocalizationPercentage = percentage;
+
+
+            return model;
+        }
+
         public void SetTerms(Guid projectId, IEnumerable<LocalizationTerm> terms)
         {
             List<LocalizationTerm> existingTerms = repository.GetTerms(projectId).ToList();
@@ -205,6 +227,15 @@ namespace IndieVisible.Domain.Services
             var contributorsIds = repository.GetEntries(projectId).Select(x => x.UserId).Distinct().ToList();
 
             return contributorsIds;
+        }
+
+        public double CalculatePercentage(int totalTerms, int translatedCount, int languageCount)
+        {
+            int totalTranslationsTarget = languageCount * totalTerms;
+
+            double percentage = (100 * translatedCount) / (double)(totalTranslationsTarget == 0 ? 1 : totalTranslationsTarget);
+
+            return percentage > 100 ? 100 : percentage;
         }
 
         private static string GenerateLanguageXml(Localization project, SupportedLanguage language, bool fillGaps)

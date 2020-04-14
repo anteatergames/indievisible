@@ -15,11 +15,15 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         Localization GetBasicInfoById(Guid id);
 
+        double CalculatePercentage(int totalTerms, int translatedCount, int languageCount);
+
         IEnumerable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language);
 
         bool AddEntry(Guid projectId, LocalizationEntry entry);
 
         IEnumerable<LocalizationTerm> GetTerms(Guid projectId);
+
+        LocalizationStatsVo GetPercentageByGameId(Guid gameId);
 
         void SetTerms(Guid projectId, IEnumerable<LocalizationTerm> terms);
 

@@ -25,14 +25,17 @@ namespace IndieVisible.Web.Controllers
         private readonly IGameAppService gameAppService;
         private readonly INotificationAppService notificationAppService;
         private readonly ITeamAppService teamAppService;
+        private readonly ILocalizationAppService translationAppService;
 
         public GameController(IGameAppService gameAppService
             , INotificationAppService notificationAppService
-            , ITeamAppService teamAppService) : base()
+            , ITeamAppService teamAppService
+            , ILocalizationAppService translationAppService) : base()
         {
             this.gameAppService = gameAppService;
             this.notificationAppService = notificationAppService;
             this.teamAppService = teamAppService;
+            this.translationAppService = translationAppService;
         }
 
         [Route("game/{id:guid}")]
@@ -45,6 +48,8 @@ namespace IndieVisible.Web.Controllers
             GameViewModel vm = serviceResult.Value;
 
             SetGameTeam(vm);
+
+            SetTranslationPercentage(vm);
 
             SetImages(vm);
 
@@ -287,6 +292,19 @@ namespace IndieVisible.Web.Controllers
                     vm.Team = teamResult.Value;
                     vm.Team.Permissions.CanEdit = vm.Team.Permissions.CanDelete = false;
                 }
+            }
+        }
+
+        private void SetTranslationPercentage(GameViewModel vm)
+        {
+            var percentage = translationAppService.GetPercentageByGameId(CurrentUserId, vm.Id);
+
+            if (percentage.Success)
+            {
+                var castResult = percentage as OperationResultVo<LocalizationStatsVo>;
+
+                vm.LocalizationPercentage = castResult.Value.LocalizationPercentage;
+                vm.LocalizationId = castResult.Value.LocalizationId;
             }
         }
     }
