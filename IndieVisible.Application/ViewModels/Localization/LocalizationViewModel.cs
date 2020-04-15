@@ -38,7 +38,7 @@ namespace IndieVisible.Application.ViewModels.Localization
         {
             get
             {
-                var text = TranslationPercentage.ToString("N1");
+                string text = TranslationPercentage.ToString("N1");
 
                 if (TranslationPercentage == 0 || TranslationPercentage == 100 || text.Substring(text.Length - 1).Equals("0"))
                 {

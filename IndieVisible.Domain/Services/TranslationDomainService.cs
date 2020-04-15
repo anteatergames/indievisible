@@ -57,7 +57,7 @@ namespace IndieVisible.Domain.Services
             {
                 entry.Value = entry.Value.Trim();
 
-                var existsWithSameValue = existing.Any(x => x.Value.Equals(entry.Value));
+                bool existsWithSameValue = existing.Any(x => x.Value.Equals(entry.Value));
                 if (!existing.Any() || !existsWithSameValue)
                 {
                     repository.AddEntry(projectId, entry);
@@ -111,7 +111,7 @@ namespace IndieVisible.Domain.Services
             int distinctEntriesCount = model.Entries.Select(x => new { x.TermId, x.Language }).Distinct().Count();
             int languageCount = model.Entries.Select(x => x.Language).Distinct().Count();
 
-            var percentage = CalculatePercentage(model.TermCount, distinctEntriesCount, languageCount);
+            double percentage = CalculatePercentage(model.TermCount, distinctEntriesCount, languageCount);
             model.LocalizationPercentage = percentage;
 
 
@@ -168,7 +168,7 @@ namespace IndieVisible.Domain.Services
 
         public void AcceptEntry(Guid projectId, Guid entryId)
         {
-            var entry = repository.GetEntry(projectId, entryId);
+            LocalizationEntry entry = repository.GetEntry(projectId, entryId);
             if (entry != null)
             {
                 entry.Accepted = true;
@@ -178,7 +178,7 @@ namespace IndieVisible.Domain.Services
 
         public void RejectEntry(Guid projectId, Guid entryId)
         {
-            var entry = repository.GetEntry(projectId, entryId);
+            LocalizationEntry entry = repository.GetEntry(projectId, entryId);
             if (entry != null)
             {
                 entry.Accepted = false;
@@ -190,14 +190,14 @@ namespace IndieVisible.Domain.Services
         {
             List<InMemoryFileVo> xmlTexts = new List<InMemoryFileVo>();
 
-            var project = await repository.GetById(projectId);
+            Localization project = await repository.GetById(projectId);
 
-            var languages = project.Entries.Select(x => x.Language).Distinct().ToList();
+            List<SupportedLanguage> languages = project.Entries.Select(x => x.Language).Distinct().ToList();
             languages.Add(project.PrimaryLanguage);
 
-            foreach (var language in languages)
+            foreach (SupportedLanguage language in languages)
             {
-                var xmlText = GenerateLanguageXml(project, language, fillGaps);
+                string xmlText = GenerateLanguageXml(project, language, fillGaps);
 
                 xmlTexts.Add(new InMemoryFileVo
                 {
@@ -211,9 +211,9 @@ namespace IndieVisible.Domain.Services
 
         public async Task<InMemoryFileVo> GetXmlById(Guid projectId, SupportedLanguage language, bool fillGaps)
         {
-            var project = await repository.GetById(projectId);
+            Localization project = await repository.GetById(projectId);
 
-            var xmlText = GenerateLanguageXml(project, language, fillGaps);
+            string xmlText = GenerateLanguageXml(project, language, fillGaps);
 
             return new InMemoryFileVo
             {
@@ -224,7 +224,7 @@ namespace IndieVisible.Domain.Services
 
         public async Task<List<Guid>> GetContributors(Guid projectId, ExportContributorsType type)
         {
-            var contributorsIds = repository.GetEntries(projectId).Select(x => x.UserId).Distinct().ToList();
+            List<Guid> contributorsIds = repository.GetEntries(projectId).Select(x => x.UserId).Distinct().ToList();
 
             return contributorsIds;
         }
@@ -251,12 +251,12 @@ namespace IndieVisible.Domain.Services
             for (int i = 0; i < project.Terms.Count; i++)
             {
                 string langValue = null;
-                var term = project.Terms.ElementAt(i);
-                var entries = project.Entries.Where(x => x.TermId == term.Id && x.Language == language).OrderBy(x => x.Accepted);
+                LocalizationTerm term = project.Terms.ElementAt(i);
+                IOrderedEnumerable<LocalizationEntry> entries = project.Entries.Where(x => x.TermId == term.Id && x.Language == language).OrderBy(x => x.Accepted);
 
                 if (entries.Any())
                 {
-                    var lastAccepted = entries.LastOrDefault(x => !x.Accepted.HasValue || x.Accepted == true);
+                    LocalizationEntry lastAccepted = entries.LastOrDefault(x => !x.Accepted.HasValue || x.Accepted == true);
                     if (lastAccepted != null)
                     {
                         langValue = lastAccepted.Value;

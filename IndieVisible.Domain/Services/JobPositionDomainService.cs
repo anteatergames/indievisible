@@ -69,10 +69,11 @@ namespace IndieVisible.Domain.Services
 
         public JobPosition GenerateNewJobPosition(Guid currentUserId, JobPositionOrigin origin)
         {
-            JobPosition model = new JobPosition();
-
-            model.Remote = true;
-            model.Origin = origin;
+            JobPosition model = new JobPosition
+            {
+                Remote = true,
+                Origin = origin
+            };
 
             if (model.Origin == JobPositionOrigin.External)
             {

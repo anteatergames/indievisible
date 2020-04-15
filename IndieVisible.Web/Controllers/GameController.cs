@@ -297,11 +297,11 @@ namespace IndieVisible.Web.Controllers
 
         private void SetTranslationPercentage(GameViewModel vm)
         {
-            var percentage = translationAppService.GetPercentageByGameId(CurrentUserId, vm.Id);
+            OperationResultVo percentage = translationAppService.GetPercentageByGameId(CurrentUserId, vm.Id);
 
             if (percentage.Success)
             {
-                var castResult = percentage as OperationResultVo<LocalizationStatsVo>;
+                OperationResultVo<LocalizationStatsVo> castResult = percentage as OperationResultVo<LocalizationStatsVo>;
 
                 vm.LocalizationPercentage = castResult.Value.LocalizationPercentage;
                 vm.LocalizationId = castResult.Value.LocalizationId;

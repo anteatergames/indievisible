@@ -26,9 +26,9 @@ namespace IndieVisible.Application.ViewModels.Localization
         {
             get
             {
-                var text = Percentage.ToString("N1");
+                string text = Percentage.ToString("N1");
 
-                if (Percentage == 0 || Percentage == 100 || text.Substring(text.Length-1).Equals("0"))
+                if (Percentage == 0 || Percentage == 100 || text.Substring(text.Length - 1).Equals("0"))
                 {
                     return Percentage.ToString("N0");
                 }

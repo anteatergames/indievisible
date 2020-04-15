@@ -249,14 +249,14 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 sb.AppendLine("UserId;User Name;Profile URL");
 
 
-                foreach (var item in model)
+                foreach (KeyValuePair<Guid, string> item in model)
                 {
-                    var url = Url.Action("details", "profile", new { area = string.Empty, id = item.Key }, "https", Request.Host.Value);
-                    var newLine = String.Format("{0};{1};{2}", item.Key, item.Value, url);
+                    string url = Url.Action("details", "profile", new { area = string.Empty, id = item.Key }, "https", Request.Host.Value);
+                    string newLine = String.Format("{0};{1};{2}", item.Key, item.Value, url);
                     sb.AppendLine(newLine);
                 }
 
-                var file = new InMemoryFileVo
+                InMemoryFileVo file = new InMemoryFileVo
                 {
                     FileName = String.Format("contributors_{0}.csv", type.ToString().ToLower()),
                     Contents = Encoding.UTF8.GetBytes(sb.ToString())

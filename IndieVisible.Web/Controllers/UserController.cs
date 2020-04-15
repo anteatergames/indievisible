@@ -1,5 +1,4 @@
-﻿using IndieVisible.Application;
-using IndieVisible.Application.Interfaces;
+﻿using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.ValueObjects;

@@ -1,7 +1,4 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels

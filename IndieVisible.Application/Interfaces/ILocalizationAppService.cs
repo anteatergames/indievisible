@@ -14,7 +14,7 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GetByUserId(Guid currentUserId, Guid userId);
 
-        OperationResultVo GetBasicInfoById(Guid currentUserId, Guid id);        
+        OperationResultVo GetBasicInfoById(Guid currentUserId, Guid id);
 
         OperationResultVo GetMyUntranslatedGames(Guid currentUserId);
 
@@ -23,7 +23,7 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GetTerms(Guid currentUserId, Guid projectId);
 
         OperationResultVo SaveEntry(Guid currentUserId, Guid projectId, LocalizationEntryViewModel vm);
-        
+
         Task<OperationResultVo> ReadTermsSheet(Guid currentUserId, Guid projectId, IEnumerable<KeyValuePair<int, SupportedLanguage>> columns, IFormFile termsFile);
 
         OperationResultVo SetTerms(Guid currentUserId, Guid projectId, IEnumerable<LocalizationTermViewModel> terms);

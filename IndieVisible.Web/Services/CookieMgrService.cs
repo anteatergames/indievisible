@@ -21,8 +21,10 @@ namespace IndieVisible.Web.Services
 
         public void Set(string key, string value, int? expireTime, bool isEssential)
         {
-            CookieOptions option = new CookieOptions();
-            option.HttpOnly = true;
+            CookieOptions option = new CookieOptions
+            {
+                HttpOnly = true
+            };
 
             if (expireTime.HasValue)
                 option.Expires = DateTime.Now.AddDays(expireTime.Value);

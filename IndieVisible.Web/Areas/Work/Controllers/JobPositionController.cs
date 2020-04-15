@@ -75,8 +75,10 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
                 if (userPreferences == null)
                 {
-                    userPreferences = new UserPreferencesViewModel();
-                    userPreferences.UserId = CurrentUserId;
+                    userPreferences = new UserPreferencesViewModel
+                    {
+                        UserId = CurrentUserId
+                    };
                 }
                 userPreferences.JobProfile = type;
 

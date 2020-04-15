@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace IndieVisible.Web.Models
+﻿namespace IndieVisible.Web.Models
 {
     public class ShareModel
     {
@@ -13,12 +8,12 @@ namespace IndieVisible.Web.Models
 
         public ShareModel(string url)
         {
-            this.Url = url;
+            Url = url;
         }
 
         public ShareModel(string url, string text) : this(url)
         {
-            this.Text = text;
+            Text = text;
         }
 
     }

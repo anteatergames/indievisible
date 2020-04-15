@@ -196,14 +196,14 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public LocalizationEntry GetEntry(Guid projectId, Guid entryId)
         {
-            var entry = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).FirstOrDefault(x => x.Id == entryId);
+            LocalizationEntry entry = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).FirstOrDefault(x => x.Id == entryId);
 
             return entry;
         }
 
         public LocalizationStatsVo GetStatsByGameId(Guid gameId)
         {
-            var obj = DbSet.AsQueryable().Where(x => x.GameId == gameId).Select(x => new LocalizationStatsVo
+            IQueryable<LocalizationStatsVo> obj = DbSet.AsQueryable().Where(x => x.GameId == gameId).Select(x => new LocalizationStatsVo
             {
                 LocalizationId = x.Id,
                 TermCount = x.Terms.Count,

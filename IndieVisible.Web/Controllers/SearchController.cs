@@ -3,7 +3,6 @@ using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace IndieVisible.Web.Controllers
 {

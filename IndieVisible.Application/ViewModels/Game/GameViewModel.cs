@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

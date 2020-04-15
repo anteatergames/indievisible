@@ -7,7 +7,7 @@ namespace IndieVisible.Domain.Interfaces.Service
     public interface IProfileBaseAppService
     {
         void SetProfileCache(Guid userId, UserProfile value);
-        
+
         OperationResultVo GetCountries(Guid currentUserId);
     }
 }

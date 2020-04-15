@@ -1,8 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Enums;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Models
 {
@@ -17,13 +14,13 @@ namespace IndieVisible.Web.Models
 
         public static IEnumerable<KeyValuePair<int, SupportedLanguage>> ToKeyValuePairs(this IEnumerable<ExcelColumnViewModel> list)
         {
-            var kvList = new List<KeyValuePair<int, SupportedLanguage>>();
+            List<KeyValuePair<int, SupportedLanguage>> kvList = new List<KeyValuePair<int, SupportedLanguage>>();
 
-            foreach (var item in list)
+            foreach (ExcelColumnViewModel item in list)
             {
                 if (item.Language != 0)
                 {
-                    kvList.Add(new KeyValuePair<int, SupportedLanguage>(item.Column, item.Language)); 
+                    kvList.Add(new KeyValuePair<int, SupportedLanguage>(item.Column, item.Language));
                 }
             }
 
