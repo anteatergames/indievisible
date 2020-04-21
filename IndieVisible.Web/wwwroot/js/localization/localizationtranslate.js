@@ -1,6 +1,8 @@
 ﻿var LOCALIZATIONTRANSLATE = (function () {
     "use strict";
 
+    var entrySaving = false;
+
     var selectors = {};
     var objs = {};
     var canInteract = false;
@@ -31,6 +33,8 @@
         selectors.btnSaveTerms = '#btnSaveTerms';
         selectors.ddlColumn = '.ddlcolumn';
         selectors.id = '#Id';
+        selectors.currentUserHelped = '#CurrentUserHelped';
+        selectors.currentUserIsOwner = '#CurrentUserIsOwner';
         selectors.termItem = '.translation-term';
         selectors.changedCounter = '#changedtranslationscounter';
         selectors.btnSaveTranslationChanges = '#btnSaveTranslationChanges';
@@ -38,6 +42,8 @@
     }
 
     function cacheObjsTranslate() {
+        objs.currentUserHelped = $(selectors.currentUserHelped);
+        objs.currentUserIsOwner = $(selectors.currentUserIsOwner);
         objs.controlsidebar = $(selectors.controlsidebar);
         objs.container = $(selectors.container);
         objs.urls = $(selectors.urls);
@@ -113,16 +119,22 @@
     }
 
     function bindEntrySave() {
-        objs.container.on('click', selectors.entrySave, function () {
+        objs.container.on('click', selectors.entrySave, function (e) {
+            e.preventDefault();
             var btn = $(this);
-
             var input = btn.closest(selectors.entry).find(selectors.entryInput);
             var termId = input.data('termid');
             var url = objs.urls.data('urlEntrySave');
             var language = objs.ddlLanguage.val();
+            var currentUserHelped = objs.currentUserHelped.val();
+            var currentUserIsOwner = objs.currentUserIsOwner.val();
 
-            if (language && input.val().length > 0) {
+            if (entrySaving !== true && language && input.val().length > 0) {
+                entrySaving = true;
+
                 var data = {
+                    currentUserHelped: currentUserHelped,
+                    currentUserIsOwner: currentUserIsOwner,
                     termId: termId,
                     language: language,
                     value: input.val()
@@ -130,6 +142,8 @@
 
                 $.post(url, data).done(function (response) {
                     if (response.success === true) {
+                        objs.currentUserHelped.val('True');
+
                         deleteEntryAuthorButton(response.value.termId, response.value.userId);
 
                         loadSingleTranslation(response.value);
@@ -143,10 +157,14 @@
                     }
 
                     if (response.message) {
-                        ALERTSYSTEM.Toastr.ShowWarning(response.message);
+                        var scoreEarned = MAINMODULE.Common.HandlePointsEarned(response);
+                        if (!scoreEarned) {
+                            ALERTSYSTEM.Toastr.ShowWarning(response.message);
+                        }
                     }
-                });
 
+                    entrySaving = false;
+                });
             }
         });
     }
@@ -249,7 +267,7 @@
         btn.attr('data-value', translation.value);
 
         newAuthorObj.removeClass('template');
-            
+
         newAuthorObj.appendTo(container);
     }
 

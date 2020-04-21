@@ -42,7 +42,7 @@ namespace IndieVisible.Domain.Services
             return entries;
         }
 
-        public bool AddEntry(Guid projectId, LocalizationEntry entry)
+        public DomainActionPerformed AddEntry(Guid projectId, LocalizationEntry entry)
         {
             IQueryable<LocalizationEntry> existing = repository.GetEntries(projectId, entry.Language, entry.TermId);
             bool oneIsMine = existing.Any(x => x.UserId == entry.UserId);
@@ -51,7 +51,8 @@ namespace IndieVisible.Domain.Services
             {
                 entry.Id = existing.First(x => x.UserId == entry.UserId).Id;
                 repository.UpdateEntry(projectId, entry);
-                return true;
+
+                return DomainActionPerformed.Update;
             }
             else
             {
@@ -61,11 +62,12 @@ namespace IndieVisible.Domain.Services
                 if (!existing.Any() || !existsWithSameValue)
                 {
                     repository.AddEntry(projectId, entry);
-                    return true;
+
+                    return DomainActionPerformed.Create;
                 }
             }
 
-            return false;
+            return DomainActionPerformed.None;
         }
         public void SaveEntries(Guid projectId, IEnumerable<LocalizationEntry> entries)
         {

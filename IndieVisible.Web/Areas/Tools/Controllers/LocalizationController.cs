@@ -418,13 +418,13 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
         [Authorize]
         [HttpPost("tools/localization/savetranslation/{projectId:guid}")]
-        public IActionResult SaveTranslation(Guid projectId, LocalizationEntryViewModel vm)
+        public IActionResult SaveTranslation(Guid projectId, bool currentUserIsOwner, bool currentUserHelped, LocalizationEntryViewModel vm)
         {
             try
             {
                 vm.UserId = CurrentUserId;
 
-                OperationResultVo result = translationAppService.SaveEntry(CurrentUserId, projectId, vm);
+                OperationResultVo result = translationAppService.SaveEntry(CurrentUserId, projectId, currentUserIsOwner, currentUserHelped, vm);
 
                 if (result.Success)
                 {

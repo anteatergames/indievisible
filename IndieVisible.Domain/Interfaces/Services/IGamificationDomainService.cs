@@ -33,6 +33,8 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         IEnumerable<UserBadge> GetBadgesByUserId(Guid userId);
 
+        bool SetBadgeOccurence(Guid userId, BadgeType type, Guid referenceId);
+
         #endregion UserBadges
 
         int ProcessAction(Guid userId, PlatformAction action);

@@ -59,18 +59,23 @@
     align-items: center;
     align-content: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
 }
 
-.badge-icon {
-    width: 64px;
-    height: 64px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+    .badge-wrapper .badge-icon {
+        width: 64px;
+        height: 64px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .badge-wrapper .counter {
+        position: absolute;
+        bottom: 0px;
+    }
 
 .user-profile-header .user-social-acount {
     border-radius: 0;

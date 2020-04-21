@@ -50,5 +50,7 @@ namespace IndieVisible.Application.ViewModels.Localization
                 }
             }
         }
+
+        public bool CurrentUserHelped { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         IEnumerable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language);
 
-        bool AddEntry(Guid projectId, LocalizationEntry entry);
+        DomainActionPerformed AddEntry(Guid projectId, LocalizationEntry entry);
 
         IEnumerable<LocalizationTerm> GetTerms(Guid projectId);
 

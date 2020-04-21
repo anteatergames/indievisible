@@ -9,6 +9,9 @@
         @SharedLocalizer["translation project details"]
     </h1>
     <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="CurrentUserHelped" />
+    <input type="hidden" asp-for="CurrentUserIsOwner" />
+
     <div id="translationcontainer" class="mx-0">
         <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
         <div data-id="@Model.Id">
@@ -87,6 +90,6 @@
 
 <div class="float-left mt-1 mr-1 entry-author template">
     <a asp-area="" asp-controller="profile" asp-action="details" class="entry-author-btn">
-        <img class="rounded-circle lazyload avatar" data-src="@ConstantHelper.DefaultAvatar"  src="@ConstantHelper.DefaultAvatar" alt="@SharedLocalizer["translator"]">
+        <img class="rounded-circle lazyload avatar" data-src="@ConstantHelper.DefaultAvatar" src="@ConstantHelper.DefaultAvatar" alt="@SharedLocalizer["translator"]">
     </a>
 </div>

@@ -115,13 +115,48 @@ namespace IndieVisible.Domain.Services
             return task.Result;
         }
 
+        public bool SetBadgeOccurence(Guid userId, BadgeType type, Guid referenceId)
+        {
+            IQueryable<UserBadge> items = userBadgeRepository.Get(x => x.UserId == userId && x.Badge == type);
+
+            var model = items.FirstOrDefault();
+            if (model == null)
+            {
+                model = new UserBadge
+                {
+                    UserId = userId,
+                    Badge = type
+                };
+            }
+
+            if (model.References.Any(x => x == referenceId))
+            {
+                return false;
+            }
+            else
+            {
+                model.References.Add(referenceId);
+
+                if (model.Id == Guid.Empty)
+                {
+                    userBadgeRepository.Add(model);
+                }
+                else
+                {
+                    userBadgeRepository.Update(model);
+                }
+
+                return true;
+            }
+        }
+
         #endregion Badges
 
         public int ProcessAction(Guid userId, PlatformAction action)
         {
             int scoreValue = 5;
-            GamificationAction actionToProcess = Task.Run(async () => await gamificationActionRepository.GetByAction(action)).Result;
 
+            GamificationAction actionToProcess = Task.Run(async () => await gamificationActionRepository.GetByAction(action)).Result;
             if (actionToProcess != null)
             {
                 scoreValue = actionToProcess.ScoreValue;

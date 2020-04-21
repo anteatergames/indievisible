@@ -26,6 +26,9 @@ namespace IndieVisible.Domain.Core.Enums
         Admin = 7,
 
         [UiInfo(Order = 7, Display = "Curator", Description = "Is a Curator for content")]
-        Curator = 8
+        Curator = 8,
+
+        [UiInfo(Order = 8, Display = "Babel", Description = "Helped to translate a game")]
+        Babel = 9
     }
 }

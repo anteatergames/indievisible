@@ -22,7 +22,7 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GetTerms(Guid currentUserId, Guid projectId);
 
-        OperationResultVo SaveEntry(Guid currentUserId, Guid projectId, LocalizationEntryViewModel vm);
+        OperationResultVo SaveEntry(Guid currentUserId, Guid projectId, bool currentUserIsOwner, bool currentUserHelped, LocalizationEntryViewModel vm);
 
         Task<OperationResultVo> ReadTermsSheet(Guid currentUserId, Guid projectId, IEnumerable<KeyValuePair<int, SupportedLanguage>> columns, IFormFile termsFile);
 

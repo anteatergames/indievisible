@@ -111,13 +111,20 @@
     }
 
     function handlePointsEarned(response) {
-        console.log(response.pointsEarned);
         if (response.pointsEarned > 0) {
             var msg = translatedMessages['mgsPointsEarned'];
             msg = msg.replace('0', response.pointsEarned);
 
+            if (response.message) {
+                msg = response.message + ' ' + msg;
+            }
+
             ALERTSYSTEM.Toastr.PointsEarned(msg);
+
+            return true;
         }
+
+        return false;
     }
 
     function setStickyElement(selector, offset, getWidthFrom) {

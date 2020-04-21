@@ -16,6 +16,7 @@
         TeamJoin = 12,
         TeamApply = 13,
         JobPositionPost = 14,
-        TranslationRequest = 15
+        LocalizationRequest = 15,
+        LocalizationHelp = 16
     }
 }

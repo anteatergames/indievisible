@@ -12,7 +12,11 @@ else
     foreach (var badge in Model)
     {
         <div class="badge-wrapper">
-            <img class="badge-icon" src="~/images/badges/@(badge.Badge.ToString()).png" alt="@(badge.Badge.ToString()) Badge" data-toggle="tooltip" title="@badge.Badge" data-placement="bottom" />
+            <img class="badge-icon" src="~/images/badges/@(badge.Badge.ToString()).png" alt="@(badge.Badge.ToString()) Badge" data-toggle="tooltip" title="@badge.Description" data-placement="bottom" />
+            @if (badge.References.Count > 1)
+            {
+                <span class="counter badge badge-danger">x @badge.References.Count</span>
+            }
         </div>
     }
 }

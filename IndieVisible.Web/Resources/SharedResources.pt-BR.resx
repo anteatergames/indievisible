@@ -2057,4 +2057,16 @@
     <value>quem</value>
     <comment>Help</comment>
   </data>
+  <data name="Helped to test the platform before the launch day" xml:space="preserve">
+    <value>Ajudou a testar a plataforma antes do lançamento</value>
+    <comment>Badges</comment>
+  </data>
+  <data name="Helped to translate a game" xml:space="preserve">
+    <value>Ajudou a traduzir um jogo</value>
+    <comment>Badges</comment>
+  </data>
+  <data name="Is a System Admin" xml:space="preserve">
+    <value>É um Administrador</value>
+    <comment>Badges</comment>
+  </data>
 </root>

@@ -136,6 +136,9 @@ namespace IndieVisible.Application.Services
 
                 SetPermissions(currentUserId, vm);
 
+                vm.CurrentUserHelped = model.Entries.Any(x => x.UserId == currentUserId);
+                vm.CurrentUserIsOwner = model.UserId == currentUserId;
+
                 return new OperationResultVo<LocalizationViewModel>(vm);
             }
             catch (Exception ex)
@@ -218,7 +221,7 @@ namespace IndieVisible.Application.Services
                     translationDomainService.Add(model);
                     viewModel.Id = model.Id;
 
-                    pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.TranslationRequest);
+                    pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.LocalizationRequest);
                 }
                 else
                 {
@@ -282,26 +285,44 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo SaveEntry(Guid currentUserId, Guid projectId, LocalizationEntryViewModel vm)
+        public OperationResultVo SaveEntry(Guid currentUserId, Guid projectId, bool currentUserIsOwner, bool currentUserHelped, LocalizationEntryViewModel vm)
         {
+            int pointsEarned = 0;
+
             try
             {
                 LocalizationEntry entry = mapper.Map<LocalizationEntry>(vm);
 
-                bool addedOrUpdated = translationDomainService.AddEntry(projectId, entry);
+                DomainActionPerformed actionPerformed = translationDomainService.AddEntry(projectId, entry);
 
-                if (!addedOrUpdated)
+                if (actionPerformed == DomainActionPerformed.None)
                 {
                     return new OperationResultVo("Another user already sent that translation!");
+                }
+
+                if (!currentUserIsOwner && actionPerformed == DomainActionPerformed.Create)
+                {
+                    pointsEarned += gamificationDomainService.ProcessAction(currentUserId, PlatformAction.LocalizationHelp);
                 }
 
                 unitOfWork.Commit();
                 vm.Id = entry.Id;
 
+
+                if (!currentUserHelped && !currentUserIsOwner)
+                {
+                    var badgeUpdated = gamificationDomainService.SetBadgeOccurence(currentUserId, BadgeType.Babel, projectId);
+
+                    if (badgeUpdated)
+                    {
+                        unitOfWork.Commit();
+                    }
+                }
+
                 UserProfile profile = GetCachedProfileByUserId(entry.UserId);
                 vm.AuthorName = profile.Name;
 
-                return new OperationResultVo<LocalizationEntryViewModel>(vm, "Translation saved!");
+                return new OperationResultVo<LocalizationEntryViewModel>(vm, pointsEarned, "Translation saved!");
             }
             catch (Exception ex)
             {
