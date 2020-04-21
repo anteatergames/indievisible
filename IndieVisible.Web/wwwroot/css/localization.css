@@ -24,7 +24,7 @@
 }
 
 .sticky {
-    z-index: 1500 !important;
+    z-index: 900 !important;
     border-radius: 0;
 }
 
