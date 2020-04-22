@@ -1,4 +1,8 @@
-﻿.alert h4, .nav-pills > li.active > a {
+﻿.modal-open {
+    overflow: auto;
+}
+
+.alert h4, .nav-pills > li.active > a {
     font-weight: 400;
 }
 
