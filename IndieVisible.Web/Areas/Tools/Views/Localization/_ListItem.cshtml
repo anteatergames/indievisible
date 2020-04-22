@@ -9,21 +9,11 @@
 
 <div class="row">
     <div class="col-12">
-
-        @if (canInteract)
-        {
-            <a asp-area="tools" asp-controller="localization" asp-action="details" asp-route-id="@Model.Id" title="@SharedLocalizer["Help this one!"]">
-                <div class="translation-progress-chart text-center">
-                    <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage)" />
-                </div>
-            </a>
-        }
-        else
-        {
+        <a asp-area="tools" asp-controller="localization" asp-action="details" asp-route-id="@Model.Id" title="@SharedLocalizer["Help this one!"]">
             <div class="translation-progress-chart text-center">
                 <partial name="_DonutPercentageChart" model="new DonutChartViewModel(Model.TranslationPercentage)" />
             </div>
-        }
+        </a>
     </div>
 </div>
 

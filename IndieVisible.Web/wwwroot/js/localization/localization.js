@@ -4,6 +4,8 @@
     var selectors = {};
     var objs = {};
 
+    var canInteract = false;
+
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
         selectors.canInteract = '#caninteract';
@@ -36,11 +38,16 @@
 
         cacheObjs();
 
+        canInteract = objs.container.find(selectors.canInteract).val() === "true";
+
         var url = objs.urls.data('urlList');
         var urlMine = objs.urls.data('urlMine');
 
         loadProjects(false, url);
-        loadMyProjects(false, urlMine);
+
+        if (canInteract) {
+            loadMyProjects(false, urlMine);
+        }
     }
 
     function loadProjects(fromControlSidebar, url) {

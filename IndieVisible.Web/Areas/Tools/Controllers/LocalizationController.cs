@@ -127,6 +127,7 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
             }
         }
 
+        [Authorize]
         [Route("tools/localization/translate/{id:guid}/{language?}")]
         public IActionResult Translate(Guid id, SupportedLanguage language, int? pointsEarned)
         {

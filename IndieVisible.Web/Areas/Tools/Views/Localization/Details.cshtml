@@ -108,6 +108,16 @@
                                     <hr />
                                     <h3>@SharedLocalizer["Translation Progress"]</h3>
                                 </div>
+
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <div class="col-12 mb-2">
+                                        <div class="col-12 alert-info text-center p-2">
+                                            @SharedLocalizer["You must be logged in to work on translations."]
+                                        </div>
+                                    </div>
+                                }
+
                                 <div class="col-12">
                                     <h3 class="text-uppercase">@SharedLocalizer["overall"] <span class="badge badge-secondary align-top">@(Model.TranslationPercentageText)%</span></h3>
                                     <div class="progress">
