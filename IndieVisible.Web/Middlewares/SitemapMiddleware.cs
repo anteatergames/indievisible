@@ -35,6 +35,8 @@ namespace IndieVisible.Web.Middlewares
                 { "routes", "*" },
                 { "storage", "*" },
                 { "user", "*" },
+                { "test", "*" },
+
                 { "*", "new" },
                 { "*", "help" },
 
@@ -77,6 +79,7 @@ namespace IndieVisible.Web.Middlewares
                 { "help", "index" },
                 { "search", "searchposts" },
 
+                { "team", "list" },
                 { "team", "listbyuser" },
                 { "team", "acceptinvitation" },
                 { "team", "rejectinvitation" },
@@ -86,7 +89,19 @@ namespace IndieVisible.Web.Middlewares
 
                 { "userbadge", "listbyuser" },
 
-                { "jobposition", "list" }
+                { "jobposition", "list" },
+                { "jobposition", "listmine" },
+                { "jobposition", "mypositionsstats" },
+                { "jobposition", "myapplications" },
+
+                { "localization", "list" },
+                { "localization", "listmine" },
+                { "localization", "translate" },
+                { "localization", "export" },
+                { "localization", "exportxml" },
+                { "localization", "exportcontributors" },
+                { "localization", "review" },
+                { "localization", "getterms" }
             };
         }
 
