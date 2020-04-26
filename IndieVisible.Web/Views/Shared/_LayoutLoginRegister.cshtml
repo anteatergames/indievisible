@@ -83,6 +83,7 @@
         <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
         <script src="~/lib/pace/pace.js"></script>
         <script src="~/lib/fastclick/fastclick.js"></script>
+        <script src="~/lib/limonte-sweetalert/sweetalert2.all.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -101,6 +102,11 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous">
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"
+                asp-fallback-src="~/lib/limonte-sweetalert/sweetalert2.all.min.js"
+                asp-fallback-test="window.swal"
+                integrity="sha256-Qfxgn9jULeGAdbaeDjXeIhZB3Ra6NCK3dvjwAG8Y+xU="
+                crossorigin="anonymous"></script>
         <script src="~/lib/pace/pace.min.js"></script>
         <script src="~/lib/fastclick/fastclick.min.js"></script>
     </environment>

@@ -273,6 +273,8 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             try
             {
+                var isNew = vm.Id == Guid.Empty;
+
                 vm.UserId = CurrentUserId;
 
                 if (!string.IsNullOrWhiteSpace(vm.ClosingDateText))
@@ -287,6 +289,11 @@ namespace IndieVisible.Web.Areas.Work.Controllers
                     GenerateFeedPost(vm);
 
                     string url = Url.Action("Details", "JobPosition", new { area = "Work", id = vm.Id, pointsEarned = saveResult.PointsEarned });
+
+                    if (isNew)
+                    {
+                        NotificationSender.SendTeamNotificationAsync("New Job Position posted!");
+                    }
 
                     return Json(new OperationResultRedirectVo(saveResult, url));
                 }

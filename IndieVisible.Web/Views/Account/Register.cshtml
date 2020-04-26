@@ -53,18 +53,6 @@
             </div>
         </form>
 
-        <div class="social-auth-links text-center">
-            <p>
-                - @SharedLocalizer["OR"] -
-            </p>
-            <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-                <button type="submit" class="btn rounded-circle btn-social-icon btn-facebook" name="provider" value="Facebook" title="Log in using your Facebook account"><i class="fab fa-facebook-f" aria-hidden="true"></i></button>
-                <button type="submit" class="btn rounded-circle btn-social-icon btn-google" name="provider" value="Google" title="Log in using your Google account"><i class="fab fa-google" aria-hidden="true"></i></button>
-                <button type="submit" class="btn rounded-circle btn-social-icon btn-microsoft" name="provider" value="Microsoft" title="Log in using your Microsoft account"><i class="fab fa-microsoft" aria-hidden="true"></i></button>
-            </form>
-        </div>
-        <!-- /.social-auth-links -->
-
         <div class="mt-3 text-center">
             <p>@SharedLocalizer["Already have an account?"] <a asp-area="" asp-controller="account" asp-action="login" class="text-info m-l-5">@SharedLocalizer["SIGN IN"]</a></p>
             <p>@SharedLocalizer["Don't want to Register?"] <a asp-area="" asp-controller="home" asp-action="index" class="text-info m-l-5">@SharedLocalizer["Continue browsing"]</a></p>

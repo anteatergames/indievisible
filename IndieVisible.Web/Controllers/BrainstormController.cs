@@ -114,11 +114,18 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
+                var isNew = vm.Id == Guid.Empty;
+
                 vm.UserId = CurrentUserId;
 
                 brainstormAppService.Save(CurrentUserId, vm);
 
                 string url = Url.Action("Index", "Brainstorm", new { area = string.Empty, id = vm.SessionId.ToString() });
+                
+                if (isNew)
+                {
+                    NotificationSender.SendTeamNotificationAsync($"New idea posted: {vm.Title}");
+                }
 
                 return Json(new OperationResultRedirectVo(url));
             }
@@ -133,11 +140,18 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
+                var isNew = vm.Id == Guid.Empty;
+
                 vm.UserId = CurrentUserId;
 
                 brainstormAppService.SaveSession(vm);
 
                 string url = Url.Action("Index", "Brainstorm", new { area = string.Empty, id = vm.Id.ToString() });
+
+                if (isNew)
+                {
+                    NotificationSender.SendTeamNotificationAsync($"New brainstorm session created: {vm.Title}");
+                }
 
                 return Json(new OperationResultRedirectVo(url));
             }

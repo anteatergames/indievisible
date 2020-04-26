@@ -74,9 +74,9 @@ namespace IndieVisible.Infra.CrossCutting.Notifications
         {
             SlackMessage slackMessage = new SlackMessage(message);
 
-            RestClient client = new RestClient("https://hooks.slack.com/services/TEH1D2GF4/BT1HPBF4L");
+            RestClient client = new RestClient("https://hooks.slack.com/services/TEH1D2GF4/B0123NPCQDD");
 
-            RestRequest request = new RestRequest("/ARPPnjFWsGSAxMX1grwfLtRy", Method.POST);
+            RestRequest request = new RestRequest("/M2YMReQBumxAp2DrHhdVDI9p", Method.POST);
 
             DefaultContractResolver contractResolver = new DefaultContractResolver
             {

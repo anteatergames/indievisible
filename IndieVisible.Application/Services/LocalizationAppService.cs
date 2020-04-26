@@ -726,11 +726,14 @@ namespace IndieVisible.Application.Services
         private void SetGameViewModel(Guid gameId, LocalizationViewModel vm)
         {
             GameViewModel game = GetGameWithCache(gameDomainService, gameId);
-            vm.Game.Title = game.Title;
+            if (game != null)
+            {
+                vm.Game.Title = game.Title;
 
-            vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
-            vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
-            vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
+                vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
+                vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
+                vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality); 
+            }
         }
 
         private async Task<DataTable> LoadExcel(IFormFile termsFile)

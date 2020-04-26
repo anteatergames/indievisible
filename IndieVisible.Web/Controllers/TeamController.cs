@@ -128,7 +128,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                bool newTeam = vm.Id == Guid.Empty;
+                bool isNew = vm.Id == Guid.Empty;
                 vm.UserId = CurrentUserId;
 
                 IEnumerable<Guid> oldMembers = vm.Members.Where(x => x.Id != Guid.Empty).Select(x => x.Id);
@@ -142,7 +142,13 @@ namespace IndieVisible.Web.Controllers
                     Notify(vm, oldMembers);
 
                     bool recruiting = !vm.RecruitingBefore && vm.Recruiting;
-                    GenerateTeamPost(vm, newTeam, recruiting);
+                    GenerateTeamPost(vm, isNew, recruiting);
+
+
+                    if (isNew)
+                    {
+                        NotificationSender.SendTeamNotificationAsync($"New team Created: {vm.Name}");
+                    }
 
                     return Json(new OperationResultRedirectVo(saveResult, url));
                 }

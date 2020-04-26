@@ -136,6 +136,8 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
+                var isNew = vm.Id == Guid.Empty;
+
                 ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, ProfileType.Personal);
 
                 SetAuthorDetails(vm);
@@ -151,6 +153,11 @@ namespace IndieVisible.Web.Controllers
                     NotifyFollowers(profile, vm.GameId, vm.Id);
 
                     string url = Url.Action("Index", "Home", new { area = string.Empty, id = vm.Id, pointsEarned = saveResult.PointsEarned });
+
+                    if (isNew)
+                    {
+                        NotificationSender.SendTeamNotificationAsync("New complex post!");
+                    }
 
                     return Json(new OperationResultRedirectVo(url));
                 }
@@ -200,6 +207,8 @@ namespace IndieVisible.Web.Controllers
             OperationResultVo<Guid> result = userContentAppService.Save(CurrentUserId, vm);
 
             NotifyFollowers(profile, vm.GameId, vm.Id);
+
+            NotificationSender.SendTeamNotificationAsync("New simple post!");
 
             return Json(result);
         }

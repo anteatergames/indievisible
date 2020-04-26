@@ -352,6 +352,8 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                     if (isNew)
                     {
                         url = Url.Action("edit", "localization", new { area = "tools", id = vm.Id, pointsEarned = saveResult.PointsEarned });
+
+                        NotificationSender.SendTeamNotificationAsync("New Localization Project created!");
                     }
 
                     return Json(new OperationResultRedirectVo<Guid>(saveResult, url));

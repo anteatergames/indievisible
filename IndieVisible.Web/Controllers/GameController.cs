@@ -118,6 +118,8 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
+                var isNew = vm.Id == Guid.Empty;
+
                 SetAuthorDetails(vm);
                 ClearImagesUrl(vm);
 
@@ -130,6 +132,11 @@ namespace IndieVisible.Web.Controllers
                 else
                 {
                     string url = Url.Action("Details", "Game", new { area = string.Empty, id = vm.Id.ToString(), pointsEarned = saveResult.PointsEarned });
+
+                    if (isNew)
+                    {
+                        NotificationSender.SendTeamNotificationAsync($"New game Created: {vm.Title}");
+                    }
 
                     return Json(new OperationResultRedirectVo(url));
                 }

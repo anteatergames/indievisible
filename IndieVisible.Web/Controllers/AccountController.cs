@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -384,9 +385,14 @@ namespace IndieVisible.Web.Controllers
                 {
                     model.UserExists = true;
                     model.Username = existingUser.UserName;
+
                     text = "Oh! It looks like you already have a user registered here with us. Check your info below and confirm to link your account to your external account.";
 
                     ViewData["ButtonText"] = SharedLocalizer["Link Acounts"];
+                }
+                else
+                {
+                    model.ProfileName = SelectName(info);
                 }
 
                 ViewData["RegisterText"] = SharedLocalizer[text];
@@ -405,8 +411,8 @@ namespace IndieVisible.Web.Controllers
                 IdentityResult result;
 
                 // Get the information about the user from the external login provider
-                ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
-                if (info == null)
+                ExternalLoginInfo externalLoginInfo = await _signInManager.GetExternalLoginInfoAsync();
+                if (externalLoginInfo == null)
                 {
                     throw new CustomApplicationException("Error loading external login information during confirmation.");
                 }
@@ -423,11 +429,18 @@ namespace IndieVisible.Web.Controllers
                     await _userManager.CreateAsync(user);
                 }
 
-                result = await _userManager.AddLoginAsync(user, info);
+                result = await _userManager.AddLoginAsync(user, externalLoginInfo);
 
                 if (result.Succeeded)
                 {
-                    await SetStaffRoles(user);
+                    if (existingUser == null)
+                    {
+                        await SetInitialRoles(user);
+                    }
+                    else
+                    {
+                        await SetStaffRoles(user);
+                    }
 
                     SetPreferences(user);
 
@@ -437,11 +450,11 @@ namespace IndieVisible.Web.Controllers
                     {
                         profile = profileAppService.GenerateNewOne(ProfileType.Personal);
                         profile.UserId = userGuid;
+
+                        profile.Name = SelectName(externalLoginInfo);
                     }
 
-                    profile.Name = info.Principal.FindFirstValue(ClaimTypes.Name);
-
-                    await SetExternalProfilePicture(info, user, profile);
+                    await SetExternalProfilePicture(externalLoginInfo, user, profile);
 
                     if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl == Constants.DefaultAvatar)
                     {
@@ -454,10 +467,10 @@ namespace IndieVisible.Web.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
-                    string logMessage = String.Format("User {0} linked a {1} account.", user.UserName, info.LoginProvider);
+                    string logMessage = String.Format("User {0} linked a {1} account.", user.UserName, externalLoginInfo.LoginProvider);
                     if (existingUser == null)
                     {
-                        logMessage = String.Format("User {0} registered with a {1} account.", user.UserName, info.LoginProvider);
+                        logMessage = String.Format("User {0} registered with a {1} account.", user.UserName, externalLoginInfo.LoginProvider);
                     }
 
                     await NotificationSender.SendTeamNotificationAsync(logMessage);
@@ -637,7 +650,7 @@ namespace IndieVisible.Web.Controllers
         // HACK replace by default admin user
         private async Task SetStaffRoles(ApplicationUser user)
         {
-            System.Collections.Generic.IList<string> userRoles = await _userManager.GetRolesAsync(user);
+            IList<string> userRoles = await _userManager.GetRolesAsync(user);
 
             bool userIsMember = userRoles.Contains(Roles.Member.ToString());
 
@@ -646,7 +659,7 @@ namespace IndieVisible.Web.Controllers
                 await _userManager.AddToRoleAsync(user, Roles.Member.ToString());
             }
 
-            if (user.UserName.Equals("programad") || user.UserName.Equals("cadko"))
+            if (user.UserName.Equals("programad"))
             {
                 bool userIsAdmin = userRoles.Contains(Roles.Administrator.ToString());
 
@@ -655,6 +668,11 @@ namespace IndieVisible.Web.Controllers
                     await _userManager.AddToRoleAsync(user, Roles.Administrator.ToString());
                 }
             }
+        }
+
+        private async Task SetInitialRoles(ApplicationUser user)
+        {
+            await _userManager.AddToRoleAsync(user, Roles.Member.ToString());
         }
 
         private void AddErrors(IdentityResult result)
@@ -692,6 +710,13 @@ namespace IndieVisible.Web.Controllers
                 else if (info.LoginProvider == "Google" && info.Principal.HasClaim(x => x.Type == "urn:google:picture"))
                 {
                     string pictureUrl = info.Principal.FindFirstValue("urn:google:picture");
+                    imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
+                }
+                else if (info.LoginProvider == "Github")
+                {
+                    string nameIdentifier = info.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+                    string pictureUrl = $"https://avatars.githubusercontent.com/u/{nameIdentifier}";
+
                     imageUrl = await UploadProfilePicture(user.Id, pictureUrl);
                 }
                 else
@@ -752,6 +777,20 @@ namespace IndieVisible.Web.Controllers
             fileName = fileName.Split('.').First();
 
             base.UploadImage(userId, BlobType.ProfileImage, fileName, bytes);
+        }
+
+        private static string SelectName(ExternalLoginInfo info)
+        {
+            string name = info.Principal.FindFirstValue(ClaimTypes.Name);
+
+            switch (info.LoginProvider)
+            {
+                case "Github":
+                    name = info.Principal.FindFirstValue("urn:github:name");
+                    break;
+            }
+
+            return name;
         }
 
         #endregion Helpers
