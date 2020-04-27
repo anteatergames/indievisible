@@ -16,11 +16,11 @@ namespace IndieVisible.Web.Controllers
     [Route("storage")]
     public class StorageController : SecureBaseController
     {
-        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment hostingEnvironment;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly ILogger logger;
 
-        public StorageController(IHostingEnvironment hostingEnvironment
+        public StorageController(IWebHostEnvironment hostingEnvironment
             , IHttpContextAccessor httpContextAccessor
             , ILogger<StorageController> logger)
         {

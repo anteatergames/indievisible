@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.UserPreferences;
+using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Service;
@@ -142,7 +143,8 @@ namespace IndieVisible.Application.Services
             {
                 model = new UserPreferences
                 {
-                    UserId = userId
+                    UserId = userId,
+                    UiLanguage = SupportedLanguage.English
                 };
             }
 

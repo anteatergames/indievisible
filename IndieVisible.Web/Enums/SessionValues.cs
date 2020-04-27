@@ -5,7 +5,7 @@
         Username = 1,
         UserProfileImageUrl = 2,
         FullName = 3,
-        DefaultLanguage = 4,
+        PostLanguage = 4,
         JobProfile = 5,
         Email = 6
     }

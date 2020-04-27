@@ -97,7 +97,7 @@ namespace IndieVisible.Web.Controllers
 
             RequestCulture requestLanguage = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture;
 
-            string lang = GetCookieValue(SessionValues.DefaultLanguage);
+            string lang = GetCookieValue(SessionValues.PostLanguage);
             if (lang != null)
             {
                 SupportedLanguage langEnum = (SupportedLanguage)Enum.Parse(typeof(SupportedLanguage), lang);
@@ -107,25 +107,28 @@ namespace IndieVisible.Web.Controllers
             {
                 if (!User.Identity.IsAuthenticated)
                 {
+                    SetAspNetCultureCookie(requestLanguage);
                     postModel.DefaultLanguage = base.SetLanguageFromCulture(requestLanguage.UICulture.Name);
                 }
                 else
                 {
                     UserPreferencesViewModel userPrefs = userPreferencesAppService.GetByUserId(CurrentUserId);
 
-                    if (userPrefs != null)
+                    if (userPrefs != null && userPrefs.Id != Guid.Empty)
                     {
-                        SetLanguage(userPrefs.UiLanguage);
+                        SetAspNetCultureCookie(userPrefs.UiLanguage);
+
+                        SetCookieValue(SessionValues.PostLanguage, postModel.DefaultLanguage.ToString(), 7);
+
                         postModel.DefaultLanguage = userPrefs.UiLanguage;
                     }
                     else
                     {
-                        postModel.DefaultLanguage = SupportedLanguage.English;
+                        SetAspNetCultureCookie(requestLanguage);
+                        postModel.DefaultLanguage = base.SetLanguageFromCulture(requestLanguage.UICulture.Name);
                     }
                 }
             }
-
-            SetCookieValue(SessionValues.DefaultLanguage, postModel.DefaultLanguage.ToString(), 7);
 
             ViewBag.PostFromHome = postModel;
         }

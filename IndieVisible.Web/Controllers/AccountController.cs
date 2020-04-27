@@ -40,14 +40,14 @@ namespace IndieVisible.Web.Controllers
         private readonly IProfileAppService profileAppService;
         private readonly ILogger _logger;
 
-        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IProfileAppService profileAppService,
             ILogger<AccountController> logger,
-            IHostingEnvironment hostingEnvironment) : base()
+            IWebHostEnvironment hostingEnvironment) : base()
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -636,11 +636,11 @@ namespace IndieVisible.Web.Controllers
                 RequestCulture requestLanguage = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture;
                 SupportedLanguage lang = base.SetLanguageFromCulture(requestLanguage.UICulture.Name);
 
-                SetCookieValue(SessionValues.DefaultLanguage, lang.ToString(), 7);
+                SetCookieValue(SessionValues.PostLanguage, lang.ToString(), 7);
             }
             else
             {
-                SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
+                SetCookieValue(SessionValues.PostLanguage, preferences.UiLanguage.ToString(), 7);
                 SetSessionValue(SessionValues.JobProfile, preferences.JobProfile.ToString());
             }
         }

@@ -142,9 +142,9 @@ namespace IndieVisible.Web.Areas.Member.Controllers
 
                 userPreferencesAppService.Save(CurrentUserId, vm);
 
-                SetPreferences(vm);
+                SetPreferencesCookies(vm);
 
-                SetLanguage(vm.UiLanguage);
+                SetAspNetCultureCookie(vm.UiLanguage);
 
                 StatusMessage = "Your preferences were updated";
                 return RedirectToAction(nameof(Languages));
@@ -545,9 +545,9 @@ namespace IndieVisible.Web.Areas.Member.Controllers
 
         #region Helpers
 
-        private void SetPreferences(UserPreferencesViewModel preferences)
+        private void SetPreferencesCookies(UserPreferencesViewModel preferences)
         {
-            SetCookieValue(SessionValues.DefaultLanguage, preferences.UiLanguage.ToString(), 7);
+            SetCookieValue(SessionValues.PostLanguage, preferences.UiLanguage.ToString(), 7);
         }
 
         private void AddErrors(IdentityResult result)

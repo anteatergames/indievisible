@@ -21,11 +21,10 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -34,12 +33,12 @@ namespace IndieVisible.Web
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -62,71 +61,13 @@ namespace IndieVisible.Web
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
             }, options =>
-             {
-                 options.ConnectionString = Configuration["MongoSettings:Connection"];
-                 options.DatabaseName = Configuration["MongoSettings:DatabaseName"];
-             })
+            {
+                options.ConnectionString = Configuration["MongoSettings:Connection"];
+                options.DatabaseName = Configuration["MongoSettings:DatabaseName"];
+            })
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(o =>
-                {
-                    o.Cookie.Name = ".IndieVisible.Identity.Application";
-                    o.LoginPath = new PathString("/login");
-                    o.AccessDeniedPath = new PathString("/home/access-denied");
-                })
-                .AddFacebook(o =>
-                {
-                    o.AppId = Configuration["Authentication:Facebook:AppId"];
-                    o.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-                    o.Fields.Add("picture");
-                    o.Events = new OAuthEvents
-                    {
-                        OnCreatingTicket = context =>
-                        {
-                            ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
-                            string profileImg = context.User["picture"]["data"].Value<string>("url");
-                            identity.AddClaim(new Claim("urn:facebook:picture", profileImg));
-                            return Task.CompletedTask;
-                        }
-                    };
-                })
-                .AddGoogle(googleOptions =>
-                {
-                    googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
-                    googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                    googleOptions.Events = new OAuthEvents
-                    {
-                        OnCreatingTicket = context =>
-                        {
-                            ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
-                            string profileImg = ((Newtonsoft.Json.Linq.JValue)context.User["picture"]).Value.ToString();
-                            identity.AddClaim(new Claim("urn:google:picture", profileImg));
-                            return Task.FromResult(0);
-                        }
-                    };
-                })
-                .AddMicrosoftAccount(microsoftOptions =>
-                {
-                    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
-                    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
-                    microsoftOptions.SaveTokens = true;
-                    microsoftOptions.Events = new OAuthEvents
-                    {
-                        OnCreatingTicket = context =>
-                        {
-                            ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
-                            identity.AddClaim(new Claim("urn:microsoft:accesstoken", context.TokenResponse.AccessToken));
-
-                            return Task.FromResult(0);
-                        }
-                    };
-                })
-                .AddGithub(githubOptions =>
-                {
-                    githubOptions.ClientId = Configuration["Authentication:Github:ClientId"];
-                    githubOptions.ClientSecret = Configuration["Authentication:Github:ClientSecret"];
-                });
+            SetupAuthentication(services);
 
             services.AddAutoMapperSetup();
 
@@ -136,8 +77,6 @@ namespace IndieVisible.Web
                 opt.Cookie.IsEssential = true;
             });
 
-            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
-
             services.AddResponseCompression();
 
             services.AddRouting(options =>
@@ -146,7 +85,10 @@ namespace IndieVisible.Web
                 options.AppendTrailingSlash = true;
             });
 
-            services.AddMvc(options =>
+            //services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddLocalization();
+
+            services.AddControllersWithViews(options =>
             {
                 options.CacheProfiles.Add("Default",
                     new CacheProfile()
@@ -167,40 +109,16 @@ namespace IndieVisible.Web
                         NoStore = true
                     });
             })
-            .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opts => { opts.ResourcesPath = "Resources"; })
+            .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
             .AddDataAnnotationsLocalization(options =>
             {
                 options.DataAnnotationLocalizerProvider = (type, factory) =>
                     factory.Create(typeof(SharedResources));
-            })
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            });
 
             services.AddMemoryCache();
 
             services.AddProgressiveWebApp();
-
-            List<CultureInfo> supportedCultures = new List<CultureInfo>
-                {
-                    new CultureInfo("en-US"),
-                    new CultureInfo("en"),
-                    new CultureInfo("pt-BR"),
-                    new CultureInfo("pt"),
-                    new CultureInfo("ru-RU"),
-                    new CultureInfo("ru"),
-                    new CultureInfo("bs"),
-                    new CultureInfo("sr"),
-                    new CultureInfo("hr"),
-                    new CultureInfo("de")
-                };
-
-            services.Configure<RequestLocalizationOptions>(opts =>
-            {
-                opts.DefaultRequestCulture = new RequestCulture("en-US");
-                // Formatting numbers, dates, etc.
-                opts.SupportedCultures = supportedCultures;
-                // UI strings that we have localized.
-                opts.SupportedUICultures = supportedCultures;
-            });
 
             services.AddTransient<ICookieMgrService, CookieMgrService>();
 
@@ -214,7 +132,7 @@ namespace IndieVisible.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -241,12 +159,19 @@ namespace IndieVisible.Web
                 }
             });
 
-            IOptions<RequestLocalizationOptions> options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-            app.UseRequestLocalization(options.Value);
+            app.UseRouting();
+
+            app.UseRequestLocalization(options =>
+                options
+                    .AddSupportedCultures(supportedCultures)
+                    .AddSupportedUICultures(supportedCultures)
+                    );
 
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseSession();
 
@@ -259,21 +184,21 @@ namespace IndieVisible.Web
 
             app.UseSitemapMiddleware();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(routes =>
             {
-                routes.MapRoute(
+                routes.MapControllerRoute(
                     name: "azurestorage",
-                    template: "{controller=storage}/{action=image}/{id}"
+                    pattern: "{controller=storage}/{action=image}/{id}"
                 );
 
-                routes.MapRoute(
+                routes.MapControllerRoute(
                   name: "areas",
-                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
 
-                routes.MapRoute(
+                routes.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
             CreateUserRoles(serviceProvider).Wait();
@@ -305,5 +230,83 @@ namespace IndieVisible.Web
                 await RoleManager.CreateAsync(new Role(roleName));
             }
         }
+
+
+        private void SetupAuthentication(IServiceCollection services)
+        {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                            .AddCookie(o =>
+                            {
+                                o.Cookie.Name = ".IndieVisible.Identity.Application";
+                                o.LoginPath = new PathString("/login");
+                                o.AccessDeniedPath = new PathString("/home/access-denied");
+                            })
+                            .AddFacebook(o =>
+                            {
+                                o.AppId = Configuration["Authentication:Facebook:AppId"];
+                                o.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                                o.Fields.Add("picture");
+                                o.Events = new OAuthEvents
+                                {
+                                    OnCreatingTicket = context =>
+                                    {
+                                        ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
+                                        string profileImg = context.User.GetProperty("picture").GetProperty("data").GetProperty("url").GetString();
+                                        identity.AddClaim(new Claim("urn:facebook:picture", profileImg));
+                                        return Task.CompletedTask;
+                                    }
+                                };
+                            })
+                            .AddGoogle(googleOptions =>
+                            {
+                                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                                googleOptions.Events = new OAuthEvents
+                                {
+                                    OnCreatingTicket = context =>
+                                    {
+                                        ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
+                                        string profileImg = context.User.GetProperty("picture").GetString();
+                                        identity.AddClaim(new Claim("urn:google:picture", profileImg));
+                                        return Task.FromResult(0);
+                                    }
+                                };
+                            })
+                            .AddMicrosoftAccount(microsoftOptions =>
+                            {
+                                microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                                microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                                microsoftOptions.SaveTokens = true;
+                                microsoftOptions.Events = new OAuthEvents
+                                {
+                                    OnCreatingTicket = context =>
+                                    {
+                                        ClaimsIdentity identity = (ClaimsIdentity)context.Principal.Identity;
+                                        identity.AddClaim(new Claim("urn:microsoft:accesstoken", context.TokenResponse.AccessToken));
+
+                                        return Task.FromResult(0);
+                                    }
+                                };
+                            })
+                            .AddGithub(githubOptions =>
+                            {
+                                githubOptions.ClientId = Configuration["Authentication:Github:ClientId"];
+                                githubOptions.ClientSecret = Configuration["Authentication:Github:ClientSecret"];
+                            });
+        }
+
+        string[] supportedCultures = new string[]
+                {
+                    "en-US",
+                    "en",
+                    "pt-BR",
+                    "pt",
+                    "ru-RU",
+                    "ru",
+                    "bs",
+                    "sr",
+                    "hr",
+                    "de"
+                };
     }
 }

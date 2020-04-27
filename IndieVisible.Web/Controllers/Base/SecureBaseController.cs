@@ -147,15 +147,18 @@ namespace IndieVisible.Web.Controllers.Base
             }
         }
 
-        protected void SetLanguage(SupportedLanguage language)
+        protected void SetAspNetCultureCookie(SupportedLanguage language)
         {
             string culture = language.GetAttributeOfType<UiInfoAttribute>()?.Culture;
 
             culture = string.IsNullOrWhiteSpace(culture) ? "en-US" : culture;
 
-            SetCookieValue(CookieRequestCultureProvider.DefaultCookieName
-                , CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture))
-                , 365);
+            SetAspNetCultureCookie(new RequestCulture(culture));
+        }
+
+        protected void SetAspNetCultureCookie(RequestCulture culture)
+        {
+            SetCookieValue(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(culture), 365);
         }
 
         #region Upload Management

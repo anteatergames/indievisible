@@ -2069,4 +2069,8 @@
     <value>É um Administrador</value>
     <comment>Badges</comment>
   </data>
+  <data name="test" xml:space="preserve">
+    <value>teste</value>
+    <comment>Test</comment>
+  </data>
 </root>

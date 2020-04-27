@@ -233,7 +233,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            return Task.FromResult(user.NormalizedUserName ?? _normalizer.Normalize(user.UserName));
+            return Task.FromResult(user.NormalizedUserName ?? _normalizer.NormalizeName(user.UserName));
         }
 
         public Task<string> GetUserIdAsync(TUser user, CancellationToken cancellationToken)
@@ -260,7 +260,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
 
         public Task SetNormalizedUserNameAsync(TUser user, string normalizedName, CancellationToken cancellationToken)
         {
-            string name = normalizedName ?? _normalizer.Normalize(user.UserName);
+            string name = normalizedName ?? _normalizer.NormalizeName(user.UserName);
 
             user.NormalizedUserName = name;
             return Update(user, x => x.NormalizedUserName, name);
@@ -270,7 +270,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            await SetNormalizedUserNameAsync(user, _normalizer.Normalize(userName), cancellationToken);
+            await SetNormalizedUserNameAsync(user, _normalizer.NormalizeName(userName), cancellationToken);
 
             user.UserName = userName;
             await Update(user, x => x.UserName, userName);
@@ -314,7 +314,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            user.NormalizedEmail = normalizedEmail ?? _normalizer.Normalize(user.Email);
+            user.NormalizedEmail = normalizedEmail ?? _normalizer.NormalizeEmail(user.Email);
             return Update(user, x => x.NormalizedEmail, user.NormalizedEmail);
         }
 
@@ -322,7 +322,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Stores
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            await SetNormalizedEmailAsync(user, _normalizer.Normalize(user.Email), cancellationToken);
+            await SetNormalizedEmailAsync(user, _normalizer.NormalizeEmail(user.Email), cancellationToken);
             user.Email = email;
 
             await Update(user, x => x.Email, user.Email);

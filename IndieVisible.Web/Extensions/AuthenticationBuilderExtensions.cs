@@ -7,6 +7,7 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace IndieVisible.Web.Extensions
 {
@@ -41,9 +42,9 @@ namespace IndieVisible.Web.Extensions
                             HttpResponseMessage response = await context.Backchannel.SendAsync(request, context.HttpContext.RequestAborted);
                             response.EnsureSuccessStatusCode();
 
-                            JObject user = JObject.Parse(await response.Content.ReadAsStringAsync());
+                            JsonDocument user = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
 
-                            context.RunClaimActions(user);
+                            context.RunClaimActions(user.RootElement);
                         }
                     };
                     configureOptions?.Invoke(options);
