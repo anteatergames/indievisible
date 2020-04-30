@@ -148,6 +148,10 @@ namespace IndieVisible.Application.Formatters
 
             if (responsive)
             {
+                var infoTask = cloudinary.GetResourceAsync(publicId);
+
+                infoTask.Wait();
+
                 StringBuilder sb = new StringBuilder();
 
                 Transformation transformation = new Transformation().FetchFormat("auto").Width(300);
@@ -160,6 +164,13 @@ namespace IndieVisible.Application.Formatters
 
                 transformation = new Transformation().FetchFormat("auto").Width(900);
                 string url900 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+                
+                if (infoTask.Result.Format.Equals("gif"))
+                {
+                    transformation = new Transformation().FetchFormat("auto");
+                    url900 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+                }
+
                 sb.Append(String.Format("{0} 900w", url900));
 
                 return sb.ToString();
