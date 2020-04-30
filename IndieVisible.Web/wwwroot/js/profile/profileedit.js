@@ -106,7 +106,7 @@
         objs.modalCropAvatar.on('shown.bs.modal', function () {
             cropperAvatar = new Cropper(cropImage, {
                 aspectRatio: 1 / 1,
-                viewMode: 3,
+                viewMode: 2,
                 autoCropArea: 1
             });
         });
