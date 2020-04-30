@@ -113,11 +113,11 @@ namespace IndieVisible.Domain.Core.Extensions
 
             Dictionary<TEnum, UiInfoAttribute> dict = new Dictionary<TEnum, UiInfoAttribute>();
 
-            var genreList = enumeration.ToList();
+            List<TEnum> genreList = enumeration.ToList();
 
             if (randomize)
             {
-                genreList.Shuffle(); 
+                genreList.Shuffle();
             }
 
             genreList.ForEach(x =>

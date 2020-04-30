@@ -119,7 +119,7 @@ namespace IndieVisible.Domain.Services
         {
             IQueryable<UserBadge> items = userBadgeRepository.Get(x => x.UserId == userId && x.Badge == type);
 
-            var model = items.FirstOrDefault();
+            UserBadge model = items.FirstOrDefault();
             if (model == null)
             {
                 model = new UserBadge

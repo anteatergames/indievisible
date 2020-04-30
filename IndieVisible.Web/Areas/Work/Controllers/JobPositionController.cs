@@ -273,7 +273,7 @@ namespace IndieVisible.Web.Areas.Work.Controllers
         {
             try
             {
-                var isNew = vm.Id == Guid.Empty;
+                bool isNew = vm.Id == Guid.Empty;
 
                 vm.UserId = CurrentUserId;
 

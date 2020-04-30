@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Infra.CrossCutting.Identity.Model;
 using Microsoft.AspNetCore.Identity;
-using System;
 using System.Collections.Generic;
 
 namespace IndieVisible.Infra.CrossCutting.Identity.Models

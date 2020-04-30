@@ -308,10 +308,9 @@ namespace IndieVisible.Application.Services
                 unitOfWork.Commit();
                 vm.Id = entry.Id;
 
-
                 if (!currentUserHelped && !currentUserIsOwner)
                 {
-                    var badgeUpdated = gamificationDomainService.SetBadgeOccurence(currentUserId, BadgeType.Babel, projectId);
+                    bool badgeUpdated = gamificationDomainService.SetBadgeOccurence(currentUserId, BadgeType.Babel, projectId);
 
                     if (badgeUpdated)
                     {
@@ -502,14 +501,12 @@ namespace IndieVisible.Application.Services
 
                     return new OperationResultVo<List<InMemoryFileVo>>(list);
                 }
-
             }
             catch (Exception ex)
             {
                 return new OperationResultVo(ex.Message);
             }
         }
-
 
         public OperationResultVo GetContributorsFile(Guid currentUserId, Guid projectId, ExportContributorsType type)
         {
@@ -530,7 +527,6 @@ namespace IndieVisible.Application.Services
                 }
 
                 return new OperationResultVo<List<KeyValuePair<Guid, string>>>(dict);
-
             }
             catch (Exception ex)
             {
@@ -732,7 +728,7 @@ namespace IndieVisible.Application.Services
 
                 vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
                 vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
-                vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality); 
+                vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
             }
         }
 

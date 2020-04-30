@@ -136,7 +136,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                var isNew = vm.Id == Guid.Empty;
+                bool isNew = vm.Id == Guid.Empty;
 
                 ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, ProfileType.Personal);
 

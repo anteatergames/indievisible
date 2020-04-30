@@ -122,7 +122,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                var isNew = vm.Id == Guid.Empty;
+                bool isNew = vm.Id == Guid.Empty;
 
                 SetAuthorDetails(vm);
                 ClearImagesUrl(vm);

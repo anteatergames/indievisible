@@ -114,14 +114,14 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                var isNew = vm.Id == Guid.Empty;
+                bool isNew = vm.Id == Guid.Empty;
 
                 vm.UserId = CurrentUserId;
 
                 brainstormAppService.Save(CurrentUserId, vm);
 
                 string url = Url.Action("Index", "Brainstorm", new { area = string.Empty, id = vm.SessionId.ToString() });
-                
+
                 if (isNew)
                 {
                     NotificationSender.SendTeamNotificationAsync($"New idea posted: {vm.Title}");
@@ -140,7 +140,7 @@ namespace IndieVisible.Web.Controllers
         {
             try
             {
-                var isNew = vm.Id == Guid.Empty;
+                bool isNew = vm.Id == Guid.Empty;
 
                 vm.UserId = CurrentUserId;
 

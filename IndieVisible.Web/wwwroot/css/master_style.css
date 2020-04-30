@@ -61,6 +61,7 @@ body {
 
 .wrapper {
     overflow-y: hidden;
+    position: relative;
 }
 
 .btn.uppercase, .info-box-text, .flex-column > li.header {
@@ -73,10 +74,6 @@ body {
 
 div {
     border-radius: 5px;
-}
-
-.wrapper {
-    position: relative;
 }
 
 .main-header .logo, .user-panel {
