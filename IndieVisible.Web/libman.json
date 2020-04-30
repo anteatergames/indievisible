@@ -3,11 +3,11 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "twitter-bootstrap@4.3.1",
+      "library": "twitter-bootstrap@4.4.1",
       "destination": "wwwroot/lib/twitter-bootstrap/"
     },
     {
-      "library": "jquery@3.4.1",
+      "library": "jquery@3.5.0",
       "destination": "wwwroot/lib/jquery/"
     },
     {
@@ -19,11 +19,11 @@
       "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
     },
     {
-      "library": "font-awesome@5.11.2",
+      "library": "font-awesome@5.13.0",
       "destination": "wwwroot/lib/font-awesome/"
     },
     {
-      "library": "popper.js@1.15.0",
+      "library": "popper.js@1.16.1",
       "destination": "wwwroot/lib/popper.js/"
     },
     {
@@ -39,7 +39,7 @@
       "destination": "wwwroot/lib/jquery-toast"
     },
     {
-      "library": "select2@4.0.10",
+      "library": "select2@4.0.12",
       "destination": "wwwroot/lib/select2"
     },
     {
@@ -47,7 +47,7 @@
       "destination": "wwwroot/lib/limonte-sweetalert"
     },
     {
-      "library": "embedo@1.12.0",
+      "library": "embedo@1.13.0",
       "destination": "wwwroot/lib/embedo"
     },
     {
@@ -59,7 +59,7 @@
       "destination": "wwwroot/lib/lazysizes"
     },
     {
-      "library": "dropzone@5.5.1",
+      "library": "dropzone@5.7.0",
       "destination": "wwwroot/lib/dropzone"
     },
     {
