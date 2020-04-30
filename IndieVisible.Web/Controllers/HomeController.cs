@@ -36,8 +36,8 @@ namespace IndieVisible.Web.Controllers
             ViewBag.Carousel = featured;
 
             SetLanguage();
-            Dictionary<GameGenre, UiInfoAttribute> genreDict = Enum.GetValues(typeof(GameGenre)).Cast<GameGenre>().ToUiInfoList();
 
+            Dictionary<GameGenre, UiInfoAttribute> genreDict = Enum.GetValues(typeof(GameGenre)).Cast<GameGenre>().ToUiInfoDictionary(true);
             ViewData["Genres"] = genreDict;
 
             SetGamificationMessage(pointsEarned);

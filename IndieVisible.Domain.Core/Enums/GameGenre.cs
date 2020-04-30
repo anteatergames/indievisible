@@ -4,7 +4,7 @@ namespace IndieVisible.Domain.Core.Enums
 {
     public enum GameGenre
     {
-        [UiInfo(Display = "Strategy", Class = "red")]
+        [UiInfo(Display = "Strategy", Class = "game-genre-strategy")]
         Strategy = 1,
 
         [UiInfo(Display = "Racing", Class = "blue")]
@@ -50,6 +50,9 @@ namespace IndieVisible.Domain.Core.Enums
         Platformer = 15,
 
         [UiInfo(Display = "Metroidvania", Class = "red")]
-        Metroidvania = 16
+        Metroidvania = 16,
+
+        [UiInfo(Display = "MMORPG", Class = "navy")]
+        MmoRpg = 17
     }
 }

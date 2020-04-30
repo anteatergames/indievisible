@@ -99,7 +99,12 @@ namespace IndieVisible.Domain.Core.Extensions
             }
         }
 
-        public static Dictionary<TEnum, UiInfoAttribute> ToUiInfoList<TEnum>(this IEnumerable<TEnum> enumeration) where TEnum : Enum
+        public static Dictionary<TEnum, UiInfoAttribute> ToUiInfoDictionary<TEnum>(this IEnumerable<TEnum> enumeration) where TEnum : Enum
+        {
+            return ToUiInfoDictionary(enumeration, false);
+        }
+
+        public static Dictionary<TEnum, UiInfoAttribute> ToUiInfoDictionary<TEnum>(this IEnumerable<TEnum> enumeration, bool randomize) where TEnum : Enum
         {
             if (!typeof(TEnum).IsEnum)
             {
@@ -108,7 +113,14 @@ namespace IndieVisible.Domain.Core.Extensions
 
             Dictionary<TEnum, UiInfoAttribute> dict = new Dictionary<TEnum, UiInfoAttribute>();
 
-            enumeration.ToList().ForEach(x =>
+            var genreList = enumeration.ToList();
+
+            if (randomize)
+            {
+                genreList.Shuffle(); 
+            }
+
+            genreList.ForEach(x =>
             {
                 dict.Add(x, x.ToUiInfo());
             });

@@ -3,12 +3,13 @@
 @{
     var items = (Dictionary<GameGenre, UiInfoAttribute>)ViewData["Genres"];
 }
-<div class="col text-center">
+
+<div class="col text-center d-flex flex-wrap">
     @if (items != null)
     {
         foreach (var item in items)
         {
-            <a asp-area="" asp-controller="game" asp-action="list" asp-route-genre="@item.Key" class="btn btn-default btn-lg flex-grow-1 tag bg-@item.Value.Class">@SharedLocalizer[item.Value.Display]</a>
+            <a asp-area="" asp-controller="game" asp-action="list" asp-route-genre="@item.Key" class="flex-fill m-1 btn btn-lg tag bg-@item.Value.Class">@SharedLocalizer[item.Value.Display]</a>
         }
     }
 </div>

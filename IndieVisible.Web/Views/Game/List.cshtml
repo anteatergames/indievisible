@@ -1,14 +1,14 @@
 ﻿@{
     var model = ViewBag.Games as List<GameListItemViewModel>;
     var genre = (GameGenre)(ViewData["Genre"] ?? 0);
-    ViewData["Title"] = genre == 0 ? SharedLocalizer["Games"] : SharedLocalizer["{0} Games", genre.ToString()];
+    ViewData["Title"] = genre == 0 ? SharedLocalizer["Games"] : SharedLocalizer["{0} Games", genre.ToUiInfo().Display];
     ViewData["Description"] = SharedLocalizer["Check awesome {0} Games. If this is the type of game you like, you are in the right place!", genre.ToString()];
+
+    var noItems = new ListNoItemsViewModel("fas fa-dizzy", "No results to show!");
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="col-12 d-none d-lg-block">
-    @await Html.PartialAsync("_TagList")
+<div class="col-12">
+    <h1>@ViewData["Title"]</h1>
 </div>
 
 @if (model.Any())
@@ -17,5 +17,12 @@
 }
 else
 {
-    <span>@SharedLocalizer["No results to show"]</span>
+    <div class="col-12">
+        <partial name="_ListNoItems" model="noItems" />
+    </div>
 }
+
+
+<div class="col-12 no-gutters">
+    <partial name="_TagList" model="@ViewData["Genres"]" />
+</div>

@@ -3,6 +3,7 @@ using IndieVisible.Application.Formatters;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Game;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
@@ -78,6 +79,9 @@ namespace IndieVisible.Web.Controllers
 
             ViewBag.Games = latest;
             ViewData["Genre"] = genre;
+
+            Dictionary<GameGenre, UiInfoAttribute> genreDict = Enum.GetValues(typeof(GameGenre)).Cast<GameGenre>().ToUiInfoDictionary();
+            ViewData["Genres"] = genreDict;
 
             return View();
         }

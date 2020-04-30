@@ -27,6 +27,8 @@ html {
     --reddit-color-fg: #fff;
     --reddit-color-fg-hover: #fff;
     --facebook-color-bg: #1877f2;
+    /*game genres*/
+    --game-genre-strategy: var(--color-red);
 }
 
 a {
@@ -485,3 +487,14 @@ a {
     .list-group .list-group-item.active a:hover {
         color: var(--color-highlight);
     }
+
+
+.bg-game-genre-strategy {
+    color: var(--color-white);
+    background-color: var(--game-genre-strategy);
+    opacity: 0.8;
+}
+.bg-game-genre-strategy:hover {
+    color: var(--color-white);
+    opacity: 1;
+}
