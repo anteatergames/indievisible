@@ -4,13 +4,16 @@ using IndieVisible.Application.ViewModels.UserPreferences;
 using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Core.Extensions;
+using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Controllers.Base;
 using IndieVisible.Web.Enums;
 using IndieVisible.Web.Exceptions;
+using IndieVisible.Web.Extensions;
 using IndieVisible.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,11 +25,13 @@ namespace IndieVisible.Web.Controllers
     {
         private readonly IUserPreferencesAppService userPreferencesAppService;
         private readonly IFeaturedContentAppService featuredContentAppService;
+        private readonly IGameAppService gameAppService;
 
-        public HomeController(IUserPreferencesAppService userPreferencesAppService, IFeaturedContentAppService featuredContentAppService) : base()
+        public HomeController(IUserPreferencesAppService userPreferencesAppService, IFeaturedContentAppService featuredContentAppService, IGameAppService gameAppService) : base()
         {
             this.userPreferencesAppService = userPreferencesAppService;
             this.featuredContentAppService = featuredContentAppService;
+            this.gameAppService = gameAppService;
         }
 
         [HttpGet("{handler?}")]
@@ -39,6 +44,10 @@ namespace IndieVisible.Web.Controllers
 
             Dictionary<GameGenre, UiInfoAttribute> genreDict = Enum.GetValues(typeof(GameGenre)).Cast<GameGenre>().ToUiInfoDictionary(true);
             ViewData["Genres"] = genreDict;
+
+            IEnumerable<SelectListItemVo> games = gameAppService.GetByUser(CurrentUserId);
+            List<SelectListItem> gamesDropDown = games.ToSelectList();
+            ViewBag.UserGames = gamesDropDown;
 
             SetGamificationMessage(pointsEarned);
 
@@ -445,7 +454,8 @@ namespace IndieVisible.Web.Controllers
                     "Ask for translation from the community",
                     "Help others, translating terms to your own language",
                     "Import and export files",
-                    "Review translations"
+                    "Review translations",
+                    "Post game content directly from home"
                 }
             });
 

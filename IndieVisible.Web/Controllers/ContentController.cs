@@ -186,7 +186,7 @@ namespace IndieVisible.Web.Controllers
         }
 
         [HttpPost("content/post")]
-        public IActionResult SimplePost(string text, string images, IEnumerable<PollOptionViewModel> pollOptions, SupportedLanguage? language)
+        public IActionResult SimplePost(string text, string images, IEnumerable<PollOptionViewModel> pollOptions, SupportedLanguage? language, Guid? gameId)
         {
             UserContentViewModel vm = new UserContentViewModel
             {
@@ -195,7 +195,8 @@ namespace IndieVisible.Web.Controllers
                 Poll = new PollViewModel
                 {
                     PollOptions = pollOptions.ToList()
-                }
+                },
+                GameId = gameId
             };
 
             ProfileViewModel profile = ProfileAppService.GetByUserId(CurrentUserId, ProfileType.Personal);

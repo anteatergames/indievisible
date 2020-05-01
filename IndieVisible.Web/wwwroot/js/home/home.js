@@ -2,6 +2,7 @@
     "use strict";
 
     var postModalActive = false;
+    var divPostGameActive = false;
     var divPostImagesActive = false;
     var divPostPollActive = false;
 
@@ -38,6 +39,7 @@
         selectors.divCounters = $("#divCounters");
         selectors.divLatestGames = $("#divLatestGames");
         selectors.divActivityFeed = $("#divActivityFeed");
+        selectors.divPostGame = $('div#divPostGame');
         selectors.divPostImages = $('div#divPostImages');
         selectors.divPostPoll = $('div#divPostPoll');
         selectors.txtPostContent = $('#txtPostContent');
@@ -45,11 +47,13 @@
         selectors.commentModal = $('.commentmodal .modal');
         selectors.postImages = $('#txtPostImages');
         selectors.commentModalBody = undefined;
+        selectors.ddlPostGameId = $('#ddlPostGameId');
     }
 
     function bindAll() {
         bindSendSimpleContent();
         bindShowCommentModal();
+        bindBtnPostAddGameBtn();
         bindPostAddImageBtn();
         bindPostTextArea();
         bindBtnPostAddPollBtn();
@@ -80,6 +84,22 @@
             $(this).focus();
             resizePostBox();
             selectors.commentModal.animate({ scrollTop: 0 }, "fast");
+        });
+    }
+
+    function bindBtnPostAddGameBtn() {
+        $('.content').on('click', '#btnPostAddGame', function (e) {
+            if (postModalActive === false) {
+                showPostModal();
+            }
+
+            if (divPostGameActive) {
+                hideGameAdd();
+            } else {
+                showGameAdd();
+            }
+
+            resizePostBox();
         });
     }
 
@@ -144,6 +164,7 @@
 
             var languageSelect = selectors.commentBox.find('#postlanguage');
             var language = languageSelect.val();
+            var gameId = selectors.ddlPostGameId.val();
 
             var pollOptions = document.getElementsByClassName("polloptioninput");
 
@@ -158,7 +179,7 @@
 
             if (!postImagesDropZone || postImagesDropZone.getQueuedFiles().length === 0) {
                 var images = selectors.postImages.val();
-                var json = { text: text, images: images, pollOptions: options, language: language };
+                var json = { text: text, gameId: gameId, images: images, pollOptions: options, language: language };
 
                 sendSimpleContent(json).done(function (response) {
                     if (response.success) {
@@ -187,7 +208,7 @@
                 postImagesDropZone.on("queuecomplete", function (file) {
                     if (success === true) {
                         var images2 = selectors.postImages.val();
-                        var json2 = { text: text, images: images2, pollOptions: options };
+                        var json2 = { text: text, gameId: gameId, images: images2, pollOptions: options };
                         sendSimpleContent(json2).done(function (response) {
                             sendSimpleContentCallback(response, txtArea);
 
@@ -246,6 +267,7 @@
     }
 
     function resizePostBox() {
+        var divPostGameHeight = selectors.divPostGame.outerHeight();
         var divPostImagesHeight = selectors.divPostImages.outerHeight();
         var divPostPollHeight = selectors.divPostPoll.outerHeight();
 
@@ -255,6 +277,10 @@
         var height = defaultCommentBoxHeight + txtPostContentHeight;
 
         var extra = 0;
+        if (divPostGameActive) {
+            height += divPostGameHeight;
+            extra += 10;
+        }
 
         if (divPostImagesActive) {
             height += divPostImagesHeight;
@@ -294,6 +320,12 @@
         resizeTextArea(selectors.txtPostContent[0]);
     }
 
+    function hideGameAdd() {
+        divPostGameActive = false;
+        selectors.divPostGame.hide();
+        selectors.ddlPostGameId.val('');
+    }
+
     function hideImageAdd() {
         divPostImagesActive = false;
         selectors.divPostImages.hide();
@@ -302,6 +334,11 @@
     function hidePollAdd() {
         divPostPollActive = false;
         selectors.divPostPoll.hide();
+    }
+
+    function showGameAdd() {
+        divPostGameActive = true;
+        selectors.divPostGame.show();
     }
 
     function showPollAdd() {
