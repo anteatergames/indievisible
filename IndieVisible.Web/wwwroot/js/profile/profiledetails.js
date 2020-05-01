@@ -251,16 +251,7 @@
     }
 
     function setPopOvers() {
-        $("[data-toggle='popover']").each(function (index, element) {
-            var data = $(element).data();
-            if (data.target) {
-                var contentElementId = data.target;
-                var contentHtml = $(contentElementId).html();
-                data.content = contentHtml;
-                data.html = true;
-            }
-            $(element).popover(data);
-        });
+        $("[data-toggle='popover']").popover({ html: true });
     }
 
     return {
