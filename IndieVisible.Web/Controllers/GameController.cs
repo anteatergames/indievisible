@@ -75,7 +75,7 @@ namespace IndieVisible.Web.Controllers
         [Route("games/{genre:alpha?}")]
         public IActionResult List(GameGenre genre)
         {
-            IEnumerable<GameListItemViewModel> latest = gameAppService.GetLatest(CurrentUserId, 99, Guid.Empty, null, genre);
+            IEnumerable<GameListItemViewModel> latest = gameAppService.GetLatest(CurrentUserId, 200, Guid.Empty, null, genre);
 
             ViewBag.Games = latest;
             ViewData["Genre"] = genre;

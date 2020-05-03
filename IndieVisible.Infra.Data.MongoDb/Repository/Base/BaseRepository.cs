@@ -1,6 +1,7 @@
 ﻿using IndieVisible.Domain.Core.Models;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Infra.Data.MongoDb.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
@@ -70,6 +71,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository.Base
         public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
             IAsyncCursor<TEntity> all = await DbSet.FindAsync(Builders<TEntity>.Filter.Empty);
+
             return all.ToList();
         }
 

@@ -2073,4 +2073,8 @@
     <value>teste</value>
     <comment>Test</comment>
   </data>
+  <data name="characteristics" xml:space="preserve">
+    <value>características</value>
+    <comment>Generic</comment>
+  </data>
 </root>

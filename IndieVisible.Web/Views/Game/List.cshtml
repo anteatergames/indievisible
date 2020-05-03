@@ -1,5 +1,5 @@
 ﻿@{
-    var model = ViewBag.Games as List<GameListItemViewModel>;
+    var games = ViewBag.Games as List<GameListItemViewModel>;
     var genre = (GameGenre)(ViewData["Genre"] ?? 0);
     ViewData["Title"] = genre == 0 ? SharedLocalizer["Games"] : SharedLocalizer["{0} Games", genre.ToUiInfo().Display];
     ViewData["Description"] = SharedLocalizer["Check awesome {0} Games. If this is the type of game you like, you are in the right place!", genre.ToString()];
@@ -8,12 +8,12 @@
 }
 
 <div class="col-12">
-    <h1>@ViewData["Title"]</h1>
+    <h1>@ViewData["Title"] (@games.Count)</h1>
 </div>
 
-@if (model.Any())
+@if (games.Any())
 {
-    @await Html.PartialAsync("_Games", model)
+    @await Html.PartialAsync("_Games", games)
 }
 else
 {
