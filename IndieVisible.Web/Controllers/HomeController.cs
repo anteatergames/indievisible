@@ -455,7 +455,8 @@ namespace IndieVisible.Web.Controllers
                     "Help others, translating terms to your own language",
                     "Import and export files",
                     "Review translations",
-                    "Post game content directly from home"
+                    "Post game content directly from home",
+                    "Set Game Characteristics"
                 }
             });
 

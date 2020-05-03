@@ -31,9 +31,12 @@
         selectors.ddlEngine = '#Engine';
         selectors.divCustomEngineName = '#divCustomEngineName';
         selectors.txtCustomEngineName = '#CustomEngineName';
+        selectors.switchCharacteristic = '.switch-characteristic';
+        selectors.hdnCharacteristic = '.hdnCharacteristic';
     }
 
     function cacheObjects() {
+        objs.container = $('#frmGameSave');
         objs.ddlEngine = $(selectors.ddlEngine);
         objs.divCustomEngineName = $(selectors.divCustomEngineName);
         objs.txtCustomEngineName = $(selectors.txtCustomEngineName);
@@ -46,6 +49,8 @@
         bindCropGameThumbnail();
         bindCropGameCoverImage();
         bindEngineChange();
+
+        bindSwitchCharacteristicChange();
     }
 
     function bindSelect2() {
@@ -67,6 +72,23 @@
             }
             else {
                 objs.divCustomEngineName.show().removeClass('d-none');
+            }
+        });
+    }
+
+
+    function bindSwitchCharacteristicChange() {
+        objs.container.on('change', selectors.switchCharacteristic, function () {
+            var obj = $(this);
+            var isChecked = obj.is(':checked');
+
+            var hdn = obj.parent().find(selectors.hdnCharacteristic);
+
+            if (isChecked) {
+                hdn.val('True');
+            }
+            else {
+                hdn.val('False');
             }
         });
     }

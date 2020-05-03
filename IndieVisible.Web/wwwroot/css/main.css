@@ -110,7 +110,7 @@ select.form-control {
         filter: blur(0);
     }
 
-.btn-benefit-icon {
+.btn-icon {
     position: relative;
     text-align: left;
     white-space: nowrap;
@@ -120,7 +120,7 @@ select.form-control {
     padding: 0;
 }
 
-    .btn-benefit-icon > :first-child {
+    .btn-icon > :first-child {
         position: absolute;
         left: 0;
         top: 0;
@@ -131,7 +131,7 @@ select.form-control {
         width: 100%
     }
 
-.btn-benefit-icon-sm {
+.btn-icon-sm {
     position: relative;
     text-align: left;
     white-space: nowrap;
@@ -141,7 +141,7 @@ select.form-control {
     padding: 0;
 }
 
-    .btn-benefit-icon-sm > :first-child {
+    .btn-icon-sm > :first-child {
         position: absolute;
         left: 0;
         top: 0;

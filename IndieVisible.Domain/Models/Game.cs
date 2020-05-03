@@ -44,9 +44,12 @@ namespace IndieVisible.Domain.Models
 
         public virtual List<GameLike> Likes { get; set; }
 
+        public List<GameCharacteristicVo> Characteristics { get; set; }
+
         public Game()
         {
             ExternalLinks = new List<ExternalLinkVo>();
+            Characteristics = new List<GameCharacteristicVo>();
         }
     }
 }

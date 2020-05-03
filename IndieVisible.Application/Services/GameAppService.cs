@@ -102,6 +102,8 @@ namespace IndieVisible.Application.Services
 
                 FormatExternalLinks(vm);
 
+                FilCharacteristics(vm);
+
                 return new OperationResultVo<GameViewModel>(vm);
             }
             catch (Exception ex)
@@ -121,6 +123,9 @@ namespace IndieVisible.Application.Services
             };
 
             FormatExternalLinksForEdit(ref vm);
+
+            vm.Characteristics = Enum.GetValues(typeof(GameCharacteristcs)).Cast<GameCharacteristcs>().Where(x => x != GameCharacteristcs.NotInformed).Select(x => new GameCharacteristicVo { Characteristic = x, Available = false }).ToList();
+
 
             return new OperationResultVo<GameViewModel>(vm);
         }
@@ -468,6 +473,23 @@ namespace IndieVisible.Application.Services
             }
 
             vm.ExternalLinks = vm.ExternalLinks.OrderByDescending(x => x.Type).ThenBy(x => x.Provider).ToList();
+        }
+
+        private static void FilCharacteristics(GameViewModel vm)
+        {
+            if (vm.Characteristics == null)
+            {
+                vm.Characteristics = new List<GameCharacteristicVo>();
+            }
+            List<GameCharacteristcs> allBenefits = Enum.GetValues(typeof(GameCharacteristcs)).Cast<GameCharacteristcs>().Where(x => x != GameCharacteristcs.NotInformed).ToList();
+
+            foreach (GameCharacteristcs characteristic in allBenefits)
+            {
+                if (!vm.Characteristics.Any(x => x.Characteristic == characteristic))
+                {
+                    vm.Characteristics.Add(new GameCharacteristicVo { Characteristic = characteristic, Available = false });
+                }
+            }
         }
     }
 }

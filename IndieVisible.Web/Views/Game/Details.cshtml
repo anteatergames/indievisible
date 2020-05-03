@@ -171,7 +171,7 @@
                     <div class="box bg-white">
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded img-fluid" alt="@SharedLocalizer["Game Thumbnail"]" /></div>
+                                <div class="col-12"><img src="@Model.ThumbnailUrl" class="rounded w-100 img-fluid" alt="@SharedLocalizer["Game Thumbnail"]" /></div>
 
                                 <div class="col-12 game-external-links text-center">
                                     @foreach (var item in Model.ExternalLinks.Where(x => !x.IsStore && (x.Type == ExternalLinkType.General || x.Type == ExternalLinkType.ProfileAndGame)))
@@ -235,8 +235,40 @@
                                             </div>
                                         </div>
                                     }
+
+                                    <div class="col-12">
+                                        <h6 class="col-form-label text-capitalize">
+                                            @SharedLocalizer["characteristics"]
+                                        </h6>
+                                        <div class="row">
+                                            <div class="col-12 px-5">
+                                                @if (Model.Characteristics == null || Model.Characteristics.All(x => !x.Available))
+                                                {
+                                                    <span>@SharedLocalizer[GameCharacteristcs.NotInformed.ToUiInfo().Display]</span>
+                                                }
+                                                else
+                                                {
+                                                    <div class="row">
+                                                        @foreach (var characteristics in Model.Characteristics)
+                                                        {
+                                                            if (characteristics.Available)
+                                                            {
+                                                                <div class="col-12 col-md-6 mb-1">
+                                                                    <div class="border bg-dark text-white p-1">
+                                                                        <span class="btn border p-1 rounded-circle btn-icon-sm bg-label" title="@characteristics.Characteristic.ToUiInfo().Display"><i class="fas fa-@(characteristics.Characteristic.ToUiInfo().Class)" aria-hidden="true"></i></span>
+                                                                        <span>@SharedLocalizer[characteristics.Characteristic.ToUiInfo().Display]</span>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-12 mt-3">
-                                        <h6>
+                                        <h6 class="col-form-label text-capitalize">
                                             @SharedLocalizer["Team"]
                                         </h6>
                                         <partial name="~/Views/Team/_TeamListItem.cshtml" model="Model.Team" />
