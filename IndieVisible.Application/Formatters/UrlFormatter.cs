@@ -119,6 +119,11 @@ namespace IndieVisible.Application.Formatters
 
         public static string Image(Guid userId, BlobType type, string fileName, int width, int quality, bool responsive)
         {
+            if (Constants.DefaultGameThumbnail.Contains(fileName))
+            {
+                return Constants.DefaultGameThumbnail;
+            }
+
             string url = CdnCommon(userId, fileName, responsive, width, quality);
 
             return url;
