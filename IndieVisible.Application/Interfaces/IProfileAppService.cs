@@ -26,6 +26,8 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo UserUnfollow(Guid currentUserId, Guid userId);
 
+        OperationResultVo GetAllIds(Guid empty);
+
         #region Connections
 
         OperationResultVo Connect(Guid currentUserId, Guid userId);

@@ -73,6 +73,20 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = gameDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo<GameViewModel> GetById(Guid currentUserId, Guid id)
         {
             return GetById(currentUserId, id, false);

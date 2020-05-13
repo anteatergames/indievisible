@@ -53,6 +53,13 @@ namespace IndieVisible.Domain.Services
             return objs.ToList();
         }
 
+        public virtual IEnumerable<Guid> GetAllIds()
+        {
+            IEnumerable<Guid> objs = repository.Get().Select(x => x.Id);
+
+            return objs.ToList();
+        }
+
         public virtual T GetById(Guid id)
         {
             T obj = repository.GetById(id).Result;

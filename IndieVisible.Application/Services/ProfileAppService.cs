@@ -96,6 +96,21 @@ namespace IndieVisible.Application.Services
             }
         }
 
+
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = profileDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo<ProfileViewModel> GetById(Guid currentUserId, Guid id)
         {
             try

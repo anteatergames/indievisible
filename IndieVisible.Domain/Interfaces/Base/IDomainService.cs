@@ -13,6 +13,8 @@ namespace IndieVisible.Domain.Interfaces
 
         IEnumerable<T> GetAll();
 
+        IEnumerable<Guid> GetAllIds();
+
         IQueryable<T> Search(Expression<Func<T, bool>> where);
 
         T GetById(Guid id);

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using IndieVisible.Application.Interfaces;
+using IndieVisible.Domain.ValueObjects;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,6 +21,9 @@ namespace IndieVisible.Web.Middlewares
         private readonly List<string> forbiddenAreas;
 
         private readonly List<KeyValuePair<string, string>> forbidden;
+
+        public IGameAppService GameAppService { get; private set; }
+        public IProfileAppService ProfileAppService { get; private set; }
 
         public SitemapMiddleware(RequestDelegate next, string rootUrl)
         {
@@ -42,7 +47,6 @@ namespace IndieVisible.Web.Middlewares
 
                 { "*", "edit" },
                 { "*", "delete" },
-                { "*", "details" },
 
                 { "account", "lockout" },
                 { "account", "externallogin" },
@@ -72,7 +76,6 @@ namespace IndieVisible.Web.Middlewares
                 { "brainstorm", "list" },
                 { "brainstorm", "newsession" },
                 { "brainstorm", "newidea" },
-                { "brainstorm", "details" },
 
                 { "userbadge", "list" },
 
@@ -105,8 +108,11 @@ namespace IndieVisible.Web.Middlewares
             };
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, IGameAppService gameAppService, IProfileAppService profileAppService)
         {
+            GameAppService = gameAppService;
+            ProfileAppService = profileAppService;
+
             if (context.Request.Path.Value.Equals("/sitemap.xml", StringComparison.OrdinalIgnoreCase))
             {
                 Stream stream = context.Response.Body;
@@ -147,39 +153,57 @@ namespace IndieVisible.Web.Middlewares
 
             foreach (MethodInfo method in methods)
             {
-                sitemapContent = CheckMethod(sitemapContent, controller, method);
+                sitemapContent += CheckMethod(controller, method);
+            }
+
+            List<string> detailMethods = CheckDetailsMethod(controller);
+
+            foreach (string method in detailMethods)
+            {
+                sitemapContent += method;
             }
 
             return sitemapContent;
         }
 
-        private string CheckMethod(string sitemapContent, Type controller, MethodInfo method)
+        private string CheckMethod(Type controller, MethodInfo method)
         {
-            string controllerName = controller.Name.ToLower().Replace("controller", "");
+            bool isPost = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPostAttribute));
+            bool isDelete = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpDeleteAttribute));
+            bool isPut = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPutAttribute));
+
+            RouteAttribute routeAttribute = method.GetCustomAttributes<RouteAttribute>().FirstOrDefault();
+
+            var hasParameter = routeAttribute != null && !routeAttribute.Template.Contains("{");
+            var routeTemplate = routeAttribute != null ? routeAttribute.Template.Trim('/') : string.Empty;
+             
             string actionName = method.Name.ToLower();
+
+            return CheckMethod(controller, actionName, isPost, isDelete, isPut, hasParameter, routeTemplate);
+        }
+
+        private string CheckMethod(Type controller, string actionName, bool isPost, bool isDelete, bool isPut, bool hasParameter, string routeTemplate)
+        {
+            string sitemapContent = string.Empty;
+
+            string controllerName = controller.Name.ToLower().Replace("controller", "");
 
             bool isForbidden = forbidden.Contains(new KeyValuePair<string, string>(controllerName, actionName));
             isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>(controllerName, "*"));
             isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>("*", actionName));
-
-            bool isPost = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPostAttribute));
-            bool isDelete = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpDeleteAttribute));
-            bool isPut = method.CustomAttributes.Any(x => x.AttributeType == typeof(HttpPutAttribute));
             bool areaForbidden = forbiddenAreas.Any(x => controller.Namespace.ToLower().Contains(".areas." + x));
 
             if (!isPost && !isDelete && !isPut && !areaForbidden && !isForbidden)
             {
                 sitemapContent += "<url>";
 
-                RouteAttribute routeAttribute = method.GetCustomAttributes<RouteAttribute>().FirstOrDefault();
-
-                if (routeAttribute != null && !routeAttribute.Template.Contains("{"))
+                if (hasParameter)
                 {
-                    sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), routeAttribute.Template.Trim('/'));
+                    sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), routeTemplate);
                 }
                 else
                 {
-                    string methodName = method.Name.ToLower().Equals("index") ? string.Empty : actionName;
+                    string methodName = actionName.Equals("index") ? string.Empty : actionName;
                     if (string.IsNullOrWhiteSpace(methodName))
                     {
                         sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'));
@@ -196,12 +220,58 @@ namespace IndieVisible.Web.Middlewares
 
             return sitemapContent;
         }
+
+        private List<string> CheckDetailsMethod(Type controller)
+        {
+            var methodList = new List<string>();
+
+            if (controller.Name.Equals("GameController"))
+            {
+                OperationResultVo result = GameAppService.GetAllIds(Guid.Empty);
+
+                if (result.Success)
+                {
+                    OperationResultListVo<Guid> castResult = result as OperationResultListVo<Guid>;
+
+                    foreach (Guid gameId in castResult.Value)
+                    {
+                        var route = string.Format("game/{0}", gameId.ToString());
+
+                        var sitemapItem = CheckMethod(controller, "details", false, false, false, true, route);
+
+                        methodList.Add(sitemapItem);
+                    }
+                }
+            }
+
+            if (controller.Name.Equals("ProfileController"))
+            {
+                OperationResultVo result = ProfileAppService.GetAllIds(Guid.Empty);
+
+                if (result.Success)
+                {
+                    OperationResultListVo<Guid> castResult = result as OperationResultListVo<Guid>;
+
+                    foreach (Guid userId in castResult.Value)
+                    {
+                        var route = string.Format("profile/{0}", userId.ToString());
+
+                        var sitemapItem = CheckMethod(controller, "details", false, false, false, true, route);
+
+                        methodList.Add(sitemapItem);
+                    }
+                }
+            }
+
+            return methodList;
+        }
     }
 
     public static class BuilderExtensions
     {
         public static IApplicationBuilder UseSitemapMiddleware(this IApplicationBuilder app, string rootUrl = "https://www.indievisible.net")
         {
+
             return app.UseMiddleware<SitemapMiddleware>(new[] { rootUrl });
         }
     }
