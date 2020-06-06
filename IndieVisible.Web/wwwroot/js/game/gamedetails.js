@@ -13,7 +13,7 @@
         ACTIVITYFEED.Init(objs.divActivityFeed, FEEDTYPE.GAME, objs.Id.val());
         ACTIVITYFEED.Methods.LoadActivityFeed();
 
-        setPopOvers();
+        MAINMODULE.Common.BindPopOvers();
     }
 
     function setSelectors() {
@@ -81,19 +81,6 @@
                 method: 'share',
                 href: url
             }, function (response) { });
-        });
-    }
-
-    function setPopOvers() {
-        $("[data-toggle='popover']").each(function (index, element) {
-            var data = $(element).data();
-            if (data.target) {
-                var contentElementId = data.target;
-                var contentHtml = $(contentElementId).html();
-                data.content = contentHtml;
-                data.html = true;
-            }
-            $(element).popover(data);
         });
     }
 

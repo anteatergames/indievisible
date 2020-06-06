@@ -57,12 +57,20 @@ else
                 @{int i = 0;}
                 @foreach (var member in Model.Members)
                 {
-                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId" data-toggle="popover" data-trigger="hover" data-target="#divPopOver@(member.Id)">
+                    var memberId = String.Format("{0}_{1}", Model.Id.ToString().Replace("-", string.Empty), member.UserId.ToString().Replace("-", string.Empty));
+
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@member.UserId" data-toggle="popover" data-trigger="hover" data-target="#divPopOver@(memberId)">
                         <img class="rounded-circle lazyload avatar" data-src="@member.ProfileImage" style="left: -@(i * 30)px; z-index: @(Model.Members.Count - i)" src="@member.ProfileImage" alt="@member.Quote">
                     </a>
-                    <div id="divPopOver@(member.Id)" style="display:none">
-                        <h5>@member.Name</h5>
-                        <span>@member.Quote</span>
+                    <div id="divPopOver@(memberId)" style="display:none">
+                        @if (!string.IsNullOrWhiteSpace(member.Name))
+                        {
+                            <h5>@member.Name</h5>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(member.Quote))
+                        {
+                            <span>@member.Quote</span>
+                        }
                     </div>
                     i++;
                 }

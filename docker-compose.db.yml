@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  indievisible-db:
+      container_name: indievisible-db
+      command: mongod --auth
+      image: mongo:latest
+      ports:
+      - '27017:27017'
+      environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=admin

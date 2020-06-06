@@ -6,44 +6,40 @@
     var htmlYesNo = @"<i class="" text-{0} fa fa-2x fa-{1}-circle"" data-toggle=""tooltip"" data-placement=""top"" title=""{2}"" aria-hidden=""true"">&nbsp;</i>";
 }
 
-<div class="box box-default">
-    <div class="box-body">
-        <div class="col-12 table-responsive">
-            <table class="table table-hover table-striped text-center">
-                <caption class="sr-only">@SharedLocalizer["Featured Content"]</caption>
-                <thead>
-                    <tr>
-                        <th scope="col" colspan="2">Title</th>
-                        <th scope="col">Intro</th>
-                        <th scope="col">Content</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Likes</th>
-                        <th scope="col">Comments</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr data-id="@item.Id" data-featureid="@item.CurrentFeatureId">
-                            <td class="text-left">@item.Title</td>
-                            <td>@Html.Raw(String.Format(htmlYesNo, (item.TitleCompliant ? "green" : "red"), (item.TitleCompliant ? "check" : "times"), item.Title))</td>
-                            <td>@Html.Raw(String.Format(htmlYesNo, (item.IntroCompliant ? "green" : "red"), (item.IntroCompliant ? "check" : "times"), item.Introduction))</td>
-                            <td>@Html.Raw(String.Format(htmlYesNo, (item.ContentCompliant ? "green" : "red"), (item.ContentCompliant ? "check" : "times"), item.Content.Length))</td>
-                            <td>@item.CreateDate.ToString()</td>
-                            <td>@item.LikeCount</td>
-                            <td>@item.CommentCount</td>
-                            <td>
-                                <div class="col-12">
-                                    <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-default bg-blue text-white"><i class="fa fa-fw fa-2x fa-eye" aria-hidden="true"></i></a>
-                                    <button class="btn btn-default bg-green text-white btn-feature-ok" @(item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></button>
-                                    <button class="btn btn-default bg-red text-white btn-feature-nok" @(!item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-down" aria-hidden="true"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div class="col-12 table-responsive">
+    <table class="table table-hover table-striped text-center">
+        <caption class="sr-only">@SharedLocalizer["Featured Content"]</caption>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">Title</th>
+                <th scope="col">Intro</th>
+                <th scope="col">Content</th>
+                <th scope="col">Date</th>
+                <th scope="col">Likes</th>
+                <th scope="col">Comments</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr data-id="@item.Id" data-featureid="@item.CurrentFeatureId">
+                    <td class="text-left">@item.Title</td>
+                    <td>@Html.Raw(String.Format(htmlYesNo, (item.TitleCompliant ? "green" : "red"), (item.TitleCompliant ? "check" : "times"), item.Title))</td>
+                    <td style="max-width:10px">@Html.Raw(String.Format(htmlYesNo, (item.IntroCompliant ? "green" : "red"), (item.IntroCompliant ? "check" : "times"), item.Introduction))</td>
+                    <td style="max-width:10px">@Html.Raw(String.Format(htmlYesNo, (item.ContentCompliant ? "green" : "red"), (item.ContentCompliant ? "check" : "times"), item.Content.Length))</td>
+                    <td style="max-width:100px">@item.CreateDate.ToString()</td>
+                    <td style="max-width:10px">@item.LikeCount</td>
+                    <td style="max-width:10px">@item.CommentCount</td>
+                    <td style="width:250px">
+                        <div class="col-12">
+                            <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id" class="btn btn-default btn-sm bg-blue text-white"><i class="fa fa-fw fa-2x fa-eye" aria-hidden="true"></i></a>
+                            <button class="btn btn-default btn-sm bg-green text-white btn-feature-ok" @(item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></button>
+                            <button class="btn btn-default btn-sm bg-red text-white btn-feature-nok" @(!item.IsFeatured ? "disabled=disabled" : string.Empty)><i class="fa fa-fw fa-2x fa-caret-down" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

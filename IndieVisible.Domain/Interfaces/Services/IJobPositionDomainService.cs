@@ -4,7 +4,7 @@ using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 
-namespace IndieVisible.Domain.Interfaces.Service
+namespace IndieVisible.Domain.Interfaces.Services
 {
     public interface IJobPositionDomainService : IDomainService<JobPosition>
     {

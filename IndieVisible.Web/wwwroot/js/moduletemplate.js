@@ -52,7 +52,7 @@
 
         if (isIndex) {
             var url = objs.urls.data('urlList');
-            loadTranslations(false, url);
+            loadItems(false, url);
         }
         else if (isDetails) {
             bindDetails();
@@ -91,28 +91,14 @@
     }
 
     function loadItems(fromControlSidebar, url) {
-        objs.list.html(MAINMODULE.Default.Spinner);
-        objs.containerDetails.html('');
-        objs.containerDetails.hide();
-
-        $.get(url, function (data) {
-            if (fromControlSidebar) {
-                objs.list.html(data);
-                objs.containerList.show();
-                cacheObjects();
-            }
-            else {
-                objs.list.html(data);
-            }
+        MAINMODULE.Ajax.LoadHtml(url, objs.list).then(() => {
+            cacheObjects();
         });
     }
 
     function loadNewForm(url) {
-        objs.containerDetails.html(MAINMODULE.Default.Spinner);
         objs.containerList.hide();
-
-        $.get(url, function (data) {
-            objs.containerDetails.html(data);
+        MAINMODULE.Ajax.LoadHtml(url, objs.containerDetails).then(() => {
             objs.containerDetails.show();
 
             objs.form = $(selectors.form);

@@ -3,7 +3,8 @@ using IndieVisible.Application.Services;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Repository;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Services;
 using IndieVisible.Infra.CrossCutting.Abstractions;
 using IndieVisible.Infra.CrossCutting.Notifications;
@@ -122,13 +123,22 @@ namespace IndieVisible.Infra.CrossCutting.IoC
 
             #endregion Jobs
 
-            #region Translations
+            #region Localization
 
             services.AddScoped<ILocalizationAppService, LocalizationAppService>();
             services.AddScoped<ILocalizationDomainService, TranslationDomainService>();
             services.AddScoped<ILocalizationRepository, TranslationRepository>();
 
-            #endregion Translations
+            #endregion Localization
+
+            #region Study
+
+            services.AddScoped<IStudyAppService, StudyAppService>();
+            services.AddScoped<IStudyDomainService, StudyDomainService>();
+            services.AddScoped<IStudyCourseRepository, StudyCourseRepository>();
+            services.AddScoped<IStudyGroupRepository, StudyGroupRepository>();
+
+            #endregion Study
 
             // Infra
             services.AddTransient<INotificationSender, SendGridSlackNotificationService>();

@@ -107,7 +107,7 @@
     }
 
     function loadNotifications() {
-        $.get("/home/notifications", function (data) { objs.notificationsMenu.html(data); });
+        MAINMODULE.Ajax.LoadHtml("/home/notifications", objs.notificationsMenu);
     }
 
     function handlePointsEarned(response) {
@@ -278,14 +278,100 @@
         }
     }
 
-    function bindPopOvers() {
-        $("[data-toggle='popover']").popover({ html: true });
+    function bindPopOvers(multiple) {
+        if (multiple) {
+            $("[data-toggle='popover']").each(function (index, element) {
+                var data = $(element).data();
+                if (data.target) {
+                    var contentElementId = data.target;
+                    var contentHtml = $(contentElementId).html().trim();
+                    data.content = contentHtml;
+                }
+
+                $(element).popover({ html: true });
+            });
+        } else {
+            $("[data-toggle='popover']").popover({ html: true });
+        }
     }
+
+    async function getHtml(url) {
+
+        var useJquery = false;
+        var promise;
+
+        if (useJquery) {
+            promise = $.get(url);
+        }
+        else {
+            promise = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            }).then(function (response) {
+                return response.text();
+            });
+        }
+
+        return promise;
+    }
+
+    async function loadHtml(url, listObj) {
+        var idList = '';
+
+        if (listObj instanceof jQuery) {
+            idList = listObj.attr('id');
+        }
+        else {
+            idList = listObj;
+        }
+
+        if (idList === undefined) {
+            return Promise.resolve();
+        }
+
+        document.querySelector('#' + idList).innerHTML = MAINMODULE.Default.SpinnerTop;
+
+        const promise = await getHtml(url)
+            .then(function (body) {
+                document.querySelector('#' + idList).innerHTML = body;
+
+                //lazyLoadInstance.update();
+
+                return body;
+            });
+
+        return promise;
+    }
+
+    function getFormData($form) {
+        var unindexed_array = $form.serializeArray();
+        var indexed_array = {};
+
+        $.map(unindexed_array, function (n, i) {
+            indexed_array[camelize(n['name'])] = n['value'];
+        });
+
+        return indexed_array;
+    }
+
+    function camelize(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
+            if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+            return index === 0 ? match.toLowerCase() : match.toUpperCase();
+        });
+    }
+
 
     return {
         Init: init,
         Layout: {
             SetStickyElement: setStickyElement
+        },
+        Ajax: {
+            GetHtml: getHtml,
+            LoadHtml: loadHtml
         },
         Common: {
             HandlePointsEarned: handlePointsEarned,
@@ -305,26 +391,17 @@
             SpinnerTop: spinnerTop,
             SpinnerBtn: spinnerBtn,
             DoneBtn: doneBtn
+        },
+        Tools: {
+            GetFormData: getFormData,
+            Camelize: camelize
         }
     };
 }());
 
-$(function () {
-    MAINMODULE.Init();
-});
+MAINMODULE.Init();
 
-$.fn.serializeObject = function () {
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function () {
-        if (o[this.name]) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
+//var lazyLoadInstance = new LazyLoad({
+//    elements_selector: ".lazyload",
+//    callback_loaded: (el) => { el.classList.remove("blur-up"); }
+//});

@@ -1,0 +1,78 @@
+﻿@model StudyCourseViewModel
+@{
+    Layout = null;
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+<h1 class="sr-only">@ViewData["Title"]</h1>
+
+<div class="box bg-white">
+
+    <div class="box-header with-border">
+        <div class="float-left mr-3">
+            <a asp-area="learn" asp-controller="study" asp-action="index" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        </div>
+        <h3 class="card-title">@Model.Name</h3>
+
+        <div class="box-tools">
+            <div class="btn-group">
+                <button type="button" class="btn  btn-box-tool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu text-capitalize" x-placement="bottom-start" style="position: absolute; transform: translate3d(-67px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a asp-area="learn" asp-controller="course" asp-action="edit" asp-route-id="@Model.Id" class="dropdown-item">@SharedLocalizer["edit"]</a>
+
+                    @if (Model.Permissions.CanDelete)
+                    {
+                        <a class="btnDeleteCourse dropdown-item" href="#" data-url="@Url.Action("delete", "course", new { area = "learn", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this Translation Project?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-body p-0 px-md-2">
+        <div class="row">
+
+            <div class="col-12">
+                <div class="border mb-3 p-2 bg-light">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="user-block">
+                                <a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">
+                                    <img class="rounded-circle" src="@Model.AuthorPicture" alt="This is @Model.AuthorName">
+                                </a>
+                                <span class="username"><a asp-area="" asp-controller="profile" asp-action="details" asp-route-id="@Model.UserId">@SharedLocalizer["by {0}", Model.AuthorName]</a></span>
+                                <span class="description">@SharedLocalizer["at {0}", Model.CreateDate.ToString()]</span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <label class="col-form-label">@SharedLocalizer["{0} students enrolled", Model.Members.Count]</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 p-4">
+                @Html.Raw(Model.Description)
+            </div>
+
+            <div class="col-12">
+                <label class="col-form-label">@SharedLocalizer["Skill set you will acquire in this course."]</label>
+                <br />
+                @foreach (var skill in Model.SkillSet)
+                {
+                    <div class="d-inline-flex mb-1">
+                        <div class="border bg-dark text-white p-2">
+                            <span>@SharedLocalizer[skill.ToDisplayName()]</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div id="divPlans"></div>
+    </div>
+</div>

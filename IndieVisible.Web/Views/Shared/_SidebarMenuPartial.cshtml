@@ -11,14 +11,8 @@
             </a>
             <ul class="submenu">
                 <li><a asp-area="" asp-controller="user" asp-action="list"><i class="fas fa-fw fa-user" aria-hidden="true"></i><span>&nbsp;@SharedLocalizer["Users"]</span></a></li>
-                <li><a asp-area="" asp-controller="game" asp-action="list" asp-route-genre=""><i class="fa fa-fw fa-gamepad" aria-hidden="true"></i><span>&nbsp;@SharedLocalizer["Games"]</span></a></li>
+                <li><a asp-area="" asp-controller="game" asp-action="list" asp-route-genre=""><i class="fas fa-fw fa-gamepad" aria-hidden="true"></i><span>&nbsp;@SharedLocalizer["Games"]</span></a></li>
                 <li><a asp-area="gamification" asp-controller="ranking" asp-action="index"><i class="fas fa-fw fa-trophy" aria-hidden="true"></i><span>&nbsp;@SharedLocalizer["Ranking"]</span></a></li>
-                @*<li><a href="#" class="notimplemented"><i class="fa fa-building" aria-hidden="true">&nbsp;</i><span>@SharedLocalizer["Studios"]</span></a></li>
-                    <li><a href="#" class="notimplemented"><i class="fa fa-paperclip" aria-hidden="true">&nbsp;</i><span>@SharedLocalizer["Articles"]</span></a></li>
-                    <li><a href="#" class="notimplemented"><i class="fa fa-newspaper" aria-hidden="true">&nbsp;</i><span>@SharedLocalizer["News"]</span></a></li>
-                    <li><a href="#" class="notimplemented"><i class="fa fa-user" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Profile"]</a></li>
-                    <li><a href="#" class="notimplemented"><i class="fa fa-book" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Portfolio"]</a></li>
-                    <li><a href="#" class="notimplemented"><i class="fa fa-sticky-note" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Content"]</a></li>*@
             </ul>
         </li>
         <li>
@@ -30,12 +24,15 @@
                 </span>
             </a>
             <ul class="submenu">
-                <li><a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id=""><i class="fa fa-fw fa-brain" aria-hidden="true"></i><span>&nbsp;@SharedLocalizer["Think"]</span></a></li>
-                <li><a asp-area="" asp-controller="team" asp-action="index"><i class="fa fa-fw fa-users" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Team up"]</a></li>
-                @*<li><a href="#" class="notimplemented"><i class="fa fa-fw fa-shapes" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Jam"]</a></li>*@
-                @*<li><a href="#" class="notimplemented"><i class="fa fa-fw fa-hand-spock" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Meet"]</a></li>*@
-                <li><a asp-area="work" asp-controller="jobposition" asp-action="index"><i class="fa fa-fw fa-briefcase" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Work"]</a></li>
-                @*<li><a href="#" class="notimplemented"><i class="fa fa-fw fa-check-circle" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Vote"]</a></li>*@
+                <li><a asp-area="" asp-controller="brainstorm" asp-action="index" asp-route-id=""><i class="fas fa-fw fa-brain" aria-hidden="true"></i><span>&nbsp;@SharedLocalizer["Think"]</span></a></li>
+                <li><a asp-area="" asp-controller="team" asp-action="index"><i class="fas fa-fw fa-users" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Team up"]</a></li>
+                @*<li><a href="#" class="notimplemented"><i class="fas fa-fw fa-shapes" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Jam"]</a></li>*@
+                @*<li><a href="#" class="notimplemented"><i class="fas fa-fw fa-hand-spock" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Meet"]</a></li>*@
+                <li><a asp-area="work" asp-controller="jobposition" asp-action="index"><i class="fas fa-fw fa-briefcase" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Work"]</a></li>
+                <environment exclude="Production">
+                    <li><a asp-area="learn" asp-controller="study" asp-action="index"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Study"]</a></li>
+                </environment>
+                @*<li><a href="#" class="notimplemented"><i class="fas fa-fw fa-check-circle" aria-hidden="true"></i>&nbsp;@SharedLocalizer["Vote"]</a></li>*@
             </ul>
         </li>
         <li>

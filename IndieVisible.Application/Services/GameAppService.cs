@@ -11,7 +11,7 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Core.Interfaces;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications;
 using IndieVisible.Domain.ValueObjects;

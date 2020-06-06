@@ -1,0 +1,41 @@
+﻿@model IEnumerable<StudyCourseListItemVo>
+
+@{
+    Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "What? You don't have Courses!");
+
+    var description = ViewData["ListDescription"] == null ? SharedLocalizer["courses"] : (string)ViewData["ListDescription"];
+}
+
+<div class="col-12">
+    <h2>@SharedLocalizer[description]</h2>
+</div>
+
+@if (!Model.Any())
+{
+    <partial name="_ListNoItems" model="noItemsModel" />
+}
+else
+{
+    <div class="col-12 bg-white">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@SharedLocalizer["Course Name"]</th>
+                    <th>@SharedLocalizer["Students"]</th>
+                    <th>@SharedLocalizer["Open"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@item.Name</span></a></td>
+                    <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@item.StudentCount</span></a></td>
+                    <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@SharedLocalizer[item.OpenForApplication ? "yes" : "no"]</span></a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

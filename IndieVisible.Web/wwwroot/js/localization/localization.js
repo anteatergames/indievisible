@@ -55,31 +55,13 @@
         objs.containerDetails.html('');
         objs.containerDetails.hide();
 
-        $.get(url, function (data) {
-            if (fromControlSidebar) {
-                objs.list.html(data);
-                objs.containerList.show();
-                cacheObjects();
-            }
-            else {
-                objs.list.html(data);
-            }
-        });
+        MAINMODULE.Ajax.LoadHtml(url, objs.list);
     }
 
     function loadMyProjects(fromControlSidebar, url) {
         objs.myProjects.html(MAINMODULE.Default.SpinnerTop);
 
-        $.get(url, function (data) {
-            if (fromControlSidebar) {
-                objs.myProjects.html(data);
-                objs.containerList.show();
-                cacheObjects();
-            }
-            else {
-                objs.myProjects.html(data);
-            }
-        });
+        MAINMODULE.Ajax.LoadHtml(url, objs.myProjects);
     }
 
     return {

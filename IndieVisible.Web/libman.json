@@ -43,7 +43,7 @@
       "destination": "wwwroot/lib/select2"
     },
     {
-      "library": "limonte-sweetalert2@7.33.1",
+      "library": "limonte-sweetalert2@8.11.8",
       "destination": "wwwroot/lib/limonte-sweetalert"
     },
     {
@@ -53,10 +53,6 @@
     {
       "library": "cropperjs@1.5.6",
       "destination": "wwwroot/lib/cropperjs"
-    },
-    {
-      "library": "lazysizes@5.2.0",
-      "destination": "wwwroot/lib/lazysizes"
     },
     {
       "library": "dropzone@5.7.0",
@@ -77,6 +73,14 @@
     {
       "library": "bootstrap-star-rating@4.0.6",
       "destination": "wwwroot/lib/bootstrap-star-rating"
+    },
+    {
+      "library": "vanilla-lazyload@16.1.0",
+      "destination": "wwwroot/lib/vanilla-lazyload"
+    },
+    {
+      "library": "lazysizes@5.2.2",
+      "destination": "wwwroot/lib/lazysizes"
     }
   ]
 }

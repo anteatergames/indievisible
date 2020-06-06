@@ -71,7 +71,7 @@
 
             @if (item.HasFeaturedImage)
             {
-                <div class="col-12 text-center featuredimage @item.FeaturedMediaType">
+                <div class="col-12 text-center overflow-hidden rounded-0 featuredimage @item.FeaturedMediaType">
                     <a asp-area="" asp-controller="content" asp-action="details" asp-route-id="@item.Id">
                         @if (item.FeaturedMediaType == MediaType.Youtube)
                         {

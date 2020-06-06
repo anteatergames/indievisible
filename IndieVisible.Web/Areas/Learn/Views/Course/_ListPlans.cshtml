@@ -1,0 +1,23 @@
+﻿@model IEnumerable<StudyCourseListItemVo>
+
+@{
+    Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "No Plans for this course!");
+
+    var description = ViewData["ListDescription"] == null ? SharedLocalizer["plans"] : (string)ViewData["ListDescription"];
+}
+
+<hr />
+
+<div class="col-12">
+    <h2>@SharedLocalizer[description]</h2>
+</div>
+
+@if (!Model.Any())
+{
+    <partial name="_ListNoItems" model="noItemsModel" />
+}
+else
+{
+    <span>meh</span>
+}

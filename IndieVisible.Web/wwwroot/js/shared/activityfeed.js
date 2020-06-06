@@ -103,7 +103,7 @@ var ACTIVITYFEED = (function () {
             url += '&oldestDate=' + oldestDate;
         }
 
-        $.get(url, function (response) {
+        MAINMODULE.Ajax.GetHtml(url).then((response) => {
             if (oldestDate !== undefined && oldestGuid !== undefined) {
                 selectors.divActivityFeed.find('.spinner').remove();
                 $(selectorText.btnMorePosts).parent().remove();
@@ -119,6 +119,9 @@ var ACTIVITYFEED = (function () {
             if (callback) {
                 callback();
             }
+
+
+            //lazyLoadInstance.update();
         });
     }
 

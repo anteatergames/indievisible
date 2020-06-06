@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace IndieVisible.Domain.Interfaces.Service
+namespace IndieVisible.Domain.Interfaces.Services
 {
     public interface ILocalizationDomainService : IDomainService<Localization>
     {

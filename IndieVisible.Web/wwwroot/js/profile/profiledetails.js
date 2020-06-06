@@ -76,7 +76,7 @@
                     disconnect(targetId).done(function (response) { disconnectCallback(response, connectionCount, btn); });
                 }
                 else {
-                    connect(targetId).done(function (response) { connectCallback(response, connectionCount, btn); });
+                    connect(targetId, function (response) { connectCallback(response, connectionCount, btn); });
                 }
             }
         });
@@ -126,25 +126,19 @@
     function loadGameList(userId) {
         objs.tabGamesContainer.html(MAINMODULE.Default.Spinner);
 
-        $.get("/game/latest?userId=" + userId, function (data) {
-            objs.tabGamesContainer.html(data);
-        });
+        MAINMODULE.Ajax.LoadHtml("/game/latest?userId=" + userId, objs.tabGamesContainer);
     }
 
     function loadBadges(userId) {
         objs.divBadges.html(MAINMODULE.Default.Spinner);
 
-        $.get("/gamification/userbadge/list/" + userId, function (data) {
-            objs.divBadges.html(data);
-        });
+        MAINMODULE.Ajax.LoadHtml("/gamification/userbadge/list/" + userId, objs.divBadges);
     }
 
     function loadConnections(userId) {
         objs.tabConnections.html(MAINMODULE.Default.Spinner);
 
-        $.get("/user/connections/" + userId, function (data) {
-            objs.tabConnections.html(data);
-        });
+        MAINMODULE.Ajax.LoadHtml("/user/connections/" + userId, objs.tabConnections);
     }
 
     function follow(userId) {
@@ -175,8 +169,34 @@
         }
     }
 
-    function connect(userId) {
-        return $.post("/user/connect", { userId: userId });
+    async function connect(userId, callback) {
+        var json = $('#modalConnectionType').data('connectiontypes');
+        var title = $('#modalConnectionType').data('title');
+        var placeholder = $('#modalConnectionType').data('placeholder');
+        var text = $('#modalConnectionType').data('text');
+        var validationText = $('#modalConnectionType').data('validationtext');
+
+        const { value: connectionType } = await Swal.fire({
+            title: title,
+            text: text,
+            showCancelButton: true,
+            input: 'select',
+            inputOptions: json,
+            inputPlaceholder: placeholder,
+            inputValidator: (value) => {
+                return new Promise((resolve) => {
+                    if (value) {
+                        resolve()
+                    } else {
+                        resolve(validationText)
+                    }
+                })
+            }
+        });
+
+        if (connectionType !== undefined) {
+            return $.post("/user/connect", { userId, connectionType }).done(callback);
+        }
     }
     function connectCallback(response, counterSelector, btn) {
         if (response.success === true) {
@@ -242,16 +262,9 @@
     }
 
     function loadTeams() {
-        objs.divListUserTeams.html(MAINMODULE.Default.SpinnerTop);
-        console.log(objs.divListUserTeams);
-        $.get('/team/list/user/' + objs.UserId.val(), function (data) { objs.divListUserTeams.html(data); })
-            .done(function (response) {
-                setPopOvers();
-            });
-    }
-
-    function setPopOvers() {
-        $("[data-toggle='popover']").popover({ html: true });
+        MAINMODULE.Ajax.LoadHtml('/team/list/user/' + objs.UserId.val(), objs.divListUserTeams).then(() => {
+            MAINMODULE.Common.BindPopOvers();
+        });
     }
 
     return {

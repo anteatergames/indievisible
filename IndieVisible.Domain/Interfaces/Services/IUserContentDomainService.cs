@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace IndieVisible.Domain.Interfaces.Service
+namespace IndieVisible.Domain.Interfaces.Services
 {
     public interface IUserContentDomainService : IDomainService<UserContent>
     {

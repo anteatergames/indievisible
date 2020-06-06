@@ -1,0 +1,8 @@
+﻿@model ProfileViewModel
+@{
+    Layout = null;
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+<partial name="_UserCard" model="Model" />

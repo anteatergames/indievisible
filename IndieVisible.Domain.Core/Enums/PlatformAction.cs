@@ -17,6 +17,7 @@
         TeamApply = 13,
         JobPositionPost = 14,
         LocalizationRequest = 15,
-        LocalizationHelp = 16
+        LocalizationHelp = 16,
+        CourseAddition = 17
     }
 }

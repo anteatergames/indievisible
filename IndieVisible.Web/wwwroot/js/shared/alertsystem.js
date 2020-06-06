@@ -31,7 +31,7 @@
     }
 
     function showAlert(text, type, callback) {
-        swal({
+        Swal.fire({
             toast: true,
             position: 'top-end',
             type: type,
@@ -48,7 +48,7 @@
     }
 
     function showSuccessMessage(msg, callback) {
-        swal({
+        Swal.fire({
             title: "Good job!",
             text: msg,
             type: "success"
@@ -62,7 +62,7 @@
     }
 
     function showWarningMessage(msg, callback) {
-        swal({
+        Swal.fire({
             toast: true,
             position: 'top-end',
             title: msg,
@@ -77,7 +77,7 @@
     }
 
     function showConfirmMessage(title, msg, confirmButtonText, cancelButtonText, callbackYes, callbackCancel) {
-        swal({
+        Swal.fire({
             title: title,
             text: msg,
             type: "question",

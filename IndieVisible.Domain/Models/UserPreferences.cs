@@ -10,5 +10,7 @@ namespace IndieVisible.Domain.Models
         public string ContentLanguages { get; set; }
 
         public JobProfile JobProfile { get; set; }
+
+        public StudyProfile StudyProfile { get; set; }
     }
 }

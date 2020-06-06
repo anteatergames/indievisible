@@ -64,12 +64,7 @@
     }
 
     function loadList() {
-        console.log(selectors.divListFeatured);
-        selectors.divListFeatured.html(MAINMODULE.Default.Spinner);
-
-        $.get("/staff/featuredcontent/list", function (data) {
-            selectors.divListFeatured.html(data);
-        });
+        MAINMODULE.Ajax.LoadHtml("/staff/featuredcontent/list", selectors.divListFeatured);
     }
 
     return {

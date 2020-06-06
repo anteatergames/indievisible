@@ -2,7 +2,7 @@ using AutoFixture;
 using AutoFixture.AutoNSubstitute;
 using FluentAssertions;
 using IndieVisible.Domain.Interfaces.Repository;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Services;
 using IndieVisible.Tests.Attributes;

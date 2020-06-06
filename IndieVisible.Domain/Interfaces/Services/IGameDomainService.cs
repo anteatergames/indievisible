@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace IndieVisible.Domain.Interfaces.Service
+namespace IndieVisible.Domain.Interfaces.Services
 {
     public interface IGameDomainService : IDomainService<Game>
     {

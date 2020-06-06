@@ -1,6 +1,9 @@
-﻿using IndieVisible.Application.Interfaces;
+﻿using CloudinaryDotNet.Actions;
+using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.User;
+using IndieVisible.Domain.Core.Attributes;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Infra.CrossCutting.Identity.Models;
 using IndieVisible.Web.Controllers.Base;
@@ -10,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Controllers
@@ -70,6 +74,12 @@ namespace IndieVisible.Web.Controllers
                     notificationAppService.MarkAsRead(notificationclicked);
                 }
             }
+
+
+            //Dictionary<UserConnectionType, UiInfoAttribute> genreDict = Enum.GetValues(typeof(UserConnectionType)).Cast<UserConnectionType>().ToUiInfoDictionary(true);
+            //ViewData["ConnecionTypes"] = genreDict;
+
+            ViewData["ConnecionTypes"] = Extensions.EnumExtensions.ToJson(UserConnectionType.Mentor);
 
             return View(vm);
         }

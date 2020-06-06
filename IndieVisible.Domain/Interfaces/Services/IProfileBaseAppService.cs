@@ -2,7 +2,7 @@
 using IndieVisible.Domain.ValueObjects;
 using System;
 
-namespace IndieVisible.Domain.Interfaces.Service
+namespace IndieVisible.Domain.Interfaces.Services
 {
     public interface IProfileBaseAppService
     {

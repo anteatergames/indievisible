@@ -138,9 +138,9 @@ namespace IndieVisible.Web.Controllers
 
         [HttpPost]
         [Route("connect")]
-        public IActionResult ConnectToUser(Guid userId)
+        public IActionResult ConnectToUser(Guid userId, UserConnectionType connectionType)
         {
-            OperationResultVo response = profileAppService.Connect(CurrentUserId, userId);
+            OperationResultVo response = profileAppService.Connect(CurrentUserId, userId, connectionType);
 
             string fullName = GetSessionValue(SessionValues.FullName);
 

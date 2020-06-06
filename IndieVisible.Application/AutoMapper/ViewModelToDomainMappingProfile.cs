@@ -9,6 +9,7 @@ using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.Jobs;
 using IndieVisible.Application.ViewModels.Localization;
 using IndieVisible.Application.ViewModels.Notification;
+using IndieVisible.Application.ViewModels.Study;
 using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Application.ViewModels.UserPreferences;
@@ -111,7 +112,7 @@ namespace IndieVisible.Application.AutoMapper
 
             #endregion Jobs
 
-            #region Translation
+            #region Localization
 
             CreateMap<LocalizationViewModel, Localization>()
                 .ForMember(dest => dest.Terms, opt => opt.Ignore())
@@ -119,7 +120,18 @@ namespace IndieVisible.Application.AutoMapper
             CreateMap<LocalizationTermViewModel, LocalizationTerm>();
             CreateMap<LocalizationEntryViewModel, LocalizationEntry>();
 
-            #endregion Translation
+            #endregion Localization
+
+            #region Study
+
+            CreateMap<StudyCourseViewModel, Domain.Models.StudyCourse>()
+                    .ForMember(dest => dest.SkillSet, opt => opt.MapFrom<StudyCourseWorkTypeToDomainResolver>());
+
+            CreateMap<StudyGroupMemberViewModel, StudyGroupMember>();
+            CreateMap<StudyGroupViewModel, StudyGroup>();
+
+
+            #endregion Study
         }
     }
 }

@@ -141,56 +141,63 @@ namespace IndieVisible.Application.Formatters
 
         public static string CdnCommon(Guid userId, string fileName, bool responsive, int width, int quality)
         {
-            string[] fileNameSplit = fileName.Split('/');
-            if (fileNameSplit.Length > 1)
+            try
             {
-                fileName = fileNameSplit.Last();
-            }
-
-            string publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
-
-            Cloudinary cloudinary = new Cloudinary();
-
-            if (responsive)
-            {
-                StringBuilder sb = new StringBuilder();
-
-                Transformation transformation = new Transformation().FetchFormat("auto").Width(300);
-                string url300 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
-                sb.Append(String.Format("{0} 300w, ", url300));
-
-                transformation = new Transformation().FetchFormat("auto").Width(600);
-                string url600 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
-                sb.Append(String.Format("{0} 600w, ", url600));
-
-                transformation = new Transformation().FetchFormat("auto");
-                string url900 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
-
-                sb.Append(String.Format("{0} 900w", url900));
-
-                return sb.ToString();
-            }
-            else
-            {
-                Transformation transformation = new Transformation().FetchFormat("auto");
-
-                if (width > 0)
+                string[] fileNameSplit = fileName.Split('/');
+                if (fileNameSplit.Length > 1)
                 {
-                    transformation = transformation.Width(width);
+                    fileName = fileNameSplit.Last();
                 }
 
-                if (quality > 0)
+                string publicId = String.Format("{0}/{1}", userId, fileName.Split('.')[0]);
+
+                Cloudinary cloudinary = new Cloudinary();
+
+                if (responsive)
                 {
-                    transformation = transformation.Quality(quality);
+                    StringBuilder sb = new StringBuilder();
+
+                    Transformation transformation = new Transformation().FetchFormat("auto").Width(300);
+                    string url300 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+                    sb.Append(String.Format("{0} 300w, ", url300));
+
+                    transformation = new Transformation().FetchFormat("auto").Width(600);
+                    string url600 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+                    sb.Append(String.Format("{0} 600w, ", url600));
+
+                    transformation = new Transformation().FetchFormat("auto");
+                    string url900 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+
+                    sb.Append(String.Format("{0} 900w", url900));
+
+                    return sb.ToString();
                 }
                 else
                 {
-                    transformation = transformation.Quality("auto");
+                    Transformation transformation = new Transformation().FetchFormat("auto");
+
+                    if (width > 0)
+                    {
+                        transformation = transformation.Width(width);
+                    }
+
+                    if (quality > 0)
+                    {
+                        transformation = transformation.Quality(quality);
+                    }
+                    else
+                    {
+                        transformation = transformation.Quality("auto");
+                    }
+
+                    string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
+
+                    return url2;
                 }
-
-                string url2 = cloudinary.Api.UrlImgUp.Secure(true).Transform(transformation).BuildUrl(publicId);
-
-                return url2;
+            }
+            catch (Exception ex)
+            {
+                return Constants.DefaultFeaturedImage;
             }
         }
 

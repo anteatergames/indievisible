@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  indievisible-web:
+    ports:
+      - '32080:80'
+      - '32443:443'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    env_file:
+      - IndieVisible.Web/web.env
+  indievisible-db:
+      ports:
+      - '27017:27017'
+      environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=admin

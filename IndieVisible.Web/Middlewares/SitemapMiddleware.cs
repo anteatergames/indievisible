@@ -73,6 +73,7 @@ namespace IndieVisible.Web.Middlewares
 
                 { "content", "feed" },
 
+                { "brainstorm", "details" },
                 { "brainstorm", "list" },
                 { "brainstorm", "newsession" },
                 { "brainstorm", "newidea" },
@@ -82,6 +83,7 @@ namespace IndieVisible.Web.Middlewares
                 { "help", "index" },
                 { "search", "searchposts" },
 
+                { "team", "details" },
                 { "team", "list" },
                 { "team", "listbyuser" },
                 { "team", "acceptinvitation" },
@@ -92,11 +94,13 @@ namespace IndieVisible.Web.Middlewares
 
                 { "userbadge", "listbyuser" },
 
+                { "jobposition", "details" },
                 { "jobposition", "list" },
                 { "jobposition", "listmine" },
                 { "jobposition", "mypositionsstats" },
                 { "jobposition", "myapplications" },
 
+                { "localization", "details" },
                 { "localization", "list" },
                 { "localization", "listmine" },
                 { "localization", "translate" },

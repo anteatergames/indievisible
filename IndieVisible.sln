@@ -37,9 +37,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.Data.Mon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.Data.Cache", "IndieVisible.Infra.Data.Cache\IndieVisible.Infra.Data.Cache.csproj", "{E6C6FF32-A62F-43AF-9058-EA76A1FCDBFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieVisible.Infra.CrossCutting.Abstractions", "IndieVisible.Infra.CrossCutting.Abstractions\IndieVisible.Infra.CrossCutting.Abstractions.csproj", "{18FC47B0-A866-433B-A2AA-246B30073448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.CrossCutting.Abstractions", "IndieVisible.Infra.CrossCutting.Abstractions\IndieVisible.Infra.CrossCutting.Abstractions.csproj", "{18FC47B0-A866-433B-A2AA-246B30073448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieVisible.Infra.CrossCutting.Notifications", "IndieVisible.Infra.CrossCutting.Notifications\IndieVisible.Infra.CrossCutting.Notifications.csproj", "{184A4385-8D5C-48A7-BBA3-E44EEA8E7CDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndieVisible.Infra.CrossCutting.Notifications", "IndieVisible.Infra.CrossCutting.Notifications\IndieVisible.Infra.CrossCutting.Notifications.csproj", "{184A4385-8D5C-48A7-BBA3-E44EEA8E7CDE}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{96FF3B45-0693-40ED-BA8E-FD0F2F9D4125}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{184A4385-8D5C-48A7-BBA3-E44EEA8E7CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{184A4385-8D5C-48A7-BBA3-E44EEA8E7CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{184A4385-8D5C-48A7-BBA3-E44EEA8E7CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FF3B45-0693-40ED-BA8E-FD0F2F9D4125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FF3B45-0693-40ED-BA8E-FD0F2F9D4125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FF3B45-0693-40ED-BA8E-FD0F2F9D4125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FF3B45-0693-40ED-BA8E-FD0F2F9D4125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Core.Interfaces;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.Specifications;
 using IndieVisible.Domain.Specifications.Follow;
@@ -254,9 +254,13 @@ namespace IndieVisible.Application.Services
             if (vm.UserId != currentUserId)
             {
                 vm.CurrentUserFollowing = model.Followers.SafeAny(x => x.UserId == currentUserId);
-                vm.ConnectionControl.CurrentUserConnected = profileDomainService.CheckConnection(currentUserId, vm.UserId, true, true);
-                vm.ConnectionControl.CurrentUserWantsToFollowMe = profileDomainService.CheckConnection(vm.UserId, currentUserId, false, false);
-                vm.ConnectionControl.ConnectionIsPending = profileDomainService.CheckConnection(currentUserId, vm.UserId, false, true);
+
+                var connectionDetails = profileDomainService.GetConnectionDetails(currentUserId, vm.UserId);
+
+                vm.ConnectionControl.CurrentUserConnected = connectionDetails != null && connectionDetails.Accepted;
+                vm.ConnectionControl.CurrentUserWantsToConnect = connectionDetails != null && connectionDetails.Direction == UserConnectionDirection.ToUser && !connectionDetails.Accepted;
+                vm.ConnectionControl.ConnectionIsPending = connectionDetails != null && !connectionDetails.Accepted;
+                vm.ConnectionControl.ConnectionType = connectionDetails != null ? connectionDetails.ConnectionType : new UserConnectionType?();
             }
 
             if (forEdit)
@@ -407,14 +411,15 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo Connect(Guid currentUserId, Guid userId)
+        public OperationResultVo Connect(Guid currentUserId, Guid userId, UserConnectionType connectionType)
         {
             try
             {
                 UserConnection model = new UserConnection
                 {
                     UserId = currentUserId,
-                    TargetUserId = userId
+                    TargetUserId = userId,
+                    ConnectionType = connectionType
                 };
 
                 UserConnection existing = profileDomainService.GetConnection(currentUserId, userId);

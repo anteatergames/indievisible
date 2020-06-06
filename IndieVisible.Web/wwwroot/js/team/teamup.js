@@ -2,7 +2,7 @@
     "use strict";
 
     var rootUrl = '/team';
-    var avatarBaseUrl = "/storage/userimage/ProfileImage/";
+    var avatarBaseUrl = "https://res.cloudinary.com/indievisible/image/upload/f_auto,q_auto/v1/";
     var propPrefixId = "Members_0__";
     var propPrefixName = "Members[0].";
 
@@ -110,7 +110,7 @@
     }
 
     function bindSelect2() {
-        $('.members select.select2').each(function () {
+        $('#divMembeManagement select.select2').each(function () {
             if ($(this).data('select2') === undefined) {
                 $(this).select2({
                     width: 'element'
@@ -334,26 +334,17 @@
     }
 
     function loadTeams() {
-        objs.divListTeams.html(MAINMODULE.Default.SpinnerTop);
-
-        $.get('/team/list/', function (data) { objs.divListTeams.html(data); })
-            .done(function () {
-                setPopOvers();
-            });
+        MAINMODULE.Ajax.LoadHtml('/team/list/', objs.divListTeams).then(() => {
+            MAINMODULE.Common.BindPopOvers(true);
+        });
     }
 
     function loadMyTeams() {
-        objs.divListMyTeams.html(MAINMODULE.Default.SpinnerTop);
-
-        $.get('/team/list/mine', function (data) { objs.divListMyTeams.html(data); });
+        MAINMODULE.Ajax.LoadHtml('/team/list/mine', objs.divListMyTeams);
     }
 
     function loadNewForm() {
-        objs.container.html(MAINMODULE.Default.Spinner);
-
-        $.get(rootUrl + "/new", function (data) {
-            objs.container.html(data);
-
+        MAINMODULE.Ajax.LoadHtml(rootUrl + "/new", objs.container).then(() => {
             cacheAjaxObjs();
 
             bindSelect2();
@@ -364,11 +355,7 @@
     }
 
     function loadEditForm(url) {
-        objs.container.html(MAINMODULE.Default.Spinner);
-
-        $.get(url, function (data) {
-            objs.container.html(data);
-
+        MAINMODULE.Ajax.LoadHtml(url, objs.container).then(() => {
             renameInputs();
 
             cacheAjaxObjs();
@@ -381,11 +368,9 @@
     }
 
     function loadTeamGames() {
-        objs.divGamesList.html(MAINMODULE.Default.SpinnerTop);
-
         var id = objs.divGames.data('id');
 
-        $.get('/game/byteam/' + id, function (data) { objs.divGamesList.html(data); });
+        MAINMODULE.Ajax.LoadHtml('/game/byteam/' + id, objs.divGamesList);
     }
 
     function selectNewMemberCallBack(data) {
@@ -407,7 +392,7 @@
         userId.val(data.id);
 
         var avatar = newMemberObj.find('.avatar');
-        avatar.attr('src', avatarBaseUrl + data.id);
+        avatar.attr('src', avatarBaseUrl + data.id + '/profileimage_' + data.id + "_Personal");
         var isleader = newMemberObj.find(selectors.teamMemberIsLeader);
         isleader.remove();
         var name = newMemberObj.find(selectors.teamMemberName);
@@ -428,7 +413,8 @@
         if (!result.id) {
             return result.text;
         }
-        var resultHtml = $('<span><img class="rounded-circle lazyload avatar" data-src="' + avatarBaseUrl + result.id + '" src="/images/profileimages/developer.png" alt="meh"> ' + result.text + '</span>');
+        var resultHtml = $('<span><img class="rounded-circle lazyload avatar" data-src="' + avatarBaseUrl + result.id + '/profileimage_' + result.id + '_Personal' + '" src="/images/profileimages/developer.png" alt="meh"> ' + result.text + '</span>');
+
         return resultHtml;
     }
 
@@ -437,19 +423,6 @@
         objs.ddlSearchMembers = $(selectors.ddlSearchMembers);
         objs.divMembers = $(selectors.divMembers);
         objs.teamMember = $(selectors.teamMember);
-    }
-
-    function setPopOvers() {
-        $("[data-toggle='popover']").each(function (index, element) {
-            var data = $(element).data();
-            if (data.target) {
-                var contentElementId = data.target;
-                var contentHtml = $(contentElementId).html();
-                data.content = contentHtml;
-                data.html = true;
-            }
-            $(element).popover(data);
-        });
     }
 
     function submitForm(btn) {

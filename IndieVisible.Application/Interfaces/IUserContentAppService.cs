@@ -1,7 +1,7 @@
 ﻿using IndieVisible.Application.ViewModels;
 using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Search;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;

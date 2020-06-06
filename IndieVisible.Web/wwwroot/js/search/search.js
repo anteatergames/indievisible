@@ -19,9 +19,9 @@
     }
 
     function searchPosts() {
-        selectors.divSearchPosts.html(MAINMODULE.Default.SpinnerTop);
-
-        $.get("/search/posts?q=" + encodeURIComponent(selectors.term.val()), function (data) { selectors.divSearchPosts.html(data); });
+        MAINMODULE.Ajax.LoadHtml("/search/posts?q=" + encodeURIComponent(selectors.term.val()), selectors.divSearchPosts).then(() => {
+            MAINMODULE.Common.BindPopOvers();
+        });
     }
 
     return {

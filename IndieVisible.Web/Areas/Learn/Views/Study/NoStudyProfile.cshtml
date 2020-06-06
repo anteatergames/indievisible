@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = SharedLocalizer["Select your Study Profile"];
+    ViewData["Description"] = SharedLocalizer["Study gamedev or mentor students."];
+
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
+}
+
+@section Scripts {
+    <script src="~/js/study/studyprofileselector.js"></script>
+}
+
+<input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+
+<div class="col-12 text-center">
+    <h3>@SharedLocalizer["Choose your destiny!"]</h3>
+</div>
+
+<div class="row col-12 justify-content-center my-5 no-gutters">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mr-md-2">
+        <div class="flex-square clickable rectangle bg-danger">
+            <div class="flex-square-inner">
+                <a id="btnSetStudyProfileStudent" class="btnsetstudyprofile" asp-area="learn" asp-controller="study" asp-action="setstudyprofile" asp-route-type="@StudyProfile.Student">
+                    <div class="flex-square-inner-content text-white">
+                        <div><i class="fas fa-3x fa-user-graduate" aria-hidden="true"></i></div>
+                        <div>@SharedLocalizer[StudyProfile.Student.ToString()]</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 ml-md-2">
+        <div class="flex-square clickable rectangle bg-warning">
+            <div class="flex-square-inner">
+                <a id="btnSetStudyProfileMentor" class="btnsetstudyprofile" asp-area="learn" asp-controller="study" asp-action="setstudyprofile" asp-route-type="@StudyProfile.Mentor">
+                    <div class="flex-square-inner-content text-white">
+                        <div><i class="fas fa-3x fa-graduation-cap" aria-hidden="true"></i></div>
+                        <div>@SharedLocalizer[StudyProfile.Mentor.ToString()]</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

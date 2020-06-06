@@ -34,7 +34,7 @@
         selectors.termCounter = '#termCounter';
     }
 
-    function cacheOBjsCreateEdit() {
+    function cacheObjsCreateEdit() {
         objs.controlsidebar = $(selectors.controlsidebar);
         objs.container = $(selectors.container);
         objs.urls = $(selectors.urls);
@@ -48,7 +48,7 @@
     }
 
     function setCreateEdit() {
-        cacheOBjsCreateEdit();
+        cacheObjsCreateEdit();
         bindDeleteProject();
         bindBtnSaveForm();
         bindBtnAddTerm();
@@ -208,10 +208,7 @@
         if (id !== '000000-0000-0000-0000-000000000000') {
             urlTerms = urlTerms + id;
 
-            objs.divTerms.html(MAINMODULE.Default.SpinnerTop);
-
-            $.get(urlTerms, function (response) {
-                objs.divTerms.html(response);
+            MAINMODULE.Ajax.LoadHtml(urlTerms, objs.divTerms).then(() => {
 
                 objs.btnSaveTerms = $(selectors.btnSaveTerms);
                 objs.divNoItems = $(selectors.divNoItems);
@@ -228,34 +225,6 @@
             });
 
         }
-    }
-
-    function loadNewForm(url) {
-        objs.container.html(MAINMODULE.Default.Spinner);
-        objs.containerList.hide();
-
-        $.get(url, function (data) {
-            objs.container.html(data);
-            objs.container.show();
-
-            objs.form = $(selectors.form);
-
-            setCreateEdit();
-        });
-    }
-
-    function loadEditForm(url) {
-        objs.container.html(MAINMODULE.Default.Spinner);
-        if (objs.containerList) {
-            objs.containerList.hide();
-        }
-
-        $.get(url, function (data) {
-            objs.container.html(data);
-            objs.container.show();
-
-            setCreateEdit();
-        });
     }
 
     function deleteProject(btn, callback) {

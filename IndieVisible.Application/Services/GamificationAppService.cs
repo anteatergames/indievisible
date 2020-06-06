@@ -3,7 +3,7 @@ using AutoMapper.QueryableExtensions;
 using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Gamification;
 using IndieVisible.Application.ViewModels.User;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;

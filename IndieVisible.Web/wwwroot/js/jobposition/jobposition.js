@@ -335,42 +335,29 @@
         objs.containerDetails.html('');
         objs.containerDetails.hide();
 
-        $.get(url, function (data) {
-            if (fromControlSidebar) {
-                objs.list.html(data);
-                objs.containerList.show();
-                cacheObjects();
-            }
-            else {
-                objs.list.html(data);
-            }
+        MAINMODULE.Ajax.LoadHtml(url, objs.list).then(() => {
+            cacheObjects();
         });
     }
 
     function loadMyJobPositionStats(url) {
         objs.myPositionStats.html(MAINMODULE.Default.SpinnerTop);
 
-        $.get(url, function (data) {
-            objs.myPositionStats.html(data);
-        });
+        MAINMODULE.Ajax.LoadHtml(url, objs.myPositionStats);
     }
 
     function loadMyApplications(url) {
         objs.myApplications.html(MAINMODULE.Default.SpinnerTop);
 
-        $.get(url, function (data) {
-            objs.myApplications.html(data);
-        });
+        MAINMODULE.Ajax.LoadHtml(url, objs.myApplications);
     }
 
     function loadNewJobPositionForm(url) {
         objs.containerDetails.html(MAINMODULE.Default.Spinner);
         objs.containerList.hide();
 
-        $.get(url, function (data) {
-            objs.containerDetails.html(data);
+        MAINMODULE.Ajax.LoadHtml(url, objs.containerDetails).then(() => {
             objs.containerDetails.show();
-
             objs.form = $(selectors.form);
 
             $.validator.unobtrusive.parse(selectors.form);
@@ -400,13 +387,11 @@
         objs.containerDetails.html(MAINMODULE.Default.Spinner);
         objs.containerList.hide();
 
-        $.get(url, function (data) {
-            objs.containerDetails.html(data);
+        MAINMODULE.Ajax.LoadHtml(url, objs.containerDetails).then(() => {
             objs.containerDetails.show();
-
             objs.form = $(selectors.form);
 
-            $.validator.unobtrusive.parse(objs.form);
+            $.validator.unobtrusive.parse(selectors.form);
             setCreateEdit();
         });
     }

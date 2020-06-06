@@ -27,7 +27,7 @@
     }
 
     function setSelectors() {
-        selectors.container = '.content-wrapper';
+        selectors.container = '#contentwrapper';
         selectors.toolbar = $("#divToolbar");
         selectors.list = $("#divList");
         selectors.btnPostVotingItem = $("#btnPostVotingItem");
@@ -161,19 +161,13 @@
             url += '/' + sessionId;
         }
 
-        $.get(rootUrl + url, function (data) {
-            selectors.list.html(data);
-        });
+        MAINMODULE.Ajax.LoadHtml(rootUrl + url, selectors.list);
     }
 
     function loadNewForm() {
         var sessionId = $('#brainstormcontainer #Id').val();
 
-        objs.container.html(MAINMODULE.Default.Spinner);
-
-        $.get(rootUrl + "/" + sessionId + "/newidea", function (data) {
-            objs.container.html(data);
-
+        MAINMODULE.Ajax.LoadHtml(rootUrl + "/" + sessionId + "/newidea", objs.container).then((response) => {
             selectors.form = $("#frmBrainstormIdeaSave");
 
             $.validator.unobtrusive.parse(selectors.form);
@@ -181,11 +175,7 @@
     }
 
     function loadNewSessionForm() {
-        objs.container.html(MAINMODULE.Default.Spinner);
-
-        $.get(rootUrl + "/newsession", function (data) {
-            objs.container.html(data);
-
+        MAINMODULE.Ajax.LoadHtml(rootUrl + "/newsession", objs.container).then((response) => {
             selectors.form = $("#frmBrainstormSessionSave");
 
             $.validator.unobtrusive.parse(selectors.form);

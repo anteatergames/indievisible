@@ -379,13 +379,13 @@
     function loadCounters() {
         selectors.divCounters.html(MAINMODULE.Default.Spinner);
 
-        $.get("/home/counters", function (data) { selectors.divCounters.html(data); });
+        MAINMODULE.Ajax.LoadHtml("/home/counters", selectors.divCounters);
     }
 
     function loadLatestGames() {
-        selectors.divLatestGames.html(MAINMODULE.Default.Spinner);
-
-        $.get("/game/latest", function (data) { selectors.divLatestGames.html(data); });
+        MAINMODULE.Ajax.LoadHtml("/game/latest", selectors.divLatestGames).then(() => {
+            //lazyLoadInstance.update();
+        });
     }
 
     function autosize(el) {

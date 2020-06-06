@@ -1,5 +1,6 @@
-﻿using IndieVisible.Domain.Interfaces.Repository;
-using IndieVisible.Domain.Interfaces.Service;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Interfaces.Repository;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;
@@ -110,7 +111,22 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserConnection> GetConnectionByTargetUserId(Guid targetUserId, bool approvedOnly)
         {
+            return GetConnectionByTargetUserId(targetUserId, null, approvedOnly);
+        }
+
+        public IEnumerable<UserConnection> GetConnectionByTargetUserId(Guid targetUserId, UserConnectionType type)
+        {
+            return GetConnectionByTargetUserId(targetUserId, type, false);
+        }
+
+        public IEnumerable<UserConnection> GetConnectionByTargetUserId(Guid targetUserId, UserConnectionType? type, bool approvedOnly)
+        {
             IQueryable<UserConnection> connections = userConnectionRepository.Get(x => x.TargetUserId == targetUserId);
+
+            if (type.HasValue)
+            {
+                connections = connections.Where(x => x.ConnectionType == type.Value);
+            }
 
             if (approvedOnly)
             {
@@ -122,7 +138,36 @@ namespace IndieVisible.Domain.Services
 
         public IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, bool approvedOnly)
         {
-            IQueryable<UserConnection> connections = userConnectionRepository.Get(x => x.UserId == userId);
+            return GetConnectionByUserId(userId, null, approvedOnly, false);
+        }
+
+        public IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, UserConnectionType type)
+        {
+            return GetConnectionByUserId(userId, type, false, false);
+        }
+
+        public IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, UserConnectionType type, bool bothWays)
+        {
+            return GetConnectionByUserId(userId, type, false, bothWays);
+        }
+
+        public IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, UserConnectionType? type, bool approvedOnly, bool bothWays)
+        {
+            IQueryable<UserConnection> connections;
+
+            if (bothWays)
+            {
+                connections = userConnectionRepository.Get(x => x.UserId == userId || x.TargetUserId == userId);
+            }
+            else
+            {
+                connections = userConnectionRepository.Get(x => x.UserId == userId);
+            }
+
+            if (type.HasValue)
+            {
+                connections = connections.Where(x => x.ConnectionType == type.Value);
+            }
 
             if (approvedOnly)
             {
@@ -169,6 +214,32 @@ namespace IndieVisible.Domain.Services
             }
 
             return exists;
+        }
+
+        public UserConnectionVo GetConnectionDetails(Guid originalUserId, Guid connectedUserId)
+        {
+            List<UserConnection> connections = userConnectionRepository.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId || x.UserId == connectedUserId && x.TargetUserId == originalUserId).ToList();
+
+
+            var fromUser = connections.Any(x => x.UserId == originalUserId);
+            var toUser = connections.Any(x => x.TargetUserId == originalUserId);
+
+            var typeMentor = connections.Any(x => x.ConnectionType == UserConnectionType.Mentor);
+            var typePupil = connections.Any(x => x.ConnectionType == UserConnectionType.Pupil);
+
+            if (!connections.Any())
+            {
+                return null;
+            }
+
+            UserConnectionVo model = new UserConnectionVo
+            {
+                Accepted = connections.Any(x => x.ApprovalDate.HasValue),
+                Direction = fromUser && toUser ? UserConnectionDirection.BothWays : (fromUser ? UserConnectionDirection.FromUser : UserConnectionDirection.ToUser),
+                ConnectionType = typeMentor ? UserConnectionType.Mentor : (typePupil ? UserConnectionType.Pupil : UserConnectionType.WorkedTogether)
+            };
+
+            return model;
         }
 
         public List<UserConnection> GetConnectionsByUserId(Guid userId, bool approvedOnly)

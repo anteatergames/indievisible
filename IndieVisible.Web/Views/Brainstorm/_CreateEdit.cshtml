@@ -6,6 +6,11 @@
     var session = (IndieVisible.Application.ViewModels.Brainstorm.BrainstormSessionViewModel)ViewData["Session"];
 
     ViewData["Title"] = SharedLocalizer["New idea for \"{0}\"", session.Title];
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
 }
 
 @if (!isAjax)

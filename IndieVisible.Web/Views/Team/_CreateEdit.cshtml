@@ -48,13 +48,13 @@
                 </div>
             </div>
             <div id="divMembeManagement">
-                <select id="ddlSearchMembers" class="form-control" data-placeholder="@SharedLocalizer["Search for Members"]" data-ajax-url="@Url.Action("search", "user")" />
+                <select id="ddlSearchMembers" class="form-control" data-placeholder="@SharedLocalizer["Search for Members"]" data-ajax-url="@Url.Action("search", "user")"></select>
                 <div id="divMembers" class="col-12 mt-3 members">
                     @for (int i = 0; i < Model.Members.Count; i++)
                     {
                         var member = Model.Members.ElementAt(i);
 
-                        <div class="row team-member">
+                        <div class="row team-member mb-2">
                             <input type="hidden" asp-for="Members[i].Id" />
                             <input type="hidden" asp-for="Members[i].CreateDate" />
                             <input type="hidden" asp-for="Members[i].UserId" class="team-member-userid" />
@@ -120,7 +120,7 @@
     </form>
 </div>
 
-<div class="row team-member template">
+<div class="row team-member mb-2 template">
     <input type="hidden" id="Members_0__Id" name="Members[0].Id" />
     <input type="hidden" id="Members_0__UserId" name="Members[0].UserId" class="team-member-userid" />
     <input type="hidden" id="Members_0__TeamId" name="Members[0].TeamId" class="team-member-teamid" value="@Model.Id" />

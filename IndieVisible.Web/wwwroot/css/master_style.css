@@ -1555,7 +1555,6 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
         background-color: #89ad87;
     }
 
-/*data table*/
 @media screen and (max-width: 767px) {
     .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
         white-space: nowrap;

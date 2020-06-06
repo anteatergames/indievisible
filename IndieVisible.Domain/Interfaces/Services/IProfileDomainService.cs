@@ -1,10 +1,11 @@
-﻿using IndieVisible.Domain.Models;
+﻿using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Models;
 using IndieVisible.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace IndieVisible.Domain.Interfaces.Service
+namespace IndieVisible.Domain.Interfaces.Services
 {
     public interface IProfileDomainService : IDomainService<UserProfile>
     {
@@ -26,11 +27,23 @@ namespace IndieVisible.Domain.Interfaces.Service
 
         IEnumerable<UserConnection> GetConnectionByTargetUserId(Guid targetUserId, bool approvedOnly);
 
+        IEnumerable<UserConnection> GetConnectionByTargetUserId(Guid targetUserId, UserConnectionType type);
+
+        IEnumerable<UserConnection> GetConnectionByTargetUserId(Guid targetUserId, UserConnectionType? type, bool approvedOnly);
+
         IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, bool approvedOnly);
+
+        IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, UserConnectionType type);
+
+        IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, UserConnectionType type, bool bothWays);
+
+        IEnumerable<UserConnection> GetConnectionByUserId(Guid userId, UserConnectionType? type, bool approvedOnly, bool bothWays);
 
         UserConnection GetConnection(Guid originalUserId, Guid connectedUserId);
 
         bool CheckConnection(Guid originalUserId, Guid connectedUserId, bool accepted, bool bothWays);
+
+        UserConnectionVo GetConnectionDetails(Guid originalUserId, Guid connectedUserId);
 
         int CountConnections(Expression<Func<UserConnection, bool>> where);
 

@@ -4,9 +4,11 @@
 }
 
 <div class="box-widget widget-game">
-    <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
-        <img data-sizes="auto" src="@Model.ThumbnailLquip" data-src="@Model.ThumbnailLquip" data-srcset="@Model.ThumbnailResponsive" class="card-img-top img-fluid lazyload blur-up" style="width:100%" alt="@Model.Title" />
-    </a>
+    <div class="overflow-hidden square-bottom">
+        <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.Id">
+            <img data-sizes="auto" src="@Model.ThumbnailLquip" data-src="@Model.ThumbnailLquip" data-srcset="@Model.ThumbnailResponsive" class="card-img-top img-fluid lazyload blur-up" style="width:100%" alt="@Model.Title" />
+        </a>
+    </div>
 
     @if (!string.IsNullOrWhiteSpace(Model.Title))
     {

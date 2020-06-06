@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  indievisible-web:
+    container_name: indievisible-web
+    image: ${DOCKER_REGISTRY-}indievisible-web
+    build:
+      context: .
+      dockerfile: IndieVisible.Web/Dockerfile
+    networks:
+      - indievisible-network
+    depends_on:
+      - 'indievisible-db'
+  indievisible-db:
+      container_name: indievisible-db
+      command: mongod --auth
+      image: mongo:latest
+      networks:
+        - indievisible-network
+networks:
+  indievisible-network:
+    driver: bridge

@@ -1,6 +1,6 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Interfaces.Repository;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Models;
 using System;
 using System.Linq;

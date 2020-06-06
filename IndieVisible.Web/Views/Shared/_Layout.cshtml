@@ -196,7 +196,7 @@
             </aside>
         </drawer-menu>
 
-        <div class="content-wrapper">
+        <div id="contentwrapper" class="content-wrapper">
             @RenderBody()
         </div>
 
@@ -252,6 +252,10 @@
         <div class="control-sidebar-bg"></div>
     </div>
 
+    <!--[if lt IE 11]>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <![endif]-->
+
     <environment include="Development">
         <script src="~/lib/tinyDrawyer/js/tinyDrawer.js"></script>
         <script src="~/lib/jquery/jquery.js"></script>
@@ -263,12 +267,13 @@
         <script src="~/lib/limonte-sweetalert/sweetalert2.all.js"></script>
         <script src="~/lib/jquery-toast/jquery.toast.js"></script>
 
-        <!--[if lt IE 11]>
-            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-        <![endif]-->
-        <script src="~/lib/lazysizes/lazysizes.min.js"></script>
-        <script src="~/lib/lazysizes/plugins/blur-up/ls.blur-up.min.js"></script>
 
+        @*<script src="~/lib/vanilla-lazyload/lazyload.js"></script>*@
+
+        <script src="~/lib/lazysizes/lazysizes.js"></script>
+        <script src="~/lib/lazysizes/plugins/blur-up/ls.blur-up.js"></script>
+
+        <script src="~/js/jquery.extensions.js" defer></script>
         <script src="~/js/template.js" defer></script>
         <script src="~/js/main.js" asp-append-version="true" defer></script>
         <script src="~/js/shared/alertsystem.js" defer></script>
@@ -310,30 +315,33 @@
                 asp-fallback-test="window.FastClick"
                 integrity="sha256-t6SrqvTQmKoGgi5LOl0AUy+lBRtIvEJ+++pLAsfAjWs="
                 crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"
                 asp-fallback-src="~/lib/limonte-sweetalert/sweetalert2.all.min.js"
                 asp-fallback-test="window.swal"
-                integrity="sha256-Qfxgn9jULeGAdbaeDjXeIhZB3Ra6NCK3dvjwAG8Y+xU="
+                integrity="sha256-2RS1U6UNZdLS0Bc9z2vsvV4yLIbJNKxyA4mrx5uossk="
                 crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
                 asp-fallback-src="~/lib/jquery-toast/jquery.toast.min.js"
                 asp-fallback-test="window.jQuery"
                 integrity="sha384-Y0HJZYgyXFtR2JeeBfEFYo7+uF9C+Bgn1yr/EtGnl/uc9vJjNN9yi3AX0ZY9tpN4"
                 crossorigin="anonymous" defer></script>
-        <!--[if lt IE 11]>
-            <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-        <![endif]-->
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"
+        @*<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/16.1.0/lazyload.min.js"
+                asp-fallback-src="~/lib/vanilla-lazyload/lazyload.min.js"
+                asp-fallback-test="window.LazyLoad"
+                integrity="sha256-boalKphYIGMC4yA22JkH46yHdiBV5/nGNkrsMyIbPkE="
+                crossorigin="anonymous">
+        </script>*@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"
                 asp-fallback-src="~/lib/lazysizes/lazysizes.min.js"
                 asp-fallback-test="window.lazySizes"
-                integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE="
+                integrity="sha256-+2SfyuYhd9/mPmcIHdzrgwtc4fBaQYTpu7fYesS49OU="
                 crossorigin="anonymous">
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/plugins/blur-up/ls.blur-up.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/plugins/blur-up/ls.blur-up.min.js"
                 asp-fallback-src="~/lib/lazysizes/plugins/blur-up/ls.blur-up.min.js"
                 asp-fallback-test="window.lazySizes"
-                integrity="sha256-QQuLtUP+fQZR2citA2XQxKD74+36/G2eEifhN7whb2c="
+                integrity="sha256-k3/42TDORKROMX/o7y1d5YMWTMsaCMLLAstACEPWVmo="
                 crossorigin="anonymous">
         </script>
 

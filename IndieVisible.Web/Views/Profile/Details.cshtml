@@ -95,7 +95,7 @@
                         }
                         @if (Model.Permissions.CanConnect)
                         {
-                            <button type="button" id="btn-profile-connect" class="btn btn-lg btn-default bg-transparent btn-connect text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "btn-connect-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToFollowMe || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
+                            <button type="button" id="btn-profile-connect" class="btn btn-lg btn-default bg-transparent btn-connect text-capitalize @(Model.ConnectionControl.CurrentUserConnected ? "btn-connect-connected" : string.Empty)  @(Model.ConnectionControl.CurrentUserWantsToConnect || Model.ConnectionControl.ConnectionIsPending ? "disabled" : string.Empty)"
                                     data-id="@Model.UserId" data-type="@Model.Type" data-text-pending="@SharedLocalizer["pending"]" data-text-connected="@SharedLocalizer["connected"]" data-text-connect="@SharedLocalizer["connect"]">
                                 <i class="fas fa-user-friends" aria-hidden="true"></i>
                                 @if (Model.ConnectionControl.ConnectionIsPending)
@@ -135,23 +135,35 @@
                                     <div class="bg-white p-2 mb-3">
                                         @if (SignInManager.IsSignedIn(User) && canFollowAndConnect)
                                         {
-                                            if (Model.ConnectionControl.CurrentUserWantsToFollowMe)
+                                            if (Model.ConnectionControl.CurrentUserWantsToConnect)
                                             {
                                                 <div class="text-center connectionalertbox">
-                                                    <div class="col-12 alert alert-secondary">
-                                                        <div class="col-12">
-                                                            <p>@SharedLocalizer["This user wants to connect with you."]</p>
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                                                        @SharedLocalizer["allow"]
-                                                                    </button>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
-                                                                        @SharedLocalizer["deny"]
-                                                                    </button>
-                                                                </div>
+                                                    <div class="alert alert-secondary">
+                                                        @switch (Model.ConnectionControl.ConnectionType)
+                                                        {
+                                                            case UserConnectionType.Mentor:
+                                                                <p>@SharedLocalizer["This Padawan wants you to be a Jedi Master."]</p>
+                                                                break;
+                                                            case UserConnectionType.Pupil:
+                                                                <p>@SharedLocalizer["This Jedi Master wants you to be a Padawan."]</p>
+                                                                break;
+                                                            case UserConnectionType.WorkedTogether:
+                                                                <p>@SharedLocalizer["This Robot said you guys worked together."]</p>
+                                                                break;
+                                                            default:
+                                                                <p>@SharedLocalizer["This user wants to connect with you."]</p>
+                                                                break;
+                                                        }
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <button type="button" id="btn-profile-connect-allow" class="btn btn-lg btn-block btn-success text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                                                    @SharedLocalizer["accept"]
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button type="button" id="btn-profile-connect-deny" class="btn btn-lg btn-block btn-danger text-capitalize" data-id="@Model.UserId" data-type="@Model.Type">
+                                                                    @SharedLocalizer["reject"]
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -346,3 +358,14 @@
         </div>
     </div>
 </section>
+
+<div id="modalConnectionType" class="d-none" data-connectiontypes="@ViewData["ConnecionTypes"].ToString()" data-title="@SharedLocalizer["Connect"]" data-placeholder="@SharedLocalizer["Select a Connection Type"]" data-text="@SharedLocalizer["{0} will be notified and can accept or reject your request.", Model.Name]" data-validationtext="@SharedLocalizer["You need to select a Connection Type!"]">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>@SharedLocalizer["How you want to connect to this user?"]</label>
+            <select asp-items="Html.GetEnumSelectList<UserConnectionType>()" class="form-control ddlConnectionType">
+                <option selected="selected" value="">@SharedLocalizer["Select"]</option>
+            </select>
+        </div>
+    </div>
+</div>

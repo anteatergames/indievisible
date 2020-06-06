@@ -7,6 +7,11 @@ namespace IndieVisible.Web.Helpers
 {
     public static class ContentHelper
     {
+        public static string FormatCFormatTextAreaBreaks(string content)
+        {
+            return content.Replace("<br>", string.Empty);
+        }
+
         public static string FormatContentToShow(string content)
         {
             //group 1 <figure

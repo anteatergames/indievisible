@@ -105,7 +105,7 @@
         </div>
         @if (Model.HasFeaturedImage)
         {
-            <div class="box-body p-0 text-center">
+            <div class="box-body p-0 text-center overflow-hidden rounded-0">
                 @if (Model.FeaturedMediaType == MediaType.Youtube)
                 {
                     <div class="videoWrapper"><oembed>@Model.FeaturedImage</oembed></div>

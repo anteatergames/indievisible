@@ -1,6 +1,6 @@
 ﻿using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Interfaces.Service;
+using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.ValueObjects;
 using System;
 
@@ -30,7 +30,7 @@ namespace IndieVisible.Application.Interfaces
 
         #region Connections
 
-        OperationResultVo Connect(Guid currentUserId, Guid userId);
+        OperationResultVo Connect(Guid currentUserId, Guid userId, UserConnectionType connectionType);
 
         OperationResultVo Disconnect(Guid currentUserId, Guid userId);
 

@@ -20,6 +20,7 @@
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
+      "wwwroot/js/jquery.extensions.js",
       "wwwroot/js/template.js",
       "wwwroot/js/main.js",
       "wwwroot/js/shared/alertsystem.js"
@@ -233,6 +234,33 @@
     "inputFiles": [
       "wwwroot/js/localization/localizationexport.js",
       "wwwroot/js/shared/contentactions.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/study.min.css",
+    "inputFiles": [
+      "wwwroot/lib/select2/css/select2.min.css",
+      "wwwroot/css/_feature.css",
+      "wwwroot/css/study.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/study/studydashboard.min.js",
+    "inputFiles": [
+      "wwwroot/js/study/studydashboard.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/study/studycourseedit.min.js",
+    "inputFiles": [
+      "wwwroot/lib/select2/js/select2.full.min.js",
+      "wwwroot/js/study/studycourseedit.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/study/studycoursedetails.min.js",
+    "inputFiles": [
+      "wwwroot/js/study/studycoursedetails.js"
     ]
   }
 ]

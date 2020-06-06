@@ -121,6 +121,8 @@ namespace IndieVisible.Application.ViewModels.User
 
         public bool CurrentUserConnected { get; set; }
 
-        public bool CurrentUserWantsToFollowMe { get; set; }
+        public bool CurrentUserWantsToConnect { get; set; }
+
+        public UserConnectionType? ConnectionType { get;  set; }
     }
 }

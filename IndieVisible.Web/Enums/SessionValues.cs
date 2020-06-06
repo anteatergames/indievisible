@@ -7,6 +7,7 @@
         FullName = 3,
         PostLanguage = 4,
         JobProfile = 5,
-        Email = 6
+        Email = 6,
+        StudyProfile = 7
     }
 }
