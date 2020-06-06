@@ -155,13 +155,6 @@ a {
     background: #f2f6f8;
 }
 
-.skin-indievisible .wrapper,
-.skin-indievisible .main-sidebar,
-.skin-indievisible .left-side {
-    background-color: #dedada;
-    box-shadow: 1px 0 20px rgba(0,0,0,0.08);
-}
-
 .skin-indievisible .main-sidebar {
     background-color: #242a33;
 }

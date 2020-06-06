@@ -49,6 +49,7 @@ Body :		Poppins, sans-serif;
 
 body {
     overflow-y: auto;
+    background-color: #dedada;
 }
 /*Body, layout*/
 .wrapper, body, html {
