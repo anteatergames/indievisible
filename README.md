@@ -4,4 +4,4 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=anteatergames_indievisible&metric=alert_status)](https://sonarcloud.io/dashboard?id=anteatergames_indievisible)  [![CodeFactor](https://www.codefactor.io/repository/github/anteatergames/indievisible/badge)](https://www.codefactor.io/repository/github/anteatergames/indievisible) [![BCH compliance](https://bettercodehub.com/edge/badge/anteatergames/indievisible?branch=master)](https://bettercodehub.com/)
 
 # Technical specifications
-- ASP.NET Core 2.1, DDD oriented with mongodb
+- ASP.NET Core 3.1, DDD oriented with mongodb
