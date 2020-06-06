@@ -258,6 +258,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\badges\" />
+    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
   <ItemGroup>
