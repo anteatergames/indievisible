@@ -7,16 +7,16 @@
     var description = ViewData["ListDescription"] == null ? SharedLocalizer["Users"] : (string)ViewData["ListDescription"];
 }
 
+<div class="col-12">
+    <h2>@SharedLocalizer[description]</h2>
+</div>
+
 @if (!Model.Any())
 {
     <partial name="_ListNoItems" model="noItemsModel" />
 }
 else
 {
-    <div class="col-12">
-        <h2>@SharedLocalizer[description]</h2>
-    </div>
-
     <div class="row user-list">
         @foreach (var item in Model)
         {

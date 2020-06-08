@@ -1,6 +1,12 @@
 ﻿@model ErrorViewModel
 @{
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
     ViewData["Title"] = "Error";
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
 }
 <div class="error-body">
     <div class="error-page">

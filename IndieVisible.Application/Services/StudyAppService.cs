@@ -108,13 +108,13 @@ namespace IndieVisible.Application.Services
             {
                 StudyCoursesOfUserVo courses = studyDomainService.GetCoursesForUserId(currentUserId);
 
-                List<StudyCourseViewModel> finalList = new List<StudyCourseViewModel>();
+                List<StudyCourseListItemVo> finalList = new List<StudyCourseListItemVo>();
 
                 foreach (UserCourseVo course in courses.Courses)
                 {
-                    if (!finalList.Any(x => x.UserId == course.CourseId))
+                    if (!finalList.Any(x => x.Id == course.CourseId))
                     {
-                        StudyCourseViewModel vm = new StudyCourseViewModel
+                        StudyCourseListItemVo vm = new StudyCourseListItemVo
                         {
                             Id = course.CourseId,
                             Name = course.CourseName
@@ -124,7 +124,7 @@ namespace IndieVisible.Application.Services
                     }
                 }
 
-                return new OperationResultListVo<StudyCourseViewModel>(finalList);
+                return new OperationResultListVo<StudyCourseListItemVo>(finalList);
             }
             catch (Exception ex)
             {

@@ -48,19 +48,19 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         [Route("learn/course/listmine")]
         public PartialViewResult ListMine()
         {
-            List<StudyCourseViewModel> model;
+            List<StudyCourseListItemVo> model;
 
             OperationResultVo serviceResult = studyAppService.GetMyCourses(CurrentUserId);
 
             if (serviceResult.Success)
             {
-                OperationResultListVo<StudyCourseViewModel> castResult = serviceResult as OperationResultListVo<StudyCourseViewModel>;
+                OperationResultListVo<StudyCourseListItemVo> castResult = serviceResult as OperationResultListVo<StudyCourseListItemVo>;
 
                 model = castResult.Value.ToList();
             }
             else
             {
-                model = new List<StudyCourseViewModel>();
+                model = new List<StudyCourseListItemVo>();
             }
 
             ViewData["ListDescription"] = SharedLocalizer["My Courses"].ToString();
