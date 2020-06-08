@@ -13,6 +13,8 @@ using IndieVisible.Domain.ValueObjects.Study;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
 {
@@ -212,8 +214,51 @@ namespace IndieVisible.Application.Services
 
                 SetAuthorDetails(vm);
 
+                vm.Description.Replace("\n", "<br />");
+
                 return new OperationResultVo<StudyCourseViewModel>(vm);
 
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetPlans(Guid currentUserId, Guid courseId)
+        {
+            try
+            {
+                IEnumerable<StudyPlan> plans = studyDomainService.GetPlans(courseId);
+
+                List<StudyPlanViewModel> vms = mapper.Map<IEnumerable<StudyPlan>, IEnumerable<StudyPlanViewModel>>(plans).ToList();
+
+                return new OperationResultListVo<StudyPlanViewModel>(vms);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo SavePlans(Guid currentUserId, Guid courseId, IEnumerable<StudyPlanViewModel> plans)
+        {
+            try
+            {
+                List<StudyPlan> entities = mapper.Map<IEnumerable<StudyPlanViewModel>, IEnumerable<StudyPlan>>(plans).ToList();
+
+                foreach (StudyPlan term in entities)
+                {
+                    term.UserId = currentUserId;
+                }
+
+                var result = Task.Run(async () => await studyDomainService.SavePlans(courseId, entities)).Result;
+
+                var task = unitOfWork.Commit();
+
+                task.Wait();
+
+                return new OperationResultVo(true, "Plans Updated!");
             }
             catch (Exception ex)
             {

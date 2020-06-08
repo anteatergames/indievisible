@@ -215,7 +215,7 @@
 
                 checkNoItems();
 
-                resetValidator();
+                COMMONEDIT.ResetValidator(objs.form);
 
                 if (callback) {
                     callback(response);
@@ -268,7 +268,7 @@
 
         MAINMODULE.Common.BindPopOvers();
 
-        resetValidator();
+        COMMONEDIT.ResetValidator(objs.form);
     }
 
     function deleteTerm(btn) {
@@ -280,7 +280,7 @@
 
         checkNoItems();
 
-        resetValidator();
+        COMMONEDIT.ResetValidator(objs.form);
     }
 
     function addNewAuthor(container, translation) {
@@ -500,13 +500,6 @@
             objs.divNoItems.hide();
         }
     }
-
-    function resetValidator() {
-        objs.form.removeData("validator").removeData("unobtrusiveValidation");
-
-        $.validator.unobtrusive.parse(objs.form);
-    }
-
     return {
         Init: init
     };

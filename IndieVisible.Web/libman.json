@@ -7,7 +7,7 @@
       "destination": "wwwroot/lib/twitter-bootstrap/"
     },
     {
-      "library": "jquery@3.5.0",
+      "library": "jquery@3.5.1",
       "destination": "wwwroot/lib/jquery/"
     },
     {
@@ -81,6 +81,10 @@
     {
       "library": "lazysizes@5.2.2",
       "destination": "wwwroot/lib/lazysizes"
+    },
+    {
+      "library": "Sortable@1.10.2",
+      "destination": "wwwroot/lib/sortable"
     }
   ]
 }

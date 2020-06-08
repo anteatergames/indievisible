@@ -3,6 +3,7 @@ using IndieVisible.Application.ViewModels.Study;
 using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Web.Areas.Learn.Controllers.Base;
 using IndieVisible.Web.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NPOI.OpenXmlFormats.Spreadsheet;
 using System;
@@ -160,15 +161,87 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         }
 
 
-        [Route("learn/course/listplans")]
-        public PartialViewResult ListPlans()
+        [Route("learn/course/{courseId:guid}/listplans")]
+        public PartialViewResult ListPlans(Guid courseId)
         {
             ViewData["ListDescription"] = SharedLocalizer["Study Plans"].ToString();
 
+            var model = new List<StudyCourseListItemVo>();
+
+            try
+            {
+                OperationResultVo result = studyAppService.GetPlans(CurrentUserId, courseId);
+
+                if (result.Success)
+                {
+                    OperationResultListVo<StudyPlanViewModel> castResult = result as OperationResultListVo<StudyPlanViewModel>;
+
+                    return PartialView("_ListPlans", castResult.Value);
+                }
+                else
+                {
+                    return PartialView("_ListPlans", model);
+                }
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_ListPlans", model);
+            }
+        }
+
+
+        [Route("learn/course/{courseId:guid}/edit/plans/")]
+        public PartialViewResult ListPlansForEdit(Guid courseId)
+        {
+            ViewData["ListDescription"] = SharedLocalizer["Study Plans"].ToString();
 
             var model = new List<StudyCourseListItemVo>();
 
-            return PartialView("_ListPlans", model);
+            try
+            {
+                OperationResultVo result = studyAppService.GetPlans(CurrentUserId, courseId);
+
+                if (result.Success)
+                {
+                    OperationResultListVo<StudyPlanViewModel> castResult = result as OperationResultListVo<StudyPlanViewModel>;
+
+                    return PartialView("_ListPlansForEdit", castResult.Value);
+                }
+                else
+                {
+                    return PartialView("_ListPlansForEdit", model);
+                }
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_ListPlansForEdit", model);
+            }
+        }
+
+
+        [Authorize]
+        [HttpPost("study/course/{courseId:guid}/saveplans/")]
+        [RequestFormLimits(ValueCountLimit = int.MaxValue)]
+        [RequestSizeLimit(int.MaxValue)]
+        public IActionResult SavePlans(Guid courseId, IEnumerable<StudyPlanViewModel> plans)
+        {
+            try
+            {
+                OperationResultVo result = studyAppService.SavePlans(CurrentUserId, courseId, plans);
+
+                if (result.Success)
+                {
+                    return Json(result);
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
         }
     }
 }

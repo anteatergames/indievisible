@@ -20,6 +20,7 @@
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
+      "wwwroot/js/vanilla.extensions.js",
       "wwwroot/js/jquery.extensions.js",
       "wwwroot/js/template.js",
       "wwwroot/js/main.js",
@@ -209,6 +210,7 @@
   {
     "outputFileName": "wwwroot/js/localization/localizationedit.min.js",
     "inputFiles": [
+      "wwwroot/js/common-edit.js",
       "wwwroot/js/localization/localizationedit.js",
       "wwwroot/js/shared/contentactions.js"
     ]
@@ -254,6 +256,7 @@
     "outputFileName": "wwwroot/js/study/studycourseedit.min.js",
     "inputFiles": [
       "wwwroot/lib/select2/js/select2.full.min.js",
+      "wwwroot/js/common-edit.js",
       "wwwroot/js/study/studycourseedit.js"
     ]
   },

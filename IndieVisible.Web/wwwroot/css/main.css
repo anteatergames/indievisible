@@ -199,3 +199,9 @@ select.form-control {
 img.grayscale {
     filter: grayscale(100%) contrast(50%) blur(1px);
 }
+
+.item-actions {
+    margin-top: -5px;
+    right: -5px;
+    z-index: 1000;
+}

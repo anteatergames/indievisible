@@ -128,6 +128,47 @@ namespace IndieVisible.Domain.Services
         {
             studyCourseRepository.Update(model);
         }
+
+        public IEnumerable<StudyPlan> GetPlans(Guid courseId)
+        {
+            List<StudyPlan> entries = studyCourseRepository.GetPlans(courseId).ToList();
+
+            return entries;
+        }
+
+        public async Task<bool> SavePlans(Guid courseId, List<StudyPlan> plans)
+        {
+            List<StudyPlan> existingTerms = studyCourseRepository.GetPlans(courseId).ToList();
+
+            foreach (StudyPlan plan in plans)
+            {
+                StudyPlan existing = existingTerms.FirstOrDefault(x => x.Id == plan.Id);
+                if (existing == null)
+                {
+                    await studyCourseRepository.AddPlan(courseId, plan);
+                }
+                else
+                {
+                    existing.Description = plan.Description;
+                    existing.LastUpdateDate = DateTime.Now;
+
+                    await studyCourseRepository.UpdatePlan(courseId, existing);
+                }
+            }
+
+            IEnumerable<StudyPlan> deleteTerms = existingTerms.Where(x => !plans.Contains(x));
+
+            //checked students with those plans and update them;
+            if (deleteTerms.Any())
+            {
+                foreach (StudyPlan plan in deleteTerms)
+                {
+                    await studyCourseRepository.RemovePlan(courseId, plan.Id);
+                }
+            }
+
+            return true;
+        }
         #endregion
     }
 }

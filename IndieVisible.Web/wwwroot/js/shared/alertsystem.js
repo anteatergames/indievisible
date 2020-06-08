@@ -22,6 +22,10 @@
     function bindAll() {
     }
 
+    function showSuccessAlert(text, callback) {
+        showAlert(text, 'success', callback);
+    }
+
     function showWarningAlert(text, callback) {
         showAlert(text, 'warning', callback);
     }
@@ -109,6 +113,7 @@
         ShowWarningMessage: showWarningMessage,
         ShowConfirmMessage: showConfirmMessage,
         Toastr: {
+            ShowSuccess: showSuccessAlert,
             ShowWarning: showWarningAlert,
             PointsEarned: showPointsEarned
         }

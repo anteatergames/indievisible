@@ -23,7 +23,7 @@
 }
 
 <input type="hidden" id="urls" value="urls"
-       data-url-listplans="@Url.Action("listplans", "course", new { area = "learn" })"/>
+       data-url-listplans="@Url.Action("listplans", "course", new { area = "learn", courseId = Model.Id })"/>
 
 <section class="content container">
     <div id="featurecontainer" class="col">

@@ -35,5 +35,16 @@ namespace IndieVisible.Application.ViewModels.Study
         public List<StudyGroupMemberViewModel> Members { get; set; }
 
         public List<StudyGroupViewModel> Groups { get; set; }
+
+        public List<StudyPlanViewModel> Plans { get; set; }
+
+        public StudyCourseViewModel()
+        {
+            Members = new List<StudyGroupMemberViewModel>();
+
+            Groups = new List<StudyGroupViewModel>();
+
+            Plans = new List<StudyPlanViewModel>();
+        }
     }
 }

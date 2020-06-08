@@ -6,6 +6,8 @@
     var canInteract = false;
     var isNew = false;
 
+    var propPrefix = 'Plans';
+
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
         selectors.canInteract = '#caninteract';
@@ -14,6 +16,16 @@
         selectors.form = '#frmCourseSave';
         selectors.btnSave = '#btnSaveCourse';
         selectors.txtAreaDescription = '#Description';
+        selectors.sortablePlanning = 'divPlans';
+        selectors.divPlans = '#divPlans';
+        selectors.planItem = '.studyplan';
+        selectors.template = selectors.planItem + '.template';
+        selectors.btnAddPlan = '#btn-course-plan-add';
+        selectors.btnDeletePlan = '.btn-plan-delete';
+        selectors.planCounter = '#planCounter';
+        selectors.divNoItems = '#divNoItems';
+        selectors.btnCollapse = '.btn-collapse';
+        selectors.btnSavePlans = '#btn-course-plans-save';
     }
 
     function cacheObjs() {
@@ -22,6 +34,10 @@
         objs.urls = $(selectors.urls);
         objs.form = $(selectors.form);
         objs.txtAreaDescription = $(selectors.txtAreaDescription);
+        objs.sortablePlanning = document.getElementById(selectors.sortablePlanning);
+        objs.divPlans = $(selectors.divPlans);
+        objs.divNoItems = $(selectors.divNoItems);
+
     }
 
     function init() {
@@ -38,11 +54,18 @@
         }
 
         MAINMODULE.Common.BindPopOvers();
+
+        var urlPlans = objs.urls.data('urlListplansforedit');
+        loadPlans(urlPlans);
     }
 
     function bindAll() {
         bindSelect2();
         bindBtnSaveForm();
+        bindBtnAddPlan();
+        bindBtnDeletePlan();
+        bindBtnCollapse();
+        bindBtnSavePlans();
     }
 
     function bindSelect2() {
@@ -68,20 +91,95 @@
         });
     }
 
+    function bindBtnAddPlan() {
+        objs.container.on('click', selectors.btnAddPlan, function (e) {
+            e.preventDefault();
+
+            addNewPlan();
+
+            return false;
+        });
+    }
+
+    function bindBtnDeletePlan() {
+        objs.container.on('click', selectors.btnDeletePlan, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+
+            deletePlan(btn);
+
+            return false;
+        });
+    }
+
+
+    function bindBtnCollapse() {
+        objs.container.on('click', selectors.btnCollapse, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+            var icon = btn.find('i');
+
+            var target = btn.closest('.studyplan').find('.collapse').first();
+            var alternateIcon = icon.data('icon-alternate');
+            var temp = icon.attr('class');
+            icon.attr('class', alternateIcon);
+            icon.data('icon-alternate', temp);
+
+            $(target).slideToggle();
+
+            return false;
+        });
+    }
+
+
+    function bindBtnSavePlans() {
+        objs.container.on('click', selectors.btnSavePlans, function (e) {
+            e.preventDefault();
+            var btn = $(this);
+
+            MAINMODULE.Common.DisableButton(btn);
+
+            var valid = objs.form.valid();
+
+            if (valid && canInteract) {
+                savePlans(btn, function (response) {
+                    if (response.message) {
+                        ALERTSYSTEM.Toastr.ShowWarning(response.message);
+                    }
+                });
+            }
+            else {
+                MAINMODULE.Common.RemoveErrorFromButton(btn);
+            }
+
+            return false;
+        });
+    }
+
+    function initSortable() {
+
+        if (objs.sortablePlanning) {
+            new Sortable(objs.sortablePlanning, {
+                handle: '.handle',
+                animation: 150,
+                ghostClass: 'blue-background-class',
+                onEnd: (e) => {
+                    MAINMODULE.Common.RenameInputs(objs.divPlans, selectors.planItem, propPrefix);
+                }
+            });
+        }
+    }
+
     function submitForm(btn, callback) {
         var url = objs.form.attr('action');
 
+        var data = objs.form.serializeObject();
 
-        var text = objs.txtAreaDescription.val().replace(/\n/g, '<br>\n');
-        //objs.txtAreaDescription.val(text);
+        data.description = data.description.replace(/\n/g, '<br>\n');
 
-        //var data = objs.form.serialize();
-
-        var data2 = MAINMODULE.Tools.GetFormData(objs.form);
-
-        data2.description = text;
-
-        $.post(url, data2).done(function (response) {
+        $.post(url, data).done(function (response) {
             if (response.success === true) {
                 MAINMODULE.Common.PostSaveCallback(response, btn);
 
@@ -97,6 +195,90 @@
                 ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
             }
         });
+    }
+
+    function loadPlans(url) {
+        MAINMODULE.Ajax.LoadHtml(url, objs.divPlans).then(() => {
+            objs.divNoItems = $(selectors.divNoItems);
+
+            MAINMODULE.Common.RenameInputs(objs.divPlans, selectors.planItem, propPrefix);
+
+            initSortable();
+
+            checkNoItems(selectors.planItem, selectors.planCounter, objs.divNoItems);
+        });
+    }
+
+    function addNewPlan() {
+        var newPlanObj = $(selectors.template).first().clone();
+
+        newPlanObj.find(':input').val('');
+
+        newPlanObj.removeClass('template');
+
+        newPlanObj.appendTo(selectors.divPlans);
+
+        newPlanObj.find('input.form-control').first().focus();
+
+        MAINMODULE.Common.RenameInputs(objs.divPlans, selectors.planItem, propPrefix);
+
+        checkNoItems(selectors.planItem, selectors.planCounter, objs.divNoItems);
+
+        MAINMODULE.Common.BindPopOvers();
+
+        COMMONEDIT.ResetValidator(objs.form);
+
+        initSortable();
+    }
+
+    function deletePlan(btn) {
+        var plan = btn.closest(selectors.planItem);
+
+        plan.remove();
+
+        MAINMODULE.Common.RenameInputs(objs.divPlans, selectors.planItem, propPrefix);
+
+        checkNoItems(selectors.planItem, selectors.planCounter, objs.divNoItems);
+
+        COMMONEDIT.ResetValidator(objs.form);
+    }
+
+
+
+    function savePlans(btn, callback) {
+        var url = objs.urls.data('urlPlansSave');
+
+        var plans = $(selectors.planItem + ':not(.template)');
+        var data = plans.find(':input, :hidden').serializeObject();
+
+        $.post(url, data).done(function (response) {
+            if (response.success === true) {
+                MAINMODULE.Common.PostSaveCallback(response, btn);
+
+                MAINMODULE.Common.HandleSuccessDefault(response, callback, function (result) {
+                    MAINMODULE.Common.RemoveErrorFromButton(btn);
+
+                    loadPlans(objs.urls.data('urlListplansforedit'));
+                });
+            }
+            else {
+                ALERTSYSTEM.ShowWarningMessage("An error occurred! Check the console!");
+            }
+        });
+    }
+
+    function checkNoItems(itemSelector, counterSelector, noItemObject) {
+        var count = $(itemSelector + ':not(.template)').length;
+
+        $(counterSelector).html(count);
+        console.log(counterSelector);
+
+        if (count === 0) {
+            noItemObject.show();
+        }
+        else {
+            noItemObject.hide();
+        }
     }
 
     return {

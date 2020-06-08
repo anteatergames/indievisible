@@ -65,10 +65,6 @@ body {
     position: relative;
 }
 
-.btn.uppercase, .info-box-text, .flex-column > li.header {
-    text-transform: uppercase;
-}
-
 .box-body:after, .box-footer:after, .box-header:after, .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a:after, .navbar-nav > .user-menu > .dropdown-menu > .user-body:after, .navbar-nav > .user-menu > .dropdown-menu > .user-footer:after, .user-block:after, .user-panel:after, .wrapper:after {
     clear: both;
 }
@@ -842,15 +838,13 @@ ul.flexbox {
 }
 
 .card-header {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
     align-items: center;
-    padding: 15px 20px;
-    background-color: transparent;
-    border-bottom: 1px solid rgba(97, 106, 120, 0.07);
+    border-bottom:none;
+
+}
+.card-body {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .card-controls [data-toggle="dropdown"], .card-controls .card-btn-reload {

@@ -261,10 +261,11 @@
         }
 
         if (response.message) {
-            ALERTSYSTEM.ShowSuccessMessage(response.message, function (result) {
-                if (successCallback) {
-                    successCallback(result);
-                }
+            if (successCallback) {
+                successCallback();
+            }
+
+            ALERTSYSTEM.Toastr.ShowSuccess(response.message, function (result) {
 
                 if (response.url) {
                     window.location = response.url;
@@ -345,25 +346,6 @@
         return promise;
     }
 
-    function getFormData($form) {
-        var unindexed_array = $form.serializeArray();
-        var indexed_array = {};
-
-        $.map(unindexed_array, function (n, i) {
-            indexed_array[camelize(n['name'])] = n['value'];
-        });
-
-        return indexed_array;
-    }
-
-    function camelize(str) {
-        return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
-            if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
-            return index === 0 ? match.toLowerCase() : match.toUpperCase();
-        });
-    }
-
-
     return {
         Init: init,
         Layout: {
@@ -391,10 +373,6 @@
             SpinnerTop: spinnerTop,
             SpinnerBtn: spinnerBtn,
             DoneBtn: doneBtn
-        },
-        Tools: {
-            GetFormData: getFormData,
-            Camelize: camelize
         }
     };
 }());

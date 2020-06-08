@@ -129,7 +129,8 @@ namespace IndieVisible.Application.AutoMapper
 
             CreateMap<StudyGroupMemberViewModel, StudyGroupMember>();
             CreateMap<StudyGroupViewModel, StudyGroup>();
-
+            CreateMap<StudyPlanViewModel, StudyPlan>();
+            CreateMap<StudyActivityViewModel, StudyActivity>();
 
             #endregion Study
         }

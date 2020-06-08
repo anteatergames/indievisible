@@ -2,13 +2,15 @@
     var o = {};
     var a = this.serializeArray();
     $.each(a, function () {
-        if (o[this.name]) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
+        var name = camelize(this.name);
+
+        if (o[name]) {
+            if (!o[name].push) {
+                o[name] = [o[name]];
             }
-            o[this.name].push(this.value || '');
+            o[name].push(this.value || '');
         } else {
-            o[this.name] = this.value || '';
+            o[name] = this.value || '';
         }
     });
     return o;

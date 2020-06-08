@@ -24,11 +24,15 @@ namespace IndieVisible.Domain.Models
 
         public List<StudyGroup> Groups { get; set; }
 
+        public List<StudyPlan> Plans { get; set; }
+
         public StudyCourse()
         {
             Members = new List<StudyGroupMember>();
 
             Groups = new List<StudyGroup>();
+
+            Plans = new List<StudyPlan>();
         }
     }
 }

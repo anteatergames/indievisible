@@ -1,4 +1,4 @@
-﻿@model IEnumerable<StudyCourseListItemVo>
+﻿@model IEnumerable<StudyPlanViewModel>
 
 @{
     Layout = null;
@@ -15,9 +15,30 @@
 
 @if (!Model.Any())
 {
-    <partial name="_ListNoItems" model="noItemsModel" />
+    <div id="divNoItems">
+        <partial name="_ListNoItems" model="noItemsModel" />
+    </div>
 }
 else
 {
-    <span>meh</span>
+    <div id="accordion">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var plan = Model.ElementAt(i);
+
+            <div class="card @(i < Model.Count() - 1 ? "square-bottom" : String.Empty) @(i > 0 ? "square-top" : String.Empty)">
+                <div class="card-header square-bottom" id="heading@(plan.Id)" data-toggle="collapse" data-target="#collapse@(plan.Id)" aria-expanded="true" aria-controls="collapse@(plan.Id)">
+                    <h5 class="mb-0">
+                        @plan.Name
+                    </h5>
+                </div>
+
+                <div id="collapse@(plan.Id)" class="collapse @(i == 0 ? "show" : String.Empty)" aria-labelledby="heading@(plan.Id)" data-parent="#accordion">
+                    <div class="card-body square-top">
+                        @plan.Description
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }
