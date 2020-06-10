@@ -4,74 +4,77 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-/// <summary>
-/// <see cref="ITagHelper"/> implementation targeting &lt;span&gt; elements with an <c>asp-description-for</c> attribute.
-/// Adds an <c>id</c> attribute and sets the content of the &lt;span&gt; with the Description property from the model data annotation DisplayAttribute.
-/// </summary>
-[HtmlTargetElement("span", Attributes = DescriptionForAttributeName)]
-public class SpanDescriptionTagHelper : TagHelper
+namespace IndieVisible.Web.TagHelpers
 {
-    private const string DescriptionForAttributeName = "asp-description-for";
-
     /// <summary>
-    /// Creates a new <see cref="SpanDescriptionTagHelper"/>.
+    /// <see cref="ITagHelper"/> implementation targeting &lt;span&gt; elements with an <c>asp-description-for</c> attribute.
+    /// Adds an <c>id</c> attribute and sets the content of the &lt;span&gt; with the Description property from the model data annotation DisplayAttribute.
     /// </summary>
-    /// <param name="generator">The <see cref="IHtmlGenerator"/>.</param>
-    public SpanDescriptionTagHelper(IHtmlGenerator generator)
+    [HtmlTargetElement("span", Attributes = DescriptionForAttributeName)]
+    public class SpanDescriptionTagHelper : TagHelper
     {
-        Generator = generator;
-    }
+        private const string DescriptionForAttributeName = "asp-description-for";
 
-    /// <inheritdoc />
-    public override int Order
-    {
-        get
+        /// <summary>
+        /// Creates a new <see cref="SpanDescriptionTagHelper"/>.
+        /// </summary>
+        /// <param name="generator">The <see cref="IHtmlGenerator"/>.</param>
+        public SpanDescriptionTagHelper(IHtmlGenerator generator)
         {
-            return -1000;
-        }
-    }
-
-    [HtmlAttributeNotBound]
-    [ViewContext]
-    public ViewContext ViewContext { get; set; }
-
-    protected IHtmlGenerator Generator { get; }
-
-    /// <summary>
-    /// An expression to be evaluated against the current model.
-    /// </summary>
-    [HtmlAttributeName(DescriptionForAttributeName)]
-    public ModelExpression DescriptionFor { get; set; }
-
-    /// <inheritdoc />
-    /// <remarks>Does nothing if <see cref="DescriptionFor"/> is <c>null</c>.</remarks>
-    public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-    {
-        if (context == null)
-        {
-            throw new ArgumentNullException(nameof(context));
+            Generator = generator;
         }
 
-        if (output == null)
+        /// <inheritdoc />
+        public override int Order
         {
-            throw new ArgumentNullException(nameof(output));
+            get
+            {
+                return -1000;
+            }
         }
 
-        var metadata = DescriptionFor.Metadata;
+        [HtmlAttributeNotBound]
+        [ViewContext]
+        public ViewContext ViewContext { get; set; }
 
-        if (metadata == null)
+        protected IHtmlGenerator Generator { get; }
+
+        /// <summary>
+        /// An expression to be evaluated against the current model.
+        /// </summary>
+        [HtmlAttributeName(DescriptionForAttributeName)]
+        public ModelExpression DescriptionFor { get; set; }
+
+        /// <inheritdoc />
+        /// <remarks>Does nothing if <see cref="DescriptionFor"/> is <c>null</c>.</remarks>
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            throw new InvalidOperationException(string.Format("No provided metadata ({0})", DescriptionForAttributeName));
-        }
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
 
-        output.Attributes.SetAttribute("id", metadata.PropertyName + "-description");
+            if (output == null)
+            {
+                throw new ArgumentNullException(nameof(output));
+            }
 
-        if (!string.IsNullOrWhiteSpace(metadata.Description))
-        {
-            var content = String.Format("<i class=\"fas fa-exclamation-circle\" data-container=\"body\" data-toggle=\"popover\" data-trigger=\"hover\" data-placement=\"top\" data-html=\"true\" data-content=\"{0}\" aria-hidden=\"true\"></i>", metadata.Description);
+            var metadata = DescriptionFor.Metadata;
 
-            output.Content.SetHtmlContent(content);
-            output.TagMode = TagMode.StartTagAndEndTag;
+            if (metadata == null)
+            {
+                throw new InvalidOperationException(string.Format("No provided metadata ({0})", DescriptionForAttributeName));
+            }
+
+            output.Attributes.SetAttribute("id", metadata.PropertyName + "-description");
+
+            if (!string.IsNullOrWhiteSpace(metadata.Description))
+            {
+                var content = String.Format("<i class=\"fas fa-exclamation-circle\" data-container=\"body\" data-toggle=\"popover\" data-trigger=\"hover\" data-placement=\"top\" data-html=\"true\" data-content=\"{0}\" aria-hidden=\"true\"></i>", metadata.Description);
+
+                output.Content.SetHtmlContent(content);
+                output.TagMode = TagMode.StartTagAndEndTag;
+            }
         }
     }
 }

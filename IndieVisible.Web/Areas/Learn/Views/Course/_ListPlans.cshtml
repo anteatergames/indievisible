@@ -35,7 +35,18 @@ else
 
                 <div id="collapse@(plan.Id)" class="collapse @(i == 0 ? "show" : String.Empty)" aria-labelledby="heading@(plan.Id)" data-parent="#accordion">
                     <div class="card-body square-top">
-                        @plan.Description
+                        <div class="col-12">
+                            <label asp-for="@plan.Description" class="col-form-label"></label>
+                            <p>@plan.Description</p>
+                        </div>
+                        <div class="col-12">
+                            <label asp-for="@plan.ScoreToPass" class="col-form-label"></label>
+                            <p>
+                                <span class="badge badge-secondary align-top p-1">
+                                    @plan.ScoreToPass
+                                </span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

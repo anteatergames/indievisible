@@ -1,0 +1,120 @@
+﻿
+.rangeslider__tooltip {
+    display: block;
+    margin-top: 2.5em;
+    font-size: 12px;
+    color: #a59eb5;
+}
+
+.rangeslider__handle {
+    border-radius: 22px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+    .rangeslider__handle:after {
+        background: 0;
+    }
+
+.rangeslider,
+.rangeslider__fill {
+    display: block;
+    border-radius: 10px;
+}
+
+.rangeslider {
+    background: #e6e5ea;
+    background-image: linear-gradient(to right, #4bc67d 30%, #f1c40f 45%, #b94a48 99%);
+    position: relative;
+}
+
+.rangeslider--horizontal {
+    height: 10px;
+    width: 100%;
+}
+
+.rangeslider--vertical {
+    width: 20px;
+    min-height: 150px;
+    max-height: 100%;
+}
+
+.rangeslider--disabled {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    opacity: 0.4;
+}
+
+.rangeslider__fill {
+    position: absolute;
+    background: none;
+}
+
+.rangeslider--horizontal .rangeslider__fill {
+    top: 0;
+    height: 100%;
+}
+
+.rangeslider--vertical .rangeslider__fill {
+    bottom: 0;
+    width: 100%;
+}
+
+.rangeslider__handle {
+    background: white;
+    border: 6px solid #4bc67d;
+    cursor: pointer;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+    .rangeslider__handle.js-low {
+        border-color: #4bc67d;
+    }
+
+    .rangeslider__handle.js-med {
+        border-color: #f1c40f;
+    }
+
+    .rangeslider__handle.js-high {
+        border-color: #b94a48;
+    }
+
+    .rangeslider__handle:after {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+.rangeslider--horizontal .rangeslider__handle {
+    top: -15px;
+    touch-action: pan-y;
+    -ms-touch-action: pan-y;
+}
+
+.rangeslider--vertical .rangeslider__handle {
+    left: -10px;
+    touch-action: pan-x;
+    -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .rangeslider__handle {
+    -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+    -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}

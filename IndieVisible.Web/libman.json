@@ -85,6 +85,10 @@
     {
       "library": "Sortable@1.10.2",
       "destination": "wwwroot/lib/sortable"
+    },
+    {
+      "library": "rangeslider.js@2.3.3",
+      "destination": "wwwroot/lib/rangeslider"
     }
   ]
 }

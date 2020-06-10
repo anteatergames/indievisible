@@ -125,7 +125,8 @@ namespace IndieVisible.Application.AutoMapper
             #region Study
 
             CreateMap<StudyCourseViewModel, Domain.Models.StudyCourse>()
-                    .ForMember(dest => dest.SkillSet, opt => opt.MapFrom<StudyCourseWorkTypeToDomainResolver>());
+                .ForMember(dest => dest.Plans, opt => opt.Ignore())
+                .ForMember(dest => dest.SkillSet, opt => opt.MapFrom<StudyCourseWorkTypeToDomainResolver>());
 
             CreateMap<StudyGroupMemberViewModel, StudyGroupMember>();
             CreateMap<StudyGroupViewModel, StudyGroup>();

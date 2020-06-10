@@ -151,6 +151,7 @@ namespace IndieVisible.Domain.Services
                 {
                     existing.Description = plan.Description;
                     existing.LastUpdateDate = DateTime.Now;
+                    existing.ScoreToPass = plan.ScoreToPass;
 
                     await studyCourseRepository.UpdatePlan(courseId, existing);
                 }

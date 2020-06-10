@@ -26,6 +26,7 @@
         selectors.divNoItems = '#divNoItems';
         selectors.btnCollapse = '.btn-collapse';
         selectors.btnSavePlans = '#btn-course-plans-save';
+        selectors.rangeSlider = 'input[type="range"]';
     }
 
     function cacheObjs() {
@@ -172,12 +173,30 @@
         }
     }
 
+    const initRangeSlider = () => {
+        $(selectors.rangeSlider).each(function (index, element) {
+            var slider = $(element);
+            var handle;
+
+            slider.rangeslider({
+                polyfill: false,
+                onInit: function (position, value) {
+                    handle = $('.rangeslider__handle', this.$range);
+                    handle.html(this.value);
+                },
+                onSlide: function (position, value) {
+                    handle.html(this.value);
+                }
+            }).on('input', function () {
+                handle.html(this.value);
+            });;
+        });
+    };
+
     function submitForm(btn, callback) {
         var url = objs.form.attr('action');
 
         var data = objs.form.serializeObject();
-
-        data.description = data.description.replace(/\n/g, '<br>\n');
 
         $.post(url, data).done(function (response) {
             if (response.success === true) {
@@ -206,6 +225,8 @@
             initSortable();
 
             checkNoItems(selectors.planItem, selectors.planCounter, objs.divNoItems);
+
+            initRangeSlider();
         });
     }
 

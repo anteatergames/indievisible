@@ -72,7 +72,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         [Route("learn/course/{id:guid}")]
         public ViewResult Details(Guid id)
         {
-            StudyCourseViewModel model;
+            StudyCourseViewModel vm;
 
             OperationResultVo serviceResult = studyAppService.GetCourseById(CurrentUserId, id);
 
@@ -80,16 +80,17 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             {
                 OperationResultVo<StudyCourseViewModel> castResult = serviceResult as OperationResultVo<StudyCourseViewModel>;
 
-                model = castResult.Value;
+                vm = castResult.Value;
             }
             else
             {
-                model = new StudyCourseViewModel();
+                vm = new StudyCourseViewModel();
             }
 
-            return View("CourseDetailsWrapper", model);
-        }
+            FormatToShow(vm);
 
+            return View("CourseDetailsWrapper", vm);
+        }
 
         [Route("learn/course/add")]
         public ViewResult AddCourse()
@@ -174,9 +175,11 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
                 if (result.Success)
                 {
-                    OperationResultListVo<StudyPlanViewModel> castResult = result as OperationResultListVo<StudyPlanViewModel>;
+                    var castResult = (result as OperationResultListVo<StudyPlanViewModel>).Value.ToList();
 
-                    return PartialView("_ListPlans", castResult.Value);
+                    FormatToShow(castResult);
+
+                    return PartialView("_ListPlans", castResult);
                 }
                 else
                 {
@@ -188,7 +191,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
                 return PartialView("_ListPlans", model);
             }
         }
-
 
         [Route("learn/course/{courseId:guid}/edit/plans/")]
         public PartialViewResult ListPlansForEdit(Guid courseId)
@@ -241,6 +243,19 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             catch (Exception ex)
             {
                 return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        private void FormatToShow(StudyCourseViewModel model)
+        {
+            model.Description = String.IsNullOrWhiteSpace(model.Description) ? SharedLocalizer["No Description to show."] : model.Description.Replace("\n", "<br />");
+        }
+
+        private  void FormatToShow(List<StudyPlanViewModel> castResult)
+        {
+            foreach (var plan in castResult)
+            {
+                plan.Description = String.IsNullOrWhiteSpace(plan.Description) ? SharedLocalizer["No Description to show."] : plan.Description.Replace("\n", "<br />");
             }
         }
     }

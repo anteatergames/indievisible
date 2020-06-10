@@ -214,8 +214,6 @@ namespace IndieVisible.Application.Services
 
                 SetAuthorDetails(vm);
 
-                vm.Description.Replace("\n", "<br />");
-
                 return new OperationResultVo<StudyCourseViewModel>(vm);
 
             }

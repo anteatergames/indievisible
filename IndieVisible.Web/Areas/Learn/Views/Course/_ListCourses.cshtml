@@ -17,25 +17,26 @@
 }
 else
 {
-    <div class="col-12 bg-white">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>@SharedLocalizer["Course Name"]</th>
-                    <th>@SharedLocalizer["Students"]</th>
-                    <th>@SharedLocalizer["Open"]</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
+<div class="col-12 bg-white">
+    <table class="table">
+        <caption class="sr-only">@SharedLocalizer["The available courses."]</caption>
+        <thead>
+            <tr>
+                <th scope="col">@SharedLocalizer["Course Name"]</th>
+                <th scope="col">@SharedLocalizer["Students"]</th>
+                <th scope="col">@SharedLocalizer["Open"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
                 {
-                <tr>
-                    <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@item.Name</span></a></td>
-                    <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@item.StudentCount</span></a></td>
-                    <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@SharedLocalizer[item.OpenForApplication ? "yes" : "no"]</span></a></td>
-                </tr>
+            <tr>
+                <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@item.Name</span></a></td>
+                <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@item.StudentCount</span></a></td>
+                <td><a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@item.Id"><span>@SharedLocalizer[item.OpenForApplication ? "yes" : "no"]</span></a></td>
+            </tr>
                 }
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+</div>
 }
