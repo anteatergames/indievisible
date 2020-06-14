@@ -52,27 +52,22 @@
     <script type="application/ld+json">
         {
         "@@context":"http://schema.org",
-        "@@type":"SocialMediaPosting",
-        "@@id":"@ViewData["Url"]",
-        "datePublished": "@Model.CreateDate.ToString("yyyy-MM-dd")",
-        "image": "@(ViewBag.BaseUrl + Model.ThumbnailUrl)",
-        "author":{
+        "@@type":"Game",
+        "identifier":"@Model.Id",
+        "name": "@Model.Title",
+        "description": "@Model.Description",
+        "dateCreated": "@Model.CreateDate.ToString("yyyy-MM-dd")",
+        "thumbnailUrl": "@(ViewBag.BaseUrl + Model.ThumbnailUrl)",
+        "accessMode": [ "visual", "auditory", "textual", "tactile" ],
+        "creativeWorkStatus": "@Model.Status.ToString()",
+        "genre": "@Model.Genre.ToString()",
+        "author": {
         "@@type":"Person",
         "name":"@Model.AuthorName",
         "url":"@(ViewBag.BaseUrl + "/profile/" + Model.UserId)",
         "image": "@(ViewBag.BaseUrl + Model.AuthorPicture)"
         },
-        "headline":"@Model.Title",
-        "sharedContent":{
-        "@@type":"WebPage",
-        "headline":"@Model.Title",
-        "url":"@ViewData["Url"]",
-        "author":{
-        "@@type":"Person",
-        "name":"@Model.AuthorName",
-        "url":"@(ViewBag.BaseUrl + "/profile/" + Model.UserId)"
-        }
-        }
+        "sameAs": [ @(Html.Raw(string.Join(", ", Model.ExternalLinks.Select(x => string.Format("\"{0}\"", x.Value))))) ]
         }
     </script>
 }
