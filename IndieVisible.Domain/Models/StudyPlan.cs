@@ -14,6 +14,8 @@ namespace IndieVisible.Domain.Models
 
         public decimal ScoreToPass { get; set; }
 
+        public int Order { get; set; }
+
         public List<StudyActivity> Activities { get; set; }
 
         public StudyPlan()

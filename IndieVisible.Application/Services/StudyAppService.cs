@@ -231,6 +231,8 @@ namespace IndieVisible.Application.Services
 
                 List<StudyPlanViewModel> vms = mapper.Map<IEnumerable<StudyPlan>, IEnumerable<StudyPlanViewModel>>(plans).ToList();
 
+                vms = vms.OrderBy(x => x.Order).ToList();
+
                 return new OperationResultListVo<StudyPlanViewModel>(vms);
             }
             catch (Exception ex)

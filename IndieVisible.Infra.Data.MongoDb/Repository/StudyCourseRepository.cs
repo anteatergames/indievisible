@@ -52,6 +52,8 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
         public async Task<bool> UpdatePlan(Guid courseId, StudyPlan plan)
         {
+            plan.LastUpdateDate = DateTime.Now;
+
             FilterDefinition<StudyCourse> filter = Builders<StudyCourse>.Filter.And(
                 Builders<StudyCourse>.Filter.Eq(x => x.Id, courseId),
                 Builders<StudyCourse>.Filter.ElemMatch(x => x.Plans, x => x.Id == plan.Id));
@@ -60,6 +62,7 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
                 .Set(c => c.Plans[-1].Name, plan.Name)
                 .Set(c => c.Plans[-1].Description, plan.Description)
                 .Set(c => c.Plans[-1].ScoreToPass, plan.ScoreToPass)
+                .Set(c => c.Plans[-1].Order, plan.Order)
                 .Set(c => c.Plans[-1].Activities, plan.Activities);
 
             UpdateResult result = await DbSet.UpdateOneAsync(filter, update);

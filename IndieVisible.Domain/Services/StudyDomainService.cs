@@ -6,6 +6,7 @@ using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Domain.ValueObjects.Study;
 using System;
 using System.Collections.Generic;
+using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -149,9 +150,10 @@ namespace IndieVisible.Domain.Services
                 }
                 else
                 {
+                    existing.Name = plan.Name;
                     existing.Description = plan.Description;
-                    existing.LastUpdateDate = DateTime.Now;
                     existing.ScoreToPass = plan.ScoreToPass;
+                    existing.Order = plan.Order;
 
                     await studyCourseRepository.UpdatePlan(courseId, existing);
                 }

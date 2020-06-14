@@ -160,7 +160,6 @@
     }
 
     function initSortable() {
-
         if (objs.sortablePlanning) {
             new Sortable(objs.sortablePlanning, {
                 handle: '.handle',
@@ -168,30 +167,40 @@
                 ghostClass: 'blue-background-class',
                 onEnd: (e) => {
                     MAINMODULE.Common.RenameInputs(objs.divPlans, selectors.planItem, propPrefix);
+                    reOrder(objs.divPlans, selectors.planItem, propPrefix);
                 }
             });
         }
     }
 
-    const initRangeSlider = () => {
-        $(selectors.rangeSlider).each(function (index, element) {
+    const initRangeSlider = (context) => {
+        $(selectors.rangeSlider, context).each(function (index, element) {
             var slider = $(element);
             var handle;
 
             slider.rangeslider({
                 polyfill: false,
                 onInit: function (position, value) {
-                    handle = $('.rangeslider__handle', this.$range);
-                    handle.html(this.value);
+                    handle = setSliderHandler(handle, this.$range, this.value);
                 },
                 onSlide: function (position, value) {
                     handle.html(this.value);
                 }
             }).on('input', function () {
-                handle.html(this.value);
-            });;
+                handle = setSliderHandler(handle, this.$range, this.value);
+            });
         });
     };
+
+    function setSliderHandler(handle, range, value) {
+        if (handle === undefined) {
+            handle = $('.rangeslider__handle', range);
+        }
+
+        handle.html(value);
+
+        return handle;
+    }
 
     function submitForm(btn, callback) {
         var url = objs.form.attr('action');
@@ -226,7 +235,7 @@
 
             checkNoItems(selectors.planItem, selectors.planCounter, objs.divNoItems);
 
-            initRangeSlider();
+            initRangeSlider(selectors.container);
         });
     }
 
@@ -250,6 +259,10 @@
         COMMONEDIT.ResetValidator(objs.form);
 
         initSortable();
+
+        reOrder(objs.divPlans, selectors.planItem, propPrefix);
+
+        initRangeSlider(newPlanObj);
     }
 
     function deletePlan(btn) {
@@ -292,7 +305,6 @@
         var count = $(itemSelector + ':not(.template)').length;
 
         $(counterSelector).html(count);
-        console.log(counterSelector);
 
         if (count === 0) {
             noItemObject.show();
@@ -300,6 +312,15 @@
         else {
             noItemObject.hide();
         }
+    }
+
+    function reOrder(objContainer, itemSelector, propPreffix) {
+        var count = 0;
+
+        objContainer.find(itemSelector + ' .order').each(function (index2, element2) {
+            $(this).val(count);
+            count++;
+        });
     }
 
     return {

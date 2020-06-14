@@ -12,6 +12,8 @@ namespace IndieVisible.Application.ViewModels.Study
 
         public decimal ScoreToPass { get; set; }
 
+        public int Order { get; set; }
+
         public List<StudyActivityViewModel> Activities { get; set; }
 
         public StudyPlanViewModel()
