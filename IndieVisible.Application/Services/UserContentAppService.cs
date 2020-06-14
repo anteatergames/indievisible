@@ -44,6 +44,7 @@ namespace IndieVisible.Application.Services
             this.pollDomainService = pollDomainService;
         }
 
+        #region ICrudAppService
         public OperationResultVo<int> Count(Guid currentUserId)
         {
             try
@@ -71,6 +72,19 @@ namespace IndieVisible.Application.Services
             catch (Exception ex)
             {
                 return new OperationResultListVo<UserContentViewModel>(ex.Message);
+            }
+        }
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = userContentDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
             }
         }
 
@@ -205,7 +219,8 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        }
+        } 
+        #endregion
 
         private bool CheckSpam(Guid id, string content)
         {

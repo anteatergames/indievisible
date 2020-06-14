@@ -31,7 +31,7 @@ namespace IndieVisible.Application.Services
             this.gamificationDomainService = gamificationDomainService;
         }
 
-        #region ICrudAPpService
+        #region ICrudAppService
 
         public OperationResultVo<int> Count(Guid currentUserId)
         {
@@ -65,6 +65,19 @@ namespace IndieVisible.Application.Services
             catch (Exception ex)
             {
                 return new OperationResultListVo<TeamViewModel>(ex.Message);
+            }
+        }
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = teamDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
             }
         }
 

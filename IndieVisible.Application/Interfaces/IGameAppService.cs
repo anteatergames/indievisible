@@ -23,7 +23,5 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GameLike(Guid currentUserId, Guid gameId);
 
         OperationResultVo GameUnlike(Guid currentUserId, Guid gameId);
-
-        OperationResultVo GetAllIds(Guid empty);
     }
 }

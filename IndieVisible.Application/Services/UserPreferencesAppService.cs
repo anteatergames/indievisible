@@ -56,6 +56,19 @@ namespace IndieVisible.Application.Services
                 return new OperationResultListVo<UserPreferencesViewModel>(ex.Message);
             }
         }
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = userPreferencesDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
 
         public OperationResultVo<UserPreferencesViewModel> GetById(Guid currentUserId, Guid id)
         {

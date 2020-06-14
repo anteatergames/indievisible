@@ -36,6 +36,19 @@ namespace IndieVisible.Application.Services
         {
             return new OperationResultListVo<NotificationItemViewModel>(string.Empty);
         }
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = notificationDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
 
         public OperationResultListVo<NotificationItemViewModel> GetById(Guid id)
         {

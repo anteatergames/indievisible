@@ -55,6 +55,20 @@ namespace IndieVisible.Application.Services
             return new OperationResultListVo<BrainstormIdeaViewModel>("Not Implemented");
         }
 
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = brainstormDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo<BrainstormIdeaViewModel> GetById(Guid currentUserId, Guid id)
         {
             try

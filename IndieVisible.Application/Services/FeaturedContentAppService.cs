@@ -65,6 +65,20 @@ namespace IndieVisible.Application.Services
             }
         }
 
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = featuredContentDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo<FeaturedContentViewModel> GetById(Guid currentUserId, Guid id)
         {
             try

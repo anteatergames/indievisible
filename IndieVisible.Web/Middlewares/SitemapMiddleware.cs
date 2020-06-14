@@ -23,7 +23,10 @@ namespace IndieVisible.Web.Middlewares
         private readonly List<KeyValuePair<string, string>> forbidden;
 
         public IGameAppService GameAppService { get; private set; }
+
         public IProfileAppService ProfileAppService { get; private set; }
+
+        public IUserContentAppService ContentAppService { get; private set; }
 
         public SitemapMiddleware(RequestDelegate next, string rootUrl)
         {
@@ -112,17 +115,20 @@ namespace IndieVisible.Web.Middlewares
             };
         }
 
-        public async Task Invoke(HttpContext context, IGameAppService gameAppService, IProfileAppService profileAppService)
+        public async Task Invoke(HttpContext context, IGameAppService gameAppService, IProfileAppService profileAppService, IUserContentAppService contentAppService)
         {
+            StringBuilder sb = new StringBuilder();
+
             GameAppService = gameAppService;
             ProfileAppService = profileAppService;
+            ContentAppService = contentAppService;
 
             if (context.Request.Path.Value.Equals("/sitemap.xml", StringComparison.OrdinalIgnoreCase))
             {
                 Stream stream = context.Response.Body;
                 context.Response.StatusCode = 200;
                 context.Response.ContentType = "application/xml";
-                string sitemapContent = "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
+                sb.Append("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
 
@@ -132,13 +138,13 @@ namespace IndieVisible.Web.Middlewares
 
                 foreach (Type controller in controllers)
                 {
-                    sitemapContent = CheckController(sitemapContent, controller);
+                    sb.AppendLine(CheckController(controller));
                 }
 
-                sitemapContent += "</urlset>";
+                sb.AppendLine("</urlset>");
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    byte[] bytes = Encoding.UTF8.GetBytes(sitemapContent);
+                    byte[] bytes = Encoding.UTF8.GetBytes(sb.ToString());
                     memoryStream.Write(bytes, 0, bytes.Length);
                     memoryStream.Seek(0, SeekOrigin.Begin);
                     await memoryStream.CopyToAsync(stream, bytes.Length);
@@ -150,24 +156,26 @@ namespace IndieVisible.Web.Middlewares
             }
         }
 
-        private string CheckController(string sitemapContent, Type controller)
+        private string CheckController(Type controller)
         {
+            StringBuilder sb = new StringBuilder();
+
             IEnumerable<MethodInfo> methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
                                     .Where(method => typeof(IActionResult).IsAssignableFrom(method.ReturnType));
 
             foreach (MethodInfo method in methods)
             {
-                sitemapContent += CheckMethod(controller, method);
+                sb.AppendLine(CheckMethod(controller, method));
             }
 
             List<string> detailMethods = CheckDetailsMethod(controller);
 
             foreach (string method in detailMethods)
             {
-                sitemapContent += method;
+                sb.AppendLine(method);
             }
 
-            return sitemapContent;
+            return sb.ToString();
         }
 
         private string CheckMethod(Type controller, MethodInfo method)
@@ -178,12 +186,65 @@ namespace IndieVisible.Web.Middlewares
 
             RouteAttribute routeAttribute = method.GetCustomAttributes<RouteAttribute>().FirstOrDefault();
 
-            var hasParameter = routeAttribute != null && !routeAttribute.Template.Contains("{");
-            var routeTemplate = routeAttribute != null ? routeAttribute.Template.Trim('/') : string.Empty;
-             
+            bool hasParameter = routeAttribute != null && !routeAttribute.Template.Contains("{");
+            string routeTemplate = routeAttribute != null ? routeAttribute.Template.Trim('/') : string.Empty;
+
             string actionName = method.Name.ToLower();
 
             return CheckMethod(controller, actionName, isPost, isDelete, isPut, hasParameter, routeTemplate);
+        }
+
+        private List<string> CheckDetailsMethod(Type controller)
+        {
+            var pattern = string.Empty;
+            OperationResultVo ids = null;
+            List<string> methodList = new List<string>();
+
+            if (controller.Name.Equals("ProfileController"))
+            {
+                pattern = "profile/{0}";
+                ids = ProfileAppService.GetAllIds(Guid.Empty);
+            }
+            else if (controller.Name.Equals("GameController"))
+            {
+                pattern = "game/{0}";
+                ids = GameAppService.GetAllIds(Guid.Empty);
+            }
+            else if (controller.Name.Equals("ContentController"))
+            {
+                pattern = "content/{0}";
+                ids = ContentAppService.GetAllIds(Guid.Empty);
+            }
+
+            if (ids != null && !string.IsNullOrWhiteSpace(pattern))
+            {
+                var urls = GetDetailUrls(controller, ids, pattern);
+
+                methodList.AddRange(urls);
+            }
+
+            return methodList;
+        }
+
+        private List<string> GetDetailUrls(Type controller, OperationResultVo result, string patternUrl)
+        {
+            List<string> methodList = new List<string>();
+
+            if (result.Success)
+            {
+                OperationResultListVo<Guid> castResult = result as OperationResultListVo<Guid>;
+
+                foreach (Guid userId in castResult.Value)
+                {
+                    string route = string.Format(patternUrl, userId.ToString());
+
+                    string sitemapItem = CheckMethod(controller, "details", false, false, false, true, route);
+
+                    methodList.Add(sitemapItem);
+                }
+            }
+
+            return methodList;
         }
 
         private string CheckMethod(Type controller, string actionName, bool isPost, bool isDelete, bool isPut, bool hasParameter, string routeTemplate)
@@ -223,51 +284,6 @@ namespace IndieVisible.Web.Middlewares
             }
 
             return sitemapContent;
-        }
-
-        private List<string> CheckDetailsMethod(Type controller)
-        {
-            var methodList = new List<string>();
-
-            if (controller.Name.Equals("GameController"))
-            {
-                OperationResultVo result = GameAppService.GetAllIds(Guid.Empty);
-
-                if (result.Success)
-                {
-                    OperationResultListVo<Guid> castResult = result as OperationResultListVo<Guid>;
-
-                    foreach (Guid gameId in castResult.Value)
-                    {
-                        var route = string.Format("game/{0}", gameId.ToString());
-
-                        var sitemapItem = CheckMethod(controller, "details", false, false, false, true, route);
-
-                        methodList.Add(sitemapItem);
-                    }
-                }
-            }
-
-            if (controller.Name.Equals("ProfileController"))
-            {
-                OperationResultVo result = ProfileAppService.GetAllIds(Guid.Empty);
-
-                if (result.Success)
-                {
-                    OperationResultListVo<Guid> castResult = result as OperationResultListVo<Guid>;
-
-                    foreach (Guid userId in castResult.Value)
-                    {
-                        var route = string.Format("profile/{0}", userId.ToString());
-
-                        var sitemapItem = CheckMethod(controller, "details", false, false, false, true, route);
-
-                        methodList.Add(sitemapItem);
-                    }
-                }
-            }
-
-            return methodList;
         }
     }
 

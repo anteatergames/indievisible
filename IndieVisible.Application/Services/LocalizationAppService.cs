@@ -90,6 +90,19 @@ namespace IndieVisible.Application.Services
                 return new OperationResultListVo<LocalizationViewModel>(ex.Message);
             }
         }
+        public OperationResultVo GetAllIds(Guid currentUserId)
+        {
+            try
+            {
+                IEnumerable<Guid> allIds = translationDomainService.GetAllIds();
+
+                return new OperationResultListVo<Guid>(allIds);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
 
         public OperationResultVo GetByUserId(Guid currentUserId, Guid userId)
         {
