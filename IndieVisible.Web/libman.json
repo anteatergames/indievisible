@@ -75,10 +75,6 @@
       "destination": "wwwroot/lib/bootstrap-star-rating"
     },
     {
-      "library": "vanilla-lazyload@16.1.0",
-      "destination": "wwwroot/lib/vanilla-lazyload"
-    },
-    {
       "library": "lazysizes@5.2.2",
       "destination": "wwwroot/lib/lazysizes"
     },

@@ -40,7 +40,7 @@ else
                     </div>
                     <div class="col-12">
                         <label class="col-form-label">@Html.LabelFor(x => x.First().ScoreToPass)</label>
-                        <input type="range" min="0" max="10" step=".5" id="Placeholder_0__ScoreToPass" name="Placeholder[0].ScoreToPass" class="form-control" value="@plan.ScoreToPass" />
+                        <input type="range" min="0" max="10" step=".5" asp-for="@plan.ScoreToPass" asp-is-invariant="true" id="Placeholder_0__ScoreToPass" name="Placeholder[0].ScoreToPass" class="form-control" value="@plan.ScoreToPass" />
                     </div>
                 </div>
             </div>

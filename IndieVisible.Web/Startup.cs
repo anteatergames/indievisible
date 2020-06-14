@@ -6,6 +6,7 @@ using IndieVisible.Infra.CrossCutting.IoC;
 using IndieVisible.Infra.Data.MongoDb;
 using IndieVisible.Web.Extensions;
 using IndieVisible.Web.Middlewares;
+using IndieVisible.Web.ModelBinders;
 using IndieVisible.Web.RewriterRules;
 using IndieVisible.Web.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -89,6 +90,7 @@ namespace IndieVisible.Web
 
             services.AddControllersWithViews(options =>
             {
+                options.ModelBinderProviders.Insert(0, new InvariantDecimalModelBinderProvider());
                 options.CacheProfiles.Add("Default",
                     new CacheProfile()
                     {
@@ -162,6 +164,7 @@ namespace IndieVisible.Web
 
             app.UseRequestLocalization(options =>
                 options
+                    .SetDefaultCulture("en-US")
                     .AddSupportedCultures(supportedCultures)
                     .AddSupportedUICultures(supportedCultures)
                     );
