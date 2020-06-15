@@ -47,7 +47,7 @@
 
         bindAll();
 
-        canInteract = objs.container.find(selectors.canInteract).val();
+        canInteract = $(selectors.canInteract).val();
         isNew = window.location.href.indexOf('add') > -1;
 
         if (isNew) {

@@ -32,6 +32,7 @@ namespace IndieVisible.Domain.Interfaces.Services
         IEnumerable<StudyPlan> GetPlans(Guid courseId);
 
         Task<bool> SavePlans(Guid courseId, List<StudyPlan> plans);
+        void RemoveCourse(Guid id);
         #endregion
     }
 }

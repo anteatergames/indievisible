@@ -23,6 +23,8 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo<Guid> SaveCourse(Guid currentUserId, StudyCourseViewModel vm);
 
+        OperationResultVo RemoveCourse(Guid currentUserId, Guid id);
+
         OperationResultVo GetCourseById(Guid currentUserId, Guid id);
 
         OperationResultVo GetPlans(Guid currentUserId, Guid courseId);

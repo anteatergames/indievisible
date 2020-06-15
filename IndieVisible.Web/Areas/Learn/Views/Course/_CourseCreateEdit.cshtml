@@ -38,7 +38,7 @@
 
                             @if (Model.Permissions.CanDelete)
                             {
-                                <a class="btnDeleteTranslationProject dropdown-item" href="#" data-url="@Url.Action("deletecourse", "study", new { area = "learn", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this Translation Project?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
+                                <a class="btn-course-delete dropdown-item" href="#" data-url="@Url.Action("delete", "course", new { area = "learn", id = Model.Id })" data-confirmationmessage="@SharedLocalizer["Are you sure you want to delete this Course?"]" data-confirmationtitle="@SharedLocalizer["Are you sure?"]" data-confirmationbuttontext="@SharedLocalizer["Yes, delete it!"]" data-cancelbuttontext="@SharedLocalizer["Cancel"]">@SharedLocalizer["delete"]</a>
                             }
                         </div>
                     </div>
@@ -48,7 +48,6 @@
 
         <div class="box-body p-0 px-md-2">
             <form id="frmCourseSave" asp-area="learn" asp-controller="course" asp-action="save" method="post">
-                <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" asp-for="UserId" />
                 <input type="hidden" asp-for="CreateDate" />
@@ -115,13 +114,17 @@
     <input type="hidden" id="Placeholder_0__UserId" name="Placeholder[0].UserId" />
     <input type="hidden" id="Placeholder_0__Order" class="order" name="Placeholder[0].Order" />
     <div class="col-12 position-absolute text-right item-actions">
+        <button class="btn btn-sm btn-default btn-move" aria-hidden="true">
+            <i class="fas fa-fw fa-arrows-alt handle" aria-hidden="true"></i>
+        </button>
         <button class="btn btn-sm btn-default btn-collapse" aria-hidden="true">
             <i class="fas fa-fw fa-chevron-down" data-icon-alternate="fas fa-chevron-up" aria-hidden="true"></i>
         </button>
-        <button class="btn btn-sm btn-danger btn-plan-delete" aria-hidden="true"><i class="fas fa-fw fa-times" aria-hidden="true"></i></button>
+        <button class="btn btn-sm btn-danger btn-plan-delete" aria-hidden="true">
+            <i class="fas fa-fw fa-times" aria-hidden="true"></i>
+        </button>
     </div>
     <div class="card-header bg-light square-bottom">
-        <i class="fas fa-arrows-alt handle" aria-hidden="true"></i>
         <input type="text" id="Placeholder_0__Name" name="Placeholder[0].Name" class="form-control" placeholder="Type here the name of this study plan" />
     </div>
 

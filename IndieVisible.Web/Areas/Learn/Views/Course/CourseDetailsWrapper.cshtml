@@ -15,6 +15,7 @@
 
 @section Scripts {
     <environment include="Development">
+        <script src="~/js/study/studycoursecommon.js"></script>
         <script src="~/js/study/studycoursedetails.js"></script>
     </environment>
     <environment exclude="Development">
@@ -23,10 +24,10 @@
 }
 
 <input type="hidden" id="urls" value="urls"
-       data-url-listplans="@Url.Action("listplans", "course", new { area = "learn", courseId = Model.Id })"/>
+       data-url-listplans="@Url.Action("listplans", "course", new { area = "learn", courseId = Model.Id })" />
+
+<input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
 
 <section class="content container">
-    <div id="featurecontainer" class="col">
         <partial name="_CourseDetails" model="Model" />
-    </div>
 </section>

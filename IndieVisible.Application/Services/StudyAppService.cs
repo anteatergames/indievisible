@@ -204,6 +204,25 @@ namespace IndieVisible.Application.Services
             }
         }
 
+
+        public OperationResultVo RemoveCourse(Guid currentUserId, Guid id)
+        {
+            try
+            {
+                // validate before
+
+                studyDomainService.RemoveCourse(id);
+
+                unitOfWork.Commit();
+
+                return new OperationResultVo(true, "That Course is gone now!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo GetCourseById(Guid currentUserId, Guid id)
         {
             try
@@ -213,6 +232,8 @@ namespace IndieVisible.Application.Services
                 StudyCourseViewModel vm = mapper.Map<StudyCourseViewModel>(existing);
 
                 SetAuthorDetails(vm);
+
+                SetPermissions(currentUserId, vm);
 
                 return new OperationResultVo<StudyCourseViewModel>(vm);
 
@@ -274,6 +295,10 @@ namespace IndieVisible.Application.Services
                 vm.AuthorPicture = UrlFormatter.ProfileImage(vm.UserId, 40);
                 vm.AuthorName = authorProfile.Name;
             }
+        }
+        private void SetPermissions(Guid currentUserId, StudyCourseViewModel vm)
+        {
+            SetBasePermissions(currentUserId, vm);
         }
         #endregion
     }

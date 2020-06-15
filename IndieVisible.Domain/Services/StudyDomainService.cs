@@ -130,6 +130,11 @@ namespace IndieVisible.Domain.Services
             studyCourseRepository.Update(model);
         }
 
+        public void RemoveCourse(Guid id)
+        {
+            studyCourseRepository.Remove(id);
+        }
+
         public IEnumerable<StudyPlan> GetPlans(Guid courseId)
         {
             List<StudyPlan> entries = studyCourseRepository.GetPlans(courseId).ToList();

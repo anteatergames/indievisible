@@ -162,6 +162,32 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         }
 
 
+        [Authorize]
+        [HttpDelete("learn/course/delete/{id:guid}")]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                OperationResultVo saveResult = studyAppService.RemoveCourse(CurrentUserId, id);
+
+                if (saveResult.Success)
+                {
+                    string url = Url.Action("index", "study", new { area = "learn" });
+
+                    return Json(new OperationResultRedirectVo(saveResult, url));
+                }
+                else
+                {
+                    return Json(new OperationResultVo(false));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+
         [Route("learn/course/{courseId:guid}/listplans")]
         public PartialViewResult ListPlans(Guid courseId)
         {

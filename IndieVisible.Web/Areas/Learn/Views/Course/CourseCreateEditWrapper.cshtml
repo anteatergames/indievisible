@@ -21,6 +21,7 @@
         <script src="~/lib/select2/js/select2.full.min.js"></script>
         <script src="~/lib/sortable/Sortable.js"></script>
         <script src="~/js/common-edit.js"></script>
+        <script src="~/js/study/studycoursecommon.js"></script>
         <script src="~/js/study/studycourseedit.js"></script>
     </environment>
     <environment exclude="Development">
@@ -34,6 +35,8 @@
 <input type="hidden" id="urls" value="urls"
        data-url-listplansforedit="@Url.Action("listplansforedit", "course", new { area = "learn", courseId = Model.Id })"
        data-url-plans-save="@Url.Action("saveplans", "course", new { area = "learn", courseId = Model.Id })" />
+
+<input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
 
 <section class="content container">
     <partial name="_CourseCreateEdit" model="Model" />

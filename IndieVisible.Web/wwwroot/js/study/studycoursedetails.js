@@ -26,8 +26,7 @@
 
         bindAll();
 
-        canInteract = objs.container.find(selectors.canInteract).val();
-
+        canInteract = $(selectors.canInteract).val();
 
         var urlPlans = objs.urls.data('urlListplans');
         listPlans(urlPlans);
@@ -44,6 +43,7 @@
         Init: init
     };
 }());
+
 
 $(function () {
     STUDYCOURSEDETAILS.Init();
