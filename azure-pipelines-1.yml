@@ -43,7 +43,7 @@ steps:
         command: 'test'
         projects: '**/*Tests.csproj'
         arguments: '--configuration $(buildConfiguration) --collect "XPlat Code Coverage"'
-        workingDirectory: '$(Build.SourcesDirectory)/coverlet/reports/'
+        workingDirectory: '$(Build.SourcesDirectory)'
 
     - task: DotNetCoreCLI@2
       displayName: 'Install ReportGenerator tool'
@@ -52,7 +52,7 @@ steps:
         custom: tool
         arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
 
-    - script: reportgenerator "-reports:$(Build.SourcesDirectory)/coverlet/reports/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+    - script: reportgenerator "-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
       workingDirectory: $(Build.SourcesDirectory)
       displayName: 'dotnet reportgenerator'
 
