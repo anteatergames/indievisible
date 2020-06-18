@@ -21,7 +21,6 @@ steps:
       displayName: 'Set .NET SDK'
       inputs:
         packageType: 'sdk'
-        version: 
         
     - task: DotNetCoreCLI@2
       displayName: Restore Packages
