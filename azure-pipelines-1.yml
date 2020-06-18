@@ -59,7 +59,9 @@ steps:
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage'
       inputs:
+        codeCoverageTool: 'Cobertura'
         summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+        reportDirectory: $(System.DefaultWorkingDirectory)/coverage/report
 
     - task: DotNetCoreCLI@2
       displayName: Publish
