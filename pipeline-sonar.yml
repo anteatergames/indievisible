@@ -31,14 +31,14 @@ steps:
     extraProperties: 'sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/coverage/coverage.opencover.xml'
 
 - script: dotnet build $(solution) --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+  displayName: 'Build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Run Tests'
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration) --collect "XPlat Code Coverage"'
+    arguments: '--configuration $(buildConfiguration) --no-build --collect "XPlat Code Coverage"'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: DotNetCoreCLI@2
@@ -48,7 +48,7 @@ steps:
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
 
-- script: reportgenerator "-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+- script: reportgenerator "-reports:$(Agent.TempDirectory)/**/$(Build.BuildNumber)-coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Run Report Generator'
 
@@ -56,14 +56,16 @@ steps:
   displayName: 'Publish code coverage'
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/$(Build.BuildNumber)-coverage.cobertura.xml'
 
 - task: SonarCloudAnalyze@1
+  displayName: 'Sonar Cloud Analyze'
 
 - task: SonarCloudPublish@1
   displayName: 'Publish Quality Gate Results'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Publish'
   inputs:
     command: publish
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
@@ -73,3 +75,4 @@ steps:
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts'
