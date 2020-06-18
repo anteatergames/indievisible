@@ -1,0 +1,80 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  name: Azure Pipelines
+  vmImage: 'ubuntu-16.04'
+  
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  artifactName: 'indievisibleweb'
+
+steps:
+    - task: UseDotNet@2
+      displayName: 'Set .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: 
+        
+    - task: DotNetCoreCLI@2
+      displayName: Restore Packages
+      inputs:
+        command: 'restore'
+        projects: '$(solution)'
+        feedsToUse: 'select'
+
+    - task: DotNetCoreCLI@2
+      displayName: Build Solution
+      inputs:
+        command: 'build'
+        projects: '$(solution)'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Run Tests'
+      inputs:
+        command: 'test'
+        projects: '**/*Tests.csproj'
+        arguments: '--configuration $(buildConfiguration) --collect "XPlat Code Coverage"'
+        workingDirectory: '$(Build.SourcesDirectory)'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Install ReportGenerator tool'
+      inputs:
+        command: custom
+        custom: tool
+        arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
+
+    - script: reportgenerator "-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+      workingDirectory: $(Build.SourcesDirectory)
+      displayName: 'dotnet reportgenerator'
+
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+        reportDirectory: $(System.DefaultWorkingDirectory)/coverage/report
+
+    - task: DotNetCoreCLI@2
+      displayName: Publish
+      inputs:
+        command: publish
+        projects: '$(solution)'
+        arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
+        publishWebProjects: true
+        zipAfterPublish: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+        ArtifactName: '$(artifactName)'
+
