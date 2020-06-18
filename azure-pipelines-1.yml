@@ -40,9 +40,10 @@ steps:
     - task: DotNetCoreCLI@2
       displayName: 'Run Tests'
       inputs:
-        command: test
+        command: 'test'
         projects: '**/*Tests.csproj'
         arguments: '--configuration $(buildConfiguration) --collect "XPlat Code Coverage"'
+        workingDirectory: '$(Build.SourcesDirectory)'
 
     - task: DotNetCoreCLI@2
       displayName: 'Install ReportGenerator tool'
