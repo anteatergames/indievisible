@@ -1,0 +1,71 @@
+variables:
+    buildConfiguration: "Debug"
+    testProject: "IndieVisible.Tests"
+    solution: "IndieVisible.sln"
+
+strategy:
+  matrix:
+    linux:
+      imageName: 'ubuntu-16.04'
+
+trigger:
+- master
+
+pool:
+  vmImage: $(imageName)
+
+steps:
+- task: SonarCloudPrepare@1
+  displayName: 'Prepare Sonar'
+  inputs:
+    SonarCloud: '9d5d2c29-7aa7-4f09-abf3-cd9de903d547'
+    organization: 'anteatergames'
+    projectKey: 'anteatergames_indievisible'
+    projectName: 'indievisible'
+    projectVersion: $(Build.BuildNumber)
+    extraProperties: 'sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/coverage/coverage.opencover.xml'
+
+- script: dotnet build $(solution) --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run Tests'
+  inputs:
+    command: 'test'
+    projects: '**/*Tests.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "XPlat Code Coverage"'
+    workingDirectory: '$(Build.SourcesDirectory)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Install ReportGenerator tool'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
+
+- script: reportgenerator "-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Run Report Generator'
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+- task: SonarSource.sonarcloud.ce096e50-6155-4de8-8800-4221aaeed4a1.SonarCloudAnalyze@1
+  displayName: 'Run Code Analysis'
+
+- task: SonarCloudPublish@1
+  displayName: 'Publish Quality Gate Results'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    projects: $(solution)
+    publishWebProjects: false
+    modifyOutputPath: true
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
