@@ -48,15 +48,15 @@ steps:
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
 
-- script: reportgenerator "-reports:$(Agent.TempDirectory)/**/$(Build.BuildNumber).coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Run Report Generator'
-
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage'
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Agent.TempDirectory)/**/$(Build.BuildNumber).coverage.cobertura.xml'
+
+- script: reportgenerator "-reports:$(Agent.TempDirectory)/**/$(Build.BuildNumber).coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Run Report Generator'
 
 - task: SonarCloudAnalyze@1
   displayName: 'Sonar Cloud Analyze'
