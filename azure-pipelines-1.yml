@@ -33,6 +33,8 @@ steps:
     - task: DotNetCoreCLI@2
       displayName: Build Solution
       inputs:
+        command: 'build'
+        projects: '$(solution)'
         arguments: '--configuration $(buildConfiguration)'
 
     - task: DotNetCoreCLI@2
