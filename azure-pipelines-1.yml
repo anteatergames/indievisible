@@ -51,7 +51,7 @@ steps:
         custom: tool
         arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
 
-    - script: ./reportgenerator "-reports:$(Build.SourcesDirectory)/TestResults/Coverage/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/TestResults/Coverage/Reports" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+    - script: reportgenerator "-reports:$(Build.SourcesDirectory)/TestResults/Coverage/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/TestResults/Coverage/Reports" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
       workingDirectory: $(Build.SourcesDirectory)
       displayName: 'dotnet reportgenerator'
 
