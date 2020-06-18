@@ -1,0 +1,6456 @@
+{
+  "IndieVisible.Domain.Core.dll": {
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Models\\Entity.cs": {
+      "IndieVisible.Domain.Core.Models.Entity": {
+        "System.Guid IndieVisible.Domain.Core.Models.Entity::get_Id()": {
+          "Lines": {
+            "11": 480
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Core.Models.Entity::get_UserId()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime IndieVisible.Domain.Core.Models.Entity::get_CreateDate()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Core.Models.Entity::get_LastUpdateDate()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Core.Models.Entity::Equals(System.Object)": {
+          "Lines": {
+            "26": 0,
+            "27": 0,
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0
+          },
+          "Branches": [
+            {
+              "Line": 29,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 29,
+              "Offset": 14,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 26,
+              "EndOffset": 32,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 IndieVisible.Domain.Core.Models.Entity::GetHashCode()": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Models.Entity::ToString()": {
+          "Lines": {
+            "41": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Core.Models.Entity::.ctor()": {
+          "Lines": {
+            "20": 475,
+            "21": 475,
+            "22": 475,
+            "23": 475
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\DoubleExtensions.cs": {
+      "IndieVisible.Domain.Core.Extensions.DoubleExtensions": {
+        "System.String IndieVisible.Domain.Core.Extensions.DoubleExtensions::ToInvariant(System.Double)": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "14": 0,
+            "15": 0
+          },
+          "Branches": [
+            {
+              "Line": 9,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 9,
+              "Offset": 15,
+              "EndOffset": 26,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\EnumExtensions.cs": {
+      "IndieVisible.Domain.Core.Extensions.EnumExtensions": {
+        "T IndieVisible.Domain.Core.Extensions.EnumExtensions::GetAttributeOfType(System.Enum)": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "30": 0,
+            "31": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "38": 0,
+            "40": 0
+          },
+          "Branches": [
+            {
+              "Line": 25,
+              "Offset": 22,
+              "EndOffset": 24,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 22,
+              "EndOffset": 31,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 34,
+              "EndOffset": 36,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 34,
+              "EndOffset": 50,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 74,
+              "EndOffset": 76,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 74,
+              "EndOffset": 84,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 89,
+              "EndOffset": 91,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 89,
+              "EndOffset": 105,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.String> IndieVisible.Domain.Core.Extensions.EnumExtensions::ToDictionary(TEnum)": {
+          "Lines": {
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "49": 0,
+            "51": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "60": 0,
+            "62": 0,
+            "63": 0
+          },
+          "Branches": [
+            {
+              "Line": 44,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 44,
+              "Offset": 27,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 109,
+              "EndOffset": 111,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 109,
+              "EndOffset": 134,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 140,
+              "EndOffset": 142,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 140,
+              "EndOffset": 165,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.String> IndieVisible.Domain.Core.Extensions.EnumExtensions::ToDisplayNameList(System.Collections.Generic.IEnumerable`1<TEnum>)": {
+          "Lines": {
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "72": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "79": 0,
+            "81": 0,
+            "82": 0
+          },
+          "Branches": [
+            {
+              "Line": 67,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 67,
+              "Offset": 27,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 88,
+              "EndOffset": 90,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 88,
+              "EndOffset": 113,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 119,
+              "EndOffset": 121,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 119,
+              "EndOffset": 144,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.String IndieVisible.Domain.Core.Extensions.EnumExtensions::ToDisplayName(TEnum)": {
+          "Lines": {
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "91": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "98": 0,
+            "99": 0,
+            "101": 0
+          },
+          "Branches": [
+            {
+              "Line": 86,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 21,
+              "EndOffset": 35,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 93,
+              "Offset": 53,
+              "EndOffset": 55,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 93,
+              "Offset": 53,
+              "EndOffset": 72,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<TEnum,IndieVisible.Domain.Core.Attributes.UiInfoAttribute> IndieVisible.Domain.Core.Extensions.EnumExtensions::ToUiInfoDictionary(System.Collections.Generic.IEnumerable`1<TEnum>)": {
+          "Lines": {
+            "104": 0,
+            "105": 0,
+            "106": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.Dictionary`2<TEnum,IndieVisible.Domain.Core.Attributes.UiInfoAttribute> IndieVisible.Domain.Core.Extensions.EnumExtensions::ToUiInfoDictionary(System.Collections.Generic.IEnumerable`1<TEnum>,System.Boolean)": {
+          "Lines": {
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "115": 0,
+            "117": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "129": 0,
+            "130": 0
+          },
+          "Branches": [
+            {
+              "Line": 110,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 110,
+              "Offset": 27,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 119,
+              "Offset": 62,
+              "EndOffset": 64,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 119,
+              "Offset": 62,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.Core.Attributes.UiInfoAttribute IndieVisible.Domain.Core.Extensions.EnumExtensions::ToUiInfo(TEnum)": {
+          "Lines": {
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "139": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "149": 0,
+            "150": 0,
+            "152": 0
+          },
+          "Branches": [
+            {
+              "Line": 134,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 134,
+              "Offset": 21,
+              "EndOffset": 35,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 141,
+              "Offset": 53,
+              "EndOffset": 55,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 141,
+              "Offset": 53,
+              "EndOffset": 84,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\ICollectionExtensions.cs": {
+      "IndieVisible.Domain.Core.Extensions.ICollectionExtensions": {
+        "System.Collections.Generic.ICollection`1<T> IndieVisible.Domain.Core.Extensions.ICollectionExtensions::Safe(System.Collections.Generic.ICollection`1<T>)": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "Branches": [
+            {
+              "Line": 9,
+              "Offset": 3,
+              "EndOffset": 5,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 9,
+              "Offset": 3,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\IEnumerableExtensions.cs": {
+      "IndieVisible.Domain.Core.Extensions.IEnumerableExtensions": {
+        "System.Int32 IndieVisible.Domain.Core.Extensions.IEnumerableExtensions::SafeCount(System.Collections.Generic.IEnumerable`1<T>)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 11,
+              "Offset": 2,
+              "EndOffset": 12,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 IndieVisible.Domain.Core.Extensions.IEnumerableExtensions::SafeCount(System.Collections.Generic.IEnumerable`1<T>,System.Func`2<T,System.Boolean>)": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": [
+            {
+              "Line": 16,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 16,
+              "Offset": 2,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean IndieVisible.Domain.Core.Extensions.IEnumerableExtensions::SafeAny(System.Collections.Generic.IEnumerable`1<T>,System.Func`2<T,System.Boolean>)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 2,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\ListExtensions.cs": {
+      "IndieVisible.Domain.Core.Extensions.ListExtensions": {
+        "System.Collections.Generic.List`1<T> IndieVisible.Domain.Core.Extensions.ListExtensions::Safe(System.Collections.Generic.List`1<T>)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 3,
+              "EndOffset": 5,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 11,
+              "Offset": 3,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Core.Extensions.ListExtensions::Shuffle(System.Collections.Generic.IList`1<T>)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 108,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 53,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 53,
+              "EndOffset": 55,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 108,
+              "EndOffset": 110,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\SpecificationExtensions.cs": {
+      "IndieVisible.Domain.Core.Extensions.SpecificationExtensions": {
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.SpecificationExtensions::And(IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>,IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>)": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.SpecificationExtensions::Or(IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>,IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>)": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.SpecificationExtensions::Not(IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\SpecificationOperations.cs": {
+      "IndieVisible.Domain.Core.Extensions.AndSpecification`1": {
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.AndSpecification`1::get_Left()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.AndSpecification`1::get_Right()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Extensions.AndSpecification`1::get_ErrorMessage()": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 23,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 61,
+              "EndOffset": 63,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 75,
+              "EndOffset": 77,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 75,
+              "EndOffset": 91,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 61,
+              "EndOffset": 110,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean IndieVisible.Domain.Core.Extensions.AndSpecification`1::get_IsSatisfied()": {
+          "Lines": {
+            "36": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Core.Extensions.AndSpecification`1::IsSatisfiedBy(T)": {
+          "Lines": {
+            "45": 0,
+            "46": 0,
+            "48": 0,
+            "49": 0
+          },
+          "Branches": [
+            {
+              "Line": 46,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 46,
+              "Offset": 14,
+              "EndOffset": 30,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Core.Extensions.AndSpecification`1::.ctor(IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>,IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>)": {
+          "Lines": {
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.Core.Extensions.OrSpecification`1": {
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.OrSpecification`1::get_Left()": {
+          "Lines": {
+            "54": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.OrSpecification`1::get_Right()": {
+          "Lines": {
+            "55": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Extensions.OrSpecification`1::get_ErrorMessage()": {
+          "Lines": {
+            "63": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Core.Extensions.OrSpecification`1::get_IsSatisfied()": {
+          "Lines": {
+            "65": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Core.Extensions.OrSpecification`1::IsSatisfiedBy(T)": {
+          "Lines": {
+            "68": 0,
+            "69": 0,
+            "71": 0,
+            "72": 0
+          },
+          "Branches": [
+            {
+              "Line": 69,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 69,
+              "Offset": 14,
+              "EndOffset": 30,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Core.Extensions.OrSpecification`1::.ctor(IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>,IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>)": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.Core.Extensions.NotSpecification`1": {
+        "IndieVisible.Domain.Core.Interfaces.ISpecification`1<T> IndieVisible.Domain.Core.Extensions.NotSpecification`1::get_Specification()": {
+          "Lines": {
+            "77": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Extensions.NotSpecification`1::get_ErrorMessage()": {
+          "Lines": {
+            "84": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Core.Extensions.NotSpecification`1::get_IsSatisfied()": {
+          "Lines": {
+            "85": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Core.Extensions.NotSpecification`1::IsSatisfiedBy(T)": {
+          "Lines": {
+            "88": 0,
+            "89": 0,
+            "91": 0,
+            "92": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Core.Extensions.NotSpecification`1::.ctor(IndieVisible.Domain.Core.Interfaces.ISpecification`1<T>)": {
+          "Lines": {
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Extensions\\StringExtensions.cs": {
+      "IndieVisible.Domain.Core.Extensions.StringExtensions": {
+        "System.String IndieVisible.Domain.Core.Extensions.StringExtensions::GetFirstWords(System.String,System.Int32)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String[] IndieVisible.Domain.Core.Extensions.StringExtensions::GetWords(System.String,System.Int32,System.String[],System.StringSplitOptions)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "35": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 9,
+              "EndOffset": 21,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 27,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 66,
+              "EndOffset": 68,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 66,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.String IndieVisible.Domain.Core.Extensions.StringExtensions::NoExtension(System.String)": {
+          "Lines": {
+            "41": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Attributes\\ExternalLinkInfoAttribute.cs": {
+      "IndieVisible.Domain.Core.Attributes.ExternalLinkInfoAttribute": {
+        "IndieVisible.Domain.Core.Enums.ExternalLinkType IndieVisible.Domain.Core.Attributes.ExternalLinkInfoAttribute::get_Type()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Core.Attributes.ExternalLinkInfoAttribute::get_IsStore()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Attributes.ExternalLinkInfoAttribute::get_ColorClass()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain.Core\\Attributes\\UiInfoAttribute.cs": {
+      "IndieVisible.Domain.Core.Attributes.UiInfoAttribute": {
+        "System.Int32 IndieVisible.Domain.Core.Attributes.UiInfoAttribute::get_Order()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Attributes.UiInfoAttribute::get_Class()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Attributes.UiInfoAttribute::get_Culture()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Attributes.UiInfoAttribute::get_Description()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Core.Attributes.UiInfoAttribute::get_Display()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "IndieVisible.Domain.dll": {
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\ExternalLinkVo.cs": {
+      "IndieVisible.Domain.ValueObjects.ExternalLinkVo": {
+        "IndieVisible.Domain.Core.Enums.ExternalLinkType IndieVisible.Domain.ValueObjects.ExternalLinkVo::get_Type()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.ExternalLinkProvider IndieVisible.Domain.ValueObjects.ExternalLinkVo::get_Provider()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.ExternalLinkVo::get_Value()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\GameCharacteristicVo.cs": {
+      "IndieVisible.Domain.ValueObjects.GameCharacteristicVo": {
+        "IndieVisible.Domain.Core.Enums.GameCharacteristcs IndieVisible.Domain.ValueObjects.GameCharacteristicVo::get_Characteristic()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.GameCharacteristicVo::get_Available()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\InMemoryFileVo.cs": {
+      "IndieVisible.Domain.ValueObjects.InMemoryFileVo": {
+        "System.String IndieVisible.Domain.ValueObjects.InMemoryFileVo::get_FileName()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.Byte[] IndieVisible.Domain.ValueObjects.InMemoryFileVo::get_Contents()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\JobPositionApplicationVo.cs": {
+      "IndieVisible.Domain.ValueObjects.JobPositionApplicationVo": {
+        "System.Guid IndieVisible.Domain.ValueObjects.JobPositionApplicationVo::get_JobPositionId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime IndieVisible.Domain.ValueObjects.JobPositionApplicationVo::get_ApplicationDate()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.WorkType IndieVisible.Domain.ValueObjects.JobPositionApplicationVo::get_WorkType()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.JobPositionApplicationVo::get_Location()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\JobPositionBenefitVo.cs": {
+      "IndieVisible.Domain.ValueObjects.JobPositionBenefitVo": {
+        "IndieVisible.Domain.Core.Enums.JobPositionBenefit IndieVisible.Domain.ValueObjects.JobPositionBenefitVo::get_Benefit()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.JobPositionBenefitVo::get_Available()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\LocalizationStatsVo.cs": {
+      "IndieVisible.Domain.ValueObjects.LocalizationStatsVo": {
+        "System.Guid IndieVisible.Domain.ValueObjects.LocalizationStatsVo::get_LocalizationId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.ValueObjects.LocalizationStatsVo::get_TermCount()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.LocalizationEntry> IndieVisible.Domain.ValueObjects.LocalizationStatsVo::get_Entries()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Double IndieVisible.Domain.ValueObjects.LocalizationStatsVo::get_LocalizationPercentage()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\OperationResultVo.cs": {
+      "IndieVisible.Domain.ValueObjects.OperationResultVo": {
+        "System.Boolean IndieVisible.Domain.ValueObjects.OperationResultVo::get_Success()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.OperationResultVo::get_Message()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.ValueObjects.OperationResultVo::get_PointsEarned()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo::.ctor(System.Boolean)": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo::.ctor(System.Int32)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo::.ctor(System.Boolean,System.String)": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo::.ctor(System.String)": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo::.ctor(System.Boolean,System.Int32)": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo::.ctor(System.Int32,System.String)": {
+          "Lines": {
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo::.ctor(System.Boolean,System.String,System.Int32)": {
+          "Lines": {
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.ValueObjects.OperationResultHtmlVo": {
+        "System.String IndieVisible.Domain.ValueObjects.OperationResultHtmlVo::get_Html()": {
+          "Lines": {
+            "53": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultHtmlVo::.ctor(System.String)": {
+          "Lines": {
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultHtmlVo::.ctor(System.Boolean,System.String)": {
+          "Lines": {
+            "60": 0,
+            "61": 0,
+            "62": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.ValueObjects.OperationResultRedirectVo": {
+        "System.String IndieVisible.Domain.ValueObjects.OperationResultRedirectVo::get_Url()": {
+          "Lines": {
+            "67": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultRedirectVo::.ctor(System.String)": {
+          "Lines": {
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultRedirectVo::.ctor(System.String,System.String)": {
+          "Lines": {
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultRedirectVo::.ctor(System.Boolean,System.String)": {
+          "Lines": {
+            "79": 0,
+            "80": 0,
+            "81": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultRedirectVo::.ctor(IndieVisible.Domain.ValueObjects.OperationResultVo,System.String)": {
+          "Lines": {
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.ValueObjects.OperationResultRedirectVo`1": {
+        "System.String IndieVisible.Domain.ValueObjects.OperationResultRedirectVo`1::get_Url()": {
+          "Lines": {
+            "92": 0
+          },
+          "Branches": []
+        },
+        "T IndieVisible.Domain.ValueObjects.OperationResultRedirectVo`1::get_Value()": {
+          "Lines": {
+            "94": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultRedirectVo`1::.ctor(IndieVisible.Domain.ValueObjects.OperationResultVo`1<T>,System.String)": {
+          "Lines": {
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultRedirectVo`1::.ctor(T,System.String)": {
+          "Lines": {
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.ValueObjects.OperationResultVo`1": {
+        "T IndieVisible.Domain.ValueObjects.OperationResultVo`1::get_Value()": {
+          "Lines": {
+            "112": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo`1::.ctor(T)": {
+          "Lines": {
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo`1::.ctor(System.String)": {
+          "Lines": {
+            "119": 0,
+            "120": 0,
+            "121": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo`1::.ctor(T,System.Int32)": {
+          "Lines": {
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo`1::.ctor(T,System.String)": {
+          "Lines": {
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultVo`1::.ctor(T,System.Int32,System.String)": {
+          "Lines": {
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.ValueObjects.OperationResultListVo`1": {
+        "System.Collections.Generic.IEnumerable`1<T> IndieVisible.Domain.ValueObjects.OperationResultListVo`1::get_Value()": {
+          "Lines": {
+            "142": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultListVo`1::.ctor(System.Collections.Generic.IEnumerable`1<T>)": {
+          "Lines": {
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.OperationResultListVo`1::.ctor(System.String)": {
+          "Lines": {
+            "150": 0,
+            "151": 0,
+            "152": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\PermissionsVo.cs": {
+      "IndieVisible.Domain.ValueObjects.PermissionsVo": {
+        "System.Boolean IndieVisible.Domain.ValueObjects.PermissionsVo::get_CanEdit()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.PermissionsVo::get_CanDelete()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.PermissionsVo::get_CanPostActivity()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.PermissionsVo::get_CanFollow()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.PermissionsVo::get_CanConnect()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.PermissionsVo::get_IsAdmin()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.PermissionsVo::get_IsMe()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\RankingVo.cs": {
+      "IndieVisible.Domain.ValueObjects.RankingVo": {
+        "IndieVisible.Domain.Models.Gamification IndieVisible.Domain.ValueObjects.RankingVo::get_Gamification()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.GamificationLevel IndieVisible.Domain.ValueObjects.RankingVo::get_Level()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\SelectListItemVo.cs": {
+      "IndieVisible.Domain.ValueObjects.SelectListItemVo": {
+        "System.String IndieVisible.Domain.ValueObjects.SelectListItemVo::get_Value()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.SelectListItemVo::get_Text()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.SelectListItemVo::get_Selected()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.SelectListItemVo::.ctor()": {
+          "Lines": {
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.ValueObjects.SelectListItemVo::.ctor(System.String,System.String)": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.ValueObjects.SelectListItemVo`1": {
+        "TValue IndieVisible.Domain.ValueObjects.SelectListItemVo`1::get_Value()": {
+          "Lines": {
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.SelectListItemVo`1::get_Text()": {
+          "Lines": {
+            "26": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.SelectListItemVo`1::get_Selected()": {
+          "Lines": {
+            "28": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\StudyCourseListItemVo.cs": {
+      "IndieVisible.Domain.ValueObjects.StudyCourseListItemVo": {
+        "System.Guid IndieVisible.Domain.ValueObjects.StudyCourseListItemVo::get_Id()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.StudyCourseListItemVo::get_Name()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.StudyCourseListItemVo::get_OpenForApplication()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.ValueObjects.StudyCourseListItemVo::get_StudentCount()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\UserConnectionVo.cs": {
+      "IndieVisible.Domain.ValueObjects.UserConnectionVo": {
+        "System.Boolean IndieVisible.Domain.ValueObjects.UserConnectionVo::get_Accepted()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<IndieVisible.Domain.Core.Enums.UserConnectionDirection> IndieVisible.Domain.ValueObjects.UserConnectionVo::get_Direction()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.UserConnectionType IndieVisible.Domain.ValueObjects.UserConnectionVo::get_ConnectionType()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\UserContentSearchVo.cs": {
+      "IndieVisible.Domain.ValueObjects.UserContentSearchVo": {
+        "System.Guid IndieVisible.Domain.ValueObjects.UserContentSearchVo::get_ContentId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.UserContentSearchVo::get_Title()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.UserContentSearchVo::get_Content()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.UserContentSearchVo::get_FeaturedImage()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.SupportedLanguage IndieVisible.Domain.ValueObjects.UserContentSearchVo::get_Language()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\UserProfileEssentialVo.cs": {
+      "IndieVisible.Domain.ValueObjects.UserProfileEssentialVo": {
+        "System.String IndieVisible.Domain.ValueObjects.UserProfileEssentialVo::get_Name()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.UserProfileEssentialVo::get_Location()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.ValueObjects.UserProfileEssentialVo::get_HasCoverImage()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\ValueObjects\\StudyCoursesOfUserVo.cs": {
+      "IndieVisible.Domain.ValueObjects.Study.StudyCoursesOfUserVo": {
+        "System.Guid IndieVisible.Domain.ValueObjects.Study.StudyCoursesOfUserVo::get_UserId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.ValueObjects.Study.UserCourseVo> IndieVisible.Domain.ValueObjects.Study.StudyCoursesOfUserVo::get_Courses()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.ValueObjects.Study.UserCourseVo": {
+        "System.Guid IndieVisible.Domain.ValueObjects.Study.UserCourseVo::get_CourseId()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.ValueObjects.Study.UserCourseVo::get_CourseName()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Specifications\\IdNotEmptySpecification.cs": {
+      "IndieVisible.Domain.Specifications.IdNotEmptySpecification`1": {
+        "System.String IndieVisible.Domain.Specifications.IdNotEmptySpecification`1::get_ErrorMessage()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.IdNotEmptySpecification`1::get_IsSatisfied()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.IdNotEmptySpecification`1::IsSatisfiedBy(T)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "20": 0,
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Specifications.IdNotEmptySpecification`1::.ctor()": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Specifications\\UserIsOwnerSpecification.cs": {
+      "IndieVisible.Domain.Specifications.UserIsOwnerSpecification`1": {
+        "System.String IndieVisible.Domain.Specifications.UserIsOwnerSpecification`1::get_ErrorMessage()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.UserIsOwnerSpecification`1::get_IsSatisfied()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.UserIsOwnerSpecification`1::IsSatisfiedBy(T)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Specifications.UserIsOwnerSpecification`1::.ctor(System.Guid)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Specifications\\UserMustBeAuthenticatedSpecification.cs": {
+      "IndieVisible.Domain.Specifications.UserMustBeAuthenticatedSpecification`1": {
+        "System.String IndieVisible.Domain.Specifications.UserMustBeAuthenticatedSpecification`1::get_ErrorMessage()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.UserMustBeAuthenticatedSpecification`1::get_IsSatisfied()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.UserMustBeAuthenticatedSpecification`1::IsSatisfiedBy(T)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Specifications.UserMustBeAuthenticatedSpecification`1::.ctor(System.Guid)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Specifications\\Follow\\UserNotTheSameSpecification.cs": {
+      "IndieVisible.Domain.Specifications.Follow.UserNotTheSameSpecification": {
+        "System.String IndieVisible.Domain.Specifications.Follow.UserNotTheSameSpecification::get_ErrorMessage()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.Follow.UserNotTheSameSpecification::get_IsSatisfied()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Specifications.Follow.UserNotTheSameSpecification::IsSatisfiedBy(IndieVisible.Domain.Models.UserFollow)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Specifications.Follow.UserNotTheSameSpecification::.ctor(System.Guid)": {
+          "Lines": {
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\Base\\BaseDomainMongoService.cs": {
+      "IndieVisible.Domain.Services.BaseDomainMongoService`2": {
+        "System.Guid IndieVisible.Domain.Services.BaseDomainMongoService`2::Add(T)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Services.BaseDomainMongoService`2::Count()": {
+          "Lines": {
+            "27": 0,
+            "28": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Services.BaseDomainMongoService`2::Count(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Boolean>>)": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "39": 0,
+            "40": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> IndieVisible.Domain.Services.BaseDomainMongoService`2::Search(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Boolean>>)": {
+          "Lines": {
+            "43": 0,
+            "44": 0,
+            "46": 0,
+            "47": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> IndieVisible.Domain.Services.BaseDomainMongoService`2::GetAll()": {
+          "Lines": {
+            "50": 1,
+            "51": 1,
+            "53": 1,
+            "54": 1
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<System.Guid> IndieVisible.Domain.Services.BaseDomainMongoService`2::GetAllIds()": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "60": 0,
+            "61": 0
+          },
+          "Branches": []
+        },
+        "T IndieVisible.Domain.Services.BaseDomainMongoService`2::GetById(System.Guid)": {
+          "Lines": {
+            "64": 1,
+            "65": 1,
+            "67": 1,
+            "68": 1
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> IndieVisible.Domain.Services.BaseDomainMongoService`2::GetByUserId(System.Guid)": {
+          "Lines": {
+            "71": 0,
+            "72": 0,
+            "74": 0,
+            "75": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.BaseDomainMongoService`2::Remove(System.Guid)": {
+          "Lines": {
+            "78": 0,
+            "79": 0,
+            "80": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Services.BaseDomainMongoService`2::Update(T)": {
+          "Lines": {
+            "83": 0,
+            "84": 0,
+            "86": 0,
+            "87": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<T> IndieVisible.Domain.Services.BaseDomainMongoService`2::IndieVisible.Domain.Interfaces.IDomainService<T>.Search(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Boolean>>)": {
+          "Lines": {
+            "90": 0,
+            "91": 0,
+            "92": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.BaseDomainMongoService`2::.ctor(TRepository)": {
+          "Lines": {
+            "14": 2,
+            "15": 2,
+            "16": 2,
+            "17": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\BrainstormDomainService.cs": {
+      "IndieVisible.Domain.Services.BrainstormDomainService": {
+        "System.Guid IndieVisible.Domain.Services.BrainstormDomainService::Add(IndieVisible.Domain.Models.BrainstormSession)": {
+          "Lines": {
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": [
+            {
+              "Line": 20,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 20,
+              "Offset": 12,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.Models.BrainstormSession IndieVisible.Domain.Services.BrainstormDomainService::Get(IndieVisible.Domain.Core.Enums.BrainstormSessionType)": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "31": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.BrainstormDomainService::AddComment(IndieVisible.Domain.Models.BrainstormComment)": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.BrainstormDomainService::AddIdea(IndieVisible.Domain.Models.BrainstormIdea)": {
+          "Lines": {
+            "39": 0,
+            "40": 0,
+            "41": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.BrainstormDomainService::AddVote(IndieVisible.Domain.Models.BrainstormVote)": {
+          "Lines": {
+            "44": 0,
+            "45": 0,
+            "46": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.BrainstormIdea IndieVisible.Domain.Services.BrainstormDomainService::GetIdea(System.Guid)": {
+          "Lines": {
+            "49": 0,
+            "50": 0,
+            "52": 0,
+            "53": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.BrainstormIdea> IndieVisible.Domain.Services.BrainstormDomainService::GetIdeasBySession(System.Guid)": {
+          "Lines": {
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "60": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.BrainstormDomainService::UpdateIdea(IndieVisible.Domain.Models.BrainstormIdea)": {
+          "Lines": {
+            "63": 0,
+            "64": 0,
+            "65": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.BrainstormDomainService::UpdateVote(IndieVisible.Domain.Models.BrainstormVote)": {
+          "Lines": {
+            "68": 0,
+            "69": 0,
+            "70": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Services.BrainstormDomainService::GetUserId(System.Guid)": {
+          "Lines": {
+            "73": 0,
+            "74": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "81": 0,
+            "82": 0,
+            "84": 0
+          },
+          "Branches": [
+            {
+              "Line": 76,
+              "Offset": 146,
+              "EndOffset": 148,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 76,
+              "Offset": 146,
+              "EndOffset": 159,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.BrainstormDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IBrainstormRepository)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\FeaturedContentDomainService.cs": {
+      "IndieVisible.Domain.Services.FeaturedContentDomainService": {
+        "System.Linq.IQueryable`1<IndieVisible.Domain.Models.FeaturedContent> IndieVisible.Domain.Services.FeaturedContentDomainService::GetFeaturedNow()": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "19": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.FeaturedContentDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IFeaturedContentRepository)": {
+          "Lines": {
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\GameDomainService.cs": {
+      "IndieVisible.Domain.Services.GameDomainService": {
+        "System.Linq.IQueryable`1<IndieVisible.Domain.Models.Game> IndieVisible.Domain.Services.GameDomainService::Get(IndieVisible.Domain.Core.Enums.GameGenre,System.Guid,System.Nullable`1<System.Guid>)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "36": 0,
+            "37": 0
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 51,
+              "EndOffset": 56,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 51,
+              "EndOffset": 188,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 208,
+              "EndOffset": 210,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 208,
+              "EndOffset": 328,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 31,
+              "Offset": 343,
+              "EndOffset": 345,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 31,
+              "Offset": 343,
+              "EndOffset": 463,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 IndieVisible.Domain.Services.GameDomainService::CountFollowers(System.Guid)": {
+          "Lines": {
+            "40": 0,
+            "41": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Services.GameDomainService::CountLikes(System.Guid)": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "50": 0,
+            "51": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.GameDomainService::Follow(System.Guid,System.Guid)": {
+          "Lines": {
+            "54": 0,
+            "55": 0,
+            "57": 0,
+            "58": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.GameDomainService::Like(System.Guid,System.Guid)": {
+          "Lines": {
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "65": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.GameDomainService::Unfollow(System.Guid,System.Guid)": {
+          "Lines": {
+            "68": 0,
+            "69": 0,
+            "71": 0,
+            "72": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.GameDomainService::Unlike(System.Guid,System.Guid)": {
+          "Lines": {
+            "75": 0,
+            "76": 0,
+            "78": 0,
+            "79": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.GameDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IGameRepository)": {
+          "Lines": {
+            "13": 2,
+            "14": 2,
+            "15": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\GamificationDomainService.cs": {
+      "IndieVisible.Domain.Services.GamificationDomainService": {
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.ValueObjects.RankingVo> IndieVisible.Domain.Services.GamificationDomainService::Get(System.Int32)": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "37": 0,
+            "39": 0,
+            "41": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "51": 0,
+            "52": 0,
+            "54": 0,
+            "55": 0
+          },
+          "Branches": [
+            {
+              "Line": 43,
+              "Offset": 276,
+              "EndOffset": 190,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 276,
+              "EndOffset": 278,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.Models.Gamification IndieVisible.Domain.Services.GamificationDomainService::GetByUserId(System.Guid)": {
+          "Lines": {
+            "58": 0,
+            "59": 0,
+            "61": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "69": 0,
+            "70": 0,
+            "72": 0,
+            "73": 0
+          },
+          "Branches": [
+            {
+              "Line": 65,
+              "Offset": 39,
+              "EndOffset": 41,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 39,
+              "EndOffset": 64,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Linq.IQueryable`1<IndieVisible.Domain.Models.GamificationLevel> IndieVisible.Domain.Services.GamificationDomainService::GetAllLevels()": {
+          "Lines": {
+            "80": 0,
+            "81": 0,
+            "83": 0,
+            "84": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.GamificationLevel IndieVisible.Domain.Services.GamificationDomainService::GetLevel(System.Int32)": {
+          "Lines": {
+            "87": 0,
+            "88": 0,
+            "90": 0,
+            "91": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserBadge> IndieVisible.Domain.Services.GamificationDomainService::GetBadges()": {
+          "Lines": {
+            "98": 0,
+            "99": 0,
+            "101": 0,
+            "102": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.UserBadge IndieVisible.Domain.Services.GamificationDomainService::GetBadgeById(System.Guid)": {
+          "Lines": {
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserBadge> IndieVisible.Domain.Services.GamificationDomainService::GetBadgesByUserId(System.Guid)": {
+          "Lines": {
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.GamificationDomainService::SetBadgeOccurence(System.Guid,IndieVisible.Domain.Core.Enums.BadgeType,System.Guid)": {
+          "Lines": {
+            "119": 0,
+            "120": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "137": 0,
+            "138": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "149": 0,
+            "151": 0
+          },
+          "Branches": [
+            {
+              "Line": 123,
+              "Offset": 256,
+              "EndOffset": 258,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 123,
+              "Offset": 256,
+              "EndOffset": 292,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 132,
+              "Offset": 319,
+              "EndOffset": 321,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 132,
+              "Offset": 319,
+              "EndOffset": 327,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 140,
+              "Offset": 366,
+              "EndOffset": 368,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 140,
+              "Offset": 366,
+              "EndOffset": 385,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 IndieVisible.Domain.Services.GamificationDomainService::ProcessAction(System.Guid,IndieVisible.Domain.Core.Enums.PlatformAction)": {
+          "Lines": {
+            "156": 0,
+            "157": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "165": 0,
+            "167": 0,
+            "169": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "175": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "181": 0,
+            "182": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "202": 0,
+            "203": 0,
+            "205": 0,
+            "206": 0
+          },
+          "Branches": [
+            {
+              "Line": 160,
+              "Offset": 54,
+              "EndOffset": 56,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 160,
+              "Offset": 54,
+              "EndOffset": 65,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 171,
+              "Offset": 115,
+              "EndOffset": 117,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 171,
+              "Offset": 115,
+              "EndOffset": 240,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 189,
+              "Offset": 322,
+              "EndOffset": 327,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 194,
+              "Offset": 385,
+              "EndOffset": 387,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 194,
+              "Offset": 385,
+              "EndOffset": 470,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 189,
+              "Offset": 322,
+              "EndOffset": 471,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.Models.Gamification IndieVisible.Domain.Services.GamificationDomainService::GenerateNewGamification(System.Guid)": {
+          "Lines": {
+            "209": 0,
+            "212": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "219": 0,
+            "220": 0,
+            "221": 0,
+            "223": 0,
+            "224": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.GamificationDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IGamificationRepository,IndieVisible.Domain.Interfaces.Repository.IGamificationActionRepository,IndieVisible.Domain.Interfaces.Repository.IGamificationLevelRepository,IndieVisible.Domain.Interfaces.Repository.IUserBadgeRepository)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\JobPositionDomainService.cs": {
+      "IndieVisible.Domain.Services.JobPositionDomainService": {
+        "System.Guid IndieVisible.Domain.Services.JobPositionDomainService::Add(IndieVisible.Domain.Models.JobPosition)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 12,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.JobPosition> IndieVisible.Domain.Services.JobPositionDomainService::GetAllAvailable()": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "33": 0,
+            "34": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.Dictionary`2<IndieVisible.Domain.Core.Enums.JobPositionStatus,System.Int32> IndieVisible.Domain.Services.JobPositionDomainService::GetPositionsStats(System.Guid)": {
+          "Lines": {
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "46": 0,
+            "47": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.ValueObjects.JobPositionApplicationVo> IndieVisible.Domain.Services.JobPositionDomainService::GetApplicationsByUserId(System.Guid)": {
+          "Lines": {
+            "50": 0,
+            "51": 0,
+            "53": 0,
+            "54": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.JobPositionDomainService::AddApplicant(System.Guid,System.Guid,System.String,System.String)": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "65": 0,
+            "67": 0,
+            "68": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.JobPosition IndieVisible.Domain.Services.JobPositionDomainService::GenerateNewJobPosition(System.Guid,IndieVisible.Domain.Core.Enums.JobPositionOrigin)": {
+          "Lines": {
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "83": 0,
+            "85": 0,
+            "86": 0
+          },
+          "Branches": [
+            {
+              "Line": 78,
+              "Offset": 34,
+              "EndOffset": 36,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 78,
+              "Offset": 34,
+              "EndOffset": 46,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.JobPositionDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IJobPositionRepository)": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\NotificationDomainService.cs": {
+      "IndieVisible.Domain.Services.NotificationDomainService": {
+        "System.Void IndieVisible.Domain.Services.NotificationDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.INotificationRepository)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\PollDomainService.cs": {
+      "IndieVisible.Domain.Services.PollDomainService": {
+        "System.Void IndieVisible.Domain.Services.PollDomainService::RemoveByContentId(System.Guid)": {
+          "Lines": {
+            "19": 0,
+            "20": 0,
+            "21": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.Poll IndieVisible.Domain.Services.PollDomainService::GetByUserContentId(System.Guid)": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.Poll IndieVisible.Domain.Services.PollDomainService::GetPollByOptionId(System.Guid)": {
+          "Lines": {
+            "31": 0,
+            "32": 0,
+            "34": 0,
+            "35": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.PollDomainService::AddVote(System.Guid,System.Guid,System.Guid)": {
+          "Lines": {
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "49": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.PollDomainService::ReplaceVote(System.Guid,System.Guid,System.Guid,System.Guid)": {
+          "Lines": {
+            "55": 0,
+            "56": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0
+          },
+          "Branches": [
+            {
+              "Line": 58,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 58,
+              "Offset": 21,
+              "EndOffset": 34,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean IndieVisible.Domain.Services.PollDomainService::CheckUserVoted(System.Guid,System.Guid)": {
+          "Lines": {
+            "69": 0,
+            "70": 0,
+            "72": 0,
+            "73": 0
+          },
+          "Branches": [
+            {
+              "Line": 70,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 70,
+              "Offset": 17,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.PollVote> IndieVisible.Domain.Services.PollDomainService::GetVotes(System.Guid)": {
+          "Lines": {
+            "76": 0,
+            "77": 0,
+            "79": 0,
+            "80": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.PollDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IPollRepository)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\ProfileDomainService.cs": {
+      "IndieVisible.Domain.Services.ProfileDomainService": {
+        "System.Guid IndieVisible.Domain.Services.ProfileDomainService::Add(IndieVisible.Domain.Models.UserProfile)": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<System.Guid> IndieVisible.Domain.Services.ProfileDomainService::GetAllUserIds()": {
+          "Lines": {
+            "32": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.ProfileDomainService::AddFollow(IndieVisible.Domain.Models.UserFollow)": {
+          "Lines": {
+            "39": 0,
+            "40": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.ProfileDomainService::CheckFollowing(System.Guid,System.Guid)": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "49": 0,
+            "51": 0,
+            "53": 0,
+            "54": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Services.ProfileDomainService::CountFollows(System.Guid)": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "60": 0,
+            "62": 0,
+            "63": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.ValueObjects.UserProfileEssentialVo IndieVisible.Domain.Services.ProfileDomainService::GetBasicDataByUserId(System.Guid)": {
+          "Lines": {
+            "66": 0,
+            "67": 0,
+            "69": 0,
+            "71": 0,
+            "72": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserFollow> IndieVisible.Domain.Services.ProfileDomainService::GetFollows(System.Guid,System.Guid)": {
+          "Lines": {
+            "75": 0,
+            "76": 0,
+            "78": 0,
+            "79": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.ProfileDomainService::RemoveFollow(IndieVisible.Domain.Models.UserFollow,System.Guid)": {
+          "Lines": {
+            "82": 0,
+            "83": 0,
+            "85": 0,
+            "86": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Services.ProfileDomainService::CountConnections(System.Linq.Expressions.Expression`1<System.Func`2<IndieVisible.Domain.Models.UserConnection,System.Boolean>>)": {
+          "Lines": {
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.ProfileDomainService::AddConnection(IndieVisible.Domain.Models.UserConnection)": {
+          "Lines": {
+            "98": 0,
+            "99": 0,
+            "100": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.ProfileDomainService::RemoveConnection(System.Guid)": {
+          "Lines": {
+            "103": 0,
+            "104": 0,
+            "105": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.ProfileDomainService::UpdateConnection(IndieVisible.Domain.Models.UserConnection)": {
+          "Lines": {
+            "108": 0,
+            "109": 0,
+            "110": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionByTargetUserId(System.Guid,System.Boolean)": {
+          "Lines": {
+            "113": 0,
+            "114": 0,
+            "115": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionByTargetUserId(System.Guid,IndieVisible.Domain.Core.Enums.UserConnectionType)": {
+          "Lines": {
+            "118": 0,
+            "119": 0,
+            "120": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionByTargetUserId(System.Guid,System.Nullable`1<IndieVisible.Domain.Core.Enums.UserConnectionType>,System.Boolean)": {
+          "Lines": {
+            "123": 0,
+            "124": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "136": 0,
+            "137": 0
+          },
+          "Branches": [
+            {
+              "Line": 126,
+              "Offset": 155,
+              "EndOffset": 160,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 126,
+              "Offset": 155,
+              "EndOffset": 317,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 131,
+              "Offset": 322,
+              "EndOffset": 324,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 131,
+              "Offset": 322,
+              "EndOffset": 415,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionByUserId(System.Guid,System.Boolean)": {
+          "Lines": {
+            "140": 0,
+            "141": 0,
+            "142": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionByUserId(System.Guid,IndieVisible.Domain.Core.Enums.UserConnectionType)": {
+          "Lines": {
+            "145": 0,
+            "146": 0,
+            "147": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionByUserId(System.Guid,IndieVisible.Domain.Core.Enums.UserConnectionType,System.Boolean)": {
+          "Lines": {
+            "150": 0,
+            "151": 0,
+            "152": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionByUserId(System.Guid,System.Nullable`1<IndieVisible.Domain.Core.Enums.UserConnectionType>,System.Boolean,System.Boolean)": {
+          "Lines": {
+            "155": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "177": 0,
+            "178": 0
+          },
+          "Branches": [
+            {
+              "Line": 158,
+              "Offset": 25,
+              "EndOffset": 30,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 158,
+              "Offset": 25,
+              "EndOffset": 233,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 167,
+              "Offset": 371,
+              "EndOffset": 376,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 167,
+              "Offset": 371,
+              "EndOffset": 533,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 172,
+              "Offset": 538,
+              "EndOffset": 540,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 172,
+              "Offset": 538,
+              "EndOffset": 631,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.Models.UserConnection IndieVisible.Domain.Services.ProfileDomainService::GetConnection(System.Guid,System.Guid)": {
+          "Lines": {
+            "181": 0,
+            "182": 0,
+            "184": 0,
+            "185": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.ProfileDomainService::CheckConnection(System.Guid,System.Guid,System.Boolean,System.Boolean)": {
+          "Lines": {
+            "188": 0,
+            "189": 0,
+            "191": 0,
+            "192": 0,
+            "193": 0,
+            "194": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "209": 0,
+            "210": 0,
+            "211": 0,
+            "213": 0,
+            "214": 0,
+            "216": 0,
+            "217": 0
+          },
+          "Branches": [
+            {
+              "Line": 191,
+              "Offset": 26,
+              "EndOffset": 31,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 191,
+              "Offset": 26,
+              "EndOffset": 293,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 200,
+              "Offset": 561,
+              "EndOffset": 566,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 204,
+              "Offset": 575,
+              "EndOffset": 580,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 204,
+              "Offset": 575,
+              "EndOffset": 843,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 200,
+              "Offset": 561,
+              "EndOffset": 1112,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.ValueObjects.UserConnectionVo IndieVisible.Domain.Services.ProfileDomainService::GetConnectionDetails(System.Guid,System.Guid)": {
+          "Lines": {
+            "220": 0,
+            "221": 0,
+            "224": 0,
+            "225": 0,
+            "227": 0,
+            "228": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "235": 0,
+            "236": 0,
+            "237": 0,
+            "238": 0,
+            "239": 0,
+            "240": 0,
+            "242": 0,
+            "243": 0
+          },
+          "Branches": [
+            {
+              "Line": 230,
+              "Offset": 516,
+              "EndOffset": 518,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 230,
+              "Offset": 516,
+              "EndOffset": 524,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 577,
+              "EndOffset": 579,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 580,
+              "EndOffset": 582,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 580,
+              "EndOffset": 585,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 577,
+              "EndOffset": 588,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 603,
+              "EndOffset": 605,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 607,
+              "EndOffset": 609,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 607,
+              "EndOffset": 612,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 235,
+              "Offset": 603,
+              "EndOffset": 615,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.UserConnection> IndieVisible.Domain.Services.ProfileDomainService::GetConnectionsByUserId(System.Guid,System.Boolean)": {
+          "Lines": {
+            "246": 0,
+            "247": 0,
+            "249": 0,
+            "250": 0,
+            "251": 0,
+            "252": 0,
+            "254": 0,
+            "255": 0
+          },
+          "Branches": [
+            {
+              "Line": 249,
+              "Offset": 216,
+              "EndOffset": 218,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 249,
+              "Offset": 216,
+              "EndOffset": 309,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<System.Guid> IndieVisible.Domain.Services.ProfileDomainService::GetAllIds()": {
+          "Lines": {
+            "261": 0,
+            "262": 0,
+            "264": 0,
+            "265": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.ProfileDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IUserProfileRepository,IndieVisible.Domain.Interfaces.Repository.IUserConnectionRepository)": {
+          "Lines": {
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\StudyDomainService.cs": {
+      "IndieVisible.Domain.Services.StudyDomainService": {
+        "System.Collections.Generic.IEnumerable`1<System.Guid> IndieVisible.Domain.Services.StudyDomainService::GetMentorsByUserId(System.Guid)": {
+          "Lines": {
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "36": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": [
+            {
+              "Line": 38,
+              "Offset": 75,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 75,
+              "EndOffset": 77,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 180,
+              "EndOffset": 101,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 45,
+              "Offset": 149,
+              "EndOffset": 151,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 45,
+              "Offset": 149,
+              "EndOffset": 172,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 180,
+              "EndOffset": 182,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<System.Guid> IndieVisible.Domain.Services.StudyDomainService::GetStudentsByUserId(System.Guid)": {
+          "Lines": {
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "74": 0,
+            "75": 0
+          },
+          "Branches": [
+            {
+              "Line": 61,
+              "Offset": 75,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 75,
+              "EndOffset": 77,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 66,
+              "Offset": 180,
+              "EndOffset": 101,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 68,
+              "Offset": 149,
+              "EndOffset": 151,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 68,
+              "Offset": 149,
+              "EndOffset": 172,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 66,
+              "Offset": 180,
+              "EndOffset": 182,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.ValueObjects.StudyCourseListItemVo> IndieVisible.Domain.Services.StudyDomainService::GetCoursesByUserId(System.Guid)": {
+          "Lines": {
+            "80": 0,
+            "81": 0,
+            "83": 0,
+            "84": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.ValueObjects.Study.StudyCoursesOfUserVo IndieVisible.Domain.Services.StudyDomainService::GetCoursesForUserId(System.Guid)": {
+          "Lines": {
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "104": 0,
+            "105": 0
+          },
+          "Branches": [
+            {
+              "Line": 99,
+              "Offset": 422,
+              "EndOffset": 424,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 99,
+              "Offset": 422,
+              "EndOffset": 434,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.Models.StudyCourse IndieVisible.Domain.Services.StudyDomainService::GenerateNewCourse(System.Guid)": {
+          "Lines": {
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "113": 0,
+            "114": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.StudyCourse IndieVisible.Domain.Services.StudyDomainService::GetCourseById(System.Guid)": {
+          "Lines": {
+            "117": 0,
+            "118": 0,
+            "120": 0,
+            "121": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.StudyDomainService::AddCourse(IndieVisible.Domain.Models.StudyCourse)": {
+          "Lines": {
+            "124": 0,
+            "125": 0,
+            "126": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.StudyDomainService::UpdateCourse(IndieVisible.Domain.Models.StudyCourse)": {
+          "Lines": {
+            "129": 0,
+            "130": 0,
+            "131": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.StudyDomainService::RemoveCourse(System.Guid)": {
+          "Lines": {
+            "134": 0,
+            "135": 0,
+            "136": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.StudyPlan> IndieVisible.Domain.Services.StudyDomainService::GetPlans(System.Guid)": {
+          "Lines": {
+            "139": 0,
+            "140": 0,
+            "142": 0,
+            "143": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.StudyDomainService::.ctor(IndieVisible.Domain.Interfaces.Services.IProfileDomainService,IndieVisible.Domain.Interfaces.Repository.IStudyCourseRepository,IndieVisible.Domain.Interfaces.Repository.IStudyGroupRepository)": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.Services.StudyDomainService/<>c__DisplayClass14_0": {
+        "System.Boolean IndieVisible.Domain.Services.StudyDomainService/<>c__DisplayClass14_0::<SavePlans>b__0(IndieVisible.Domain.Models.StudyPlan)": {
+          "Lines": {
+            "167": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.Services.StudyDomainService/<>c__DisplayClass14_1": {
+        "System.Boolean IndieVisible.Domain.Services.StudyDomainService/<>c__DisplayClass14_1::<SavePlans>b__1(IndieVisible.Domain.Models.StudyPlan)": {
+          "Lines": {
+            "151": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.Services.StudyDomainService/<SavePlans>d__14": {
+        "System.Void IndieVisible.Domain.Services.StudyDomainService/<SavePlans>d__14::MoveNext()": {
+          "Lines": {
+            "146": 0,
+            "147": 0,
+            "149": 0,
+            "150": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "157": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "178": 0,
+            "179": 0
+          },
+          "Branches": [
+            {
+              "Line": 149,
+              "Offset": 615,
+              "EndOffset": 138,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 152,
+              "Offset": 217,
+              "EndOffset": 222,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 152,
+              "Offset": 217,
+              "EndOffset": 353,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 149,
+              "Offset": 615,
+              "EndOffset": 620,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 170,
+              "Offset": 706,
+              "EndOffset": 711,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 172,
+              "Offset": 908,
+              "EndOffset": 744,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 172,
+              "Offset": 908,
+              "EndOffset": 913,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 170,
+              "Offset": 706,
+              "EndOffset": 948,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\TeamDomainService.cs": {
+      "IndieVisible.Domain.Services.TeamDomainService": {
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.Team> IndieVisible.Domain.Services.TeamDomainService::GetAll()": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.TeamDomainService::Remove(System.Guid)": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "38": 0,
+            "39": 0
+          },
+          "Branches": [
+            {
+              "Line": 32,
+              "Offset": 215,
+              "EndOffset": 165,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 215,
+              "EndOffset": 217,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Linq.IQueryable`1<IndieVisible.Domain.Models.TeamMember> IndieVisible.Domain.Services.TeamDomainService::GetAllMembershipsByUser(System.Guid)": {
+          "Lines": {
+            "42": 0,
+            "43": 0,
+            "45": 0,
+            "46": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.TeamMember IndieVisible.Domain.Services.TeamDomainService::GetMemberByUserId(System.Guid,System.Guid)": {
+          "Lines": {
+            "49": 0,
+            "50": 0,
+            "52": 0,
+            "53": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.TeamDomainService::ChangeInvitationStatus(System.Guid,System.Guid,IndieVisible.Domain.Core.Enums.InvitationStatus,System.String)": {
+          "Lines": {
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0
+          },
+          "Branches": [
+            {
+              "Line": 59,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 59,
+              "Offset": 21,
+              "EndOffset": 42,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.TeamDomainService::RemoveMember(System.Guid,System.Guid)": {
+          "Lines": {
+            "69": 0,
+            "70": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0
+          },
+          "Branches": [
+            {
+              "Line": 72,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 72,
+              "Offset": 21,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.Team> IndieVisible.Domain.Services.TeamDomainService::GetTeamsByMemberUserId(System.Guid)": {
+          "Lines": {
+            "79": 0,
+            "80": 0,
+            "82": 0,
+            "83": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.ValueObjects.SelectListItemVo`1<System.Guid>> IndieVisible.Domain.Services.TeamDomainService::GetTeamListByMemberUserId(System.Guid)": {
+          "Lines": {
+            "86": 0,
+            "87": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "95": 0,
+            "96": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.Team IndieVisible.Domain.Services.TeamDomainService::GenerateNewTeam(System.Guid)": {
+          "Lines": {
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "112": 0,
+            "114": 0,
+            "115": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.TeamDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.ITeamRepository,IndieVisible.Domain.Interfaces.Repository.IGameRepository)": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\TranslationDomainService.cs": {
+      "IndieVisible.Domain.Services.TranslationDomainService": {
+        "IndieVisible.Domain.Models.Localization IndieVisible.Domain.Services.TranslationDomainService::GenerateNewProject(System.Guid)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<System.Guid> IndieVisible.Domain.Services.TranslationDomainService::GetTranslatedGamesByUserId(System.Guid)": {
+          "Lines": {
+            "32": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.LocalizationEntry> IndieVisible.Domain.Services.TranslationDomainService::GetEntries(System.Guid,IndieVisible.Domain.Core.Enums.SupportedLanguage)": {
+          "Lines": {
+            "39": 0,
+            "40": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.DomainActionPerformed IndieVisible.Domain.Services.TranslationDomainService::AddEntry(System.Guid,IndieVisible.Domain.Models.LocalizationEntry)": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "55": 0,
+            "58": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "66": 0,
+            "68": 0,
+            "70": 0,
+            "71": 0
+          },
+          "Branches": [
+            {
+              "Line": 50,
+              "Offset": 190,
+              "EndOffset": 195,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 50,
+              "Offset": 190,
+              "EndOffset": 375,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 555,
+              "EndOffset": 557,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 555,
+              "EndOffset": 564,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 569,
+              "EndOffset": 571,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 569,
+              "EndOffset": 596,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService::SaveEntries(System.Guid,System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.LocalizationEntry>)": {
+          "Lines": {
+            "73": 0,
+            "74": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0
+          },
+          "Branches": [
+            {
+              "Line": 76,
+              "Offset": 178,
+              "EndOffset": 32,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 78,
+              "EndOffset": 80,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 78,
+              "EndOffset": 120,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 76,
+              "Offset": 178,
+              "EndOffset": 183,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 78,
+              "Offset": 22,
+              "EndOffset": 24,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 78,
+              "Offset": 46,
+              "EndOffset": 48,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 78,
+              "Offset": 22,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 78,
+              "Offset": 46,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.LocalizationTerm> IndieVisible.Domain.Services.TranslationDomainService::GetTerms(System.Guid)": {
+          "Lines": {
+            "95": 0,
+            "96": 0,
+            "98": 0,
+            "99": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.ValueObjects.LocalizationStatsVo IndieVisible.Domain.Services.TranslationDomainService::GetPercentageByGameId(System.Guid)": {
+          "Lines": {
+            "103": 0,
+            "104": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "111": 0,
+            "113": 0,
+            "114": 0,
+            "116": 0,
+            "117": 0,
+            "120": 0,
+            "121": 0
+          },
+          "Branches": [
+            {
+              "Line": 106,
+              "Offset": 22,
+              "EndOffset": 24,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 106,
+              "Offset": 22,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService::SetTerms(System.Guid,System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.LocalizationTerm>)": {
+          "Lines": {
+            "124": 0,
+            "125": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "145": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0
+          },
+          "Branches": [
+            {
+              "Line": 127,
+              "Offset": 229,
+              "EndOffset": 50,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 130,
+              "Offset": 101,
+              "EndOffset": 103,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 130,
+              "Offset": 101,
+              "EndOffset": 127,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 127,
+              "Offset": 229,
+              "EndOffset": 234,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 148,
+              "Offset": 276,
+              "EndOffset": 281,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 151,
+              "Offset": 459,
+              "EndOffset": 315,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 156,
+              "Offset": 434,
+              "EndOffset": 396,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 156,
+              "Offset": 434,
+              "EndOffset": 436,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 151,
+              "Offset": 459,
+              "EndOffset": 464,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 148,
+              "Offset": 276,
+              "EndOffset": 480,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "IndieVisible.Domain.Models.Localization IndieVisible.Domain.Services.TranslationDomainService::GetBasicInfoById(System.Guid)": {
+          "Lines": {
+            "165": 0,
+            "166": 0,
+            "168": 0,
+            "169": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService::AcceptEntry(System.Guid,System.Guid)": {
+          "Lines": {
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0
+          },
+          "Branches": [
+            {
+              "Line": 174,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 174,
+              "Offset": 21,
+              "EndOffset": 52,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService::RejectEntry(System.Guid,System.Guid)": {
+          "Lines": {
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0
+          },
+          "Branches": [
+            {
+              "Line": 184,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 184,
+              "Offset": 21,
+              "EndOffset": 52,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Double IndieVisible.Domain.Services.TranslationDomainService::CalculatePercentage(System.Int32,System.Int32,System.Int32)": {
+          "Lines": {
+            "235": 0,
+            "236": 0,
+            "238": 0,
+            "240": 0,
+            "241": 0
+          },
+          "Branches": [
+            {
+              "Line": 238,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 238,
+              "Offset": 11,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 240,
+              "Offset": 30,
+              "EndOffset": 32,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 240,
+              "Offset": 30,
+              "EndOffset": 35,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.String IndieVisible.Domain.Services.TranslationDomainService::GenerateLanguageXml(IndieVisible.Domain.Models.Localization,IndieVisible.Domain.Core.Enums.SupportedLanguage,System.Boolean)": {
+          "Lines": {
+            "244": 0,
+            "245": 0,
+            "246": 0,
+            "247": 0,
+            "249": 0,
+            "250": 0,
+            "251": 0,
+            "253": 0,
+            "254": 0,
+            "255": 0,
+            "256": 0,
+            "257": 0,
+            "259": 0,
+            "260": 0,
+            "261": 0,
+            "262": 0,
+            "263": 0,
+            "264": 0,
+            "265": 0,
+            "266": 0,
+            "268": 0,
+            "269": 0,
+            "270": 0,
+            "271": 0,
+            "272": 0,
+            "273": 0,
+            "275": 0,
+            "276": 0,
+            "277": 0,
+            "278": 0,
+            "279": 0,
+            "281": 0,
+            "282": 0,
+            "284": 0,
+            "285": 0
+          },
+          "Branches": [
+            {
+              "Line": 253,
+              "Offset": 379,
+              "EndOffset": 109,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 259,
+              "Offset": 216,
+              "EndOffset": 218,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 262,
+              "Offset": 268,
+              "EndOffset": 270,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 262,
+              "Offset": 268,
+              "EndOffset": 281,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 259,
+              "Offset": 216,
+              "EndOffset": 284,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 269,
+              "Offset": 290,
+              "EndOffset": 292,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 269,
+              "Offset": 290,
+              "EndOffset": 307,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 275,
+              "Offset": 322,
+              "EndOffset": 324,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 275,
+              "Offset": 322,
+              "EndOffset": 356,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 253,
+              "Offset": 379,
+              "EndOffset": 384,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 261,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 261,
+              "Offset": 14,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 257,
+              "Offset": 22,
+              "EndOffset": 24,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 257,
+              "Offset": 22,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.ILocalizationRepository)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.Services.TranslationDomainService/<GetXmlById>d__12": {
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService/<GetXmlById>d__12::MoveNext()": {
+          "Lines": {
+            "192": 0,
+            "193": 0,
+            "195": 0,
+            "198": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "209": 0,
+            "211": 0,
+            "212": 0
+          },
+          "Branches": [
+            {
+              "Line": 200,
+              "Offset": 416,
+              "EndOffset": 271,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 200,
+              "Offset": 416,
+              "EndOffset": 421,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "IndieVisible.Domain.Services.TranslationDomainService/<GetXmlById>d__13": {
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService/<GetXmlById>d__13::MoveNext()": {
+          "Lines": {
+            "215": 0,
+            "216": 0,
+            "218": 0,
+            "220": 0,
+            "221": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0
+          },
+          "Branches": []
+        }
+      },
+      "IndieVisible.Domain.Services.TranslationDomainService/<GetContributors>d__14": {
+        "System.Void IndieVisible.Domain.Services.TranslationDomainService/<GetContributors>d__14::MoveNext()": {
+          "Lines": {
+            "228": 0,
+            "229": 0,
+            "231": 0,
+            "232": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\UserContentDomainService.cs": {
+      "IndieVisible.Domain.Services.UserContentDomainService": {
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.ValueObjects.UserContentSearchVo> IndieVisible.Domain.Services.UserContentDomainService::Search(System.Linq.Expressions.Expression`1<System.Func`2<IndieVisible.Domain.Models.UserContent,System.Boolean>>)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": [
+            {
+              "Line": 26,
+              "Offset": 56,
+              "EndOffset": 58,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 56,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 92,
+              "EndOffset": 94,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 92,
+              "EndOffset": 102,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void IndieVisible.Domain.Services.UserContentDomainService::AddLike(IndieVisible.Domain.Models.UserContentLike)": {
+          "Lines": {
+            "39": 0,
+            "40": 0,
+            "41": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Services.UserContentDomainService::CheckIfCommentExists(System.Linq.Expressions.Expression`1<System.Func`2<IndieVisible.Domain.Models.UserContentComment,System.Boolean>>)": {
+          "Lines": {
+            "44": 0,
+            "45": 0,
+            "47": 0,
+            "49": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.UserContentDomainService::Comment(IndieVisible.Domain.Models.UserContentComment)": {
+          "Lines": {
+            "55": 0,
+            "56": 0,
+            "57": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Services.UserContentDomainService::CountComments(System.Linq.Expressions.Expression`1<System.Func`2<IndieVisible.Domain.Models.UserContentComment,System.Boolean>>)": {
+          "Lines": {
+            "60": 0,
+            "61": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Services.UserContentDomainService::CountCommentsByUserId(System.Guid)": {
+          "Lines": {
+            "69": 0,
+            "70": 0,
+            "72": 0,
+            "74": 0,
+            "75": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<IndieVisible.Domain.Models.UserContent> IndieVisible.Domain.Services.UserContentDomainService::GetActivityFeed(System.Nullable`1<System.Guid>,System.Nullable`1<System.Guid>,System.Collections.Generic.List`1<IndieVisible.Domain.Core.Enums.SupportedLanguage>,System.Nullable`1<System.Guid>,System.Nullable`1<System.DateTime>,System.Nullable`1<System.Boolean>,System.Int32)": {
+          "Lines": {
+            "78": 0,
+            "79": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "106": 0,
+            "107": 0,
+            "109": 0,
+            "111": 0,
+            "112": 0
+          },
+          "Branches": [
+            {
+              "Line": 81,
+              "Offset": 63,
+              "EndOffset": 65,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 63,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 79,
+              "EndOffset": 84,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 79,
+              "EndOffset": 386,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 397,
+              "EndOffset": 399,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 421,
+              "EndOffset": 423,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 421,
+              "EndOffset": 426,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 433,
+              "EndOffset": 435,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 433,
+              "EndOffset": 438,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 397,
+              "EndOffset": 454,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 459,
+              "EndOffset": 464,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 459,
+              "EndOffset": 664,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 675,
+              "EndOffset": 677,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 699,
+              "EndOffset": 701,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 699,
+              "EndOffset": 704,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 711,
+              "EndOffset": 713,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 711,
+              "EndOffset": 716,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 675,
+              "EndOffset": 732,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 737,
+              "EndOffset": 742,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 737,
+              "EndOffset": 942,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 948,
+              "EndOffset": 950,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 948,
+              "EndOffset": 963,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 968,
+              "EndOffset": 973,
+              "Path": 0,
+              "Ordinal": 22,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 968,
+              "EndOffset": 1175,
+              "Path": 1,
+              "Ordinal": 23,
+              "Hits": 0
+            },
+            {
+              "Line": 101,
+              "Offset": 1190,
+              "EndOffset": 1195,
+              "Path": 0,
+              "Ordinal": 24,
+              "Hits": 0
+            },
+            {
+              "Line": 101,
+              "Offset": 1190,
+              "EndOffset": 1425,
+              "Path": 1,
+              "Ordinal": 25,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Linq.IQueryable`1<IndieVisible.Domain.Models.UserContentComment> IndieVisible.Domain.Services.UserContentDomainService::GetComments(System.Linq.Expressions.Expression`1<System.Func`2<IndieVisible.Domain.Models.UserContentComment,System.Boolean>>)": {
+          "Lines": {
+            "115": 0,
+            "116": 0,
+            "118": 0,
+            "119": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<IndieVisible.Domain.Models.UserContentLike> IndieVisible.Domain.Services.UserContentDomainService::GetLikes(System.Func`2<IndieVisible.Domain.Models.UserContentLike,System.Boolean>)": {
+          "Lines": {
+            "122": 0,
+            "123": 0,
+            "125": 0,
+            "126": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.UserContentDomainService::RemoveLike(System.Guid,System.Guid)": {
+          "Lines": {
+            "129": 0,
+            "130": 0,
+            "131": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Services.UserContentDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IUserContentRepository)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Services\\UserPreferencesDomainService.cs": {
+      "IndieVisible.Domain.Services.UserPreferencesDomainService": {
+        "System.Void IndieVisible.Domain.Services.UserPreferencesDomainService::.ctor(IndieVisible.Domain.Interfaces.Repository.IUserPreferencesRepository)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\BrainstormComment.cs": {
+      "IndieVisible.Domain.Models.BrainstormComment": {
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.BrainstormComment::get_ParentCommentId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.BrainstormComment::get_SessionId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.BrainstormComment::get_IdeaId()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.BrainstormComment::get_AuthorName()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.BrainstormComment::get_AuthorPicture()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.BrainstormComment::get_Text()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.BrainstormIdea IndieVisible.Domain.Models.BrainstormComment::get_Idea()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\BrainstormIdea.cs": {
+      "IndieVisible.Domain.Models.BrainstormIdea": {
+        "System.String IndieVisible.Domain.Models.BrainstormIdea::get_Title()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.BrainstormIdea::get_Description()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.BrainstormIdea::get_SessionId()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.BrainstormIdeaStatus IndieVisible.Domain.Models.BrainstormIdea::get_Status()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.BrainstormSession IndieVisible.Domain.Models.BrainstormIdea::get_Session()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.BrainstormComment> IndieVisible.Domain.Models.BrainstormIdea::get_Comments()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.BrainstormVote> IndieVisible.Domain.Models.BrainstormIdea::get_Votes()": {
+          "Lines": {
+            "22": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\BrainstormSession.cs": {
+      "IndieVisible.Domain.Models.BrainstormSession": {
+        "System.String IndieVisible.Domain.Models.BrainstormSession::get_Title()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.BrainstormSession::get_Description()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.BrainstormSessionType IndieVisible.Domain.Models.BrainstormSession::get_Type()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.BrainstormSession::get_TargetContextId()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.BrainstormIdea> IndieVisible.Domain.Models.BrainstormSession::get_Ideas()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\BrainstormVote.cs": {
+      "IndieVisible.Domain.Models.BrainstormVote": {
+        "System.Guid IndieVisible.Domain.Models.BrainstormVote::get_SessionId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.BrainstormVote::get_IdeaId()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.VoteValue IndieVisible.Domain.Models.BrainstormVote::get_VoteValue()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.BrainstormIdea IndieVisible.Domain.Models.BrainstormVote::get_Idea()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\FeaturedContent.cs": {
+      "IndieVisible.Domain.Models.FeaturedContent": {
+        "System.Guid IndieVisible.Domain.Models.FeaturedContent::get_OriginalUserId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.FeaturedContent::get_UserContentId()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.FeaturedContent::get_Active()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.FeaturedContent::get_Title()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.FeaturedContent::get_Introduction()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.FeaturedContent::get_FeaturedImage()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime IndieVisible.Domain.Models.FeaturedContent::get_StartDate()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.FeaturedContent::get_EndDate()": {
+          "Lines": {
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.FeaturedContent::get_ImageUrl()": {
+          "Lines": {
+            "24": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\Game.cs": {
+      "IndieVisible.Domain.Models.Game": {
+        "System.String IndieVisible.Domain.Models.Game::get_DeveloperName()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Game::get_Title()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Game::get_Description()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.GameGenre IndieVisible.Domain.Models.Game::get_Genre()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.Game::get_TeamId()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Game::get_CoverImageUrl()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Game::get_ThumbnailUrl()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.GameEngine IndieVisible.Domain.Models.Game::get_Engine()": {
+          "Lines": {
+            "25": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Game::get_CustomEngineName()": {
+          "Lines": {
+            "27": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.CodeLanguage IndieVisible.Domain.Models.Game::get_Language()": {
+          "Lines": {
+            "29": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.GameStatus IndieVisible.Domain.Models.Game::get_Status()": {
+          "Lines": {
+            "31": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.Game::get_ReleaseDate()": {
+          "Lines": {
+            "33": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Game::get_Platforms()": {
+          "Lines": {
+            "35": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.Team IndieVisible.Domain.Models.Game::get_Team()": {
+          "Lines": {
+            "37": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.UserContent> IndieVisible.Domain.Models.Game::get_UserContents()": {
+          "Lines": {
+            "39": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.ValueObjects.ExternalLinkVo> IndieVisible.Domain.Models.Game::get_ExternalLinks()": {
+          "Lines": {
+            "41": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.GameFollow> IndieVisible.Domain.Models.Game::get_Followers()": {
+          "Lines": {
+            "43": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.GameLike> IndieVisible.Domain.Models.Game::get_Likes()": {
+          "Lines": {
+            "45": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.ValueObjects.GameCharacteristicVo> IndieVisible.Domain.Models.Game::get_Characteristics()": {
+          "Lines": {
+            "47": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.Game::.ctor()": {
+          "Lines": {
+            "49": 5,
+            "50": 5,
+            "51": 5,
+            "52": 5,
+            "53": 5
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\GameFollow.cs": {
+      "IndieVisible.Domain.Models.GameFollow": {
+        "System.Guid IndieVisible.Domain.Models.GameFollow::get_GameId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\GameLike.cs": {
+      "IndieVisible.Domain.Models.GameLike": {
+        "System.Guid IndieVisible.Domain.Models.GameLike::get_GameId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\Gamification.cs": {
+      "IndieVisible.Domain.Models.Gamification": {
+        "System.Int32 IndieVisible.Domain.Models.Gamification::get_CurrentLevelNumber()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.Gamification::get_XpTotal()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.Gamification::get_XpCurrentLevel()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.Gamification::get_XpToNextLevel()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\GamificationAction.cs": {
+      "IndieVisible.Domain.Models.GamificationAction": {
+        "IndieVisible.Domain.Core.Enums.PlatformAction IndieVisible.Domain.Models.GamificationAction::get_Action()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.GamificationAction::get_ScoreValue()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\GamificationLevel.cs": {
+      "IndieVisible.Domain.Models.GamificationLevel": {
+        "System.Int32 IndieVisible.Domain.Models.GamificationLevel::get_Number()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.GamificationLevel::get_Name()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.GamificationLevel::get_XpToAchieve()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\JobApplicant.cs": {
+      "IndieVisible.Domain.Models.JobApplicant": {
+        "System.String IndieVisible.Domain.Models.JobApplicant::get_CoverLetter()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Decimal IndieVisible.Domain.Models.JobApplicant::get_Score()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.JobApplicant::get_Email()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\JobPosition.cs": {
+      "IndieVisible.Domain.Models.JobPosition": {
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.JobPosition::get_ClosingDate()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.JobPositionStatus IndieVisible.Domain.Models.JobPosition::get_Status()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.JobPositionDuration IndieVisible.Domain.Models.JobPosition::get_Duration()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.JobPositonType IndieVisible.Domain.Models.JobPosition::get_PositionType()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.JobExperienceLevel IndieVisible.Domain.Models.JobPosition::get_ExperienceLevel()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.WorkType IndieVisible.Domain.Models.JobPosition::get_WorkType()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.JobPosition::get_Reference()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.JobPosition::get_CompanyName()": {
+          "Lines": {
+            "25": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.JobPosition::get_Remote()": {
+          "Lines": {
+            "27": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.JobPosition::get_Location()": {
+          "Lines": {
+            "29": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Decimal> IndieVisible.Domain.Models.JobPosition::get_Salary()": {
+          "Lines": {
+            "31": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.JobPosition::get_StartDate()": {
+          "Lines": {
+            "33": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.PaymentFrequency IndieVisible.Domain.Models.JobPosition::get_PaymentFrequency()": {
+          "Lines": {
+            "35": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.JobPosition::get_Description()": {
+          "Lines": {
+            "37": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.SupportedLanguage IndieVisible.Domain.Models.JobPosition::get_Language()": {
+          "Lines": {
+            "39": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.JobApplicant> IndieVisible.Domain.Models.JobPosition::get_Applicants()": {
+          "Lines": {
+            "41": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.JobPositionOrigin IndieVisible.Domain.Models.JobPosition::get_Origin()": {
+          "Lines": {
+            "43": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.JobPosition::get_Url()": {
+          "Lines": {
+            "45": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.ValueObjects.JobPositionBenefitVo> IndieVisible.Domain.Models.JobPosition::get_Benefits()": {
+          "Lines": {
+            "47": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.JobPosition::.ctor()": {
+          "Lines": {
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\Localization.cs": {
+      "IndieVisible.Domain.Models.Localization": {
+        "System.Guid IndieVisible.Domain.Models.Localization::get_GameId()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.SupportedLanguage IndieVisible.Domain.Models.Localization::get_PrimaryLanguage()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Localization::get_Introduction()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.LocalizationTerm> IndieVisible.Domain.Models.Localization::get_Terms()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.LocalizationEntry> IndieVisible.Domain.Models.Localization::get_Entries()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.Localization::.ctor()": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\LocalizationEntry.cs": {
+      "IndieVisible.Domain.Models.LocalizationEntry": {
+        "System.Guid IndieVisible.Domain.Models.LocalizationEntry::get_TermId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.SupportedLanguage IndieVisible.Domain.Models.LocalizationEntry::get_Language()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.LocalizationEntry::get_Value()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Boolean> IndieVisible.Domain.Models.LocalizationEntry::get_Accepted()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\LocalizationTerm.cs": {
+      "IndieVisible.Domain.Models.LocalizationTerm": {
+        "System.String IndieVisible.Domain.Models.LocalizationTerm::get_Key()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.LocalizationTerm::get_Value()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.LocalizationTerm::get_Obs()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\Notification.cs": {
+      "IndieVisible.Domain.Models.Notification": {
+        "IndieVisible.Domain.Core.Enums.NotificationType IndieVisible.Domain.Models.Notification::get_Type()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.Notification::get_IsRead()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Notification::get_Text()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Notification::get_Url()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\Poll.cs": {
+      "IndieVisible.Domain.Models.Poll": {
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.Poll::get_UserContentId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.Poll::get_MultipleChoice()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.Poll::get_UsersCanAddOptions()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.Poll::get_CloseDate()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Poll::get_Title()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.UserContent IndieVisible.Domain.Models.Poll::get_UserContent()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<IndieVisible.Domain.Models.PollOption> IndieVisible.Domain.Models.Poll::get_Options()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.PollVote> IndieVisible.Domain.Models.Poll::get_Votes()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.Poll::.ctor()": {
+          "Lines": {
+            "25": 45,
+            "26": 45,
+            "27": 45,
+            "28": 45,
+            "29": 45
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\PollOption.cs": {
+      "IndieVisible.Domain.Models.PollOption": {
+        "System.Guid IndieVisible.Domain.Models.PollOption::get_PollId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.PollOption::get_Index()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.PollOption::get_Text()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.PollOption::get_Image()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.Poll IndieVisible.Domain.Models.PollOption::get_Poll()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\PollVote.cs": {
+      "IndieVisible.Domain.Models.PollVote": {
+        "System.Guid IndieVisible.Domain.Models.PollVote::get_PollId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.PollVote::get_PollOptionId()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\StudyActivity.cs": {
+      "IndieVisible.Domain.Models.StudyActivity": {
+        "System.Guid IndieVisible.Domain.Models.StudyActivity::get_ActivityId()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.StudyActivity::get_Order()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\StudyCourse.cs": {
+      "IndieVisible.Domain.Models.StudyCourse": {
+        "System.String IndieVisible.Domain.Models.StudyCourse::get_Name()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.StudyCourse::get_Description()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.StudyCourse::get_SkillSet()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.StudyCourse::get_OpenForApplication()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.StudyCourse::get_InvitationCode()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Decimal IndieVisible.Domain.Models.StudyCourse::get_ScoreToPass()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.StudyGroupMember> IndieVisible.Domain.Models.StudyCourse::get_Members()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.StudyGroup> IndieVisible.Domain.Models.StudyCourse::get_Groups()": {
+          "Lines": {
+            "25": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.StudyPlan> IndieVisible.Domain.Models.StudyCourse::get_Plans()": {
+          "Lines": {
+            "27": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.StudyCourse::.ctor()": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\StudyGroup.cs": {
+      "IndieVisible.Domain.Models.StudyGroup": {
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.StudyGroup::get_DefaultPlanId()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.StudyGroup::get_Type()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.StudyGroup::get_Name()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.StudyGroup::get_Description()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.SupportedLanguage IndieVisible.Domain.Models.StudyGroup::get_Language()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.StudyGroup::get_StartDate()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.StudyGroup::get_EndDate()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Decimal IndieVisible.Domain.Models.StudyGroup::get_ScoreToPass()": {
+          "Lines": {
+            "25": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\StudyGroupMember.cs": {
+      "IndieVisible.Domain.Models.StudyGroupMember": {
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.StudyGroupMember::get_PlanId()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.StudyGroupMember::get_Accepted()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Decimal IndieVisible.Domain.Models.StudyGroupMember::get_FinalScore()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.StudyGroupMember::get_Passed()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.StudyGroupMember::get_ConclusionDate()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\StudyPlan.cs": {
+      "IndieVisible.Domain.Models.StudyPlan": {
+        "System.String IndieVisible.Domain.Models.StudyPlan::get_Name()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.StudyPlan::get_Description()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Decimal IndieVisible.Domain.Models.StudyPlan::get_ScoreToPass()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 IndieVisible.Domain.Models.StudyPlan::get_Order()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.StudyActivity> IndieVisible.Domain.Models.StudyPlan::get_Activities()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.StudyPlan::.ctor()": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\Team.cs": {
+      "IndieVisible.Domain.Models.Team": {
+        "System.String IndieVisible.Domain.Models.Team::get_Name()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Team::get_Description()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Team::get_Motto()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.Team::get_LogoUrl()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.Team::get_Recruiting()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.TeamMember> IndieVisible.Domain.Models.Team::get_Members()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.Game> IndieVisible.Domain.Models.Team::get_Games()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\TeamMember.cs": {
+      "IndieVisible.Domain.Models.TeamMember": {
+        "System.Boolean IndieVisible.Domain.Models.TeamMember::get_Leader()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.InvitationStatus IndieVisible.Domain.Models.TeamMember::get_InvitationStatus()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.TeamMember::get_Name()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.TeamMember::get_Role()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.TeamMember::get_Work()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.TeamMember::get_Quote()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.TeamMember::get_TeamId()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.Team IndieVisible.Domain.Models.TeamMember::get_Team()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserBadge.cs": {
+      "IndieVisible.Domain.Models.UserBadge": {
+        "IndieVisible.Domain.Core.Enums.BadgeType IndieVisible.Domain.Models.UserBadge::get_Badge()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<System.Guid> IndieVisible.Domain.Models.UserBadge::get_References()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.UserBadge::.ctor()": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserConnection.cs": {
+      "IndieVisible.Domain.Models.UserConnection": {
+        "System.Guid IndieVisible.Domain.Models.UserConnection::get_TargetUserId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.UserConnectionType IndieVisible.Domain.Models.UserConnection::get_ConnectionType()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> IndieVisible.Domain.Models.UserConnection::get_ApprovalDate()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserContent.cs": {
+      "IndieVisible.Domain.Models.UserContent": {
+        "System.String IndieVisible.Domain.Models.UserContent::get_AuthorName()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContent::get_AuthorPicture()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContent::get_FeaturedImage()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContent::get_Title()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContent::get_Introduction()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContent::get_Content()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.UserContentType IndieVisible.Domain.Models.UserContent::get_UserContentType()": {
+          "Lines": {
+            "22": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.SupportedLanguage IndieVisible.Domain.Models.UserContent::get_Language()": {
+          "Lines": {
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.UserContent::get_GameId()": {
+          "Lines": {
+            "26": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Models.Game IndieVisible.Domain.Models.UserContent::get_Game()": {
+          "Lines": {
+            "27": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.UserContentLike> IndieVisible.Domain.Models.UserContent::get_Likes()": {
+          "Lines": {
+            "29": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.UserContentComment> IndieVisible.Domain.Models.UserContent::get_Comments()": {
+          "Lines": {
+            "31": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.Poll> IndieVisible.Domain.Models.UserContent::get_Polls()": {
+          "Lines": {
+            "33": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.UserContent::.ctor()": {
+          "Lines": {
+            "35": 15,
+            "36": 15,
+            "37": 15
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserContentComment.cs": {
+      "IndieVisible.Domain.Models.UserContentComment": {
+        "System.Guid IndieVisible.Domain.Models.UserContentComment::get_ParentCommentId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Guid IndieVisible.Domain.Models.UserContentComment::get_UserContentId()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContentComment::get_AuthorName()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContentComment::get_AuthorPicture()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserContentComment::get_Text()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserContentLike.cs": {
+      "IndieVisible.Domain.Models.UserContentLike": {
+        "System.Guid IndieVisible.Domain.Models.UserContentLike::get_ContentId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserFollow.cs": {
+      "IndieVisible.Domain.Models.UserFollow": {
+        "System.Nullable`1<System.Guid> IndieVisible.Domain.Models.UserFollow::get_FollowUserId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserPreferences.cs": {
+      "IndieVisible.Domain.Models.UserPreferences": {
+        "IndieVisible.Domain.Core.Enums.SupportedLanguage IndieVisible.Domain.Models.UserPreferences::get_UiLanguage()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserPreferences::get_ContentLanguages()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.JobProfile IndieVisible.Domain.Models.UserPreferences::get_JobProfile()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "IndieVisible.Domain.Core.Enums.StudyProfile IndieVisible.Domain.Models.UserPreferences::get_StudyProfile()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\src\\anteatergames\\indievisible\\IndieVisible.Domain\\Models\\UserProfile.cs": {
+      "IndieVisible.Domain.Models.UserProfile": {
+        "IndieVisible.Domain.Core.Enums.ProfileType IndieVisible.Domain.Models.UserProfile::get_Type()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserProfile::get_Name()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserProfile::get_Motto()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserProfile::get_Bio()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserProfile::get_StudioName()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserProfile::get_Country()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.String IndieVisible.Domain.Models.UserProfile::get_Location()": {
+          "Lines": {
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean IndieVisible.Domain.Models.UserProfile::get_HasCoverImage()": {
+          "Lines": {
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.ValueObjects.ExternalLinkVo> IndieVisible.Domain.Models.UserProfile::get_ExternalLinks()": {
+          "Lines": {
+            "26": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<IndieVisible.Domain.Models.UserFollow> IndieVisible.Domain.Models.UserProfile::get_Followers()": {
+          "Lines": {
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.Void IndieVisible.Domain.Models.UserProfile::.ctor()": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
