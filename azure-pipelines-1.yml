@@ -24,7 +24,7 @@ steps:
         version: 
         
     - task: DotNetCoreCLI@2
-      displayName: Restore
+      displayName: Restore Packages
       inputs:
         command: 'restore'
         projects: '$(solution)'
@@ -41,8 +41,8 @@ steps:
       displayName: 'Run Tests'
       inputs:
         command: test
-        projects: '**/*Test.csproj'
-        arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+        projects: '**/*Tests.csproj'
+        arguments: '--configuration $(buildConfiguration) --collect "XPlat Code Coverage"'
 
     - task: DotNetCoreCLI@2
       displayName: 'Install ReportGenerator tool'
@@ -51,12 +51,9 @@ steps:
         custom: tool
         arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
 
-    - task: DotNetCoreCLI@2
-      displayName: 'Generate Report'
-      inputs:
-        command: custom
-        custom: 'reportgenerator '
-        arguments: '-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/coverlet/reports -reporttypes:"Cobertura"'
+    - script: ./reportgenerator "-reports:$(Build.SourcesDirectory)/TestResults/Coverage/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/TestResults/Coverage/Reports" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+      workingDirectory: $(Build.SourcesDirectory)
+      displayName: 'dotnet reportgenerator'
 
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage'
