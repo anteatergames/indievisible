@@ -28,7 +28,10 @@ steps:
     projectKey: 'anteatergames_indievisible'
     projectName: 'indievisible'
     projectVersion: $(Build.BuildNumber)
-    extraProperties: 'sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/coverage/coverage.opencover.xml'
+    extraProperties: |
+      sonar.exclusions=**/obj/**,**/*.dll
+      sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
+      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/coverage/coverage.opencover.xml
 
 - script: dotnet build $(solution) --configuration $(buildConfiguration)
   displayName: 'Build $(buildConfiguration)'
@@ -38,7 +41,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration) --no-build --collect "XPlat Code Coverage"'
+    arguments: '--configuration $(buildConfiguration)  /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --no-build --collect "XPlat Code Coverage"'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: DotNetCoreCLI@2
