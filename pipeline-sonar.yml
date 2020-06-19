@@ -61,7 +61,7 @@ steps:
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool'
 
-- script: reportgenerator "-reports:$(Build.SourcesDirectory)/**/coverage.opencover.xml" "-targetDir:$(Build.SourcesDirectory)/CodeCoverage" -tag:$(Build.BuildNumber) -reportTypes:Badges;Cobertura;HTMLInline;HTMLChart
+- script: reportgenerator "-reports:$(Build.SourcesDirectory)/**/coverage.opencover.xml" "-targetDir:$(Build.SourcesDirectory)/CodeCoverage" -tag:$(Build.BuildNumber) "-reportTypes:Badges;Cobertura;HTMLInline;HTMLChart"
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Run Report Generator'
 
