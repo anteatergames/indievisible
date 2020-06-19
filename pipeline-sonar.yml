@@ -41,7 +41,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --logger trx'
+    arguments: '--configuration $(buildConfiguration) --no-build --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=$(Build.SourcesDirectory)/coverage/'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: DotNetCoreCLI@2
@@ -49,16 +49,16 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
+    arguments: 'install --global dotnet-reportgenerator-globaltool'
 
-- script: reportgenerator "-reports:$(Build.SourcesDirectory)/**/coverage.opencover.xml" "-targetDir:$(Build.SourcesDirectory)/CodeCoverage" -tag:$(Build.BuildNumber) -reportTypes:HtmlInline_AzurePipelines;Cobertura
+- script: reportgenerator "-reports:$(Build.SourcesDirectory)/**/coverage.opencover.xml" "-targetDir:$(Build.SourcesDirectory)/CodeCoverage" -tag:$(Build.BuildNumber) -reportTypes:HtmlInline_AzurePipelines;Badges;Cobertura;HTMLInline;HTMLChart
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Run Report Generator'
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage'
   inputs:
-    codeCoverageTool: 'Cobertura'
+    codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
     reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
 
