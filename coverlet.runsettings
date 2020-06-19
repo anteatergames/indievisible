@@ -2,13 +2,9 @@
 <RunSettings>
   <DataCollectionRunSettings>
     <DataCollectors>
-      <DataCollector friendlyName="XPlat Code Coverage">
+      <DataCollector friendlyName="XPlat code coverage">
         <Configuration>
-          <Format>json,cobertura,lcov,teamcity,opencover</Format>
-          <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
-          <SingleHit>false</SingleHit>
-          <UseSourceLink>true</UseSourceLink>
-          <IncludeTestAssembly>true</IncludeTestAssembly>
+          <Format>cobertura,opencover</Format>
         </Configuration>
       </DataCollector>
     </DataCollectors>

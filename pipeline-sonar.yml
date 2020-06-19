@@ -31,7 +31,7 @@ steps:
     extraProperties: |
       sonar.exclusions=**/obj/**,**/*.dll
       sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
-      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/$(testProject)/coverage.opencover.xml
+      sonar.cs.opencover.reportsPaths=$(Agent.TempDirectory)/**/coverage.opencover.xml
         
 - task: DotNetCoreCLI@2
   displayName: Restore Packages
@@ -54,18 +54,17 @@ steps:
     arguments: '--configuration $(buildConfiguration) --no-restore --no-build --logger trx --collect:"XPlat Code Coverage" --settings coverlet.runsettings'
     workingDirectory: '$(Build.SourcesDirectory)'
 
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage'
-  inputs:
-    codeCoverageTool: 'cobertura'
-    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
-
 - task: SonarCloudAnalyze@1
   displayName: 'Sonar Cloud Analyze'
 
 - task: SonarCloudPublish@1
   displayName: 'Publish Quality Gate Results'
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage'
+  inputs:
+    codeCoverageTool: 'cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish'
