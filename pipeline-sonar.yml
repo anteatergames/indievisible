@@ -51,7 +51,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration) --no-restore --no-build --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=$(Build.SourcesDirectory)/coverage/'
+    arguments: '--configuration $(buildConfiguration) --no-restore --no-build --logger trx --collect:"XPlat Code Coverage"'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: DotNetCoreCLI@2
