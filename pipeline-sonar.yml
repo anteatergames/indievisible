@@ -62,7 +62,7 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
     reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
 
-- task: SonarSource.sonarcloud.40ba80e3-6df9-4ca8-aace-26fe93d2085b.SonarCloudAnalyze@1
+- task: SonarCloudAnalyze@1
   displayName: 'Sonar Cloud Analyze'
 
 - task: SonarCloudPublish@1
