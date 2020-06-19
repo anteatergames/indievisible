@@ -31,7 +31,7 @@ steps:
     extraProperties: |
       sonar.exclusions=**/obj/**,**/*.dll
       sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
-      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/coverage/coverage.opencover.xml
+      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/$(testProject)/coverage.opencover.xml
 
 - script: dotnet build $(solution) --configuration $(buildConfiguration)
   displayName: 'Build $(buildConfiguration)'
