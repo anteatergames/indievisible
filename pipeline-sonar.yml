@@ -41,7 +41,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration)  /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --no-build --collect "XPlat Code Coverage"'
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --logger trx'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: DotNetCoreCLI@2
@@ -51,7 +51,7 @@ steps:
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.6.1'
 
-- script: reportgenerator "-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/coverlet/reports/" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
+- script: reportgenerator "-reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/CodeCoverage" -tag:$(Build.BuildNumber) -reportTypes:HtmlInline_AzurePipelines;Cobertura
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Run Report Generator'
 
@@ -59,7 +59,8 @@ steps:
   displayName: 'Publish code coverage'
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
 
 - task: SonarCloudAnalyze@1
   displayName: 'Sonar Cloud Analyze'
