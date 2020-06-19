@@ -51,7 +51,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration) --no-restore --no-build --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover, cobertura\"" /p:CoverletOutput=$(Build.SourcesDirectory)/coverage/'
+    arguments: '--configuration $(buildConfiguration) --no-restore --no-build --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover, cobertura\" /p:CoverletOutput=$(Build.SourcesDirectory)/coverage/'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: DotNetCoreCLI@2
