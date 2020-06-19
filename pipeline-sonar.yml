@@ -32,16 +32,26 @@ steps:
       sonar.exclusions=**/obj/**,**/*.dll
       sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
       sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/$(testProject)/coverage.opencover.xml
+        
+- task: DotNetCoreCLI@2
+  displayName: Restore Packages
+  inputs:
+    command: 'restore'
+    projects: '$(solution)'
 
-- script: dotnet build $(solution) --configuration $(buildConfiguration)
+- task: DotNetCoreCLI@2
   displayName: 'Build $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    projects: '$(solution)'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
 
 - task: DotNetCoreCLI@2
   displayName: 'Run Tests'
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration) --no-build --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=$(Build.SourcesDirectory)/coverage/'
+    arguments: '--configuration $(buildConfiguration) --no-restore --no-build --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=$(Build.SourcesDirectory)/coverage/'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: DotNetCoreCLI@2
