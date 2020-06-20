@@ -142,66 +142,63 @@ namespace IndieVisible.Web.Controllers
             ViewBag.PostFromHome = postModel;
         }
 
+        private static TimeLineItemViewModel GenerateTimeLineStart(DateTime date, string icon, string color, string title, string subtitle, string description)
+        {
+            return GenerateTimeLineItem(true, date, icon, color, title, subtitle, description);
+        }
+
+        private static TimeLineItemViewModel GenerateTimeLineItem(DateTime date, string icon, string color, string title, string subtitle, string description)
+        {
+            return GenerateTimeLineItem(false, date, icon, color, title, subtitle, description);
+        }
+
+        private static TimeLineItemViewModel GenerateTimeLineItem(bool start, DateTime date, string icon, string color, string title, string subtitle, string description)
+        {
+            return GenerateTimeLineItem(false, date, icon, color, title, subtitle, description, null);
+        }
+
+        private static TimeLineItemViewModel GenerateTimeLineItem(DateTime date, string icon, string color, string title, string subtitle, string description, List<string> items)
+        {
+            return GenerateTimeLineItem(false, date, icon, color, title, subtitle, description, items);
+        }
+
+        private static TimeLineItemViewModel GenerateTimeLineItem(bool start, DateTime date, string icon, string color, string title, string subtitle, string description, List<string> items)
+        {
+            return new TimeLineItemViewModel
+            {
+                Start = start,
+                Date = date,
+                Icon = icon,
+                Color = color,
+                Title = title,
+                Subtitle = subtitle,
+                Description = description,
+                Items = items ?? new List<string>()
+            };
+        }
+
         private static TimeLineViewModel GenerateTimeline()
         {
             DateTime startDate = new DateTime(2018, 08, 27);
             TimeLineViewModel model = new TimeLineViewModel();
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Start = true,
-                Date = startDate,
-                Icon = "fas fa-asterisk",
-                Title = "The Idea",
-                Subtitle = startDate.ToShortDateString(),
-                Description = "This is where the whole idea began. We wrote a Google Document to sketch the idea and see the big picture forming."
-            });
+            model.Items.Add(GenerateTimeLineStart(startDate, "fas fa-asterisk", "success", "The Idea", startDate.ToShortDateString(), "This is where the whole idea began. We wrote a Google Document to sketch the idea and see the big picture forming."));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2018, 09, 13),
-                Icon = "fas fa-play",
-                Color = "success",
-                Title = "The First Commit",
-                Subtitle = "Every journey starts with a first step.",
-                Description = "A simple README file added to start the repository."
-            });
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2018, 09, 13), "fas fa-play", "success", "The First Commit", "Every journey starts with a first step.", "A simple README file added to start the repository."));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2018, 09, 14),
-                Icon = "fas fa-cloud",
-                Color = "warning",
-                Title = "September 2018",
-                Subtitle = "A month full of tasks",
-                Description = "September 2018 was a busy month for us. We setup our CI/CD pipeline and also:",
-                Items = {
-                    "Archtecture defined",
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2018, 09, 14), "fas fa-cloud", "warning", "September 2018", "A month full of tasks", "September 2018 was a busy month for us. We setup our CI/CD pipeline and also:", new List<string>() {
+                "Archtecture defined",
                     "Menu defined",
                     "Basic Register and Login working",
                     "Profile page prototyped",
                     "Tag Cloud"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2018, 10, 01),
-                Icon = "fas fa-shield-alt",
-                Color = "info",
-                Title = "October 2018",
-                Subtitle = "Security first",
-                Description = "October was a month to work on the security system. Several improvements were made on the Register and Login workflows."
-            });
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2018, 11, 01),
-                Color = "danger",
-                Title = "November 2018",
-                Subtitle = "A really busy month!",
-                Description = "November was awesome for INDIEVISIBLE. We manage to implement several core systems that are used across the whole platform.",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2018, 10, 01), "fas fa-shield-alt", "info", "October 2018", "Security first", "October was a month to work on the security system. Several improvements were made on the Register and Login workflows."));
+
+
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2018, 11, 01), "fas fa-cloud", "danger", "September 2018", "A really busy month!", "November was awesome for INDIEVISIBLE. We manage to implement several core systems that are used across the whole platform.", new List<string>() {
                     "Forgot password, password reset, email verification",
                     "Front page improvements",
                     "Facebook, Google and Microsoft Authentication",
@@ -221,17 +218,9 @@ namespace IndieVisible.Web.Controllers
                     "Like/Unlike system",
                     "Comment system",
                     "Progressive Web App implemented"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2018, 12, 01),
-                Color = "success",
-                Title = "December 2018",
-                Subtitle = "To close the year.",
-                Description = "In December we implemented a few things needed for the launch day.",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2018, 12, 01), "fas fa-cloud", "success", "December 2018", "To close the year.", "In December we implemented a few things needed for the launch day.", new List<string>() {
                     "Language selection",
                     "Game activity feed",
                     "Content view and edit",
@@ -239,18 +228,9 @@ namespace IndieVisible.Web.Controllers
                     "GDPR cookies warning",
                     "Facebook sharing",
                     "Structured data from schema.org"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 01, 01),
-                Icon = "fas fa-globe",
-                Color = "primary",
-                Title = "January 2019",
-                Subtitle = "Happy new year! Let's work!",
-                Description = "We started the year by optimizing the whole platform.",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 01, 01), "fas fa-globe", "primary", "January 2019", "Happy new year! Let's work!", "We started the year by optimizing the whole platform.", new List<string>() {
                     "Page speed improvements",
                     "Search Engine Optimization (title, description, sitemap, etc",
                     "Added Bosnian, Croatian and Serbian languages added by Kamal Tufekčić",
@@ -258,96 +238,42 @@ namespace IndieVisible.Web.Controllers
                     "Featured article system implemented (staff only)",
                     "Username validation",
                     "Cache management"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 02, 01),
-                Icon = "fas fa-globe",
-                Color = "success",
-                Title = "Febuary 2019",
-                Subtitle = "Some tweaks",
-                Description = "IndieVisible is for everyone!",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 02, 01), "fas fa-globe", "success", "Febuary 2019", "Some tweaks", "IndieVisible is for everyone!", new List<string>() {
                     "Image size descriptions",
                     "Accessibility improvements",
                     "Images on CDN"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 03, 01),
-                Icon = "fas fa-vote-yea",
-                Color = "primary",
-                Title = "March 2019",
-                Subtitle = "Democracy",
-                Description = "The voting system! Users can now:",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 03, 01), "fas fa-vote-yea", "primary", "March 2019", "Democracy", "The voting system! Users can now:", new List<string>() {
                     "Suggest ideas",
                     "Vote on other people's ideas",
                     "Comment on ideas",
                     "Create your own brainstorm sessions"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 04, 01),
-                Icon = "far fa-comment",
-                Color = "primary",
-                Title = "April 2019",
-                Subtitle = "Fast posting",
-                Description = "Like a good social network you can now:",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 04, 01), "fas fa-comment", "primary", "April 2019", "Fast posting", "Like a good social network you can now:", new List<string>() {
                     "Post directly from the front page",
                     "Add a image to post",
                     "Post from within your game",
                     "Game like"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 05, 01),
-                Icon = "fas fa-trophy",
-                Color = "success",
-                Title = "May 2019",
-                Subtitle = "Game On!",
-                Description = "Climb the IndieVisible Ranks to the glory",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 05, 01), "fas fa-trophy", "success", "May 2019", "Game On!", "Climb the IndieVisible Ranks to the glory", new List<string>() {
                     "Ranking System",
                     "Experience Points",
-                    "Badges",
-                }
-            });
+                    "Badges"
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 06, 01),
-                Icon = "fab fa-connectdevelop",
-                Color = "info",
-                Title = "June 2019",
-                Subtitle = "Social Interaction",
-                Description = "Follow games and users and connect to users to increase your social network!",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 06, 01), "fas fa-connectdevelop", "info", "June 2019", "Social Interaction", "Follow games and users and connect to users to increase your social network!", new List<string>() {
                     "Notifications!",
                     "Game Follow",
                     "User Follow",
                     "User Connection System"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 07, 01),
-                Icon = "fas fa-poll",
-                Color = "success",
-                Title = "July 2019",
-                Subtitle = "This or that?",
-                Description = "Polls, preferences and more!",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 07, 01), "fas fa-poll", "success", "July 2019", "This or that?", "Polls, preferences and more!", new List<string>() {
                     "Basic Polls - Get opinions from your fellow devs!",
                     "Better preferences - Now you can change your email, set your phone and more!",
                     "Two Factor Authentication - Be more safe with this security feature",
@@ -356,43 +282,17 @@ namespace IndieVisible.Web.Controllers
                     "Post new suggestions right from the sidebar",
                     "Basic search results",
                     "QR code generation"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 08, 01),
-                Icon = "fas fa-question",
-                Color = "primary",
-                Title = "August 2019",
-                Subtitle = "...",
-                Description = "Nothing to see here, keep scrolling!"
-            });
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 08, 01), "fas fa-question", "primary", "August 2019", "...", "Nothing to see here, keep scrolling!"));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 09, 01),
-                Icon = "fas fa-trash-alt",
-                Color = "danger",
-                Title = "September 2019",
-                Subtitle = "You got the power!",
-                Description = "Must have features!",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 09, 01), "fas fa-trash-alt", "danger", "September 2019", "You got the power!", "Must have features!", new List<string>() {
                     "You can now delete your own posts",
                     "Share your game!",
                     "Rank Levels page"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 09, 01),
-                Icon = "fas fa-users",
-                Color = "info",
-                Title = "October 2019",
-                Subtitle = "Team up!",
-                Description = "Join forces to make games.",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 10, 01), "fas fa-users", "info", "October 2019", "Team up!", "Join forces to make games.", new List<string>() {
                     "Team Management",
                     "Points Earned notification",
                     "Brainstorm Ideas status control",
@@ -400,87 +300,34 @@ namespace IndieVisible.Web.Controllers
                     "Teams can be linked to games",
                     "Recruitin Teams!",
                     "#hashtagging"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2019, 12, 01),
-                Icon = "fas fa-bolt",
-                Color = "danger",
-                Title = "December 2019",
-                Subtitle = "Optimizations!",
-                Description = "Now the whole web rendering is blazing fast!"
-            });
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 12, 01), "fas fa-bolt", "danger", "December 2019", "Optimizations!", "Now the whole web rendering is blazing fast!"));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2020, 01, 01),
-                Icon = "fas fa-briefcase",
-                Color = "warning",
-                Title = "January 2020",
-                Subtitle = "It is time to work! Seriously!",
-                Description = "The job management is here!",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2020, 01, 01), "fas fa-briefcase", "warning", "January 2020", "It is time to work! Seriously!", "The job management is here!", new List<string>() {
                     "Create job position",
                     "List existing positions",
                     "Apply to positions",
                     "See who applied to your posted job positions"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2020, 03, 01),
-                Icon = "fas fa-heart",
-                Color = "danger",
-                Title = "March 2020",
-                Subtitle = "Thank you all!",
-                Description = "We reached the mark of 300 users and  100 games. Thank you all for your love!",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2020, 03, 01), "fas fa-heart", "danger", "March 2020", "Thank you all!", "We reached the mark of 300 users and  100 games. Thank you all for your love!", new List<string>() {
                     "A Special Thanks page"
-                }
-            });
+                }));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2020, 04, 01),
-                Icon = "fas fa-language",
-                Color = "primary",
-                Title = "April 2020",
-                Subtitle = "Localize your games!",
-                Description = "The localization tool has arrived!",
-                Items = {
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2020, 04, 01), "fas fa-language", "primary", "April 2020", "Localize your games!", "The localization tool has arrived!", new List<string>() {
                     "Ask for translation from the community",
                     "Help others, translating terms to your own language",
                     "Import and export files",
                     "Review translations",
                     "Post game content directly from home",
                     "Set Game Characteristics"
-                }
-            });
+                }));
 
             // Future
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                Date = new DateTime(2020, 11, 01),
-                Icon = "fas fa-bug",
-                Color = "danger",
-                Title = "November 2020",
-                Subtitle = "Open Beta",
-                Description = "At this point, we hope to have a consistent beta tester base so we can polish the platform and fix every possible bug tha shows up."
-            });
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2019, 11, 01), "fas fa-bug", "danger", "November 2020", "Open Beta", "At this point, we hope to have a consistent beta tester base so we can polish the platform and fix every possible bug tha shows up."));
 
-            model.Items.Add(new TimeLineItemViewModel
-            {
-                End = true,
-                Date = new DateTime(2021, 01, 01),
-                Icon = "fas fa-star",
-                Color = "success",
-                Title = "January 2021",
-                Subtitle = "Launch day!",
-                Description = "This is the scheduled launch day. On this day, all the core features will be implented."
-            });
+            model.Items.Add(GenerateTimeLineItem(new DateTime(2021, 01, 01), "fas fa-star", "success", "January 2021", "Launch day!", "This is the scheduled launch day. On this day, all the core features will be implented."));
 
             model.Items = model.Items.OrderBy(x => x.Date).ToList();
             return model;
