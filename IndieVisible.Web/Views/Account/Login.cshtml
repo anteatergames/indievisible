@@ -6,10 +6,12 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
+    Layout = "~/Views/Shared/_LayoutLoginRegister.cshtml";
     ViewData["Title"] = SharedLocalizer["Log in"];
     ViewData["Description"] = SharedLocalizer["Join us, be a part of something great, be a part of the independent game developers social network."];
     ViewData["CanonicalUrl"] = "https://www.indievisible.net/account/login/";
-    Layout = "~/Views/Shared/_LayoutLoginRegister.cshtml";
+
+    var returnUrl = ViewData["ReturnUrl"];
 }
 
 <div class="login-box">
@@ -27,7 +29,7 @@
             <div class="alert alert-danger">@SharedLocalizer["Invalid login! Keep calm and try again!"]</div>
         }
 
-        <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" autocomplete="off">
+        <form asp-route-returnurl="@returnUrl" method="post" autocomplete="off">
             <div class="form-group has-feedback">
                 <input asp-for="UserName" class="form-control" placeholder="@SharedLocalizer["UserName"]">
                 <span class="fas fa-user form-control-feedback"></span>
