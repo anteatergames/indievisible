@@ -1,13 +1,11 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Application.ViewModels.Study
 {
     public class StudyGroupViewModel
     {
-        public Guid? DefaultPlanId{ get; set; }
+        public Guid? DefaultPlanId { get; set; }
 
         public string Type { get; set; }
 

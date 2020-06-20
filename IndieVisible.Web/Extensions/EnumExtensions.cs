@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Web.Extensions
 {
@@ -18,17 +17,17 @@ namespace IndieVisible.Web.Extensions
 
             StringBuilder sb = new StringBuilder();
 
-            var enumValues = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
+            IEnumerable<TEnum> enumValues = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
 
             sb.Append("{ ");
 
             for (int i = 0; i < enumValues.Count(); i++)
             {
-                var item = enumValues.ElementAt(i);
+                TEnum item = enumValues.ElementAt(i);
 
-                var ui = item.ToUiInfo();
+                Domain.Core.Attributes.UiInfoAttribute ui = item.ToUiInfo();
 
-                var text = String.Format("\"{0}\": \"{1}\"", Convert.ToInt32(item), ui.Display);
+                string text = String.Format("\"{0}\": \"{1}\"", Convert.ToInt32(item), ui.Display);
 
                 sb.Append(text);
 

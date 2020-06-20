@@ -13,7 +13,6 @@ using IndieVisible.Domain.ValueObjects.Study;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Services
@@ -273,9 +272,9 @@ namespace IndieVisible.Application.Services
                     term.UserId = currentUserId;
                 }
 
-                var result = Task.Run(async () => await studyDomainService.SavePlans(courseId, entities)).Result;
+                bool result = Task.Run(async () => await studyDomainService.SavePlans(courseId, entities)).Result;
 
-                var task = unitOfWork.Commit();
+                Task<bool> task = unitOfWork.Commit();
 
                 task.Wait();
 
@@ -289,7 +288,7 @@ namespace IndieVisible.Application.Services
 
         private void SetAuthorDetails(StudyCourseViewModel vm)
         {
-            var authorProfile = this.GetCachedProfileByUserId(vm.UserId);
+            UserProfile authorProfile = GetCachedProfileByUserId(vm.UserId);
             if (authorProfile != null)
             {
                 vm.AuthorPicture = UrlFormatter.ProfileImage(vm.UserId, 40);

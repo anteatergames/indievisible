@@ -123,6 +123,6 @@ namespace IndieVisible.Application.ViewModels.User
 
         public bool CurrentUserWantsToConnect { get; set; }
 
-        public UserConnectionType? ConnectionType { get;  set; }
+        public UserConnectionType? ConnectionType { get; set; }
     }
 }

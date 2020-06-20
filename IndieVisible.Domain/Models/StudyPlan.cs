@@ -1,8 +1,5 @@
-﻿using IndieVisible.Domain.Core.Enums;
-using IndieVisible.Domain.Core.Models;
-using System;
+﻿using IndieVisible.Domain.Core.Models;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IndieVisible.Domain.Models
 {

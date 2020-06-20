@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace IndieVisible.Web.ModelBinders
@@ -18,7 +16,7 @@ namespace IndieVisible.Web.ModelBinders
 
             if (!context.Metadata.IsComplexType && (context.Metadata.ModelType == typeof(decimal) || context.Metadata.ModelType == typeof(decimal?)))
             {
-                var loggerFactory = context.Services.GetRequiredService<ILoggerFactory>();
+                ILoggerFactory loggerFactory = context.Services.GetRequiredService<ILoggerFactory>();
                 return new InvariantDecimalModelBinder(context.Metadata.ModelType, loggerFactory);
             }
 
@@ -39,13 +37,13 @@ namespace IndieVisible.Web.ModelBinders
         {
             if (bindingContext == null) throw new ArgumentNullException(nameof(bindingContext));
 
-            var valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+            ValueProviderResult valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
 
             if (valueProviderResult != ValueProviderResult.None)
             {
                 bindingContext.ModelState.SetModelValue(bindingContext.ModelName, valueProviderResult);
 
-                var valueAsString = valueProviderResult.FirstValue;
+                string valueAsString = valueProviderResult.FirstValue;
                 decimal result;
 
                 // Use invariant culture

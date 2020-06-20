@@ -219,7 +219,7 @@ namespace IndieVisible.Application.Services
             {
                 return new OperationResultVo<Guid>(ex.Message);
             }
-        } 
+        }
         #endregion
 
         private bool CheckSpam(Guid id, string content)

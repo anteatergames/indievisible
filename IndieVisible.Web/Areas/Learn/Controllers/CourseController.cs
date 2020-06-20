@@ -5,7 +5,6 @@ using IndieVisible.Web.Areas.Learn.Controllers.Base;
 using IndieVisible.Web.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NPOI.OpenXmlFormats.Spreadsheet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -193,7 +192,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         {
             ViewData["ListDescription"] = SharedLocalizer["Study Plans"].ToString();
 
-            var model = new List<StudyCourseListItemVo>();
+            List<StudyCourseListItemVo> model = new List<StudyCourseListItemVo>();
 
             try
             {
@@ -201,7 +200,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
                 if (result.Success)
                 {
-                    var castResult = (result as OperationResultListVo<StudyPlanViewModel>).Value.ToList();
+                    List<StudyPlanViewModel> castResult = (result as OperationResultListVo<StudyPlanViewModel>).Value.ToList();
 
                     FormatToShow(castResult);
 
@@ -223,7 +222,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         {
             ViewData["ListDescription"] = SharedLocalizer["Study Plans"].ToString();
 
-            var model = new List<StudyCourseListItemVo>();
+            List<StudyCourseListItemVo> model = new List<StudyCourseListItemVo>();
 
             try
             {
@@ -277,9 +276,9 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             model.Description = String.IsNullOrWhiteSpace(model.Description) ? SharedLocalizer["No Description to show."] : model.Description.Replace("\n", "<br />");
         }
 
-        private  void FormatToShow(List<StudyPlanViewModel> castResult)
+        private void FormatToShow(List<StudyPlanViewModel> castResult)
         {
-            foreach (var plan in castResult)
+            foreach (StudyPlanViewModel plan in castResult)
             {
                 plan.Description = String.IsNullOrWhiteSpace(plan.Description) ? SharedLocalizer["No Description to show."] : plan.Description.Replace("\n", "<br />");
             }

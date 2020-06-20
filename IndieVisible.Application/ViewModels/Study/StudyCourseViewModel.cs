@@ -1,6 +1,5 @@
 ﻿using IndieVisible.Domain.Core.Enums;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels.Study

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System;
+using System.Threading.Tasks;
 
 namespace IndieVisible.Web.TagHelpers
 {
@@ -59,7 +59,7 @@ namespace IndieVisible.Web.TagHelpers
                 throw new ArgumentNullException(nameof(output));
             }
 
-            var metadata = DescriptionFor.Metadata;
+            Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata metadata = DescriptionFor.Metadata;
 
             if (metadata == null)
             {
@@ -70,7 +70,7 @@ namespace IndieVisible.Web.TagHelpers
 
             if (!string.IsNullOrWhiteSpace(metadata.Description))
             {
-                var content = String.Format("<i class=\"fas fa-exclamation-circle\" data-container=\"body\" data-toggle=\"popover\" data-trigger=\"hover\" data-placement=\"top\" data-html=\"true\" data-content=\"{0}\" aria-hidden=\"true\"></i>", metadata.Description);
+                string content = String.Format("<i class=\"fas fa-exclamation-circle\" data-container=\"body\" data-toggle=\"popover\" data-trigger=\"hover\" data-placement=\"top\" data-html=\"true\" data-content=\"{0}\" aria-hidden=\"true\"></i>", metadata.Description);
 
                 output.Content.SetHtmlContent(content);
                 output.TagMode = TagMode.StartTagAndEndTag;

@@ -255,7 +255,7 @@ namespace IndieVisible.Application.Services
             {
                 vm.CurrentUserFollowing = model.Followers.SafeAny(x => x.UserId == currentUserId);
 
-                var connectionDetails = profileDomainService.GetConnectionDetails(currentUserId, vm.UserId);
+                UserConnectionVo connectionDetails = profileDomainService.GetConnectionDetails(currentUserId, vm.UserId);
 
                 vm.ConnectionControl.CurrentUserConnected = connectionDetails != null && connectionDetails.Accepted;
                 vm.ConnectionControl.CurrentUserWantsToConnect = connectionDetails != null && connectionDetails.Direction == UserConnectionDirection.ToUser && !connectionDetails.Accepted;

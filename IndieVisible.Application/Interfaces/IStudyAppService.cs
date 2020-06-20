@@ -1,11 +1,7 @@
-﻿using IndieVisible.Application.ViewModels.Localization;
-using IndieVisible.Application.ViewModels.Study;
-using IndieVisible.Domain.Core.Enums;
+﻿using IndieVisible.Application.ViewModels.Study;
 using IndieVisible.Domain.ValueObjects;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace IndieVisible.Application.Interfaces
 {

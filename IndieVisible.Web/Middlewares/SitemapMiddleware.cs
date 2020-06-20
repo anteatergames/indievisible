@@ -196,7 +196,7 @@ namespace IndieVisible.Web.Middlewares
 
         private List<string> CheckDetailsMethod(Type controller)
         {
-            var pattern = string.Empty;
+            string pattern = string.Empty;
             OperationResultVo ids = null;
             List<string> methodList = new List<string>();
 
@@ -218,7 +218,7 @@ namespace IndieVisible.Web.Middlewares
 
             if (ids != null && !string.IsNullOrWhiteSpace(pattern))
             {
-                var urls = GetDetailUrls(controller, ids, pattern);
+                List<string> urls = GetDetailUrls(controller, ids, pattern);
 
                 methodList.AddRange(urls);
             }

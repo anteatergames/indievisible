@@ -4,7 +4,6 @@ using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Repository;
 using IndieVisible.Domain.Interfaces.Services;
-using IndieVisible.Domain.Interfaces.Services;
 using IndieVisible.Domain.Services;
 using IndieVisible.Infra.CrossCutting.Abstractions;
 using IndieVisible.Infra.CrossCutting.Notifications;

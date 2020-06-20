@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using IndieVisible.Application.ViewModels.Study;
-using IndieVisible.Application.ViewModels.Team;
 using IndieVisible.Domain.Core.Enums;
 using IndieVisible.Domain.Models;
 using System;

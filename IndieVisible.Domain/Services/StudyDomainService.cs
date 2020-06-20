@@ -6,7 +6,6 @@ using IndieVisible.Domain.ValueObjects;
 using IndieVisible.Domain.ValueObjects.Study;
 using System;
 using System.Collections.Generic;
-using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Threading.Tasks;
 

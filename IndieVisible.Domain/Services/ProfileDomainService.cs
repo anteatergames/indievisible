@@ -221,11 +221,11 @@ namespace IndieVisible.Domain.Services
             List<UserConnection> connections = userConnectionRepository.Get(x => x.UserId == originalUserId && x.TargetUserId == connectedUserId || x.UserId == connectedUserId && x.TargetUserId == originalUserId).ToList();
 
 
-            var fromUser = connections.Any(x => x.UserId == originalUserId);
-            var toUser = connections.Any(x => x.TargetUserId == originalUserId);
+            bool fromUser = connections.Any(x => x.UserId == originalUserId);
+            bool toUser = connections.Any(x => x.TargetUserId == originalUserId);
 
-            var typeMentor = connections.Any(x => x.ConnectionType == UserConnectionType.Mentor);
-            var typePupil = connections.Any(x => x.ConnectionType == UserConnectionType.Pupil);
+            bool typeMentor = connections.Any(x => x.ConnectionType == UserConnectionType.Mentor);
+            bool typePupil = connections.Any(x => x.ConnectionType == UserConnectionType.Pupil);
 
             if (!connections.Any())
             {
