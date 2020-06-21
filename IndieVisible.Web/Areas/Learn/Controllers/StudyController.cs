@@ -46,7 +46,15 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
             ViewData["studyProfile"] = studyProfile;
 
-            return View("Dashboard");
+            switch (studyProfile)
+            {
+                case "Mentor":
+                    return View("MentorDashboard");
+                case "Student":
+                    return View("StudentDashboard");
+                default:
+                    return View("StudentDashboard");
+            }
         }
 
         [HttpPost("learn/study/setstudyprofile/{type}")]
@@ -135,6 +143,15 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             ViewData["ListDescription"] = SharedLocalizer["My Pupils"].ToString();
 
             return PartialView("_ListUsers", model);
+        }
+
+        [Route("learn/study/courses/explore")]
+        public ActionResult ExploreCourses()
+        {
+            var studyProfile = GetSessionValue(SessionValues.StudyProfile);
+            ViewData["studyProfile"] = studyProfile ?? "Student";
+
+            return View();
         }
     }
 }

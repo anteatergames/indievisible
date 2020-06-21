@@ -1,0 +1,30 @@
+﻿@model IEnumerable<StudyCourseListItemVo>
+
+@{
+    Layout = null;
+    var noItemsModel = new ListNoItemsViewModel("fas fa-dizzy", "What? You don't have Courses!");
+
+    var description = ViewData["ListDescription"] == null ? SharedLocalizer["courses"] : (string)ViewData["ListDescription"];
+}
+
+<div class="col-12">
+    <h2>@SharedLocalizer[description]</h2>
+</div>
+
+@if (!Model.Any())
+{
+    <partial name="_ListNoItems" model="noItemsModel" />
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-12 col-lg-4 col-xl-3">
+                <div class="box box-game bg-white">
+                    <partial name="_CourseCard" model="item" />
+                </div>
+            </div>
+        }
+    </div>
+}

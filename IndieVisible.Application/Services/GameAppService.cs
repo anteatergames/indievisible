@@ -239,9 +239,9 @@ namespace IndieVisible.Application.Services
 
             foreach (GameListItemViewModel item in vms)
             {
-                item.ThumbnailUrl = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageType.Full);
-                item.ThumbnailResponsive = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageType.Responsive);
-                item.ThumbnailLquip = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageType.LowQuality);
+                item.ThumbnailUrl = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageRenderType.Full);
+                item.ThumbnailResponsive = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageRenderType.Responsive);
+                item.ThumbnailLquip = SetFeaturedImage(item.UserId, item.ThumbnailUrl, ImageRenderType.LowQuality);
                 item.DeveloperImageUrl = UrlFormatter.ProfileImage(item.UserId, 40);
 
                 UserProfile authorProfile = GetCachedProfileByUserId(item.UserId);
@@ -251,7 +251,7 @@ namespace IndieVisible.Application.Services
             return vms;
         }
 
-        private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
+        private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageRenderType imageType)
         {
             if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
             {
@@ -261,15 +261,15 @@ namespace IndieVisible.Application.Services
             {
                 switch (imageType)
                 {
-                    case ImageType.LowQuality:
-                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278, 10);
+                    case ImageRenderType.LowQuality:
+                        return UrlFormatter.Image(userId, ImageType.GameThumbnail, thumbnailUrl, 278, 10);
 
-                    case ImageType.Responsive:
-                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 0, 0, true);
+                    case ImageRenderType.Responsive:
+                        return UrlFormatter.Image(userId, ImageType.GameThumbnail, thumbnailUrl, 0, 0, true);
 
-                    case ImageType.Full:
+                    case ImageRenderType.Full:
                     default:
-                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278);
+                        return UrlFormatter.Image(userId, ImageType.GameThumbnail, thumbnailUrl, 278);
                 }
             }
         }

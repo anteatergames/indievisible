@@ -170,8 +170,8 @@ namespace IndieVisible.Application.Services
                     string[] imageSplit = vm.ImageUrl.Split("/");
                     Guid userId = vm.OriginalUserId == Guid.Empty ? vm.UserId : vm.OriginalUserId;
 
-                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(userId, imageSplit.Last(), ImageType.Full);
-                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(userId, imageSplit.Last(), ImageType.LowQuality);
+                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(userId, imageSplit.Last(), ImageRenderType.Full);
+                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(userId, imageSplit.Last(), ImageRenderType.LowQuality);
                 }
 
                 return model;
@@ -198,7 +198,7 @@ namespace IndieVisible.Application.Services
                 newFeaturedContent.Title = string.IsNullOrWhiteSpace(title) ? content.Title : title;
                 newFeaturedContent.Introduction = string.IsNullOrWhiteSpace(introduction) ? content.Introduction : introduction;
 
-                newFeaturedContent.ImageUrl = string.IsNullOrWhiteSpace(content.FeaturedImage) || content.FeaturedImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(content.UserId, BlobType.FeaturedImage, content.FeaturedImage);
+                newFeaturedContent.ImageUrl = string.IsNullOrWhiteSpace(content.FeaturedImage) || content.FeaturedImage.Equals(Constants.DefaultFeaturedImage) ? Constants.DefaultFeaturedImage : UrlFormatter.Image(content.UserId, ImageType.FeaturedImage, content.FeaturedImage);
 
                 newFeaturedContent.FeaturedImage = content.FeaturedImage;
 

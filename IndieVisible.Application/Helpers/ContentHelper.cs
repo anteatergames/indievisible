@@ -6,7 +6,7 @@ namespace IndieVisible.Application.Helpers
 {
     public static class ContentHelper
     {
-        public static string SetFeaturedImage(Guid userId, string featuredImage, ImageType type)
+        public static string SetFeaturedImage(Guid userId, string featuredImage, ImageRenderType type)
         {
             if (string.IsNullOrWhiteSpace(featuredImage) || featuredImage.Equals(Constants.DefaultFeaturedImage))
             {
@@ -16,15 +16,15 @@ namespace IndieVisible.Application.Helpers
             {
                 switch (type)
                 {
-                    case ImageType.LowQuality:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 600, 10);
+                    case ImageRenderType.LowQuality:
+                        return UrlFormatter.Image(userId, ImageType.FeaturedImage, featuredImage, 600, 10);
 
-                    case ImageType.Responsive:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage, 0, 0, true);
+                    case ImageRenderType.Responsive:
+                        return UrlFormatter.Image(userId, ImageType.FeaturedImage, featuredImage, 0, 0, true);
 
-                    case ImageType.Full:
+                    case ImageRenderType.Full:
                     default:
-                        return UrlFormatter.Image(userId, BlobType.FeaturedImage, featuredImage);
+                        return UrlFormatter.Image(userId, ImageType.FeaturedImage, featuredImage);
                 }
             }
         }

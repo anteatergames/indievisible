@@ -30,10 +30,10 @@
 
 @section Scripts {
     <environment include="Development">
-        <script src="~/js/study/studydashboard.js"></script>
+        <script src="~/js/study/mentordashboard.js"></script>
     </environment>
     <environment exclude="Development">
-        <script src="~/js/study/studydashboard.min.js" asp-append-version="true"></script>
+        <script src="~/js/study/mentordashboard.min.js" asp-append-version="true"></script>
     </environment>
 }
 
@@ -47,8 +47,6 @@
     <input type="hidden" id="studyProfile" value="@studyProfile" />
     <input type="hidden" id="urls" value="urls"
            data-url-listcoursesbyme="@Url.Action("listbyme", "course", new { area = "learn" })"
-           data-url-listmycourses="@Url.Action("listmine", "course", new { area = "learn" })"
-           data-url-listmymentors="@Url.Action("listmymentors", "study", new { area = "learn" })"
            data-url-listmystudents="@Url.Action("listmystudents", "study", new { area = "learn" })" />
 
     <div id="containerlist" class="row">
@@ -57,7 +55,6 @@
         </div>
         <div class="col-lg-8 col-xl-9 mb-3">
             <div id="divListCourses"></div>
-            <div id="divListMentors"></div>
             <div id="divListStudents"></div>
         </div>
         <div id="featuresidebar" class="col-lg-4 col-xl-3 no-gutters">
@@ -73,7 +70,7 @@
                     <h3>@SharedLocalizer["User Panel"]</h3>
                     <div class="row">
                         <div class="col-12">
-                            <p>@SharedLocalizer["Welcome to the IndieVisible Study Platform! Here you can study."]</p>
+                            <p>@SharedLocalizer["Welcome to the IndieVisible Study Platform! Here you can create and manage courses and students."]</p>
                         </div>
                         <div class="col-12">
                             @if (canInteract)

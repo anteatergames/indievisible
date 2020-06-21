@@ -11,9 +11,11 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GetMyStudents(Guid currentUserId);
 
-        OperationResultVo GetMyCourses(Guid currentUserId);
+        OperationResultVo GetCourses(Guid currentUserId);
 
         OperationResultVo GetCoursesByMe(Guid currentUserId);
+
+        OperationResultVo GetMyCourses(Guid currentUserId);
 
         OperationResultVo GenerateNewCourse(Guid currentUserId);
 

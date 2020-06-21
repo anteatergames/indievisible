@@ -10,33 +10,33 @@ namespace IndieVisible.Application.Formatters
     {
         #region Internal
 
-        public static string GetDefaultImage(BlobType type)
+        public static string GetDefaultImage(ImageType type)
         {
             string defaultImageNotRooted = string.Empty;
 
             switch (type)
             {
-                case BlobType.ProfileImage:
+                case ImageType.ProfileImage:
                     defaultImageNotRooted = Constants.DefaultAvatar;
                     break;
 
-                case BlobType.ProfileCover:
+                case ImageType.ProfileCover:
                     defaultImageNotRooted = Constants.DefaultProfileCoverImage;
                     break;
 
-                case BlobType.GameThumbnail:
+                case ImageType.GameThumbnail:
                     defaultImageNotRooted = Constants.DefaultGameThumbnail;
                     break;
 
-                case BlobType.GameCover:
+                case ImageType.GameCover:
                     defaultImageNotRooted = Constants.DefaultGameCoverImage;
                     break;
 
-                case BlobType.ContentImage:
+                case ImageType.ContentImage:
                     defaultImageNotRooted = Constants.DefaultGameThumbnail;
                     break;
 
-                case BlobType.FeaturedImage:
+                case ImageType.FeaturedImage:
                     defaultImageNotRooted = Constants.DefaultFeaturedImage;
                     break;
 
@@ -102,22 +102,22 @@ namespace IndieVisible.Application.Formatters
             return url;
         }
 
-        public static string Image(Guid userId, BlobType type, string fileName)
+        public static string Image(Guid userId, ImageType type, string fileName)
         {
             return Image(userId, type, fileName, 0);
         }
 
-        public static string Image(Guid userId, BlobType type, string fileName, int width)
+        public static string Image(Guid userId, ImageType type, string fileName, int width)
         {
             return Image(userId, type, fileName, width, 0);
         }
 
-        public static string Image(Guid userId, BlobType type, string fileName, int width, int quality)
+        public static string Image(Guid userId, ImageType type, string fileName, int width, int quality)
         {
             return Image(userId, type, fileName, width, quality, false);
         }
 
-        public static string Image(Guid userId, BlobType type, string fileName, int width, int quality, bool responsive)
+        public static string Image(Guid userId, ImageType type, string fileName, int width, int quality, bool responsive)
         {
             if (Constants.DefaultGameThumbnail.Contains(fileName))
             {

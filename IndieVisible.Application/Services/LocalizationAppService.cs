@@ -709,7 +709,7 @@ namespace IndieVisible.Application.Services
             vm.TranslationPercentage = translationDomainService.CalculatePercentage(totalTermCount, distinctEntriesCount, languageCount);
         }
 
-        private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageType imageType)
+        private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageRenderType imageType)
         {
             if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultGameThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
             {
@@ -719,15 +719,15 @@ namespace IndieVisible.Application.Services
             {
                 switch (imageType)
                 {
-                    case ImageType.LowQuality:
-                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278, 10);
+                    case ImageRenderType.LowQuality:
+                        return UrlFormatter.Image(userId, ImageType.GameThumbnail, thumbnailUrl, 278, 10);
 
-                    case ImageType.Responsive:
-                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 0, 0, true);
+                    case ImageRenderType.Responsive:
+                        return UrlFormatter.Image(userId, ImageType.GameThumbnail, thumbnailUrl, 0, 0, true);
 
-                    case ImageType.Full:
+                    case ImageRenderType.Full:
                     default:
-                        return UrlFormatter.Image(userId, BlobType.GameThumbnail, thumbnailUrl, 278);
+                        return UrlFormatter.Image(userId, ImageType.GameThumbnail, thumbnailUrl, 278);
                 }
             }
         }
@@ -739,9 +739,9 @@ namespace IndieVisible.Application.Services
             {
                 vm.Game.Title = game.Title;
 
-                vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Full);
-                vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.Responsive);
-                vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageType.LowQuality);
+                vm.Game.ThumbnailUrl = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageRenderType.Full);
+                vm.Game.ThumbnailResponsive = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageRenderType.Responsive);
+                vm.Game.ThumbnailLquip = SetFeaturedImage(game.UserId, game?.ThumbnailUrl, ImageRenderType.LowQuality);
             }
         }
 

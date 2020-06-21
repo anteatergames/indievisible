@@ -212,14 +212,14 @@ namespace IndieVisible.Web.Controllers.Base
 
         #endregion Main Methods
 
-        protected string UploadImage(Guid userId, BlobType container, string filename, byte[] fileBytes)
+        protected string UploadImage(Guid userId, ImageType container, string filename, byte[] fileBytes)
         {
             string containerName = container.ToString().ToLower();
 
             return UploadImage(userId, containerName, filename, fileBytes);
         }
 
-        protected string UploadGameImage(Guid userId, BlobType type, string filename, byte[] fileBytes)
+        protected string UploadGameImage(Guid userId, ImageType type, string filename, byte[] fileBytes)
         {
             string result = UploadImage(userId, type.ToString().ToLower(), filename, fileBytes);
 
@@ -228,7 +228,7 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected string UploadContentImage(Guid userId, string filename, byte[] fileBytes)
         {
-            string type = BlobType.ContentImage.ToString().ToLower();
+            string type = ImageType.ContentImage.ToString().ToLower();
             string result = UploadImage(userId, type, filename, fileBytes);
 
             return result;
@@ -236,13 +236,13 @@ namespace IndieVisible.Web.Controllers.Base
 
         protected string UploadFeaturedImage(Guid userId, string filename, byte[] fileBytes)
         {
-            string type = BlobType.FeaturedImage.ToString().ToLower();
+            string type = ImageType.FeaturedImage.ToString().ToLower();
             string result = UploadImage(userId, type, filename, fileBytes);
 
             return result;
         }
 
-        protected string DeleteGameImage(Guid userId, BlobType type, string filename)
+        protected string DeleteGameImage(Guid userId, ImageType type, string filename)
         {
             string result = DeleteImage(userId, filename);
 

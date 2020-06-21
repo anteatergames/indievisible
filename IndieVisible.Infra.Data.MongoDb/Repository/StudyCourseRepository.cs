@@ -17,6 +17,19 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
         {
         }
 
+        public List<StudyCourseListItemVo> GetCourses()
+        {
+            IQueryable<StudyCourseListItemVo> obj = DbSet.AsQueryable().Select(x => new StudyCourseListItemVo
+            {
+                Id = x.Id,
+                Name = x.Name,
+                OpenForApplication = x.OpenForApplication,
+                StudentCount = x.Members.Count()
+            });
+
+            return obj.ToList();
+        }
+
         public List<StudyCourseListItemVo> GetCoursesByUserId(Guid userId)
         {
             IQueryable<StudyCourseListItemVo> obj = DbSet.AsQueryable().Where(x => x.UserId == userId).Select(x => new StudyCourseListItemVo

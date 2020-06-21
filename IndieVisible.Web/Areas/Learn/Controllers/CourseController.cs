@@ -68,6 +68,30 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         }
 
 
+        [Route("learn/course/list")]
+        public PartialViewResult List()
+        {
+            List<StudyCourseListItemVo> model;
+
+            OperationResultVo serviceResult = studyAppService.GetCourses(CurrentUserId);
+
+            if (serviceResult.Success)
+            {
+                OperationResultListVo<StudyCourseListItemVo> castResult = serviceResult as OperationResultListVo<StudyCourseListItemVo>;
+
+                model = castResult.Value.ToList();
+            }
+            else
+            {
+                model = new List<StudyCourseListItemVo>();
+            }
+
+            ViewData["ListDescription"] = SharedLocalizer["Courses"].ToString();
+
+            return PartialView("_ListCoursesCards", model);
+        }
+
+
         [Route("learn/course/{id:guid}")]
         public ViewResult Details(Guid id)
         {

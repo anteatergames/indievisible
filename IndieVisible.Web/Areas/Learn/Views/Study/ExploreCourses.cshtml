@@ -1,0 +1,60 @@
+﻿
+@{
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
+
+    var studyProfile = (StudyProfile)Enum.Parse(typeof(StudyProfile), (string)ViewData["studyProfile"]);
+
+    //ViewData["Title"] = SharedLocalizer["{0} Dashboard", studyProfile.ToString()];
+    //ViewData["Description"] = SharedLocalizer["Study gamedev or mentor students."];
+    //ViewData["Url"] = ViewBag.BaseUrl + Url.Action("index", "study", new { area = "learn" });
+    //ViewData["OgImage"] = ViewBag.BaseUrl + "/images/og/ogstudy.png";
+    //ViewData["OgImageWidth"] = 1200;
+    //ViewData["OgImageHeight"] = 630;
+}
+
+@section ComponentStyles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/_feature.css">
+        <link rel="stylesheet" href="~/css/study.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/study.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/study/coursesexplore.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/study/coursesexplore.min.js" asp-append-version="true"></script>
+    </environment>
+}
+
+@section TranslatedMessages {
+    <span class="msg" data-msg-id="msgUrlMissing">@SharedLocalizer["The Url must not be empty!"]</span>
+}
+
+<div id="featurecontainer" class="col-12">
+    <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
+    <input type="hidden" id="caninteract" value="@canInteract.ToString().ToLower()" />
+    <input type="hidden" id="studyProfile" value="@studyProfile" />
+    <input type="hidden" id="urls" value="urls"
+           data-url-listcourses="@Url.Action("list", "course", new { area = "learn" })" />
+
+    <div id="containerlist" class="row">
+        <div class="col-lg-12 mb-2 px-4">
+            <h1><i class="fa fa-fw @(studyProfile == StudyProfile.Mentor ? "fa-graduation-cap" : "user-graduate") " aria-hidden="true"></i> @ViewData["Title"]</h1>
+        </div>
+        <div class="col-12">
+            <div id="divListCourses"></div>
+        </div>
+    </div>
+</div>
+

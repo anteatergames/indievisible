@@ -31,14 +31,14 @@ namespace IndieVisible.Web.Controllers
 
         [ResponseCache(CacheProfileName = "Never")]
         [Route("userimage/{type:alpha}/{userId:guid}/{name?}")]
-        public IActionResult UserImage(BlobType type, Guid userId, string name, string v)
+        public IActionResult UserImage(ImageType type, Guid userId, string name, string v)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
                 name = userId.ToString();
             }
 
-            if (type == BlobType.ProfileImage)
+            if (type == ImageType.ProfileImage)
             {
                 name = String.Format("{0}_Personal", userId);
             }
@@ -50,12 +50,12 @@ namespace IndieVisible.Web.Controllers
         [Route("image/{type:alpha}/{userId:guid}/{name}")]
         [Route("image/{name}")]
         [Route("image")]
-        public IActionResult Image(BlobType type, Guid userId, string name, string v)
+        public IActionResult Image(ImageType type, Guid userId, string name, string v)
         {
             return GetImage(type, userId, name, v);
         }
 
-        private IActionResult GetImage(BlobType type, Guid userId, string name, string v)
+        private IActionResult GetImage(ImageType type, Guid userId, string name, string v)
         {
             string baseUrl = Constants.DefaultCdnPath;
             name = name.Replace(Constants.DefaultImagePath, string.Empty);
@@ -116,7 +116,7 @@ namespace IndieVisible.Web.Controllers
 
                         string filename = userId + "_Personal";
 
-                        imageUrl = base.UploadImage(userId, BlobType.ProfileImage, filename, fileBytes);
+                        imageUrl = base.UploadImage(userId, ImageType.ProfileImage, filename, fileBytes);
                     }
                 }
 
@@ -158,7 +158,7 @@ namespace IndieVisible.Web.Controllers
 
                         string filename = profileId.ToString();
 
-                        imageUrl = base.UploadImage(userId, BlobType.ProfileCover, filename, fileBytes);
+                        imageUrl = base.UploadImage(userId, ImageType.ProfileCover, filename, fileBytes);
                     }
                 }
 
@@ -190,17 +190,17 @@ namespace IndieVisible.Web.Controllers
         [Route("uploadgamethumbnail")]
         public IActionResult UploadGameThumbnail(IFormFile image, Guid gameId, string currentImage, Guid userId)
         {
-            return UploadGameImage(image, BlobType.GameThumbnail, Constants.DefaultGameThumbnail, gameId, currentImage, userId);
+            return UploadGameImage(image, ImageType.GameThumbnail, Constants.DefaultGameThumbnail, gameId, currentImage, userId);
         }
 
         [HttpPost]
         [Route("uploadgamecoverimage")]
         public IActionResult UploadGameCoverImage(IFormFile image, Guid gameId, string currentImage, Guid userId)
         {
-            return UploadGameImage(image, BlobType.GameCover, Constants.DefaultGameCoverImage, gameId, currentImage, userId);
+            return UploadGameImage(image, ImageType.GameCover, Constants.DefaultGameCoverImage, gameId, currentImage, userId);
         }
 
-        private IActionResult UploadGameImage(IFormFile image, BlobType type, string defaultImage, Guid gameId, string currentImage, Guid userId)
+        private IActionResult UploadGameImage(IFormFile image, ImageType type, string defaultImage, Guid gameId, string currentImage, Guid userId)
         {
             try
             {
@@ -324,7 +324,7 @@ namespace IndieVisible.Web.Controllers
                 var json = new
                 {
                     uploaded = true,
-                    url = UrlFormatter.Image(CurrentUserId, BlobType.ContentImage, imageUrl)
+                    url = UrlFormatter.Image(CurrentUserId, ImageType.ContentImage, imageUrl)
                 };
 
                 return Json(json);
@@ -401,7 +401,7 @@ namespace IndieVisible.Web.Controllers
 
         #region Private Methods
 
-        private IActionResult ReturnDefaultImage(BlobType type)
+        private IActionResult ReturnDefaultImage(ImageType type)
         {
             string defaultImageNotRooted = UrlFormatter.GetDefaultImage(type);
 
@@ -427,17 +427,17 @@ namespace IndieVisible.Web.Controllers
             return split;
         }
 
-        private static string FormatBasePath(BlobType type, Guid userId, string baseUrl)
+        private static string FormatBasePath(ImageType type, Guid userId, string baseUrl)
         {
             string storageBasePath = string.Empty;
 
             switch (type)
             {
-                case BlobType.ProfileImage:
+                case ImageType.ProfileImage:
                     storageBasePath = baseUrl + userId + "/" + type.ToString().ToLower() + "_";
                     break;
 
-                case BlobType.ProfileCover:
+                case ImageType.ProfileCover:
                     storageBasePath = baseUrl + userId + "/" + type.ToString().ToLower() + "_";
                     break;
 

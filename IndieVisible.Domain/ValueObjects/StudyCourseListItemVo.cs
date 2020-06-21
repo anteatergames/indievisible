@@ -11,5 +11,7 @@ namespace IndieVisible.Domain.ValueObjects
         public bool OpenForApplication { get; set; }
 
         public int StudentCount { get; set; }
+
+        public string ThumbnailUrl { get; set; }
     }
 }

@@ -112,8 +112,8 @@ namespace IndieVisible.Application.Services
 
                 if (vm.FeaturedMediaType != MediaType.Youtube)
                 {
-                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.Full);
-                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageType.LowQuality);
+                    vm.FeaturedImage = ContentHelper.SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageRenderType.Full);
+                    vm.FeaturedImageLquip = ContentHelper.SetFeaturedImage(vm.UserId, vm.FeaturedImage, ImageRenderType.LowQuality);
                 }
 
                 vm.LikeCount = vm.Likes.Count;
@@ -303,9 +303,9 @@ namespace IndieVisible.Application.Services
 
                     if (item.FeaturedMediaType != MediaType.Youtube)
                     {
-                        item.FeaturedImage = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Full);
-                        item.FeaturedImageResponsive = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.Responsive);
-                        item.FeaturedImageLquip = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageType.LowQuality);
+                        item.FeaturedImage = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageRenderType.Full);
+                        item.FeaturedImageResponsive = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageRenderType.Responsive);
+                        item.FeaturedImageLquip = ContentHelper.SetFeaturedImage(item.UserId, item.FeaturedImage, ImageRenderType.LowQuality);
                     }
 
                     item.LikeCount = item.Likes.Count;

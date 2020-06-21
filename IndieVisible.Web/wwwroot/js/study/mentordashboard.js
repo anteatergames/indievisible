@@ -1,4 +1,4 @@
-﻿var STUDYDASHBOARD = (function () {
+﻿var MENTORDASHBOARD = (function () {
     "use strict";
 
     var selectors = {};
@@ -81,5 +81,5 @@
 }());
 
 $(function () {
-    STUDYDASHBOARD.Init();
+    MENTORDASHBOARD.Init();
 });

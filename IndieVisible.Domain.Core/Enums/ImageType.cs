@@ -2,8 +2,12 @@
 {
     public enum ImageType
     {
-        Full = 0,
-        LowQuality = 1,
-        Responsive = 2
+        ProfileImage,
+        ProfileCover,
+        GameThumbnail,
+        GameCover,
+        ContentImage,
+        FeaturedImage,
+        CourseThumbnail
     }
 }

@@ -254,6 +254,12 @@
     <Content Update="Views\Team\_ViewImports.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="wwwroot\js\study\coursesexplore.min.js">
+      <DependentUpon>coursesexplore.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\js\study\studentdashboard.min.js">
+      <DependentUpon>studentdashboard.js</DependentUpon>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

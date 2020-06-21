@@ -27,6 +27,8 @@ namespace IndieVisible.Application.ViewModels.Study
         [Display(Name = "Score to Pass")]
         public decimal ScoreToPass { get; set; }
 
+        public string ThumbnailUrl { get; set; }
+
         public List<StudyGroupMemberViewModel> Members { get; set; }
 
         public List<StudyGroupViewModel> Groups { get; set; }

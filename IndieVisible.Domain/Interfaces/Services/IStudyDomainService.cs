@@ -17,6 +17,8 @@ namespace IndieVisible.Domain.Interfaces.Services
         #endregion
 
         #region Course
+        List<StudyCourseListItemVo> GetCourses();
+
         List<StudyCourseListItemVo> GetCoursesByUserId(Guid userId);
 
         StudyCoursesOfUserVo GetCoursesForUserId(Guid userId);

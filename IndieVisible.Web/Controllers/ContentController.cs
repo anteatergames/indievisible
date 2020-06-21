@@ -63,7 +63,7 @@ namespace IndieVisible.Web.Controllers
                 Application.ViewModels.Game.GameViewModel game = gameServiceResult.Value;
 
                 vm.GameTitle = game.Title;
-                vm.GameThumbnail = UrlFormatter.Image(game.UserId, BlobType.GameThumbnail, game.ThumbnailUrl);
+                vm.GameThumbnail = UrlFormatter.Image(game.UserId, ImageType.GameThumbnail, game.ThumbnailUrl);
             }
 
             vm.Content = vm.Content.Replace("image-style-align-right", "image-style-align-right float-right p-10");

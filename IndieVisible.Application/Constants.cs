@@ -121,5 +121,14 @@
                 return "https://indievisible.blob.core.windows.net/";
             }
         }
+
+
+        public static string DefaultCourseThumbnail
+        {
+            get
+            {
+                return "/images/placeholders/courseplaceholder.png";
+            }
+        }
     }
 }

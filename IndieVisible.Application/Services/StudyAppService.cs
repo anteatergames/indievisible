@@ -4,6 +4,7 @@ using IndieVisible.Application.Interfaces;
 using IndieVisible.Application.ViewModels.Study;
 using IndieVisible.Application.ViewModels.User;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Services;
@@ -101,6 +102,39 @@ namespace IndieVisible.Application.Services
         }
 
         #region Course
+        public OperationResultVo GetCourses(Guid currentUserId)
+        {
+            try
+            {
+                List<StudyCourseListItemVo> courses = studyDomainService.GetCourses();
+
+                foreach (var course in courses)
+                {
+                    course.ThumbnailUrl = SetFeaturedImage(currentUserId, course.ThumbnailUrl, ImageRenderType.Full);
+                }
+
+                return new OperationResultListVo<StudyCourseListItemVo>(courses);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo GetCoursesByMe(Guid currentUserId)
+        {
+            try
+            {
+                List<StudyCourseListItemVo> courses = studyDomainService.GetCoursesByUserId(currentUserId);
+
+                return new OperationResultListVo<StudyCourseListItemVo>(courses);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
         public OperationResultVo GetMyCourses(Guid currentUserId)
         {
             try
@@ -124,20 +158,6 @@ namespace IndieVisible.Application.Services
                 }
 
                 return new OperationResultListVo<StudyCourseListItemVo>(finalList);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResultVo(ex.Message);
-            }
-        }
-
-        public OperationResultVo GetCoursesByMe(Guid currentUserId)
-        {
-            try
-            {
-                List<StudyCourseListItemVo> courses = studyDomainService.GetCoursesByUserId(currentUserId);
-
-                return new OperationResultListVo<StudyCourseListItemVo>(courses);
             }
             catch (Exception ex)
             {
@@ -234,6 +254,8 @@ namespace IndieVisible.Application.Services
 
                 SetPermissions(currentUserId, vm);
 
+                vm.ThumbnailUrl = SetFeaturedImage(currentUserId, vm.ThumbnailUrl, ImageRenderType.Full);
+
                 return new OperationResultVo<StudyCourseViewModel>(vm);
 
             }
@@ -300,5 +322,28 @@ namespace IndieVisible.Application.Services
             SetBasePermissions(currentUserId, vm);
         }
         #endregion
+
+        private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageRenderType imageType)
+        {
+            if (string.IsNullOrWhiteSpace(thumbnailUrl) || Constants.DefaultCourseThumbnail.NoExtension().Contains(thumbnailUrl.NoExtension()))
+            {
+                return Constants.DefaultCourseThumbnail;
+            }
+            else
+            {
+                switch (imageType)
+                {
+                    case ImageRenderType.LowQuality:
+                        return UrlFormatter.Image(userId, ImageType.CourseThumbnail, thumbnailUrl, 278, 10);
+
+                    case ImageRenderType.Responsive:
+                        return UrlFormatter.Image(userId, ImageType.CourseThumbnail, thumbnailUrl, 0, 0, true);
+
+                    case ImageRenderType.Full:
+                    default:
+                        return UrlFormatter.Image(userId, ImageType.CourseThumbnail, thumbnailUrl, 278);
+                }
+            }
+        }
     }
 }

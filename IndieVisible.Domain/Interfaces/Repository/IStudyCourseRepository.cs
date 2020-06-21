@@ -9,6 +9,8 @@ namespace IndieVisible.Domain.Interfaces.Repository
 {
     public interface IStudyCourseRepository : IRepository<StudyCourse>
     {
+        List<StudyCourseListItemVo> GetCourses();
+
         List<StudyCourseListItemVo> GetCoursesByUserId(Guid userId);
 
         IQueryable<StudyPlan> GetPlans(Guid courseId);

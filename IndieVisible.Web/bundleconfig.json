@@ -247,9 +247,15 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/study/studydashboard.min.js",
+    "outputFileName": "wwwroot/js/study/mentordashboard.min.js",
     "inputFiles": [
-      "wwwroot/js/study/studydashboard.js"
+      "wwwroot/js/study/mentordashboard.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/study/studentdashboard.min.js",
+    "inputFiles": [
+      "wwwroot/js/study/studentdashboard.js"
     ]
   },
   {

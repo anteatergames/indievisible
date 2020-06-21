@@ -738,7 +738,7 @@ namespace IndieVisible.Web.Controllers
                 string filename = userId + "_" + ProfileType.Personal.ToString();
                 thumbnailBytes = await httpClient.GetByteArrayAsync(pictureUrl);
 
-                imageUrl = base.UploadImage(new Guid(userId), BlobType.ProfileImage, filename, thumbnailBytes);
+                imageUrl = base.UploadImage(new Guid(userId), ImageType.ProfileImage, filename, thumbnailBytes);
             }
 
             if (string.IsNullOrWhiteSpace(imageUrl))
@@ -768,7 +768,7 @@ namespace IndieVisible.Web.Controllers
         {
             string fileName = String.Format("{0}_{1}", userId, type);
 
-            string defaultImageNotRooted = UrlFormatter.GetDefaultImage(BlobType.ProfileImage);
+            string defaultImageNotRooted = UrlFormatter.GetDefaultImage(ImageType.ProfileImage);
 
             string retorno = Path.Combine(hostingEnvironment.WebRootPath, defaultImageNotRooted);
 
@@ -776,7 +776,7 @@ namespace IndieVisible.Web.Controllers
 
             fileName = fileName.Split('.').First();
 
-            base.UploadImage(userId, BlobType.ProfileImage, fileName, bytes);
+            base.UploadImage(userId, ImageType.ProfileImage, fileName, bytes);
         }
 
         private static string SelectName(ExternalLoginInfo info)

@@ -75,6 +75,13 @@ namespace IndieVisible.Domain.Services
         #endregion
 
         #region Course
+        public List<StudyCourseListItemVo> GetCourses()
+        {
+            List<StudyCourseListItemVo> objs = studyCourseRepository.GetCourses();
+
+            return objs;
+        }
+
         public List<StudyCourseListItemVo> GetCoursesByUserId(Guid userId)
         {
             List<StudyCourseListItemVo> objs = studyCourseRepository.GetCoursesByUserId(userId);
