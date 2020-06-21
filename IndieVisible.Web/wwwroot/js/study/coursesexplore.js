@@ -44,6 +44,10 @@
     }
 
     function listCourses(url) {
+        var urlBack = objs.urls.data('urlBack');
+
+        url += '?backUrl=' + encodeURI(urlBack);
+
         MAINMODULE.Ajax.LoadHtml(url, objs.listCourses);
     }
 

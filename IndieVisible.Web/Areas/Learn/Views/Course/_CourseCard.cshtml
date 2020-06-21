@@ -3,10 +3,9 @@
 @{
     Layout = null;
 }
-
 <div class="box-widget widget-course">
     <div class="overflow-hidden square-bottom">
-        <a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@Model.Id">
+        <a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@Model.Id" asp-route-backUrl="@ViewData["BackUrl"]">
             <img data-sizes="auto" src="@Model.ThumbnailUrl" class="card-img-top img-fluid lazyload blur-up" style="width:100%" alt="@Model.Name" />
         </a>
     </div>
@@ -20,7 +19,7 @@
                 {
                     <div class="row text-truncate">
                         <div class="col-12">
-                            <a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@Model.Id">
+                            <a asp-area="learn" asp-controller="course" asp-action="details" asp-route-id="@Model.Id" asp-route-backUrl="@ViewData["BackUrl"]">
                                 <span class="box-description-text">@Model.Name</span>
                             </a>
                         </div>

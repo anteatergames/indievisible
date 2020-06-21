@@ -4,6 +4,8 @@
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
 
     var canInteract = User.Identity.IsAuthenticated;
+
+    var backUrl = ViewData["BackUrl"] ?? Url.Action("index", "study", new { area = "learn" });
 }
 
 <div id="featurecontainer" class="col">
@@ -13,7 +15,7 @@
 
         <div class="box-header with-border">
             <div class="float-left mr-3">
-                <a asp-area="learn" asp-controller="study" asp-action="index" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                <a href="@backUrl" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
             </div>
             <h3 class="card-title">@Model.Name</h3>
 
@@ -100,7 +102,7 @@
                             }
                         </div>
                     </div>
-                    
+
                     <div class="row mt-3">
                         <div class="col-12">
                             <button type="button" class="btn btn-primary btn-lg btn-block">Enroll</button>

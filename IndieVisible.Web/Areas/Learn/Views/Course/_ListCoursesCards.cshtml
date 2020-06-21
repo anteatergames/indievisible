@@ -11,20 +11,22 @@
     <h2>@SharedLocalizer[description]</h2>
 </div>
 
-@if (!Model.Any())
-{
-    <partial name="_ListNoItems" model="noItemsModel" />
-}
-else
-{
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-12 col-lg-4 col-xl-3">
-                <div class="box box-game bg-white">
-                    <partial name="_CourseCard" model="item" />
+<div class="mt-3">
+    @if (!Model.Any())
+    {
+        <partial name="_ListNoItems" model="noItemsModel" />
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12 col-lg-4 col-xl-3">
+                    <div class="box box-game bg-white">
+                        <partial name="_CourseCard" model="item" view-data="ViewData" />
+                    </div>
                 </div>
-            </div>
-        }
-    </div>
-}
+            }
+        </div>
+    }
+</div>

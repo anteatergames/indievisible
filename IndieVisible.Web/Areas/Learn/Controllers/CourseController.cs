@@ -69,7 +69,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
 
         [Route("learn/course/list")]
-        public PartialViewResult List()
+        public PartialViewResult List(string backUrl)
         {
             List<StudyCourseListItemVo> model;
 
@@ -88,12 +88,14 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
             ViewData["ListDescription"] = SharedLocalizer["Courses"].ToString();
 
+            SetBackUrl(backUrl);
+
             return PartialView("_ListCoursesCards", model);
         }
 
 
         [Route("learn/course/{id:guid}")]
-        public ViewResult Details(Guid id)
+        public ViewResult Details(Guid id, string backUrl)
         {
             StudyCourseViewModel vm;
 
@@ -111,6 +113,8 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             }
 
             FormatToShow(vm);
+
+            SetBackUrl(backUrl);
 
             return View("CourseDetailsWrapper", vm);
         }
@@ -306,6 +310,11 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             {
                 plan.Description = String.IsNullOrWhiteSpace(plan.Description) ? SharedLocalizer["No Description to show."] : plan.Description.Replace("\n", "<br />");
             }
+        }
+
+        private void SetBackUrl(string backUrl)
+        {
+            ViewData["BackUrl"] = string.IsNullOrWhiteSpace(backUrl) ? Url.Action("index", "study", new { area = "learn" }) : backUrl;
         }
     }
 }
