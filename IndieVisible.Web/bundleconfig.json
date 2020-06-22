@@ -271,7 +271,7 @@
     "outputFileName": "wwwroot/js/study/studycoursedetails.min.js",
     "inputFiles": [
       "wwwroot/js/study/studycoursecommon.js",
-      "wwwroot/js/study/studycoursedetails.js"
+      "wwwroot/js/study/coursedetails.js"
     ]
   }
 ]

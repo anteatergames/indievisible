@@ -152,3 +152,7 @@
         color: rgba(255, 255, 255, .7);
         border-color: rgba(255, 255, 255, .7);
     }
+
+.swal2-actions {
+    width: inherit !important;
+}

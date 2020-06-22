@@ -171,9 +171,9 @@ namespace IndieVisible.Application.Services
             {
                 StudyCourse model = studyDomainService.GenerateNewCourse(currentUserId);
 
-                StudyCourseViewModel newVm = mapper.Map<StudyCourseViewModel>(model);
+                CourseViewModel newVm = mapper.Map<CourseViewModel>(model);
 
-                return new OperationResultVo<StudyCourseViewModel>(newVm);
+                return new OperationResultVo<CourseViewModel>(newVm);
             }
             catch (Exception ex)
             {
@@ -181,7 +181,7 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        public OperationResultVo<Guid> SaveCourse(Guid currentUserId, StudyCourseViewModel vm)
+        public OperationResultVo<Guid> SaveCourse(Guid currentUserId, CourseViewModel vm)
         {
             int pointsEarned = 0;
 
@@ -248,7 +248,7 @@ namespace IndieVisible.Application.Services
             {
                 StudyCourse existing = studyDomainService.GetCourseById(id);
 
-                StudyCourseViewModel vm = mapper.Map<StudyCourseViewModel>(existing);
+                CourseViewModel vm = mapper.Map<CourseViewModel>(existing);
 
                 SetAuthorDetails(vm);
 
@@ -256,7 +256,7 @@ namespace IndieVisible.Application.Services
 
                 vm.ThumbnailUrl = SetFeaturedImage(currentUserId, vm.ThumbnailUrl, ImageRenderType.Full);
 
-                return new OperationResultVo<StudyCourseViewModel>(vm);
+                return new OperationResultVo<CourseViewModel>(vm);
 
             }
             catch (Exception ex)
@@ -308,7 +308,56 @@ namespace IndieVisible.Application.Services
             }
         }
 
-        private void SetAuthorDetails(StudyCourseViewModel vm)
+        public OperationResultVo EnrollCourse(Guid currentUserId, Guid courseId)
+        {
+            try
+            {
+                bool result = Task.Run(async () => await studyDomainService.EnrollCourse(currentUserId, courseId)).Result;
+
+                if (!result)
+                {
+                    return new OperationResultVo(false, "Can't enroll you.");
+                }
+
+                Task<bool> task = unitOfWork.Commit();
+
+                task.Wait();
+
+                return new OperationResultVo(true, "You have enrolled to this course!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+
+        public OperationResultVo LeaveCourse(Guid currentUserId, Guid courseId)
+        {
+            try
+            {
+                bool result = Task.Run(async () => await studyDomainService.LeaveCourse(currentUserId, courseId)).Result;
+
+                if (!result)
+                {
+                    return new OperationResultVo(false, "Can't get you out of this course.");
+                }
+
+                Task<bool> task = unitOfWork.Commit();
+
+                task.Wait();
+
+                return new OperationResultVo(true, "You have left this course!");
+            }
+            catch (Exception ex)
+            {
+                return new OperationResultVo(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Private Methods
+
+        private void SetAuthorDetails(CourseViewModel vm)
         {
             UserProfile authorProfile = GetCachedProfileByUserId(vm.UserId);
             if (authorProfile != null)
@@ -317,11 +366,13 @@ namespace IndieVisible.Application.Services
                 vm.AuthorName = authorProfile.Name;
             }
         }
-        private void SetPermissions(Guid currentUserId, StudyCourseViewModel vm)
+
+        private void SetPermissions(Guid currentUserId, CourseViewModel vm)
         {
+            vm.Permissions.CanConnect = vm.UserId != currentUserId && !vm.Members.Any(x => x.UserId == currentUserId);
+
             SetBasePermissions(currentUserId, vm);
         }
-        #endregion
 
         private static string SetFeaturedImage(Guid userId, string thumbnailUrl, ImageRenderType imageType)
         {
@@ -344,6 +395,7 @@ namespace IndieVisible.Application.Services
                         return UrlFormatter.Image(userId, ImageType.CourseThumbnail, thumbnailUrl, 278);
                 }
             }
-        }
+        } 
+        #endregion
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IndieVisible.Application.ViewModels.Study
 {
-    public class StudyCourseViewModel : UserGeneratedBaseViewModel
+    public class CourseViewModel : UserGeneratedBaseViewModel
     {
         [Required(ErrorMessage = "A course need a name!")]
         [Display(Name = "Name", Description = "Choose a name for your course like:<ul><li>3D Modelling</li><li>Game Design for beginners</li><li>How to become a concept artist</li></ul>")]
@@ -29,15 +29,15 @@ namespace IndieVisible.Application.ViewModels.Study
 
         public string ThumbnailUrl { get; set; }
 
-        public List<StudyGroupMemberViewModel> Members { get; set; }
+        public List<CourseMemberViewModel> Members { get; set; }
 
         public List<StudyGroupViewModel> Groups { get; set; }
 
         public List<StudyPlanViewModel> Plans { get; set; }
 
-        public StudyCourseViewModel()
+        public CourseViewModel()
         {
-            Members = new List<StudyGroupMemberViewModel>();
+            Members = new List<CourseMemberViewModel>();
 
             Groups = new List<StudyGroupViewModel>();
 

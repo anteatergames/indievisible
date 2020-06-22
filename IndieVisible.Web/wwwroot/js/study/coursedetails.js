@@ -1,4 +1,4 @@
-﻿var STUDYCOURSEDETAILS = (function () {
+﻿var COURSEDETAILS = (function () {
     "use strict";
 
     var selectors = {};
@@ -11,6 +11,8 @@
         selectors.urls = '#urls';
         selectors.container = '#featurecontainer';
         selectors.listPlans = '#divPlans';
+        selectors.btnEnroll = '#btnEnroll';
+        selectors.btnLeaveCourse = '#btnLeaveCourse';
     }
 
     function cacheObjs() {
@@ -33,6 +35,38 @@
     }
 
     function bindAll() {
+        bindBtnEnroll();
+        bindBtnLeave()
+    }
+
+    function bindBtnEnroll() {
+        objs.container.on('click', selectors.btnEnroll, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+            var url = btn.data('url');
+
+            if (canInteract) {
+                MAINMODULE.Ajax.CallBackendAction(url);
+            }
+
+            return false;
+        });
+    }
+
+    function bindBtnLeave() {
+        objs.container.on('click', selectors.btnLeaveCourse, function (e) {
+            e.preventDefault();
+
+            var btn = $(this);
+            var url = btn.data('url');
+
+            if (canInteract) {
+                MAINMODULE.Ajax.CallBackendAction(url);
+            }
+
+            return false;
+        });
     }
 
     function listPlans(url) {
@@ -46,5 +80,5 @@
 
 
 $(function () {
-    STUDYCOURSEDETAILS.Init();
+    COURSEDETAILS.Init();
 });

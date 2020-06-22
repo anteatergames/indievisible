@@ -150,11 +150,11 @@ namespace IndieVisible.Domain.Services
 
         public async Task<bool> SavePlans(Guid courseId, List<StudyPlan> plans)
         {
-            List<StudyPlan> existingTerms = studyCourseRepository.GetPlans(courseId).ToList();
+            List<StudyPlan> existingPlans = studyCourseRepository.GetPlans(courseId).ToList();
 
             foreach (StudyPlan plan in plans)
             {
-                StudyPlan existing = existingTerms.FirstOrDefault(x => x.Id == plan.Id);
+                StudyPlan existing = existingPlans.FirstOrDefault(x => x.Id == plan.Id);
                 if (existing == null)
                 {
                     await studyCourseRepository.AddPlan(courseId, plan);
@@ -170,18 +170,47 @@ namespace IndieVisible.Domain.Services
                 }
             }
 
-            IEnumerable<StudyPlan> deleteTerms = existingTerms.Where(x => !plans.Contains(x));
+            IEnumerable<StudyPlan> plansToDelete = existingPlans.Where(x => !plans.Contains(x));
 
-            //checked students with those plans and update them;
-            if (deleteTerms.Any())
+            // TODO check students with those plans and update them;
+
+            if (plansToDelete.Any())
             {
-                foreach (StudyPlan plan in deleteTerms)
+                foreach (StudyPlan plan in plansToDelete)
                 {
                     await studyCourseRepository.RemovePlan(courseId, plan.Id);
                 }
             }
 
             return true;
+        }
+
+        public async Task<bool> EnrollCourse(Guid userId, Guid courseId)
+        {
+            var userAlreadyEnroled = studyCourseRepository.CheckStudentEnrolled(courseId, userId);
+
+            if (userAlreadyEnroled)
+            {
+                return false;
+            }
+
+            var student = new CourseMember
+            {
+                UserId = userId
+            };
+
+            return await studyCourseRepository.AddStudent(courseId, student);
+        }
+        public async Task<bool> LeaveCourse(Guid userId, Guid courseId)
+        {
+            var userAlreadyEnroled = studyCourseRepository.CheckStudentEnrolled(courseId, userId);
+
+            if (!userAlreadyEnroled)
+            {
+                return false;
+            }
+
+            return await studyCourseRepository.RemoveStudent(courseId, userId);
         }
         #endregion
     }

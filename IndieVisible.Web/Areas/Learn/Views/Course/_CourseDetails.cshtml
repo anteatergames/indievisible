@@ -1,4 +1,4 @@
-﻿@model StudyCourseViewModel
+﻿@model CourseViewModel
 @{
     Layout = null;
     var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
@@ -105,7 +105,17 @@
 
                     <div class="row mt-3">
                         <div class="col-12">
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Enroll</button>
+                            @if (!Model.Permissions.CanEdit)
+                            {
+                                if (Model.Permissions.CanConnect)
+                                {
+                                    <button type="button" id="btnEnroll" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("enroll", "course", new { area = "learn", courseId = Model.Id })">@SharedLocalizer["Enroll"]</button>
+                                }
+                                else
+                                {
+                                    <button type="button" id="btnLeaveCourse" class="btn btn-primary btn-lg btn-block" data-url="@Url.Action("leave", "course", new { area = "learn", courseId = Model.Id })">@SharedLocalizer["Leave Course"]</button>
+                                }
+                            }
                         </div>
                     </div>
                 </div>

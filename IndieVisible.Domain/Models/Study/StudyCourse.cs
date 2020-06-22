@@ -17,7 +17,7 @@ namespace IndieVisible.Domain.Models
 
         public decimal ScoreToPass { get; set; }
 
-        public List<StudyGroupMember> Members { get; set; }
+        public List<CourseMember> Members { get; set; }
 
         public List<StudyGroup> Groups { get; set; }
 
@@ -25,7 +25,7 @@ namespace IndieVisible.Domain.Models
 
         public StudyCourse()
         {
-            Members = new List<StudyGroupMember>();
+            Members = new List<CourseMember>();
 
             Groups = new List<StudyGroup>();
 

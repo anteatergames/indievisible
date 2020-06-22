@@ -1,8 +1,9 @@
-﻿using System;
+﻿using IndieVisible.Domain.Core.Models;
+using System;
 
-namespace IndieVisible.Application.ViewModels.Study
+namespace IndieVisible.Domain.Models
 {
-    public class StudyGroupMemberViewModel : BaseViewModel
+    public class CourseMember : Entity
     {
         public Guid? PlanId { get; set; }
 

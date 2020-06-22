@@ -97,19 +97,19 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         [Route("learn/course/{id:guid}")]
         public ViewResult Details(Guid id, string backUrl)
         {
-            StudyCourseViewModel vm;
+            CourseViewModel vm;
 
             OperationResultVo serviceResult = studyAppService.GetCourseById(CurrentUserId, id);
 
             if (serviceResult.Success)
             {
-                OperationResultVo<StudyCourseViewModel> castResult = serviceResult as OperationResultVo<StudyCourseViewModel>;
+                OperationResultVo<CourseViewModel> castResult = serviceResult as OperationResultVo<CourseViewModel>;
 
                 vm = castResult.Value;
             }
             else
             {
-                vm = new StudyCourseViewModel();
+                vm = new CourseViewModel();
             }
 
             FormatToShow(vm);
@@ -122,11 +122,11 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         [Route("learn/course/add")]
         public ViewResult AddCourse()
         {
-            StudyCourseViewModel model;
+            CourseViewModel model;
 
             OperationResultVo serviceResult = studyAppService.GenerateNewCourse(CurrentUserId);
 
-            OperationResultVo<StudyCourseViewModel> castResult = serviceResult as OperationResultVo<StudyCourseViewModel>;
+            OperationResultVo<CourseViewModel> castResult = serviceResult as OperationResultVo<CourseViewModel>;
 
             model = castResult.Value;
 
@@ -137,11 +137,11 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         [Route("learn/course/edit/{id:guid}")]
         public ViewResult Edit(Guid id)
         {
-            StudyCourseViewModel model;
+            CourseViewModel model;
 
             OperationResultVo serviceResult = studyAppService.GetCourseById(CurrentUserId, id);
 
-            OperationResultVo<StudyCourseViewModel> castResult = serviceResult as OperationResultVo<StudyCourseViewModel>;
+            OperationResultVo<CourseViewModel> castResult = serviceResult as OperationResultVo<CourseViewModel>;
 
             model = castResult.Value;
 
@@ -152,7 +152,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
 
         [Route("learn/course/save")]
-        public JsonResult SaveCourse(StudyCourseViewModel vm)
+        public JsonResult SaveCourse(CourseViewModel vm)
         {
             bool isNew = vm.Id == Guid.Empty;
 
@@ -273,7 +273,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             }
         }
 
-
         [Authorize]
         [HttpPost("study/course/{courseId:guid}/saveplans/")]
         [RequestFormLimits(ValueCountLimit = int.MaxValue)]
@@ -284,14 +283,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             {
                 OperationResultVo result = studyAppService.SavePlans(CurrentUserId, courseId, plans);
 
-                if (result.Success)
-                {
-                    return Json(result);
-                }
-                else
-                {
-                    return Json(new OperationResultVo(false));
-                }
+                return Json(result);
             }
             catch (Exception ex)
             {
@@ -299,7 +291,45 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             }
         }
 
-        private void FormatToShow(StudyCourseViewModel model)
+
+        [Authorize]
+        [HttpPost("study/course/{courseId:guid}/enroll/")]
+        public IActionResult Enroll(Guid courseId)
+        {
+            try
+            {
+                OperationResultVo result = studyAppService.EnrollCourse(CurrentUserId, courseId);
+
+                string url = Url.Action("details", "course", new { area = "learn", id = courseId });
+
+                return Json(new OperationResultRedirectVo(result, url));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+
+        [Authorize]
+        [HttpPost("study/course/{courseId:guid}/leave/")]
+        public IActionResult Leave(Guid courseId)
+        {
+            try
+            {
+                OperationResultVo result = studyAppService.LeaveCourse(CurrentUserId, courseId);
+
+                string url = Url.Action("details", "course", new { area = "learn", id = courseId });
+
+                return Json(new OperationResultRedirectVo(result, url));
+            }
+            catch (Exception ex)
+            {
+                return Json(new OperationResultVo(ex.Message));
+            }
+        }
+
+        private void FormatToShow(CourseViewModel model)
         {
             model.Description = String.IsNullOrWhiteSpace(model.Description) ? SharedLocalizer["No Description to show."] : model.Description.Replace("\n", "<br />");
         }

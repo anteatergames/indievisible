@@ -20,5 +20,13 @@ namespace IndieVisible.Domain.Interfaces.Repository
         Task<bool> UpdatePlan(Guid courseId, StudyPlan plan);
 
         Task<bool> RemovePlan(Guid courseId, Guid planId);
+
+        bool CheckStudentEnrolled(Guid courseId, Guid userId);
+
+        Task<bool> AddStudent(Guid courseId, CourseMember student);
+
+        Task<bool> UpdateStudent(Guid courseId, CourseMember student);
+
+        Task<bool> RemoveStudent(Guid courseId, Guid userId);
     }
 }

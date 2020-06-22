@@ -346,6 +346,25 @@
         return promise;
     }
 
+    function callBackendAction(url, callback) {
+        $.post(url).done(function (response) {
+            if (response.success === true) {
+                if (callback) {
+                    callback(response);
+                }
+
+                ALERTSYSTEM.ShowSuccessMessage(response.message, function () {
+                    if (response.url) {
+                        window.location = response.url;
+                    }
+                });
+            }
+            else {
+                ALERTSYSTEM.ShowWarningMessage(response.message);
+            }
+        });
+    }
+
     return {
         Init: init,
         Layout: {
@@ -353,7 +372,8 @@
         },
         Ajax: {
             GetHtml: getHtml,
-            LoadHtml: loadHtml
+            LoadHtml: loadHtml,
+            CallBackendAction: callBackendAction
         },
         Common: {
             HandlePointsEarned: handlePointsEarned,

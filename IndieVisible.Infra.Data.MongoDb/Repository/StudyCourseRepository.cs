@@ -89,5 +89,51 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
 
             return result.IsAcknowledged && result.MatchedCount > 0;
         }
+
+        public bool CheckStudentEnrolled(Guid courseId, Guid userId)
+        {
+            return DbSet.AsQueryable().FirstOrDefault(x => x.Id == courseId && x.Members.Any(y => y.UserId == userId)) != null;
+        }
+
+        public async Task<bool> AddStudent(Guid courseId, CourseMember student)
+        {
+            student.Id = Guid.NewGuid();
+
+            FilterDefinition<StudyCourse> filter = Builders<StudyCourse>.Filter.Where(x => x.Id == courseId);
+            UpdateDefinition<StudyCourse> add = Builders<StudyCourse>.Update.AddToSet(c => c.Members, student);
+
+            UpdateResult result = await DbSet.UpdateOneAsync(filter, add);
+
+            return result.IsAcknowledged && result.MatchedCount > 0;
+        }
+
+        public async Task<bool> UpdateStudent(Guid courseId, CourseMember student)
+        {
+            student.LastUpdateDate = DateTime.Now;
+
+            FilterDefinition<StudyCourse> filter = Builders<StudyCourse>.Filter.And(
+                Builders<StudyCourse>.Filter.Eq(x => x.Id, courseId),
+                Builders<StudyCourse>.Filter.ElemMatch(x => x.Members, x => x.UserId == student.Id));
+
+            UpdateDefinition<StudyCourse> update = Builders<StudyCourse>.Update
+                .Set(c => c.Members[-1].Accepted, student.Accepted)
+                .Set(c => c.Members[-1].PlanId, student.PlanId)
+                .Set(c => c.Members[-1].Passed, student.Passed)
+                .Set(c => c.Members[-1].FinalScore, student.FinalScore);
+
+            UpdateResult result = await DbSet.UpdateOneAsync(filter, update);
+
+            return result.IsAcknowledged && result.ModifiedCount > 0;
+        }
+
+        public async Task<bool> RemoveStudent(Guid courseId, Guid userId)
+        {
+            FilterDefinition<StudyCourse> filter = Builders<StudyCourse>.Filter.Where(x => x.Id == courseId);
+            UpdateDefinition<StudyCourse> remove = Builders<StudyCourse>.Update.PullFilter(c => c.Members, m => m.UserId == userId);
+
+            UpdateResult result = await DbSet.UpdateOneAsync(filter, remove);
+
+            return result.IsAcknowledged && result.MatchedCount > 0;
+        }
     }
 }

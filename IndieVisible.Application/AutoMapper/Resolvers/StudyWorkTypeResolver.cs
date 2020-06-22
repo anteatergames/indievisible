@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace IndieVisible.Application.AutoMapper.Resolvers
 {
-    public class StudyCourseWorkTypeToDomainResolver : IValueResolver<StudyCourseViewModel, StudyCourse, string>
+    public class StudyCourseWorkTypeToDomainResolver : IValueResolver<CourseViewModel, StudyCourse, string>
     {
-        public string Resolve(StudyCourseViewModel source, StudyCourse destination, string destMember, ResolutionContext context)
+        public string Resolve(CourseViewModel source, StudyCourse destination, string destMember, ResolutionContext context)
         {
             string result = string.Empty;
 
@@ -25,9 +25,9 @@ namespace IndieVisible.Application.AutoMapper.Resolvers
         }
     }
 
-    public class StudyCourseWorkTypeFromDomainResolver : IValueResolver<StudyCourse, StudyCourseViewModel, List<WorkType>>
+    public class StudyCourseWorkTypeFromDomainResolver : IValueResolver<StudyCourse, CourseViewModel, List<WorkType>>
     {
-        public List<WorkType> Resolve(StudyCourse source, StudyCourseViewModel destination, List<WorkType> destMember, ResolutionContext context)
+        public List<WorkType> Resolve(StudyCourse source, CourseViewModel destination, List<WorkType> destMember, ResolutionContext context)
         {
             string[] platforms = (source.SkillSet ?? string.Empty)
                 .Split(new Char[] { '|' });

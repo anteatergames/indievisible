@@ -52,10 +52,16 @@
 
     <div id="containerlist" class="row">
         <div class="col-lg-12 mb-2 px-4">
-            <h1><i class="fas fa-fw @(studyProfile == StudyProfile.Mentor ? "fa-graduation-cap" : "fa-user-graduate") " aria-hidden="true"></i> @ViewData["Title"]</h1>
+            <div class="row">
+                <div>
+                    <a href="@backUrl" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                </div>
+                <div class="col">
+                    <h1><i class="fas fa-fw @(studyProfile == StudyProfile.Mentor ? "fa-graduation-cap" : "fa-user-graduate") " aria-hidden="true"></i> @ViewData["Title"]</h1>
+                </div>
+            </div>
         </div>
         <div class="col-12">
-            <a href="@backUrl" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 
             <div id="divListCourses"></div>
         </div>

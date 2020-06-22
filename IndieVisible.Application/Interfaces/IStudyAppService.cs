@@ -19,7 +19,7 @@ namespace IndieVisible.Application.Interfaces
 
         OperationResultVo GenerateNewCourse(Guid currentUserId);
 
-        OperationResultVo<Guid> SaveCourse(Guid currentUserId, StudyCourseViewModel vm);
+        OperationResultVo<Guid> SaveCourse(Guid currentUserId, CourseViewModel vm);
 
         OperationResultVo RemoveCourse(Guid currentUserId, Guid id);
 
@@ -28,5 +28,9 @@ namespace IndieVisible.Application.Interfaces
         OperationResultVo GetPlans(Guid currentUserId, Guid courseId);
 
         OperationResultVo SavePlans(Guid currentUserId, Guid courseId, IEnumerable<StudyPlanViewModel> plans);
+
+        OperationResultVo EnrollCourse(Guid currentUserId, Guid courseId);
+
+        OperationResultVo LeaveCourse(Guid currentUserId, Guid courseId);
     }
 }
