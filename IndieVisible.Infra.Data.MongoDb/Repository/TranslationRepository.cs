@@ -112,6 +112,20 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
             return DbSet.AsQueryable().Where(x => x.Id == translationProjectId).SelectMany(x => x.Entries);
         }
 
+        public IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language)
+        {
+            IQueryable<LocalizationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language);
+
+            return translations;
+        }
+
+        public IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId)
+        {
+            IQueryable<LocalizationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language && x.TermId == termId);
+
+            return translations;
+        }
+
         public async Task<bool> AddEntry(Guid translationProjectId, LocalizationEntry entry)
         {
             entry.Id = Guid.NewGuid();
@@ -178,20 +192,6 @@ namespace IndieVisible.Infra.Data.MongoDb.Repository
                     }
                 }
             }
-        }
-
-        public IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language)
-        {
-            IQueryable<LocalizationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language);
-
-            return translations;
-        }
-
-        public IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId)
-        {
-            IQueryable<LocalizationEntry> translations = DbSet.AsQueryable().Where(x => x.Id == projectId).SelectMany(x => x.Entries).Where(x => x.Language == language && x.TermId == termId);
-
-            return translations;
         }
 
         public LocalizationEntry GetEntry(Guid projectId, Guid entryId)

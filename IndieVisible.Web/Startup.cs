@@ -85,7 +85,6 @@ namespace IndieVisible.Web
                 options.AppendTrailingSlash = true;
             });
 
-            //services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddLocalization();
 
             services.AddControllersWithViews(options =>
@@ -297,7 +296,7 @@ namespace IndieVisible.Web
                             });
         }
 
-        string[] supportedCultures = new string[]
+        private readonly string[] supportedCultures = new string[]
                 {
                     "en-US",
                     "en",

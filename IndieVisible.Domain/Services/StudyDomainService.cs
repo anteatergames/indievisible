@@ -27,10 +27,10 @@ namespace IndieVisible.Domain.Services
         #region General
 
 
-        public IEnumerable<Guid> GetMentorsByUserId(Guid currentUserId)
+        public IEnumerable<Guid> GetMentorsByUserId(Guid userId)
         {
-            IEnumerable<UserConnection> mentorsIAdded = profileDomainService.GetConnectionByUserId(currentUserId, UserConnectionType.Mentor);
-            IEnumerable<UserConnection> mentorsAddedMe = profileDomainService.GetConnectionByTargetUserId(currentUserId, UserConnectionType.Pupil);
+            IEnumerable<UserConnection> mentorsIAdded = profileDomainService.GetConnectionByUserId(userId, UserConnectionType.Mentor);
+            IEnumerable<UserConnection> mentorsAddedMe = profileDomainService.GetConnectionByTargetUserId(userId, UserConnectionType.Pupil);
 
             List<Guid> finalList = new List<Guid>();
 
@@ -50,10 +50,10 @@ namespace IndieVisible.Domain.Services
             return finalList;
         }
 
-        public IEnumerable<Guid> GetStudentsByUserId(Guid currentUserId)
+        public IEnumerable<Guid> GetStudentsByUserId(Guid userId)
         {
-            IEnumerable<UserConnection> studentsIAdded = profileDomainService.GetConnectionByUserId(currentUserId, UserConnectionType.Pupil);
-            IEnumerable<UserConnection> studentsAddedMe = profileDomainService.GetConnectionByTargetUserId(currentUserId, UserConnectionType.Mentor);
+            IEnumerable<UserConnection> studentsIAdded = profileDomainService.GetConnectionByUserId(userId, UserConnectionType.Pupil);
+            IEnumerable<UserConnection> studentsAddedMe = profileDomainService.GetConnectionByTargetUserId(userId, UserConnectionType.Mentor);
 
             List<Guid> finalList = new List<Guid>();
 

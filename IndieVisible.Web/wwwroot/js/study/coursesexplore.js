@@ -3,11 +3,9 @@
 
     var selectors = {};
     var objs = {};
-    var canInteract = false;
 
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
-        selectors.canInteract = '#caninteract';
         selectors.urls = '#urls';
         selectors.studyProfile = '#studyProfile';
         selectors.container = '#featurecontainer';
@@ -22,17 +20,11 @@
         objs.listCourses = $(selectors.listCourses);
     }
 
-    function cacheObjectsCreateEdit() {
-        //objs.xpto = $(selectors.xpto);
-    }
-
     function init() {
         setSelectors();
         cacheObjs();
 
         bindAll();
-
-        canInteract = objs.container.find(selectors.canInteract).val();
 
         console.log(objs.studyProfile.val());
 
@@ -49,10 +41,6 @@
         url += '?backUrl=' + encodeURI(urlBack);
 
         MAINMODULE.Ajax.LoadHtml(url, objs.listCourses);
-    }
-
-    function loadMyMentors(url) {
-        MAINMODULE.Ajax.LoadHtml(url, objs.listMentors);
     }
 
     return {

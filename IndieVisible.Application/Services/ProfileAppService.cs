@@ -22,7 +22,7 @@ using System.Security.Cryptography;
 
 namespace IndieVisible.Application.Services
 {
-    public class ProfileAppService : ProfileBaseAppService, IProfileAppService, IProfileBaseAppService
+    public class ProfileAppService : ProfileBaseAppService, IProfileAppService
     {
         private readonly IUserContentDomainService userContentDomainService;
 

@@ -294,7 +294,7 @@ namespace IndieVisible.Application.Services
                     term.UserId = currentUserId;
                 }
 
-                bool result = Task.Run(async () => await studyDomainService.SavePlans(courseId, entities)).Result;
+                Task.Run(async () => await studyDomainService.SavePlans(courseId, entities));
 
                 Task<bool> task = unitOfWork.Commit();
 

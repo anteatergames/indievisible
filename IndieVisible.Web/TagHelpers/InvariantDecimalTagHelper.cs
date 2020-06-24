@@ -9,14 +9,11 @@ namespace IndieVisible.Web.TagHelpers
     {
         private const string ForAttributeName = "asp-for";
 
-        private readonly IHtmlGenerator _generator;
-
         [HtmlAttributeName("asp-is-invariant")]
         public bool IsInvariant { set; get; }
 
         public InvariantDecimalTagHelper(IHtmlGenerator generator) : base(generator)
         {
-            _generator = generator;
         }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)

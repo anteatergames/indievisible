@@ -194,6 +194,45 @@ namespace IndieVisible.Web.Middlewares
             return CheckMethod(controller, actionName, isPost, isDelete, isPut, hasParameter, routeTemplate);
         }
 
+        private string CheckMethod(Type controller, string actionName, bool isPost, bool isDelete, bool isPut, bool hasParameter, string routeTemplate)
+        {
+            string sitemapContent = string.Empty;
+
+            string controllerName = controller.Name.ToLower().Replace("controller", "");
+
+            bool isForbidden = forbidden.Contains(new KeyValuePair<string, string>(controllerName, actionName));
+            isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>(controllerName, "*"));
+            isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>("*", actionName));
+            bool areaForbidden = forbiddenAreas.Any(x => controller.Namespace.ToLower().Contains(".areas." + x));
+
+            if (!isPost && !isDelete && !isPut && !areaForbidden && !isForbidden)
+            {
+                sitemapContent += "<url>";
+
+                if (hasParameter)
+                {
+                    sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), routeTemplate);
+                }
+                else
+                {
+                    string methodName = actionName.Equals("index") ? string.Empty : actionName;
+                    if (string.IsNullOrWhiteSpace(methodName))
+                    {
+                        sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'));
+                    }
+                    else
+                    {
+                        sitemapContent += string.Format("<loc>{0}/{1}/{2}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'), methodName.Trim('/'));
+                    }
+                }
+
+                sitemapContent += string.Format("<lastmod>{0}</lastmod>", DateTime.UtcNow.ToString("yyyy-MM-dd"));
+                sitemapContent += "</url>";
+            }
+
+            return sitemapContent;
+        }
+
         private List<string> CheckDetailsMethod(Type controller)
         {
             string pattern = string.Empty;
@@ -245,45 +284,6 @@ namespace IndieVisible.Web.Middlewares
             }
 
             return methodList;
-        }
-
-        private string CheckMethod(Type controller, string actionName, bool isPost, bool isDelete, bool isPut, bool hasParameter, string routeTemplate)
-        {
-            string sitemapContent = string.Empty;
-
-            string controllerName = controller.Name.ToLower().Replace("controller", "");
-
-            bool isForbidden = forbidden.Contains(new KeyValuePair<string, string>(controllerName, actionName));
-            isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>(controllerName, "*"));
-            isForbidden = isForbidden || forbidden.Contains(new KeyValuePair<string, string>("*", actionName));
-            bool areaForbidden = forbiddenAreas.Any(x => controller.Namespace.ToLower().Contains(".areas." + x));
-
-            if (!isPost && !isDelete && !isPut && !areaForbidden && !isForbidden)
-            {
-                sitemapContent += "<url>";
-
-                if (hasParameter)
-                {
-                    sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), routeTemplate);
-                }
-                else
-                {
-                    string methodName = actionName.Equals("index") ? string.Empty : actionName;
-                    if (string.IsNullOrWhiteSpace(methodName))
-                    {
-                        sitemapContent += string.Format("<loc>{0}/{1}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'));
-                    }
-                    else
-                    {
-                        sitemapContent += string.Format("<loc>{0}/{1}/{2}/</loc>", _rootUrl.Trim('/'), controllerName.Trim('/'), methodName.Trim('/'));
-                    }
-                }
-
-                sitemapContent += string.Format("<lastmod>{0}</lastmod>", DateTime.UtcNow.ToString("yyyy-MM-dd"));
-                sitemapContent += "</url>";
-            }
-
-            return sitemapContent;
         }
     }
 

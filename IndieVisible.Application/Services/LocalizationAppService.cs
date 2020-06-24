@@ -567,25 +567,7 @@ namespace IndieVisible.Application.Services
                         bool termsUpdated = false;
                         foreach (LocalizationTerm loadedTerm in loadedTerms)
                         {
-                            if (loadedTerm.UserId == Guid.Empty)
-                            {
-                                loadedTerm.UserId = currentUserId;
-                            }
-
-                            LocalizationTerm modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm.Key.Replace("\n", string.Empty)));
-                            if (modelTerm == null)
-                            {
-                                model.Terms.Add(loadedTerm);
-                                termsUpdated = true;
-                            }
-                            else
-                            {
-                                loadedTerm.Id = modelTerm.Id;
-                                loadedTerm.CreateDate = modelTerm.CreateDate;
-                                loadedTerm.UserId = modelTerm.UserId;
-                                modelTerm.Value = loadedTerm.Value;
-                                termsUpdated = true;
-                            }
+                            termsUpdated = AddOrUpdateTerm(currentUserId, model, loadedTerm);
                         }
 
                         if (termsUpdated)
@@ -599,25 +581,7 @@ namespace IndieVisible.Application.Services
                             bool entriesUpdated = false;
                             foreach (LocalizationEntry loadedEntry in loadedEntries)
                             {
-                                if (loadedEntry.UserId == Guid.Empty)
-                                {
-                                    loadedEntry.UserId = currentUserId;
-                                }
-
-                                LocalizationEntry modelEntry = model.Entries.FirstOrDefault(x => x.TermId == loadedEntry.TermId && x.UserId == currentUserId && x.Language == loadedEntry.Language);
-                                if (modelEntry == null)
-                                {
-                                    model.Entries.Add(loadedEntry);
-                                    entriesUpdated = true;
-                                }
-                                else
-                                {
-                                    loadedEntry.Id = modelEntry.Id;
-                                    loadedEntry.CreateDate = modelEntry.CreateDate;
-                                    loadedEntry.UserId = modelEntry.UserId;
-                                    modelEntry.Value = loadedEntry.Value;
-                                    entriesUpdated = true;
-                                }
+                                entriesUpdated = AddOrUpdateEntry(currentUserId, model, loadedEntry);
                             }
 
                             if (entriesUpdated)
@@ -748,7 +712,6 @@ namespace IndieVisible.Application.Services
         private async Task<DataTable> LoadExcel(IFormFile termsFile)
         {
             DataTable dtTable = new DataTable();
-            List<string> rowList = new List<string>();
             ISheet sheet;
 
             using (MemoryStream stream = new MemoryStream())
@@ -771,41 +734,45 @@ namespace IndieVisible.Application.Services
                     }
                 }
 
-                for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++)
-                {
-                    IRow row = sheet.GetRow(i);
-                    ICell firstCell = row.GetCell(0);
-                    ICell secondCell = row.GetCell(1);
-
-                    if (row == null || row.Cells.All(d => d.CellType == CellType.Blank))
-                    {
-                        continue;
-                    }
-
-                    if (firstCell != null && secondCell != null && !string.IsNullOrWhiteSpace(firstCell.ToString()) && !string.IsNullOrWhiteSpace(secondCell.ToString()))
-                    {
-                        for (int j = row.FirstCellNum; j < cellCount; j++)
-                        {
-                            if (row.GetCell(j) != null)
-                            {
-                                if (!string.IsNullOrEmpty(row.GetCell(j).ToString()) && !string.IsNullOrWhiteSpace(row.GetCell(j).ToString()))
-                                {
-                                    rowList.Add(row.GetCell(j).ToString());
-                                }
-                            }
-                        }
-
-                        if (rowList.Count > 0)
-                        {
-                            dtTable.Rows.Add(rowList.ToArray());
-                        }
-
-                        rowList.Clear();
-                    }
-                }
+                FillDataTable(dtTable, sheet, cellCount);
             }
 
             return dtTable;
+        }
+
+        private static void FillDataTable(DataTable dtTable, ISheet sheet, int cellCount)
+        {
+            List<string> rowList = new List<string>();
+
+            for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++)
+            {
+                IRow row = sheet.GetRow(i);
+                ICell firstCell = row.GetCell(0);
+                ICell secondCell = row.GetCell(1);
+
+                if (row == null || row.Cells.All(d => d.CellType == CellType.Blank))
+                {
+                    continue;
+                }
+
+                if (firstCell != null && secondCell != null && !string.IsNullOrWhiteSpace(firstCell.ToString()) && !string.IsNullOrWhiteSpace(secondCell.ToString()))
+                {
+                    for (int j = row.FirstCellNum; j < cellCount; j++)
+                    {
+                        if (row.GetCell(j) != null && !string.IsNullOrEmpty(row.GetCell(j).ToString()) && !string.IsNullOrWhiteSpace(row.GetCell(j).ToString()))
+                        {
+                            rowList.Add(row.GetCell(j).ToString());
+                        }
+                    }
+
+                    if (rowList.Count > 0)
+                    {
+                        dtTable.Rows.Add(rowList.ToArray());
+                    }
+
+                    rowList.Clear();
+                }
+            }
         }
 
         private static void FillTerms(DataTable dataTable, List<LocalizationTerm> terms)
@@ -894,6 +861,58 @@ namespace IndieVisible.Application.Services
                     }
                 }
             }
+        }
+
+        private static bool AddOrUpdateTerm(Guid currentUserId, Localization model, LocalizationTerm loadedTerm)
+        {
+            bool termsUpdated;
+            if (loadedTerm.UserId == Guid.Empty)
+            {
+                loadedTerm.UserId = currentUserId;
+            }
+
+            LocalizationTerm modelTerm = model.Terms.FirstOrDefault(x => x.Key.Equals(loadedTerm.Key.Replace("\n", string.Empty)));
+            if (modelTerm == null)
+            {
+                model.Terms.Add(loadedTerm);
+                termsUpdated = true;
+            }
+            else
+            {
+                loadedTerm.Id = modelTerm.Id;
+                loadedTerm.CreateDate = modelTerm.CreateDate;
+                loadedTerm.UserId = modelTerm.UserId;
+                modelTerm.Value = loadedTerm.Value;
+                termsUpdated = true;
+            }
+
+            return termsUpdated;
+        }
+
+        private static bool AddOrUpdateEntry(Guid currentUserId, Localization model, LocalizationEntry loadedEntry)
+        {
+            bool entriesUpdated;
+            if (loadedEntry.UserId == Guid.Empty)
+            {
+                loadedEntry.UserId = currentUserId;
+            }
+
+            LocalizationEntry modelEntry = model.Entries.FirstOrDefault(x => x.TermId == loadedEntry.TermId && x.UserId == currentUserId && x.Language == loadedEntry.Language);
+            if (modelEntry == null)
+            {
+                model.Entries.Add(loadedEntry);
+                entriesUpdated = true;
+            }
+            else
+            {
+                loadedEntry.Id = modelEntry.Id;
+                loadedEntry.CreateDate = modelEntry.CreateDate;
+                loadedEntry.UserId = modelEntry.UserId;
+                modelEntry.Value = loadedEntry.Value;
+                entriesUpdated = true;
+            }
+
+            return entriesUpdated;
         }
     }
 }

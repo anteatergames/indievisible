@@ -84,29 +84,7 @@ namespace IndieVisible.Web.Controllers
                 Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded && !string.IsNullOrWhiteSpace(model.UserName))
                 {
-                    ApplicationUser user = await _userManager.FindByNameAsync(model.UserName);
-
-                    if (user != null && !string.IsNullOrWhiteSpace(user.UserName))
-                    {
-                        SetProfileOnSession(new Guid(user.Id), user.UserName);
-
-                        await SetStaffRoles(user);
-
-                        SetPreferences(user);
-
-                        SetCache(user);
-                    }
-
-                    string logMessage = String.Format("User {0} logged in.", model.UserName);
-
-                    if (!model.UserName.Equals("programad"))
-                    {
-                        await NotificationSender.SendTeamNotificationAsync(logMessage);
-                    }
-
-                    _logger.LogInformation(logMessage);
-
-                    return RedirectToLocal(returnUrl);
+                    return await ManageSuccessfullLogin(model, returnUrl);
                 }
 
                 if (result.RequiresTwoFactor)
@@ -128,6 +106,33 @@ namespace IndieVisible.Web.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private async Task<IActionResult> ManageSuccessfullLogin(LoginViewModel model, string returnUrl)
+        {
+            ApplicationUser user = await _userManager.FindByNameAsync(model.UserName);
+
+            if (user != null && !string.IsNullOrWhiteSpace(user.UserName))
+            {
+                SetProfileOnSession(new Guid(user.Id), user.UserName);
+
+                await SetStaffRoles(user);
+
+                SetPreferences(user);
+
+                SetCache(user);
+            }
+
+            string logMessage = String.Format("User {0} logged in.", model.UserName);
+
+            if (!model.UserName.Equals("programad"))
+            {
+                await NotificationSender.SendTeamNotificationAsync(logMessage);
+            }
+
+            _logger.LogInformation(logMessage);
+
+            return RedirectToLocal(returnUrl);
         }
 
         [HttpGet]
@@ -433,51 +438,7 @@ namespace IndieVisible.Web.Controllers
 
                 if (result.Succeeded)
                 {
-                    if (existingUser == null)
-                    {
-                        await SetInitialRoles(user);
-                    }
-                    else
-                    {
-                        await SetStaffRoles(user);
-                    }
-
-                    SetPreferences(user);
-
-                    Guid userGuid = new Guid(user.Id);
-                    ProfileViewModel profile = profileAppService.GetByUserId(userGuid, ProfileType.Personal);
-                    if (profile == null)
-                    {
-                        profile = profileAppService.GenerateNewOne(ProfileType.Personal);
-                        profile.UserId = userGuid;
-
-                        profile.Name = SelectName(externalLoginInfo);
-                    }
-
-                    await SetExternalProfilePicture(externalLoginInfo, user, profile);
-
-                    if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl == Constants.DefaultAvatar)
-                    {
-                        UploadFirstAvatar(profile.UserId, ProfileType.Personal);
-                    }
-
-                    profileAppService.Save(CurrentUserId, profile);
-
-                    SetProfileOnSession(new Guid(user.Id), user.UserName);
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-
-                    string logMessage = String.Format("User {0} linked a {1} account.", user.UserName, externalLoginInfo.LoginProvider);
-                    if (existingUser == null)
-                    {
-                        logMessage = String.Format("User {0} registered with a {1} account.", user.UserName, externalLoginInfo.LoginProvider);
-                    }
-
-                    await NotificationSender.SendTeamNotificationAsync(logMessage);
-
-                    _logger.LogInformation(logMessage);
-
-                    return RedirectToLocal(returnUrl);
+                    return await HandleSucessfullExternalLogin(returnUrl, externalLoginInfo, user, existingUser);
                 }
 
                 AddErrors(result);
@@ -485,6 +446,55 @@ namespace IndieVisible.Web.Controllers
 
             ViewData["ReturnUrl"] = returnUrl;
             return View(nameof(ExternalLogin), model);
+        }
+
+        private async Task<IActionResult> HandleSucessfullExternalLogin(string returnUrl, ExternalLoginInfo externalLoginInfo, ApplicationUser user, ApplicationUser existingUser)
+        {
+            if (existingUser == null)
+            {
+                await SetInitialRoles(user);
+            }
+            else
+            {
+                await SetStaffRoles(user);
+            }
+
+            SetPreferences(user);
+
+            Guid userGuid = new Guid(user.Id);
+            ProfileViewModel profile = profileAppService.GetByUserId(userGuid, ProfileType.Personal);
+            if (profile == null)
+            {
+                profile = profileAppService.GenerateNewOne(ProfileType.Personal);
+                profile.UserId = userGuid;
+
+                profile.Name = SelectName(externalLoginInfo);
+            }
+
+            await SetExternalProfilePicture(externalLoginInfo, user, profile);
+
+            if (string.IsNullOrWhiteSpace(profile.ProfileImageUrl) || profile.ProfileImageUrl == Constants.DefaultAvatar)
+            {
+                UploadFirstAvatar(profile.UserId, ProfileType.Personal);
+            }
+
+            profileAppService.Save(CurrentUserId, profile);
+
+            SetProfileOnSession(new Guid(user.Id), user.UserName);
+
+            await _signInManager.SignInAsync(user, isPersistent: false);
+
+            string logMessage = String.Format("User {0} linked a {1} account.", user.UserName, externalLoginInfo.LoginProvider);
+            if (existingUser == null)
+            {
+                logMessage = String.Format("User {0} registered with a {1} account.", user.UserName, externalLoginInfo.LoginProvider);
+            }
+
+            await NotificationSender.SendTeamNotificationAsync(logMessage);
+
+            _logger.LogInformation(logMessage);
+
+            return RedirectToLocal(returnUrl);
         }
 
         [HttpGet]

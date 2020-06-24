@@ -108,8 +108,6 @@ namespace IndieVisible.Domain.Services
                 return null;
             }
 
-            IEnumerable<IGrouping<SupportedLanguage, LocalizationEntry>> languages = model.Entries.GroupBy(x => x.Language);
-
             int distinctEntriesCount = model.Entries.Select(x => new { x.TermId, x.Language }).Distinct().Count();
             int languageCount = model.Entries.Select(x => x.Language).Distinct().Count();
 

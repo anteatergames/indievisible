@@ -234,8 +234,6 @@ namespace IndieVisible.Web.Areas.Work.Controllers
 
                 JobPositionViewModel model = castResult.Value;
 
-                //SetLocalization(model);
-
                 return PartialView("_CreateEdit", model);
             }
             else

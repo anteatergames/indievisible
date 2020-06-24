@@ -375,8 +375,8 @@
                     termsUploadDropZone.processQueue();
 
                     termsUploadDropZone.on("success", function (file) {
-                        var response = JSON.parse(file.xhr.response);
-                        console.log(response);
+                        var parsedResponse = JSON.parse(file.xhr.response);
+                        console.log(parsedResponse);
                     });
 
                     termsUploadDropZone.on("queuecomplete", function (file) {

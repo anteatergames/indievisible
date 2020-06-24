@@ -71,11 +71,7 @@ namespace IndieVisible.Web.Controllers
                 }
             }
 
-
-            //Dictionary<UserConnectionType, UiInfoAttribute> genreDict = Enum.GetValues(typeof(UserConnectionType)).Cast<UserConnectionType>().ToUiInfoDictionary(true);
-            //ViewData["ConnecionTypes"] = genreDict;
-
-            ViewData["ConnecionTypes"] = Extensions.EnumExtensions.ToJson(UserConnectionType.Mentor);
+            ViewData["ConnecionTypes"] = EnumExtensions.ToJson(UserConnectionType.Mentor);
 
             return View(vm);
         }

@@ -88,7 +88,7 @@
     }
 
     function bindBtnPostAddGameBtn() {
-        $('.content').on('click', '#btnPostAddGame', function (e) {
+        $('.content').on('click', '#btnPostAddGame', function () {
             if (postModalActive === false) {
                 showPostModal();
             }
@@ -105,7 +105,7 @@
 
     function bindPostAddImageBtn() {
         Dropzone.autoDiscover = false;
-        $('.content').on('click', '#btnPostAddImage', function (e) {
+        $('.content').on('click', '#btnPostAddImage', function () {
             if (postModalActive === false) {
                 showPostModal();
             }
@@ -125,6 +125,7 @@
 
                     postImagesDropZone.on("addedfile", function (file) {
                         resizePostBox();
+                        console.log(file);
                     });
                 }
 
@@ -136,7 +137,7 @@
     }
 
     function bindBtnPostAddPollBtn() {
-        $('.content').on('click', '#btnPostAddPoll', function (e) {
+        $('.content').on('click', '#btnPostAddPoll', function () {
             if (postModalActive === false) {
                 showPostModal();
             }
@@ -153,7 +154,7 @@
     }
 
     function bindSendSimpleContent() {
-        $('.content').on('click', '#btnSendSimpleContent', function (e) {
+        $('.content').on('click', '#btnSendSimpleContent', function () {
             var btn = $(this);
             var txtArea = btn.closest('.simplecontentpostarea').find('.posttextarea');
             var text = txtArea.val().replace(/\n/g, '<br>\n');
@@ -219,6 +220,7 @@
 
                             instantiateDropZone();
                         });
+                        console.log(file);
                     }
                 });
             }
@@ -424,7 +426,7 @@ $(function () {
 });
 
 if (typeof Embedo === 'function') {
-    var embedo = new Embedo({
+    new Embedo({
         youtube: true,
         facebook: {
             appId: $('meta[property="fb:app_id"]').attr('content'), // Enable facebook SDK

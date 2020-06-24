@@ -3,11 +3,9 @@
 
     var selectors = {};
     var objs = {};
-    var canInteract = false;
 
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
-        selectors.canInteract = '#caninteract';
         selectors.urls = '#urls';
         selectors.container = '#featurecontainer';
         selectors.containerDetails = '#containerdetails';
@@ -32,19 +30,13 @@
         cacheObjs();
 
         bindAll();
-
-        canInteract = objs.container.find(selectors.canInteract).val();
     }
 
     function bindAll() {
-        bindPopOvers();
+        MAINMODULE.Common.BindPopOvers();
         bindBtnExportProject();
         bindBtnExportSingleLanguage();
         bindBtnExportContributorsNameProfile();
-    }
-
-    function bindPopOvers() {
-        $("[data-toggle='popover']").popover({ html: true });
     }
 
     function bindBtnExportProject() {

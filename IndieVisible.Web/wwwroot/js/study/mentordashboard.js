@@ -3,11 +3,9 @@
 
     var selectors = {};
     var objs = {};
-    var canInteract = false;
 
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
-        selectors.canInteract = '#caninteract';
         selectors.urls = '#urls';
         selectors.studyProfile = '#studyProfile';
         selectors.container = '#featurecontainer';
@@ -26,21 +24,11 @@
         objs.listStudents = $(selectors.listStudents);
     }
 
-    function cacheObjectsCreateEdit() {
-        //objs.xpto = $(selectors.xpto);
-    }
-
-    function setCreateEdit() {
-        cacheObjectsCreateEdit();
-    }
-
     function init() {
         setSelectors();
         cacheObjs();
 
         bindAll();
-
-        canInteract = objs.container.find(selectors.canInteract).val();
 
         console.log(objs.studyProfile.val());
 

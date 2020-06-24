@@ -26,6 +26,10 @@ namespace IndieVisible.Domain.Interfaces.Repository
 
         IQueryable<LocalizationEntry> GetEntries(Guid translationProjectId);
 
+        IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language);
+
+        IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId);
+
         Task<bool> AddEntry(Guid translationProjectId, LocalizationEntry entry);
 
         IEnumerable<Guid> GetTranslatedGamesByUserId(Guid userId);
@@ -33,10 +37,6 @@ namespace IndieVisible.Domain.Interfaces.Repository
         Task<bool> RemoveEntry(Guid translationProjectId, Guid entryId);
 
         void UpdateEntry(Guid translationProjectId, LocalizationEntry entry);
-
-        IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language);
-
-        IQueryable<LocalizationEntry> GetEntries(Guid projectId, SupportedLanguage language, Guid termId);
 
         LocalizationEntry GetEntry(Guid projectId, Guid entryId);
 

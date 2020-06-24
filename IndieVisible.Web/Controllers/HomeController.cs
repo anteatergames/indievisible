@@ -154,7 +154,7 @@ namespace IndieVisible.Web.Controllers
 
         private static TimeLineItemViewModel GenerateTimeLineItem(bool start, DateTime date, string icon, string color, string title, string subtitle, string description)
         {
-            return GenerateTimeLineItem(false, date, icon, color, title, subtitle, description, null);
+            return GenerateTimeLineItem(start, date, icon, color, title, subtitle, description, null);
         }
 
         private static TimeLineItemViewModel GenerateTimeLineItem(DateTime date, string icon, string color, string title, string subtitle, string description, List<string> items)

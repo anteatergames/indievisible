@@ -5,13 +5,11 @@
 
     var selectors = {};
     var objs = {};
-    var canInteract = false;
 
     var changedEntries = [];
 
     function setSelectors() {
         selectors.controlsidebar = '.control-sidebar';
-        selectors.canInteract = '#caninteract';
         selectors.urls = '#urls';
         selectors.container = '#featurecontainer';
 
@@ -57,8 +55,6 @@
     function init() {
         setSelectors();
         cacheObjsTranslate();
-
-        canInteract = objs.container.find(selectors.canInteract).val();
 
         bindTranslate();
 
@@ -191,11 +187,11 @@
                 $.post(url, { language: language, entries: data }).done(function (response) {
                     if (response.success === true) {
 
-                        for (var i = 0; i < changedEntries.length; i++) {
-                            var input = $(selectors.entryInput + '[data-termid=' + changedEntries[i] + ']');
+                        for (var j = 0; j < changedEntries.length; j++) {
+                            var input2 = $(selectors.entryInput + '[data-termid=' + changedEntries[j] + ']');
 
-                            input.data('changed', false);
-                            input.data('originalval', input.val());
+                            input2.data('changed', false);
+                            input2.data('originalval', input2.val());
                         }
 
                         changedEntries = [];
