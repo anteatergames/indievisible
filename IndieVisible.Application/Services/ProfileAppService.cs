@@ -96,7 +96,6 @@ namespace IndieVisible.Application.Services
             }
         }
 
-
         public OperationResultVo GetAllIds(Guid currentUserId)
         {
             try

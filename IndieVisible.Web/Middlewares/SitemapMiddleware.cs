@@ -291,7 +291,6 @@ namespace IndieVisible.Web.Middlewares
     {
         public static IApplicationBuilder UseSitemapMiddleware(this IApplicationBuilder app, string rootUrl = "https://www.indievisible.net")
         {
-
             return app.UseMiddleware<SitemapMiddleware>(new[] { rootUrl });
         }
     }

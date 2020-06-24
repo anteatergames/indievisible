@@ -187,14 +187,14 @@ namespace IndieVisible.Domain.Services
 
         public async Task<bool> EnrollCourse(Guid userId, Guid courseId)
         {
-            var userAlreadyEnroled = studyCourseRepository.CheckStudentEnrolled(courseId, userId);
+            bool userAlreadyEnroled = studyCourseRepository.CheckStudentEnrolled(courseId, userId);
 
             if (userAlreadyEnroled)
             {
                 return false;
             }
 
-            var student = new CourseMember
+            CourseMember student = new CourseMember
             {
                 UserId = userId
             };
@@ -203,7 +203,7 @@ namespace IndieVisible.Domain.Services
         }
         public async Task<bool> LeaveCourse(Guid userId, Guid courseId)
         {
-            var userAlreadyEnroled = studyCourseRepository.CheckStudentEnrolled(courseId, userId);
+            bool userAlreadyEnroled = studyCourseRepository.CheckStudentEnrolled(courseId, userId);
 
             if (!userAlreadyEnroled)
             {

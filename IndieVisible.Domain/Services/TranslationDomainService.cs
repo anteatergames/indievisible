@@ -98,7 +98,6 @@ namespace IndieVisible.Domain.Services
             return terms;
         }
 
-
         public LocalizationStatsVo GetPercentageByGameId(Guid gameId)
         {
             LocalizationStatsVo model = repository.GetStatsByGameId(gameId);
@@ -113,7 +112,6 @@ namespace IndieVisible.Domain.Services
 
             double percentage = CalculatePercentage(model.TermCount, distinctEntriesCount, languageCount);
             model.LocalizationPercentage = percentage;
-
 
             return model;
         }
@@ -141,7 +139,6 @@ namespace IndieVisible.Domain.Services
             }
 
             IEnumerable<LocalizationTerm> deleteTerms = existingTerms.Where(x => !terms.Contains(x));
-
 
             if (deleteTerms.Any())
             {

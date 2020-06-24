@@ -140,7 +140,6 @@ namespace IndieVisible.Application.Services
 
             vm.Characteristics = Enum.GetValues(typeof(GameCharacteristcs)).Cast<GameCharacteristcs>().Where(x => x != GameCharacteristcs.NotInformed).Select(x => new GameCharacteristicVo { Characteristic = x, Available = false }).ToList();
 
-
             return new OperationResultVo<GameViewModel>(vm);
         }
 

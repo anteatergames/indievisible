@@ -108,7 +108,7 @@ namespace IndieVisible.Application.Services
             {
                 List<StudyCourseListItemVo> courses = studyDomainService.GetCourses();
 
-                foreach (var course in courses)
+                foreach (StudyCourseListItemVo course in courses)
                 {
                     course.ThumbnailUrl = SetFeaturedImage(currentUserId, course.ThumbnailUrl, ImageRenderType.Full);
                 }
@@ -223,7 +223,6 @@ namespace IndieVisible.Application.Services
             }
         }
 
-
         public OperationResultVo RemoveCourse(Guid currentUserId, Guid id)
         {
             try
@@ -257,7 +256,6 @@ namespace IndieVisible.Application.Services
                 vm.ThumbnailUrl = SetFeaturedImage(currentUserId, vm.ThumbnailUrl, ImageRenderType.Full);
 
                 return new OperationResultVo<CourseViewModel>(vm);
-
             }
             catch (Exception ex)
             {
@@ -395,7 +393,7 @@ namespace IndieVisible.Application.Services
                         return UrlFormatter.Image(userId, ImageType.CourseThumbnail, thumbnailUrl, 278);
                 }
             }
-        } 
+        }
         #endregion
     }
 }

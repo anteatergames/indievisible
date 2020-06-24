@@ -194,9 +194,7 @@ namespace IndieVisible.Web.Controllers
                     "Tag Cloud"
                 }));
 
-
             model.Items.Add(GenerateTimeLineItem(new DateTime(2018, 10, 01), "fas fa-shield-alt", "info", "October 2018", "Security first", "October was a month to work on the security system. Several improvements were made on the Register and Login workflows."));
-
 
             model.Items.Add(GenerateTimeLineItem(new DateTime(2018, 11, 01), "fas fa-cloud", "danger", "September 2018", "A really busy month!", "November was awesome for INDIEVISIBLE. We manage to implement several core systems that are used across the whole platform.", new List<string>() {
                     "Forgot password, password reset, email verification",

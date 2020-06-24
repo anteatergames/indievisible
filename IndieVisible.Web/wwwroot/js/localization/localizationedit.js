@@ -480,10 +480,6 @@
         }
     }
 
-    function setStickyElementsDetails() {
-        MAINMODULE.Layout.SetStickyElement('#divTranslationSelector', 50, '#divTranslationSelector');
-    }
-
     function setStickyElementsEdit() {
         MAINMODULE.Layout.SetStickyElement('#divManualTerms', 50, '#divManualTerms');
     }

@@ -39,7 +39,7 @@
     }
 
     function bindLikeBtn() {
-        objs.container.on('click', selectors.btnLike, function (e) {
+        objs.container.on('click', selectors.btnLike, function () {
             var btn = $(this);
             var likeCount = btn.closest(selectors.item).find(selectors.likeCounter);
             var targetId = btn.data('id');
@@ -54,7 +54,7 @@
     }
 
     function bindCommentBtn() {
-        objs.container.on('click', selectors.btnInteractionComment, function (e) {
+        objs.container.on('click', selectors.btnInteractionComment, function () {
             var btn = $(this);
             var commentSection = btn.closest(selectors.item).find('.box-commentsection');
             var commentBox = btn.closest(selectors.item).find(selectors.commentBox);
@@ -95,7 +95,7 @@
     }
 
     function bindCommentSendBtn() {
-        objs.container.on('click', '.btn-interaction-comment-send', function (e) {
+        objs.container.on('click', '.btn-interaction-comment-send', function () {
             var btn = $(this);
             var txtArea = btn.closest(selectors.commentBox).find('.commenttextarea');
             var url = txtArea.data('url');
@@ -153,6 +153,8 @@
         $(selectors.btnInteractionShare).each(function (index, element) {
             var btn = $(element);
             var data = btn.data();
+
+            console.log(index);
 
             if (data.target) {
                 $(btn).off('click');

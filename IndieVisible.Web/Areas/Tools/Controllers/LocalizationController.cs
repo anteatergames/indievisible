@@ -249,7 +249,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 sb.AppendLine("UserId;User Name;Profile URL");
 
-
                 foreach (KeyValuePair<Guid, string> item in model)
                 {
                     string url = Url.Action("details", "profile", new { area = string.Empty, id = item.Key }, "https", Request.Host.Value);
@@ -431,7 +430,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
 
                 if (result.Success)
                 {
-
                     OperationResultVo<LocalizationEntryViewModel> castResult = result as OperationResultVo<LocalizationEntryViewModel>;
 
                     return Json(castResult);
@@ -550,7 +548,6 @@ namespace IndieVisible.Web.Areas.Tools.Controllers
                 return Json(json);
             }
         }
-
 
         [Authorize]
         [HttpPost("tools/localization/entryreview/{projectId:guid}")]

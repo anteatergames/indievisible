@@ -1,4 +1,5 @@
 ﻿
+
 .rangeslider__tooltip {
     display: block;
     margin-top: 2.5em;
@@ -7,7 +8,6 @@
 }
 
 .rangeslider__handle {
-    border-radius: 22px;
     line-height: 30px;
     text-align: center;
     font-weight: bold;

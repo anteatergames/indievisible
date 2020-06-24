@@ -43,7 +43,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             return PartialView("_ListCourses", model);
         }
 
-
         [Route("learn/course/listmine")]
         public PartialViewResult ListMine()
         {
@@ -66,7 +65,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
             return PartialView("_ListCourses", model);
         }
-
 
         [Route("learn/course/list")]
         public PartialViewResult List(string backUrl)
@@ -92,7 +90,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
             return PartialView("_ListCoursesCards", model);
         }
-
 
         [Route("learn/course/{id:guid}")]
         public ViewResult Details(Guid id, string backUrl)
@@ -133,7 +130,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             return View("CourseCreateEditWrapper", model);
         }
 
-
         [Route("learn/course/edit/{id:guid}")]
         public ViewResult Edit(Guid id)
         {
@@ -149,7 +145,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
 
             return View("CourseCreateEditWrapper", model);
         }
-
 
         [Route("learn/course/save")]
         public JsonResult SaveCourse(CourseViewModel vm)
@@ -188,7 +183,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             }
         }
 
-
         [Authorize]
         [HttpDelete("learn/course/delete/{id:guid}")]
         public IActionResult Delete(Guid id)
@@ -213,7 +207,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
-
 
         [Route("learn/course/{courseId:guid}/listplans")]
         public PartialViewResult ListPlans(Guid courseId)
@@ -241,6 +234,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return PartialView("_ListPlans", model);
             }
         }
@@ -291,7 +285,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
             }
         }
 
-
         [Authorize]
         [HttpPost("study/course/{courseId:guid}/enroll/")]
         public IActionResult Enroll(Guid courseId)
@@ -309,7 +302,6 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
                 return Json(new OperationResultVo(ex.Message));
             }
         }
-
 
         [Authorize]
         [HttpPost("study/course/{courseId:guid}/leave/")]

@@ -148,7 +148,7 @@ namespace IndieVisible.Web.Areas.Learn.Controllers
         [Route("learn/study/courses/explore")]
         public ActionResult ExploreCourses()
         {
-            var studyProfile = GetSessionValue(SessionValues.StudyProfile);
+            string studyProfile = GetSessionValue(SessionValues.StudyProfile);
             ViewData["studyProfile"] = studyProfile ?? "Student";
 
             return View();
