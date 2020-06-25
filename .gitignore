@@ -265,3 +265,4 @@ __pycache__/
 **/wwwroot/lib
 
 **/Properties/PublishProfiles/*
+/IndieVisible.Web/Properties/serviceDependencies*.json
