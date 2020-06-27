@@ -38,7 +38,7 @@
        data-url-entry-save="@Url.Action("savetranslation", "localization", new { area = "tools", x = 1, projectId = Model.Id })"
        data-url-entries-get="@Url.Action("gettranslation", "localization", new { area = "tools", x = 1, projectId = Model.Id })"
        data-url-entries-save="@Url.Action("saveentries", "localization", new { area = "tools", x = 1, projectId = Model.Id })"
-       data-url-avatar="https://res.cloudinary.com/indievisible/image/upload/f_auto,q_auto/v1/xpto/profileimage_xpto_Personal"/>
+       data-url-avatar="@IndieVisible.Application.Constants.DefaultAvatarPlaceholder"/>
 
 <section class="content container">
     <div id="featurecontainer" class="col">

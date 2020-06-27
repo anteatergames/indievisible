@@ -1,4 +1,6 @@
-﻿namespace IndieVisible.Application
+﻿using System;
+
+namespace IndieVisible.Application
 {
     public static class Constants
     {
@@ -94,7 +96,15 @@
         {
             get
             {
-                return "https://res.cloudinary.com/indievisible/image/upload/f_auto/";
+                return "https://res.cloudinary.com/ludustack/image/upload/f_auto/";
+            }
+        }
+
+        public static string DefaultAvatarPlaceholder
+        {
+            get
+            {
+                return String.Format("{0},q_auto/v1/xpto/profileimage_xpto_Personal", DefaultCloudinaryPath);
             }
         }
 

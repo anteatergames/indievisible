@@ -37,7 +37,7 @@
 <input type="hidden" id="urls" value="urls"
        data-url-entries-get="@Url.Action("gettranslation", "localization", new { area = "tools", x = 1, projectId = Model.Id })"
        data-url-entry-review="@Url.Action("entryreview", "localization", new { area = "tools", x = 1, projectId = Model.Id })"
-       data-url-avatar="https://res.cloudinary.com/indievisible/image/upload/f_auto,q_auto/v1/xpto/profileimage_xpto_Personal"
+       data-url-avatar="@IndieVisible.Application.Constants.DefaultAvatarPlaceholder"
        data-url-profile="/profile/" />
 
 <section class="content">
