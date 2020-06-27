@@ -41,5 +41,15 @@ namespace IndieVisible.Domain.Core.Extensions
         {
             return Path.GetFileNameWithoutExtension(input);
         }
+
+        public static string ReplaceCloudname(this string originalString)
+        {
+            if (string.IsNullOrWhiteSpace(originalString))
+            {
+                return originalString;
+            }
+
+            return originalString.Replace("https://res.cloudinary.com/indievisible", "https://res.cloudinary.com/ludustack");
+        }
     }
 }

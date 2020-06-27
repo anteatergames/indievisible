@@ -8,6 +8,7 @@ using IndieVisible.Application.ViewModels.Content;
 using IndieVisible.Application.ViewModels.Poll;
 using IndieVisible.Application.ViewModels.Search;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using IndieVisible.Domain.Interfaces;
 using IndieVisible.Domain.Interfaces.Infrastructure;
 using IndieVisible.Domain.Interfaces.Services;
@@ -315,6 +316,9 @@ namespace IndieVisible.Application.Services
                     item.Poll = SetPoll(vm.CurrentUserId, item.Id);
 
                     LoadAuthenticatedData(vm.CurrentUserId, item);
+
+
+                    item.Content = item.Content.ReplaceCloudname();
                 }
 
                 return viewModels;

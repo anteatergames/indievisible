@@ -1,5 +1,6 @@
 ﻿using CloudinaryDotNet;
 using IndieVisible.Domain.Core.Enums;
+using IndieVisible.Domain.Core.Extensions;
 using System;
 using System.Linq;
 using System.Text;
@@ -71,7 +72,7 @@ namespace IndieVisible.Application.Formatters
 
             string url = CdnCommon(userId, fileName, width);
 
-            return url;
+            return url.ReplaceCloudname();
         }
 
         public static string ProfileCoverImage(Guid userId, Guid profileId)
@@ -99,7 +100,7 @@ namespace IndieVisible.Application.Formatters
                 url = CdnCommon(userId, fileName, width);
             }
 
-            return url;
+            return url.ReplaceCloudname();
         }
 
         public static string Image(Guid userId, ImageType type, string fileName)
@@ -126,7 +127,7 @@ namespace IndieVisible.Application.Formatters
 
             string url = CdnCommon(userId, fileName, responsive, width, quality);
 
-            return url;
+            return url.ReplaceCloudname();
         }
 
         public static string CdnCommon(Guid userId, string fileName)
