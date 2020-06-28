@@ -10,7 +10,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
         {
             EmailSendRequest request = new EmailSendRequest
             {
-                ActionUrl = HtmlEncoder.Default.Encode(link),
+                ActionUrl = link,
                 ActionText = "Confirm your email",
                 Greeting = "Hi there,",
                 TextBeforeAction = "You just registered yourself at INDIEVISIBLE community. Now you need to confirm your email.",
@@ -37,7 +37,7 @@ namespace IndieVisible.Infra.CrossCutting.Identity.Services
         {
             EmailSendRequest request = new EmailSendRequest
             {
-                ActionUrl = HtmlEncoder.Default.Encode(link),
+                ActionUrl = link,
                 ActionText = "Go to the job position",
                 Greeting = "Hi there",
                 TextBeforeAction = string.Format("We have great news! Recently you posted a job position on the INDIEVISIBLE Jobs and now someone applied to the job position you posted. The applicant's email is {0}", emailApplicant),
